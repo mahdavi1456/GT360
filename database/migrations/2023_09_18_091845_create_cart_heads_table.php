@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cart__heads', function (Blueprint $table) {
+        Schema::create('cart_heads', function (Blueprint $table) {
             $table->id();
             $table->string('user_name');
             $table->string('user_family');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cart__heads');
+        Schema::dropIfExists('cart_heads');
     }
 };
