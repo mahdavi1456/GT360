@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title', 'Product List')
 @section('content')
     @include("admin.partial.nav")
     @include("admin.partial.aside")
