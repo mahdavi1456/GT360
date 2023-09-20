@@ -14,9 +14,28 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-4">
+                    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                     <div class="form-group">
                         <label class="form-label required">نام</label>
-                        <input type="text" name="cname" class="form-control" id="cname" placeholder="نام...">
+                        <input type="text" name="cname" class="form-control" id="cname" placeholder="نام..."  required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label required">دسته والد</label>
+                        <select name="cparent" class="form-control" id="cparent">
+                            <option value="">انتخاب کنید</option>
+                            @foreach($categories as $id => $cname)
+                                <option value="{{ $id }}">{{ $cname }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label required">تصویر</label>
+                        <input type="file" name="image" id="image" class="form-control-file" required>
                     </div>
                 </div>
                 <div class="col-4">
@@ -25,15 +44,8 @@
                         <textarea name="cdetails" class="form-control" id="cdetails" placeholder="توضیحات..."></textarea>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label class="form-label required">دسته والد</label>
-                        <select name="cparent" class="form-control" id="cparent">
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                </div>
+                <button type="submit" class="btn btn-primary">ذخیره</button>
+            </form>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -68,5 +80,25 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+@endsection
+
+@section('scripts')
+<script>
+    Dropzone.options.myDropzone = {
+        url: "{{ route('categories.store') }}",
+        paramName: "image", // نام فیلد تصویر
+        maxFilesize: 2, // حداکثر اندازه فایل (MB)
+        acceptedFiles: ".jpeg,.jpg,.png,.gif", // پسوندهای مجاز
+        addRemoveLinks: true,
+        timeout: 5000, // مدت زمان مجاز برای آپلود (میلی‌ثانیه)
+        success: function (file, response) {
+            // عملیات موفقیت‌آمیز
+        },
+        error: function (file, response) {
+            // خطا در آپلود
+        }
+    };
+</script>
 @endsection
 

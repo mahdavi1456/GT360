@@ -12,4 +12,7 @@ class Category extends Model
     Public function products () {
         Return $this->belongsToMany(Product::class, "product_category", "category_id", "product_id");
         }
+
+        protected $tabele = "categories";
+        protected $guarded = [];
 }
