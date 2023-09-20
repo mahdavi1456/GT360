@@ -1,104 +1,135 @@
+<?php
+use App\Helpers\TextHelper;
+?>
+
 @extends('admin.master')
 @section('title', 'Category List')
 @section('content')
-@include("admin.partial.nav")
-@include("admin.partial.aside")
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    @include('sweetalert::alert')
+    @include('admin.partial.nav')
+    @include('admin.partial.aside')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
 
-    @include("admin.partial.breadcrumb")
+        {{ TextHelper::breadcrumb("دسته بندی محصولات") }}
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-4">
-                    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                    <div class="form-group">
-                        <label class="form-label required">نام</label>
-                        <input type="text" name="cname" class="form-control" id="cname" placeholder="نام..."  required>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label class="form-label required">دسته والد</label>
-                        <select name="cparent" class="form-control" id="cparent">
-                            <option value="">انتخاب کنید</option>
-                            @foreach($categories as $id => $cname)
-                                <option value="{{ $id }}">{{ $cname }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label class="form-label required">تصویر</label>
-                        <input type="file" name="image" id="image" class="form-control-file" required>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label class="form-label required">توضیحات</label>
-                        <textarea name="cdetails" class="form-control" id="cdetails" placeholder="توضیحات..."></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">ذخیره</button>
-            </form>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>ردیف</th>
-                                    <th>والد</th>
-                                    <th>عنوان دسته</th>
-                                    <th>توضیحات</th>
-                                    <th>عملیات</th>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>آپدیت نرم افزار</td>
-                                    <td>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @if ($errors->any())
+                                <div class="container">
+                                    <div class="row alert alert-danger  justify-content-center mt-4">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            @endif
+                                <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label class="form-label">نام <span class="text-danger">*</span></label>
+                                                <input type="text" name="cname" class="form-control" id="cname"
+                                                    placeholder="نام..." required>
+                                            </div>
                                         </div>
-                                    </td>
-                                    <td><span class="badge bg-danger">55%</span></td>
-                                    <td><span class="badge bg-danger">55%</span></td>
-                                </tr>
-                            </table>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label class="form-label required">دسته والد</label>
+                                                <select name="cparent" class="form-control" id="cparent">
+                                                    <option value="">انتخاب کنید</option>
+                                                    @foreach ($categories as $id => $cname)
+                                                        <option value="{{ $id }}">{{ $cname }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label class="form-label required">تصویر </label>
+                                                <input type="file" name="image" id="image"
+                                                    class="form-control-file">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="form-label required">توضیحات</label>
+                                                <textarea name="cdetails" class="form-control" id="cdetails" placeholder="توضیحات..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-success">ذخیره</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>ردیف</th>
+                                        <th>نام دسته</th>
+                                        <th>عنوان دسته</th>
+                                        <th>توضیحات</th>
+                                        <th>عملیات</th>
+                                    </tr>
+                                    @php $i = 1; @endphp
+                                    @foreach ($all_categories as $all_category)
+                                        <tr>
+                                            <td>@php echo $i; @endphp</td>
+                                            <td>{{ $all_category->cname }}</td>
+                                            <td>
+                                            @if ($all_category->image)
+                                                <img src="{{ asset('images/categories/' . $all_category->image) }}" alt="تصویر دسته بندی" width="50px">
+                                                @else
+                                                بدون تصویر
+                                            @endif
+                                            </td>
+                                            <td>
+                                                @if ($all_category->cdetails)
+                                                {{ $all_category->cdetails }}
+                                                @else
+                                                بدون توضیحات
+                                            @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('category.edit', $all_category->id) }}" class="btn btn-warning btn-sm">ویرایش</a>
+                                                <form action="{{ route('category.destroy', $all_category->id) }}" method="POST" style="display: inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @php $i++; @endphp
+                                    @endforeach
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 
 @endsection
-
-@section('scripts')
-<script>
-    Dropzone.options.myDropzone = {
-        url: "{{ route('categories.store') }}",
-        paramName: "image", // نام فیلد تصویر
-        maxFilesize: 2, // حداکثر اندازه فایل (MB)
-        acceptedFiles: ".jpeg,.jpg,.png,.gif", // پسوندهای مجاز
-        addRemoveLinks: true,
-        timeout: 5000, // مدت زمان مجاز برای آپلود (میلی‌ثانیه)
-        success: function (file, response) {
-            // عملیات موفقیت‌آمیز
-        },
-        error: function (file, response) {
-            // خطا در آپلود
-        }
-    };
-</script>
-@endsection
-

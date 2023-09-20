@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,9 +13,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $all_categories = Category::all();
 
         $categories = Category::pluck('cname', 'id');
-        return view('admin.category.list', compact('categories'));
+        return view('admin.category.list', compact('categories', 'all_categories'));
     }
 
     /**
@@ -31,9 +33,9 @@ class CategoryController extends Controller
     {
         $request->validate([
             'cname' => 'required|string|max:255',
-            'cdetails' => 'required|string',
-            'cparent' => 'required|exists:categories,id', // بررسی وجود دسته والد معتبر
-            'image' => 'required|image|max:2048',
+            'cdetails' => 'nullable|string',
+            'cparent' => 'nullable|exists:categories,id', // بررسی وجود دسته والد معتبر
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $category = new Category;
@@ -43,15 +45,16 @@ class CategoryController extends Controller
 
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->storeAs('public/images/categories/', $imageName);
+            $request->image->move(public_path('images/categories'), $imageName);
         }
 
         $category->image = $imageName;
 
         $category->save();
 
-        return redirect()->route('admin.category.list')
-        ->with('success', 'دسته بندی با موفقیت ایجاد شد.');
+        Alert::success('موفق', 'دسته بندی با موفقیت ایجاد شد.');
+        return redirect()->back();
+
     }
 
     /**
@@ -67,7 +70,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('categories.edit', ['category' => $category]);
     }
 
     /**
