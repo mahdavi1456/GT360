@@ -12,26 +12,26 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- daterange picker -->
-  <link rel="stylesheet" href="asset/plugins/daterangepicker/daterangepicker-bs3.css">
+  <link rel="stylesheet" href="{{ asset('asset/plugins/daterangepicker/daterangepicker-bs3.css') }}">
   <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="asset/plugins/iCheck/all.css">
+  <link rel="stylesheet" href="{{ asset('asset/plugins/iCheck/all.css') }}">
   <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="asset/plugins/colorpicker/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" href="{{ asset('asset/plugins/colorpicker/bootstrap-colorpicker.min.css') }}">
   <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="asset/plugins/timepicker/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" href="{{ asset('asset/plugins/timepicker/bootstrap-timepicker.min.css') }}">
   <!-- Persian Data Picker -->
-  <link rel="stylesheet" href="asset/dist/css/persian-datepicker.min.css">
+  <link rel="stylesheet" href="{{ asset('asset/dist/css/persian-datepicker.min.css') }}">
   <!-- Select2 -->
-  <link rel="stylesheet" href="asset/plugins/select2/select2.min.css">
+  <link rel="stylesheet" href="{{ asset('asset/plugins/select2/select2.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="asset/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{ asset('asset/dist/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <!-- bootstrap rtl -->
-  <link rel="stylesheet" href="asset/dist/css/bootstrap-rtl.min.css">
+  <link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap-rtl.min.css') }}">
   <!-- template rtl version -->
-  <link rel="stylesheet" href="asset/dist/css/custom-style.css">
+  <link rel="stylesheet" href="{{ asset('asset/dist/css/custom-style.css') }}">
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -50,33 +50,33 @@
     <!-- /.control-sidebar -->
 
     <!-- jQuery -->
-    <script src="asset/plugins/jquery/jquery.min.js"></script>
+    <script src="{{ asset('asset/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Select2 -->
-    <script src="asset/plugins/select2/select2.full.min.js"></script>
+    <script src="{{ asset('asset/plugins/select2/select2.full.min.js') }}"></script>
     <!-- InputMask -->
-    <script src="asset/plugins/input-mask/jquery.inputmask.js"></script>
-    <script src="asset/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-    <script src="asset/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <script src="{{ asset('asset/plugins/input-mask/jquery.inputmask.js') }}"></script>
+    <script src="{{ asset('asset/plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+    <script src="{{ asset('asset/plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
     <!-- date-range-picker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="asset/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="{{ asset('asset/plugins/daterangepicker/daterangepicker.js') }}"></script>
     <!-- bootstrap color picker -->
-    <script src="asset/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+    <script src="{{ asset('asset/plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
     <!-- SlimScroll 1.3.0 -->
-    <script src="asset/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="{{ asset('asset/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
     <!-- iCheck 1.0.1 -->
-    <script src="asset/plugins/iCheck/icheck.min.js"></script>
+    <script src="{{ asset('asset/plugins/iCheck/icheck.min.js') }}"></script>
     <!-- FastClick -->
-    <script src="asset/plugins/fastclick/fastclick.js"></script>
+    <script src="{{ asset('asset/plugins/fastclick/fastclick.js') }}"></script>
     <!-- Persian Data Picker -->
-    <script src="asset/dist/js/persian-date.min.js"></script>
-    <script src="asset/dist/js/persian-datepicker.min.js"></script>
+    <script src="{{ asset('asset/dist/js/persian-date.min.js') }}"></script>
+    <script src="{{ asset('asset/dist/js/persian-datepicker.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="asset/dist/js/adminlte.min.js"></script>
+    <script src="{{ asset('asset/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="asset/dist/js/demo.js"></script>
+    <script src="{{ asset('asset/dist/js/demo.js') }}"></script>
     <!-- Page script -->
     <script>
         $(function () {

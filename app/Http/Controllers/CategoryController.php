@@ -13,10 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $all_categories = Category::all();
-
-        $categories = Category::pluck('cname', 'id');
-        return view('admin.category.list', compact('categories', 'all_categories'));
+        $categories = Category::all();
+        return view('admin.category.list', compact('categories'));
     }
 
     /**
@@ -71,8 +69,8 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::find($id);
-
-        return view('categories.edit', ['category' => $category]);
+        $categories = Category::all();
+        return view('admin.category.edit', compact('category', 'categories'));
     }
 
     /**
@@ -80,7 +78,30 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'cname' => 'required|string|max:255',
+            'cdetails' => 'string',
+            'cparent' => 'exists:categories,id', // بررسی وجود دسته والد معتبر
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $category = Category::find($id);
+
+        $category->cname = $request->input('cname');
+        $category->cdetails = $request->input('cdetails');
+        $category->cparent = $request->input('cparent');
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/categories'), $imageName);
+            $category->image = $imageName;
+        }
+
+        $category->save();
+
+        Alert::success('موفق', 'دسته بندی با ویرایش شد.');
+        return redirect()->route('category.index');
+
     }
 
     /**
@@ -88,6 +109,10 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        Alert::success('موفق', 'دسته بندی با موفقیت حذف شد.');
+        return redirect()->route('category.index');
     }
 }
