@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -11,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.list');
+        $products = Product::orderBy('created_at', 'desc')->get();
+        return view('admin.product.list', compact('products'));
     }
 
     /**
@@ -19,7 +23,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.product.create', compact('categories'));
     }
 
     /**
@@ -27,7 +32,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'product_name' => 'required'
+        ]);
+
+        $product = Product::create([
+            'product_name' => $request->product_name,
+            'purchase_price' => $request->purchase_price,
+            'sales_price' => $request->sales_price,
+            'inventory' => $request->inventory,
+        ]);
+
+        $product->categories()->sync($request->categories);
+
+        Alert::success('موفق', 'محصول جدید با موفقیت ایجاد شد.');
+        return back();
     }
 
     /**
@@ -43,7 +62,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.product.edit', compact('product', 'categories'));
     }
 
     /**
@@ -51,7 +72,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        
+        $validated = $request->validate([
+            'product_name' => 'required',
+        ]);
+        
+        $product->update([
+            'product_name' => $request->product_name,
+            'purchase_price' => $request->purchase_price,
+            'sales_price' => $request->sales_price,
+            'inventory' => $request->inventory,
+        ]);
+
+        $product->categories()->sync($request->categories);
+
+        Alert::success('موفق', 'محصول با موفقیت ایجاد شد.');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -59,6 +96,9 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+        Alert::success('موفق', 'محصول با موفقیت حذف شد.');
+        return redirect()->route('product.index');
     }
 }

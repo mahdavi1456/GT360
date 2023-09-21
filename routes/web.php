@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransportController;
@@ -26,3 +27,5 @@ Route::resource('category', CategoryController::class);
 Route::resource('transport', TransportController::class);
 Route::resource('account', AccountController::class);
 
+
+Route::post('/uploadFile', [ApiController::class, 'uploadFile']);

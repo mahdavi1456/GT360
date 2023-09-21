@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('product_name');
-            $table->string('purchase_price');
-            $table->string('inventory');
-            $table->string('sales-price');
+            $table->string('purchase_price')->nullable();
+            $table->string('inventory')->default('0');
+            $table->string('sales_price')->nullable();
             $table->timestamps();
         });
     }

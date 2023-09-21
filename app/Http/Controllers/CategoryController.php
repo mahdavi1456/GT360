@@ -44,9 +44,9 @@ class CategoryController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/categories'), $imageName);
+            $category->image = $imageName;
         }
 
-        $category->image = $imageName;
 
         $category->save();
 

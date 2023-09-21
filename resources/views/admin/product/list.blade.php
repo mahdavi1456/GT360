@@ -1,11 +1,12 @@
 @extends('admin.master')
 @section('title', 'Product List')
 @section('content')
+    @include('sweetalert::alert')
     @include("admin.partial.nav")
     @include("admin.partial.aside")
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+        <!-- Content Header (Page header) -->
 
         @include("admin.partial.breadcrumb")
 
@@ -16,54 +17,41 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
+                                @if($products->count() > 0)
                                 <table class="table table-bordered">
                                     <tr>
                                         <th style="width: 10px">#</th>
-                                        <th>نام</th>
-                                        <th>قیمت</th>
-                                        <th style="width: 40px">توضیحات</th>
+                                        <th>نام محصول</th>
+                                        <th>دسته</th>
+                                        <th>قیمت خرید</th>
+                                        <th>قیمت فروش</th>
+                                        <th>موجودی</th>
+                                        <th>عملیات</th>
                                     </tr>
+                                    @foreach($products as $product)
                                     <tr>
-                                        <td>1.</td>
-                                        <td>آپدیت نرم افزار</td>
+                                        <td>{{ $loop->index+1 }}</td>
+                                        <td>{{ $product->product_name }}</td>
+                                        <td>{{ $product->primaryCategory() }}</td>
+                                        <td>{{ $product->purchase_price }}</td>
+                                        <td>{{ $product->sales_price }}</td>
+                                        <td>{{ $product->inventory }}</td>
                                         <td>
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                            </div>
+                                            <a href="{{ route('product.edit', $product) }}" class="btn btn-warning">ویرایش</a>
+                                            <form action="{{ route('product.destroy', $product) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-danger">حذف</button>
+                                            </form>
                                         </td>
-                                        <td><span class="badge bg-danger">55%</span></td>
                                     </tr>
-                                    <tr>
-                                        <td>2.</td>
-                                        <td>بهینه سازی دیتابیس</td>
-                                        <td>
-                                            <div class="progress progress-xs">
-                                                <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge bg-warning">70%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.</td>
-                                        <td>اجرای کرون جابز‌</td>
-                                        <td>
-                                            <div class="progress progress-xs progress-striped active">
-                                                <div class="progress-bar bg-primary" style="width: 30%"></div>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge bg-primary">30%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4.</td>
-                                        <td>	رفع باگ های نرم افزاری</td>
-                                        <td>
-                                            <div class="progress progress-xs progress-striped active">
-                                                <div class="progress-bar bg-success" style="width: 90%"></div>
-                                            </div>
-                                        </td>
-                                        <td><span class="badge bg-success">90%</span></td>
-                                    </tr>
+                                    @endforeach
                                 </table>
+                                @else
+                                <div class="alert alert-danger text-center">
+                                    موردی جهت نمایش موجود نیست.
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -72,6 +60,6 @@
         </section>
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-  @endsection
-
+<!-- /.content-wrapper -->
+@endsection
+@section('scripts')
