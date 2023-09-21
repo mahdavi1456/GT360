@@ -11,7 +11,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("دسته بندی محصولات") }}
+        {{ TextHelper::breadcrumb("حساب کاربری") }}
 
         <!-- Main content -->
         <section class="content">
@@ -31,43 +31,36 @@ use App\Helpers\TextHelper;
                                     </div>
                                 </div>
                             @endif
-                                <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('account.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+                                    <h4>اطلاعات شخصی</h4>
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <div class="form-group">
                                                 <label class="form-label">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="cname" class="form-control" id="cname"
+                                                <input type="text" name="name" class="form-control" id="name"
                                                     placeholder="نام..." required>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <div class="form-group">
-                                                <label class="form-label required">دسته والد</label>
-                                                <select name="cparent" class="form-control" id="cparent">
-                                                    <option value="">انتخاب کنید</option>
-                                                    @foreach ($categories as $id => $category)
-                                                        <option value="{{ $category->id }}">{{ $category->cname }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label class="form-label required"> نام خانوادگی </label>
+                                                <input type="text" name="family" class="form-control" id="family"
+                                                    placeholder="نام خانوادگی..." required>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+
+                                        <div class="col-3">
                                             <div class="form-group">
-                                                <label class="form-label required">تصویر </label>
-                                                <input type="file" name="image" id="image"
-                                                    class="form-control-file">
+                                                <label class="form-label required"> تاریخ تولد </label>
+                                                <input type="text" name="birthday" class="datepicker form-control" id="birthday" placeholder="۱۴۰۱/۰۱/۰۱"/>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label class="form-label required">توضیحات</label>
-                                                <textarea name="cdetails" class="form-control" id="cdetails" placeholder="توضیحات..."></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    <hr>
+                                    <h4>اطلاعات شرکت</h4>
+
                                     <div class="row">
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-success">ذخیره</button>
@@ -78,7 +71,7 @@ use App\Helpers\TextHelper;
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
@@ -86,33 +79,33 @@ use App\Helpers\TextHelper;
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>ردیف</th>
-                                        <th>نام دسته</th>
-                                        <th>عنوان دسته</th>
+                                        <th>عنوان</th>
+                                        <th>هزینه</th>
                                         <th>توضیحات</th>
                                         <th>عملیات</th>
                                     </tr>
                                     @php $i = 1; @endphp
-                                    @foreach ($categories as $category)
+                                    @foreach ($transports as $transport)
                                         <tr>
                                             <td>@php echo $i; @endphp</td>
-                                            <td>{{ $category->cname }}</td>
+                                            <td>{{ $transport->title }}</td>
                                             <td>
-                                            @if ($category->image)
-                                                <img src="{{ asset('images/categories/' . $category->image) }}" alt="تصویر دسته بندی" width="50px">
+                                                @if ($transport->tprice)
+                                                {{ $transport->tprice }} تومان
                                                 @else
-                                                بدون تصویر
+                                                بدون قیمت
                                             @endif
                                             </td>
                                             <td>
-                                                @if ($category->cdetails)
-                                                {{ $category->cdetails }}
+                                            @if ($transport->tdetails)
+                                                {{ $transport->tdetails }}
                                                 @else
                                                 بدون توضیحات
                                             @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning btn-sm">ویرایش</a>
-                                                <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display: inline;">
+                                                <a href="{{ route('transport.edit', $transport->id) }}" class="btn btn-warning btn-sm">ویرایش</a>
+                                                <form action="{{ route('transport.destroy', $transport->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">حذف</button>
@@ -128,7 +121,7 @@ use App\Helpers\TextHelper;
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
         <!-- /.content -->

@@ -11,7 +11,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("دسته بندی محصولات") }}
+        {{ TextHelper::breadcrumb("حمل و نقل") }}
 
         <!-- Main content -->
         <section class="content">
@@ -31,40 +31,22 @@ use App\Helpers\TextHelper;
                                     </div>
                                 </div>
                             @endif
-                                <form action="{{ route('category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('transport.update', $transport->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="cname" class="form-control" id="cname"  value="{{ $category->cname }}"
-                                                    placeholder="نام..." required>
+                                                <label class="form-label">عنوان <span class="text-danger">*</span></label>
+                                                <input type="text" name="title" class="form-control" id="title"  value="{{ $transport->title }}"
+                                                    placeholder="عنوان..." required>
                                             </div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label required">دسته والد</label>
-                                                <select name="cparent" class="form-control" id="cparent">
-                                                    <option value="">انتخاب کنید</option>
-                                                    @foreach ($categories as $item)
-                                                        <option value="{{ $item->id }}" {{ $category->cparent == $item->id ? "selected" : ""}}>{{ $item->cname }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group">
-                                                <label class="form-label required">تصویر </label>
-                                                <input type="file" name="image" id="image"
-                                                    class="form-control-file">
-                                            </div>
-                                            <div>
-                                                @if ($category->image)
-                                                <img src="{{ asset('images/categories/' . $category->image) }}" alt="تصویر دسته بندی" width="50px">
-                                                @else
-                                                بدون تصویر
-                                            @endif
+                                                <label class="form-label required">هزینه (تومان)</label>
+                                                <input type="text" name="tprice" class="form-control" id="tprice"  value="{{ $transport->tprice }}"
+                                                    placeholder="هزینه..." required>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +54,7 @@ use App\Helpers\TextHelper;
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label required">توضیحات</label>
-                                                <textarea name="cdetails" class="form-control" id="cdetails" placeholder="توضیحات...">{{ $category->cdetails }}</textarea>
+                                                <textarea name="tdetails" class="form-control" id="tdetails" placeholder="توضیحات...">{{ $transport->tdetails }}</textarea>
                                             </div>
                                         </div>
                                     </div>

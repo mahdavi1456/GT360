@@ -16,12 +16,18 @@ return new class extends Migration
             $table->string('name');
             $table->string('family');
             $table->string('mobile');
+            $table->string('phone');
             $table->string('email');
             $table->date('birthday')->nullable();
             $table->string('mellicode')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->text('address')->nullable();
+            $table->string('postalcode');
+            $table->string('company');
+            $table->string('company_type');
+            $table->string('national_id');
+            $table->string('registration_number');
             $table->timestamps();
         });
     }

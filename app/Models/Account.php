@@ -13,4 +13,7 @@ class Account extends Model
         Return $this->hasMany(User::class);
         }
 
+        protected $tabele = "accounts";
+        protected $guarded = [];
+
 }
