@@ -43,7 +43,7 @@ use App\Helpers\TextHelper;
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label required">هزینه (تومان)</label>
+                                                <label class="form-label required">هزینه (تومان) <span class="text-danger">*</span></label>
                                                 <input type="text" name="tprice" class="form-control" id="tprice"
                                                     placeholder="هزینه..." required>
                                             </div>

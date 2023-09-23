@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transports', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('tdetails');
+            $table->string('tdetails')->nullable();
             $table->string('tprice');
             $table->timestamps();
         });

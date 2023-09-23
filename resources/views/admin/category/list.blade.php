@@ -82,7 +82,7 @@ use App\Helpers\TextHelper;
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                @if(count($transports) > 0)
+                                @if(count($categories) > 0)
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>ردیف</th>

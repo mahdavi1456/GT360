@@ -2,7 +2,7 @@
 use App\Helpers\TextHelper;
 ?>
 @extends('admin.master')
-@section('title', 'Category List')
+@section('title', 'Account')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -11,109 +11,78 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("حساب کاربری") }}
+        {{ TextHelper::breadcrumb('حساب کاربری') }}
 
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                @if ($errors->any())
-                                <div class="container">
-                                    <div class="row alert alert-danger  justify-content-center mt-4">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            @endif
-                                <form action="{{ route('account.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <h4>اطلاعات شخصی</h4>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="form-group">
-                                                <label class="form-label">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="name" class="form-control" id="name"
-                                                    placeholder="نام..." required>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="form-group">
-                                                <label class="form-label required"> نام خانوادگی </label>
-                                                <input type="text" name="family" class="form-control" id="family"
-                                                    placeholder="نام خانوادگی..." required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-3">
-                                            <div class="form-group">
-                                                <label class="form-label required"> تاریخ تولد </label>
-                                                <input type="text" name="birthday" class="datepicker form-control" id="birthday" placeholder="۱۴۰۱/۰۱/۰۱"/>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <hr>
-                                    <h4>اطلاعات شرکت</h4>
-
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-success">ذخیره</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                @if(count($transports) > 0)
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>ردیف</th>
-                                        <th>عنوان</th>
-                                        <th>هزینه</th>
-                                        <th>توضیحات</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                    @php $i = 1; @endphp
-                                    @foreach ($transports as $transport)
+                                @if(count($accounts) > 0)
+                                <table class="table-responsive table-bordered">
+                                    <thead>
                                         <tr>
-                                            <td>@php echo $i; @endphp</td>
-                                            <td>{{ $transport->title }}</td>
-                                            <td>
-                                                @if ($transport->tprice)
-                                                {{ $transport->tprice }} تومان
-                                                @else
-                                                بدون قیمت
-                                            @endif
-                                            </td>
-                                            <td>
-                                            @if ($transport->tdetails)
-                                                {{ $transport->tdetails }}
-                                                @else
-                                                بدون توضیحات
-                                            @endif
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('transport.edit', $transport->id) }}" class="btn btn-warning btn-sm">ویرایش</a>
-                                                <form action="{{ route('transport.destroy', $transport->id) }}" method="POST" style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">حذف</button>
-                                                </form>
-                                            </td>
+                                            <th class="px-4">شماره</th>
+                                            <th class="px-4">نوع اکانت</th>
+                                            <th class="px-4">نام</th>
+                                            <th class="px-4">نام خانوادگی</th>
+                                            <th class="px-4">موبایل</th>
+                                            <th class="px-4">تلفن</th>
+                                            <th class="px-4">ایمیل</th>
+                                            <th class="px-4">تاریخ تولد</th>
+                                            <th class="px-4">کد ملی</th>
+                                            <th class="px-4">استان</th>
+                                            <th class="px-4">شهر</th>
+                                            <th class="px-4">آدرس</th>
+                                            <th class="px-4">کدپستی</th>
+                                            <th class="px-4">شرکت</th>
+                                            <th class="px-4">نوع شرکت</th>
+                                            <th class="px-4">شناسه ملی شرکت</th>
+                                            <th class="px-4">شماره ثبت شرکت</th>
+                                            <th class="px-4">تاریخ ثبت شرکت</th>
+                                            <th class="px-4">وضعیت اکانت</th>
+                                            <th class="px-4">عملیات</th>
                                         </tr>
-                                        @php $i++; @endphp
-                                    @endforeach
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($accounts as $account)
+                                            <tr>
+                                                <td>{{ $account->id }}</td>
+                                                <td>{{ $account->account_type }}</td>
+                                                <td>{{ $account->name }}</td>
+                                                <td>{{ $account->family }}</td>
+                                                <td>{{ $account->mobile }}</td>
+                                                <td>{{ $account->phone }}</td>
+                                                <td>{{ $account->email }}</td>
+                                                <td>{{ $account->birthday }}</td>
+                                                <td>{{ $account->mellicode }}</td>
+                                                <td>{{ $account->state }}</td>
+                                                <td>{{ $account->city }}</td>
+                                                <td>{{ $account->address }}</td>
+                                                <td>{{ $account->postalcode }}</td>
+                                                <td>{{ $account->company }}</td>
+                                                <td>{{ $account->company_type }}</td>
+                                                <td>{{ $account->national_id }}</td>
+                                                <td>{{ $account->registration_number }}</td>
+                                                <td>{{ $account->registration_date }}</td>
+                                                <td>{{ $account->account_status }}</td>
+                                                <td>
+                                                    <a href="{{ route('account.showUsers', ['accountId' => $account->id]) }}" class="btn btn-primary">مشاهده کاربران</a>
+                                                    <a href="{{ route('account.edit', $account->id) }}"
+                                                        class="btn btn-primary">ویرایش</a>
+                                                    <form action="{{ route('account.destroy', $account->id) }}"
+                                                        method="POST" style="display: inline-block;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger"
+                                                            onclick="return confirm('آیا مطمئن هستید؟')">حذف</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>
                                 @else
                                 <div class="alert alert-danger text-center"> موردی جهت نمایش موجود نیست. </div>
@@ -121,11 +90,14 @@ use App\Helpers\TextHelper;
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
-        </section>
-        <!-- /.content -->
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
 @endsection

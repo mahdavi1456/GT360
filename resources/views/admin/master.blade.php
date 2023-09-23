@@ -80,8 +80,8 @@
     <!-- FastClick -->
     <script src="{{ asset('asset/plugins/fastclick/fastclick.js') }}"></script>
     <!-- Persian Data Picker -->
-    <script src="{{ asset('asset/dist/js/persian-date.min.js') }}"></script>
-    <script src="{{ asset('asset/dist/js/persian-datepicker.min.js') }}"></script>
+    <script src="https://unpkg.com/persian-date@latest/dist/persian-date.min.js"></script>
+    <script src="https://unpkg.com/persian-datepicker@latest/dist/js/persian-datepicker.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('asset/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->

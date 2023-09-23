@@ -26,6 +26,8 @@ Route::resource('product', ProductController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('transport', TransportController::class);
 Route::resource('account', AccountController::class);
+Route::get('account/{accountId}/users', [AccountController::class, 'showUsers'])->name('account.showUsers');
+
 
 
 Route::post('/uploadFile', [ApiController::class, 'uploadFile']);
