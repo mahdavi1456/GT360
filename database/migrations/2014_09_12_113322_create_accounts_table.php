@@ -13,21 +13,24 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->string('account_type');
             $table->string('name');
             $table->string('family');
             $table->string('mobile');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->date('birthday')->nullable();
             $table->string('mellicode')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->text('address')->nullable();
-            $table->string('postalcode');
-            $table->string('company');
-            $table->string('company_type');
-            $table->string('national_id');
-            $table->string('registration_number');
+            $table->string('postalcode')->nullable();
+            $table->string('company')->nullable();
+            $table->string('company_type')->nullable();
+            $table->string('national_id')->nullable();
+            $table->string('registration_number')->nullable();
+            $table->date('registration_date')->nullable();
+            $table->string('account_status')->nullable();
             $table->timestamps();
         });
     }

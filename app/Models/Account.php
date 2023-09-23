@@ -9,11 +9,10 @@ class Account extends Model
 {
     use HasFactory;
 
+    protected $tabele = "accounts";
+    protected $guarded = [];
+
     Public function users() {
         Return $this->hasMany(User::class);
-        }
-
-        protected $tabele = "accounts";
-        protected $guarded = [];
-
+    }
 }
