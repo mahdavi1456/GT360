@@ -13,6 +13,8 @@ use App\Helpers\TextHelper;
 
         {{ TextHelper::breadcrumb("کاربران مرتبط با اکانت: $account->name") }}
 
+        <a href="{{ route('users.create', ['accountId' => $account->id]) }}" class="btn btn-primary">ایجاد کاربر</a>
+
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -24,16 +26,17 @@ use App\Helpers\TextHelper;
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>نام</th>
-                                            <th>نام خانوادگی</th>
-                                            <th>موبایل</th>
-                                            <th>ایمیل</th>
-                                            <th>نام کاربری</th>
-                                            <th>وضعیت کاربر</th>
-                                            <th>استان</th>
-                                            <th>شهر</th>
-                                            <th>آدرس</th>
-                                            <th>کد پستی</th>
+                                            <th class="px-4">نام</th>
+                                            <th class="px-4">نام خانوادگی</th>
+                                            <th class="px-4">موبایل</th>
+                                            <th class="px-4">ایمیل</th>
+                                            <th class="px-4">نام کاربری</th>
+                                            <th class="px-4">وضعیت کاربر</th>
+                                            <th class="px-4">استان</th>
+                                            <th class="px-4">شهر</th>
+                                            <th class="px-4">آدرس</th>
+                                            <th class="px-4">کد پستی</th>
+                                            <th class="px-4">عملیات</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,6 +52,13 @@ use App\Helpers\TextHelper;
                                                 <td>{{ $user->city }}</td>
                                                 <td>{{ $user->address }}</td>
                                                 <td>{{ $user->postalcode }}</td>
+                                                <td><a href="{{ route('user.editUser', ['accountId' => $account->id, 'userId' => $user->id]) }}" class="btn btn-warning">ویرایش</a>
+                                                <form action="{{ route('account.users.destroy', ['accountId' => $account->id, 'userId' => $user->id]) }}" class="mt-1" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">حذف کاربر</button>
+                                                </form>
+                                            </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

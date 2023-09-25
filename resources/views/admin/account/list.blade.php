@@ -69,9 +69,9 @@ use App\Helpers\TextHelper;
                                                 <td>{{ $account->registration_date }}</td>
                                                 <td>{{ $account->account_status }}</td>
                                                 <td>
-                                                    <a href="{{ route('account.showUsers', ['accountId' => $account->id]) }}" class="btn btn-primary">مشاهده کاربران</a>
+                                                    <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}" class="btn btn-primary">مشاهده کاربران</a>
                                                     <a href="{{ route('account.edit', $account->id) }}"
-                                                        class="btn btn-primary">ویرایش</a>
+                                                        class="btn btn-warning">ویرایش</a>
                                                     <form action="{{ route('account.destroy', $account->id) }}"
                                                         method="POST" style="display: inline-block;">
                                                         @csrf

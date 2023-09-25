@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
@@ -87,7 +88,7 @@ class AccountController extends Controller
      */
     public function edit(string $id)
     {
-        $account = Account::find($id);
+        $account = Account::findOrFail($id);
         return view('admin.account.edit', compact('account'));
     }
 
@@ -96,7 +97,7 @@ class AccountController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $account = Account::find($id);
+        $account = Account::findOrFail($id);
 
         $validatedData = $request->validate([
             'account_type' => 'required|in:حقیقی,حقوقی',
@@ -136,12 +137,4 @@ class AccountController extends Controller
         return redirect()->route('account.index');
     }
 
-    public function showUsers($accountId)
-    {
-        $account = Account::find($accountId);
-
-        $users = $account->users;
-
-        return view('admin.account.showUsers', compact('account', 'users'));
-    }
 }
