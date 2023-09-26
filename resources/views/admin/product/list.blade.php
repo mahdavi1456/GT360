@@ -1,3 +1,6 @@
+<?php
+use App\Helpers\TextHelper;
+?>
 @extends('admin.master')
 @section('title', 'Product List')
 @section('content')
@@ -8,8 +11,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        @include("admin.partial.breadcrumb")
-
+        {{ TextHelper::breadcrumb("محصولات") }}
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -17,6 +19,11 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <a href="{{ route('product.create') }}" class="pull-left btn btn-primary text-white">افزودن جدید</a>
+                                    </div>
+                                </div>
                                 @if($products->count() > 0)
                                 <table class="table table-bordered">
                                     <tr>

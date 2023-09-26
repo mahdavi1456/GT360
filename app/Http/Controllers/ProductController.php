@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
@@ -41,6 +42,7 @@ class ProductController extends Controller
             'purchase_price' => $request->purchase_price,
             'sales_price' => $request->sales_price,
             'inventory' => $request->inventory,
+            'user_id' => Auth::user()->id
         ]);
 
         $product->categories()->sync($request->categories);
@@ -73,11 +75,11 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $product = Product::findOrFail($id);
-        
+
         $validated = $request->validate([
             'product_name' => 'required',
         ]);
-        
+
         $product->update([
             'product_name' => $request->product_name,
             'purchase_price' => $request->purchase_price,

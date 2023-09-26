@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('postalcode');
             $table->string('user_status');
             $table->rememberToken();
+            $table->string('user_type');
             $table->timestamps();
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
         });

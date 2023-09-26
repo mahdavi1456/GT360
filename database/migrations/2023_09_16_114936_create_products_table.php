@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('purchase_price')->nullable();
             $table->string('inventory')->default('0');
             $table->string('sales_price')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

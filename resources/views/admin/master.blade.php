@@ -38,6 +38,7 @@
 
     <!-- Persian Datepicker -->
     <link rel="stylesheet" href="https://unpkg.com/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -87,6 +88,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('asset/dist/js/demo.js') }}"></script>
     <!-- Page script -->
+
     <script>
         $(function() {
             //Initialize Select2 Elements

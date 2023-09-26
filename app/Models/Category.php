@@ -14,6 +14,11 @@ class Category extends Model
         Return $this->belongsToMany(Product::class, "product_category", "category_id", "product_id");
     }
 
+    public function user()
+    {
+        Return $this->belongsTo(User::class);
+    }
+
         protected $tabele = "categories";
         protected $guarded = [];
 }

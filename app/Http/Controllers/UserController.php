@@ -99,4 +99,9 @@ class UserController extends Controller
         Alert::success('موفق', 'حساب کاربری با موفقیت حذف شد.');
         return redirect()->back();
     }
+
+    public function ShowLoginForm()
+    {
+        return view('admin.auth.login');
+    }
 }

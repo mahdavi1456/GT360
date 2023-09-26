@@ -76,7 +76,7 @@
                                                 <label>فایل</label>
                                                 <input type="hidden" name="files" id="files">
                                                 <div class="dropzone">
-    
+
                                                 </div>
                                             </div>
                                         </div>

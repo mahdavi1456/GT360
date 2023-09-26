@@ -44,8 +44,13 @@ class User extends Authenticatable
     ];
 
 
-    Public function account() {
-        Return $this->belongsTo(Account::class);
-        }
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
 }

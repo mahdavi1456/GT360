@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Auth::user()->categories;
+
         return view('admin.category.list', compact('categories'));
     }
 
@@ -47,6 +49,7 @@ class CategoryController extends Controller
             $category->image = $imageName;
         }
 
+        $category->user_id = Auth::user()->id;
 
         $category->save();
 
@@ -80,8 +83,8 @@ class CategoryController extends Controller
     {
         $request->validate([
             'cname' => 'required|string|max:255',
-            'cdetails' => 'string',
-            'cparent' => 'exists:categories,id', // بررسی وجود دسته والد معتبر
+            'cdetails' => 'nullable|string',
+            'cparent' => 'nullable|exists:categories,id', // بررسی وجود دسته والد معتبر
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 

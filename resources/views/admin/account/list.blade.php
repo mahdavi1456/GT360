@@ -68,15 +68,15 @@ use App\Helpers\TextHelper;
                                                 <td>{{ $account->registration_number }}</td>
                                                 <td>{{ $account->registration_date }}</td>
                                                 <td>{{ $account->account_status }}</td>
-                                                <td>
-                                                    <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}" class="btn btn-primary">مشاهده کاربران</a>
+                                                <td class="d-flex">
+                                                    <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}" class="btn btn-primary m-1">مشاهده کاربران</a>
                                                     <a href="{{ route('account.edit', $account->id) }}"
-                                                        class="btn btn-warning">ویرایش</a>
+                                                        class="btn btn-warning m-1">ویرایش</a>
                                                     <form action="{{ route('account.destroy', $account->id) }}"
                                                         method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
+                                                        <button type="submit" class="btn btn-danger m-1"
                                                             onclick="return confirm('آیا مطمئن هستید؟')">حذف</button>
                                                     </form>
                                                 </td>
