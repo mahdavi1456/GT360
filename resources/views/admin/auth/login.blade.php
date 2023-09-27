@@ -26,12 +26,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>ورود به سایت</b></a>
+    <b>ورود به سایت</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">فرم زیر را تکمیل کنید و ورود بزنید</p>
+      <p class="login-box-msg">فرم زیر را تکمیل کنید و دکمه ورود را بزنید</p>
       @if ($errors->any())
       <div class="container">
           <div class="row alert alert-danger  justify-content-center mt-4">
@@ -45,12 +45,14 @@
   @endif
       <form method="POST" action="{{ route('login') }}">
         @csrf
+        <label class="form-label">موبایل <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="ایمیل">
+          <input type="text" name="mobile" class="form-control" placeholder="موبایل...">
           <div class="input-group-append">
             <span class="fa fa-envelope input-group-text"></span>
           </div>
         </div>
+        <label class="form-label">رمز عبور <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
           <input type="password"  name="password"  class="form-control" placeholder="رمز عبور">
           <div class="input-group-append">
@@ -74,17 +76,6 @@
         </div>
       </form>
 
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fa fa-facebook mr-2"></i> ورود با اکانت فیسوبک
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fa fa-google-plus mr-2"></i> ورود با اکانت گوگل
-        </a>
-      </div>
-      <!-- /.social-auth-links -->
-
       <p class="mb-1">
         @if (Route::has('password.request'))
         <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
@@ -93,7 +84,7 @@
     @endif
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">ثبت نام</a>
+        <a href="{{ route('register') }}" class="text-center">ثبت نام</a>
       </p>
     </div>
     <!-- /.login-card-body -->

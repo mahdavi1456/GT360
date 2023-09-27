@@ -56,12 +56,12 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+      <!-- jQuery -->
+      <script src="{{ asset('asset/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Persian Datepicker -->
     <script src="https://unpkg.com/persian-date@1.1.0/dist/persian-date.min.js"></script>
     <script src="https://unpkg.com/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
-    <!-- jQuery -->
-    <script src="{{ asset('asset/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- Bootstrap 4 -->
+       <!-- Bootstrap 4 -->
     <script src="{{ asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Select2 -->
     <script src="{{ asset('asset/plugins/select2/select2.full.min.js') }}"></script>
@@ -80,14 +80,14 @@
     <script src="{{ asset('asset/plugins/iCheck/icheck.min.js') }}"></script>
     <!-- FastClick -->
     <script src="{{ asset('asset/plugins/fastclick/fastclick.js') }}"></script>
-    <!-- Persian Data Picker -->
-    <script src="https://unpkg.com/persian-date@latest/dist/persian-date.min.js"></script>
-    <script src="https://unpkg.com/persian-datepicker@latest/dist/js/persian-datepicker.min.js"></script>
-    <!-- AdminLTE App -->
+       <!-- AdminLTE App -->
     <script src="{{ asset('asset/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('asset/dist/js/demo.js') }}"></script>
     <!-- Page script -->
+         <!-- Persian Data Picker -->
+    <script src="https://unpkg.com/persian-date@latest/dist/persian-date.min.js"></script>
+    <script src="https://unpkg.com/persian-datepicker@latest/dist/js/persian-datepicker.min.js"></script>
 
     <script>
         $(function() {

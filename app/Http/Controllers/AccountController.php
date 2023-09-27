@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
+use Hekmatinasser\Verta\Verta;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class AccountController extends Controller
 {
@@ -35,11 +40,11 @@ class AccountController extends Controller
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|max:10',
-            'phone' => 'nullable|string|max:15',
+            'mobile' => 'required|string|digits:11',
+            'phone' => 'nullable|string|max:11',
             'email' => 'nullable|email|max:255',
-            'birthday' => 'nullable|date',
-            'mellicode' => 'nullable|string|max:10',
+            'birthday' => 'nullable',
+            'mellicode' => 'nullable|string|digits:10',
             'state' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
@@ -51,6 +56,8 @@ class AccountController extends Controller
             'registration_date' => 'nullable|date',
         ]);
 
+        $birthday = Carbon::parse(Verta::parse($validatedData['birthday'])->formatGregorian('Y-m-d'));
+
         $account = Account::create([
             'account_type' => $validatedData['account_type'],
             'name' => $validatedData['name'],
@@ -58,7 +65,7 @@ class AccountController extends Controller
             'mobile' => $validatedData['mobile'],
             'phone' => $validatedData['phone'],
             'email' => $validatedData['email'],
-            'birthday' => $validatedData['birthday'],
+            'birthday' => $birthday,
             'mellicode' => $validatedData['mellicode'],
             'state' => $validatedData['state'],
             'city' => $validatedData['city'],
@@ -137,4 +144,40 @@ class AccountController extends Controller
         return redirect()->route('account.index');
     }
 
+
+    public function newUserAccount(Request $request)
+    {
+        $validatedData = $request->validate([
+           'name' => 'required|string|max:255',
+           'family' => 'required|string|max:255',
+           'mobile' => 'required|string|max:15',
+           'company' => 'nullable|string|max:255',
+           'account_type' => 'required|string|max:255'
+        ]);
+
+        $createAccount = Account::create([
+            'account_type' => $validatedData['account_type'],
+            'name' => $validatedData['name'],
+            'family' =>$validatedData['family'],
+            'mobile' => $validatedData['mobile'],
+            'company' => $validatedData['company']
+        ]);
+
+        $password = Str::random(8);
+
+        $createUser = User::create([
+           'account_id' => $createAccount->id,
+           'name' => $validatedData['name'],
+           'family' =>$validatedData['family'],
+           'mobile' => $validatedData['mobile'],
+           'company_name' => $validatedData['company'],
+           'password' => bcrypt($password),
+           'user_type' => 'admin',
+           'user_status' => 'Active'
+        ]);
+
+        Alert::success('موفق', 'حساب کاربری با موفقیت ایجاد شد.');
+        Auth::login($createUser);
+
+        return redirect(RouteServiceProvider::HOME);    }
 }

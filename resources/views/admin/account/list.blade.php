@@ -56,7 +56,7 @@ use App\Helpers\TextHelper;
                                                 <td>{{ $account->mobile }}</td>
                                                 <td>{{ $account->phone }}</td>
                                                 <td>{{ $account->email }}</td>
-                                                <td>{{ $account->birthday }}</td>
+                                                <td>@if($account->birthday) {{  verta($account->birthday)->formatDate(); }} @endif</td>
                                                 <td>{{ $account->mellicode }}</td>
                                                 <td>{{ $account->state }}</td>
                                                 <td>{{ $account->city }}</td>

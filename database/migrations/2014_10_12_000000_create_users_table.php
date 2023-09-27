@@ -18,14 +18,15 @@ return new class extends Migration
             $table->string('family');
             $table->string('mobile');
             $table->timestamp('mobile_verified_at')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('username');
+            $table->string('username')->nullable();
             $table->string('password');
+            $table->string('company_name')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->text('address')->nullable();
-            $table->string('postalcode');
+            $table->string('postalcode')->nullable();
             $table->string('user_status');
             $table->rememberToken();
             $table->string('user_type');

@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->string('percent');
-            $table->string('price');
-            $table->date('validity_date');
-            $table->string('number');
+            $table->string('title');
+            $table->string('percent')->nullable();
+            $table->string('price')->nullable();
+            $table->date('validity_date')->nullable();
+            $table->string('number')->nullable();
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }
