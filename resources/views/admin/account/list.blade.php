@@ -49,25 +49,25 @@ use App\Helpers\TextHelper;
                                     <tbody>
                                         @foreach ($accounts as $account)
                                             <tr>
-                                                <td>{{ $account->id }}</td>
-                                                <td>{{ $account->account_type }}</td>
-                                                <td>{{ $account->name }}</td>
-                                                <td>{{ $account->family }}</td>
-                                                <td>{{ $account->mobile }}</td>
-                                                <td>{{ $account->phone }}</td>
-                                                <td>{{ $account->email }}</td>
-                                                <td>@if($account->birthday) {{  verta($account->birthday)->formatDate(); }} @endif</td>
-                                                <td>{{ $account->mellicode }}</td>
-                                                <td>{{ $account->state }}</td>
-                                                <td>{{ $account->city }}</td>
-                                                <td>{{ $account->address }}</td>
-                                                <td>{{ $account->postalcode }}</td>
-                                                <td>{{ $account->company }}</td>
-                                                <td>{{ $account->company_type }}</td>
-                                                <td>{{ $account->national_id }}</td>
-                                                <td>{{ $account->registration_number }}</td>
-                                                <td>{{ $account->registration_date }}</td>
-                                                <td>{{ $account->account_status }}</td>
+                                                <td class="w-auto text-center">{{ $account->id }}</td>
+                                                <td class="w-auto text-center">{{ $account->account_type }}</td>
+                                                <td class="w-auto text-center">{{ $account->name }}</td>
+                                                <td class="w-auto text-center">{{ $account->family }}</td>
+                                                <td class="w-auto text-center">{{ $account->mobile }}</td>
+                                                <td class="w-auto text-center">{{ $account->phone }}</td>
+                                                <td class="w-auto text-center">{{ $account->email }}</td>
+                                                <td class="w-auto text-center">@if($account->birthday) {{  verta($account->birthday)->formatDate(); }} @endif</td>
+                                                <td class="w-auto text-center">{{ $account->mellicode }}</td>
+                                                <td class="w-auto text-center">{{ $account->state }}</td>
+                                                <td class="w-auto text-center">{{ $account->city }}</td>
+                                                <td class="w-auto text-center">{{ $account->address }}</td>
+                                                <td class="w-auto text-center">{{ $account->postalcode }}</td>
+                                                <td class="w-auto text-center"{{ $account->company }}</td>
+                                                <td class="w-auto text-center">{{ $account->company_type }}</td>
+                                                <td class="w-auto text-center">{{ $account->national_id }}</td>
+                                                <td class="w-auto text-center">{{ $account->registration_number }}</td>
+                                                <td class="w-auto text-center">{{ $account->registration_date }}</td>
+                                                <td class="w-auto text-center">{{ $account->account_status }}</td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}" class="btn btn-primary m-1">مشاهده کاربران</a>
                                                     <a href="{{ route('account.edit', $account->id) }}"

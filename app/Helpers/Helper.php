@@ -2,10 +2,12 @@
 
 namespace App\Helpers;
 
+use App\Models\Setting;
+
 class TextHelper
 {
-
-    public static function breadcrumb($title) { ?>
+    public static function breadcrumb($title)
+    { ?>
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -21,64 +23,25 @@ class TextHelper
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-        <?php
+<?php
     }
 
-    public function fa_number($string) {
+    public static function fa_number($string)
+    {
         $en = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
         $fa = array("۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹");
         return str_replace($en, $fa, $string);
     }
 
-    public function sendSMS() {
-        $username = "arsha-74390";
-        $password = "XuKAZDHX0i2USZKA";
-        $domain = "magfa";
+    public static function getSetting($key)
+    {
+        $s = Setting::where('key', $key)->first();
+        if($s) {
+            $value = $s->value;
+        } else {
+            $value = null;
+        }
 
-        //soap
-        $url = "https://sms.magfa.com/api/soap/sms/v2/server?wsdl";
-
-        //soap options
-        $options = [
-            'login'          => "$username/$domain", 'password' => $password, // -Credientials
-            'cache_wsdl'     => WSDL_CACHE_NONE, // -No WSDL Cache
-            'compression'    => (SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP | 5), // -Compression *
-            'trace'          => false, // -Optional (debug)
-            'stream_context' => stream_context_create(
-                [
-                    'ssl' => [
-                        'verify_peer'       => false,
-                        'verify_peer_name'  => false,
-                        'allow_self_signed' => true
-                    ]
-                ]
-            )
-        ];
-
-        // * Accept response compression and compress requests using gzip with compression level 5
-
-        // soap client
-        $client = new SoapClient($url, $options);
-
-        $mobile = $_POST['mobile'];
-        $message = $_POST['message'];
-
-        // send
-        $response = $result['send'] = $client->send(
-            [$message], // messages
-            ["+98300074390"], // short numbers can be 1 or same count as recipients (mobiles)
-            [$mobile], // recipients
-            [], // client-side unique IDs.
-            [], // Encodings are optional, The system will guess it, itself ;)
-            [], // UDHs, Please read Magfa UDH Documnet
-            [] // Message priorities (unused).
-        );
-
-        //$status = $response->status;
-        $id = $response->id;
-        //$parts = $response->parts;
-        //$tariff = $response->tariff;
-        echo $id;
+        return $value;
     }
-
 }

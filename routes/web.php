@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
 use App\Models\Account;
@@ -28,6 +29,7 @@ Route::resource('category', CategoryController::class);
 Route::resource('transport', TransportController::class);
 Route::resource('account', AccountController::class);
 Route::resource('discount', DiscountController::class);
+Route::resource('setting', SettingController::class);
 
 
 Route::prefix('account')->group(function () {
