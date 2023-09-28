@@ -171,7 +171,7 @@ class AccountController extends Controller
            'family' =>$validatedData['family'],
            'mobile' => $validatedData['mobile'],
            'company_name' => $validatedData['company'],
-           'password' => bcrypt($password),
+           'password' => $password,
            'user_type' => 'admin',
            'user_status' => 'Active'
         ]);

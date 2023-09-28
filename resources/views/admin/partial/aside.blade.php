@@ -13,7 +13,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('asset/dist/img/avatar5.png') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{{ Auth::user()->name .' '. Auth::user()->family; }}}</a>
@@ -33,14 +33,25 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('account.index') }}" class="nav-link">
-                            <i class="nav-icon fa fa-users"></i>
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-th"></i>
                             <p>
                                 مشترکین
+                                <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('account.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست</p>
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
+
                     <li class="nav-item has-treeview ">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-th"></i>
@@ -59,7 +70,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('product.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>مدیریت</p>
+                                    <p>لیست</p>
                                 </a>
                             </li>
 
@@ -69,28 +80,29 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-gear"></i>
                             <p>
-                                تنظیمات
+                                فروشگاه
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>سفارشات</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('discount.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>کدهای تخفیف</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('transport.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>حمل و نقل</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>کدهای تخفیف</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>عمومی</p>
-                                </a>
                             </li>
 
                         </ul>
@@ -99,15 +111,15 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-clipboard"></i>
                             <p>
-                                گزارشات
+                                تنظیمات
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('transport.index') }}" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>گزارش فروش</p>
+                                    <p>عمومی</p>
                                 </a>
                             </li>
                         </ul>
