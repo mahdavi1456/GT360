@@ -34,8 +34,9 @@ class SettingController extends Controller
        foreach($settings as $key => $value) {
           $s = Setting::where('key', $key)->first();
           if($s) {
-            $s->value = $value;
-            $s->save();
+           $s->update([
+            'value' => $value
+           ]);
           } elseif($settings[$key]) {
             Setting::create([
              'key' => $key,

@@ -4,9 +4,9 @@ namespace App\Helpers;
 
 use App\Models\Setting;
 
-class TextHelper
+class Helper
 {
-    public static function breadcrumb($title)
+    function breadcrumb($title)
     { ?>
         <section class="content-header">
             <div class="container-fluid">
@@ -26,14 +26,14 @@ class TextHelper
 <?php
     }
 
-    public static function fa_number($string)
+    function fa_number($string)
     {
         $en = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
         $fa = array("۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹");
         return str_replace($en, $fa, $string);
     }
 
-    public static function getSetting($key)
+    function getSetting($key)
     {
         $s = Setting::where('key', $key)->first();
         if($s) {
