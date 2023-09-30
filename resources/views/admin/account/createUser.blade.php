@@ -1,7 +1,3 @@
-<?php
-
-use App\Helpers\TextHelper;
-?>
 @extends('admin.master')
 @section('title', 'Account')
 @section('content')
@@ -12,7 +8,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("ایجاد کاربر برای اکانت :  $account->name") }}
+        {{ breadcrumb("ایجاد کاربر برای اکانت :  $account->name") }}
 
         <!-- Main content -->
         <section class="content">

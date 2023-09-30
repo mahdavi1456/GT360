@@ -25,8 +25,8 @@
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
-        "classmap": [
-            "app/Helpers"
+        "files": [
+            "App/Helpers/Helper.php"
         ],
         "psr-4": {
             "App\\": "app/",

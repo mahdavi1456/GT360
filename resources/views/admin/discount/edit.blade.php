@@ -1,6 +1,3 @@
-<?php
-use App\Helpers\TextHelper;
-?>
 @extends('admin.master')
 @section('title', 'Category List')
 @section('content')
@@ -11,7 +8,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb('کد تخفیف') }}
+        {{ breadcrumb('کد تخفیف') }}
 
         <!-- Main content -->
         <section class="content">

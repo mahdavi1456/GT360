@@ -1,6 +1,3 @@
-<?php
-use App\Helpers\TextHelper;
-?>
 @extends('admin.master')
 @section('title', 'Account')
 @section('content')
@@ -11,9 +8,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("کاربران مرتبط با اکانت: $account->name") }}
-
-        <a href="{{ route('users.create', ['accountId' => $account->id]) }}" class="btn btn-primary">ایجاد کاربر</a>
+        {{ breadcrumb("کاربران مرتبط با اکانت: $account->name") }}
 
         <!-- Main content -->
         <section class="content">
@@ -21,6 +16,11 @@ use App\Helpers\TextHelper;
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <a href="{{ route('users.create', ['accountId' => $account->id]) }}" class="pull-left btn btn-primary text-white mt-2 ml-2">ایجاد کاربر</a>
+                                </div>
+                            </div>
                             <div class="card-body table-responsive">
                                 @if(count($users) > 0)
                                 <table class="table table-bordered">

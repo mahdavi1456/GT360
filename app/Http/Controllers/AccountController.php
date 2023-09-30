@@ -110,7 +110,7 @@ class AccountController extends Controller
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|max:15',
+            'mobile' => 'required|string|digits:11',
             'phone' => 'nullable|string|max:15',
             'email' => 'nullable|email|max:255',
             'birthday' => 'nullable|date',
@@ -148,17 +148,17 @@ class AccountController extends Controller
     public function newUserAccount(Request $request)
     {
         $validatedData = $request->validate([
-           'name' => 'required|string|max:255',
-           'family' => 'required|string|max:255',
-           'mobile' => 'required|string|max:15',
-           'company' => 'nullable|string|max:255',
-           'account_type' => 'required|string|max:255'
+            'name' => 'required|string|max:255',
+            'family' => 'required|string|max:255',
+            'mobile' => 'required|string|digits:11',
+            'company' => 'nullable|string|max:255',
+            'account_type' => 'required|string|max:255'
         ]);
 
         $createAccount = Account::create([
             'account_type' => $validatedData['account_type'],
             'name' => $validatedData['name'],
-            'family' =>$validatedData['family'],
+            'family' => $validatedData['family'],
             'mobile' => $validatedData['mobile'],
             'company' => $validatedData['company']
         ]);
@@ -166,18 +166,74 @@ class AccountController extends Controller
         $password = Str::random(8);
 
         $createUser = User::create([
-           'account_id' => $createAccount->id,
-           'name' => $validatedData['name'],
-           'family' =>$validatedData['family'],
-           'mobile' => $validatedData['mobile'],
-           'company_name' => $validatedData['company'],
-           'password' => $password,
-           'user_type' => 'admin',
-           'user_status' => 'Active'
+            'account_id' => $createAccount->id,
+            'name' => $validatedData['name'],
+            'family' => $validatedData['family'],
+            'mobile' => $validatedData['mobile'],
+            'company_name' => $validatedData['company'],
+            'password' => $password,
+            'user_type' => 'admin',
+            'user_status' => 'Active'
         ]);
+
+        $mobile = $validatedData['mobile'];
+        $message = 'کابر گرامی رمز عبور ورود شما : ' . $password;
+
+        sendSMS($mobile, $message);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ایجاد شد.');
         Auth::login($createUser);
 
-        return redirect(RouteServiceProvider::HOME);    }
+        return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function forgotPassword(Request $request)
+    {
+        $validate = $request->validate(
+            [
+                'mobile' => 'required|numeric|digits:11'
+            ],
+            [
+                'mobile.required' => 'فیلد موبایل الزامی است.'
+            ]
+        );
+
+        $user = User::where('mobile', $validate['mobile'])->first();
+        if ($user) {
+            $code = Str::random(4);
+
+            $user->update([
+                'remember_token' => $code
+            ]);
+        } else {
+            Alert::success('موفق', 'متاسفانه کاربری بااین موبایل یافت نشد.');
+        }
+    }
+
+    public function codePassword(Request $request)
+    {
+        $validate = $request->validate(
+            [
+                'code' => 'required|string|max:4'
+            ]);
+
+        $user = User::where('mobile', $request->mobile)->first();
+
+        if ($user->remember_token == $validate['code']) {
+
+            $newPassword = Str::random(8);
+
+            $user->update([
+                'password' => $newPassword
+            ]);
+
+            $mobile = $user->mobile;
+            $message = 'کابر گرامی رمز عبور شما با موفقیت تغییر یافت. رمز عبور جدید : ' . $newPassword;
+
+            sendSMS($mobile, $message);
+
+            Alert::success('موفق', 'پسورد جدید برای شما پیامک شد.');
+            return back();
+        }
+    }
 }

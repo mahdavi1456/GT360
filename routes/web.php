@@ -62,3 +62,8 @@ Route::post('/uploadfile', [ApiController::class, 'uploadfile']);
 require __DIR__.'/auth.php';
 
 Route::Post('user/create', [AccountController::class, 'newUserAccount'])->name('newUserAccount');
+
+Route::Post('forgotPassword', [AccountController::class, 'forgotPassword'])->name('forgotPassword');
+Route::Post('codePassword', [AccountController::class, 'codePassword'])->name('codePassword');
+
+

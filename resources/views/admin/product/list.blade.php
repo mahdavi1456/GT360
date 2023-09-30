@@ -1,6 +1,3 @@
-<?php
-use App\Helpers\TextHelper;
-?>
 @extends('admin.master')
 @section('title', 'Product List')
 @section('content')
@@ -11,7 +8,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("محصولات") }}
+        {{ breadcrumb("محصولات") }}
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">

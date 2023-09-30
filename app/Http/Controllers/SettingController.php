@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SettingController extends Controller
 {
@@ -45,6 +46,7 @@ class SettingController extends Controller
           }
        }
 
+       Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
        return back();
     }
 

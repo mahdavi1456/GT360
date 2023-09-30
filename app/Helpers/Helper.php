@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Helpers;
 
 use App\Models\Setting;
 
-class Helper
-{
     function breadcrumb($title)
     { ?>
         <section class="content-header">
@@ -23,7 +20,7 @@ class Helper
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-<?php
+        <?php
     }
 
     function fa_number($string)
@@ -45,7 +42,7 @@ class Helper
         return $value;
     }
 
-    public function sendSMS() {
+    function sendSMS($mobile, $message) {
         $username = "arsha-74390";
         $password = "XuKAZDHX0i2USZKA";
         $domain = "magfa";
@@ -76,9 +73,6 @@ class Helper
 
         $client = new SoapClient($url, $options);
 
-        $mobile = $_POST['mobile'];
-        $message = $_POST['message'];
-
         // send
         $response = $result['send'] = $client->send(
             [$message], // messages
@@ -97,4 +91,4 @@ class Helper
         echo $id;
     }
 
-}
+
