@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/uploadfile', [ApiController::class, 'uploadfile']);
+Route::post('/uploadFile', [ApiController::class, 'uploadFile']);
 
 require __DIR__.'/auth.php';
 

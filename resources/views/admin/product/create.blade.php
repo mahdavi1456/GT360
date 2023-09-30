@@ -74,10 +74,12 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>فایل</label>
-                                                <input type="hidden" name="files" id="files">
-                                                <div class="dropzone">
-
+                                                <div>
+                                                    <div id="files-list">
+                                                        <input type="hidden" id="files" name="files">
+                                                    </div>
                                                 </div>
+                                                <div class="dropzone"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -97,8 +99,8 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
-@section('script')
-	<script>
+@section('scripts')
+<script>
         let files = [];
 
         let myDropzone = new Dropzone(".dropzone", {
@@ -115,7 +117,8 @@
                 $("#files").val(JSON.stringify(files))
             },
             error: (file, res) => {
-                new swal({
+                alert(res.message.file[0]);
+                swal.fire({
                     text: res.message.file[0],
                     icon: "error",
                     button: "باشه"
@@ -127,6 +130,7 @@
 	</script>
 @endsection
 @section('style')
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/dropzone.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/dropzone.css" type="text/css"/>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductMedia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -46,6 +47,16 @@ class ProductController extends Controller
         ]);
 
         $product->categories()->sync($request->categories);
+
+        if (!is_null($request->get('files'))) {
+            $files = json_decode($request->get('files'));
+            foreach ($files as $file) {
+                ProductMedia::create([
+                    'product_id' => $product->id,
+                    'image' => $file
+                ]);
+            }
+        };
 
         Alert::success('موفق', 'محصول جدید با موفقیت ایجاد شد.');
         return back();

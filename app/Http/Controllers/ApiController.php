@@ -20,12 +20,11 @@ class ApiController extends Controller
         if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => $validator->errors()], 401);
         }
-
-        if ($files = $request->file('file')) {
-
-            $name = $files->getClientOriginalName() . '_' . time();
-            $filePath = '/assets/media/files/' . $name . '.' . $files->getClientOriginalExtension();
-            $files->storeAs("/", $name . '.' . $files->getClientOriginalExtension(), 'fileUpload');
+        if ($file = $request->file('file')) {
+            
+            $name = $file->getClientOriginalName() . '_' . time();
+            $filePath = '/uploads/product/' . $name . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/product/'), $name . '.' . $file->getClientOriginalExtension());
 
             return response()->json([
                 "success" => true,
