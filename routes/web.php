@@ -66,4 +66,14 @@ Route::Post('user/create', [AccountController::class, 'newUserAccount'])->name('
 Route::Post('forgotPassword', [AccountController::class, 'forgotPassword'])->name('forgotPassword');
 Route::Post('codePassword', [AccountController::class, 'codePassword'])->name('codePassword');
 
+//  پردازش جستجو محصولات
+Route::get('/result-product', [ProductController::class, 'searchproduct'])->name('search');
+
+//  پردازش جستجو حساب کاربری
+Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
+
+
+
+
+
 

@@ -16,6 +16,36 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
+                                <form action="{{ route('search') }}" method="GET">
+                                    <div class="form-row align-items-center">
+                                    <div class="form-group col-auto my-1">
+                                        <label for="query">نام کالا:</label>
+                                        <input type="text" name="product_name" id="product_name" class="form-control">
+                                    </div>
+                                    <div class="form-group col-auto my-1">
+                                        <label for="category">دسته بندی:</label>
+                                        <select name="category" id="category" class="form-control">
+                                            <option value="">انتخاب کنید</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->cname }}">
+                                                    {{ $category->cname }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-auto" style="margin-top: 31px;">
+                                    <button type="submit" class="btn btn-primary">جستجو</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <a href="{{ route('product.create') }}" class="pull-left btn btn-primary text-white">افزودن جدید</a>

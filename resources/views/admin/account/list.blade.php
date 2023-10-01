@@ -17,6 +17,37 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
+                                <form action="{{ route('accounts.search') }}" method="GET">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="name">نام</label>
+                                                <input type="text" class="form-control" name="name" placeholder="نام...">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="family">نام خانوادگی</label>
+                                                <input type="text" class="form-control" name="family" placeholder="نام خانوادگی...">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="company">نام شرکت</label>
+                                                <input type="text" class="form-control" name="company" placeholder="نام شرکت...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">جستجو</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
                                 @if(count($accounts) > 0)
                                 <table class="table-responsive table-bordered">
                                     <thead>

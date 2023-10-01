@@ -215,7 +215,8 @@ class AccountController extends Controller
         $validate = $request->validate(
             [
                 'code' => 'required|string|max:4'
-            ]);
+            ]
+        );
 
         $user = User::where('mobile', $request->mobile)->first();
 
@@ -235,5 +236,26 @@ class AccountController extends Controller
             Alert::success('موفق', 'پسورد جدید برای شما پیامک شد.');
             return back();
         }
+    }
+
+    public function searchAccounts(Request $request)
+    {
+        $query = Account::query();
+
+        $query->when($request->filled('name'), function ($q) use ($request) {
+            $q->where('name', 'like', '%' . $request->input('name') . '%');
+        });
+
+        $query->when($request->filled('family'), function ($q) use ($request) {
+            $q->where('family', 'like', '%' . $request->input('family') . '%');
+        });
+
+        $query->when($request->filled('company'), function ($q) use ($request) {
+            $q->where('company', 'like', '%' . $request->input('company') . '%');
+        });
+
+        $accounts = $query->get();
+
+        return view('admin.account.list', compact('accounts'));
     }
 }

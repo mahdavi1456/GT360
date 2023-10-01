@@ -16,8 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         $products = Product::orderBy('created_at', 'desc')->get();
-        return view('admin.product.list', compact('products'));
+        return view('admin.product.list', compact('products', 'categories'));
     }
 
     /**
@@ -114,4 +115,28 @@ class ProductController extends Controller
         Alert::success('موفق', 'محصول با موفقیت حذف شد.');
         return redirect()->route('product.index');
     }
+
+
+    public function searchproduct(Request $request)
+    {
+        $categories = Category::all();
+        $category = $request->input('category');
+        $productName = $request->input('product_name');
+
+        $products = Product::query();
+
+        $products = Product::query()
+        ->when($category, function ($query) use ($category) {
+            $query->whereHas('categories', function ($query) use ($category) {
+                $query->where('cname', $category);
+            });
+        })
+        ->when($productName, function ($query) use ($productName) {
+            $query->where('product_name', 'like', '%' . $productName . '%');
+        })
+        ->get();
+
+        return view('admin.product.list', compact('products', 'categories'));
+    }
+
 }
