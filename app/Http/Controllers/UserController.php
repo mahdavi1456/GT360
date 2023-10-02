@@ -104,4 +104,20 @@ class UserController extends Controller
     {
         return view('admin.auth.login');
     }
+
+    public function accountusersactivation(Request $request)
+    {
+        $id = $request->id;
+        $reseaon = $request->reseaon;
+
+        $user = User::findOrFail($id);
+        $active = $request->active;
+        $user->update([
+            'user_status' => $active,
+            'deactivation_reason' => $reseaon
+        ]);
+
+        Alert::success('موفق', 'وضعیت کاربر با موفقیت تغییر کرد');
+        return back();
+    }
 }

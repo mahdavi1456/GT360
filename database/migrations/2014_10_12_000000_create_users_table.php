@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('company_name')->nullable();
             $table->string('state')->nullable();
+            $table->string('deactivation_reason')->nullable();
             $table->string('city')->nullable();
             $table->text('address')->nullable();
             $table->string('postalcode')->nullable();

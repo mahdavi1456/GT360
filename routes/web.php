@@ -11,6 +11,7 @@ use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
 use App\Models\Account;
 use App\Models\Transport;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,6 +72,9 @@ Route::get('/result-product', [ProductController::class, 'searchproduct'])->name
 
 //  پردازش جستجو حساب کاربری
 Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
+
+// فعال و غیرفعال کردن کاربر
+Route::put('user/activation', [UserController::class, 'accountusersactivation'])->name('account.users.activation');
 
 
 
