@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,5 +15,15 @@ class Account extends Model
 
     Public function users() {
         Return $this->hasMany(User::class);
+    }
+
+    public function products()
+    {
+        $users = $this->users;
+        $products = new Collection;
+        foreach ($users as $user) {
+            $products = $products->merge($user->products);
+        }
+        return $products;
     }
 }

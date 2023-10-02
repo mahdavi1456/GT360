@@ -4,6 +4,8 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\Front\AccountController as FrontAccountController;
+use App\Http\Controllers\Front\ProductController as FrontProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -76,7 +78,8 @@ Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->na
 // فعال و غیرفعال کردن کاربر
 Route::put('user/activation', [UserController::class, 'accountusersactivation'])->name('account.users.activation');
 
-
+Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
+Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
 
 
 

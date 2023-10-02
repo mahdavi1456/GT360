@@ -27,4 +27,14 @@ class Product extends Model
         return $this->categories()->where('id', $category->id)->count() > 0;
     }
 
+    public function media()
+    {
+        return $this->hasMany(ProductMedia::class,);
+    }
+
+    public function primaryImage()
+    {
+        return $this->media()->first()->image ?? '';
+    }
+
 }
