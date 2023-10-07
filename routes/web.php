@@ -47,7 +47,7 @@ Route::post('users', [UserController::class, 'store'])->name('users.store');
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('v1');
 });
 
 Route::get('/dashboard', function () {
@@ -81,7 +81,3 @@ Route::put('user/activation', [UserController::class, 'accountusersactivation'])
 Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
 Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
 Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
-
-
-
-
