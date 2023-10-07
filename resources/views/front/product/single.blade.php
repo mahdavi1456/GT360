@@ -10,18 +10,18 @@
 @section('content')
     <div class="container-fluid">
         <div class="py-5">
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-12">
-                    <div class="shadow-sm p-2 bg-white rounded">
-                        <div class="row mb-3">
+                    <div class="shadow-sm p-3 bg-white rounded">
+                        <div class="row">
                             <div class="col-md-4">
                                 @if ($product->primaryImage())
                                     <a href="#">
-                                        <img src="{{ $product->primaryImage() }}" class="card-img">
+                                        <img src="{{ $product->primaryImage() }}" class="img-thumbnail rounded w-100">
                                     </a>
                                 @else
                                     <a href="#">
-                                        <img src="{{ asset('images/no-img.jpg') }}" class="card-img">
+                                        <img src="{{ asset('images/no-img.jpg') }}" class="img-thumbnail rounded w-100">
                                     </a>
                                 @endif
                             </div>
@@ -36,12 +36,18 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="shadow-sm p-3 bg-white rounded">
                         <div class="row">
                             <div class="col-12">
-                                <h5>گالری تصاویر</h5>
+                                <h4>گالری تصاویر</h4>
                             </div>
                             @foreach ($media as $item)
-                                    <img src="{{ asset($item->image) }}" style="width: 250px; height: 250px; object-fit:scale-down;">
+                                <img src="{{ asset($item->image) }}" class="img-thumbnail rounded mx-2" style="width: 225px; height: 225px; object-fit:scale-down;">
                             @endforeach
                         </div>
                     </div>
