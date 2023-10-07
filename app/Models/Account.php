@@ -26,4 +26,14 @@ class Account extends Model
         }
         return $products;
     }
+
+    public function categories()
+    {
+        $users = $this->users;
+        $categories = new Collection;
+        foreach ($users as $user) {
+            $categories = $categories->merge($user->categories);
+        }
+        return $categories;
+    }
 }
