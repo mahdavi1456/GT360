@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('cart_heads', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
-            $table->string('user_family');
-            $table->string('user_id');
-            $table->string('user_mobile');
-            $table->string('user_ip');
+            $table->string('user_name')->nullable();
+            $table->string('user_family')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('user_mobile')->nullable();
+            $table->string('user_ip')->nullable();
             $table->string('total_price');
             $table->string('cart_status');
-            $table->string('details');
+            $table->string('token');
+            $table->string('details')->nullable();
             $table->timestamps();
         });
     }

@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('product_id');
             $table->string('product_name');
             $table->string('product_price');
-            $table->string('product_offer');
+            $table->string('product_offer')->nullable();
             $table->string('product_count');
             $table->string('cart_id');
-            $table->string('details');
+            $table->string('details')->nullable();
             $table->timestamps();
         });
     }

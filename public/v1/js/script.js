@@ -1,3 +1,5 @@
+const { SUCCESS } = require("dropzone");
+
 $(document).ready(function() {
 $( "#nav-btn" ).click(function() {
 	bx = $('#main-nav');
@@ -153,3 +155,28 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function addToCart(id) {
+	$.ajax({
+		url: '/cart/add',
+		type: 'POST',
+		data: {
+			_token: $('meta[name=_token]').attr('content'),
+			product: id,
+		},
+		success: function(result) {
+			Swal.fire({
+				title: 'موفق',
+				text: 'با موفقیت به سبد خرید اضافه شد.',
+				icon: 'success'
+			});
+		},
+		error: function(result) {
+			Swal.fire({
+				title: 'خطا',
+				text: result.responseJSON.message,
+				icon: 'error'
+			});
+		}
+	})
+}

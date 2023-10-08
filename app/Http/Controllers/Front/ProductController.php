@@ -35,7 +35,7 @@ class ProductController extends Controller
             }
         }
 
-        return view('front.product.list', compact('products', 'categories', 'account'));
+        return view('front.product.list', compact('products', 'categories'));
     }
 
     public function single($id)

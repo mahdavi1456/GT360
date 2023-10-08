@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\CartHeadController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
+use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -46,9 +48,7 @@ Route::get('users/create/{accountId}', [UserController::class, 'create'])->name(
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 
 
-Route::get('/', function () {
-    return view('v1');
-});
+Route::get('/', [DashboardController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
@@ -81,3 +81,5 @@ Route::put('user/activation', [UserController::class, 'accountusersactivation'])
 Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
 Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
 Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
+
+Route::post('cart/add', [CartHeadController::class, 'addToCart']);
