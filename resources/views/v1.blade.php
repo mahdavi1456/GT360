@@ -56,7 +56,7 @@
 							<img src="{{ $product->primaryImage() ? asset($product->primaryImage()) : asset('images/no-img.jpg') }}" class="img-fluid">
 							<h2>{{ $product->product_name }}</h2>
 							<span>{{ fa_number(number_format($product->sales_price)) }}</span>
-							<button class="btn btn-success" onclick="addToCart(664646)">+</button>
+							<button class="btn btn-success" onclick="addToCart({{ $product->id }})">+</button>
 						</article>
 						@endforeach
 					@else
