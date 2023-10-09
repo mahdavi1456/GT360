@@ -37,4 +37,9 @@ class Product extends Model
         return $this->media()->first()->image ?? '';
     }
 
+    public function getProductPrice()
+    {
+        dd($this->sales_price - $this->offer_price);
+    }
+
 }

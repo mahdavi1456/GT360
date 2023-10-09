@@ -15,4 +15,16 @@ class CartHead extends Model
     {
         return $this->hasMany(CartBody::class, 'cart_id');
     }
+
+    public function totalPrice()
+    {
+        $total = 0;
+        foreach ($this->bodies as $body) {
+            if (!is_null($body->product_offer))
+                $total += ($body->product_offer * $body->product_count);
+            else
+                $total += ($body->product_price * $body->product_count);
+        }
+        return $total;
+    }
 }

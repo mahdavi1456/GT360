@@ -5,6 +5,7 @@
     <script type="text/javascript" src="{{ asset('v1/js/bootstrap.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('v1/js/jquery-3.6.3.js') }}"></script>
     <script type="text/javascript" src="{{ asset('v1/js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('v1/js/script.js') }}"></script>
 
     <!-- bootstrap touchspin -->
