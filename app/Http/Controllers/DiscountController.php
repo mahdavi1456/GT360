@@ -33,7 +33,7 @@ class DiscountController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255|unique:discounts,title',
             'percent' => 'nullable|string|max:255',
             'price' => 'nullable|string|max:255',
             'validity_date' => 'nullable',
@@ -41,7 +41,10 @@ class DiscountController extends Controller
             'details' => 'nullable|string',
         ]);
 
-        $validity_date = Carbon::parse(Verta::parse($validatedData['validity_date'])->formatGregorian('Y-m-d'));
+        if (isset($validatedData['validity_date']))
+            $validity_date = Carbon::parse(Verta::parse($validatedData['validity_date'])->formatGregorian('Y-m-d'));
+        else
+            $validity_date = null;
 
         $discount = Discount::create([
             'title' => $validatedData['title'],

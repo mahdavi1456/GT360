@@ -16,7 +16,7 @@
             $('.touchspin').TouchSpin({
                 buttondown_class: 'btn',
                 buttonup_class: 'btn',
-                initval: 1,
+                initval: false,
                 min: 1,
             });
 

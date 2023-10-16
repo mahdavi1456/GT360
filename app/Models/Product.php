@@ -42,4 +42,12 @@ class Product extends Model
         dd($this->sales_price - $this->offer_price);
     }
 
+    public function showPrice()
+    {
+        if (isset($this->offer_price))
+            echo fa_number($this->offer_price) . '<br><s>' . fa_number($this->sales_price) . '</s>';
+        else 
+            echo fa_number($this->sales_price);
+    }
+
 }

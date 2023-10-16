@@ -19,10 +19,10 @@
                     </div>
                     <div class="col-md-8">
                         <h3>{{ $product->product_name }}</h3>
-                        <span>{{ fa_number(number_format($product->sales_price)) }} تومان</span>
+                        <span>{{ fa_number($product->showPrice()) }} تومان</span>
                         <div class="d-flex">
                             <div style="width: 120px">
-                                <input type="text" class="touchspin text-center">
+                                <input type="text" name="amount" class="touchspin text-center">
                             </div>
                             <button class="btn btn-success mx-2" onclick="addToCart({{ $product->id }})"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید</button>
                         </div>

@@ -83,3 +83,8 @@ Route::get('products/list', [FrontProductController::class, 'index'])->name('fro
 Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
 
 Route::post('cart/add', [CartHeadController::class, 'addToCart']);
+Route::get('cart', [CartHeadController::class, 'showCart'])->name('showCart');
+Route::delete('cart/remove/{body}', [CartHeadController::class, 'removeFromCart']);
+Route::put('cart/amount/{body}', [CartHeadController::class, 'amount']);
+Route::put('cart/discount/{cart}', [CartHeadController::class, 'discount']);
+Route::put('cart/discount/remove/{cart}', [CartHeadController::class, 'removeDiscount']);

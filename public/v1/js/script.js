@@ -163,8 +163,10 @@ function addToCart(id) {
 		data: {
 			_token: $('meta[name=_token]').attr('content'),
 			product: id,
+			amount: $('input[name=amount]').val(),
 		},
 		success: function(result) {
+			$('#cartItemCount').html(result.cartItemCount);
 			Swal.fire({
 				title: 'موفق',
 				text: 'با موفقیت به سبد خرید اضافه شد.',
@@ -179,4 +181,144 @@ function addToCart(id) {
 			});
 		}
 	})
+}
+
+function removeFromCart(id)
+{
+	Swal.fire({
+		title: 'آیا مطمئنید؟',
+		text: 'این محصول از سبد خرید شما حذف خواهد شد.',
+		icon: 'warning',
+		showCancelButton: true,
+        cancelButtonText: 'انصراف',
+        confirmButtonText: 'حذف',
+    })
+    .then((result) => {
+        if (result.isConfirmed) {
+			$.ajax({
+				url: 'cart/remove/' + id,
+				type: 'POST',
+				data: {
+					_token: $('meta[name=_token]').attr('content'),
+					_method: 'delete',
+				},
+				success: function(result) {
+					discount(result.cart);
+					$('#tr-' + id + '').remove();
+					$('#totalPrice').html(result.totalPrice);
+					$('#cartItemCount').html(result.cartItemCount);
+					Swal.fire({
+						title: 'موفق',
+						text: 'با موفقیت از سبد خرید حذف شد.',
+						icon: 'success'
+					});
+				},
+				error: function(result) {
+					Swal.fire({
+						title: 'خطا',
+						text: result.responseJSON.message,
+						icon: 'error'
+					});
+				}
+			});
+        }
+    });
+}
+
+function amount(id, amount)
+{
+	$.ajax({
+		url: 'cart/amount/' + id,
+		type: 'POST',
+		data: {
+			_token: $('meta[name=_token]').attr('content'),
+			_method: 'put',
+			amount: amount,
+		},
+		success: function(result) {
+			discount(result.cart);
+			$('#bodyPrice-' + id + '').html(result.bodyPrice);
+			$('#totalPrice').html(result.totalPrice);
+		},
+		error: function(result) {
+			Swal.fire({
+				title: 'خطا',
+				text: result.responseJSON.message,
+				icon: 'error'
+			});
+		}
+	});
+}
+
+function discount(id)
+{
+	$.ajax({
+		url: 'cart/discount/' + id,
+		type: 'POST',
+		data: {
+			_token: $('meta[name=_token]').attr('content'),
+			_method: 'put',
+			discount: $('input[name=discount]').val(),
+		},
+		beforeSend: function() {
+			$('#loader').show();
+		},
+		complete: function(){
+			$('#loader').hide();
+		},
+		success: function(result) {
+			$('#finalPrice').html(result.finalPrice);
+			$('#discountPrice').html(result.discountPrice);
+			Swal.fire({
+				title: 'موفق',
+				text: 'کد تخفیف با موفقیت اعمال شد.',
+				icon: 'success'
+			});
+		},
+		error: function(result) {
+			console.log(result);
+			Swal.fire({
+				title: 'خطا',
+				text: result.responseJSON.message,
+				icon: 'error'
+			});
+		}
+	});
+}
+
+function removeDiscount(id)
+{
+	$.ajax({
+		url: 'cart/discount/remove/' + id,
+		type: 'POST',
+		data: {
+			_token: $('meta[name=_token]').attr('content'),
+			_method: 'put',
+		},
+		beforeSend: function() {
+			$('#loader').show();
+		},
+		complete: function(){
+			$('#loader').hide();
+		},
+		success: function(result) {
+			$('#finalPrice').html(result.finalPrice);
+			$('#discountPrice').html(result.discountPrice);
+			$('input[name=discount]').val('');
+			console.log(result);
+			Swal.fire({
+				title: 'موفق',
+				text: 'کد تخفیف با موفقیت حذف شد.',
+				icon: 'success'
+			});
+		},
+		error: function(result) {
+			console.log(result);
+			Swal.fire({
+				title: 'خطا',
+				text: result.responseJSON.message,
+				icon: 'error'
+			});
+		}
+	});
 }

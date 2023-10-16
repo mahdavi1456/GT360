@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\CartHead;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -24,6 +25,13 @@ class DashboardController extends Controller
             $products = Product::query()->orderBy('created_at', 'desc')->get();
         }
 
-        return view('v1', compact('products', 'categories'));
+        if (!is_null($request->cookie('cart-token'))) {
+            $cart = CartHead::where('token', $request->cookie('cart-token'))->first();
+            $cartItemCount = fa_number($cart->bodies->count());
+        } else {
+            $cartItemCount = fa_number(0);
+        }
+
+        return view('v1', compact('products', 'categories', 'cartItemCount'));
     }
 }

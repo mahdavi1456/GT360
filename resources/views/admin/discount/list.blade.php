@@ -67,6 +67,20 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="form-label">حداقل خرید</label>
+                                                <input type="text" name="min_cart" class="form-control" placeholder="حداقل خرید..." >
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="form-label">حداکثر خرید</label>
+                                                <input type="text" name="max_cart" class="form-control" placeholder="حداکثر خرید...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
                                         <div class="form-group">
                                             <label class="form-label required">تاریخ اعتبار</label>
                                             <input type="text" name="validity_date" class="datepicker form-control" id="validity_date"  placeholder="۱۴۰۱/۰۱/۰۱" >
@@ -122,7 +136,7 @@
                                             <td>{{ $discount->price ?? 'بدون قیمت' }}</td>
                                             <td>@if($discount->validity_date) {{  verta($discount->validity_date)->formatDate(); }} @endif</td>
                                             <td>{{ $discount->number ?? 'بدون تعداد' }}</td>
-                                            <td>{{ $discount->dateails ?? 'بدون توضیحات' }}</td>
+                                            <td>{{ $discount->details ?? 'بدون توضیحات' }}</td>
                                             <td class="d-flex">
                                                 <a href="{{ route('discount.edit', $discount->id) }}" class="btn btn-warning btn-sm mx-1">ویرایش</a>
                                                 <form action="{{ route('discount.destroy', $discount->id) }}" method="POST" style="display: inline;">

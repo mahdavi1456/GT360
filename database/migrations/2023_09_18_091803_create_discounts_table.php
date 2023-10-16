@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('percent')->nullable();
             $table->string('price')->nullable();
+            $table->string('min_cart')->nullable();
+            $table->string('max_cart')->nullable();
             $table->date('validity_date')->nullable();
             $table->string('number')->nullable();
             $table->text('details')->nullable();

@@ -3,10 +3,13 @@
             <header id="top-header">
                 <div class="row">
                     <div class="col-4">
-                        <img src="{{ asset('v1/images/logo.png') }}" style="width: 200px;" class="img-fluid">
+                        <a href="/">
+                            <img src="{{ asset('v1/images/logo.png') }}" style="width: 200px;" class="img-fluid">
+                        </a>
                     </div>
                     <div class="col-8">
                         <a href="" class="btn btn-success">پروفایل</a>
+                        <a href="{{ route('showCart') }}" class="btn btn-success"><i class="fa fa-shopping-cart"></i><span class="badge badge-danger" id="cartItemCount">{{ $cartItemCount }}</span></a>
                     </div>
                 </div>
             </header>

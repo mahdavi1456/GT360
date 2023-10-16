@@ -6,6 +6,8 @@
 	<meta name="_token" content="{{ csrf_token() }}">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="v1/css/style.css">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
 	<script type="text/javascript" src="v1/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="v1/js/jquery-3.6.3.js"></script>
 	<script type="text/javascript" src="v1/js/owl.carousel.min.js"></script>
@@ -22,6 +24,7 @@
 						</div>
 						<div class="col-8">
 							<a href="" class="btn btn-success">پروفایل</a>
+							<a href="{{ route('showCart') }}" class="btn btn-success"><i class="fa fa-shopping-cart"></i><span class="badge badge-danger" id="cartItemCount">{{ $cartItemCount }}</span></a>
 						</div>
 					</div>
 				</header>
@@ -57,7 +60,7 @@
 								<img src="{{ $product->primaryImage() ? asset($product->primaryImage()) : asset('images/no-img.jpg') }}" class="img-fluid">
 								<h2>{{ $product->product_name }}</h2>
 							</a>
-							<span>{{ fa_number(number_format($product->sales_price)) }}</span>
+							<span>{{ fa_number($product->showPrice()) }}</span>
 							<button class="btn btn-success" onclick="addToCart({{ $product->id }})">+</button>
 						</article>
 						@endforeach

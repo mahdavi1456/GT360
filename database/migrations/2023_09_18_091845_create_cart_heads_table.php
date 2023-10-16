@@ -19,6 +19,13 @@ return new class extends Migration
             $table->string('user_mobile')->nullable();
             $table->string('user_ip')->nullable();
             $table->string('total_price');
+            $table->unsignedBigInteger('discount_id')->nullable();
+            $table->string('discount_title')->nullable();
+            $table->text('discount_description')->nullable();
+            $table->string('discount_type')->nullable();
+            $table->string('discount_value')->nullable();
+            $table->string('discount_price')->nullable();
+            $table->string('final_price')->nullable();
             $table->string('cart_status');
             $table->string('token');
             $table->string('details')->nullable();
