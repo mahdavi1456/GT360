@@ -1,5 +1,5 @@
     <footer>
-		<h6>ساخته شده با عشق در گراتک</h6>
+        <h6>ساخته شده با عشق در <a href="https://gratech.ir/" target="_blank">گراتک</a></h6>
 	</footer>
 
     <script type="text/javascript" src="{{ asset('v1/js/bootstrap.bundle.min.js') }}"></script>

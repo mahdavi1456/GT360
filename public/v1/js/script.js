@@ -165,8 +165,15 @@ function addToCart(id) {
 			product: id,
 			amount: $('input[name=amount]').val(),
 		},
+		beforeSend: function() {
+			$('#loader').show();
+		},
+		complete: function(){
+			$('#loader').hide();
+		},
 		success: function(result) {
 			$('#cartItemCount').html(result.cartItemCount);
+			discount(result.cart, false)
 			Swal.fire({
 				title: 'موفق',
 				text: 'با موفقیت به سبد خرید اضافه شد.',
@@ -202,8 +209,14 @@ function removeFromCart(id)
 					_token: $('meta[name=_token]').attr('content'),
 					_method: 'delete',
 				},
+				beforeSend: function() {
+					$('#loader').show();
+				},
+				complete: function(){
+					$('#loader').hide();
+				},
 				success: function(result) {
-					discount(result.cart);
+					discount(result.cart, false);
 					$('#tr-' + id + '').remove();
 					$('#totalPrice').html(result.totalPrice);
 					$('#cartItemCount').html(result.cartItemCount);
@@ -235,8 +248,14 @@ function amount(id, amount)
 			_method: 'put',
 			amount: amount,
 		},
+		beforeSend: function() {
+			$('#loader').show();
+		},
+		complete: function(){
+			$('#loader').hide();
+		},
 		success: function(result) {
-			discount(result.cart);
+			discount(result.cart, false);
 			$('#bodyPrice-' + id + '').html(result.bodyPrice);
 			$('#totalPrice').html(result.totalPrice);
 		},
@@ -250,7 +269,7 @@ function amount(id, amount)
 	});
 }
 
-function discount(id)
+function discount(id, alert)
 {
 	$.ajax({
 		url: 'cart/discount/' + id,
@@ -276,12 +295,15 @@ function discount(id)
 			});
 		},
 		error: function(result) {
-			console.log(result);
-			Swal.fire({
-				title: 'خطا',
-				text: result.responseJSON.message,
-				icon: 'error'
-			});
+			if (result.status == 409)
+				alert = true;
+			if (alert) {
+				Swal.fire({
+					title: 'خطا',
+					text: result.responseJSON.message,
+					icon: 'error'
+				});
+			}
 		}
 	});
 }

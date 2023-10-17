@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('checkouts', function (Blueprint $table) {
+        Schema::create('payment_types', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('details');
-            $table->string('price');
-            $table->string('cart_id');
-            $table->string('user_id');
-            $table->string('user_fullname');
-            $table->string('user_mobile');
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('checkouts');
+        Schema::dropIfExists('payment_types');
     }
 };

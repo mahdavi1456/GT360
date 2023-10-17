@@ -67,7 +67,8 @@ class CartHeadController extends Controller
             $cart->save();
 
             return response()->json(array(
-                'cartItemCount' => $cartItemCount
+                'cartItemCount' => $cartItemCount,
+                'cart' => $cart->id,
             ), 200);
         } else {
             return response()->json(array(
@@ -150,9 +151,18 @@ class CartHeadController extends Controller
                         'discountPrice' => fa_number($discount_price),
                     ), 200);
                 } else {
+                    $cart->update([
+                        'discount_id' => null,
+                        'discount_title' => null,
+                        'discount_description' => null,
+                        'discount_type' => null,
+                        'discount_value' => null,
+                        'discount_price' => null,
+                        'final_price' => null,
+                    ]);
                     return response()->json(array(
                         'message' => 'کد تخفیف وارد شده قابل استفاده نمی باشد.',
-                    ), 404);
+                    ), 409);
                 }
             } else {
                 return response()->json(array(

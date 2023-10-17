@@ -15,6 +15,9 @@
 	<script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 </head>
 	<body>
+        <div id="loader">
+            <div class="loader"></div>
+        </div>
 		<div id="first-cover" style="background: url(v1/images/banner-2.jpg);">
 			<div class="container">
 				<header id="top-header">
@@ -121,7 +124,7 @@
 			</div>
 		</section>
 		<footer>
-			<h6>ساخته شده با عشق در گراتک</h6>
+			<h6>ساخته شده با عشق در <a href="https://gratech.ir/" target="_blank">گراتک</a></h6>
 		</footer>
 	</body>
 </html>

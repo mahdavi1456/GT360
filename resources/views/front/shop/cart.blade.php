@@ -1,34 +1,12 @@
 @extends('front.layouts.master')
 @section('title', 'سبد خرید')
-@section('style')
-    <style>
-        .loader {
-            width: 30px;
-            height: 30px;
-            border: 5px solid grey;
-            border-bottom-color: transparent;
-            border-radius: 50%;
-            display: inline-block;
-            box-sizing: border-box;
-            animation: rotation 1s linear infinite;
-        }
-        @keyframes rotation {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        } 
-    </style>
-@endsection
 @section('content')
 <section id="products" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 @if ($bodies->count())
-                    <table class="table">
+                    <table class="table" id="cart-table">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -84,10 +62,9 @@
                     <label>کد تخفیف</label>
                     <input type="text" name="discount" class="form-control" value="{{ $cart->discount_title }}" placeholder="کد تخفیف...">
                 </div>
-                <div id="loader" style="display: none;"><span class="loader"></span></div>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-primary" onclick="discount({{ $cart->id }})">اعمال کد تخفیف</button>
+                <button class="btn btn-primary" onclick="discount({{ $cart->id }}, true)">اعمال کد تخفیف</button>
             </div>
             <div class="col-md-3">
                 <button class="btn btn-danger" onclick="removeDiscount({{ $cart->id }})">حذف کد تخفیف</button>

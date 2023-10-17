@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-8">
                         <a href="" class="btn btn-success">پروفایل</a>
-                        <a href="{{ route('showCart') }}" class="btn btn-success"><i class="fa fa-shopping-cart"></i><span class="badge badge-danger" id="cartItemCount">{{ $cartItemCount }}</span></a>
+                        <a href="{{ route('showCart') }}" class="btn btn-success"><i class="fa fa-shopping-cart"></i><span class="badge badge-danger" id="cartItemCount">{{ fa_number($cartItemCount ?? 0) }}</span></a>
                     </div>
                 </div>
             </header>

@@ -88,3 +88,7 @@ Route::delete('cart/remove/{body}', [CartHeadController::class, 'removeFromCart'
 Route::put('cart/amount/{body}', [CartHeadController::class, 'amount']);
 Route::put('cart/discount/{cart}', [CartHeadController::class, 'discount']);
 Route::put('cart/discount/remove/{cart}', [CartHeadController::class, 'removeDiscount']);
+
+Route::get('checkout', function() {
+    return view('front.checkout.checkout');
+});
