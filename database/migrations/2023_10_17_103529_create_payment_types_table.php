@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('payment_types', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('details')->nullable();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('icon')->nullable();
+            $table->integer('display_order');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

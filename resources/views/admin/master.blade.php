@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="{{ asset('asset/dist/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
 
     <!-- bootstrap rtl -->
     <link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap-rtl.min.css') }}">
@@ -42,6 +44,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
+    @include('sweetalert::alert')
 
     <div class="wrapper">
         @yield('content')
@@ -85,6 +88,8 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('asset/dist/js/demo.js') }}"></script>
     <!-- Page script -->
+    <!-- Sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
 
     <script>
         $(function() {

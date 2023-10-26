@@ -117,6 +117,10 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="{{ route('payments_type.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>روش های پرداخت</p>
+                                </a>
                                 <a href="#" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>عمومی</p>

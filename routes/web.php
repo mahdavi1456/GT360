@@ -8,6 +8,8 @@ use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\PaymentsTypeController;
+use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -92,3 +94,6 @@ Route::put('cart/discount/remove/{cart}', [CartHeadController::class, 'removeDis
 Route::get('checkout', function() {
     return view('front.checkout.checkout');
 });
+
+Route::resource('payments_type', PaymentTypeController::class);
+
