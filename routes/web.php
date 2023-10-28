@@ -97,3 +97,5 @@ Route::get('checkout', function() {
 
 Route::resource('payments_type', PaymentTypeController::class);
 
+Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
+

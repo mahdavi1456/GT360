@@ -34,31 +34,44 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">ثبت نام کاربر جدید</p>
-
+                            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger"><b>اخطار: </b>{{ $error }}</div>
+                @endforeach
+            @endif
                 <form method="POST" action="{{ route('newUserAccount') }}">
                     @csrf
                     <label class="form-label">نوع حساب <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <select name="account_type" id="account_type" class="form-control" required>
-                            <option value="حقیقی">حقیقی</option>
-                            <option value="حقوقی">حقوقی</option>
+                        <select name="account_type" id="account_type" class="form-control" required
+                        oninvalid="this.setCustomValidity('.لطفا نوع حساب را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
+                            <option value="">انتخاب کنید...</option>
+                            <option value="حقیقی" @if(old('account_type') == 'حقیقی') selected @endif>حقیقی</option>
+                            <option value="حقوقی" @if(old('account_type') == 'حقوقی') selected @endif>حقوقی</option>
                         </select>
                     </div>
                     <label class="form-label">نام <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" placeholder="نام">
+                        <input type="text" name="name" class="form-control" placeholder="نام..." value="{{ old('name') }}" required
+                        oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
                     </div>
                     <label class="form-label">نام خانوادگی <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" name="family" class="form-control" placeholder="نام خانوادگی">
+                        <input type="text" name="family" class="form-control" placeholder="نام خانوادگی..." value="{{ old('family') }}" required
+                        oninvalid="this.setCustomValidity('.لطفا نام خانوادگی را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
                     </div>
                     <label class="form-label">موبایل <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" name="mobile" class="form-control" placeholder="موبایل">
+                        <input type="text" name="mobile" class="form-control just-numbers" placeholder="موبایل..." value="{{ old('mobile') }}" required
+                        oninvalid="this.setCustomValidity('.لطفا موبایل را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
                     </div>
-                    <label class="form-label">نام مجموعه <span class="text-danger">*</span></label>
+                    <label class="form-label">نام مجموعه </label>
                     <div class="input-group mb-3">
-                        <input type="text" name="company" class="form-control" placeholder="نام مجموعه...">
+                        <input type="text" name="company" class="form-control" placeholder="نام مجموعه..."  value="{{ old('company') }}">
                     </div>
                     <div class="row">
                         <div class="col-8">
@@ -110,6 +123,9 @@
             });
         });
     </script>
+
+<script src="{{ asset('js/validation.js') }}"></script>
+
 </body>
 
 </html>

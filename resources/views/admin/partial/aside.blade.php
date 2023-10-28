@@ -26,97 +26,93 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview">
-                        <a href="{{ route('dashboard') }}" class="nav-link">
+                        <a href="{{ route('dashboard') }}" class="nav-link main-menu">
                             <i class="nav-icon fa fa-dashboard"></i>
                             <p>
                                 داشبورد
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview ">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item has-treeview {{active_dropdown(['account.index'])}}">
+                        <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
                             <p>
                                 مشترکین
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                        <ul class="nav nav-treeview sub-menu" {{active_list(['account.index'])}}>
+                            <li class="nav-item {{ active_menu('account.index') }}">
                                 <a href="{{ route('account.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>لیست</p>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview ">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item has-treeview {{active_dropdown(['category.index', 'product.index'])}}">
+                        <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
                             <p>
                                 محصولات
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                        <ul class="nav nav-treeview sub-menu" {{active_list(['category.index', 'product.index'])}}>
+                            <li class="nav-item" {{ active_menu('category.index') }}>
                                 <a href="{{ route('category.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>دسته بندی</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" {{ active_menu('product.index') }}>
                                 <a href="{{ route('product.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>لیست</p>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview ">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item has-treeview  {{active_dropdown(['discount.index', 'transport.index'])}}">
+                        <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-gear"></i>
                             <p>
                                 فروشگاه
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview sub-menu" {{active_list(['discount.index', 'transport.index'])}}>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>سفارشات</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" {{ active_menu('discount.index') }}>
                                 <a href="{{ route('discount.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>کدهای تخفیف</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" {{ active_menu('transport.index') }}>
                                 <a href="{{ route('transport.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>حمل و نقل</p>
                                 </a>
                             </li>
-                            </li>
-
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview ">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item has-treeview {{active_dropdown(['payments_type.index'])}}">
+                        <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-clipboard"></i>
                             <p>
                                 تنظیمات
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                        <ul class="nav nav-treeview sub-menu" {{active_list(['payments_type.index'])}}>
+                            <li class="nav-item" {{ active_menu('payments_type.index') }}>
                                 <a href="{{ route('payments_type.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>روش های پرداخت</p>
@@ -128,7 +124,7 @@
                             </li>
                         </ul>
                     </li>
-
+                </ul>
             </nav>
             <!-- /.sidebar-menu -->
         </div>

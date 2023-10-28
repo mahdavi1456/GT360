@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb('نوع پرداخت') }}
+        {{ breadcrumb('روش های پرداخت') }}
 
         <!-- Main content -->
         <section class="content">
@@ -16,37 +16,43 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body p-0">
                                 @if(count($paymentTypes) > 0)
                                 <table class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th class="px-4 p-4">شماره</th>
-                                            <th class="px-4 p-4">نام</th>
-                                            <th class="px-4 p-4">آیکون</th>
-                                            <th class="px-4 p-4">ترتیب نمایش</th>
-                                            <th class="px-4 p-4">وضعیت</th>
-                                            <th class="px-4 p-4">توضیحات</th>
-                                            <th class="px-4 p-4">عملیات</th>
+                                            <th>شماره</th>
+                                            <th>نام</th>
+                                            <th>آیکون</th>
+                                            <th>ترتیب نمایش</th>
+                                            <th>وضعیت</th>
+                                            <th>توضیحات</th>
+                                            <th>عملیات</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($paymentTypes as $paymentType)
                                             <tr>
-                                                <td class="w-auto text-center p-4">{{ fa_number($loop->index+1)}}</td>
-                                                <td class="w-auto text-center p-4">{{ $paymentType->name }}</td>
-                                                <td class="w-auto text-center p-4">@if($paymentType->icon) <img src="{{ asset($paymentType->icon) }}" style="with: 50px; height: 50px"> @else بدون تصویر @endif </td>
-                                                <td class="w-auto text-center p-4">{{ $paymentType->display_order }}</td>
-                                                <td class="w-auto text-center p-4">@if($paymentType->status == 'active') فعال @else غیرفعال @endif</td>
-                                                <td class="w-auto text-center p-4">@if($paymentType->description) {{ $paymentType->description }} @else بدون توضیحات @endif</td>
-                                                <td class="w-auto text-center p-4 d-flex">
+                                                <td>{{ fa_number($loop->index+1)}}</td>
+                                                <td>{{ $paymentType->name }}</td>
+                                                <td>@if($paymentType->icon) <img src="{{ asset($paymentType->icon) }}" style="with: 50px; height: 50px"> @else بدون تصویر @endif </td>
+                                                <td>{{ $paymentType->display_order }}</td>
+                                                <td>
+                                                    @if($paymentType->status == 'active')
+                                                        <span class="badge bg-success">فعال</span>
+                                                    @else
+                                                        <span class="badge bg-danger">غیرفعال</span>
+                                                    @endif
+                                                </td>
+                                                <td>@if($paymentType->description) {{ $paymentType->description }} @else بدون توضیحات @endif</td>
+                                                <td>
                                                     <a href="{{ route('payments_type.edit', $paymentType->id ) }}"
                                                         class="btn btn-warning m-1">ویرایش</a>
                                                     <form action="{{ route('payments_type.destroy', $paymentType->id) }}"
                                                         method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger m-1 confirm-button">حذف</button>
+                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $paymentType->id }}">حذف</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -73,28 +79,31 @@
 
 @section('scripts')
 
+@if ($paymentTypes->count() > 0)
+@foreach ($paymentTypes as $paymentType)
 <script>
-   $('.confirm-button').click(function(event) {
-    var form =  $(this).closest("form");
-    var name = $(this).data("name");
-    event.preventDefault();
-    Swal.fire({
-        title: "اطمینان دارید؟",
-        text: "آیا از حذف این مورد اطمینان دارید؟",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
-    .then((willDelete) => {
-        if (willDelete.isConfirmed) {
-            form.submit();
-        } else {
-
-        }
+    $('#confirmdelete{{ $paymentType->id }}').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        Swal.fire({
+                title: `آیا مطمئنید؟`,
+                text: "این مورد برای همیشه حذف خواهد شد.",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'انصراف',
+                confirmButtonText: 'تایید',
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
     });
-});
-
 </script>
+
+@endforeach
+    @endif
 
 @endsection
 

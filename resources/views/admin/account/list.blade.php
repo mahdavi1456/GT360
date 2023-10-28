@@ -104,8 +104,7 @@
                                                         method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger m-1"
-                                                            onclick="return confirm('آیا مطمئن هستید؟')">حذف</button>
+                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $account->id }}">حذف</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -129,3 +128,35 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+
+
+@section('scripts')
+
+@if ($accounts->count() > 0)
+@foreach ($accounts as $account)
+<script>
+    $('#confirmdelete{{ $account->id }}').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        Swal.fire({
+                title: `آیا مطمئنید؟`,
+                text: "این مورد برای همیشه حذف خواهد شد.",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'انصراف',
+                confirmButtonText: 'تایید',
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+    });
+</script>
+
+@endforeach
+    @endif
+
+@endsection
+

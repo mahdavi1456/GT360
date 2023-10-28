@@ -271,3 +271,24 @@ ul {
 .datepicker-plot-area {
     font-family: 'Vazir', sans-serif;
 }
+
+
+/*---------------------------------- Loading Code ---------------------------------- */
+
+#loading-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    text-align: center;
+    display: none;
+}
+
+.spinner{
+    color: #ddd;
+    position: relative;
+    top: 45%;
+}

@@ -47,14 +47,18 @@
         @csrf
         <label class="form-label">موبایل <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
-          <input type="text" name="mobile" class="form-control" placeholder="موبایل...">
+          <input type="text" name="mobile" class="form-control just-numbers" placeholder="موبایل..."  value="{{ old('mobile') }}" required
+          oninvalid="this.setCustomValidity('.لطفا موبایل را وارد کنید')"
+          oninput="this.setCustomValidity('')">
           <div class="input-group-append">
             <span class="fa fa-envelope input-group-text"></span>
           </div>
         </div>
         <label class="form-label">رمز عبور <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
-          <input type="password"  name="password"  class="form-control" placeholder="رمز عبور">
+          <input type="password"  name="password"  class="form-control" placeholder="رمز عبور..."   value="{{ old('password') }}" required
+          oninvalid="this.setCustomValidity('.لطفا رمز عبور را وارد کنید')"
+          oninput="this.setCustomValidity('')">
           <div class="input-group-append">
             <span class="fa fa-lock input-group-text"></span>
           </div>
@@ -93,11 +97,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="{{ asset('asset/plugins/jquery/jquery.min.js') }}></script>
+<script src="{{ asset('asset/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+<script src="{{ asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- iCheck -->
-<script src="{{ asset('asset/plugins/iCheck/icheck.min.js') }}></script>
+<script src="{{ asset('asset/plugins/iCheck/icheck.min.js') }}"></script>
 
 <script>
   $(function () {
@@ -109,6 +113,7 @@
   })
 </script>
 
+<script src="{{ asset('js/validation.js') }}"></script>
 
 </body>
 </html>

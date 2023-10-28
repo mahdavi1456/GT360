@@ -11,6 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 
 class AccountController extends Controller
 {
@@ -194,33 +195,52 @@ class AccountController extends Controller
                 'mobile' => 'required|numeric|digits:11'
             ],
             [
-                'mobile.required' => 'فیلد موبایل الزامی است.'
+                'mobile.required' => 'فیلد موبایل الزامی است.',
+
+                'mobile.digits' => 'موبایل باید دقیقاً 11 رقم باشد',
             ]
         );
 
         $user = User::where('mobile', $validate['mobile'])->first();
         if ($user) {
-            $code = Str::random(4);
+            $code = rand(1000, 9999);
 
             $user->update([
                 'remember_token' => $code
             ]);
+
+            Cache::put('remember_token', $code, Carbon::now()->addSeconds(60));
+
+            $mobile = $validate['mobile'];
+            $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
+
+            // sendSMS($mobile, $message);
+
         } else {
-            Alert::success('موفق', 'متاسفانه کاربری بااین موبایل یافت نشد.');
+
+            return response()->json(['message' => 'کاربری با این موبایل یافت نشد'], 404);
         }
     }
 
     public function codePassword(Request $request)
     {
+
         $validate = $request->validate(
             [
                 'code' => 'required|string|max:4'
+            ],
+            [
+                'code.required' => 'فیلد کد الزامی است.',
             ]
         );
 
         $user = User::where('mobile', $request->mobile)->first();
 
-        if ($user->remember_token == $validate['code']) {
+        $randomNumber = Cache::get('remember_token');
+
+        $userEnteredCode = $validate['code'];
+
+        if ($userEnteredCode == $randomNumber) {
 
             $newPassword = Str::random(8);
 
@@ -231,10 +251,47 @@ class AccountController extends Controller
             $mobile = $user->mobile;
             $message = 'کابر گرامی رمز عبور شما با موفقیت تغییر یافت. رمز عبور جدید : ' . $newPassword;
 
-            sendSMS($mobile, $message);
+            // sendSMS($mobile, $message);
 
-            Alert::success('موفق', 'پسورد جدید برای شما پیامک شد.');
-            return back();
+            Auth::login($user);
+
+            return response()->json(['success' => 'تغییر رمز عبور با موفقیت انجام شد']);
+
+        } else {
+
+            return response()->json(['message' => 'کد وارد شده اشتباه است'], 404);
+        }
+    }
+
+    public function resendCode(Request $request)
+    {
+
+        $validate = $request->validate(
+            [
+                'mobile' => 'required|numeric|digits:11'
+            ],
+            [
+                'mobile.required' => 'فیلد موبایل الزامی است.',
+                'mobile.digits' => 'موبایل باید دقیقاً 11 رقم باشد',
+            ]
+        );
+
+        $user = User::where('mobile', $validate['mobile'])->first();
+        if ($user) {
+            $code = rand(1000, 9999);
+            $mobile = $validate['mobile'];
+            $username = $mobile;
+
+            $user->update([
+                'remember_token' => $code
+            ]);
+
+            Cache::put('remember_token', $code, Carbon::now()->addSeconds(31));
+
+            $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
+
+            // sendSMS($mobile, $message);
+
         }
     }
 

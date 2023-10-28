@@ -32,6 +32,11 @@
 </head>
 
 <body class="hold-transition login-page">
+
+    <div id="loading-overlay">
+        <div class="spinner"><i class="fa fa-refresh fa-4x fa-spin"></i></div>
+    </div>
+
     <div class="login-box">
         <div class="login-logo">
             <b>فراموشی رمز عبور</b>
@@ -55,7 +60,7 @@
                     @csrf
                     <label class="form-label">موبایل <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" name="mobile" id="mobile" class="form-control"
+                        <input type="text" name="mobile" id="mobile" class="form-control just-numbers"
                             placeholder="موبایل...">
                     </div>
                     <!-- /.col -->
@@ -68,16 +73,24 @@
 
                 <form method="POST" action="{{ route('codePassword') }}" id="codeform" style="display: none;">
                     @csrf
+                    <p id="countdown"></p>
                     <label class="form-label">کد <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
                         <input type="hidden" name="mobile" id="user-mobile" class="form-control">
-                        <input type="text" name="code" class="form-control" placeholder="کد...">
+                        <input type="text" name="code" id="code" class="form-control" placeholder="کد...">
                     </div>
-                    <!-- /.col -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat" id="code-submit" >ارسال</button>
+                    <div class="row">
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat"
+                                id="code-submit">تایید</button>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-6">
+                            <button type="button" class="btn btn-secondary btn-block btn-flat" id="resend-code">ارسال
+                                مجدد کد</button>
+                        </div>
                     </div>
-                    <!-- /.col -->
 
                 </form>
             </div>
@@ -93,6 +106,10 @@
             $('#submit-btn').click(function() {
                 var mobile = $('#mobile').val();
                 var token = $("input[name='_token']").val();
+
+                $('#loading-overlay').fadeIn();
+                $('#submit-btn').prop('disabled', true);
+
                 $.ajax({
                     type: 'POST',
                     url: '/forgotPassword',
@@ -103,6 +120,11 @@
                     success: function(data) {
                         $("#forgotform").hide();
                         $("#codeform").show();
+                        startCountdown();
+
+                        $('#loading-overlay').fadeOut();
+                        $('#submit-btn').prop('disabled', false);
+
                     },
                     error: function(data) {
                         Swal.fire({
@@ -110,6 +132,10 @@
                             title: 'خطا',
                             text: data.responseJSON.message
                         });
+
+                        $('#loading-overlay').fadeOut();
+                        $('#submit-btn').prop('disabled', false);
+
                     }
                 });
             });
@@ -117,25 +143,145 @@
 
         <script>
             $(document).ready(function() {
-              $('#code-submit').click(function(event) {
-                event.preventDefault();
-                $('#user-mobile').val($('#mobile').val());
-                $('#codeform').submit();
-              });
+                $('#code-submit').click(function(event) {
+                    event.preventDefault();
+                    $('#user-mobile').val($('#mobile').val());
+                    $('#codeform').submit();
+                });
             });
-            </script>
-
-        <script>
-            //   $(function () {
-            //     $('input').iCheck({
-            //       checkboxClass: 'icheckbox_square-blue',
-            //       radioClass   : 'iradio_square-blue',
-            //       increaseArea : '20%' // optional
-            //     })
-            //   })
-            //
         </script>
 
+        <script>
+            $('#codeform').on('submit', function(e) {
+                e.preventDefault();
+
+                var code = $('#code').val();
+                var token = $("input[name='_token']").val();
+                var mobile = $('#user-mobile').val();
+
+                $('#loading-overlay').fadeIn();
+                $('#submit-btn').prop('disabled', true);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/codePassword',
+                    data: {
+                        '_token': token,
+                        'code': code,
+                        'mobile': mobile
+                    },
+                    success: function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'موفقیت',
+                            text: 'رمز عبور با موفقیت تغییر یافت.'
+                        }).then(function() {
+                            window.location.href = "{{ route('login') }}";
+                        });
+
+                        $('#loading-overlay').fadeOut();
+                        $('#submit-btn').prop('disabled', false);
+
+                    },
+                    error: function(data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'خطا',
+                            text: data.responseJSON.message
+                        });
+
+                        $('#loading-overlay').fadeOut();
+                        $('#submit-btn').prop('disabled', false);
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            $('#resend-code').click(function() {
+                var mobile = $('#mobile').val();
+                var token = $("input[name='_token']").val();
+
+                $('#loading-overlay').fadeIn();
+                $('#submit-btn').prop('disabled', true);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/resendCode',
+                    data: {
+                        '_token': token,
+                        'mobile': mobile
+                    },
+                    success: function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'موفق',
+                            text: 'کد جدید برای شما ارسال شد.'
+                        });
+
+                        $('#loading-overlay').fadeOut();
+                        $('#submit-btn').prop('disabled', false);
+
+                    },
+                    error: function(data) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'خطا',
+                            text: data.responseJSON.message
+                        });
+
+                        $('#loading-overlay').fadeOut();
+                        $('#submit-btn').prop('disabled', false);
+
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            var countdownSeconds = 60;
+            var countdownInterval;
+            var resendButtonDisabled = true;
+
+            function startCountdown() {
+                if (countdownSeconds === 60) {
+                    document.getElementById('resend-code').disabled = true;
+                    resendButtonDisabled = true;
+                }
+
+                countdownSeconds = 60;
+                updateCountdown();
+                countdownInterval = setInterval(updateCountdown, 1000);
+            }
+
+            function updateCountdown() {
+                document.getElementById('countdown').innerHTML = "زمان باقی‌مانده: " + countdownSeconds + " ثانیه";
+
+                if (countdownSeconds === 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('countdown').innerHTML = "زمان به پایان رسید.";
+
+                    if (resendButtonDisabled) {
+                        document.getElementById('resend-code').disabled = false;
+                        resendButtonDisabled = false;
+                    }
+                } else {
+                    countdownSeconds--;
+                }
+            }
+
+            document.getElementById('resend-code').addEventListener('click', function() {
+                if (!resendButtonDisabled) {
+                    document.getElementById('resend-code').disabled = true;
+                    resendButtonDisabled = true;
+                    startCountdown();
+                }
+            });
+
+            document.getElementById('resend-code').disabled = true;
+        </script>
+
+        <script src="{{ asset('js/validation.js') }}"></script>
 
 </body>
 
