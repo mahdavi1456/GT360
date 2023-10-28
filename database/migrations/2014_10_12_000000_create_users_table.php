@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('user_type');
             $table->timestamps();
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
