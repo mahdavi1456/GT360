@@ -180,7 +180,7 @@ class AccountController extends Controller
         $mobile = $validatedData['mobile'];
         $message = 'کابر گرامی رمز عبور ورود شما : ' . $password;
 
-        sendSMS($mobile, $message);
+        // sendSMS($mobile, $message);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ایجاد شد.');
         Auth::login($createUser);
@@ -214,7 +214,7 @@ class AccountController extends Controller
             $mobile = $validate['mobile'];
             $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
 
-            sendSMS($mobile, $message);
+            // sendSMS($mobile, $message);
 
         } else {
 
@@ -251,7 +251,7 @@ class AccountController extends Controller
             $mobile = $user->mobile;
             $message = 'کابر گرامی رمز عبور شما با موفقیت تغییر یافت. رمز عبور جدید : ' . $newPassword;
 
-            sendSMS($mobile, $message);
+            // sendSMS($mobile, $message);
 
             Auth::login($user);
 
@@ -290,7 +290,7 @@ class AccountController extends Controller
 
             $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
 
-            sendSMS($mobile, $message);
+            // sendSMS($mobile, $message);
 
         }
     }

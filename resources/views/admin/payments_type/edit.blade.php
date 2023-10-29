@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Product List')
+@section('title', 'ویرایش نوع پرداخت')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')

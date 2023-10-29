@@ -52,7 +52,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>قیمت خرید</label>
-                                                <input type="text" name="purchace_price" class="form-control" value="{{ old('purchase_price') }}" placeholder="قیمت خرید...">
+                                                <input type="text" name="purchase_price" class="form-control" value="{{ old('purchase_price') }}" placeholder="قیمت خرید...">
                                             </div>
                                         </div>
                                         <div class="col-6">

@@ -8,5 +8,6 @@
 
     <!-- bootstrap touchspin -->
     <link rel="stylesheet" href="{{ asset('asset/plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap-rtl.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">

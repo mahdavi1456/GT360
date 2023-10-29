@@ -43,11 +43,11 @@
           </div>
       </div>
   @endif
-      <form method="POST" action="{{ route('login') }}">
+      <form method="POST" action="{{ route('login') }}"  autocomplete="off">
         @csrf
         <label class="form-label">موبایل <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
-          <input type="text" name="mobile" class="form-control just-numbers" placeholder="موبایل..."  value="{{ old('mobile') }}" required
+          <input type="text" name="mobile" class="form-control just-numbers" placeholder="موبایل..."  value="{{ old('mobile') }}"  autocomplete="off" required
           oninvalid="this.setCustomValidity('.لطفا موبایل را وارد کنید')"
           oninput="this.setCustomValidity('')">
           <div class="input-group-append">
@@ -56,7 +56,7 @@
         </div>
         <label class="form-label">رمز عبور <span class="text-danger">*</span></label>
         <div class="input-group mb-3">
-          <input type="password"  name="password"  class="form-control" placeholder="رمز عبور..."   value="{{ old('password') }}" required
+          <input type="password"  name="password"  class="form-control" placeholder="رمز عبور..."   value="{{ old('password') }}"  autocomplete="off" required
           oninvalid="this.setCustomValidity('.لطفا رمز عبور را وارد کنید')"
           oninput="this.setCustomValidity('')">
           <div class="input-group-append">

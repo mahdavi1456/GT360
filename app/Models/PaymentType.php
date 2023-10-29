@@ -12,5 +12,7 @@ class PaymentType extends Model
 
     use SoftDeletes;
 
+    protected $table = "payment_types";
+
     protected $guarded = [];
 }

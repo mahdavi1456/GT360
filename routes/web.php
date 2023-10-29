@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CartHeadController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\DashboardController;
@@ -98,4 +99,6 @@ Route::get('checkout', function() {
 Route::resource('payments_type', PaymentTypeController::class);
 
 Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
