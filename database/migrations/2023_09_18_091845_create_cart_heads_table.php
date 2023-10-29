@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('cart_heads', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('account_id');
             $table->string('user_name')->nullable();
             $table->string('user_family')->nullable();
-            $table->string('user_id')->nullable();
+            $table->string('customer_id')->nullable();
             $table->string('user_mobile')->nullable();
-            $table->string('user_ip')->nullable();
+            $table->string('customer_ip')->nullable();
             $table->string('total_price');
             $table->unsignedBigInteger('discount_id')->nullable();
             $table->string('discount_title')->nullable();

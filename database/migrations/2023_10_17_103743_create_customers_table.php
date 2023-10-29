@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('national_code')->nullable();
             $table->boolean('gender')->nullable();
             $table->date('birthday')->nullable();
+            $table->string('remember_token')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

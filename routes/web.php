@@ -5,10 +5,12 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CartHeadController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentsTypeController;
 use App\Http\Controllers\PaymentTypeController;
 use App\Http\Controllers\ProductController;
@@ -31,6 +33,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/{slug}', [HomeController::class, 'index']);
 
 Route::resource('product', ProductController::class);
 Route::resource('category', CategoryController::class);
@@ -100,5 +104,21 @@ Route::resource('payments_type', PaymentTypeController::class);
 
 Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
 
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/checkout/{customer_id}', [CheckoutController::class, 'index'])->name('checkout');
+
+Route::get('/customer-login', [CustomerController::class, 'loginForm'])->name('customer.login');
+
+Route::post('/customer-login', [CustomerController::class, 'sendLoginCode'])->name('customerlogin');
+
+Route::post('/resendLoginCode', [CustomerController::class, 'resendLoginCode'])->name('resendLoginCode');
+
+Route::post('/confirmLogin', [CustomerController::class, 'confirmLogin'])->name('confirmLogin');
+
+Route::get('/completeInfo/{customer_id}', [CheckoutController::class,'completeInfo'])->name('completeInfo');
+
+Route::post('/completeInfo/{customer_id}', [CheckoutController::class,'storeInfo'])->name('storeInfo');
+
+
+
+
 

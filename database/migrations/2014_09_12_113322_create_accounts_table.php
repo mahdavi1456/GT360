@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->string('account_type');
+            $table->string('slug')->nullable();
             $table->string('name');
             $table->string('family');
             $table->string('mobile');

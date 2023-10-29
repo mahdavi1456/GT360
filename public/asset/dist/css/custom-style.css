@@ -364,3 +364,14 @@ ul {
     border-color: #21371b;
 }
 
+
+.checkout-box-login {
+    box-shadow: 0 0 4px rgba(0, 0, 0, .23922);
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 31px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+    width: 100%;
+}
