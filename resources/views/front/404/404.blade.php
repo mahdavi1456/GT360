@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="_token" content="{{ csrf_token() }}">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="v1/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+    <script type="text/javascript" src="v1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="v1/js/jquery-3.6.3.js"></script>
+    <script type="text/javascript" src="v1/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="v1/js/script.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="loader"></div>
+    </div>
+    <div id="first-cover" style="background: url(v1/images/banner-2.jpg);">
+        <div class="container">
+            <header id="top-header">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="v1/images/logo.png" style="width: 200px;" class="img-fluid">
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div id="category-list">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="products">
+        <div class="container">
+            <div class="row">
+                <div style="text-align: center; padding: 50px 0;">
+
+                    404 - این صفحه یافت نشد!
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer>
+        <h6>ساخته شده با عشق در <a href="https://gratech.ir/" target="_blank">گراتک</a></h6>
+    </footer>
+</body>
+
+</html>

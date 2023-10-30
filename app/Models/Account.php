@@ -19,21 +19,13 @@ class Account extends Model
 
     public function products()
     {
-        $users = $this->users;
-        $products = new Collection;
-        foreach ($users as $user) {
-            $products = $products->merge($user->products);
-        }
-        return $products;
+        return $this->hasMany(Product::class, 'account_id');
     }
 
     public function categories()
     {
-        $users = $this->users;
-        $categories = new Collection;
-        foreach ($users as $user) {
-            $categories = $categories->merge($user->categories);
-        }
-        return $categories;
+
+        return $this->hasMany(Category::class);
     }
+
 }

@@ -114,20 +114,55 @@ class AccountController extends Controller
             'mobile' => 'required|string|digits:11',
             'phone' => 'nullable|string|max:15',
             'email' => 'nullable|email|max:255',
-            'birthday' => 'nullable|date',
+            'birthday' => 'nullable',
             'mellicode' => 'nullable|string|max:10',
             'state' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'company' => 'nullable|string|max:255',
+            'slug' => 'required|string|max:255',
+            'company' => 'required_if:account_type,حقوقی|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
             'registration_number' => 'nullable|string|max:20',
-            'registration_date' => 'nullable|date',
+            'registration_date' => 'nullable',
         ]);
 
-        $account->update($validatedData);
+        if ($validatedData['birthday']  != null) {
+            $birthday = Carbon::parse(Verta::parse($validatedData['birthday'])->formatGregorian('Y-m-d'));
+        } else {
+            $birthday = null;
+        }
+
+
+        if ($validatedData['registration_date']  != null) {
+            $registration_date = Carbon::parse(Verta::parse($validatedData['registration_date'])->formatGregorian('Y-m-d'));
+        } else {
+            $registration_date = null;
+        }
+
+
+        $account->update([
+            'account_type' => $validatedData['account_type'],
+            'name' => $validatedData['name'],
+            'family' => $validatedData['family'],
+            'mobile' => $validatedData['mobile'],
+            'phone' => $validatedData['phone'],
+            'email' => $validatedData['email'],
+            'birthday' => $birthday,
+            'mellicode' => $validatedData['mellicode'],
+            'state' => $validatedData['state'],
+            'city' => $validatedData['city'],
+            'address' => $validatedData['address'],
+            'postalcode' => $validatedData['postalcode'],
+            'slug' => $validatedData['slug'],
+            'company' => $validatedData['company'],
+            'company_type' => $validatedData['company_type'],
+            'national_id' => $validatedData['national_id'],
+            'registration_number' => $validatedData['registration_number'],
+            'registration_date' => $registration_date,
+
+        ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
         return redirect()->back();
@@ -256,7 +291,6 @@ class AccountController extends Controller
             Auth::login($user);
 
             return response()->json(['success' => 'تغییر رمز عبور با موفقیت انجام شد']);
-
         } else {
 
             return response()->json(['message' => 'کد وارد شده اشتباه است'], 404);
@@ -314,5 +348,22 @@ class AccountController extends Controller
         $accounts = $query->get();
 
         return view('admin.account.list', compact('accounts'));
+    }
+
+    public function accountusersactivation(Request $request)
+    {
+        $id = $request->id;
+        $reseaon = $request->reseaon;
+
+        $account = Account::findOrFail($id);
+        $active = $request->active;
+        $account->update([
+            'account_status' => $active,
+            'deactivation_reason' => $reseaon
+        ]);
+
+        Alert::success('موفق', 'وضعیت کاربر با موفقیت تغییر کرد');
+        return back();
+
     }
 }

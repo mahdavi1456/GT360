@@ -5,6 +5,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CartHeadController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
 use App\Models\Account;
+use App\Models\CustomerAddress;
 use App\Models\Transport;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -36,77 +38,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/{slug}', [HomeController::class, 'index']);
 
-Route::resource('product', ProductController::class);
-Route::resource('category', CategoryController::class);
-Route::resource('transport', TransportController::class);
-Route::resource('account', AccountController::class);
-Route::resource('discount', DiscountController::class);
-Route::resource('setting', SettingController::class);
-
-
-Route::prefix('account')->group(function () {
-    Route::get('{accountId}/users', [UserController::class, 'showUsers'])->name('user.showUsers');
-    Route::get('{accountId}/users/{userId}/edit', [UserController::class, 'editUser'])->name('user.editUser');
-    Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
-    Route::delete('{accountId}/users/{userId}', [UserController::class, 'destroyUser'])->name('account.users.destroy');
-});
-
-Route::get('users/create/{accountId}', [UserController::class, 'create'])->name('users.create');
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 
 
-Route::get('/', [DashboardController::class, 'index']);
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
 Route::post('/uploadFile', [ApiController::class, 'uploadFile']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::Post('user/create', [AccountController::class, 'newUserAccount'])->name('newUserAccount');
 
 Route::Post('forgotPassword', [AccountController::class, 'forgotPassword'])->name('forgotPassword');
 Route::Post('codePassword', [AccountController::class, 'codePassword'])->name('codePassword');
 
-//  پردازش جستجو محصولات
-Route::get('/result-product', [ProductController::class, 'searchproduct'])->name('search');
-
-//  پردازش جستجو حساب کاربری
-Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
-
 // فعال و غیرفعال کردن کاربر
 Route::put('user/activation', [UserController::class, 'accountusersactivation'])->name('account.users.activation');
 
-Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
-Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
-Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
+// فعال و غیرفعال کردن اکانت
+Route::put('account/activation', [AccountController::class, 'accountusersactivation'])->name('account.activation');
 
-Route::post('cart/add', [CartHeadController::class, 'addToCart']);
-Route::get('cart', [CartHeadController::class, 'showCart'])->name('showCart');
-Route::delete('cart/remove/{body}', [CartHeadController::class, 'removeFromCart']);
-Route::put('cart/amount/{body}', [CartHeadController::class, 'amount']);
-Route::put('cart/discount/{cart}', [CartHeadController::class, 'discount']);
-Route::put('cart/discount/remove/{cart}', [CartHeadController::class, 'removeDiscount']);
-
-Route::get('checkout', function() {
-    return view('front.checkout.checkout');
-});
-
-Route::resource('payments_type', PaymentTypeController::class);
 
 Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
 
-Route::get('/checkout/{customer_id}', [CheckoutController::class, 'index'])->name('checkout');
-
-Route::get('/customer-login', [CustomerController::class, 'loginForm'])->name('customer.login');
 
 Route::post('/customer-login', [CustomerController::class, 'sendLoginCode'])->name('customerlogin');
 
@@ -114,11 +66,71 @@ Route::post('/resendLoginCode', [CustomerController::class, 'resendLoginCode'])-
 
 Route::post('/confirmLogin', [CustomerController::class, 'confirmLogin'])->name('confirmLogin');
 
-Route::get('/completeInfo/{customer_id}', [CheckoutController::class,'completeInfo'])->name('completeInfo');
 
-Route::post('/completeInfo/{customer_id}', [CheckoutController::class,'storeInfo'])->name('storeInfo');
+Route::post('/completeInfo/{customer_id}', [CheckoutController::class, 'storeInfo'])->name('storeInfo');
 
-
-
+Route::post('/addAddress/{customer_id}', [CustomerAddressController::class, 'addAddress'])->name('addAddress');
 
 
+Route::prefix('admin')->group(function () {
+
+    Route::resource('product', ProductController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('transport', TransportController::class);
+    Route::resource('account', AccountController::class);
+    Route::resource('discount', DiscountController::class);
+    Route::resource('setting', SettingController::class);
+
+    Route::prefix('account')->group(function () {
+        Route::get('{accountId}/users', [UserController::class, 'showUsers'])->name('user.showUsers');
+        Route::get('{accountId}/users/{userId}/edit', [UserController::class, 'editUser'])->name('user.editUser');
+        Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
+        Route::delete('{accountId}/users/{userId}', [UserController::class, 'destroyUser'])->name('account.users.destroy');
+    });
+
+    Route::get('users/create/{accountId}', [UserController::class, 'create'])->name('users.create');
+
+    Route::get('/', [DashboardController::class, 'index']);
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    });
+
+
+    //  پردازش جستجو محصولات
+    Route::get('/result-product', [ProductController::class, 'searchproduct'])->name('search');
+
+    //  پردازش جستجو حساب کاربری
+    Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
+
+
+    Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
+    Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
+    Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
+
+    Route::post('cart/add', [CartHeadController::class, 'addToCart']);
+    Route::get('cart', [CartHeadController::class, 'showCart'])->name('showCart');
+    Route::delete('cart/remove/{body}', [CartHeadController::class, 'removeFromCart']);
+    Route::put('cart/amount/{body}', [CartHeadController::class, 'amount']);
+    Route::put('cart/discount/{cart}', [CartHeadController::class, 'discount']);
+    Route::put('cart/discount/remove/{cart}', [CartHeadController::class, 'removeDiscount']);
+
+    Route::get('checkout', function () {
+        return view('front.checkout.checkout');
+    });
+
+    Route::resource('payments_type', PaymentTypeController::class);
+
+
+    Route::get('/checkout/{customer_id?}', [CheckoutController::class, 'index'])->name('checkout');
+
+    Route::get('/customer-login', [CustomerController::class, 'loginForm'])->name('customer.login');
+
+    Route::get('/completeInfo/{customer_id}', [CheckoutController::class, 'completeInfo'])->name('completeInfo');
+});

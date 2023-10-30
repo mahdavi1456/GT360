@@ -49,11 +49,13 @@ class LoginRequest extends FormRequest
 
             $user = User::where('mobile', $this->input('mobile'))->first();
 
+            if($user && $user->account->account_status === 'deActive') {
             if ($user && $user->user_status === 'DeActive') {
                 throw ValidationException::withMessages([
                     $user->deactivation_reason
                 ]);
             }
+        }
 
             throw ValidationException::withMessages([
                 'mobile' => trans('auth.failed'),

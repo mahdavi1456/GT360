@@ -70,7 +70,7 @@
                 <button class="btn btn-danger" onclick="removeDiscount({{ $cart->id }})">حذف کد تخفیف</button>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('checkout') }}" class="btn btn-success">تسویه حساب</a>
+                <a href="{{ route('customer.login') }}" class="btn btn-success">تسویه حساب</a>
             </div>
         </div>
     </div>

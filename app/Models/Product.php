@@ -46,8 +46,14 @@ class Product extends Model
     {
         if (isset($this->offer_price))
             echo fa_number($this->offer_price) . '<br><s>' . fa_number($this->sales_price) . '</s>';
-        else 
+        else
             echo fa_number($this->sales_price);
     }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class, 'account_id');
+    }
+
 
 }

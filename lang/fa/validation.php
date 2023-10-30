@@ -162,6 +162,9 @@ return [
         'cparent'               => 'دسته والد',
         'family'                =>'نام خانوادکی',
         'mobile'                => 'موبایل',
+        'mellicode'             => 'کد ملی',
+        'account_type'          => 'نوع حساب',
+        'company'               => 'نام شرکت'
     ],
 
 ];

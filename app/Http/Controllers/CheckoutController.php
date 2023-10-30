@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\CustomerAddress;
 use App\Models\PaymentType;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutController extends Controller
 {
@@ -61,4 +62,5 @@ class CheckoutController extends Controller
 
         return redirect()->route('checkout', ['customer_id' => $customer_id]);
     }
+
 }
