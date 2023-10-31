@@ -117,7 +117,7 @@
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>روش های پرداخت</p>
                                 </a>
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('setting.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>عمومی</p>
                                 </a>

@@ -10,6 +10,10 @@
 
         {{ breadcrumb('روش های پرداخت') }}
 
+        <div class="col-md-6">
+            <h1 class="p-4" style="font-size: 25px">روش های پرداخت</h1>
+        </div>
+
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">

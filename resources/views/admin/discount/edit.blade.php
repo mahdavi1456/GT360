@@ -36,7 +36,8 @@
                                             <div class="form-group">
                                                 <label class="form-label">نام <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" id="title"
-                                                    placeholder="نام..." value="{{ $discount->title }}" required>
+                                                    placeholder="نام..." value="{{ $discount->title }}"  required oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -55,28 +56,46 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label required">درصد</label>
-                                                <input type="text" name="percent" class="form-control" id="percent" placeholder="درصد..." value="{{ $discount->percent }}">
+                                                <label class="form-label required">درصد <span class="text-danger">*</span></label>
+                                                <input type="text" name="percent" class="form-control just-numbers" id="percent" placeholder="درصد..." value="{{ old('percent') ?? $discount->percent }}">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label required">قیمت(تومان)</label>
-                                                <input type="text" name="price" class="form-control" id="price" disabled placeholder="قیمت..." value="{{ $discount->price }}">
+                                                <label class="form-label required">قیمت(تومان) <span class="text-danger">*</span></label>
+                                                <input type="text" name="price" class="form-control just-numbers" id="price" disabled placeholder="قیمت..." value="{{ old('price') ?? $discount->price }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="form-label">حداقل خرید <span class="text-danger">*</span></label>
+                                                <input type="text" name="min_cart" value="{{ old('min_cart')?? $discount->min_cart }}" class="form-control just-numbers" placeholder="حداقل خرید..." required oninvalid="this.setCustomValidity('.لطفا حداقل خرید را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="form-label">حداکثر خرید <span class="text-danger">*</span></label>
+                                                <input type="text" name="max_cart" value="{{ old('max_cart')?? $discount->max_cart }}" class="form-control just-numbers" placeholder="حداکثر خرید..." required oninvalid="this.setCustomValidity('.لطفا حداکثر خرید را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
                                         <div class="form-group">
-                                            <label class="form-label required">تاریخ اعتبار</label>
-                                            <input type="text" name="validity_date" class="datepicker form-control" id="validity_date"  placeholder="۱۴۰۱/۰۱/۰۱" value="{{ $discount->validity_date }}">
+                                            <label class="form-label required">تاریخ اعتبار <span class="text-danger">*</span></label>
+                                            <input type="text" name="validity_date" class="datepicker form-control" id="validity_date"  value="{{ old('validity_date') ?? fa_number(Verta::instance($discount->validity_date)->format('Y/m/d'))}}" required oninvalid="this.setCustomValidity('.لطفا تاریخ اعتبار را وارد کنید')"
+                                            oninput="this.setCustomValidity('')" readonly>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label class="form-label required">تعداد اعتبار</label>
-                                            <input type="text" name="number" class="form-control" id="number" placeholder="تعداد اعتبار..." value="{{ $discount->number }}">
+                                            <label class="form-label required">تعداد اعتبار <span class="text-danger">*</span></label>
+                                            <input type="text" name="number" class="form-control just-numbers" id="number" placeholder="تعداد اعتبار..." value="{{ old('number') ?? $discount->number }}" required oninvalid="this.setCustomValidity('.لطفا تعداد اعتبار را وارد کنید')"
+                                            oninput="this.setCustomValidity('')">
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +103,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label required">توضیحات</label>
-                                                <textarea name="details" class="form-control" id="details" placeholder="توضیحات...">{{ $discount->details }}</textarea>
+                                                <textarea name="details" class="form-control" id="details" placeholder="توضیحات...">{{ old('details') ?? $discount->details }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -125,5 +144,8 @@
         });
     });
 </script>
+
+<script src="{{ asset('js/validation.js') }}"></script>
+
 
 @endsection

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $guarded = [];
 
@@ -29,7 +31,7 @@ class Product extends Model
 
     public function media()
     {
-        return $this->hasMany(ProductMedia::class,);
+        return $this->hasMany(ProductMedia::class);
     }
 
     public function primaryImage()

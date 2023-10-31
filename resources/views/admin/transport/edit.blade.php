@@ -1,6 +1,3 @@
-<?php
-use App\Helpers\TextHelper;
-?>
 @extends('admin.master')
 @section('title', 'Category List')
 @section('content')
@@ -11,7 +8,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("حمل و نقل") }}
+        {{ breadcrumb("حمل و نقل") }}
 
         <!-- Main content -->
         <section class="content">
@@ -38,15 +35,17 @@ use App\Helpers\TextHelper;
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="form-label">عنوان <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control" id="title"  value="{{ $transport->title }}"
-                                                    placeholder="عنوان..." required>
+                                                <input type="text" name="title" class="form-control" id="title" value="{{ old('title') ?? $transport->title }}"
+                                                    placeholder="عنوان..." required oninvalid="this.setCustomValidity('.لطفا عنوان را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label required">هزینه (تومان)</label>
-                                                <input type="text" name="tprice" class="form-control" id="tprice"  value="{{ $transport->tprice }}"
-                                                    placeholder="هزینه..." required>
+                                                <label class="form-label required">هزینه (تومان) <span class="text-danger">*</span></label>
+                                                <input type="text" name="tprice" class="form-control" id="tprice"  value="{{  old('tprice') ??  $transport->tprice }}"
+                                                    placeholder="هزینه..." required oninvalid="this.setCustomValidity('.لطفا هزینه را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +53,7 @@ use App\Helpers\TextHelper;
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label required">توضیحات</label>
-                                                <textarea name="tdetails" class="form-control" id="tdetails" placeholder="توضیحات...">{{ $transport->tdetails }}</textarea>
+                                                <textarea name="tdetails" class="form-control" id="tdetails" placeholder="توضیحات...">{{ old('tdetails') ?? $transport->tdetails }}</textarea>
                                             </div>
                                         </div>
                                     </div>

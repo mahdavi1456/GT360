@@ -34,13 +34,15 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="form-label">عنوان سایت <span class="text-danger">*</span></label>
-                                                <input type="text" name="settings[title]" class="form-control" id="title" placeholder="عنوان سایت..." required value = "{{ TextHelper::getSetting('title') }}">
+                                                <input type="text" name="settings[title]" class="form-control" id="title" placeholder="عنوان سایت..." value = "{{ getSetting('title') }}" required oninvalid="this.setCustomValidity('.لطفا عنوان را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="form-label">توضیحات سایت <span class="text-danger">*</span></label>
-                                                <textarea name="settings[description]" class="form-control" id="description" placeholder="توضیحات...">{{ TextHelper::getSetting('description') }}</textarea>
+                                                <textarea name="settings[description]" class="form-control" id="description" placeholder="توضیحات..." required oninvalid="this.setCustomValidity('.لطفا توضیحات را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">{{ getSetting('description') }}</textarea>
                                             </div>
                                         </div>
                                     </div>

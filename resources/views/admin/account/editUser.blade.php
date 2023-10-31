@@ -38,7 +38,9 @@
                                             <div class="form-group">
                                                 <label class="form-label">نام <span class="text-danger">*</span></label>
                                                 <input type="text" name="name" id="name"
-                                                    value="{{ $user->name }}" class="form-control">
+                                                    value="{{ old('name') ?? $user->name }}" class="form-control" required
+                                                    oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-3">
@@ -46,7 +48,9 @@
                                                 <label class="form-label">نام خانوادگی <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="family" id="family"
-                                                    value="{{ $user->family }}" class="form-control">
+                                                    value="{{ old('family') ?? $user->family }}" class="form-control" required
+                                                    oninvalid="this.setCustomValidity('.لطفا نام خانوادگی را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-3">
@@ -54,7 +58,9 @@
                                                 <label class="form-label required"> موبایل <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="mobile" id="mobile"
-                                                    value="{{ $user->mobile }}" class="form-control">
+                                                    value="{{ old('mobile') ?? $user->mobile }}" class="form-control just-numbers" required
+                                                    oninvalid="this.setCustomValidity('.لطفا موبایل را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
 
@@ -63,7 +69,9 @@
                                                 <label class="form-label required"> ایمیل <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="email" id="email"
-                                                    value="{{ $user->email }}" class="form-control">
+                                                    value="{{ old('email') ?? $user->email }}" class="form-control nonPersianletters" required
+                                                    oninvalid="this.setCustomValidity('.لطفا ایمیل را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                     </div>
@@ -72,21 +80,21 @@
                                             <div class="form-group">
                                                 <label class="form-label required"> استان </label>
                                                 <input type="text" name="state" class="form-control"
-                                                    id="state" value="{{ $user->state }}" />
+                                                    id="state" value="{{ old('state') ?? $user->state }}" />
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label class="form-label required"> شهر </label>
                                                 <input type="text" name="city" class="form-control" id="city"
-                                                    value="{{ $user->city }}" />
+                                                    value="{{ old('city') ?? $user->city }}" />
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="form-label required"> آدرس </label>
                                                 <input type="text" name="address" class="form-control" id="address"
-                                                    value="{{ $user->address }}" />
+                                                    value="{{ old('address') ?? $user->address }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -94,8 +102,8 @@
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label class="form-label required"> کدپستی </label>
-                                                <input type="text" name="postalcode" class="form-control" id="postalcode"
-                                                    value="{{ $user->postalcode }}" />
+                                                <input type="text" name="postalcode" class="form-control just-numbers" id="postalcode"
+                                                    value="{{ old('postalcode') ?? $user->postalcode }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -130,4 +138,7 @@
             });
         });
     </script>
+
+<script src="{{ asset('js/validation.js') }}"></script>
+
 @endsection

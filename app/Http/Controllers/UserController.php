@@ -39,7 +39,7 @@ class UserController extends Controller
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
             'username' => 'required|string',
-            'password' => 'required|string|min:8|confirmed',
+            'pass' => 'required|string|min:8|confirmed',
 
         ]);
 
@@ -54,8 +54,9 @@ class UserController extends Controller
             'address' => $validatedData['address'],
             'postalcode' => $validatedData['postalcode'],
             'username' => $validatedData['username'],
-            'password' => $validatedData['password'],
-            'user_status' => 'waiting'
+            'password' => $validatedData['pass'],
+            'user_type'  => 'admin',
+            'user_status' => 'DeActive'
         ]);
 
         Alert::success('موفق', 'کاربر با موفقیت ایجاد شد.');

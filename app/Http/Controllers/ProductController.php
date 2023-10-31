@@ -8,6 +8,7 @@ use App\Models\ProductMedia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -40,6 +41,7 @@ class ProductController extends Controller
             'purchase_price' => 'numeric',
             'sales_price' => 'numeric',
             'inventory' => 'numeric',
+            'files' => 'required'
         ]);
 
         $product = Product::create([
@@ -47,6 +49,7 @@ class ProductController extends Controller
             'purchase_price' => $request->purchase_price,
             'sales_price' => $request->sales_price,
             'inventory' => $request->inventory,
+            'account_id' => Auth::user()->account_id,
             'user_id' => Auth::user()->id
         ]);
 
@@ -93,6 +96,7 @@ class ProductController extends Controller
 
         $validated = $request->validate([
             'product_name' => 'required',
+            'files' => 'required'
         ]);
 
         $product->update([
@@ -103,6 +107,16 @@ class ProductController extends Controller
         ]);
 
         $product->categories()->sync($request->categories);
+
+        if (!is_null($request->get('files'))) {
+            $files = json_decode($request->get('files'));
+            foreach ($files as $file) {
+                ProductMedia::create([
+                    'product_id' => $product->id,
+                    'image' => $file
+                ]);
+            }
+        };
 
         Alert::success('موفق', 'محصول با موفقیت ایجاد شد.');
         return redirect()->route('product.index');
@@ -140,6 +154,20 @@ class ProductController extends Controller
         ->get();
 
         return view('admin.product.list', compact('products', 'categories'));
+    }
+
+    public function deleteImage(Request $request)
+    {
+        $imageId = $request->input('image_id');
+
+        $prodcutMedai = ProductMedia::find($imageId);
+
+        if ($prodcutMedai) {
+            $prodcutMedai->delete();
+
+            Storage::delete(public_path( $prodcutMedai->image));
+        }
+
     }
 
 }

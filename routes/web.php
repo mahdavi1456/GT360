@@ -72,6 +72,13 @@ Route::post('/completeInfo/{customer_id}', [CheckoutController::class, 'storeInf
 Route::post('/addAddress/{customer_id}', [CustomerAddressController::class, 'addAddress'])->name('addAddress');
 
 
+Route::get('/', [DashboardController::class, 'index']);
+
+
+Route::put('/delete-image', [CategoryController::class, 'deleteImage'])->name('deleteimage');
+
+Route::put('/delete-product-images', [ProductController::class, 'deleteImage'])->name('deleteproductimage');
+
 Route::prefix('admin')->group(function () {
 
     Route::resource('product', ProductController::class);
@@ -90,7 +97,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('users/create/{accountId}', [UserController::class, 'create'])->name('users.create');
 
-    Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');

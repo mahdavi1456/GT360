@@ -52,23 +52,24 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th class="px-4">شماره</th>
+                                            <th class="px-4">ردیف</th>
                                             <th class="px-4">نوع اکانت</th>
                                             <th class="px-4">نام</th>
                                             <th class="px-4">نام خانوادگی</th>
                                             <th class="px-4">موبایل</th>
                                             <th class="px-4">وضعیت اکانت</th>
+                                            <th class="px-4">دلیل غیرفعال سازی</th>
                                             <th class="px-4">عملیات</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($accounts as $account)
                                             <tr>
-                                                <td class="w-auto text-center">{{ $account->id }}</td>
+                                                <td class="w-auto text-center">{{ fa_number($loop->index + 1) }}</td>
                                                 <td class="w-auto text-center">{{ $account->account_type }}</td>
                                                 <td class="w-auto text-center">{{ $account->name }}</td>
                                                 <td class="w-auto text-center">{{ $account->family }}</td>
-                                                <td class="w-auto text-center">{{ $account->mobile }}</td>
+                                                <td class="w-auto text-center">{{ fa_number($account->mobile) }}</td>
                                                 <td class="w-auto text-center">@if($account->account_status == 'active')
                                                     <span class="badge bg-success" style="font-size: 17px;color: #FFF !important;">فعال</span>
                                                     @else
@@ -76,6 +77,11 @@
                                                     @endif
 
                                                 </td>
+                                                @if($account->deactivation_reason)
+                                                <td class="w-auto text-center"> {{ $account->deactivation_reason }} </td>
+                                                @else
+                                                <td class="w-auto text-center"> ------ </td>
+                                                @endif
                                                 <td class="d-flex">
                                                     <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}" class="btn btn-primary m-1">مشاهده کاربران</a>
                                                     <a href="{{ route('account.edit', $account->id) }}"
@@ -90,7 +96,7 @@
                                                     <button type="button" name="active"
                                                         class="btn btn-danger Deactive-button" data-toggle="modal"
                                                         data-target="#exampleModal" id="{{ $account->id }}"
-                                                        value="deActive">غیرفعال سازی کاربر</button>
+                                                        value="deActive" style="height: 39px; margin-top: 4px;">غیرفعال سازی کاربر</button>
                                                     @elseif ($account->account_status == 'deActive')
                                                     <form action="{{ route('account.activation') }}"
                                                         class="mt-1  m-1" method="POST">
@@ -143,7 +149,7 @@
                     <input type="hidden" id="user_id" name="active" value="deActive">
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">پیام <span class="text-danger">*</span></label>
-                        <textarea class="form-control" id="message-text" name="reseaon" required  oninvalid="this.setCustomValidity('.لطفا پیام را وارد کنید')"
+                        <textarea class="form-control" id="message-text" name="reseaon" required oninvalid="this.setCustomValidity('.لطفا پیام را وارد کنید')"
                         oninput="this.setCustomValidity('')"></textarea>
                     </div>
             </div>

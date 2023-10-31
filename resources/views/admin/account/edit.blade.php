@@ -65,7 +65,7 @@
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label class="form-label required"> موبایل <span class="text-danger">*</span></label>
-                                            <input type="text" name="mobile" class="form-control" id="mobile" placeholder="موبایل..." value="{{ old('mobile') ?? $account->mobile }}"  required
+                                            <input type="text" name="mobile" class="form-control just-numbers" id="mobile" placeholder="موبایل..." value="{{ old('mobile') ?? $account->mobile }}"  required
                                             oninvalid="this.setCustomValidity('.لطفا موبایل خانوادگی را وارد کنید')"
                                             oninput="this.setCustomValidity('')"/>
                                         </div>
@@ -75,13 +75,13 @@
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label class="form-label required"> تلفن ثابت </label>
-                                            <input type="text" name="phone" class="form-control" id="phone" placeholder="021xxxxxxxx" value="{{ old('phone') ?? $account->phone }}" />
+                                            <input type="text" name="phone" class="form-control just-numbers" id="phone" placeholder="021xxxxxxxx" value="{{ old('phone') ?? $account->phone }}" />
                                         </div>
                                     </div>
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label class="form-label required"> ایمیل </label>
-                                            <input type="text" name="email" class="form-control" id="email" placeholder="ایمیل..." value="{{ old('email') ??  $account->email }}" />
+                                            <input type="text" name="email" class="form-control nonPersianletters" id="email" placeholder="ایمیل..." value="{{ old('email') ??  $account->email }}" />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -93,7 +93,7 @@
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label class="form-label required"> کد ملی </label>
-                                            <input type="text" name="mellicode" class="form-control" id="mellicode" placeholder="کد ملی..." value="{{ old('mellicode') ?? $account->mellicode }}" />
+                                            <input type="text" name="mellicode" class="form-control just-numbers" id="mellicode" placeholder="کد ملی..." value="{{ old('mellicode') ?? $account->mellicode }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label class="form-label required"> کد پستی </label>
-                                            <input type="text" name="postalcode" class="form-control" id="postalcode" placeholder="کد پستی..." value="{{ old('postalcode') ?? $account->postalcode }}" />
+                                            <input type="text" name="postalcode" class="form-control just-numbers" id="postalcode" placeholder="کد پستی..." value="{{ old('postalcode') ?? $account->postalcode }}" />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -161,13 +161,13 @@
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label class="form-label required"> شناسه ملی </label>
-                                                <input type="text" name="national_id" class="form-control" id="national_id" placeholder="شناسه ملی..." value="{{ old('national_id') ?? $account->national_id }}" />
+                                                <input type="text" name="national_id" class="form-control just-numbers" id="national_id" placeholder="شناسه ملی..." value="{{ old('national_id') ?? $account->national_id }}" />
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label class="form-label required"> شماره ثبت </label>
-                                                <input type="text" name="registration_number" class="form-control" id="registration_number" placeholder="شماره ثبت..." value="{{ old('registration_number') ?? $account->registration_number }}" />
+                                                <input type="text" name="registration_number" class="form-control just-numbers" id="registration_number" placeholder="شماره ثبت..." value="{{ old('registration_number') ?? $account->registration_number }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -223,5 +223,7 @@
         });
     });
 </script>
+
+<script src="{{ asset('js/validation.js') }}"></script>
 
 @endsection

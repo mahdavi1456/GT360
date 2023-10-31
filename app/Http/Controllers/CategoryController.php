@@ -6,6 +6,7 @@ use App\Models\Category;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -34,7 +35,7 @@ class CategoryController extends Controller
         $request->validate([
             'cname' => 'required|string|max:255',
             'cdetails' => 'nullable|string',
-            'cparent' => 'nullable|exists:categories,id', // بررسی وجود دسته والد معتبر
+            'cparent' => 'nullable|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -50,6 +51,7 @@ class CategoryController extends Controller
         }
 
         $category->user_id = Auth::user()->id;
+        $category->account_id = Auth::user()->account_id;
 
         $category->save();
 
@@ -84,7 +86,7 @@ class CategoryController extends Controller
         $request->validate([
             'cname' => 'required|string|max:255',
             'cdetails' => 'nullable|string',
-            'cparent' => 'nullable|exists:categories,id', // بررسی وجود دسته والد معتبر
+            'cparent' => 'nullable|exists:categories,id',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -118,4 +120,23 @@ class CategoryController extends Controller
         Alert::success('موفق', 'دسته بندی با موفقیت حذف شد.');
         return redirect()->route('category.index');
     }
+
+    public function deleteImage(Request $request)
+    {
+        $imageId = $request->input('image_id');
+
+        $category = Category::find($imageId);
+
+        $category_image = $category->image;
+
+        if ($category) {
+
+            $category->update([
+                'image' => null
+            ]);
+
+            Storage::delete(public_path('images/categories/' . $category_image));
+        }
+    }
+
 }

@@ -34,22 +34,39 @@ class DiscountController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255|unique:discounts,title',
-            'percent' => 'nullable|string|max:255',
-            'price' => 'nullable|string|max:255',
-            'validity_date' => 'nullable',
-            'number' => 'nullable|string',
+            'percent' => 'required_if:type0,on|numeric|max:255',
+            'price' => 'required_if:type1,on|numeric|max:255',
+            'min_cart' => 'required|numeric',
+            'max_cart' => 'required|numeric',
+            'validity_date' => 'required',
+            'number' => 'required|numeric',
             'details' => 'nullable|string',
         ]);
+
 
         if (isset($validatedData['validity_date']))
             $validity_date = Carbon::parse(Verta::parse($validatedData['validity_date'])->formatGregorian('Y-m-d'));
         else
             $validity_date = null;
 
+
+        if (isset($validatedData['percent']))
+            $percent = $validatedData['percent'];
+        else
+            $percent = null;
+
+
+        if (isset($validatedData['price']))
+            $price = $validatedData['price'];
+        else
+            $price = null;
+
         $discount = Discount::create([
             'title' => $validatedData['title'],
-            'percent' => $validatedData['percent'] ?? null,
-            'price' => $validatedData['price'] ?? null,
+            'percent' => $percent,
+            'price' => $price,
+            'min_cart' => $validatedData['min_cart'],
+            'max_cart' => $validatedData['max_cart'],
             'validity_date' => $validity_date,
             'number' => $validatedData['number'],
             'details' => $validatedData['details']
@@ -84,21 +101,39 @@ class DiscountController extends Controller
         $discount = Discount::findOrFail($id);
 
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'percent' => 'nullable|string|max:255',
-            'price' => 'nullable|string|max:255',
-            'validity_date' => 'nullable',
-            'number' => 'nullable|string',
+            'title' => 'required|string|max:255|unique:discounts,title,' . $id,
+            'percent' => 'required_if:type0,on|numeric|max:255',
+            'price' => 'required_if:type1,on|numeric|max:255',
+            'min_cart' => 'required|numeric',
+            'max_cart' => 'required|numeric',
+            'validity_date' => 'required',
+            'number' => 'required|numeric',
             'details' => 'nullable|string',
         ]);
 
 
-        $validity_date = Carbon::parse(Verta::parse($validatedData['validity_date'])->formatGregorian('Y-m-d'));
+        if (isset($validatedData['validity_date']))
+            $validity_date = Carbon::parse(Verta::parse($validatedData['validity_date'])->formatGregorian('Y-m-d'));
+        else
+            $validity_date = null;
+
+        if (isset($validatedData['percent']))
+            $percent = $validatedData['percent'];
+        else
+            $percent = null;
+
+
+        if (isset($validatedData['price']))
+            $price = $validatedData['price'];
+        else
+            $price = null;
 
         $discount->update([
             'title' => $validatedData['title'],
-            'percent' => $validatedData['percent'] ?? null,
-            'price' => $validatedData['price'] ?? null,
+            'percent' => $percent,
+            'price' => $price,
+            'min_cart' => $validatedData['min_cart'],
+            'max_cart' => $validatedData['max_cart'],
             'validity_date' => $validity_date,
             'number' => $validatedData['number'],
             'details' => $validatedData['details']
@@ -118,6 +153,5 @@ class DiscountController extends Controller
 
         Alert::success('موفق', 'کد تخفیف با موفقیت حذف شد.');
         return redirect()->back();
-
     }
 }

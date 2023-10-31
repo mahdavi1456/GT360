@@ -1,6 +1,3 @@
-<?php
-use App\Helpers\TextHelper;
-?>
 @extends('admin.master')
 @section('title', 'Category List')
 @section('content')
@@ -11,7 +8,7 @@ use App\Helpers\TextHelper;
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ TextHelper::breadcrumb("حمل و نقل") }}
+        {{ breadcrumb("حمل و نقل") }}
 
         <!-- Main content -->
         <section class="content">
@@ -38,14 +35,16 @@ use App\Helpers\TextHelper;
                                             <div class="form-group">
                                                 <label class="form-label">عنوان <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" id="title"
-                                                    placeholder="عنوان..." required>
+                                                    placeholder="عنوان..."  value="{{ old('title') }}" required oninvalid="this.setCustomValidity('.لطفا عنوان را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="form-label required">هزینه (تومان) <span class="text-danger">*</span></label>
                                                 <input type="text" name="tprice" class="form-control" id="tprice"
-                                                    placeholder="هزینه..." required>
+                                                    placeholder="هزینه..." value="{{ old('tprice') }}" required oninvalid="this.setCustomValidity('.لطفا هزینه را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                     </div>
@@ -53,7 +52,7 @@ use App\Helpers\TextHelper;
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label required">توضیحات</label>
-                                                <textarea name="tdetails" class="form-control" id="tdetails" placeholder="توضیحات..."></textarea>
+                                                <textarea name="tdetails" class="form-control" id="tdetails" placeholder="توضیحات...">{{ old('tdetails') }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -83,11 +82,11 @@ use App\Helpers\TextHelper;
                                     @php $i = 1; @endphp
                                     @foreach ($transports as $transport)
                                         <tr>
-                                            <td>@php echo $i; @endphp</td>
+                                            <td>@php echo fa_number($i); @endphp</td>
                                             <td>{{ $transport->title }}</td>
                                             <td>
                                                 @if ($transport->tprice)
-                                                {{ $transport->tprice }} تومان
+                                                {{ fa_number($transport->tprice) }} تومان
                                                 @else
                                                 بدون قیمت
                                             @endif
@@ -104,7 +103,7 @@ use App\Helpers\TextHelper;
                                                 <form action="{{ route('transport.destroy', $transport->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" id="confirmdelete{{ $transport->id }}">حذف</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -123,5 +122,34 @@ use App\Helpers\TextHelper;
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+@endsection
+
+@section('scripts')
+
+@if ($transports->count() > 0)
+@foreach ($transports as $transport)
+    <script>
+        $('#confirmdelete{{ $transport->id }}').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            Swal.fire({
+                    title: `آیا مطمئنید؟`,
+                    text: "این مورد برای همیشه حذف خواهد شد.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: 'انصراف',
+                    confirmButtonText: 'تایید',
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
+@endforeach
+@endif
 
 @endsection

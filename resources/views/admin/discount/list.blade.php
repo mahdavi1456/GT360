@@ -35,7 +35,8 @@
                                             <div class="form-group">
                                                 <label class="form-label">نام <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" id="title"
-                                                    placeholder="نام..." required>
+                                                    placeholder="نام..." value="{{ old('name') }}" required oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -54,42 +55,45 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label required">درصد</label>
-                                                <input type="text" name="percent" class="form-control" id="percent" placeholder="درصد...">
+                                                <label class="form-label required">درصد <span class="text-danger">*</span></label>
+                                                <input type="text" name="percent" value="{{ old('percent') }}" class="form-control" id="percent" placeholder="درصد...">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label required">قیمت(تومان)</label>
-                                                <input type="text" name="price" class="form-control" id="price" disabled placeholder="قیمت...">
+                                                <label class="form-label required">قیمت(تومان) <span class="text-danger">*</span></label>
+                                                <input type="text" name="price" value="{{ old('price') }}" class="form-control" id="price" disabled placeholder="قیمت...">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label">حداقل خرید</label>
-                                                <input type="text" name="min_cart" class="form-control" placeholder="حداقل خرید..." >
+                                                <label class="form-label">حداقل خرید <span class="text-danger">*</span></label>
+                                                <input type="text" name="min_cart" value="{{ old('min_cart') }}" class="form-control" placeholder="حداقل خرید..." required oninvalid="this.setCustomValidity('.لطفا حداقل خرید را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="form-label">حداکثر خرید</label>
-                                                <input type="text" name="max_cart" class="form-control" placeholder="حداکثر خرید...">
+                                                <label class="form-label">حداکثر خرید <span class="text-danger">*</span></label>
+                                                <input type="text" name="max_cart" value="{{ old('max_cart') }}" class="form-control" placeholder="حداکثر خرید..." required oninvalid="this.setCustomValidity('.لطفا حداکثر خرید را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
                                         <div class="form-group">
-                                            <label class="form-label required">تاریخ اعتبار</label>
-                                            <input type="text" name="validity_date" class="datepicker form-control" id="validity_date"  placeholder="۱۴۰۱/۰۱/۰۱" >
+                                            <label class="form-label required">تاریخ اعتبار <span class="text-danger">*</span></label>
+                                            <input type="text" name="validity_date" value="{{ old('validity_date') }}" class="datepicker form-control" id="validity_date" value="@php echo fa_number(verta()->formatJalaliDate()); @endphp" readonly>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label class="form-label required">تعداد اعتبار</label>
-                                            <input type="text" name="number" class="form-control" id="number" placeholder="تعداد اعتبار...">
+                                            <label class="form-label required">تعداد اعتبار <span class="text-danger">*</span></label>
+                                            <input type="text" name="number" value="{{ old('number') }}" class="form-control" id="number" placeholder="تعداد اعتبار..." required oninvalid="this.setCustomValidity('.لطفا تعداد اعتبار را وارد کنید')"
+                                            oninput="this.setCustomValidity('')">
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +101,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label required">توضیحات</label>
-                                                <textarea name="details" class="form-control" id="details" placeholder="توضیحات..."></textarea>
+                                                <textarea name="details" class="form-control" id="details" placeholder="توضیحات...">{{ old('details') }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -130,19 +134,19 @@
                                     @php $i = 1; @endphp
                                     @foreach ($discounts as $discount)
                                         <tr>
-                                            <td>@php echo $i; @endphp</td>
+                                            <td>@php echo fa_number($i); @endphp</td>
                                             <td>{{ $discount->title }}</td>
-                                            <td>{{ $discount->percent ?? 'بدون درصد' }}</td>
-                                            <td>{{ $discount->price ?? 'بدون قیمت' }}</td>
-                                            <td>@if($discount->validity_date) {{  verta($discount->validity_date)->formatDate(); }} @endif</td>
-                                            <td>{{ $discount->number ?? 'بدون تعداد' }}</td>
+                                            <td>{{ fa_number($discount->percent) ?? 'بدون درصد' }}</td>
+                                            <td>{{ fa_number($discount->price) ?? 'بدون قیمت' }}</td>
+                                            <td>@if($discount->validity_date) {{  fa_number(verta($discount->validity_date)->formatDate()); }} @endif</td>
+                                            <td>{{ fa_number($discount->number) ?? 'بدون تعداد' }}</td>
                                             <td>{{ $discount->details ?? 'بدون توضیحات' }}</td>
                                             <td class="d-flex">
                                                 <a href="{{ route('discount.edit', $discount->id) }}" class="btn btn-warning btn-sm mx-1">ویرایش</a>
                                                 <form action="{{ route('discount.destroy', $discount->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" id="confirmdelete{{ $discount->id }}">حذف</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -183,5 +187,30 @@
         });
     });
 </script>
+
+@if ($discounts->count() > 0)
+@foreach ($discounts as $discount)
+    <script>
+        $('#confirmdelete{{ $discount->id }}').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            Swal.fire({
+                    title: `آیا مطمئنید؟`,
+                    text: "این مورد برای همیشه حذف خواهد شد.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: 'انصراف',
+                    confirmButtonText: 'تایید',
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
+@endforeach
+@endif
 
 @endsection

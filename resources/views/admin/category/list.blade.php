@@ -35,7 +35,8 @@
                                             <div class="form-group">
                                                 <label class="form-label">نام <span class="text-danger">*</span></label>
                                                 <input type="text" name="cname" class="form-control" id="cname"
-                                                    placeholder="نام..." required>
+                                                    placeholder="نام..." required oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-4">
@@ -52,9 +53,10 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label class="form-label required">تصویر </label>
-                                                <input type="file" name="image" id="image"
-                                                    class="form-control-file">
+                                                <input type="file" name="image" id="imageInput"
+                                                    class="form-control-file" onchange="showImage(this)">
                                             </div>
+                                            <img id="selectedImage" style="display: none;" width="100px" height="100px"/>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -91,7 +93,7 @@
                                     @php $i = 1; @endphp
                                     @foreach ($categories as $category)
                                         <tr>
-                                            <td>@php echo $i; @endphp</td>
+                                            <td>@php echo fa_number($i); @endphp</td>
                                             <td>{{ $category->cname }}</td>
                                             <td>
                                             @if ($category->image)
@@ -112,7 +114,7 @@
                                                 <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" id="confirmdelete{{ $category->id }}">حذف</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -131,5 +133,49 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+@endsection
+
+@section('scripts')
+
+@if ($categories->count() > 0)
+@foreach ($categories as $category)
+<script>
+    $('#confirmdelete{{ $category->id }}').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        Swal.fire({
+                title: `آیا مطمئنید؟`,
+                text: "این مورد برای همیشه حذف خواهد شد.",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'انصراف',
+                confirmButtonText: 'تایید',
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+    });
+</script>
+
+@endforeach
+    @endif
+
+    <script>
+        function showImage(input) {
+            const selectedImage = document.getElementById("selectedImage");
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    selectedImage.src = e.target.result;
+                    selectedImage.style.display = "block";
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
 @endsection

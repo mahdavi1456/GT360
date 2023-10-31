@@ -33,14 +33,16 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="required">نام محصول</label>
-                                                <input type="text" name="product_name" class="form-control" value="{{ old('product_name') }}" placeholder="نام محصول...">
+                                                <label class="required">نام محصول <span class="text-danger">*</span></label>
+                                                <input type="text" name="product_name" class="form-control" value="{{ old('product_name') }}" placeholder="نام محصول..." required  oninvalid="this.setCustomValidity('.لطفا نام محصول را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>دسته</label>
-                                                <select name="categories[]" class="form-control select2" multiple>
+                                                <label>دسته <span class="text-danger">*</span></label>
+                                                <select name="categories[]" class="form-control select2" multiple required oninvalid="this.setCustomValidity('.لطفا نام دسته را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                                     @foreach($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->cname }}</option>
                                                     @endforeach
@@ -51,29 +53,32 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>قیمت خرید</label>
-                                                <input type="text" name="purchase_price" class="form-control" value="{{ old('purchase_price') }}" placeholder="قیمت خرید...">
+                                                <label>قیمت خرید <span class="text-danger">*</span></label>
+                                                <input type="text" name="purchase_price" class="form-control just-numbers" value="{{ old('purchase_price') }}" placeholder="قیمت خرید..." required oninvalid="this.setCustomValidity('.لطفا قیمت خرید را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>قیمت فروش</label>
-                                                <input type="text" name="sales_price" class="form-control" value="{{ old('sales_price') }}" placeholder="قیمت فروش...">
+                                                <label>قیمت فروش <span class="text-danger">*</span></label>
+                                                <input type="text" name="sales_price" class="form-control just-numbers" value="{{ old('sales_price') }}" placeholder="قیمت فروش..." required oninvalid="this.setCustomValidity('.لطفا قیمت فروش را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>موجودی</label>
-                                                <input type="text" name="inventory" class="form-control" value="{{ old('inventory') }}" placeholder="موجودی...">
+                                                <label>موجودی <span class="text-danger">*</span></label>
+                                                <input type="text" name="inventory" class="form-control just-numbers" value="{{ old('inventory') }}" placeholder="موجودی..." required oninvalid="this.setCustomValidity('.لطفا موجودی را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label>فایل</label>
+                                                <label>فایل <span class="text-danger">*</span></label>
                                                 <div>
                                                     <div id="files-list">
                                                         <input type="hidden" id="files" name="files">
@@ -128,9 +133,13 @@
             },
         });
 	</script>
+
+<script src="{{ asset('js/validation.js') }}"></script>
+
 @endsection
 @section('style')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://unpkg.com/dropzone@5/dist/dropzone.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/dropzone.css" type="text/css"/>
+
 @endsection

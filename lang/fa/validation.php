@@ -164,7 +164,10 @@ return [
         'mobile'                => 'موبایل',
         'mellicode'             => 'کد ملی',
         'account_type'          => 'نوع حساب',
-        'company'               => 'نام شرکت'
+        'company'               => 'نام شرکت',
+        'postalcode'            => 'کد پستی',
+        'pass'                  => 'رمز عبرو',
+        'files'                 => 'فایل'
     ],
 
 ];

@@ -30,13 +30,8 @@
                                                 <th class="px-4">نام</th>
                                                 <th class="px-4">نام خانوادگی</th>
                                                 <th class="px-4">موبایل</th>
-                                                <th class="px-4">ایمیل</th>
-                                                <th class="px-4">نام کاربری</th>
                                                 <th class="px-4">وضعیت کاربر</th>
-                                                <th class="px-4">استان</th>
-                                                <th class="px-4">شهر</th>
-                                                <th class="px-4">آدرس</th>
-                                                <th class="px-4">کد پستی</th>
+                                                <th class="px-4">دلیل غیرفعال سازی</th>
                                                 <th class="px-4">عملیات</th>
                                             </tr>
                                         </thead>
@@ -46,8 +41,6 @@
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->family }}</td>
                                                     <td>{{ $user->mobile }}</td>
-                                                    <td>{{ $user->email }}</td>
-                                                    <td>{{ $user->username }}</td>
                                                     <td>
                                                         @if ($user->user_status == 'Active')
                                                             <span class="badge bg-success" style="font-size: 17px;color: #FFF !important;">فعال</span>
@@ -56,10 +49,11 @@
                                                         @endif
 
                                                     </td>
-                                                    <td>{{ $user->state }}</td>
-                                                    <td>{{ $user->city }}</td>
-                                                    <td>{{ $user->address }}</td>
-                                                    <td>{{ $user->postalcode }}</td>
+                                                    @if($user->deactivation_reason)
+                                                    <td>{{ $user->deactivation_reason }}</td>
+                                                    @else
+                                                    <td>  ---- </td>
+                                                    @endif
                                                     <td class="d-flex"><a
                                                             href="{{ route('user.editUser', ['accountId' => $account->id, 'userId' => $user->id]) }}"
                                                             class="btn btn-warning  m-1">ویرایش</a>
@@ -68,13 +62,13 @@
                                                             class="mt-1  m-1" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger">حذف کاربر</button>
+                                                            <button type="submit" class="btn btn-danger" id="confirmdelete{{ $user->id }}">حذف کاربر</button>
                                                         </form>
                                                         @if ($user->user_status == 'Active')
                                                             <button type="button" name="active"
                                                                 class="btn btn-danger Deactive-button" data-toggle="modal"
                                                                 data-target="#exampleModal" id="{{ $user->id }}"
-                                                                value="DeActive">غیرفعال سازی کاربر</button>
+                                                                value="DeActive" style="height: 39px;margin-top: 4px;">غیرفعال سازی کاربر</button>
                                                         @elseif ($user->user_status == 'DeActive')
                                                             <form action="{{ route('account.users.activation') }}"
                                                                 class="mt-1  m-1" method="POST">
@@ -125,8 +119,9 @@
                         <input type="hidden" id="user_id" name="id" value="">
                         <input type="hidden" id="user_id" name="active" value="DeActive">
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">پیام:</label>
-                            <textarea class="form-control" id="message-text" name="reseaon"></textarea>
+                            <label for="message-text" class="col-form-label">پیام <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="message-text" name="reseaon" required  oninvalid="this.setCustomValidity('.لطفا پیام را وارد کنید')"
+                            oninput="this.setCustomValidity('')"></textarea>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -149,4 +144,31 @@
             });
         });
     </script>
+
+@if ($users->count() > 0)
+@foreach ($users as $user)
+<script>
+    $('#confirmdelete{{ $user->id }}').click(function(event) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        event.preventDefault();
+        Swal.fire({
+                title: `آیا مطمئنید؟`,
+                text: "این مورد برای همیشه حذف خواهد شد.",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: 'انصراف',
+                confirmButtonText: 'تایید',
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+    });
+</script>
+
+@endforeach
+    @endif
+
 @endsection
