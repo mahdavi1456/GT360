@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb("دسته بندی محصولات") }}
+        {{ breadcrumb("ویرایش دسته بندی محصولات") }}
 
         <!-- Main content -->
         <section class="content">

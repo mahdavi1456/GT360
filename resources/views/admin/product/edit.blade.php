@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        @include('admin.partial.breadcrumb')
+        {{ breadcrumb('ویرایش محصولات') }}
 
         <!-- Main content -->
         <section class="content">

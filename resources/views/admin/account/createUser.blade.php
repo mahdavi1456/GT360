@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb("ایجاد کاربر برای اکانت :  $account->name") }}
+        {{ breadcrumb("ایجاد کاربر برای مشترک :  $account->name") }}
 
         <!-- Main content -->
         <section class="content">

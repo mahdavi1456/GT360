@@ -158,7 +158,7 @@ $(document).ready(function(){
 
 function addToCart(id) {
 	$.ajax({
-		url: '/cart/add',
+		url: '/admin/cart/add',
 		type: 'POST',
 		data: {
 			_token: $('meta[name=_token]').attr('content'),
