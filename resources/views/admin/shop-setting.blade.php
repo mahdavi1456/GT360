@@ -16,43 +16,43 @@
 
                         <div class="card">
                             <div class="card-header d-flex p-0">
-                              <h3 class="card-title p-3">تب‌ها</h3>
-                              <ul class="nav nav-pills ml-auto p-2">
-                                <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">تب 1</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">تب 2</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">تب 3</a></li>
-                                <li class="nav-item dropdown">
-                                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
-                                    آبشاری <span class="caret"></span>
-                                  </a>
-                                  <div class="dropdown-menu">
-                                    <a class="dropdown-item" tabindex="-1" href="#">منو ۱</a>
-                                    <a class="dropdown-item" tabindex="-1" href="#">منو ۲</a>
-                                    <a class="dropdown-item" tabindex="-1" href="#">منو ۳</a>
-                                    <div class="divider"></div>
-                                    <a class="dropdown-item" tabindex="-1" href="#">لینک</a>
-                                  </div>
-                                </li>
-                              </ul>
+                                <h3 class="card-title p-3">تب‌ها</h3>
+                                <ul class="nav nav-pills ml-auto p-2">
+                                    <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">تب 1</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">تب 2</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">تب 3</a></li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                            آبشاری <span class="caret"></span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" tabindex="-1" href="#">منو ۱</a>
+                                            <a class="dropdown-item" tabindex="-1" href="#">منو ۲</a>
+                                            <a class="dropdown-item" tabindex="-1" href="#">منو ۳</a>
+                                            <div class="divider"></div>
+                                            <a class="dropdown-item" tabindex="-1" href="#">لینک</a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div><!-- /.card-header -->
                             <div class="card-body">
-                              <div class="tab-content">
-                                <div class="tab-pane active" id="tab_1">
-                                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_1">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_2">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_3">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                    </div>
+                                    <!-- /.tab-pane -->
                                 </div>
-                                <!-- /.tab-pane -->
-                                <div class="tab-pane" id="tab_2">
-                                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
-                                </div>
-                                <!-- /.tab-pane -->
-                                <div class="tab-pane" id="tab_3">
-                                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-                                </div>
-                                <!-- /.tab-pane -->
-                              </div>
-                              <!-- /.tab-content -->
+                                <!-- /.tab-content -->
                             </div><!-- /.card-body -->
-                          </div>
+                        </div>
 
                     </div>
                 </div>
