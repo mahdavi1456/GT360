@@ -139,4 +139,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/customer-login', [CustomerController::class, 'loginForm'])->name('customer.login');
 
     Route::get('/completeInfo/{customer_id}', [CheckoutController::class, 'completeInfo'])->name('completeInfo');
+
+
 });
