@@ -22,8 +22,11 @@ class AccountPaymentTypeVariableController extends Controller
      */
     public function create(string $id)
     {
+        $account_id = Auth::user()->account->id;
+        $payment_type_variables = AccountPaymentTypeVariable::where('account_id', $account_id)->get();
+
         $payment_type_variables = PaymentTypeVariable::where('payment_type_id', $id)->get();
-        return view('admin.shop_setting.account-payment-type-variables', compact('payment_type_variables'));
+        return view('admin.shop_setting.account-payment-type-variables', compact('payment_type_variables', 'payment_type_variables'));
     }
 
     /**

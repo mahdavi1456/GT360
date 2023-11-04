@@ -62,7 +62,7 @@
                                                         @csrf
                                                         <input type="hidden" name="paymentType_id" value="{{ $paymentType->id }}">
                                                         <button type="submit" class="btn btn-info m-1">ایجاد متغیر</button>
-                                                   </form>
+                                                    </form>
 
                                                 </td>
                                             </tr>

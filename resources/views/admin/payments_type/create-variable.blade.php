@@ -36,6 +36,7 @@
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
+                                        <input type="hidden" name="paymentType_id" value="{{ $paymentType_id }}">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>برچسب</label>

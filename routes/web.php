@@ -85,6 +85,8 @@ Route::put('/delete-product-images', [ProductController::class, 'deleteImage'])-
 
 Route::post('/payment-type-to-account', [ShopSettingController::class, 'PaymentTypeToAccount'])->name('PaymentTypeToAccount');
 
+
+
 Route::prefix('admin')->group(function () {
 
     Route::resource('product', ProductController::class);
@@ -94,6 +96,9 @@ Route::prefix('admin')->group(function () {
     Route::resource('discount', DiscountController::class);
     Route::resource('setting', SettingController::class);
     Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
+
+    Route::post('/PaymentTypeVariable/create', [PaymentTypeVariableController::class, 'create'])->name('PaymentTypeVariable.create');
+
 
     Route::prefix('account')->group(function () {
         Route::get('{accountId}/users', [UserController::class, 'showUsers'])->name('user.showUsers');

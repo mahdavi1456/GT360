@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'روش های پرداخت کاربر')
+@section('title', 'متغیرهای پرداخت کاربر')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb('روش های پرداخت کاربر') }}
+        {{ breadcrumb('متغیرهای پرداخت کاربر') }}
 
         <!-- Main content -->
         <section class="content">

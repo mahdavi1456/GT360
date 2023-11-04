@@ -45,7 +45,7 @@ class PaymentTypeVariableController extends Controller
             'user_id' => Auth::user()->id,
             'name' => $validatedData['name'],
             'label' => $validatedData['label'],
-            'payment_type_id' =>$request->paymentType_id
+            'payment_type_id' => $request->paymentType_id
         ]);
 
         Alert::success('موفق', 'متغیر پرداخت ایجاد شد.');

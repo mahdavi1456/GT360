@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::orderBy('created_at', 'desc')->get();
+        $products = Auth::user()->products()->orderBy('created_at', 'desc')->get();
         return view('admin.product.list', compact('products', 'categories'));
     }
 
@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Auth::user()->categories;
         return view('admin.product.create', compact('categories'));
     }
 
