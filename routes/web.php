@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AccountPaymentTypeVariableController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CartHeadController;
 use App\Http\Controllers\CategoryController;
@@ -14,9 +15,12 @@ use App\Http\Controllers\Front\ProductController as FrontProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentsTypeController;
 use App\Http\Controllers\PaymentTypeController;
+use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ShopSetting;
+use App\Http\Controllers\ShopSettingController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
 use App\Models\Account;
@@ -79,6 +83,8 @@ Route::put('/delete-image', [CategoryController::class, 'deleteImage'])->name('d
 
 Route::put('/delete-product-images', [ProductController::class, 'deleteImage'])->name('deleteproductimage');
 
+Route::post('/payment-type-to-account', [ShopSettingController::class, 'PaymentTypeToAccount'])->name('PaymentTypeToAccount');
+
 Route::prefix('admin')->group(function () {
 
     Route::resource('product', ProductController::class);
@@ -87,6 +93,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('account', AccountController::class);
     Route::resource('discount', DiscountController::class);
     Route::resource('setting', SettingController::class);
+    Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
 
     Route::prefix('account')->group(function () {
         Route::get('{accountId}/users', [UserController::class, 'showUsers'])->name('user.showUsers');
@@ -140,5 +147,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/completeInfo/{customer_id}', [CheckoutController::class, 'completeInfo'])->name('completeInfo');
 
+    Route::get('/shop-setting', [ShopSettingController::class, 'index'])->name('shopSetting');
 
+    Route::get('/AccountPaymentTypeVariable/{id}', [AccountPaymentTypeVariableController::class, 'create'])->name('AccountPaymentTypeVariable');
+    Route::post('AccountPaymentTypeVariable', [AccountPaymentTypeVariableController::class, 'store'])->name('CreateAccountPaymentTypeVariable');
 });

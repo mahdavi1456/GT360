@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'روش های پرداخت')
+@section('title', 'روش های پرداخت کاربر')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -8,11 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb('روش های پرداخت') }}
-
-        <div class="col-md-6">
-            <h1 class="p-4" style="font-size: 25px">روش های پرداخت</h1>
-        </div>
+        {{ breadcrumb('روش های پرداخت کاربر') }}
 
         <!-- Main content -->
         <section class="content">
@@ -21,49 +17,33 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body p-0">
-                                @if(count($paymentTypes) > 0)
+                                @if(count($paymentVariables) > 0)
                                 <table class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>ردیف</th>
                                             <th>نام</th>
-                                            <th>آیکون</th>
-                                            <th>ترتیب نمایش</th>
-                                            <th>وضعیت</th>
-                                            <th>توضیحات</th>
+                                            <th>برچسب</th>
+                                            <th>نوع پرداخت</th>
                                             <th>عملیات</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($paymentTypes as $paymentType)
+                                        @foreach ($paymentVariables as $paymentVariable)
                                             <tr>
                                                 <td>{{ fa_number($loop->index+1)}}</td>
-                                                <td>{{ $paymentType->name }}</td>
-                                                <td>@if($paymentType->icon) <img src="{{ asset($paymentType->icon) }}" style="with: 50px; height: 50px"> @else بدون تصویر @endif </td>
-                                                <td>{{ $paymentType->display_order }}</td>
+                                                <td>{{ $paymentVariable->name }}</td>
+                                                <td>{{ $paymentVariable->label }}</td>
+                                                <td>{{ $paymentVariable->paymentType->name }}</td>
                                                 <td>
-                                                    @if($paymentType->status == 'active')
-                                                        <span class="badge bg-success">فعال</span>
-                                                    @else
-                                                        <span class="badge bg-danger">غیرفعال</span>
-                                                    @endif
-                                                </td>
-                                                <td>@if($paymentType->description) {{ $paymentType->description }} @else بدون توضیحات @endif</td>
-                                                <td class="d-flex">
-                                                    <a href="{{ route('payments_type.edit', $paymentType->id ) }}"
+                                                <a href="{{ route('PaymentTypeVariable.edit', $paymentVariable->id ) }}"
                                                         class="btn btn-warning m-1">ویرایش</a>
-                                                    <form action="{{ route('payments_type.destroy', $paymentType->id) }}"
+                                                    <form action="{{ route('PaymentTypeVariable.destroy', $paymentVariable->id) }}"
                                                         method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $paymentType->id }}">حذف</button>
+                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $paymentVariable->id }}">حذف</button>
                                                     </form>
-                                                    <form method="POST" action="{{ route('PaymentTypeVariable.create') }}">
-                                                        @csrf
-                                                        <input type="hidden" name="paymentType_id" value="{{ $paymentType->id }}">
-                                                        <button type="submit" class="btn btn-info m-1">ایجاد متغیر</button>
-                                                   </form>
-
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -89,10 +69,10 @@
 
 @section('scripts')
 
-@if ($paymentTypes->count() > 0)
-@foreach ($paymentTypes as $paymentType)
+@if ($paymentVariables->count() > 0)
+@foreach ($paymentVariables as $paymentVariable)
 <script>
-    $('#confirmdelete{{ $paymentType->id }}').click(function(event) {
+    $('#confirmdelete{{ $paymentVariable->id }}').click(function(event) {
         var form = $(this).closest("form");
         var name = $(this).data("name");
         event.preventDefault();

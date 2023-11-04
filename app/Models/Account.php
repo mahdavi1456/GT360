@@ -15,8 +15,9 @@ class Account extends Model
     protected $tabele = "accounts";
     protected $guarded = [];
 
-    Public function users() {
-        Return $this->hasMany(User::class);
+    public function users()
+    {
+        return $this->hasMany(User::class);
     }
 
     public function products()
@@ -30,4 +31,9 @@ class Account extends Model
         return $this->hasMany(Category::class);
     }
 
+
+    public function paymentTypes()
+    {
+        return $this->belongsToMany(PaymentType::class, 'account_payment_types', 'account_id', 'payment_type_id');
+    }
 }

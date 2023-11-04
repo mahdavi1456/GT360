@@ -58,4 +58,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    public function paymentTypeVariables()
+    {
+        return $this->hasMany(PaymentTypeVariable::class, 'user_id');
+    }
+
 }
