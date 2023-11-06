@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\checkoutOption;
+use App\Models\CheckoutOption;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutOptionController extends Controller
 {
@@ -13,6 +14,7 @@ class CheckoutOptionController extends Controller
     public function index()
     {
         //
+        return view('checkout-option.index');
     }
 
     /**
@@ -29,12 +31,29 @@ class CheckoutOptionController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'title' => 'required',
+            'details' => 'required',
+            'real_price' => 'required|numeric'
+        ]);
+
+        $product = CheckoutOption::create([
+            'title' => $request->title,
+            'details' => $request->details,
+            'off_price' => $request->off_price,
+            'real_price' => $request->real_price,
+            'show_status' => $request->show_status,
+            'min_price' => $request->min_price
+        ]);
+
+        Alert::success('موفق', 'افزودنی با موفقیت ایجاد شد.');
+        return back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(checkoutOption $checkoutOption)
+    public function show(CheckoutOption $CheckoutOption)
     {
         //
     }
@@ -42,7 +61,7 @@ class CheckoutOptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(checkoutOption $checkoutOption)
+    public function edit(CheckoutOption $CheckoutOption)
     {
         //
     }
@@ -50,16 +69,38 @@ class CheckoutOptionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, checkoutOption $checkoutOption)
+    public function update(Request $request, CheckoutOption $CheckoutOption)
     {
         //
+        $validated = $request->validate([
+            'title' => 'required',
+            'details' => 'required',
+            'real_price' => 'required|numeric'
+        ]);
+
+        $product = CheckoutOption::create([
+            'title' => $request->title,
+            'details' => $request->details,
+            'off_price' => $request->off_price,
+            'real_price' => $request->real_price,
+            'show_status' => $request->show_status,
+            'min_price' => $request->min_price
+        ]);
+
+        Alert::success('موفق', 'افزودنی با موفقیت ایجاد شد.');
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(checkoutOption $checkoutOption)
+    public function destroy($id)
     {
         //
+        $CheckoutOption = CheckoutOption::findOrFail($id);
+        $CheckoutOption->delete();
+
+        Alert::success('موفق', 'افزودنی با موفقیت حذف شد.');
+        return redirect()->route('checkout-option.index');
     }
 }

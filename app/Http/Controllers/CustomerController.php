@@ -158,6 +158,7 @@ class CustomerController extends Controller
         $customer = Customer::where('mobile', $request->mobile)->first();
         $randomNumber = $customer->remember_token;
         $userEnteredCode = $validate['code'];
+        dd([$randomNumber, $userEnteredCode]);
 
         if ($userEnteredCode == $randomNumber) {
             if($customer->status == 'inactive') {

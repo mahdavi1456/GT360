@@ -7,6 +7,7 @@
     <script type="text/javascript" src="{{ asset('v1/js/owl.carousel.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('v1/js/script.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/validation.js') }}"></script>
 
     <!-- bootstrap touchspin -->
     <script src="{{ asset('asset/plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.js') }}"></script>

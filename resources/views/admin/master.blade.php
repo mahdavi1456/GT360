@@ -87,6 +87,8 @@
     <script src="{{ asset('asset/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('asset/dist/js/demo.js') }}"></script>
+
+    <script src="{{ asset('js/validation.js') }}"></script>
     <!-- Page script -->
     <!-- Sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>

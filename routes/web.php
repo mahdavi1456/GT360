@@ -23,6 +23,7 @@ use App\Http\Controllers\ShopSetting;
 use App\Http\Controllers\ShopSettingController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CheckoutOptionController;
 use App\Models\Account;
 use App\Models\CustomerAddress;
 use App\Models\Transport;
@@ -100,6 +101,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('discount', DiscountController::class);
     Route::resource('setting', SettingController::class);
     Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
+    Route::resource('checkout-options', CheckoutOptionController::class);
 
     Route::get('/PaymentTypeVariable/{paymentType}/create', [PaymentTypeVariableController::class, 'create'])->name('PaymentTypeVariable.create');
 

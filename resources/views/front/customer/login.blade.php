@@ -44,7 +44,7 @@
                     <!-- /.col -->
 
                 </form>
-                <form method="POST" action="{{ route('codePassword') }}" id="codeform" style="display: none;">
+                <form method="POST" action="{{ route('confirmLogin') }}" id="codeform" style="display: none;">
                     @csrf
                     <p id="countdown"></p>
                     <label class="form-label">کد <span class="text-danger">*</span></label>
