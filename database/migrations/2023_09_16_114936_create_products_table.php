@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('sales_price');
             $table->string('offer_price')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->unsigendBigInteger('account_id');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

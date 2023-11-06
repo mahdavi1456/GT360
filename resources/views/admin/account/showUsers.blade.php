@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb("کاربران مرتبط با مشترک: $account->name") }}
+        {{ breadcrumb("کاربران مرتبط با مشترک: " . ($account->account_type == 'حقیقی' ? $account->name . ' ' . $account->family : $account->company)) }}
 
         <!-- Main content -->
         <section class="content">

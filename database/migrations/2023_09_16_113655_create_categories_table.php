@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('cparent')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->unsigendBigInteger('account_id');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

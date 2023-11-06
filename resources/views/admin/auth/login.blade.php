@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap-rtl.min.css') }}">
   <!-- template rtl version -->
   <link rel="stylesheet" href="{{ asset('asset/dist/css/custom-style.css') }}">
+  @include('sweetalert::alert')
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">

@@ -23,11 +23,10 @@ class PaymentTypeVariableController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create(PaymentType $paymentType)
     {
-        $payment_types = PaymentType::all();
-        $paymentType_id = $request->paymentType_id;
-        return view('admin.payments_type.create-variable', compact('payment_types', 'paymentType_id'));
+        $paymentType_id = $paymentType?->id;
+        return view('admin.payments_type.create-variable', compact('paymentType_id'));
 
     }
 
@@ -39,13 +38,14 @@ class PaymentTypeVariableController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'label' => 'required',
+            'paymentType_id' => 'exists:payment_types,id'
         ]);
 
         PaymentTypeVariable::create([
             'user_id' => Auth::user()->id,
             'name' => $validatedData['name'],
             'label' => $validatedData['label'],
-            'payment_type_id' => $request->paymentType_id
+            'payment_type_id' => $validatedData['paymentType_id'],
         ]);
 
         Alert::success('موفق', 'متغیر پرداخت ایجاد شد.');

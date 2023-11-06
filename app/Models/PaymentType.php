@@ -20,4 +20,9 @@ class PaymentType extends Model
     {
         return $this->belongsToMany(Account::class, 'account_payment_types', 'payment_type_id', 'account_id');
     }
+
+    public function variables()
+    {
+        return $this->hasMany(PaymentTypeVariable::class);
+    }
 }

@@ -12,7 +12,7 @@ class ShopSettingController extends Controller
 {
     public function index()
     {
-        $peyment_types = PaymentType::all();
+        $peyment_types = PaymentType::query()->where('status', 'active')->get();
         $transports = Transport::all();
         return view('admin.shop_setting.shop-setting', compact('peyment_types', 'transports'));
     }

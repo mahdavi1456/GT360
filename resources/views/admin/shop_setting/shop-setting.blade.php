@@ -28,6 +28,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_1">
 
+                                        @if ($peyment_types->count() > 0)
                                         <form method="POST" action="{{ route('PaymentTypeToAccount') }}">
                                             @csrf
                                             <table class="table table-bordered">
@@ -54,14 +55,18 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <a class="btn btn-success btn-block" href="{{ route('AccountPaymentTypeVariable', ['id' => $payment_type->id]) }}"> تنظیمات </a>
+                                                            <a class="btn btn-success btn-block" href="{{ route('AccountPaymentTypeVariable', ['paymentType' => $payment_type->id]) }}"> تنظیمات </a>
                                                         </td>
                                                 </tr>
                                                 @endforeach
 
                                             </table>
                                         </form>
-
+                                        @else
+                                            <div class="alert alert-danger text-center">
+                                                موردی جهت نمایش موجود نیست.
+                                            </div>
+                                        @endif
                                     </div>
                                     <!-- /.tab-pane -->
                                     <div class="tab-pane" id="tab_2">

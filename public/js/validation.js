@@ -23,3 +23,11 @@ $(document).ready(function() {
         $(this).val(nonPersianValue);
     });
 });
+
+$(document).ready(function() {
+    $('.persianletters').on('input', function(e) {
+        var persianValue = $(this).val().replace(/[^آ-ی ًٌٍَُِّ‌]/g, '');
+
+        $(this).val(persianValue);
+    });
+});

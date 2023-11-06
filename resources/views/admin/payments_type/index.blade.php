@@ -10,8 +10,14 @@
 
         {{ breadcrumb('روش های پرداخت') }}
 
-        <div class="col-md-6">
-            <h1 class="p-4" style="font-size: 25px">روش های پرداخت</h1>
+        <div class="row p-4">
+            <div class="col-md-6">
+                <h1 style="font-size: 25px">روش های پرداخت</h1>
+            </div>
+            <div class="col-md-6 text-left">
+                <a href="{{ route('payments_type.create') }}" class="btn btn-info">ایجاد روش پرداخت</a>
+                <a href="{{ route('PaymentTypeVariable.index') }}" class="btn btn-info">متغیر ها</a>
+            </div>
         </div>
 
         <!-- Main content -->
@@ -58,11 +64,7 @@
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $paymentType->id }}">حذف</button>
                                                     </form>
-                                                    <form method="POST" action="{{ route('PaymentTypeVariable.create') }}">
-                                                        @csrf
-                                                        <input type="hidden" name="paymentType_id" value="{{ $paymentType->id }}">
-                                                        <button type="submit" class="btn btn-info m-1">ایجاد متغیر</button>
-                                                    </form>
+                                                    <a href="{{ route('PaymentTypeVariable.create', ['paymentType'=>$paymentType]) }}" class="btn btn-info m-1">ایجاد متغیر</a>
 
                                                 </td>
                                             </tr>

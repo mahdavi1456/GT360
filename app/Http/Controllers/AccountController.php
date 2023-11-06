@@ -41,7 +41,7 @@ class AccountController extends Controller
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|digits:11',
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile',
             'phone' => 'nullable|string|max:11',
             'email' => 'nullable|email|max:255',
             'birthday' => 'nullable',
@@ -50,6 +50,7 @@ class AccountController extends Controller
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
+            'slug' => 'required|string|max:255|unique:accounts,slug',
             'company' => 'nullable|string|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
@@ -111,7 +112,7 @@ class AccountController extends Controller
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|digits:11',
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile,' . $id,
             'phone' => 'nullable|string|max:15',
             'email' => 'nullable|email|max:255',
             'birthday' => 'nullable',
@@ -120,8 +121,8 @@ class AccountController extends Controller
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'slug' => 'required|string|max:255',
-            'company' => 'required_if:account_type,حقوقی|max:255',
+            'slug' => 'required|string|max:255|unique:accounts,slug,'.$id,
+            'company' => 'required|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
             'registration_number' => 'nullable|string|max:20',
@@ -186,7 +187,7 @@ class AccountController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|digits:11',
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile',
             'company' => 'nullable|string|max:255',
             'account_type' => 'required|string|max:255'
         ]);
@@ -196,7 +197,9 @@ class AccountController extends Controller
             'name' => $validatedData['name'],
             'family' => $validatedData['family'],
             'mobile' => $validatedData['mobile'],
-            'company' => $validatedData['company']
+            'company' => $validatedData['company'],
+            'account_status' => 'waiting',
+            'account_acl' => 'admin-account'
         ]);
 
         $password = Str::random(8);
@@ -217,10 +220,9 @@ class AccountController extends Controller
 
         // sendSMS($mobile, $message);
 
-        Alert::success('موفق', 'حساب کاربری با موفقیت ایجاد شد.');
-        Auth::login($createUser);
+        Alert::success('موفق', 'حساب کاربری شما با موفقیت ایجاد شد و در انتظار تایید میباشد.');
 
-        return redirect(RouteServiceProvider::HOME);
+        return back();
     }
 
     public function forgotPassword(Request $request)
@@ -365,5 +367,72 @@ class AccountController extends Controller
         Alert::success('موفق', 'وضعیت کاربر با موفقیت تغییر کرد');
         return back();
 
+    }
+
+    public function editProfile(Account $account)
+    {
+        return view('admin.account-profile.edit', compact('account'));
+    }
+
+    public function updateProfile(Request $request, Account $account)
+    {
+        $validatedData = $request->validate([
+            'account_type' => 'required|in:حقیقی,حقوقی',
+            'name' => 'required|string|max:255',
+            'family' => 'required|string|max:255',
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile,' . $account->id,
+            'phone' => 'nullable|string|max:15',
+            'email' => 'nullable|email|max:255',
+            'birthday' => 'nullable',
+            'mellicode' => 'nullable|string|max:10',
+            'state' => 'nullable|string|max:255',
+            'city' => 'nullable|string|max:255',
+            'address' => 'nullable|string',
+            'postalcode' => 'nullable|string|max:10',
+            'slug' => 'required|string|max:255|unique:accounts,slug,'.$account->id,
+            'company' => 'required|max:255',
+            'company_type' => 'nullable|string|max:255',
+            'national_id' => 'nullable|string|max:20',
+            'registration_number' => 'nullable|string|max:20',
+            'registration_date' => 'nullable',
+        ]);
+
+        if ($validatedData['birthday']  != null) {
+            $birthday = Carbon::parse(Verta::parse($validatedData['birthday'])->formatGregorian('Y-m-d'));
+        } else {
+            $birthday = null;
+        }
+
+
+        if ($validatedData['registration_date']  != null) {
+            $registration_date = Carbon::parse(Verta::parse($validatedData['registration_date'])->formatGregorian('Y-m-d'));
+        } else {
+            $registration_date = null;
+        }
+
+        $account->update([
+            'account_type' => $validatedData['account_type'],
+            'name' => $validatedData['name'],
+            'family' => $validatedData['family'],
+            'mobile' => $validatedData['mobile'],
+            'phone' => $validatedData['phone'],
+            'email' => $validatedData['email'],
+            'birthday' => $birthday,
+            'mellicode' => $validatedData['mellicode'],
+            'state' => $validatedData['state'],
+            'city' => $validatedData['city'],
+            'address' => $validatedData['address'],
+            'postalcode' => $validatedData['postalcode'],
+            'slug' => $validatedData['slug'],
+            'company' => $validatedData['company'],
+            'company_type' => $validatedData['company_type'],
+            'national_id' => $validatedData['national_id'],
+            'registration_number' => $validatedData['registration_number'],
+            'registration_date' => $registration_date,
+
+        ]);
+
+        Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
+        return redirect()->back();
     }
 }

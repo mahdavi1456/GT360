@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('account_id');
             $table->string('variable_value')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

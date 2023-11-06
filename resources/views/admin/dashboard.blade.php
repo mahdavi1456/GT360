@@ -13,6 +13,15 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @if (is_null(Auth::user()->account->slug))
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger">
+                            لطفا از منوی سمت راست فرم تکمیل اطلاعات را پر کنید. در غیر این صورت قادر به استفاده از امکانات پنل نخواهید بود.
+                        </div>
+                    </div>
+                </div>
+                @endif
                 <div class="row">
                     <div class="col-6">
                         <div class="card">

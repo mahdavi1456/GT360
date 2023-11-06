@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -12,8 +13,12 @@ class UserController extends Controller
 
     public function showUsers($accountId)
     {
-        $account = Account::findOrFail($accountId);
+        $auth_acc = Auth::user()?->account;
+        if ($auth_acc->account_acl != 'super-admin' && $accountId != $auth_acc->id) {
+            return redirect()->route('user.showUsers', $auth_acc->id);
+        }
 
+        $account = Account::findOrFail($accountId);
         $users = $account->users;
 
         return view('admin.account.showUsers', compact('account', 'users'));
@@ -32,13 +37,13 @@ class UserController extends Controller
             'account_id' => 'required',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|max:11',
+            'mobile' => 'required|string|max:11|regex:/^09[0-9]{9}/|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'state' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'username' => 'required|string',
+            'username' => 'nullable|string',
             'pass' => 'required|string|min:8|confirmed',
 
         ]);
@@ -77,7 +82,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|max:11',
+            'mobile' => 'required|string|max:11|regex:/^09[0-9]{9}/|unique:users,mobile,' . $userId,
             'email' => 'required|string|email|max:255|unique:users,email,' . $userId,
             'state' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',

@@ -24,4 +24,16 @@ class PaymentTypeVariable extends Model
         return $this->belongsTo(PaymentType::class, 'payment_type_id');
     }
 
+    public function valueAccount($account_id)
+    {
+        $variable = AccountPaymentTypeVariable::query()
+                                            ->where('variable_id', $this->id)
+                                            ->where('account_id', $account_id)
+                                            ->first();
+        if (!$variable) {
+            return null;
+        }
+        return $variable->variable_value;
+    }
+
 }

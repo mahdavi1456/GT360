@@ -24,7 +24,7 @@
                             <div style="width: 120px">
                                 <input type="text" name="amount" class="touchspin text-center">
                             </div>
-                            <button class="btn btn-success mx-2" onclick="addToCart({{ $product->id }})"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید</button>
+                            <button class="btn btn-success mx-2" onclick="addToCart({{ $product->id, $product->account->id }})"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید</button>
                         </div>
                     </div>
                 </div>

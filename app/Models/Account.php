@@ -36,4 +36,9 @@ class Account extends Model
     {
         return $this->belongsToMany(PaymentType::class, 'account_payment_types', 'account_id', 'payment_type_id');
     }
+
+    public function paymentTypeVariables()
+    {
+        return $this->hasMany(AccountPaymentTypeVariable::class);
+    }
 }

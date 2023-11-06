@@ -32,94 +32,25 @@
 					</div>
 				</header>
 			</div>
-			<div class="container">
-				<div class="row">
-					<div id="category-list">
-					<ul>
-						<li>
-							<a href="/">همه</a>
-						</li>
-						@foreach ($categories as $category)
-							<li onclick="document.getElementById('cat-form-{{ $category->id }}').submit()">{{ $category->cname }}</li>
-						@endforeach
-					</ul>
-					@foreach ($categories as $category)
-						<form action="" id="cat-form-{{ $category->id }}">
-							<input type="hidden" name="category" value="{{ $category->id }}">
-						</form>
-					@endforeach
-					</div>
-				</div>
-			</div>
 		</div>
 
 		<section id="products">
 			<div class="container">
 				<div class="row">
-					@if ($products->count() > 0)
-						@foreach ($products as $product)
+					@if ($accounts->count() > 0)
+						@foreach ($accounts as $account)
 						<article class="col-3">
-							<a href="{{ route('front.products.single', $product->id) }}">
-								<img src="{{ $product->primaryImage() ? asset($product->primaryImage()) : asset('images/no-img.jpg') }}" class="img-fluid">
-								<h2>{{ $product->product_name }}</h2>
+							<a href="{{ route('slug.products', ['slug'=>$account->slug]) }}">
+								<img src="{{ asset('images/no-img.jpg') }}" class="img-fluid">
+								<h2>{{ $account->company }}</h2>
 							</a>
-							<span>{{ fa_number($product->showPrice()) }}</span>
-							<button class="btn btn-success" onclick="addToCart({{ $product->id }})">+</button>
 						</article>
 						@endforeach
 					@else
 						<article class="col-12">
-							متاسفانه محصولی یافت نشد.
+							موردی جهت نمایش موجود نیست.
 						</article>
 					@endif
-					<!-- <article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article>
-					<article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article>
-					<article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article>
-					<article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article>
-					<article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article>
-					<article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article>
-					<article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article>
-					<article class="col-3">
-						<img src="v1/images/products/1.png" class="img-fluid">
-						<h2>سس مایونز مهرام</h2>
-						<span>250.000</span>
-						<button class="btn btn-success">+</button>
-					</article> -->
 				</div>
 			</div>
 		</section>

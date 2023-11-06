@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartHead;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
 class CustomerController extends Controller
@@ -73,16 +75,12 @@ class CustomerController extends Controller
     public function sendLoginCode(Request $request)
     {
 
-        $validate = $request->validate(
-            [
-                'mobile' => 'required|numeric|digits:11'
-            ],
-            [
+        $validate = $request->validate([
+                'mobile' => 'required|numeric|digits:11|regex:/^09[0-9]{9}/'
+            ], [
                 'mobile.required' => 'فیلد موبایل الزامی است.',
-
                 'mobile.digits' => 'موبایل باید دقیقاً 11 رقم باشد',
-            ]
-        );
+            ]);
 
         $code = rand(1000, 9999);
 
@@ -109,20 +107,26 @@ class CustomerController extends Controller
 
         }
 
+        if (!is_null($request->cookie('cart-token'))) {
+            $cart = CartHead::where('token', $request->cookie('cart-token'))->first();
+            if ($cart) {
+                $cartItemCount = fa_number($cart->bodies->count());
+                $cart->update([
+                    'customer_id' => $customer->id
+                ]);
+            }
+        }
     }
 
     public function resendLoginCode(Request $request)
     {
 
-        $validate = $request->validate(
-            [
-                'mobile' => 'required|numeric|digits:11'
-            ],
-            [
+        $validate = $request->validate([
+                'mobile' => 'required|numeric|digits:11|regex:/^09[0-9]{9}/'
+            ], [
                 'mobile.required' => 'فیلد موبایل الزامی است.',
                 'mobile.digits' => 'موبایل باید دقیقاً 11 رقم باشد',
-            ]
-        );
+            ]);
 
         $customer = Customer::where('mobile', $validate['mobile'])->first();
         if ($customer) {
@@ -139,55 +143,37 @@ class CustomerController extends Controller
             $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
 
             // sendSMS($mobile, $message);
-
         }
-
-
     }
 
 
     public function confirmLogin(Request $request)
     {
-
-        $validate = $request->validate(
-            [
+        $validate = $request->validate([
                 'code' => 'required|string|max:4'
-            ],
-            [
+            ], [
                 'code.required' => 'فیلد کد الزامی است.',
-            ]
-        );
+            ]);
 
         $customer = Customer::where('mobile', $request->mobile)->first();
-
-        $randomNumber = Cache::get('remember_token');
-
+        $randomNumber = $customer->remember_token;
         $userEnteredCode = $validate['code'];
 
         if ($userEnteredCode == $randomNumber) {
-
             if($customer->status == 'inactive') {
-
                 $customer->update([
                     'status' => 'active'
                 ]);
+            }
 
-
-            $customer_id = $customer->id;
-
-            return response()->json(['customer_id' => $customer_id, 'redirect' => 'completeInfo']);
-
+            if (!Auth::guard('customer')->attempt($customer->mobile)) {
+                return response()->json(['error' => 'مشکلی پیش آمده است لطفا بعدا تلاش کنید.'], 400);
             }
 
             $customer_id = $customer->id;
-
-            return response()->json(['customer_id' => $customer_id, 'redirect' => 'checkout']);
-
+            return response()->json(['customer_id' => $customer_id, 'redirect' => 'completeInfo']);
         } else {
-
             return response()->json(['error' => 'کد وارد شده اشتباه است'], 400);
         }
-
-
     }
 }

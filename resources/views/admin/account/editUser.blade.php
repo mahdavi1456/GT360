@@ -38,7 +38,7 @@
                                             <div class="form-group">
                                                 <label class="form-label">نام <span class="text-danger">*</span></label>
                                                 <input type="text" name="name" id="name"
-                                                    value="{{ old('name') ?? $user->name }}" class="form-control" required
+                                                    value="{{ old('name') ?? $user->name }}" class="form-control persianletters" required
                                                     oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
@@ -48,7 +48,7 @@
                                                 <label class="form-label">نام خانوادگی <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="family" id="family"
-                                                    value="{{ old('family') ?? $user->family }}" class="form-control" required
+                                                    value="{{ old('family') ?? $user->family }}" class="form-control persianletters" required
                                                     oninvalid="this.setCustomValidity('.لطفا نام خانوادگی را وارد کنید')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>

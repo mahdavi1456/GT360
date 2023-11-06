@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('payment_type_variables', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('label');
             $table->unsignedBigInteger('payment_type_id');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

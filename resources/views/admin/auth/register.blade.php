@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap-rtl.min.css') }}">
     <!-- template rtl version -->
     <link rel="stylesheet" href="{{ asset('asset/dist/css/custom-style.css') }}">
+    @include('sweetalert::alert')
 </head>
 
 <body class="hold-transition register-page">
@@ -53,13 +54,13 @@
                     </div>
                     <label class="form-label">نام <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" name="name" class="form-control" placeholder="نام..." value="{{ old('name') }}" required
+                        <input type="text" name="name" class="form-control persianletters" placeholder="نام..." value="{{ old('name') }}" required
                         oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
                         oninput="this.setCustomValidity('')">
                     </div>
                     <label class="form-label">نام خانوادگی <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" name="family" class="form-control" placeholder="نام خانوادگی..." value="{{ old('family') }}" required
+                        <input type="text" name="family" class="form-control persianletters" placeholder="نام خانوادگی..." value="{{ old('family') }}" required
                         oninvalid="this.setCustomValidity('.لطفا نام خانوادگی را وارد کنید')"
                         oninput="this.setCustomValidity('')">
                     </div>

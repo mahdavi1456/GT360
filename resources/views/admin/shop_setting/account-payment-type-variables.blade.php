@@ -33,7 +33,7 @@
                                                     <label class="required"> {{ $payment_type_variable->label }} </label>
                                                     <input type="text" name="variable_values[]" class="form-control"
                                                         placeholder="{{ $payment_type_variable->label }}..."
-                                                        value="{{ $payment_type_variable->variable_value }}">
+                                                        value="{{ $payment_type_variable->valueAccount(auth()->user()->account_id) }}">
                                                     <input type="hidden" name="variable_ids[]"
                                                         value="{{ $payment_type_variable->id }}">
                                                 </div>

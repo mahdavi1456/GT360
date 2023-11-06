@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('details')->nullable();
             $table->boolean('primary')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

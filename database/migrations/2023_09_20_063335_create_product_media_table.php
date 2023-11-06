@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('product_id');
             $table->string('image');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

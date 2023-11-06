@@ -86,7 +86,8 @@
                                     <tr>
                                         <th>ردیف</th>
                                         <th>نام دسته</th>
-                                        <th>عنوان دسته</th>
+                                        <th>دسته والد</th>
+                                        <th>تصویر</th>
                                         <th>توضیحات</th>
                                         <th>عملیات</th>
                                     </tr>
@@ -95,6 +96,7 @@
                                         <tr>
                                             <td>@php echo fa_number($i); @endphp</td>
                                             <td>{{ $category->cname }}</td>
+                                            <td>{{ $category->parent?->cname }}</td>
                                             <td>
                                             @if ($category->image)
                                                 <img src="{{ asset('images/categories/' . $category->image) }}" alt="تصویر دسته بندی" width="50px">

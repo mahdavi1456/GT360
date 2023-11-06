@@ -59,12 +59,12 @@
 					@if ($products->count() > 0)
 						@foreach ($products as $product)
 						<article class="col-3">
-							<a href="{{ route('front.products.single', $product->id) }}">
+							<a href="{{ route('front.products.single', ['id'=>$product->id]) }}">
 								<img src="{{ $product->primaryImage() ? asset($product->primaryImage()) : asset('images/no-img.jpg') }}" class="img-fluid">
 								<h2>{{ $product->product_name }}</h2>
 							</a>
 							<span>{{ fa_number($product->showPrice()) }}</span>
-							<button class="btn btn-success" onclick="addToCart({{ $product->id }})">+</button>
+							<button class="btn btn-success" onclick="addToCart({{ $product->id }}, {{ $product->account_id }})">+</button>
 						</article>
 						@endforeach
 					@else

@@ -156,13 +156,14 @@ $(document).ready(function(){
 	});
 });
 
-function addToCart(id) {
+function addToCart(p_id, a_id) {
 	$.ajax({
 		url: '/admin/cart/add',
 		type: 'POST',
 		data: {
 			_token: $('meta[name=_token]').attr('content'),
-			product: id,
+			product: p_id,
+            account: a_id,
 			amount: $('input[name=amount]').val(),
 		},
 		beforeSend: function() {
@@ -219,6 +220,7 @@ function removeFromCart(id)
 					discount(result.cart, false);
 					$('#tr-' + id + '').remove();
 					$('#totalPrice').html(result.totalPrice);
+                    // $('#cart-container').html(result.showCart);
 					$('#cartItemCount').html(result.cartItemCount);
 					Swal.fire({
 						title: 'موفق',
@@ -227,6 +229,7 @@ function removeFromCart(id)
 					});
 				},
 				error: function(result) {
+                    // console.log(result);
 					Swal.fire({
 						title: 'خطا',
 						text: result.responseJSON.message,
@@ -251,15 +254,17 @@ function amount(id, amount)
 		beforeSend: function() {
 			$('#loader').show();
 		},
-		complete: function(){
+		complete: function() {
 			$('#loader').hide();
 		},
 		success: function(result) {
 			discount(result.cart, false);
 			$('#bodyPrice-' + id + '').html(result.bodyPrice);
 			$('#totalPrice').html(result.totalPrice);
+            // $('#cart-container').html(result.showCart);
 		},
 		error: function(result) {
+            // console.log(result);
 			Swal.fire({
 				title: 'خطا',
 				text: result.responseJSON.message,
@@ -288,6 +293,7 @@ function discount(id, alert)
 		success: function(result) {
 			$('#finalPrice').html(result.finalPrice);
 			$('#discountPrice').html(result.discountPrice);
+            // $('#cart-container').html(result.showCart);
 			Swal.fire({
 				title: 'موفق',
 				text: 'کد تخفیف با موفقیت اعمال شد.',

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('family');
+            $table->string('name')->nullable();
+            $table->string('family')->nullable();
             $table->string('mobile');
             $table->string('father_name')->nullable();
             $table->string('national_code')->nullable();
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('remember_token')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

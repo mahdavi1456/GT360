@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('number')->nullable();
             $table->text('details')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

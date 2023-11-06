@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb("ایجاد کاربر برای مشترک :  $account->name") }}
+        {{ breadcrumb("ایجاد کاربر برای مشترک : " . ($account->account_type == 'حقیقی' ? $account->name . ' ' . $account->family : $account->company)) }}
 
         <!-- Main content -->
         <section class="content">
@@ -35,7 +35,7 @@
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label class="form-label">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="name" id="name" placeholder="نام ..." class="form-control" value="{{ old('name') }}" required oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
+                                                <input type="text" name="name" id="name" placeholder="نام ..." class="form-control persianletters" value="{{ old('name') }}" required oninvalid="this.setCustomValidity('.لطفا نام را وارد کنید')"
                                                 oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
@@ -43,7 +43,7 @@
                                             <div class="form-group">
                                                 <label class="form-label">نام خانوادگی <span
                                                         class="text-danger">*</span></label>
-                                                <input type="text" name="family" id="family" placeholder="نام خانوادگی..." class="form-control" value="{{ old('family') }}" required oninvalid="this.setCustomValidity('.لطفا نام خانوادگی را وارد کنید')"
+                                                <input type="text" name="family" id="family" placeholder="نام خانوادگی..." class="form-control persianletters" value="{{ old('family') }}" required oninvalid="this.setCustomValidity('.لطفا نام خانوادگی را وارد کنید')"
                                                 oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
@@ -93,9 +93,8 @@
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
-                                                <label class="form-label required"> نام کاربری <span class="text-danger">*</span></label>
-                                                <input type="text" name="username" class="form-control" id="username" placeholder="نام کاربری..." value="{{ old('username') }}" required oninvalid="this.setCustomValidity('.لطفا نام کاربری را وارد کنید')"
-                                                oninput="this.setCustomValidity('')"/>
+                                                <label class="form-label">نام کاربری</label>
+                                                <input type="text" name="username" class="form-control" id="username" placeholder="نام کاربری..." value="{{ old('username') }}"/>
                                             </div>
                                         </div>
                                         <div class="col-3">

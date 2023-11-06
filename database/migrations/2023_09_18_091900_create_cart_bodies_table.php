@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('cart_id');
             $table->string('details')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

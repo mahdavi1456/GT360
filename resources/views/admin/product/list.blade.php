@@ -61,6 +61,7 @@
                                             <th>دسته</th>
                                             <th>قیمت خرید</th>
                                             <th>قیمت فروش</th>
+                                            <th>قیمت فروش ویژه</th>
                                             <th>موجودی</th>
                                             <th>عملیات</th>
                                         </tr>
@@ -71,6 +72,7 @@
                                                 <td>{{ $product->primaryCategory() }}</td>
                                                 <td>{{ fa_number($product->purchase_price) }}</td>
                                                 <td>{{ fa_number($product->sales_price) }}</td>
+                                                <td>{{ fa_number($product->offer_price) }}</td>
                                                 <td>{{ fa_number($product->inventory) }}</td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('product.edit', $product) }}"

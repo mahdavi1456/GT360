@@ -29,7 +29,6 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['nullable', 'string', 'email'],
             'mobile' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
@@ -44,21 +43,37 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt(array_merge($this->only('mobile', 'password'), ["user_status" => "Active"]), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
+        $user = User::where('mobile', $this->input('mobile'))->first();
 
-            $user = User::where('mobile', $this->input('mobile'))->first();
-
-            if($user && $user->account->account_status === 'deActive') {
-            if ($user && $user->user_status === 'DeActive') {
-                throw ValidationException::withMessages([
-                    $user->deactivation_reason
-                ]);
-            }
+        if (!$user) {
+            throw ValidationException::withMessages([
+                'mobile' => 'کاربری با این شماره موبایل یافت نشد.'
+            ]);
         }
 
+        if ($user->account->account_status == 'deActive') {
             throw ValidationException::withMessages([
-                'mobile' => trans('auth.failed'),
+                'account' => 'کاربر گرامی اکانت شما غیر فعال میباشد. لطفا با پشتیبانی تماس بگیرید.'
+            ]);
+        }
+
+        if ($user->account->account_status == 'waiting') {
+            throw ValidationException::withMessages([
+                'account' => 'کاربر گرامی اکانت شما در انتظار تایید میباشد.'
+            ]);
+        }
+
+        if ($user->user_status == 'deActive') {
+            throw ValidationException::withMessages([
+                'status' => 'کاربر گرامی شما اجازه ورود ندارید.' . $user->deactivation_reason,
+            ]);
+        }
+
+        if (! Auth::attempt($this->only('mobile', 'password'), $this->boolean('remember'))) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'password' => 'رمز عبور وارد شده صحیح نیست.',
             ]);
         }
 
@@ -93,6 +108,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->input('mobile')).'|'.$this->ip());
     }
 }

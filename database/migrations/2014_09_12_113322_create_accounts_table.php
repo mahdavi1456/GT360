@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->string('account_type');
-            $table->string('slug')->nullable();
+            $table->string('account_acl');
+            $table->string('slug')->nullable()->unique();
             $table->string('name');
             $table->string('family');
             $table->string('mobile');
@@ -34,6 +35,7 @@ return new class extends Migration
             $table->string('account_status')->nullable();
             $table->string('deactivation_reason')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

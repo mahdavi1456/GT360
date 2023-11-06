@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('pay_type');
             $table->text('details');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

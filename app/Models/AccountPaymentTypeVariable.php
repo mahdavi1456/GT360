@@ -10,4 +10,14 @@ class AccountPaymentTypeVariable extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function variable()
+    {
+        return $this->belongsTo(PaymentTypeVariable::class, 'variable_id');
+    }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 }

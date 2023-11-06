@@ -17,8 +17,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        $products = Auth::user()->products()->orderBy('created_at', 'desc')->get();
+        $categories = Category::latest()->get();
+        $products = Product::latest()->get();
+
+        if (Auth::user()->account->account_acl != 'super-account') {
+            $categories = Auth::user()->account->categories;
+            $products = Auth::user()->account->products->sortDesc();
+        }
         return view('admin.product.list', compact('products', 'categories'));
     }
 
@@ -38,16 +43,16 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'product_name' => 'required',
-            'purchase_price' => 'numeric',
-            'sales_price' => 'numeric',
-            'inventory' => 'numeric',
-            'files' => 'required'
+            'purchase_price' => 'required|numeric',
+            'sales_price' => 'required|numeric',
+            'inventory' => 'required|numeric',
         ]);
 
         $product = Product::create([
             'product_name' => $request->product_name,
             'purchase_price' => $request->purchase_price,
             'sales_price' => $request->sales_price,
+            'offer_price' => $request->offer_price,
             'inventory' => $request->inventory,
             'account_id' => Auth::user()->account_id,
             'user_id' => Auth::user()->id
@@ -96,13 +101,16 @@ class ProductController extends Controller
 
         $validated = $request->validate([
             'product_name' => 'required',
-            'files' => 'required'
+            'purchase_price' => 'required|numeric',
+            'sales_price' => 'required|numeric',
+            'inventory' => 'required|numeric','product_name' => 'required'
         ]);
 
         $product->update([
             'product_name' => $request->product_name,
             'purchase_price' => $request->purchase_price,
             'sales_price' => $request->sales_price,
+            'offer_price' => $request->offer_price,
             'inventory' => $request->inventory,
         ]);
 

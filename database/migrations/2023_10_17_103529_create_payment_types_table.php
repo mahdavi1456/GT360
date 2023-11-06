@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('display_order');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('transport_id');
             $table->foreign('transport_id')->references('id')->on('transports');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

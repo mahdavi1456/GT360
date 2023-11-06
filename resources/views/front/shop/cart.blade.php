@@ -2,10 +2,10 @@
 @section('title', 'سبد خرید')
 @section('content')
 <section id="products" class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                @if ($bodies->count())
+    <div class="container" id="cart-container">
+        @if (!is_null($cart) && $bodies->count())
+            <div class="row">
+                <div class="col-12">
                     <table class="table" id="cart-table">
                         <thead>
                             <tr>
@@ -48,31 +48,33 @@
                             </tr>
                         </tbody>
                     </table>
-                @else
-                    <div class="alert">
-                        سبد خرید شما خالی است.
-                        <a href="/" class="btn btn-primary">بازگشت به فروشگاه</a>
-                    </div>
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>کد تخفیف</label>
-                    <input type="text" name="discount" class="form-control" value="{{ $cart->discount_title }}" placeholder="کد تخفیف...">
                 </div>
             </div>
-            <div class="col-md-3">
-                <button class="btn btn-primary" onclick="discount({{ $cart->id }}, true)">اعمال کد تخفیف</button>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>کد تخفیف</label>
+                        <input type="text" name="discount" class="form-control" value="{{ $cart->discount_title }}" placeholder="کد تخفیف...">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" onclick="discount({{ $cart->id }}, true)">اعمال کد تخفیف</button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-danger" onclick="removeDiscount({{ $cart->id }})">حذف کد تخفیف</button>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{ route('customer.login') }}" class="btn btn-success">تسویه حساب</a>
+                </div>
             </div>
-            <div class="col-md-3">
-                <button class="btn btn-danger" onclick="removeDiscount({{ $cart->id }})">حذف کد تخفیف</button>
+        @else
+            <div class="alert alert-primary text-center">
+                <div class="mb-3">
+                    سبد خرید شما خالی است.
+                </div>
+                <a href="/" class="btn btn-success">بازگشت به فروشگاه</a>
             </div>
-            <div class="col-md-3">
-                <a href="{{ route('customer.login') }}" class="btn btn-success">تسویه حساب</a>
-            </div>
-        </div>
+        @endif
     </div>
 </section>
 @endsection

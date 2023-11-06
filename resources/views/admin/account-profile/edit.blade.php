@@ -4,13 +4,8 @@
 @include('sweetalert::alert')
 @include('admin.partial.nav')
 @include('admin.partial.aside')
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-
-    {{ breadcrumb('ویرایش مشترک') }}
-
-    <!-- Main content -->
+    {{ breadcrumb('تکمیل اطلاعات') }}
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -28,7 +23,7 @@
                                 </div>
                             </div>
                             @endif
-                            <form action="{{ route('account.update', $account->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('account.profile.update', $account->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <h4>اطلاعات شخصی</h4>
@@ -66,7 +61,7 @@
                                         <div class="form-group">
                                             <label class="form-label required"> موبایل <span class="text-danger">*</span></label>
                                             <input type="text" name="mobile" class="form-control just-numbers" id="mobile" placeholder="موبایل..." value="{{ old('mobile') ?? $account->mobile }}"  required
-                                            oninvalid="this.setCustomValidity('.لطفا موبایل را وارد کنید')"
+                                            oninvalid="this.setCustomValidity('.لطفا موبایل خانوادگی را وارد کنید')"
                                             oninput="this.setCustomValidity('')"/>
                                         </div>
                                     </div>
@@ -126,8 +121,8 @@
                                     </div>
                                     <div class="col-3">
                                         <div class="form-group">
-                                            <label class="form-label required"> نام شرکت / فروشگاه<span class="text-danger">*</span></label>
-                                            <input type="text" name="company" class="form-control" id="company" placeholder="نام شرکت..." value="{{ old('company') ?? $account->company }}" />
+                                            <label class="form-label required"> نام شرکت / فروشگاه <span class="text-danger">*</span></label>
+                                            <input type="text" name="company" class="form-control persianletters" id="company" placeholder="نام شرکت..." value="{{ old('company') ?? $account->company }}" />
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -138,7 +133,6 @@
                                             oninput="this.setCustomValidity('')"/>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div id="company_fields">
                                     <hr>
@@ -199,9 +193,7 @@
             </div>
         </div>
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 @endsection
 
 @section('scripts')

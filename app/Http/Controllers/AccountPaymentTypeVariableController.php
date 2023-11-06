@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\AccountPaymentTypeVariable;
+use App\Models\PaymentType;
 use App\Models\PaymentTypeVariable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,18 +17,23 @@ class AccountPaymentTypeVariableController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $id)
+    public function create(PaymentType $paymentType)
     {
         $account_id = Auth::user()->account->id;
-        $payment_type_variables = AccountPaymentTypeVariable::where('account_id', $account_id)->get();
+        $account = Account::find($account_id);
+        if (!$account) {
+            Alert::error('خطا', 'خطا در احراز هویت لطفا با پشتیبانی تماس بگیرید.');
+            return back();
+        }
+        $payment_type_variables = $paymentType->variables;
 
-        $payment_type_variables = PaymentTypeVariable::where('payment_type_id', $id)->get();
-        return view('admin.shop_setting.account-payment-type-variables', compact('payment_type_variables', 'payment_type_variables'));
+        return view('admin.shop_setting.account-payment-type-variables', compact('payment_type_variables'));
     }
 
     /**
@@ -34,23 +41,21 @@ class AccountPaymentTypeVariableController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'variable_values' => 'required|array',
-            'variable_ids' => 'required|array',
-        ]);
-
         $account_id = Auth::user()->account_id;
 
-        $variableValues = $request->input('variable_values');
-        $variableIds = $request->input('variable_ids');
+        $variable_values = $request->input('variable_values');
+        $variable_ids = $request->input('variable_ids');
 
 
-        foreach ($variableIds as $key => $variableId) {
-            $variable = new AccountPaymentTypeVariable();
-            $variable->variable_id = $variableId;
-            $variable->account_id = $account_id;
-            $variable->variable_value = $variableValues[$key];
-            $variable->save();
+        foreach ($variable_ids as $key => $variable_id) {
+            AccountPaymentTypeVariable::updateOrCreate([
+                'account_id' => $account_id,
+                'variable_id' => $variable_id
+            ], [
+                'account_id' => $account_id,
+                'variable_id' => $variable_id,
+                'variable_value' => $variable_values[$key],
+            ]);
         }
 
         Alert::success('موفق', 'تغییرات با موفقیت ذخیره شدند.');

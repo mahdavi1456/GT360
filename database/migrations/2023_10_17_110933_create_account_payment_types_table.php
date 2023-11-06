@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('payment_type_id');
             $table->foreign('payment_type_id')->references('id')->on('payment_types');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

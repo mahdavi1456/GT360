@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('token');
             $table->string('details')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

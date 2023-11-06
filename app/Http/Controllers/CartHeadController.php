@@ -7,11 +7,12 @@ use App\Models\CartHead;
 use App\Models\Discount;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 class CartHeadController extends Controller
 {
-    protected function create()
+    protected function create($account_id)
     {
         $token = Str::random(16) . '_' . time();
         cookie()->queue('cart-token', $token, 2628000);
@@ -20,6 +21,7 @@ class CartHeadController extends Controller
             'token' => $token,
             'cart_status' => 0,
             'total_price' => 0,
+            'account_id' => $account_id
         ]);
 
         return $cart;
@@ -51,18 +53,27 @@ class CartHeadController extends Controller
 
     public function addToCart(Request $request)
     {
-        if (!is_null($request->cookie('cart-token'))) 
+        if (!is_null($request->cookie('cart-token')))
             $cart = CartHead::where('token', $request->cookie('cart-token'))->first();
 
         if (!isset($cart))
-            $cart = $this->create();
-
-        $cartItemCount = fa_number($cart->bodies->count());
+            $cart = $this->create($request->account);
 
         $product = Product::find($request->product);
-        if ($product) {
-            $this->cartBody($cart, $product);
+        if (!$product) {
+            return response()->json(array(
+                'message' => 'محصول یافت نشد.'
+            ), 404);
+        }
 
+        if ($product->account_id != $cart->account_id) {
+            return response()->json(array(
+                'message' => 'شما در حال خرید از یک فروشگاه دیگر هستید. برای خرید از این فروشگاه لطفا سبد خرید دیگر خود را تکمیل کنید.'
+            ), 404);
+        }
+
+        $this->cartBody($cart, $product);
+            $cartItemCount = fa_number($cart->bodies->count());
             $cart->total_price = $cart->totalPrice();
             $cart->save();
 
@@ -70,24 +81,21 @@ class CartHeadController extends Controller
                 'cartItemCount' => $cartItemCount,
                 'cart' => $cart->id,
             ), 200);
-        } else {
-            return response()->json(array(
-                'message' => 'محصول یافت نشد.'
-            ), 404);
-        }
     }
 
     public function showCart(Request $request)
     {
-        if (!is_null($request->cookie('cart-token'))) 
+        $cartItemCount = fa_number(0);
+        $cart = null;
+        $bodies = null;
+
+        if (!is_null($request->cookie('cart-token'))) {
             $cart = CartHead::where('token', $request->cookie('cart-token'))->first();
-
-        if (!isset($cart))
-            $cart = $this->create();
-
-        $cartItemCount = fa_number($cart->bodies->count());
-
-        $bodies = $cart->bodies;
+            if ($cart) {
+                $cartItemCount = fa_number($cart->bodies->count());
+                $bodies = $cart->bodies;
+            }
+        }
 
         return view('front.shop.cart', compact('cart', 'bodies', 'cartItemCount'));
     }
@@ -100,10 +108,15 @@ class CartHeadController extends Controller
         $cart->save();
         $totlaPrice = fa_number($cart->totalPrice());
         $cartItemCount = fa_number($cart->bodies->count());
+
+        if ($cart->bodies->count() == 0) {
+            $cart->delete();
+        }
         return response()->json(array(
             'totalPrice' => $totlaPrice,
             'cartItemCount' => $cartItemCount,
             'cart' => $cart->id
+            // 'showCart' => $cart->showCart()
         ), 200);
     }
 
@@ -120,9 +133,10 @@ class CartHeadController extends Controller
             'bodyPrice' => $bodyPrice,
             'totalPrice' => $totlaPrice,
             'cart' => $cart->id
+            // 'showCart' => $cart->showCart()
         ), 200);
     }
-    
+
     public function discount(Request $request, CartHead $cart)
     {
         $discount = Discount::query()->where('title', $request->discount)->first();
@@ -149,6 +163,7 @@ class CartHeadController extends Controller
                     return response()->json(array(
                         'finalPrice' => fa_number($final_price),
                         'discountPrice' => fa_number($discount_price),
+                        // 'showCart' => $cart->showCart()
                     ), 200);
                 } else {
                     $cart->update([
@@ -190,6 +205,7 @@ class CartHeadController extends Controller
         return response()->json(array(
             'finalPrice' => fa_number($cart->total_price),
             'discountPrice' => fa_number(0),
+            'showCart' => $cart->showCart()
         ), 200);
     }
 }

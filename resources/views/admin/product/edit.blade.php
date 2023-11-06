@@ -44,8 +44,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>دسته <span class="text-danger">*</span></label>
-                                                <select name="categories[]" class="form-control select2" multiple  required oninvalid="this.setCustomValidity('.لطفا دسته را وارد کنید')"
-                                                oninput="this.setCustomValidity('')">
+                                                <select name="categories[]" class="form-control select2" multiple>
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}"
                                                             {{ $product->hasCategory($category) ? 'selected' : '' }}>
@@ -82,6 +81,13 @@
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>قیمت فروش ویژه</label>
+                                                <input type="text" name="offer_price" class="form-control just-numbers"
+                                                    value="{{ $product->offer_price }}" placeholder="قیمت فروش ویژه...">
+                                            </div>
+                                        </div>
                                     </div>
                                     @if ($product->media)
                                     <div style="display: flex;">
@@ -104,7 +110,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label>فایل <span class="text-danger">*</span></label>
+                                                <label>فایل</label>
                                                 <input type="hidden" name="files" id="files">
                                                 <div class="dropzone">
 

@@ -40,7 +40,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{slug}', [HomeController::class, 'index']);
+Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
+
+Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
+Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
+Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
 
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 
@@ -97,10 +101,12 @@ Route::prefix('admin')->group(function () {
     Route::resource('setting', SettingController::class);
     Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
 
-    Route::post('/PaymentTypeVariable/create', [PaymentTypeVariableController::class, 'create'])->name('PaymentTypeVariable.create');
+    Route::get('/PaymentTypeVariable/{paymentType}/create', [PaymentTypeVariableController::class, 'create'])->name('PaymentTypeVariable.create');
 
 
     Route::prefix('account')->group(function () {
+        Route::get('{account}/profile', [AccountController::class, 'editProfile'])->name('account.profile.edit');
+        Route::put('{account}/profile', [AccountController::class, 'updateProfile'])->name('account.profile.update');
         Route::get('{accountId}/users', [UserController::class, 'showUsers'])->name('user.showUsers');
         Route::get('{accountId}/users/{userId}/edit', [UserController::class, 'editUser'])->name('user.editUser');
         Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
@@ -127,11 +133,6 @@ Route::prefix('admin')->group(function () {
     //  پردازش جستجو حساب کاربری
     Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
 
-
-    Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
-    Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
-    Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
-
     Route::post('cart/add', [CartHeadController::class, 'addToCart']);
     Route::get('cart', [CartHeadController::class, 'showCart'])->name('showCart');
     Route::delete('cart/remove/{body}', [CartHeadController::class, 'removeFromCart']);
@@ -154,6 +155,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/shop-setting', [ShopSettingController::class, 'index'])->name('shopSetting');
 
-    Route::get('/AccountPaymentTypeVariable/{id}', [AccountPaymentTypeVariableController::class, 'create'])->name('AccountPaymentTypeVariable');
+    Route::get('/AccountPaymentTypeVariable/{paymentType}', [AccountPaymentTypeVariableController::class, 'create'])->name('AccountPaymentTypeVariable');
     Route::post('AccountPaymentTypeVariable', [AccountPaymentTypeVariableController::class, 'store'])->name('CreateAccountPaymentTypeVariable');
 });

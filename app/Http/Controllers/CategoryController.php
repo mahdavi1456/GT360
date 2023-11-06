@@ -15,7 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Auth::user()->categories;
+        $categories = Category::latest()->get();
+
+        if (Auth::user()->account->account_acl != 'super-account') {
+            $categories = Auth::user()->account->categories->sortDesc();
+        }
 
         return view('admin.category.list', compact('categories'));
     }

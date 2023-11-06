@@ -39,6 +39,7 @@ return new class extends Migration
             $table->foreign('transport_id')->references('id')->on('transports');
             $table->foreign('payment_type_id')->references('id')->on('payment_types');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

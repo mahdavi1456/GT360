@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('tdetails')->nullable();
             $table->string('tprice');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

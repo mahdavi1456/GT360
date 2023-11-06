@@ -23,4 +23,9 @@ class Category extends Model
 
         protected $tabele = "categories";
         protected $guarded = [];
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'cparent', 'id');
+    }
 }
