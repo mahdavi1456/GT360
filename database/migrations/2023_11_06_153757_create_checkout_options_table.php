@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('checkout_options', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('details');
-            $table->double('off_price');
+            $table->text('details')->nullable();
+            $table->double('off_price')->nullable();
             $table->double('real_price');
-            $table->tinyInteger('show_status');
-            $table->double('min_price');
+            $table->tinyInteger('show_status')->default(1);
+            $table->double('min_price')->nullable();
             $table->timestamps();
         });
     }

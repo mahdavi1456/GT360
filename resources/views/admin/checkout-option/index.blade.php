@@ -26,68 +26,54 @@
                                         </div>
                                     </div>
                                 @endif
-                                <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('checkout-options.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label class="required">نام محصول <span class="text-danger">*</span></label>
-                                                <input type="text" name="product_name" class="form-control" value="{{ old('product_name') }}" placeholder="نام محصول..." required  oninvalid="this.setCustomValidity('.لطفا نام محصول را وارد کنید')"
+                                                <label class="required">عنوان <span class="text-danger">*</span></label>
+                                                <input type="text" name="title" class="form-control" value="{{ $CheckoutOption?->title ?? old('title') }}" placeholder="نام محصول..." required  oninvalid="this.setCustomValidity('لطفا عنوان را وارد نمایید.')"
+                                                       oninput="this.setCustomValidity('')">
+                                                <input type="hidden" name="id" value="{{ $CheckoutOption?->id ?? '' }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="required">توضیحات <span class="text-danger">*</span></label>
+                                                <input type="text" name="details" class="form-control" value="{{ $CheckoutOption?->details ?? old('details') }}" placeholder="توضیحات..." required  oninvalid="this.setCustomValidity('لطفا توضیحات را وارد نمایید.')"
+                                                       oninput="this.setCustomValidity('')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>قیمت اصلی <span class="text-danger">*</span></label>
+                                                <input type="text" name="real_price" class="form-control just-numbers" value="{{ $CheckoutOption?->real_price ?? old('real_price') }}" placeholder="قیمت اصلی..." required oninvalid="this.setCustomValidity('لطفا قیمت را وارد  نمایید.')"
                                                        oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label>دسته</label>
-                                                <select name="categories[]" class="form-control select2" multiple>
-                                                    @foreach($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->cname }}</option>
-                                                    @endforeach
+                                                <label>قیمت تخفیف خورده</label>
+                                                <input type="text" name="off_price" class="form-control just-numbers" value="{{ $CheckoutOption?->off_price ?? old('off_price') }}" placeholder="قیمت تخفیف خورده...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>حداقل مبلغ سبد</label>
+                                                <input type="text" name="min_price" class="form-control just-numbers" value="{{ $CheckoutOption?->min_price ?? old('min_price') }}" placeholder="حداقل مبلغ...">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>وضعیت نمایش</label>
+                                                <select name="show_status" class="form-control">
+                                                    <option {{ ($CheckoutOption?->show_status == '1') ? 'selected' : (old('show_status') == '1' ? 'selected' : '') }} value="1">فعال</option>
+                                                    <option {{ ($CheckoutOption?->show_status == '0') ? 'selected' : (old('show_status') == '0' ? 'selected' : '') }} value="0">غیرفعال</option>
                                                 </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>قیمت خرید <span class="text-danger">*</span></label>
-                                                <input type="text" name="purchase_price" class="form-control just-numbers" value="{{ old('purchase_price') }}" placeholder="قیمت خرید..." required oninvalid="this.setCustomValidity('.لطفا قیمت خرید را وارد کنید')"
-                                                       oninput="this.setCustomValidity('')">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>قیمت فروش <span class="text-danger">*</span></label>
-                                                <input type="text" name="sales_price" class="form-control just-numbers" value="{{ old('sales_price') }}" placeholder="قیمت فروش..." required oninvalid="this.setCustomValidity('.لطفا قیمت فروش را وارد کنید')"
-                                                       oninput="this.setCustomValidity('')">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>موجودی <span class="text-danger">*</span></label>
-                                                <input type="text" name="inventory" class="form-control just-numbers" value="{{ old('inventory') }}" placeholder="موجودی..." required oninvalid="this.setCustomValidity('.لطفا موجودی را وارد کنید')"
-                                                       oninput="this.setCustomValidity('')">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label>قیمت فروش ویژه</label>
-                                                <input type="text" name="offer_price" class="form-control just-numbers" value="{{ old('offer_price') }}" placeholder="قیمت فروش ویژه...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label>فایل</label>
-                                                <div>
-                                                    <div id="files-list">
-                                                        <input type="hidden" id="files" name="files">
-                                                    </div>
-                                                </div>
-                                                <div class="dropzone"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +91,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                @if ($products->count() > 0)
+                                @if ($checkoutOptions->count() > 0)
                                     <table class="table table-bordered">
                                         <tr>
                                             <th style="width: 10px">#</th>
@@ -125,12 +111,12 @@
                                                 <td>{{ fa_number($checkoutOption->real_price) }}</td>
                                                 <td>{{ fa_number($checkoutOption->min_price) }}</td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('product.edit', $product) }}"
+                                                    <a href="{{ route('checkout-options.edit', $checkoutOption) }}"
                                                        class="btn btn-warning m-1">ویرایش</a>
-                                                    <form action="{{ route('product.destroy', $product) }}" method="POST">
+                                                    <form action="{{ route('checkout-options.destroy', $checkoutOption) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $product->id }}">حذف</button>
+                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $checkoutOption->id }}">حذف</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -154,28 +140,5 @@
 
 @section('scripts')
 
-    @if ($products->count() > 0)
-        @foreach ($products as $product)
-            <script>
-                $('#confirmdelete{{ $product->id }}').click(function(event) {
-                    var form = $(this).closest("form");
-                    var name = $(this).data("name");
-                    event.preventDefault();
-                    Swal.fire({
-                        title: `آیا مطمئنید؟`,
-                        text: "این مورد برای همیشه حذف خواهد شد.",
-                        icon: "warning",
-                        showCancelButton: true,
-                        cancelButtonText: 'انصراف',
-                        confirmButtonText: 'تایید',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            form.submit();
-                        }
-                    });
-                });
-            </script>
-        @endforeach
-    @endif
 
 @endsection

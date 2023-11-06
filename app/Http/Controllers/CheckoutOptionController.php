@@ -14,7 +14,8 @@ class CheckoutOptionController extends Controller
     public function index()
     {
         //
-        return view('checkout-option.index');
+        $checkoutOptions = CheckoutOption::all();
+        return view('admin.checkout-option.index', compact('checkoutOptions'));
     }
 
     /**
@@ -37,7 +38,9 @@ class CheckoutOptionController extends Controller
             'real_price' => 'required|numeric'
         ]);
 
-        $product = CheckoutOption::create([
+        $product = CheckoutOption::updateOrCreate([
+            'id' => $request->id
+        ], [
             'title' => $request->title,
             'details' => $request->details,
             'off_price' => $request->off_price,
@@ -64,6 +67,8 @@ class CheckoutOptionController extends Controller
     public function edit(CheckoutOption $CheckoutOption)
     {
         //
+        $checkoutOptions = CheckoutOption::all();
+        return view('admin.checkout-option.index', compact('checkoutOptions', 'CheckoutOption'));
     }
 
     /**
