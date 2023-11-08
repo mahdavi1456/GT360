@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('checkout_options', function (Blueprint $table) {
+        Schema::create('addons', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('account_id');
+            $table->foreign('account_id')->references('id')->on('accounts');
             $table->string('title');
             $table->text('details')->nullable();
             $table->double('off_price')->nullable();
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('checkout_options');
+        Schema::dropIfExists('addons');
     }
 };

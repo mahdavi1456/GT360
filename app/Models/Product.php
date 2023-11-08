@@ -47,9 +47,9 @@ class Product extends Model
     public function showPrice()
     {
         if (isset($this->offer_price))
-            echo fa_number($this->offer_price) . '<br><s>' . fa_number($this->sales_price) . '</s>';
+            echo fa_number(number_format($this->offer_price)) . '<br><s>' . fa_number(number_format($this->sales_price)) . '</s>';
         else
-            echo fa_number($this->sales_price);
+            echo fa_number(number_format($this->sales_price));
     }
 
     public function account()

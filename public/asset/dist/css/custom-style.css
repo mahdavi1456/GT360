@@ -349,17 +349,20 @@ ul {
     border-color: #D5D5D5;
 }
 
+.selectable-item {
+    cursor: pointer;
+}
+
+.selectable-item-multiple {
+    cursor: pointer;
+}
+
 .selectable-item.selected {
     border: solid;
     border-color: #21371b;
 }
 
-.selectable-item2.selected {
-    border: solid;
-    border-color: #21371b;
-}
-
-.selectable-item3.selected {
+.selectable-item-multiple.selected {
     border: solid;
     border-color: #21371b;
 }

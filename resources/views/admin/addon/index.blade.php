@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Product List')
+@section('title', 'Addons')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -26,21 +26,21 @@
                                         </div>
                                     </div>
                                 @endif
-                                <form action="{{ route('checkout-options.store') }}" method="POST">
+                                <form action="{{ route('addons.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="required">عنوان <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control" value="{{ $CheckoutOption?->title ?? old('title') }}" placeholder="نام محصول..." required  oninvalid="this.setCustomValidity('لطفا عنوان را وارد نمایید.')"
+                                                <input type="text" name="title" class="form-control" value="{{ $Addon?->title ?? old('title') }}" placeholder="نام محصول..." required  oninvalid="this.setCustomValidity('لطفا عنوان را وارد نمایید.')"
                                                        oninput="this.setCustomValidity('')">
-                                                <input type="hidden" name="id" value="{{ $CheckoutOption?->id ?? '' }}">
+                                                <input type="hidden" name="id" value="{{ $Addon?->id ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="required">توضیحات <span class="text-danger">*</span></label>
-                                                <input type="text" name="details" class="form-control" value="{{ $CheckoutOption?->details ?? old('details') }}" placeholder="توضیحات..." required  oninvalid="this.setCustomValidity('لطفا توضیحات را وارد نمایید.')"
+                                                <input type="text" name="details" class="form-control" value="{{ $Addon?->details ?? old('details') }}" placeholder="توضیحات..." required  oninvalid="this.setCustomValidity('لطفا توضیحات را وارد نمایید.')"
                                                        oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
@@ -49,14 +49,14 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>قیمت اصلی <span class="text-danger">*</span></label>
-                                                <input type="text" name="real_price" class="form-control just-numbers" value="{{ $CheckoutOption?->real_price ?? old('real_price') }}" placeholder="قیمت اصلی..." required oninvalid="this.setCustomValidity('لطفا قیمت را وارد  نمایید.')"
+                                                <input type="text" name="real_price" class="form-control just-numbers" value="{{ $Addon?->real_price ?? old('real_price') }}" placeholder="قیمت اصلی..." required oninvalid="this.setCustomValidity('لطفا قیمت را وارد  نمایید.')"
                                                        oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>قیمت تخفیف خورده</label>
-                                                <input type="text" name="off_price" class="form-control just-numbers" value="{{ $CheckoutOption?->off_price ?? old('off_price') }}" placeholder="قیمت تخفیف خورده...">
+                                                <input type="text" name="off_price" class="form-control just-numbers" value="{{ $Addon?->off_price ?? old('off_price') }}" placeholder="قیمت تخفیف خورده...">
                                             </div>
                                         </div>
                                     </div>
@@ -64,15 +64,15 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>حداقل مبلغ سبد</label>
-                                                <input type="text" name="min_price" class="form-control just-numbers" value="{{ $CheckoutOption?->min_price ?? old('min_price') }}" placeholder="حداقل مبلغ...">
+                                                <input type="text" name="min_price" class="form-control just-numbers" value="{{ $Addon?->min_price ?? old('min_price') }}" placeholder="حداقل مبلغ...">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label>وضعیت نمایش</label>
                                                 <select name="show_status" class="form-control">
-                                                    <option {{ ($CheckoutOption?->show_status == '1') ? 'selected' : (old('show_status') == '1' ? 'selected' : '') }} value="1">فعال</option>
-                                                    <option {{ ($CheckoutOption?->show_status == '0') ? 'selected' : (old('show_status') == '0' ? 'selected' : '') }} value="0">غیرفعال</option>
+                                                    <option {{ (isset($Addon) && $Addon?->show_status == '1') ? 'selected' : (old('show_status') == '1' ? 'selected' : '') }} value="1">فعال</option>
+                                                    <option {{ (isset($Addon) && $Addon?->show_status == '0') ? 'selected' : (old('show_status') == '0' ? 'selected' : '') }} value="0">غیرفعال</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -91,7 +91,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                @if ($checkoutOptions->count() > 0)
+                                @if ($Addons->count() > 0)
                                     <table class="table table-bordered">
                                         <tr>
                                             <th style="width: 10px">#</th>
@@ -102,21 +102,21 @@
                                             <th>حداقل خرید</th>
                                             <th>عملیات</th>
                                         </tr>
-                                        @foreach ($checkoutOptions as $checkoutOption)
+                                        @foreach ($Addons as $Addon)
                                             <tr>
-                                                <td>{{ fa_number($checkoutOption->index + 1) }}</td>
-                                                <td>{{ $checkoutOption->title }}</td>
-                                                <td>{{ $checkoutOption->details }}</td>
-                                                <td>{{ fa_number($checkoutOption->off_price) }}</td>
-                                                <td>{{ fa_number($checkoutOption->real_price) }}</td>
-                                                <td>{{ fa_number($checkoutOption->min_price) }}</td>
+                                                <td>{{ fa_number($Addon->index + 1) }}</td>
+                                                <td>{{ $Addon->title }}</td>
+                                                <td>{{ $Addon->details }}</td>
+                                                <td>{{ fa_number($Addon->off_price) }}</td>
+                                                <td>{{ fa_number($Addon->real_price) }}</td>
+                                                <td>{{ fa_number($Addon->min_price) }}</td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('checkout-options.edit', $checkoutOption) }}"
+                                                    <a href="{{ route('addons.edit', $Addon) }}"
                                                        class="btn btn-warning m-1">ویرایش</a>
-                                                    <form action="{{ route('checkout-options.destroy', $checkoutOption) }}" method="POST">
+                                                    <form action="{{ route('addons.destroy', $Addon) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $checkoutOption->id }}">حذف</button>
+                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $Addon->id }}">حذف</button>
                                                     </form>
                                                 </td>
                                             </tr>

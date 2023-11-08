@@ -220,6 +220,7 @@ function removeFromCart(id)
 					discount(result.cart, false);
 					$('#tr-' + id + '').remove();
 					$('#totalPrice').html(result.totalPrice);
+					$('#finalPrice').html(result.finalPrice);
                     // $('#cart-container').html(result.showCart);
 					$('#cartItemCount').html(result.cartItemCount);
 					Swal.fire({
@@ -261,6 +262,7 @@ function amount(id, amount)
 			discount(result.cart, false);
 			$('#bodyPrice-' + id + '').html(result.bodyPrice);
 			$('#totalPrice').html(result.totalPrice);
+			$('#finalPrice').html(result.finalPrice);
             // $('#cart-container').html(result.showCart);
 		},
 		error: function(result) {

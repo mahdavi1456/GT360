@@ -41,7 +41,7 @@ class AccountController extends Controller
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile',
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:accounts,mobile',
             'phone' => 'nullable|string|max:11',
             'email' => 'nullable|email|max:255',
             'birthday' => 'nullable',
@@ -112,7 +112,7 @@ class AccountController extends Controller
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile,' . $id,
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:accounts,mobile,' . $id,
             'phone' => 'nullable|string|max:15',
             'email' => 'nullable|email|max:255',
             'birthday' => 'nullable',
@@ -187,7 +187,7 @@ class AccountController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile',
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:accounts,mobile',
             'company' => 'nullable|string|max:255',
             'account_type' => 'required|string|max:255'
         ]);
@@ -380,7 +380,7 @@ class AccountController extends Controller
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
-            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:account,mobile,' . $account->id,
+            'mobile' => 'required|string|digits:11|regex:/^09[0-9]{9}/|unique:accounts,mobile,' . $account->id,
             'phone' => 'nullable|string|max:15',
             'email' => 'nullable|email|max:255',
             'birthday' => 'nullable',

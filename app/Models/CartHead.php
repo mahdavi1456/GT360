@@ -28,6 +28,21 @@ class CartHead extends Model
         return $total;
     }
 
+    public function finalPrice()
+    {
+        return $this->total_price - ($this->discount_price ?? 0);
+    }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
+
+    public function checkout()
+    {
+        return $this->hasOne(Checkout::class, 'cart_id');
+    }
+
     public function showCart()
     {
         $cart = optional($this)->loadCart();
@@ -36,7 +51,7 @@ class CartHead extends Model
 
     public function loadCart()
     {
-       if (!is_null($this) && $this->bodies->count()) {
+        if (!is_null($this) && $this->bodies->count()) {
             ?>
             <div class="row">
                 <div class="col-12">

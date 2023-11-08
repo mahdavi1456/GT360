@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartHead;
+use App\Models\Checkout;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -158,7 +159,6 @@ class CustomerController extends Controller
         $customer = Customer::where('mobile', $request->mobile)->first();
         $randomNumber = $customer->remember_token;
         $userEnteredCode = $validate['code'];
-        dd([$randomNumber, $userEnteredCode]);
 
         if ($userEnteredCode == $randomNumber) {
             if($customer->status == 'inactive') {
@@ -167,14 +167,24 @@ class CustomerController extends Controller
                 ]);
             }
 
-            if (!Auth::guard('customer')->attempt($customer->mobile)) {
-                return response()->json(['error' => 'مشکلی پیش آمده است لطفا بعدا تلاش کنید.'], 400);
+            Auth::guard('customer')->login($customer);
+
+            $cart = CartHead::where('token', $request->cookie('cart-token'))->first();
+            if ($cart) {
+                $checkout = Checkout::updateOrCreate([
+                    'cart_id' => $cart->id,
+                ], [
+                    'cart_id' => $cart->id,
+                    'account_id' => $cart->account_id,
+                    'price' => $cart->final_price ?? $cart->total_price,
+                    'customer_id' => $customer->id
+                ]);
             }
 
             $customer_id = $customer->id;
             return response()->json(['customer_id' => $customer_id, 'redirect' => 'completeInfo']);
         } else {
-            return response()->json(['error' => 'کد وارد شده اشتباه است'], 400);
+            return response()->json(['message' => 'کد وارد شده اشتباه است'], 400);
         }
     }
 }

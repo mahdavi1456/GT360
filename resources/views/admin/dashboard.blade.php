@@ -13,7 +13,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                @if (is_null(Auth::user()->account->slug))
+                @if (!auth()->user()->accountFieldsCompleted())
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-danger">

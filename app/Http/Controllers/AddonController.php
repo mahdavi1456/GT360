@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CheckoutOption;
+use App\Models\Addon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class CheckoutOptionController extends Controller
+class AddonController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-        $checkoutOptions = CheckoutOption::all();
-        return view('admin.checkout-option.index', compact('checkoutOptions'));
+        $Addons = Addon::query()->where('account_id', auth()->user()->account_id)->get();
+        return view('admin.addon.index', compact('Addons'));
     }
 
     /**
@@ -31,16 +30,18 @@ class CheckoutOptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $validated = $request->validate([
             'title' => 'required',
             'details' => 'required',
             'real_price' => 'required|numeric'
         ]);
 
-        $product = CheckoutOption::updateOrCreate([
+        $account_id = auth()->user()->account_id;
+
+        $Addon = Addon::updateOrCreate([
             'id' => $request->id
         ], [
+            'account_id' => $account_id,
             'title' => $request->title,
             'details' => $request->details,
             'off_price' => $request->off_price,
@@ -56,7 +57,7 @@ class CheckoutOptionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CheckoutOption $CheckoutOption)
+    public function show(Addon $Addon)
     {
         //
     }
@@ -64,26 +65,24 @@ class CheckoutOptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CheckoutOption $CheckoutOption)
+    public function edit(Addon $Addon)
     {
-        //
-        $checkoutOptions = CheckoutOption::all();
-        return view('admin.checkout-option.index', compact('checkoutOptions', 'CheckoutOption'));
+        $Addons = Addon::all();
+        return view('admin.addon.index', compact('Addons', 'Addon'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CheckoutOption $CheckoutOption)
+    public function update(Request $request, Addon $Addon)
     {
-        //
         $validated = $request->validate([
             'title' => 'required',
             'details' => 'required',
             'real_price' => 'required|numeric'
         ]);
 
-        $product = CheckoutOption::create([
+        $product = Addon::create([
             'title' => $request->title,
             'details' => $request->details,
             'off_price' => $request->off_price,
@@ -101,11 +100,10 @@ class CheckoutOptionController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $CheckoutOption = CheckoutOption::findOrFail($id);
-        $CheckoutOption->delete();
+        $Addon = Addon::findOrFail($id);
+        $Addon->delete();
 
         Alert::success('موفق', 'افزودنی با موفقیت حذف شد.');
-        return redirect()->route('checkout-option.index');
+        return redirect()->route('addon.index');
     }
 }

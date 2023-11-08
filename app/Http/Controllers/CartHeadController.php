@@ -73,14 +73,15 @@ class CartHeadController extends Controller
         }
 
         $this->cartBody($cart, $product);
-            $cartItemCount = fa_number($cart->bodies->count());
-            $cart->total_price = $cart->totalPrice();
-            $cart->save();
+        $cartItemCount = fa_number($cart->bodies->count());
+        $cart->total_price = $cart->totalPrice();
+        $cart->final_price = $cart->finalPrice();
+        $cart->save();
 
-            return response()->json(array(
-                'cartItemCount' => $cartItemCount,
-                'cart' => $cart->id,
-            ), 200);
+        return response()->json(array(
+            'cartItemCount' => $cartItemCount,
+            'cart' => $cart->id,
+        ), 200);
     }
 
     public function showCart(Request $request)
@@ -105,15 +106,18 @@ class CartHeadController extends Controller
         $body->delete();
         $cart = $body->head;
         $cart->total_price = $cart->totalPrice();
+        $cart->final_price = $cart->finalPrice();
         $cart->save();
-        $totlaPrice = fa_number($cart->totalPrice());
+        $totalPrice = fa_number($cart->totalPrice());
+        $finalPrice = fa_number($cart->finalPrice());
         $cartItemCount = fa_number($cart->bodies->count());
 
         if ($cart->bodies->count() == 0) {
             $cart->delete();
         }
         return response()->json(array(
-            'totalPrice' => $totlaPrice,
+            'totalPrice' => $totalPrice,
+            'finalPrice' => $finalPrice,
             'cartItemCount' => $cartItemCount,
             'cart' => $cart->id
             // 'showCart' => $cart->showCart()
@@ -126,12 +130,15 @@ class CartHeadController extends Controller
         $body->save();
         $cart = $body->head;
         $cart->total_price = $cart->totalPrice();
+        $cart->final_price = $cart->finalPrice();
         $cart->save();
         $bodyPrice = fa_number($body->total());
-        $totlaPrice = fa_number($cart->totalPrice());
+        $totalPrice = fa_number($cart->totalPrice());
+        $finalPrice = fa_number($cart->finalPrice());
         return response()->json(array(
             'bodyPrice' => $bodyPrice,
-            'totalPrice' => $totlaPrice,
+            'totalPrice' => $totalPrice,
+            'finalPrice' => $finalPrice,
             'cart' => $cart->id
             // 'showCart' => $cart->showCart()
         ), 200);

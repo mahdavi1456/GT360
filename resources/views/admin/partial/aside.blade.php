@@ -45,7 +45,7 @@
                         </li>
                     @endcan
 
-                    <li class="nav-item has-treeview {{active_dropdown(['account.index'])}}">
+                    <li class="nav-item has-treeview {{active_dropdown(['user.showUsers', 'account.profile.edit'])}}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
                             <p>
@@ -53,7 +53,7 @@
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview sub-menu" {{active_list(['account.profile.edit','user.showUsers'])}}>
+                        <ul class="nav nav-treeview sub-menu" {{active_list(['account.profile.edit', 'user.showUsers'])}}>
                             <li class="nav-item {{ active_menu('user.showUsers') }}">
                                 <a href="{{ route('user.showUsers', ['accountId'=>Auth::user()->account_id]) }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
@@ -93,7 +93,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview  {{active_dropdown(['discount.index'])}}">
+                    <li class="nav-item has-treeview  {{active_dropdown(['discount.index', 'addons.index', 'addons.edit'])}}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-gear"></i>
                             <p>
@@ -101,7 +101,7 @@
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview sub-menu" {{active_list(['discount.index'])}}>
+                        <ul class="nav nav-treeview sub-menu" {{active_list(['discount.index', 'addons.index', 'addons.edit'])}}>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
@@ -112,6 +112,12 @@
                                 <a href="{{ route('discount.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>کدهای تخفیف</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu(['addons.index', 'addons.edit']) }}>
+                                <a href="{{ route('addons.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>افزودنی های سفارش</p>
                                 </a>
                             </li>
                         </ul>

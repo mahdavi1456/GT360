@@ -17,7 +17,6 @@ class ShopSettingController extends Controller
         return view('admin.shop_setting.shop-setting', compact('peyment_types', 'transports'));
     }
 
-
     public function PaymentTypeToAccount(Request $request)
     {
         if ($request->payment_is_active === 'active') {
@@ -33,25 +32,54 @@ class ShopSettingController extends Controller
 
                 return response()->json($response, Response::HTTP_OK);
             }
-        } elseif($request->payment_is_active === 'deactive') {
+        } elseif ($request->payment_is_active === 'deactive') {
+            $account = Auth::user()->account;
+            $paymentType_id = $request->payment_type_id;
 
-                $account = Auth::user()->account;
-                $paymentType_id = $request->payment_type_id;
+            if ($account->paymentTypes->contains($paymentType_id)) {
+                $account->paymentTypes()->detach($paymentType_id);
 
-                if ($account->paymentTypes->contains($paymentType_id)) {
-                    $account->paymentTypes()->detach($paymentType_id);
+                $response = [
+                    'message' => 'عملیات با موفقیت انجام شد.'
+                ];
 
-                    $response = [
-                        'message' => 'عملیات با موفقیت انجام شد.'
-                    ];
-
-                    return response()->json($response, Response::HTTP_OK);
-                }
+                return response()->json($response, Response::HTTP_OK);
+            }
         } else {
-
             return redirect()->back()->with('error', 'نوع پرداخت مجاز نیست.');
-
         }
+    }
 
+    public function transportToAccount(Request $request)
+    {
+        if ($request->transport_is_active === 'active') {
+            $account = Auth::user()->account;
+            $transport_id = $request->transport_id;
+
+            if (!$account->transports->contains($transport_id)) {
+                $account->transports()->attach($transport_id);
+
+                $response = [
+                    'message' => 'عملیات با موفقیت انجام شد.'
+                ];
+
+                return response()->json($response, Response::HTTP_OK);
+            }
+        } elseif ($request->transport_is_active === 'deactive') {
+            $account = Auth::user()->account;
+            $transport_id = $request->transport_id;
+
+            if ($account->transports->contains($transport_id)) {
+                $account->transports()->detach($transport_id);
+
+                $response = [
+                    'message' => 'عملیات با موفقیت انجام شد.'
+                ];
+
+                return response()->json($response, Response::HTTP_OK);
+            }
+        } else {
+            return redirect()->back()->with('error', 'خطا در انجام عملیات.');
+        }
     }
 }
