@@ -14,13 +14,12 @@ class AccountSeeder extends Seeder
     public function run(): void
     {
         Account::create([
-
             'id' => '1000',
             'account_type' => 'حقیقی',
             'name' => 'gratech',
             'family' => 'gratechy',
-            'mobile' => '09130000000'
-
+            'mobile' => '09130000000',
+            'account_acl' => 0
         ]);
 
     }

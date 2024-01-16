@@ -174,6 +174,26 @@
                             @endcan
                         </ul>
                     </li>
+
+
+                    <li class="nav-item has-treeview {{active_dropdown(['shopSetting', 'setting.index'])}}">
+                        <a href="#" class="nav-link main-menu">
+                            <i class="nav-icon fa fa-clipboard"></i>
+                            <p>
+                                طراحی ظاهر
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
+                            <li class="nav-item" {{ active_menu('theme') }}>
+                                <a href="{{ route('theme.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>قالب ها</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             </nav>
         </div>

@@ -25,6 +25,7 @@ use App\Http\Controllers\ShopSettingController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutOptionController;
+use App\Http\Controllers\ThemeController;
 use App\Models\Account;
 use App\Models\CustomerAddress;
 use App\Models\Transport;
@@ -43,6 +44,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 //front routes
+
+Route::get('a', function(){
+    return view('front.theme.dani.index');
+});
+
+
+
     Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
     Route::get('/', [DashboardController::class, 'index']);
 
@@ -73,6 +81,7 @@ use Illuminate\Support\Facades\Route;
             })->middleware('verified')->name('dashboard');
 
             Route::resource('product', ProductController::class);
+            Route::resource('theme', ThemeController::class);
             Route::resource('category', CategoryController::class);
             Route::resource('transport', TransportController::class);
             Route::resource('discount', DiscountController::class);
@@ -140,3 +149,5 @@ use Illuminate\Support\Facades\Route;
     Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
 
     require __DIR__ . '/auth.php';
+
+

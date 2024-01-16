@@ -18,11 +18,10 @@ class UserSeeder extends Seeder
             'account_id'=> '1000',
             'family' => 'sharifi',
             'email' => 'a@a',
-            'password' => 'admin',
+            'password' => 'password',
             'user_type' => 'admin',
-            'mobile' => '09130000000',
+            'mobile' => '09139999999',
             'user_status' => 'Active',
         ]);
-
     }
 }
