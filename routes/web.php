@@ -26,29 +26,22 @@ use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutOptionController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\TaxonomyController;
+use App\Http\Controllers\TermController;
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\PostController;
 use App\Models\Account;
 use App\Models\CustomerAddress;
 use App\Models\Transport;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 //front routes
 
 Route::get('a', function(){
     return view('front.theme.dani.index');
 });
-
 
 
     Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
@@ -80,8 +73,21 @@ Route::get('a', function(){
                 return view('admin.dashboard');
             })->middleware('verified')->name('dashboard');
 
+            Route::resource('media', MediaController::class);
+            Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
+            Route::post('media-list', [MediaController::class, 'mediaList'])->name('mediaList');
+            Route::post('media-delete', [MediaController::class, 'mediaDelete'])->name('mediaDelete');
+
+
             Route::resource('product', ProductController::class);
             Route::resource('theme', ThemeController::class);
+            Route::resource('component', ComponentController::class);
+            Route::resource('taxonomy', TaxonomyController::class);
+
+            Route::resource('term', TermController::class);
+            Route::post('term-list', [TermController::class, 'termList'])->name('termList');
+
+            Route::resource('post', PostController::class);
             Route::resource('category', CategoryController::class);
             Route::resource('transport', TransportController::class);
             Route::resource('discount', DiscountController::class);

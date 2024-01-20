@@ -1,31 +1,28 @@
 <?php
 
-
 use App\Models\Setting;
 
-function breadcrumb($title)
-{ ?>
+function breadcrumb($title) { ?>
     <div class="col-md-6">
         <h1 class="p-4" style="font-size: 25px"><?php echo $title; ?></h1>
     </div>
-    <!-- <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">فرم‌های پیشرفته</li>
-                    </ol>
-                </div> -->
-<?php
+    <!--
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-left">
+            <li class="breadcrumb-item"><a href="#">خانه</a></li>
+            <li class="breadcrumb-item active">فرم‌های پیشرفته</li>
+        </ol>
+    </div> -->
+    <?php
 }
 
-function fa_number($string)
-{
+function fa_number($string) {
     $en = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
     $fa = array("۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹");
     return str_replace($en, $fa, $string);
 }
 
-function getSetting($key)
-{
+function getSetting($key) {
     $s = Setting::where('key', $key)->first();
     if ($s) {
         $value = $s->value;
@@ -36,8 +33,7 @@ function getSetting($key)
     return $value;
 }
 
-function sendSMS($mobile, $message)
-{
+function sendSMS($mobile, $message) {
     $username = "arsha-74390";
     $password = "XuKAZDHX0i2USZKA";
     $domain = "magfa";
@@ -47,15 +43,15 @@ function sendSMS($mobile, $message)
 
     //soap options
     $options = [
-        'login'          => "$username/$domain", 'password' => $password, // -Credientials
-        'cache_wsdl'     => WSDL_CACHE_NONE, // -No WSDL Cache
-        'compression'    => (SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP | 5), // -Compression *
-        'trace'          => false, // -Optional (debug)
+        'login' => "$username/$domain", 'password' => $password, // -Credientials
+        'cache_wsdl' => WSDL_CACHE_NONE, // -No WSDL Cache
+        'compression' => (SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP | 5), // -Compression *
+        'trace' => false, // -Optional (debug)
         'stream_context' => stream_context_create(
             [
                 'ssl' => [
-                    'verify_peer'       => false,
-                    'verify_peer_name'  => false,
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
                     'allow_self_signed' => true
                 ]
             ]
@@ -87,26 +83,29 @@ function sendSMS($mobile, $message)
 }
 
 
-function active_menu($route)
-{
+function active_menu($route) {
     if (is_array($route))
         return in_array(request()->route()->getName(), $route) ? ' active' : '';
     else
         return request()->route()->getName() == $route ? ' active' : '';
 }
 
-function active_dropdown($route)
-{
-    if (is_array($route))
+function active_dropdown($route) {
+    if (is_array($route)) {
         return in_array(request()->route()->getName(), $route) ? ' menu-open' : '';
-    else
+    } else {
         return request()->route()->getName() == $route ? ' menu-open' : '';
+    }
 }
 
-function active_list($route)
-{
-    if (is_array($route))
+function active_list($route) {
+    if (is_array($route)) {
         return in_array(request()->route()->getName(), $route) ? 'style=display:block;' : '';
-    else
+    } else {
         return request()->route()->getName() == $route ? 'style=display:block;' : '';
+    }
+}
+
+function make_slug($string) {
+    return preg_replace('/\s+/u', '-', trim($string));
 }

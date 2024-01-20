@@ -19,12 +19,15 @@
                     <li class="nav-item has-treeview">
                         <a href="{{ route('dashboard') }}" class="nav-link main-menu">
                             <i class="nav-icon fa fa-dashboard"></i>
-                            <p>
-                                داشبورد
-                            </p>
+                            <p>میز کار</p>
                         </a>
                     </li>
-
+                    <li class="nav-item has-treeview">
+                        <a href="{{ route('media.index') }}" class="nav-link main-menu">
+                            <i class="nav-icon fa fa-file-video-o"></i>
+                            <p>رسانه</p>
+                        </a>
+                    </li>
                     @can('SuperAccount')
                         <li class="nav-item has-treeview {{active_dropdown(['account.index'])}}">
                             <a href="#" class="nav-link main-menu">
@@ -189,6 +192,30 @@
                                 <a href="{{ route('theme.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>قالب ها</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{ active_dropdown(['taxonomy.index', 'component.index']) }}">
+                        <a href="#" class="nav-link main-menu">
+                            <i class="nav-icon fa fa-clipboard"></i>
+                            <p>
+                                محتوا
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
+                            <li class="nav-item" {{ active_menu('taxonomy') }}>
+                                <a href="{{ route('taxonomy.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>طبقه بندی ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('theme') }}>
+                                <a href="{{ route('component.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>بخش ها</p>
                                 </a>
                             </li>
                         </ul>
