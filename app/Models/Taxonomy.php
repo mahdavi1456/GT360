@@ -35,4 +35,7 @@ class Taxonomy extends Model
         </select>
         <?php
     }
+    public function parents(){
+        return $this->hasMany(Term::class)->where('parent_id',0);
+    }
 }

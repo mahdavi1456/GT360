@@ -12,6 +12,7 @@ use App\Models\Term;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -54,15 +55,34 @@ class PostController extends Controller
         $users = User::all();
 
         $components = Component::all();
-        return view('admin.post.list', compact(['components', 'request', 'posts', 'users', 'status','from', 'to', 'title', 'user_id']));
+        return view('admin.post.list', compact(['components', 'request', 'posts', 'users', 'status', 'from', 'to', 'title', 'user_id']));
     }
 
     public function create()
     {
         $action = "create";
+        $taxonomies = Taxonomy::where('status', 1)->with('parents')->latest()->get();
+        //   dd( $taxonomies);
         $components = Component::all();
         $componentModel = new Component;
-        return view('admin.post.create', compact(['action', 'components', 'componentModel']));
+        return view('admin.post.create', compact(['action', 'components', 'componentModel', 'taxonomies']));
+    }
+    public function store(Request $request)
+    {
+        //  dd($request->all());
+        $request->validate([
+            'content' => 'required|min:5'
+        ]);
+        DB::beginTransaction();
+        $data = $request->except('_token', 'term', 't');
+        $data['user_id'] = auth()->id();
+        $data['author'] = auth()->id();
+      //  dd($data);
+        $post = Post::create($data);
+        $post->terms()->attach($request->term);
+        DB::commit();
+        alert()->success('موفق', 'نوسته مورد نظر ساخته شد');
+        return to_route('post.index', ['component_id' => $post->component_id]);
     }
 
     /*
@@ -280,5 +300,4 @@ class PostController extends Controller
         return response()->json(['html'=>view('posts.partials.taxonomy',compact(['hidden','taxonomies','post_id','model']))->render()]);
     }
     */
-
 }

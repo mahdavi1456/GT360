@@ -67,7 +67,7 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <h3 class="card-title">لیست نوشته‌ها</h3>
-                                <a href="{{ route('post.create') }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
+                                <a href="{{ route('post.create',['component_id'=>request('component_id')]) }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
                                     <i class="fa fa-plus ml-2"></i> افزودن نوشته
                                 </a>
                             </div>

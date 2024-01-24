@@ -51,7 +51,7 @@
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $component->id }}">حذف</button>
                                                     </form>
-                                                    <a href="{{ route('post.index', $component) }}" class="btn btn-info m-1">لیست محتوا</a>
+                                                    <a href="{{ route('post.index',['component_id'=> $component->id]) }}" class="btn btn-info m-1">لیست محتوا</a>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -73,7 +73,7 @@ class Term extends Model
 		        <div class="form-group">
 			        <label>والد</label>
 			        <select name="parent_id" id="parent-id" class="form-control select2">
-				        <option value="">بدون والد</option>
+				        <option value="0">بدون والد</option>
                         <?php
                         foreach ($terms as $term) { ?>
 					        <option value="<?php echo $term->id; ?>" <?php echo ($parent_id == $term->id) ? "selected" : ""; ?>><?php echo $term->name; ?></option>
