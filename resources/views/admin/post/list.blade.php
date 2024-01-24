@@ -67,7 +67,7 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <h3 class="card-title">لیست نوشته‌ها</h3>
-                                <a href="{{ route('post.create',['component_id'=>request('component_id')]) }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
+                                <a href="{{ route('post.create',['component_id'=>request('component_id'),'action'=>'create']) }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
                                     <i class="fa fa-plus ml-2"></i> افزودن نوشته
                                 </a>
                             </div>
@@ -98,27 +98,27 @@
                                                     <td>
                                                         <div class="text-center">
                                                             @if ($post->thumbnail)
-                                                                <img style="width:100px !important" src="{{ asset($post->thumbnail) }}">
+                                                                <img  style="width:100px !important; object-fit: contain" src="{{ asset(ert('thumb-path')).'/'.$post->thumbnail }}">
+                                                                @else
+                                                                بدون تصویر
                                                             @endif
-                                                            @if ($post->thumbnail_status == 1)
-                                                                <span class="badge badge-success mt-1">نمایش</span>
-                                                            @else
-                                                                <span class="badge badge-danger mt-1">عدم نمایش</span>
-                                                            @endif
+
                                                         </div>
                                                     </td>
-                                                    <td>{{ $post->post_type->name }}</td>
+                                                    <td>{{ ($post->component->name) }}</td>
                                                     <td>{{ $post->title }}</td>
-                                                    <td>{{ $post->visitLogs()->count() }}</td>
-                                                    <td>{{ $post->user_id }}</td>
-                                                    <td>{{ convertToPersian(\Hekmatinasser\Verta\Verta::instance($post->created_at)->format('Y/m/d H:m')) }}</td>
+                                                    {{-- <td>{{ $post->visitLogs()->count() }}</td> --}}
+                                                    <td>{{ 25 }}</td>
+                                                    <td>{{ ($post->author_object->name. ' '. $post->author_object->family) }}</td>
+                                                    <td>{{ zaman(($post->created_at)) }}</td>
                                                     <td>
                                                         <span class="badge {{ $post->publish_status == 0 ? 'badge-danger' : 'badge-success' }}">{{ $post->publish_status == 0 ? 'عدم انتشار' : 'انتشار' }}</span>
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a class="btn btn-info btn-sm ml-2" target="_blank" href="{{ route('blog.show', $post->slug) }}">مشاهده</a>
-                                                            <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center" href="{{ route('posts.edit', $post->id) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
+                                                            {{-- <a class="btn btn-info btn-sm ml-2" target="_blank" href="{{ route('blog.show', $post->slug) }}">مشاهده</a> --}}
+                                                            <a class="btn btn-info btn-sm ml-2" target="_blank" href="">مشاهده</a>
+                                                            <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center" href="{{ route('post.create',['component_id'=>request('component_id'),'action'=>'update','post'=>$post->id]) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
                                                             <div class="display-inline-block">
                                                                 <form method="post" class="h-100" action="{{ route('post.destroy', $post->id) }}">
                                                                     @csrf

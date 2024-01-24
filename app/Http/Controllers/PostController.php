@@ -25,33 +25,33 @@ class PostController extends Controller
         $title = $request->title;
         $user_id = $request->user_id;
         $component_id = $request->component_id;
-        $posts = Post::orderBy('created_at', 'desc');
+        $posts = Post::latest()->paginate(50);
 
-        if (count($request->all()) > 0) {
-            //$posts = Post::orderBy('created_at', 'desc')->where('remove_st', $request->remove_st)->paginate(50);
-            if ($request->user_id) {
-                $posts->where('user_id', $user_id);
-            }
-            if ($request->from) {
-                $date = shamsi_to_miladi($from);
-                $posts->whereDate('created_at', '>=', $date);
-            }
-            if ($request->to) {
-                $date = shamsi_to_miladi($to);
-                $posts->whereDate('created_at', '<=', $date);
-            }
-            if ($request->post_type) {
-                $posts->where('post_type_id', $post_type);
-            }
-            if ($request->title) {
-                $posts->where('title', 'like', '%' . $title . '%');
-            }
-            if ($request->status && $request->status != 'all') {
-                $posts->where('publish_status', $status);
-            }
-        }
-        $posts = $posts->paginate(50);
+        // if (count($request->all()) > 0) {
+        //     //$posts = Post::orderBy('created_at', 'desc')->where('remove_st', $request->remove_st)->paginate(50);
+        //     if ($request->user_id) {
+        //         $posts->where('user_id', $user_id);
+        //     }
+        //     if ($request->from) {
+        //         $date = shamsi_to_miladi($from);
+        //         $posts->whereDate('created_at', '>=', $date);
+        //     }
+        //     if ($request->to) {
+        //         $date = shamsi_to_miladi($to);
+        //         $posts->whereDate('created_at', '<=', $date);
+        //     }
+        //     if ($request->post_type) {
+        //         $posts->where('post_type_id', $post_type);
+        //     }
+        //     if ($request->title) {
+        //         $posts->where('title', 'like', '%' . $title . '%');
+        //     }
+        //     if ($request->status && $request->status != 'all') {
+        //         $posts->where('publish_status', $status);
+        //     }
+        // }
 
+        //  dd($posts);
         $users = User::all();
 
         $components = Component::all();
@@ -60,29 +60,93 @@ class PostController extends Controller
 
     public function create()
     {
-        $action = "create";
+        $action = request('action');
+        $term_array = [];
         $taxonomies = Taxonomy::where('status', 1)->with('parents')->latest()->get();
-        //   dd( $taxonomies);
-        $components = Component::all();
-        $componentModel = new Component;
-        return view('admin.post.create', compact(['action', 'components', 'componentModel', 'taxonomies']));
+        // $components = Component::all();
+        // $componentModel = new Component;
+        if ($action == 'create') {
+            $post = new Post();
+            return view('admin.post.create', compact(['action', 'taxonomies', 'term_array', 'post']));
+        } elseif ($action == 'update') {
+            $id = request('post');
+            $post = Post::findOrFail($id);
+            $term_array = $post->terms->pluck('id')->toArray();
+            return view('admin.post.create', compact(['action', 'taxonomies', 'post', 'term_array']));
+        }
     }
+
     public function store(Request $request)
     {
         //  dd($request->all());
         $request->validate([
             'content' => 'required|min:5'
         ]);
-        DB::beginTransaction();
-        $data = $request->except('_token', 'term', 't');
-        $data['user_id'] = auth()->id();
-        $data['author'] = auth()->id();
-      //  dd($data);
-        $post = Post::create($data);
-        $post->terms()->attach($request->term);
-        DB::commit();
-        alert()->success('موفق', 'نوسته مورد نظر ساخته شد');
+        if ($request->action == 'create') {
+            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post');
+            // if ($request->thumbnail) {
+            //     $fileName = now()->timestamp . '_' . $request->thumbnail->getClientOriginalName();
+            //     $request->thumbnail->move(public_path(ert('thumb-path')), $fileName);
+            //     $data['thumbnail'] = $fileName;
+            //     $data['thumbnail_status'] = 1;
+            // }
+            DB::beginTransaction();
+
+            $data['user_id'] = auth()->id();
+            $data['author'] = auth()->id();
+            //  dd($data);
+            $post = Post::create($data);
+            $post->terms()->attach($request->term);
+            DB::commit();
+            alert()->success('موفق', 'نوسته مورد نظر ساخته شد');
+        }elseif ($request->action == 'update') {
+            DB::beginTransaction();
+            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post');
+            $post=Post::findOrFail($request->post);
+            $post->update($data);
+            $post->terms()->sync($request->term);
+            DB::commit();
+
+        alert()->success('موفق', 'نوسته مورد نظر ویرایش شد');
+        }
+
+
         return to_route('post.index', ['component_id' => $post->component_id]);
+    }
+    public function uploadImage(Request $request)
+    {
+        if ($request->image) {
+            $fileName = now()->timestamp . '_' . $request->image->getClientOriginalName();
+            $request->image->move(public_path(ert('thumb-path')), $fileName);
+            if ($request->action == 'create') {
+                $post = Post::create([
+                    'user_id' => auth()->id(),
+                    'author'=>auth()->id(),
+                    'component_id' => $request->component_id,
+                    'thumbnail' => $fileName,
+                    'thumbnail_status' => 1
+                ]);
+                return ['action' => 'created', 'post' => $post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
+            } else {
+                $post = Post::findOrFail($request->post);
+                $post->update([
+                    'thumbnail' => $fileName,
+                    'thumbnail_status' => 1
+                ]);
+                return ['action' => 'update','post'=>$post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
+            }
+        }
+    }
+    public function thumbDestroy($post)
+    {
+
+        $post = Post::findOrFail($post);
+        unlink(public_path(ert('thumb-path') . '/' . $post->thumbnail));
+        $post->update([
+            'thumbnail' => null,
+            'thumbnail_status' => 0,
+        ]);
+        return 'success';
     }
 
     /*

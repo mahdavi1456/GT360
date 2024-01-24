@@ -12,4 +12,10 @@ class Post extends Model
     public function terms(){
         return $this->belongsToMany(Term::class,'post_term');
     }
+    public function component() {
+        return $this->belongsTo(Component::class);
+    }
+    public function author_object()  {
+        return $this->belongsTo(User::class, 'author');
+    }
 }

@@ -78,7 +78,8 @@ Route::get('a', function(){
             Route::post('media-list', [MediaController::class, 'mediaList'])->name('mediaList');
             Route::post('media-delete', [MediaController::class, 'mediaDelete'])->name('mediaDelete');
 
-
+            Route::post('/image-upload',[PostController::class,'uploadImage'])->name('post.thumb');
+            Route::get('/post-image/{post}/destroy',[PostController::class,'thumbDestroy'])->name('thumb.destroy');
             Route::resource('product', ProductController::class);
             Route::resource('theme', ThemeController::class);
             Route::resource('component', ComponentController::class);
