@@ -39,9 +39,9 @@ use Illuminate\Support\Facades\Route;
 
 //front routes
 
-Route::get('a', function(){
-    return view('front.theme.dani.index');
-});
+    Route::get('a', function(){
+        return view('front.theme.roma.index');
+    });
 
 
     Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');

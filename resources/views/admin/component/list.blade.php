@@ -43,7 +43,9 @@
                                                 <td>{{ $component->slogan }}</td>
                                                 <td>{{ $component->details }}</td>
                                                 <td>{{ $component->preview }}</td>
-                                                <td>{{ $component->status }}</td>
+                                                <td>
+                                                    {!! ($component->status == "active") ? "<span class='badge bg-success'>فعال</span>" : "<span class='badge bg-danger '>غیرفعال</span>" !!}
+                                                </td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('component.edit', $component) }}" class="btn btn-warning m-1">ویرایش</a>
                                                     <form action="{{ route('component.destroy', $component) }}" method="POST">
@@ -57,7 +59,7 @@
                                         @endforeach
                                     </table>
                                 @else
-                                    <div class="alert alert-danger text-center">
+                                    <div class="alert alert-danger m-2 text-center">
                                         موردی جهت نمایش موجود نیست.
                                     </div>
                                 @endif

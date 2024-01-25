@@ -17,11 +17,9 @@
                                     <i class="fa fa-plus ml-2"></i> افزودن جدید
                                 </a>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body p-0 table-responsive">
                                 @if ($taxonomies->isEmpty())
-                                    <div class="d-flex justify-content-center">
-                                        <span class="not-found">طبقه بندی یافت نشد.</span>
-                                    </div>
+                                    <div class="alert alert-danger m-2 text-center">موردی جهت نمایش موجود نیست.</div>
                                 @else
                                     <div class="modal fade" id="termModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">

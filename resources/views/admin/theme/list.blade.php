@@ -59,7 +59,7 @@
                                         @endforeach
                                     </table>
                                 @else
-                                    <div class="alert alert-danger text-center">
+                                    <div class="alert alert-danger m-2 text-center">
                                         موردی جهت نمایش موجود نیست.
                                     </div>
                                 @endif
