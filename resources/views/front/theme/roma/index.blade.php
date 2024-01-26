@@ -29,8 +29,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h1 class="wow bounceInDown rotate">ROMNA</h1>
-                <h2 class="wow bounce">DESIGN STUDIO</h2>
+                <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title') }}</h1>
+                <h2 class="wow bounce">{{ $settingModel->getSetting('description') }}</h2>
                 <a href="#intro" class="btn btn-default smoothScroll">GET STARTED</a>
             </div>
         </div>
@@ -269,7 +269,7 @@
             <div class="col-md-12 col-sm-12">
                 <h2 class="wow fadeIn" data-wow-delay="0.9s">Follow Us</h2>
                 <ul class="social-icon">
-                    <li><a href="#" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
+                    <li><a href="{{ $settingModel->getSetting('facebook') }}" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
                     <li><a href="#" class="fa fa-twitter wow bounceIn" data-wow-delay="0.6s"></a></li>
                     <li><a href="#" class="fa fa-behance wow bounceIn" data-wow-delay="0.9s"></a></li>
                     <li><a href="#" class="fa fa-dribbble wow bounceIn" data-wow-delay="0.9s"></a></li>

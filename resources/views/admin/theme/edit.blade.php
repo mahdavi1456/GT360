@@ -34,8 +34,8 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <div class="form-group">
-                                                <label class="required">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="name" class="form-control" value="{{ $theme->name }}" placeholder="نام..." required  oninvalid="this.setCustomValidity('نام قالب را وارد نمایید.')"
+                                                <label class="required">نام لاتین <span class="text-danger">*</span></label>
+                                                <input type="text" name="name" class="form-control" value="{{ $theme->name }}" placeholder="نام لاتین..." required  oninvalid="this.setCustomValidity('نام قالب را وارد نمایید.')"
                                                        oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>

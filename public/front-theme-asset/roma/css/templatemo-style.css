@@ -2,11 +2,11 @@
 ROMNA Template
 http://www.templatemo.com/free-website-templates/
 */
-
+@import url("../../global-fonts/iransans/face.css");
 body {
 	background: #f8f8f8;
 	color: #606060;
-	font-family: 'Proxima', sans-serif;
+	font-family: IRANSans, 'Proxima', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	position: relative;
@@ -27,7 +27,7 @@ html, body {
 	src: url(../fonts/ProximaNova-Bold.otf);
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Proxima Bold";
+	font-family: IRANSans, "Proxima Bold";
 	font-weight: bold;
 }
 p {

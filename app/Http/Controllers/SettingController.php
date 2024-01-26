@@ -13,7 +13,6 @@ class SettingController extends Controller
      */
     public function index()
     {
-
         return view('admin.settings.settings');
     }
 
@@ -32,22 +31,22 @@ class SettingController extends Controller
     {
         $settings = $request->settings;
 
-       foreach($settings as $key => $value) {
-          $s = Setting::where('key', $key)->first();
-          if($s) {
-           $s->update([
-            'value' => $value
-           ]);
-          } elseif($settings[$key]) {
-            Setting::create([
-             'key' => $key,
-             'value' => $value
-            ]);
-          }
-       }
+        foreach ($settings as $key => $value) {
+            $s = Setting::where('key', $key)->first();
+            if ($s) {
+                $s->update([
+                    'value' => $value
+                ]);
+            } else if ($settings[$key]) {
+                Setting::create([
+                    'key' => $key,
+                    'value' => $value
+                ]);
+            }
+        }
 
-       Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
-       return back();
+        Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
+        return back();
     }
 
     /**

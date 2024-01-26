@@ -25,22 +25,28 @@ use App\Http\Controllers\ShopSettingController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CheckoutOptionController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\TaxonomyController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PostController;
+
 use App\Models\Account;
 use App\Models\CustomerAddress;
 use App\Models\Transport;
 use App\Models\User;
+use App\Models\Setting;
+
 use Illuminate\Support\Facades\Route;
 
 //front routes
 
-    Route::get('a', function(){
-        return view('front.theme.roma.index');
+    Route::get('a', function() {
+        $settingModel = new Setting;
+        return view('front.theme.roma.index', compact('settingModel'));
     });
 
 
@@ -64,7 +70,7 @@ use Illuminate\Support\Facades\Route;
     Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'])->name('checkout.factor');
 
 
-//admin routes
+    //admin routes
     Route::middleware('auth')->group(function () {
 
         Route::prefix('admin')->group(function () {
@@ -77,6 +83,10 @@ use Illuminate\Support\Facades\Route;
             Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
             Route::post('media-list', [MediaController::class, 'mediaList'])->name('mediaList');
             Route::post('media-delete', [MediaController::class, 'mediaDelete'])->name('mediaDelete');
+
+            Route::resource('social-media', SocialMediaController::class);
+            Route::resource('contact', ContactController::class);
+            Route::resource('font', FontController::class);
 
             Route::post('/image-upload',[PostController::class,'uploadImage'])->name('post.thumb');
             Route::get('/post-image/{post}/destroy',[PostController::class,'thumbDestroy'])->name('thumb.destroy');
