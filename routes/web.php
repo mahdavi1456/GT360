@@ -33,6 +33,8 @@ use App\Http\Controllers\TermController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FontController;
+use App\Http\Controllers\PalleteController;
 
 use App\Models\Account;
 use App\Models\CustomerAddress;
@@ -87,6 +89,7 @@ use Illuminate\Support\Facades\Route;
             Route::resource('social-media', SocialMediaController::class);
             Route::resource('contact', ContactController::class);
             Route::resource('font', FontController::class);
+            Route::resource('pallete', PalleteController::class);
 
             Route::post('/image-upload',[PostController::class,'uploadImage'])->name('post.thumb');
             Route::get('/post-image/{post}/destroy',[PostController::class,'thumbDestroy'])->name('thumb.destroy');
