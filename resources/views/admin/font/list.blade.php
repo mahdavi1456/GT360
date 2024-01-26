@@ -39,7 +39,7 @@
                                                     <form action="{{ route('font.destroy', $font) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $theme->id }}">حذف</button>
+                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $font->id }}">حذف</button>
                                                     </form>
                                                 </td>
                                             </tr>

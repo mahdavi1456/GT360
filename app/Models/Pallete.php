@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Pallete extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     protected $table = "palletes";
     protected $guarded = [];

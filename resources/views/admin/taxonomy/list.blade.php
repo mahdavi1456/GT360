@@ -7,6 +7,20 @@
     <div class="content-wrapper">
         {{ breadcrumb('طبقه بندی') }}
         <section class="content">
+            <div class="modal fade" id="termModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">تعریف لیست مقادیر طبقه بندی</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="term-list"></div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -21,20 +35,6 @@
                                 @if ($taxonomies->isEmpty())
                                     <div class="alert alert-danger m-2 text-center">موردی جهت نمایش موجود نیست.</div>
                                 @else
-                                    <div class="modal fade" id="termModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">تعریف لیست مقادیر طبقه بندی</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body" id="term-list"></div>
-                                                <div class="modal-footer"></div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -75,7 +75,6 @@
                                     </table>
                                 @endif
                             </div>
-                            <div class="w-100 mt-3 d-flex justify-content-center"></div>
                         </div>
                     </div>
                 </div>

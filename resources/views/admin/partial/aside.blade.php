@@ -47,7 +47,6 @@
                             </ul>
                         </li>
                     @endcan
-
                     <li class="nav-item has-treeview {{active_dropdown(['user.showUsers', 'account.profile.edit'])}}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
@@ -71,7 +70,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-item has-treeview {{active_dropdown(['category.index', 'product.index'])}}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
@@ -192,6 +190,18 @@
                                 <a href="{{ route('theme.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>قالب ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('theme') }}>
+                                <a href="{{ route('font.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>فونت</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('theme') }}>
+                                <a href="{{ route('pallete.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>پالت رنگ</p>
                                 </a>
                             </li>
                         </ul>

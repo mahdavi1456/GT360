@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('label');
             $table->text('details')->nullable();
-            $table->string('first_color');
+            $table->string('first_color')->nullable();
             $table->string('second_color')->nullable();
             $table->string('third_color')->nullable();
             $table->string('fourth_color')->nullable();
