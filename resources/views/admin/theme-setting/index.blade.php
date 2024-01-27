@@ -1,58 +1,46 @@
 @extends('admin.master')
-@section('title', 'Category List')
+@section('title', 'تنظیمات قالب')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
-        {{ breadcrumb('دسته بندی محصولات') }}
-
-        <!-- Main content -->
+        {{ breadcrumb('تنظیمات قالب') }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger  justify-content-center mt-4">
-                                            <ul>
+                            <form action="{{ route('setting.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="action_type" value="theme">
+                                <div class="card-body">
+                                    @if ($errors->any())
+                                        <div class="row">
+                                            <div class="col-12">
                                                 @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
+                                                    <div class="alert alert-danger">{{ $error }}</div>
                                                 @endforeach
-                                            </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endif
-                                <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="action_type" value="theme">
-                                    @if ($themeName = $settingModal->getSetting('active_theme', $account->id))
-                                        @include("front.theme.$themeName.setting");
+                                    @endif
+                                    @if ($themeName = $settingModel->getSetting('active_theme', $account->id))
+                                        @include("front.theme.$themeName.setting")
                                     @else
                                         @php
-                                            $themeName = $settingModal->getSetting('default_theme',0)
+                                            $themeName = $settingModel->getSetting('default_theme', 0)
                                         @endphp
                                         @include("front.theme.$themeName.setting")
                                     @endif
-                                    <div class="row mt-3">
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-success">ذخیره</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="card-footer text-left">
+                                    <button type="submit" class="btn btn-success">ذخیره</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
 @endsection

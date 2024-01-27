@@ -21,7 +21,7 @@ class Account extends Model
     }
 
     public function activeTheme() {
-         $theme=Setting::where(['key'=>'active_theme','account_id'=>$this->id])->first();
+         $theme = Setting::where(['key' => 'active_theme', 'account_id' => $this->id])->first();
          if ($theme) {
             return $theme->value;
          }

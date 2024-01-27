@@ -16,17 +16,16 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AccountController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function loadSite($slug)
     {
         $settingModel = new Setting;
         $account = Account::where('slug', $slug)->first();
-        if( $account){
+        if ($account) {
             $theme = $account->activeTheme();
             $view = "front.theme.$theme.index";
-            return view($view, compact('settingModel'));
+            $accountId = $account->id;
+            return view($view, compact('settingModel', 'accountId'));
         }
        return "یک تم برای خود انتخاب کنید";
 

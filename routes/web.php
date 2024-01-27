@@ -35,7 +35,7 @@ use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FontController;
 use App\Http\Controllers\PalleteController;
-use App\Http\Controllers\ThemeSetting;
+use App\Http\Controllers\ThemeSettingController;
 use App\Models\Account;
 use App\Models\CustomerAddress;
 use App\Models\Transport;
@@ -44,13 +44,10 @@ use App\Models\Setting;
 
 use Illuminate\Support\Facades\Route;
 
-//front routes
+Route::get('/panel/{slug}', [AccountController::class, 'loadSite']);
 
-    Route::get('/panel/{slug}',[AccountController::class,'loadSite']);
-
-
-    // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
-    Route::get('/', [DashboardController::class, 'index']);
+// Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
+Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
     Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
@@ -109,8 +106,7 @@ use Illuminate\Support\Facades\Route;
             Route::resource('transport', TransportController::class);
             Route::resource('discount', DiscountController::class);
             Route::resource('setting', SettingController::class);
-            Route::resource('theme-setting', ThemeSetting::class);
-
+            Route::resource('theme-setting', ThemeSettingController::class);
 
 
             Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);

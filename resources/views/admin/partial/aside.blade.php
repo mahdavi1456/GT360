@@ -186,16 +186,16 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
-                            <li class="nav-item" {{ active_menu('theme') }}>
-                                <a href="{{ route('theme.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>قالب ها</p>
-                                </a>
-                            </li>
                             <li class="nav-item" {{ active_menu('theme.choose') }}>
                                 <a href="{{ route('theme.choose') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>انتخاب قالب</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('theme-setting.index') }}>
+                                <a href="{{ route('theme-setting.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>تنظیمات</p>
                                 </a>
                             </li>
                             <li class="nav-item" {{ active_menu('theme') }}>
@@ -222,6 +222,12 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
+                            <li class="nav-item" {{ active_menu('theme') }}>
+                                <a href="{{ route('theme.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>قالب ها</p>
+                                </a>
+                            </li>
                             <li class="nav-item" {{ active_menu('taxonomy') }}>
                                 <a href="{{ route('taxonomy.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
