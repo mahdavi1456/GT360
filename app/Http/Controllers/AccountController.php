@@ -23,9 +23,16 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $account = Account::where('slug', $slug)->first();
-        $theme = $account->activeTheme();
-        $view = "front.theme.$theme.index";
-        return view($view, compact('settingModel'));
+        if( $account){
+            $theme = $account->activeTheme();
+            $view = "front.theme.$theme.index";
+            return view($view, compact('settingModel'));
+        }
+        else {
+          return to_route('login');
+        }
+
+
     }
     public function index()
     {

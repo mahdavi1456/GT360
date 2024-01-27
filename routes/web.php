@@ -46,7 +46,7 @@ use Illuminate\Support\Facades\Route;
 
 //front routes
 
-    Route::get('{slug}',[AccountController::class,'loadSite']);
+    Route::get('/panel/{slug}',[AccountController::class,'loadSite']);
 
 
     // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
