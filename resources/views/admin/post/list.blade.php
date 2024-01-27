@@ -38,9 +38,9 @@
                                         <div class="col-md-4 form-group">
                                             <label>وضعیت</label>
                                             <select class="form-control select2" name="status" id="status">
-                                                <option value="all" {{ $status == 'all' ? 'selected' : '' }}>همه</option>
-                                                <option value="1" {{ $status == '1' ? 'selected' : '' }}>منتشر شده</option>
-                                                <option value="0" {{ $status == '0' ? 'selected' : '' }}>منتشر نشده</option>
+                                                <option value="all" {{ 'status' == 'all' ? 'selected' : '' }}>همه</option>
+                                                <option value="1" {{ 'status' == '1' ? 'selected' : '' }}>منتشر شده</option>
+                                                <option value="0" {{ 'status' == '0' ? 'selected' : '' }}>منتشر نشده</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4 form-group">
@@ -66,7 +66,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h3 class="card-title">لیست نوشته‌ها</h3>
+                                <h3 class="card-title">لیست نوشته‌ها ({{$posts->total()}})</h3>
                                 <a href="{{ route('post.create',['component_id'=>request('component_id'),'action'=>'create']) }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
                                     <i class="fa fa-plus ml-2"></i> افزودن نوشته
                                 </a>
@@ -94,7 +94,7 @@
                                         <tbody>
                                             @foreach ($posts as $key => $post)
                                                 <tr>
-                                                    <td>{{ $key + 1 }}</td>
+                                                    <td>{{ $posts->firstItem() + $key }}</td>
                                                     <td>
                                                         <div class="text-center">
                                                             @if ($post->thumbnail)
@@ -112,7 +112,7 @@
                                                     <td>{{ ($post->author_object->name. ' '. $post->author_object->family) }}</td>
                                                     <td>{{ zaman(($post->created_at)) }}</td>
                                                     <td>
-                                                        <span class="badge {{ $post->publish_status == 0 ? 'badge-danger' : 'badge-success' }}">{{ $post->publish_status == 0 ? 'عدم انتشار' : 'انتشار' }}</span>
+                                                        <span class="badge {{ $post->publish_status == 'draft' ? 'badge-danger' : 'badge-success' }}">{{ $post->publish_status =='draft' ? 'عدم انتشار' : 'انتشار' }}</span>
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">

@@ -19,12 +19,6 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        $status = $request->status;
-        $from = $request->from;
-        $to = $request->to;
-        $title = $request->title;
-        $user_id = $request->user_id;
-        $component_id = $request->component_id;
         $posts = Post::latest()->paginate(50);
 
         // if (count($request->all()) > 0) {
@@ -55,7 +49,7 @@ class PostController extends Controller
         $users = User::all();
 
         $components = Component::all();
-        return view('admin.post.list', compact(['components', 'request', 'posts', 'users', 'status', 'from', 'to', 'title', 'user_id']));
+        return view('admin.post.list', compact(['components', 'request', 'posts', 'users']));
     }
 
     public function create()
@@ -101,7 +95,8 @@ class PostController extends Controller
             alert()->success('موفق', 'نوسته مورد نظر ساخته شد');
         }elseif ($request->action == 'update') {
             DB::beginTransaction();
-            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post');
+            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post','component_id');
+
             $post=Post::findOrFail($request->post);
             $post->update($data);
             $post->terms()->sync($request->term);

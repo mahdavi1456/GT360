@@ -27,7 +27,8 @@ class ComponentController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'label' => 'required'
+            'label' => 'required',
+            'status' => 'required'
         ]);
 
         $component = Component::create([
@@ -39,7 +40,7 @@ class ComponentController extends Controller
         ]);
 
         Alert::success('موفق', 'بخش جدید با موفقیت تعریف شد.');
-        return back();
+        return to_route('component.index');
     }
 
     public function edit(string $id)
@@ -54,7 +55,8 @@ class ComponentController extends Controller
 
         $validated = $request->validate([
             'name' => 'required',
-            'label' => 'required'
+            'label' => 'required',
+            'status' => 'required'
         ]);
 
         $component->update([

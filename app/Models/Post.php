@@ -18,4 +18,18 @@ class Post extends Model
     public function author_object()  {
         return $this->belongsTo(User::class, 'author');
     }
+    public function getpublishValueAttribute(){
+        switch ($this->	publish_status) {
+            case 'draft':
+                return 'پیش نویس';
+                break;
+            case 'publish':
+                return 'منتشر شده';
+                break;
+
+            default:
+             return $this->publish_status;
+                break;
+        }
+    }
 }
