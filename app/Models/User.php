@@ -69,5 +69,18 @@ class User extends Authenticatable
     {
         return (isset($this->account->slug) && isset($this->account->company));
     }
+    public function getRoleAttribute() {
+        switch ($this->user_type) {
+            case 'admin':
+                return "سازنده";
+                break;
+            case 'support_admin':
+                return "ادمین";
+                break;
 
+            default:
+                return $this->user_type;
+                break;
+        }
+    }
 }

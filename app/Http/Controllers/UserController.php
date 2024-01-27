@@ -45,7 +45,6 @@ class UserController extends Controller
             'postalcode' => 'nullable|string|max:10',
             'username' => 'nullable|string',
             'pass' => 'required|string|min:8|confirmed',
-
         ]);
 
         $user = User::create([
@@ -60,7 +59,7 @@ class UserController extends Controller
             'postalcode' => $validatedData['postalcode'],
             'username' => $validatedData['username'],
             'password' => $validatedData['pass'],
-            'user_type'  => 'admin',
+            'user_type'  => 'support_admin',
             'user_status' => 'DeActive'
         ]);
 
@@ -94,7 +93,7 @@ class UserController extends Controller
         $user->update($validatedData);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
-        return redirect()->back();
+        return redirect()->route('user.showUsers', ['accountId' => $validatedData['account_id']]);
     }
 
     public function destroyUser($accountId, $userId)
