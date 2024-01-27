@@ -192,6 +192,12 @@
                                     <p>قالب ها</p>
                                 </a>
                             </li>
+                            <li class="nav-item" {{ active_menu('theme.choose') }}>
+                                <a href="{{ route('theme.choose') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>انتخاب قالب</p>
+                                </a>
+                            </li>
                             <li class="nav-item" {{ active_menu('theme') }}>
                                 <a href="{{ route('font.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Theme;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ThemeController extends Controller
 {
@@ -41,7 +42,7 @@ class ThemeController extends Controller
         ]);
 
         Alert::success('موفق', 'قالب جدید با موفقیت ایجاد شد.');
-        return back();
+        return to_route('theme.index');
     }
 
     public function edit(string $id)
@@ -117,6 +118,22 @@ class ThemeController extends Controller
 
             Storage::delete(public_path( $prodcutMedai->image));
         }
+    }
+
+    public function choose()
+    {
+        $themes = Theme::where('status', 'active')->get();
+        // dd($themes);
+        $account=auth()->user()->account;
+
+        return view('admin.theme.chooseTheme', compact('themes','account'));
+    }
+
+    public function activeTheme($name) {
+        $setting= new Setting();
+        $setting->updateSetting('active_theme',$name,auth()->user()->account->id);
+        Alert::success('موفق', 'قالب با موفقیت انتخاب شد.');
+        return back();
     }
 
 }

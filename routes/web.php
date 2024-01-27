@@ -46,13 +46,10 @@ use Illuminate\Support\Facades\Route;
 
 //front routes
 
-    Route::get('a', function() {
-        $settingModel = new Setting;
-        return view('front.theme.roma.index', compact('settingModel'));
-    });
+    Route::get('{slug}',[AccountController::class,'loadSite']);
 
 
-    Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
+    // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
     Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
@@ -80,6 +77,8 @@ use Illuminate\Support\Facades\Route;
             Route::get('/dashboard', function () {
                 return view('admin.dashboard');
             })->middleware('verified')->name('dashboard');
+            Route::get('theme/choose',[ThemeController::class,'choose'])->name('theme.choose');
+            Route::get('theme/{theme}/active-theme',[ThemeController::class,'activeTheme'])->name('theme.activeTheme');
 
             Route::resource('media', MediaController::class);
             Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
@@ -95,6 +94,7 @@ use Illuminate\Support\Facades\Route;
             Route::get('/post-image/{post}/destroy',[PostController::class,'thumbDestroy'])->name('thumb.destroy');
             Route::resource('product', ProductController::class);
             Route::resource('theme', ThemeController::class);
+
             Route::resource('component', ComponentController::class);
             Route::resource('taxonomy', TaxonomyController::class);
 

@@ -2,22 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Account;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
-use Hekmatinasser\Verta\Verta;
-use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Account;
+use App\Models\Setting;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Hekmatinasser\Verta\Verta;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use App\Providers\RouteServiceProvider;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function loadSite($slug)
+    {
+        $settingModel = new Setting;
+        $account = Account::where('slug', $slug)->first();
+        $theme = $account->activeTheme();
+        $view = "front.theme.$theme.index";
+        return view($view, compact('settingModel'));
+    }
     public function index()
     {
         $accounts = Account::all();
@@ -121,7 +130,7 @@ class AccountController extends Controller
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'slug' => 'required|string|max:255|unique:accounts,slug,'.$id,
+            'slug' => 'required|string|max:255|unique:accounts,slug,' . $id,
             'company' => 'required|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
@@ -366,7 +375,6 @@ class AccountController extends Controller
 
         Alert::success('موفق', 'وضعیت کاربر با موفقیت تغییر کرد');
         return back();
-
     }
 
     public function editProfile(Account $account)
@@ -389,7 +397,7 @@ class AccountController extends Controller
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'slug' => 'required|string|max:255|unique:accounts,slug,'.$account->id,
+            'slug' => 'required|string|max:255|unique:accounts,slug,' . $account->id,
             'company' => 'required|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',

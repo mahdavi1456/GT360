@@ -20,6 +20,14 @@ class Account extends Model
         return $this->hasMany(User::class);
     }
 
+    public function activeTheme() {
+         $theme=Setting::where(['key'=>'active_theme','account_id'=>$this->id])->first();
+         if ($theme) {
+            return $theme->value;
+         }
+         return null;
+    }
+
     public function products()
     {
         return $this->hasMany(Product::class, 'account_id');

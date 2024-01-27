@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Taxonomy;
 use App\Models\Term;
+use App\Models\Theme;
+use App\Models\Setting;
+use App\Models\Taxonomy;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class TermController extends Controller
@@ -44,7 +46,7 @@ class TermController extends Controller
             $term->name = $request->name;
             $term->slug = $slug;
             $term->description = $request->description;
-            $term-> parent_id = $request->parent_id;
+            $term->parent_id = $request->parent_id;
             $term->taxonomy_id = $request->taxonomy_id;
             $term->save();
         }
@@ -63,11 +65,11 @@ class TermController extends Controller
         $term = Term::find($id);
         $terms = Term::with(['childrenRecursive'])
             ->where('taxonomy_id', $request->taxonomy_id)
-            ->where('parent_id','=',null)
-            ->orderBy('term_order','asc')
+            ->where('parent_id', '=', null)
+            ->orderBy('term_order', 'asc')
             ->get();
         $taxonomy_id = $request->taxonomy_id;
-        return response()->json(['form' => view('term.create',compact(['terms', 'action', 'term', 'taxonomy_id']))->render(), 'html' => view('term.list',compact(['terms']))->render()]);
+        return response()->json(['form' => view('term.create', compact(['terms', 'action', 'term', 'taxonomy_id']))->render(), 'html' => view('term.list', compact(['terms']))->render()]);
     }
 
     public function update(Request $request, $id)
@@ -90,12 +92,12 @@ class TermController extends Controller
 
         $terms = Term::with(['childrenRecursive'])
             ->where('taxonomy_id', $request->taxonomy_id)
-            ->where('parent_id','=',null)
-            ->orderBy('term_order','asc')
+            ->where('parent_id', '=', null)
+            ->orderBy('term_order', 'asc')
             ->get();
         $action = 'create';
         $taxonomy_id = $request->taxonomy_id;
-        return response()->json(['form' => view('term.create',compact(['terms', 'action', 'taxonomy_id']))->render(), 'html' => view('term.list',compact(['terms']))->render()]);
+        return response()->json(['form' => view('term.create', compact(['terms', 'action', 'taxonomy_id']))->render(), 'html' => view('term.list', compact(['terms']))->render()]);
     }
 
     public function destroy($id, Request $request)
@@ -110,22 +112,22 @@ class TermController extends Controller
             $term->delete();
             $terms = Term::with(['childrenRecursive'])
                 ->where('taxonomy_id', $request->id)
-                ->where('parent_id','=',null)
-                ->orderBy('term_order','asc')
+                ->where('parent_id', '=', null)
+                ->orderBy('term_order', 'asc')
                 ->get();
             $action = 'create';
             $taxonomy_id = $request->id;
-            return response()->json(['status' => 'success', 'form' => view('term.create',compact(['terms', 'action', 'taxonomy_id']))->render(), 'html' => view('term.list',compact(['terms']))->render()]);
+            return response()->json(['status' => 'success', 'form' => view('term.create', compact(['terms', 'action', 'taxonomy_id']))->render(), 'html' => view('term.list', compact(['terms']))->render()]);
         }
     }
 
-    public function getChildren(Request $request)
-    {
-        $term = Term::find($request->id);
-        $children = get_taxonomy_terms(null, $request->id);
-        $terms = $children;
-        return response()->json(['html' => view('term.list', compact(['terms', 'children']))->render()]);
-    }
+    // public function getChildren(Request $request)
+    // {
+    //     $term = Term::find($request->id);
+    //     $children = get_taxonomy_terms(null, $request->id);
+    //     $terms = $children;
+    //     return response()->json(['html' => view('term.list', compact(['terms', 'children']))->render()]);
+    // }
 
     public function loadTermMeta($id)
     {
@@ -136,7 +138,7 @@ class TermController extends Controller
         if ($term->taxonomy_id == $tax->id && $term->parent_id != null) {
             $meta_type = 2;
         }
-        return view('term.meta', compact('term','meta_type', 'taxonomy'));
+        return view('term.meta', compact('term', 'meta_type', 'taxonomy'));
     }
 
     public function saveTermMeta(Request $request)
@@ -150,7 +152,7 @@ class TermController extends Controller
                 if ($item) {
                     $value = ($key == 'photo_id' && $value == "") ? $item->value : $value;
                     $item->update([
-                        'value'=>$value,
+                        'value' => $value,
                     ]);
                 } else {
                     TermMeta::create([
@@ -161,25 +163,36 @@ class TermController extends Controller
                 }
             }
         }
-        alert()->success('مدیریت محتوا','مدیریت محتوا با موفقیت ایجاد شد.');
+        alert()->success('مدیریت محتوا', 'مدیریت محتوا با موفقیت ایجاد شد.');
         return redirect()->route('term.meta', ['id' => $request->term_id]);
     }
 
     public function termSort(Request $request)
     {
-        $form = $request->form;
-        $taxonomy_id = $request->taxonomy_id;
-        $i = 1;
-        foreach(explode('&',$form) as $item){
-            $id = explode('=', $item)[1];
-            $term = Term::find($id);
-            $term->update([
-                'term_order' => $i
-            ]);
-            $i = $i + 1;
-        }
-        $terms = get_taxonomy_terms($taxonomy_id, null);
-        return response()->json(['html' => view('term.list',compact(['terms']))->render()]);
+        // $form = $request->form;
+        // $taxonomy_id = $request->taxonomy_id;
+        // $i = 1;
+        // foreach(explode('&',$form) as $item){
+        //     $id = explode('=', $item)[1];
+        //     $term = Term::find($id);
+        //     $term->update([
+        //         'term_order' => $i
+        //     ]);
+        //     $i = $i + 1;
+        // }
+        // $terms = get_taxonomy_terms($taxonomy_id, null);
+        // return response()->json(['html' => view('term.list',compact(['terms']))->render()]);
     }
 
+    // public function choose()
+    // {
+    //     $themes = Theme::where('status', 'active')->get();
+    //     // dd($themes);
+    //     return view('admin.theme.chooseTheme', compact('themes'));
+    // }
+
+    // public function activeTheme($name) {
+    //     $setting= new Setting();
+
+    // }
 }
