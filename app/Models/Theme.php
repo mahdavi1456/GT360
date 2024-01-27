@@ -11,4 +11,7 @@ class Theme extends Model
 
     protected $tabele = "themes";
     protected $guarded = [];
+    public function components(){
+        return $this->belongsToMany(Component::class,'component_theme');
+    }
 }

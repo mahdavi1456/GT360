@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Theme;
 use App\Models\Setting;
+use App\Models\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -116,7 +117,7 @@ class ThemeController extends Controller
         if ($prodcutMedai) {
             $prodcutMedai->delete();
 
-            Storage::delete(public_path( $prodcutMedai->image));
+            Storage::delete(public_path($prodcutMedai->image));
         }
     }
 
@@ -124,16 +125,35 @@ class ThemeController extends Controller
     {
         $themes = Theme::where('status', 'active')->get();
         // dd($themes);
-        $account=auth()->user()->account;
+        $account = auth()->user()->account;
 
-        return view('admin.theme.chooseTheme', compact('themes','account'));
+        return view('admin.theme.chooseTheme', compact('themes', 'account'));
     }
 
-    public function activeTheme($name) {
-        $setting= new Setting();
-        $setting->updateSetting('active_theme',$name,auth()->user()->account->id);
+    public function activeTheme($name)
+    {
+        $setting = new Setting();
+        $setting->updateSetting('active_theme', $name, auth()->user()->account->id);
         Alert::success('موفق', 'قالب با موفقیت انتخاب شد.');
         return back();
     }
-
+    public function selectComponent($theme)
+    {
+        $theme = Theme::findOrFail($theme);
+        $themComponents = $theme->components;
+        //dd($themComponents);
+        $pluck= $themComponents->pluck('id')->toArray();
+        $components = Component::latest()->get();
+        return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents','pluck'));
+    }
+    public function componentStore(Request $request, $theme)
+    {
+        $request->validate([
+            'components' => 'required',
+        ]);
+        $theme = Theme::findOrFail($theme);
+        $theme->components()->sync($request->components);
+        Alert::success('موفق', 'بخش ها تخصیص داده شد.');
+        return back();
+    }
 }

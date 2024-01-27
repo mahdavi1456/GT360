@@ -35,7 +35,7 @@ use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FontController;
 use App\Http\Controllers\PalleteController;
-
+use App\Http\Controllers\ThemeSetting;
 use App\Models\Account;
 use App\Models\CustomerAddress;
 use App\Models\Transport;
@@ -77,8 +77,7 @@ use Illuminate\Support\Facades\Route;
             Route::get('/dashboard', function () {
                 return view('admin.dashboard');
             })->middleware('verified')->name('dashboard');
-            Route::get('theme/choose',[ThemeController::class,'choose'])->name('theme.choose');
-            Route::get('theme/{theme}/active-theme',[ThemeController::class,'activeTheme'])->name('theme.activeTheme');
+
 
             Route::resource('media', MediaController::class);
             Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
@@ -93,8 +92,12 @@ use Illuminate\Support\Facades\Route;
             Route::post('/image-upload',[PostController::class,'uploadImage'])->name('post.thumb');
             Route::get('/post-image/{post}/destroy',[PostController::class,'thumbDestroy'])->name('thumb.destroy');
             Route::resource('product', ProductController::class);
-            Route::resource('theme', ThemeController::class);
 
+            Route::get('theme/choose',[ThemeController::class,'choose'])->name('theme.choose');
+            Route::resource('theme', ThemeController::class);
+            Route::get('theme/{theme}/active-theme',[ThemeController::class,'activeTheme'])->name('theme.activeTheme');
+            Route::get('theme/{theme}/component/',[ThemeController::class,'selectComponent'])->name('theme.selectComponent');
+            Route::post('theme/{theme}/component/store',[ThemeController::class,'componentStore'])->name('theme.componentStore');
             Route::resource('component', ComponentController::class);
             Route::resource('taxonomy', TaxonomyController::class);
 
@@ -106,6 +109,10 @@ use Illuminate\Support\Facades\Route;
             Route::resource('transport', TransportController::class);
             Route::resource('discount', DiscountController::class);
             Route::resource('setting', SettingController::class);
+            Route::resource('theme-setting', ThemeSetting::class);
+
+
+
             Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
             Route::resource('addons', AddonController::class);
             Route::resource('payments_type', PaymentTypeController::class);

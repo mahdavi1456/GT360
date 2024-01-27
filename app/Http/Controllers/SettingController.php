@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Theme;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -13,7 +14,10 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('admin.settings.settings');
+        $themes = Theme::where('status', 'active')->get();
+        $settingModel = new Setting;
+        $defaultTheme = $settingModel->getSetting('default_theme', 0);
+        return view('admin.settings.settings', compact('themes', 'defaultTheme'));
     }
 
     /**
@@ -29,20 +33,14 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        $settings = $request->settings;
-
+        $account=0;
+        if($request->has('action_type') and $request->action_type=='theme'){
+            $account=auth()->user()->account->id;
+        }
+        $settings=$request->except('_token','action_type');
+        $setting= new Setting;
         foreach ($settings as $key => $value) {
-            $s = Setting::where('key', $key)->first();
-            if ($s) {
-                $s->update([
-                    'value' => $value
-                ]);
-            } else if ($settings[$key]) {
-                Setting::create([
-                    'key' => $key,
-                    'value' => $value
-                ]);
-            }
+           $setting->updateSetting($key,$value,$account);
         }
 
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');

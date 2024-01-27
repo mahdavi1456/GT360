@@ -28,6 +28,7 @@
 <section id="home">
     <div class="container">
         <div class="row">
+            
             <div class="col-md-12 col-sm-12">
                 <h1 class="wow bounceInDown rotate">متن عنوان</h1>
                 {{-- <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title') }}</h1> --}}

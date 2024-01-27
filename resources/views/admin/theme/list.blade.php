@@ -47,6 +47,8 @@
                                                 <td>{{ $theme->preview }}</td>
                                                 <td>{{ $theme->status }}</td>
                                                 <td class="d-flex">
+                                                    <a href="{{ route('theme.selectComponent', $theme->id) }}"
+                                                       class="btn btn-info m-1">تخصیص بخش</a>
                                                     <a href="{{ route('theme.edit', $theme) }}"
                                                        class="btn btn-warning m-1">ویرایش</a>
                                                     <form action="{{ route('theme.destroy', $theme) }}" method="POST">
