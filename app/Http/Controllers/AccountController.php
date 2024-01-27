@@ -28,9 +28,7 @@ class AccountController extends Controller
             $view = "front.theme.$theme.index";
             return view($view, compact('settingModel'));
         }
-        else {
-          return to_route('login');
-        }
+       return "یک تم برای خود انتخاب کنید";
 
 
     }
