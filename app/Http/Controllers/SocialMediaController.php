@@ -27,7 +27,7 @@ class SocialMediaController extends Controller
         $data = $request->request;
 
         foreach ($data as $key => $value) {
-            $settingModel->updateSetting($key, $value,0);
+            $settingModel->updateSetting($key, $value, auth()->user()->account->id);
         }
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
         return back();

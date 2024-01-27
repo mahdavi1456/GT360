@@ -16,7 +16,6 @@ class ThemeController extends Controller
     public function index()
     {
         $themes = Theme::latest()->get();
-
         return view('admin.theme.list', compact('themes'));
     }
 

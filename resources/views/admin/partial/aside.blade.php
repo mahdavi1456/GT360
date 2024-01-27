@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="../../index3.html" class="brand-link">
+    <a href="" class="brand-link">
         <img src="{{ asset('asset/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">پنل مدیریت</span>
@@ -11,7 +11,7 @@
                     <img src="{{ asset('asset/dist/img/avatar5.png') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{{ Auth::user()->name .' '. Auth::user()->family; }}}</a>
+                    <a href="#" class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
                 </div>
             </div>
             <nav class="mt-2">
@@ -47,7 +47,8 @@
                             </ul>
                         </li>
                     @endcan
-                    <li class="nav-item has-treeview {{active_dropdown(['user.showUsers', 'account.profile.edit'])}}">
+
+                    <li class="nav-item has-treeview {{ active_dropdown(['user.showUsers', 'account.profile.edit']) }}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
                             <p>
@@ -78,23 +79,9 @@
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview sub-menu" {{active_list(['category.index', 'product.index'])}}>
-                            <li class="nav-item" {{ active_menu('category.index') }}>
-                                <a href="{{ route('category.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>دسته بندی</p>
-                                </a>
-                            </li>
-                            <li class="nav-item" {{ active_menu('product.index') }}>
-                                <a href="{{ route('product.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>لیست</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
-                    <li class="nav-item has-treeview  {{active_dropdown(['discount.index', 'addons.index', 'addons.edit'])}}">
+                    <li class="nav-item has-treeview  {{ active_dropdown(['discount.index', 'addons.index', 'addons.edit']) }}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-gear"></i>
                             <p>
@@ -103,6 +90,12 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview sub-menu" {{active_list(['discount.index', 'addons.index', 'addons.edit'])}}>
+                            <li class="nav-item" {{ active_menu('product.index') }}>
+                                <a href="{{ route('product.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>محصولات</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
@@ -146,38 +139,17 @@
                                         <p>حمل و نقل</p>
                                     </a>
                                 </li>
+                                <li class="nav-item" {{ active_menu('shopSetting') }}>
+                                    <a href="{{ route('shopSetting') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>تنظیمات فروشگاه</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     @endcan
 
-                    <li class="nav-item has-treeview {{active_dropdown(['shopSetting', 'setting.index'])}}">
-                        <a href="#" class="nav-link main-menu">
-                            <i class="nav-icon fa fa-clipboard"></i>
-                            <p>
-                                تنظیمات
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview sub-menu" {{active_list(['shopSetting', 'setting.index'])}}>
-                            <li class="nav-item" {{ active_menu('shopSetting') }}>
-                                <a href="{{ route('shopSetting') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>تنظیمات فروشگاه</p>
-                                </a>
-                            </li>
-                            @can ('SuperAccount')
-                                <li class="nav-item" {{ active_menu('setting.index') }}>
-                                    <a href="{{ route('setting.index') }}" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>عمومی</p>
-                                    </a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-item has-treeview {{active_dropdown(['shopSetting', 'setting.index'])}}">
+                    <li class="nav-item has-treeview {{ active_dropdown(['shopSetting'] )}}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-clipboard"></i>
                             <p>
@@ -185,41 +157,31 @@
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['theme.choose', 'theme-setting.index', 'social-media.index'])}}>
                             <li class="nav-item" {{ active_menu('theme.choose') }}>
                                 <a href="{{ route('theme.choose') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>انتخاب قالب</p>
+                                    <i class="fa fa-th-list text-warning nav-icon"></i>
+                                    <p>قالب</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('social-media.index') }}>
+                                <a href="{{ route('social-media.index') }}" class="nav-link">
+                                    <i class="fa fa-th-list text-warning nav-icon"></i>
+                                    <p>شبکه های اجتماعی</p>
                                 </a>
                             </li>
                             <li class="nav-item" {{ active_menu('theme-setting.index') }}>
                                 <a href="{{ route('theme-setting.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <i class="fa fa-th-list text-warning nav-icon"></i>
                                     <p>تنظیمات</p>
-                                </a>
-                            </li>
-                            <li class="nav-item" {{ active_menu('theme') }}>
-                                <a href="{{ route('font.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>فونت</p>
-                                </a>
-                            </li>
-                            <li class="nav-item" {{ active_menu('theme') }}>
-                                <a href="{{ route('pallete.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>پالت رنگ</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-                    <li class="nav-item has-treeview {{ active_dropdown(['taxonomy.index', 'component.index']) }}">
+                    <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index']) }}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-clipboard"></i>
-                            <p>
-                                محتوا
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
+                            <p>تعاریف پایه<i class="right fa fa-angle-left"></i></p>
                         </a>
                         <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
                             <li class="nav-item" {{ active_menu('theme') }}>
@@ -238,6 +200,24 @@
                                 <a href="{{ route('component.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>بخش ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('font.index') }}>
+                                <a href="{{ route('font.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>فونت ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('pallete.index') }}>
+                                <a href="{{ route('pallete.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>پالت های رنگ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('setting.index') }}>
+                                <a href="{{ route('setting.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>تنظیمات</p>
                                 </a>
                             </li>
                         </ul>

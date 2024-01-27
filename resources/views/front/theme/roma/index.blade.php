@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ROMNA Parallax Bootstrap template</title>
+    <title>{{ $settingModel->getSetting('title', $accountId) }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <!--
-    ROMNA Template
-    http://www.templatemo.com/free-website-templates/
-    -->
+    <meta name="description" content="{{ $settingModel->getSetting('title', $accountId) }}">
     <!-- STYLESHEET CSS FILES -->
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/animate.min.css">
@@ -28,12 +23,9 @@
 <section id="home">
     <div class="container">
         <div class="row">
-            
             <div class="col-md-12 col-sm-12">
-                <h1 class="wow bounceInDown rotate">متن عنوان</h1>
-                {{-- <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title') }}</h1> --}}
-                <h2 class="wow bounce">جزئیات</h2>
-                {{-- <h2 class="wow bounce">{{ $settingModel->getSetting('description') }}</h2> --}}
+                <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title', $accountId) }}</h1>
+                <h2 class="wow bounce">{{ $settingModel->getSetting('description', $accountId) }}</h2>
                 <a href="#intro" class="btn btn-default smoothScroll">GET STARTED</a>
             </div>
         </div>
@@ -43,8 +35,10 @@
 <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon icon-bar"></span> <span class="icon icon-bar"></span> <span class="icon icon-bar"></span> </button>
-            <a href="#" class="navbar-brand">ROMNA</a></div>
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
+                    class="icon icon-bar"></span> <span class="icon icon-bar"></span> <span
+                    class="icon icon-bar"></span></button>
+            <a href="#" class="navbar-brand">{{ $settingModel->getSetting('title', $accountId) }}</a></div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#home" class="smoothScroll">HOME</a></li>
@@ -63,10 +57,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                <h4>WELCOME TO ROMNA</h4>
-                <h2>Brading &amp; Digital Studio</h2>
+                <h4>{{ $settingModel->getSetting('first_title', $accountId) }}</h4>
+                <h2>{{ $settingModel->getSetting('first_subtitle', $accountId) }}</h2>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+                <p>{{ $settingModel->getSetting('first_text', $accountId) }}</p>
             </div>
         </div>
     </div>
@@ -76,21 +70,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 title">
-                <h2>Service</h2>
+                <h2>{{ $settingModel->getSetting('service_title', $accountId) }}</h2>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+                <p>{{ $settingModel->getSetting('service_text', $accountId) }}</p>
             </div>
             <div class="col-md-8 col-sm-8">
-                <div class="col-md-6 col-sm-6 bg-black"> <i class="fa fa-mobile"></i>
+                <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-mobile"></i>
                     <h3>Mobile UX</h3>
                 </div>
-                <div class="col-md-6 col-sm-6 bg-red"> <i class="fa fa-cloud"></i>
+                <div class="col-md-6 col-sm-6 bg-red"><i class="fa fa-cloud"></i>
                     <h3>Social media</h3>
                 </div>
-                <div class="col-md-6 col-sm-6 bg-red"> <i class="fa fa-link"></i>
+                <div class="col-md-6 col-sm-6 bg-red"><i class="fa fa-link"></i>
                     <h3>Web Design</h3>
                 </div>
-                <div class="col-md-6 col-sm-6 bg-black"> <i class="fa fa-globe"></i>
+                <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-globe"></i>
                     <h3>SEO</h3>
                 </div>
             </div>
@@ -104,7 +98,8 @@
             <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
                 <h2>Our team</h2>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoree.</p>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.9s">
                 <img src="{{ asset('front-theme-asset/roma') }}/images/team1.jpg" class="img-responsive" alt="team img">
@@ -137,46 +132,55 @@
             <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
                 <h2>Portfolio</h2>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoree.</p>
             </div>
             <div class="col-md-12 col-sm-12"></div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg" alt="portfolio img">
                 </a>
             </div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img2.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img2.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img2.jpg" alt="portfolio img">
                 </a>
             </div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img3.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img3.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img3.jpg" alt="portfolio img">
                 </a>
             </div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img4.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img4.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img4.jpg" alt="portfolio img">
                 </a>
             </div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img5.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img5.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img5.jpg" alt="portfolio img">
                 </a>
             </div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img6.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img6.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img6.jpg" alt="portfolio img">
                 </a>
             </div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img7.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img7.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img7.jpg" alt="portfolio img">
                 </a>
             </div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img8.jpg" data-lightbox-gallery="portfolio-gallery">
+                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img8.jpg"
+                   data-lightbox-gallery="portfolio-gallery">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img8.jpg" alt="portfolio img">
                 </a>
             </div>
@@ -189,7 +193,8 @@
         <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
             <h2>Our Plans</h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoree.</p>
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="plan wow bounceIn" data-wow-delay="0.3s">
@@ -198,7 +203,7 @@
                 </div>
                 <div class="plan_sub_title">
                     <h2>$ 20</h2>
-                    <small>Per month</small> </div>
+                    <small>Per month</small></div>
                 <ul>
                     <li>10 EMAIL ACCOUNTS</li>
                     <li>1 GB SPACE</li>
@@ -214,7 +219,7 @@
                 </div>
                 <div class="plan_sub_title">
                     <h2>$ 40</h2>
-                    <small>Per month</small> </div>
+                    <small>Per month</small></div>
                 <ul>
                     <li>10 EMAIL ACCOUNTS</li>
                     <li>4 GB SPACE</li>
@@ -230,7 +235,7 @@
                 </div>
                 <div class="plan_sub_title">
                     <h2>$ 60</h2>
-                    <small>Per month</small> </div>
+                    <small>Per month</small></div>
                 <ul>
                     <li>10 EMAIL ACCOUNTS</li>
                     <li>10 GB SPACE</li>
@@ -248,9 +253,11 @@
             <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
                 <h2>Contact Us</h2>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoree.</p>
             </div>
-            <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 contact-form wow fadeInUp" data-wow-delay="0.9s">
+            <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 contact-form wow fadeInUp"
+                 data-wow-delay="0.9s">
                 <form action="#" method="post">
                     <input type="text" class="form-control" placeholder="Name">
                     <input type="email" class="form-control" placeholder="Email">
@@ -263,27 +270,35 @@
 </section>
 <!-- google map section -->
 <div class="google_map">
-    <div id="map-canvas"></div>
+    <iframe
+        src="{{ $settingModel->getSetting('google_map', $accountId) }}"
+        width="100%" height="450" style="border: 0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <!-- footer section -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h2 class="wow fadeIn" data-wow-delay="0.9s">Follow Us</h2>
+                <h2 class="wow fadeIn"
+                    data-wow-delay="0.9s">{{ $settingModel->getSetting("follow_us_title", $accountId) }}</h2>
                 <ul class="social-icon">
-                    {{-- <li><a href="{{ $settingModel->getSetting('facebook',autj) }}" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li> --}}
-                    <li><a href="#" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
-                    <li><a href="#" class="fa fa-twitter wow bounceIn" data-wow-delay="0.6s"></a></li>
-                    <li><a href="#" class="fa fa-behance wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="#" class="fa fa-dribbble wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="#" class="fa fa-github wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="#" class="fa fa-android wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="#" class="fa fa-phone wow bounceIn" data-wow-delay="0.9s"></a></li>
+                    {{-- <li><a href="{{ $$settingModel->getSetting('facebook',autj) }}" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li> --}}
+                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId) }}"
+                           class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
+                    <li><a href="{{ $settingModel->getSetting('x', $accountId) }}" class="fa fa-twitter wow bounceIn"
+                           data-wow-delay="0.6s"></a></li>
+                    <li><a href="{{ $settingModel->getSetting('behance', $accountId) }}"
+                           class="fa fa-behance wow bounceIn" data-wow-delay="0.9s"></a></li>
+                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId) }}"
+                           class="fa fa-dribbble wow bounceIn" data-wow-delay="0.9s"></a></li>
+                    <li><a href="{{ $settingModel->getSetting('dribble', $accountId) }}"
+                           class="fa fa-github wow bounceIn" data-wow-delay="0.9s"></a></li>
                 </ul>
             </div>
             <div class="col-md-12 col-sm-12 copyright">
-                <p>&copy; ROMNA 2084. All Rights Reserved | Design: <a target="_blank" rel="nofollow" href="http://www.templatemo.com">template mo</a></p>
+                <p>&copy; طراحی و توسعه وب <a target="_blank" href="https://gratech.ir">گراتک</a>
+                </p>
             </div>
         </div>
     </div>
