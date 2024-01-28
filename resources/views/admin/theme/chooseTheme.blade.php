@@ -15,7 +15,11 @@
                                 @foreach ($themes as $theme )
                                     <div class="col-md-3">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{ asset('images/no-img.jpg') }}" alt="Card image cap">
+                                            @if ($theme->preview)
+                                                <img class="w-100 object-fit-contain" src="{{ asset(ert('theme-path') . $theme->preview) }}" alt="">
+                                            @else
+                                                <img class="card-img-top" src="{{ asset('images/no-img.jpg') }}" alt="Card image cap">
+                                            @endif
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $theme->label }}</h5>
                                                 <p class="card-text">{{ $theme->slogan }}</p>
