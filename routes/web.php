@@ -91,6 +91,7 @@ Route::get('/', [DashboardController::class, 'index']);
             Route::resource('product', ProductController::class);
 
             Route::get('theme/choose',[ThemeController::class,'choose'])->name('theme.choose');
+            Route::get('theme/{image}/destroy',[ThemeController::class,'imageDestroy'])->name('theme.imageDestroy');
             Route::resource('theme', ThemeController::class);
             Route::get('theme/{theme}/active-theme',[ThemeController::class,'activeTheme'])->name('theme.activeTheme');
             Route::get('theme/{theme}/component/',[ThemeController::class,'selectComponent'])->name('theme.selectComponent');

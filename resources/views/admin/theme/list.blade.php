@@ -44,7 +44,12 @@
                                                 <td>{{ $theme->category }}</td>
                                                 <td>{{ $theme->slogan }}</td>
                                                 <td>{{ $theme->details }}</td>
-                                                <td>{{ $theme->preview }}</td>
+                                                <td>
+                                                    @if ($theme->preview)
+                                                    <img class="w-100 object-fit-contain"
+                                                    style="max-width: 180px" src="{{asset(ert('theme-path').$theme->preview)}}" alt="">
+                                                    @endif
+                                                </td>
                                                 <td>{{ $theme->status }}</td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('theme.selectComponent', $theme->id) }}"

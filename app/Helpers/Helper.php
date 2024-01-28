@@ -145,4 +145,8 @@ function ert($variable)
     if ($variable == 'thumb-path') {
         return 'uploads/thumbs';
     }
+    if ($variable == 'theme-path') {
+        return 'uploads/themes/';
+    }
+    dd('اسمت اشتباهه');
 }

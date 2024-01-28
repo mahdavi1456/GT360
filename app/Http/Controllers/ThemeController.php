@@ -31,14 +31,19 @@ class ThemeController extends Controller
             'label' => 'required',
             'category' => 'required'
         ]);
-
+        $fileName=null;
+        if ($request->file('preview')) {
+            $fileName=now()->timestamp.'_'.$request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move(public_path(ert('theme-path')),$fileName);
+        }
         $theme = Theme::create([
             'name' => $request->name,
             'label' => $request->label,
             'category' => $request->category,
             'slogan' => $request->slogan,
             'details' => $request->details,
-            'status' => $request->status
+            'status' => $request->status,
+            'preview'=>$fileName
         ]);
 
         Alert::success('موفق', 'قالب جدید با موفقیت ایجاد شد.');
@@ -60,14 +65,19 @@ class ThemeController extends Controller
             'label' => 'required',
             'category' => 'required'
         ]);
-
+        $fileName=null;
+        if ($request->file('preview')) {
+            $fileName=now()->timestamp.'_'.$request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move(public_path(ert('theme-path')),$fileName);
+        }
         $theme->update([
             'name' => $request->name,
             'label' => $request->label,
             'category' => $request->category,
             'slogan' => $request->slogan,
             'details' => $request->details,
-            'status' => $request->status
+            'status' => $request->status,
+            'preview'=>$fileName
         ]);
 
         Alert::success('موفق', 'قالب با موفقیت ویرایش شد.');
@@ -153,6 +163,17 @@ class ThemeController extends Controller
         $theme = Theme::findOrFail($theme);
         $theme->components()->sync($request->components);
         Alert::success('موفق', 'بخش ها تخصیص داده شد.');
+        return back();
+    }
+     public function imageDestroy($theme) {
+        $theme=Theme::findOrFail($theme);
+        if (file_exists(public_path(ert('theme-path').$theme->preview))) {
+            unlink(public_path(ert('theme-path').$theme->preview));
+        }
+        $theme->update([
+            'preview'=>null
+        ]);
+        Alert::success('موفق', 'تصویر مورد نظر حذف شد');
         return back();
     }
 }
