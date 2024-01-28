@@ -3,9 +3,18 @@
         <label class="form-label">عنوان</label>
         <input type="text" name="title" class="form-control" placeholder="عنوان..." value="{{ $settingModel->getSetting('title', $account->id) }}">
     </div>
+
     <div class="col-6 form-group">
         <label class="form-label">توضیحات</label>
         <input type="text" name="description" class="form-control" placeholder="توضیحات..." value="{{ $settingModel->getSetting('description', $account->id) }}">
+    </div>
+    <div class="col-6 form-group">
+        <label class="form-label">فایل 2</label>
+        <input type="file" name="theme-image-one">
+    </div>
+    <div class="col-6 form-group">
+        <label class="form-label">فایل 3</label>
+        <input type="file" name="theme-image-two">
     </div>
 </div>
 

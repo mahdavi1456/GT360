@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form action="{{ route('setting.store') }}" method="POST">
+                            <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="action_type" value="theme">
                                 <div class="card-body">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Account;
+use App\Models\Setting;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -47,6 +48,9 @@ class RegisteredUserController extends Controller
             'slug'=>$request->slug,
             'account_acl'=>0
         ]);
+        $setting= new Setting();
+        $theme=$setting->getSetting('default_theme',0);
+        $setting->updateSetting('active_theme',$theme,$account->id);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

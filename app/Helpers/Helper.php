@@ -148,5 +148,8 @@ function ert($variable)
     if ($variable == 'theme-path') {
         return 'uploads/themes/';
     }
+    if ($variable == 'tsp') {  //theme-setting-path
+        return 'uploads/themeSetting/';
+    }
     dd('اسمت اشتباهه');
 }
