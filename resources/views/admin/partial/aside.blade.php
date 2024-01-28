@@ -157,7 +157,7 @@
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview sub-menu" {{ active_list(['theme.choose', 'theme-setting.index', 'social-media.index'])}}>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['theme.choose', 'theme-setting.index', 'social-media.index', 'themeComponents'])}}>
                             <li class="nav-item" {{ active_menu('theme.choose') }}>
                                 <a href="{{ route('theme.choose') }}" class="nav-link">
                                     <i class="fa fa-th-list text-warning nav-icon"></i>
@@ -168,6 +168,12 @@
                                 <a href="{{ route('social-media.index') }}" class="nav-link">
                                     <i class="fa fa-th-list text-warning nav-icon"></i>
                                     <p>شبکه های اجتماعی</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('themeComponents') }}>
+                                <a href="{{ route('themeComponents') }}" class="nav-link">
+                                    <i class="fa fa-edit text-warning nav-icon"></i>
+                                    <p>مدیریت محتوا</p>
                                 </a>
                             </li>
                             <li class="nav-item" {{ active_menu('theme-setting.index') }}>
