@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Component;
+use App\Models\Setting;
+use App\Models\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -14,7 +16,6 @@ class ComponentController extends Controller
     public function index()
     {
         $components = Component::latest()->get();
-
         return view('admin.component.list', compact('components'));
     }
 
@@ -77,6 +78,16 @@ class ComponentController extends Controller
         $component->delete();
         Alert::success('موفق', 'بخش با موفقیت حذف شد.');
         return redirect()->route('component.index');
+    }
+
+    public function themeComponents()
+    {
+        $settingModel = new Setting;
+        $accountId = auth()->user()->account->id;
+        $themeName = $settingModel->getSetting('active_theme', $accountId);
+        $themeId = Theme::where("name", $themeName)->first()->id;
+        $components = Component::latest()->get();
+        return view('admin.component.list', compact('components'));
     }
 
 }

@@ -67,19 +67,16 @@ Route::get('/', [DashboardController::class, 'index']);
     Route::post('customer/checkout/addon', [CheckoutController::class, 'addonSelect'])->name('checkout.addon');
     Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'])->name('checkout.factor');
 
-
     //admin routes
     Route::middleware(['auth','visit'])->group(function () {
 
         Route::prefix('admin')->group(function () {
 
             Route::get('/dashboard', function () {
-
                 return view('admin.dashboard');
             })->middleware('verified')->name('dashboard');
 
-
-           Route::get('/visits',[LogController::class,'visits'])->name('log.visits');
+            Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');
             Route::resource('media', MediaController::class);
             Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
             Route::post('media-list', [MediaController::class, 'mediaList'])->name('mediaList');
@@ -94,14 +91,18 @@ Route::get('/', [DashboardController::class, 'index']);
             Route::get('/post-image/{post}/destroy',[PostController::class,'thumbDestroy'])->name('thumb.destroy');
             Route::resource('product', ProductController::class);
 
-            Route::get('theme/choose',[ThemeController::class,'choose'])->name('theme.choose');
-            Route::get('theme/{image}/destroy',[ThemeController::class,'imageDestroy'])->name('theme.imageDestroy');
+            Route::get('theme/choose', [ThemeController::class,'choose'])->name('theme.choose');
+            Route::get('theme/{image}/destroy', [ThemeController::class,'imageDestroy'])->name('theme.imageDestroy');
             Route::resource('theme', ThemeController::class);
-            Route::get('theme/{theme}/active-theme',[ThemeController::class,'activeTheme'])->name('theme.activeTheme');
-            Route::get('theme/{theme}/component/',[ThemeController::class,'selectComponent'])->name('theme.selectComponent');
-            Route::post('theme/{theme}/component/store',[ThemeController::class,'componentStore'])->name('theme.componentStore');
-            Route::resource('component', ComponentController::class);
+            Route::get('theme/{theme}/active-theme', [ThemeController::class,'activeTheme'])->name('theme.activeTheme');
+            Route::get('theme/{theme}/component/', [ThemeController::class,'selectComponent'])->name('theme.selectComponent');
+            Route::post('theme/{theme}/component/store', [ThemeController::class,'componentStore'])->name('theme.componentStore');
+
             Route::resource('taxonomy', TaxonomyController::class);
+
+            Route::resource('component', ComponentController::class);
+            Route::get('theme-components', [ComponentController::class, 'themeComponents'])->name('themeComponents');
+
 
             Route::resource('term', TermController::class);
             Route::post('term-list', [TermController::class, 'termList'])->name('termList');
@@ -112,7 +113,6 @@ Route::get('/', [DashboardController::class, 'index']);
             Route::resource('discount', DiscountController::class);
             Route::resource('setting', SettingController::class);
             Route::resource('theme-setting', ThemeSettingController::class);
-
 
             Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
             Route::resource('addons', AddonController::class);
@@ -177,5 +177,3 @@ Route::get('/', [DashboardController::class, 'index']);
     Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
 
     require __DIR__ . '/auth.php';
-
-

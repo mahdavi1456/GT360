@@ -9,9 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class SettingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $themes = Theme::where('status', 'active')->get();
@@ -20,17 +18,11 @@ class SettingController extends Controller
         return view('admin.settings.settings', compact('themes', 'defaultTheme'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $account = 0;
