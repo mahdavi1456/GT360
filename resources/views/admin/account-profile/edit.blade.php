@@ -8,22 +8,20 @@
     {{ breadcrumb('تکمیل اطلاعات') }}
     <section class="content">
         <div class="container-fluid">
+            @if ($errors->any())
+                <div class="row">
+                    <div class="col-12">
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger mb-4">{{ $error }}</div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-body">
-                            @if ($errors->any())
-                            <div class="container">
-                                <div class="row alert alert-danger  justify-content-center mt-4">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                            @endif
-                            <form action="{{ route('account.profile.update', $account->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('account.profile.update', $account->id) }}" method="POST" enctype="multipart/form-data">
+                            <div class="card-body">
                                 @csrf
                                 @method('PUT')
                                 <h4>اطلاعات شخصی</h4>
@@ -56,7 +54,6 @@
                                             oninput="this.setCustomValidity('')">
                                         </div>
                                     </div>
-
                                     <div class="col-3">
                                         <div class="form-group">
                                             <label class="form-label required"> موبایل <span class="text-danger">*</span></label>
@@ -127,7 +124,7 @@
                                     </div>
                                     <div class="col-3">
                                         <div class="form-group">
-                                            <label class="form-label required"> اسلاگ <span class="text-danger">*</span></label>
+                                            <label class="form-label required"> نامک <span class="text-danger">*</span></label>
                                             <input type="text" name="slug" class="form-control nonPersianletters" id="slug" placeholder="اسلاگ..." value="{{ old('slug') ?? $account->slug }}"  required
                                             oninvalid="this.setCustomValidity('.لطفا اسلاگ را وارد کنید')"
                                             oninput="this.setCustomValidity('')"/>
@@ -181,13 +178,11 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-success">ذخیره</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
+                        <div class="card-footer text-left">
+                            <button type="submit" class="btn btn-success">ذخیره</button>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -195,9 +190,8 @@
     </section>
 </div>
 @endsection
-
 @section('scripts')
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         if ($('#account_type').val() === 'حقوقی') {
                 $('#company_fields').show();
@@ -214,7 +208,5 @@
         });
     });
 </script>
-
 <script src="{{ asset('js/validation.js') }}"></script>
-
 @endsection
