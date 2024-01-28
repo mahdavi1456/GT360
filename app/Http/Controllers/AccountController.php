@@ -264,7 +264,7 @@ class AccountController extends Controller
             $mobile = $validate['mobile'];
             $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
 
-            // sendSMS($mobile, $message);
+            //  sendSMS($mobile, $message);
 
         } else {
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -32,14 +33,30 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'slug' => ['required', 'string', 'max:255'],
+            'account_type' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'mobile' => ['required', 'string', 'digits:11', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+        $account = Account::create([
+            'name' => $request->name,
+            'mobile' => $request->mobile,
+            'family' => $request->family,
+            'account_type' => $request->account_type,
+            'slug'=>$request->slug,
+            'account_acl'=>0
+        ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'mobile' => $request->mobile,
+            'family' => $request->family,
+            'company_name' => $request->compony,
+            'user_status' => 'Active',
+            'user_type' => 'admin',
+            'account_id'=>$account->id
         ]);
 
         event(new Registered($user));

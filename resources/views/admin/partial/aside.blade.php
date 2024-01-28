@@ -220,6 +220,12 @@
                                     <p>تنظیمات</p>
                                 </a>
                             </li>
+                            <li class="nav-item" {{ active_menu('log.visits') }}>
+                                <a href="{{ route('log.visits') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>گزارشات</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

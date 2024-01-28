@@ -1,48 +1,50 @@
 <?php
 
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AccountPaymentTypeVariableController;
-use App\Http\Controllers\AddonController;
+use App\Models\User;
+use App\Models\Account;
+use App\Models\Setting;
+use App\Models\Transport;
+use App\Models\CustomerAddress;
+use Jenssegers\Agent\Facades\Agent;
+use App\Http\Controllers\ShopSetting;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
-use App\Http\Controllers\CartHeadController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CustomerAddressController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\DiscountController;
-use App\Http\Controllers\Front\AccountController as FrontAccountController;
-use App\Http\Controllers\Front\DashboardController;
-use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\FontController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PaymentsTypeController;
-use App\Http\Controllers\PaymentTypeController;
-use App\Http\Controllers\PaymentTypeVariableController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TermController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AddonController;
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PalleteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\ShopSetting;
-use App\Http\Controllers\ShopSettingController;
-use App\Http\Controllers\TransportController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CheckoutOptionController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ThemeController;
-use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\CartHeadController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\TaxonomyController;
-use App\Http\Controllers\TermController;
-use App\Http\Controllers\MediaController;
+use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\TransportController;
+use App\Http\Controllers\PaymentTypeController;
+use App\Http\Controllers\ShopSettingController;
 use App\Http\Controllers\SocialMediaController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\FontController;
-use App\Http\Controllers\PalleteController;
+use App\Http\Controllers\PaymentsTypeController;
 use App\Http\Controllers\ThemeSettingController;
-use App\Models\Account;
-use App\Models\CustomerAddress;
-use App\Models\Transport;
-use App\Models\User;
-use App\Models\Setting;
+use App\Http\Controllers\CheckoutOptionController;
+use App\Http\Controllers\CustomerAddressController;
+use App\Http\Controllers\Front\DashboardController;
+use App\Http\Controllers\PaymentTypeVariableController;
+use App\Http\Controllers\AccountPaymentTypeVariableController;
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\AccountController as FrontAccountController;
+use App\Http\Controllers\Front\ProductController as FrontProductController;
 
 Route::get('/panel/{slug}', [AccountController::class, 'loadSite']);
 
@@ -67,15 +69,17 @@ Route::get('/', [DashboardController::class, 'index']);
 
 
     //admin routes
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth','visit'])->group(function () {
 
         Route::prefix('admin')->group(function () {
 
             Route::get('/dashboard', function () {
+
                 return view('admin.dashboard');
             })->middleware('verified')->name('dashboard');
 
 
+           Route::get('/visits',[LogController::class,'visits'])->name('log.visits');
             Route::resource('media', MediaController::class);
             Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
             Route::post('media-list', [MediaController::class, 'mediaList'])->name('mediaList');

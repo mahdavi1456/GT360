@@ -40,7 +40,7 @@
                     <div class="alert alert-danger"><b>اخطار: </b>{{ $error }}</div>
                 @endforeach
             @endif
-                <form method="POST" action="{{ route('newUserAccount') }}">
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <label class="form-label">نوع حساب <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
@@ -64,15 +64,33 @@
                         oninvalid="this.setCustomValidity('.لطفا نام خانوادگی را وارد کنید')"
                         oninput="this.setCustomValidity('')">
                     </div>
+                    <label class="form-label">ایمیل <span class="text-danger">*</span></label>
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control " placeholder="ایمیل..." value="{{ old('email') }}" required
+                        oninvalid="this.setCustomValidity('.لطفا ایمیل را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
+                    </div>
                     <label class="form-label">موبایل <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
                         <input type="text" name="mobile" class="form-control just-numbers" placeholder="موبایل..." value="{{ old('mobile') }}" required
                         oninvalid="this.setCustomValidity('.لطفا موبایل را وارد کنید')"
                         oninput="this.setCustomValidity('')">
                     </div>
-                    <label class="form-label">نام مجموعه </label>
+                    <label class="form-label">رمزعبور <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" name="company" class="form-control" placeholder="نام مجموعه..."  value="{{ old('company') }}">
+                        <input type="password" name="password" class="form-control" placeholder="رمزعبور..." value="{{ old('password') }}" required
+                        oninvalid="this.setCustomValidity('.لطفا رمز را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
+                    </div>
+                    <label class="form-label"> تکرار رمزعبور <span class="text-danger">*</span></label>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="تکرار رمزعبور..." value="{{ old('password') }}" required
+                        oninvalid="this.setCustomValidity('.لطفا تکرا رمز را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
+                    </div>
+                    <label class="form-label">نامک </label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="slug" class="form-control" placeholder="نامک..."  value="{{ old('slug') }}">
                     </div>
                     <div class="row">
                         <div class="col-8">
