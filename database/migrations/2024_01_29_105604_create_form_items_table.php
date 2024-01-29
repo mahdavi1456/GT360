@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('form_items', function (Blueprint $table) {
             $table->id();
-            $table->string('key');
-            $table->text('value')->nullable();
-            $table->bigInteger('account_id');
             $table->bigInteger('form_id');
+            $table->string('name');
+            $table->string('label');
+            $table->string('desc');
+            $table->string('type');
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('form_items');
     }
 };

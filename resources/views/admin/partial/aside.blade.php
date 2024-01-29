@@ -196,6 +196,7 @@
                                     <p>قالب ها</p>
                                 </a>
                             </li>
+                          
                             <li class="nav-item" {{ active_menu('taxonomy') }}>
                                 <a href="{{ route('taxonomy.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>

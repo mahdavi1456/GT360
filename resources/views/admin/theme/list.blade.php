@@ -61,6 +61,8 @@
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $theme->id }}">حذف</button>
                                                     </form>
+                                                    <a href="{{ route('form.index', ['theme_id'=>$theme->id]) }}"
+                                                       class="btn btn-secondary m-1">فرم ها</a>
                                                 </td>
                                             </tr>
                                         @endforeach

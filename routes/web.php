@@ -42,7 +42,8 @@ use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
-
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\FormItemController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
@@ -113,6 +114,9 @@ Route::get('/', [DashboardController::class, 'index']);
             Route::resource('discount', DiscountController::class);
             Route::resource('setting', SettingController::class);
             Route::resource('theme-setting', ThemeSettingController::class);
+            Route::resource('form', FormController::class);
+            Route::resource('form-item', FormItemController::class);
+
             // Route::get('getimages/')
 
             Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
