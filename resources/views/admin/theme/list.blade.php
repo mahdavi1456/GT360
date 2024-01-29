@@ -18,7 +18,8 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('theme.create') }}" class="pull-left btn btn-info text-white">افزودن جدید</a>
+                                        <a href="{{ route('theme.create') }}" class="pull-left btn btn-info text-white">افزودن
+                                            جدید</a>
                                     </div>
                                 </div>
                             </div>
@@ -46,11 +47,12 @@
                                                 <td>{{ $theme->details }}</td>
                                                 <td>
                                                     @if ($theme->preview)
-                                                    <img class="w-100 object-fit-contain"
-                                                    style="max-width: 180px" src="{{asset(ert('theme-path').$theme->preview)}}" alt="">
+                                                        <img class="w-100 object-fit-contain"
+                                                             style="max-width: 180px"
+                                                             src="{{asset(ert('theme-path').$theme->preview)}}" alt="">
                                                     @endif
                                                 </td>
-                                                <td>{{ $theme->status }}</td>
+                                                <td>{!! ($theme->status == "active") ? "<span class='badge bg-success'>فعال</span>" : "<span class='badge bg-danger'>غیرفعال</span>" !!}</td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('theme.selectComponent', $theme->id) }}"
                                                        class="btn btn-info m-1">تخصیص بخش</a>
@@ -59,7 +61,9 @@
                                                     <form action="{{ route('theme.destroy', $theme) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $theme->id }}">حذف</button>
+                                                        <button type="submit" class="btn btn-danger m-1"
+                                                                id="confirmdelete{{ $theme->id }}">حذف
+                                                        </button>
                                                     </form>
                                                     <a href="{{ route('form.index', ['theme_id'=>$theme->id]) }}"
                                                        class="btn btn-secondary m-1">فرم ها</a>
@@ -88,7 +92,7 @@
     @if ($themes->count() > 0)
         @foreach ($themes as $theme)
             <script>
-                $('#confirmdelete{{ $theme->id }}').click(function(event) {
+                $('#confirmdelete{{ $theme->id }}').click(function (event) {
                     var form = $(this).closest("form");
                     var name = $(this).data("name");
                     event.preventDefault();
@@ -100,11 +104,11 @@
                         cancelButtonText: 'انصراف',
                         confirmButtonText: 'تایید',
                     })
-                    .then((result) => {
-                        if (result.isConfirmed) {
-                            form.submit();
-                        }
-                    });
+                        .then((result) => {
+                            if (result.isConfirmed) {
+                                form.submit();
+                            }
+                        });
                 });
             </script>
         @endforeach
