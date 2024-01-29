@@ -14,7 +14,7 @@ class SettingController extends Controller
     {
         $themes = Theme::where('status', 'active')->get();
         $settingModel = new Setting;
-        $defaultTheme = $settingModel->getSetting('default_theme', 0);
+        $defaultTheme = $settingModel->getSetting('default_theme', 0,0);
         return view('admin.settings.settings', compact('themes', 'defaultTheme'));
     }
 
