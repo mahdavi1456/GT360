@@ -113,6 +113,7 @@ Route::get('/', [DashboardController::class, 'index']);
             Route::resource('discount', DiscountController::class);
             Route::resource('setting', SettingController::class);
             Route::resource('theme-setting', ThemeSettingController::class);
+            // Route::get('getimages/')
 
             Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
             Route::resource('addons', AddonController::class);

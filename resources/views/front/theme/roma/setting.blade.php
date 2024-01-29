@@ -16,7 +16,7 @@
             </div>
             <div class="col-6 form-group">
                 <label class="form-label">فایل 2</label>
-                <input type="file" name="theme-image-one">
+                <input type="file" name="theme-image-one" onchange="uploadImage()">
             </div>
             <div class="col-6 form-group">
                 <label class="form-label">فایل 3</label>

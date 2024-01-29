@@ -10,7 +10,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
+                        <div class="card" id="outer-div">
                             <form id="setting-form" action="{{ route('setting.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
@@ -35,20 +35,48 @@
                                     <button type="submit" class="btn btn-success">ذخیره</button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
         </section>
     </div>
 @endsection
 
 @section('scripts')
     <script>
+        // let imageNames = [];
+        // $.each($('input[type=file]'), function(i, ele) {
+        //     imageNames.push($(ele).attr('name'));
+        // });
+        // if (imageNames.length > 0) {
+        //     imageNames['send_type'] = 'get-images';
+        //     $.ajax({
+        //         type: 'get',
+        //         url: "{{ route('setting.store') }}",
+        //         data: imageNames,
+        //         success: function(response) {
+        //             $('#image-part').remove();
+        //             $('#outer-div').append(response);
+        //             Swal.fire({
+        //                 title: "موفق",
+        //                 text: "فایل و اطلاعات ذخیره شدند",
+        //                 icon: "success"
+        //             });
+
+        //         },
+        //         error: function(response) {
+        //             alert('error');
+        //             console.log(response);
+        //         }
+        //     });
+        // }
+
         function uploadImage() {
-            var form = $('#seeting-form');
+
+            var form = $('#setting-form');
             var formData = new FormData(form[0]);
-            formData.append('_token',"{{csrf_token()}}")
+            formData.append('send_type', "ajax")
             $.ajax({
                 type: 'post',
                 url: "{{ route('setting.store') }}",
@@ -56,8 +84,14 @@
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    alert('yes');
-                    console.log(response);
+                    $('#image-part').remove();
+                    $('#outer-div').append(response);
+                    Swal.fire({
+                        title: "موفق",
+                        text: "فایل و اطلاعات ذخیره شدند",
+                        icon: "success"
+                    });
+
                 },
                 error: function(response) {
                     alert('error');
