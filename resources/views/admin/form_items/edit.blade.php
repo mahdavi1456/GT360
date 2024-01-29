@@ -1,14 +1,14 @@
 @extends('admin.master')
-@section('title', 'edit form')
+@section('title', 'create form')
 @section('content')
     {{-- @include('sweetalert::alert') --}}
-    @include("admin.partial.nav")
-    @include("admin.partial.aside")
+    @include('admin.partial.nav')
+    @include('admin.partial.aside')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb('ویرایش فرم') }}
+        {{ breadcrumb('ویرایش آیتم') }}
 
         <!-- Main content -->
         <section class="content">
@@ -28,20 +28,47 @@
                                         </div>
                                     </div>
                                 @endif
-                                <form action="{{ route('form.update',$form->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('form-item.update', $item->id) }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label class="required">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control" value="{{ $form->title }}" placeholder="نام..." required  oninvalid="this.setCustomValidity('نام بخش را وارد نمایید.')"
-                                                       oninput="this.setCustomValidity('')">
+                                                <input type="text" name="name" class="form-control"
+                                                    value="{{ $item->name }}" placeholder="نام..." required
+                                                    oninvalid="this.setCustomValidity('نام بخش را وارد نمایید.')"
+                                                    oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
-
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="required">عنوان فارسی <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" name="label" class="form-control"
+                                                    value="{{ $item->label }}" placeholder="عنوان فارسی ..." required
+                                                    oninvalid="this.setCustomValidity('نام بخش را وارد نمایید.')"
+                                                    oninput="this.setCustomValidity('')">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="required">توضیحات </label>
+                                                <input type="text" name="desc" class="form-control"
+                                                    value="{{ $item->desc }}" placeholder="توضیحات...">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="required">نوع <span class="text-danger">*</span></label>
+                                                <select name="type" class="custom-select select2" id="">
+                                                    <option @selected($item->type == 'text') value="text">متن کوتاه</option>
+                                                    <option @selected($item->type == 'file') value="file">فایل</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-
                                     <div class="row">
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-success">ذخیره</button>

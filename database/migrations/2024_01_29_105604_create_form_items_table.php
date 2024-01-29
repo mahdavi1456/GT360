@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('form_id');
             $table->string('name');
             $table->string('label');
-            $table->string('desc');
+            $table->string('desc')->nullable();
             $table->string('type');
             $table->timestamps();
         });

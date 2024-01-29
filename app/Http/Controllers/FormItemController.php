@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FormItem;
 use Illuminate\Http\Request;
 
 class FormItemController extends Controller
@@ -11,7 +12,9 @@ class FormItemController extends Controller
      */
     public function index()
     {
-        //
+        ert('cd');
+        $items = FormItem::where('form_id', request('form_id'))->latest()->get();
+        return view('admin.form_items.list', compact('items'));
     }
 
     /**
@@ -19,7 +22,7 @@ class FormItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.form_items.create');
     }
 
     /**
@@ -27,7 +30,11 @@ class FormItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except('_token');
+        FormItem::create($data);
+
+        alert()->success('موفق', "ایجاد شد");
+        return to_route('form-item.index', ['form_id' => $data['form_id']]);
     }
 
     /**
@@ -41,24 +48,31 @@ class FormItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(FormItem $FormItem)
     {
-        //
+        $item = $FormItem;
+        return view('admin.form_items.edit', compact('item'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, FormItem $formItem)
     {
-        //
+        $data = $request->except('_token');
+        $formItem->update($data);
+        alert()->success('موفق', "ایجاد شد");
+        return to_route('form-item.index', ['form_id' => $formItem->form_id]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(FormItem $FormItem)
     {
-        //
+        $form = $FormItem->form_id;
+        $FormItem->delete();
+        alert()->success('موفق', "ایجاد شد");
+        return to_route('form-item.index', ['form_id' => $form]);
     }
 }

@@ -28,17 +28,44 @@
                                         </div>
                                     </div>
                                 @endif
-                                <form action="{{ route('form.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('form-item.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="hidden" name="theme_id" value="{{ request('theme_id') }}">
+
+                                    <input type="hidden" name="form_id" value="{{ request('form_id') }}">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label class="required">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control"
-                                                    value="{{ old('title') }}" placeholder="نام..." required
+                                                <input type="text" name="name" class="form-control"
+                                                    value="{{ old('name') }}" placeholder="نام..." required
                                                     oninvalid="this.setCustomValidity('نام بخش را وارد نمایید.')"
                                                     oninput="this.setCustomValidity('')">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="required">عنوان فارسی <span class="text-danger">*</span></label>
+                                                <input type="text" name="label" class="form-control"
+                                                    value="{{ old('label') }}" placeholder="عنوان فارسی ..." required
+                                                    oninvalid="this.setCustomValidity('نام بخش را وارد نمایید.')"
+                                                    oninput="this.setCustomValidity('')">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="required">توضیحات </label>
+                                                <input type="text" name="desc" class="form-control"
+                                                    value="{{ old('desc') }}" placeholder="توضیحات..." >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label class="required">نوع <span class="text-danger">*</span></label>
+                                                <select required name="type" class="custom-select select2" >
+                                                    <option value="">انتخاب کنید...</option>
+                                                    <option value="text">متن کوتاه</option>
+                                                    <option value="file">فایل</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

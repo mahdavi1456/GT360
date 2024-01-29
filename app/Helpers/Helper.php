@@ -151,5 +151,10 @@ function ert($variable)
     if ($variable == 'tsp') {  //theme-setting-path
         return 'uploads/themeSetting/';
     }
+    if ($variable == 'cd') {  //confirmDelete
+        confirmDelete('مطمئنید؟', 'آیا از حذف این مورد اطمینان دارید؟');
+        return true;
+    }
+
     dd('اسمت اشتباهه');
 }
