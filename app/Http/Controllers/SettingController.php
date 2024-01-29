@@ -35,10 +35,11 @@ class SettingController extends Controller
         $fileIndexes[]='_token';
         $fileIndexes[]='action_type';
         $fileIndexes[]='send_type';
+        $fileIndexes[]='form_id';
 
         $settings = $request->except($fileIndexes);
         foreach ($settings as $key => $value) {
-            $setting->updateSetting($key, $value, $account);
+            $setting->updateSetting($key, $value, $account,$request->form_id);
         }
         if ($request->has('send_type')) {
             if ($request->file()) {

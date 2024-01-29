@@ -12,12 +12,13 @@ class Setting extends Model
     protected $tabele = "settings";
     protected $guarded = [];
 
-    public function updateSetting($key, $value, $account_id,$file=null)
+    public function updateSetting($key, $value, $account_id,$form_id,$file=null)
     {
-        $s = Setting::where(['key' => $key, 'account_id' => $account_id])->first();
+        // $s = Setting::where(['key' => $key, 'account_id' => $account_id])->first();
+        $s = Setting::where(['key' => $key, 'account_id' => $account_id,'form_id'=>$form_id])->first();
         if ($s) {
             if ($file=='theme-setting') {
-                $fileName=$this->getSetting($key,$account_id);
+                $fileName=$this->getSetting($key,$account_id,$form_id);
                 if (file_exists(public_path(ert('tsp').$fileName))) {
                    unlink(public_path(ert('tsp').$fileName));
                 }
@@ -30,15 +31,16 @@ class Setting extends Model
             $s=Setting::create([
                 'key' => $key,
                 'value' => $value,
-                'account_id' => $account_id
+                'account_id' => $account_id,
+                'form_id'=>$form_id
             ]);
             return $s;
         }
     }
 
-    public function getSetting($key, $account_id)
+    public function getSetting($key,$account_id,$form_id)
     {
-        $s = Setting::where(['key' => $key, 'account_id' => $account_id])->first();
+        $s = Setting::where(['key' => $key, 'account_id' => $account_id,'form_id'=>$form_id])->first();
         if ($s) {
             return $s->value;
         } else {

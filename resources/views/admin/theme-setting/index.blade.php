@@ -5,7 +5,10 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('تنظیمات قالب') }}
+        @php
+            $themeName = $settingModel->getSetting('active_theme', $account->id, 0);
+        @endphp
+        {{ breadcrumb(' تنظیمات قالب - ' .$themeName) }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -25,9 +28,7 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @php
-                                        $themeName = $settingModel->getSetting('active_theme', $account->id);
-                                    @endphp
+
                                     @include("front.theme.$themeName.setting")
 
                                 </div>

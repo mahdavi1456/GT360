@@ -28,12 +28,14 @@
                                         <tr>
                                             <th style="width: 10px">#</th>
                                             <th>نام</th>
+                                            <th>کد فرم</th>
                                             <th>عملیات</th>
                                         </tr>
                                         @foreach ($forms as $form)
                                             <tr>
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
                                                 <td>{{ $form->title }}</td>
+                                                <td>{{ $form->id }}</td>
                                                 <td >
                                                     <a href="{{ route('form.edit',['form'=>$form->id]) }}" class="btn btn-warning m-1">ویرایش</a>
                                                     <a href="{{ route('form.destroy', $form->id) }}"  data-confirm-delete="true" class="btn btn-danger m-1">حذف</a>
