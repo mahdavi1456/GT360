@@ -52,7 +52,7 @@
                                                              src="{{asset(ert('theme-path').$theme->preview)}}" alt="">
                                                     @endif
                                                 </td>
-                                                <td>{!! ($theme->status == "active") ? "<span class='badge bg-success'>فعال</span>" : "<span class='badge bg-danger'>غیرفعال</span>" !!}</td>
+                                                <td>{!! ($theme->status == "active") ? "<span class='badge bg-success text-white'>فعال</span>" : "<span class='badge bg-danger text-white'>غیرفعال</span>" !!}</td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('theme.selectComponent', $theme->id) }}"
                                                        class="btn btn-info m-1">تخصیص بخش</a>
