@@ -14,7 +14,7 @@ class SettingController extends Controller
     {
         $themes = Theme::where('status', 'active')->get();
         $settingModel = new Setting;
-        $defaultTheme = $settingModel->getSetting('default_theme', 0,0);
+        $defaultTheme = $settingModel->getSetting('default_theme', 0);
         return view('admin.settings.settings', compact('themes', 'defaultTheme'));
     }
 
@@ -39,7 +39,7 @@ class SettingController extends Controller
 
         $settings = $request->except($fileIndexes);
         foreach ($settings as $key => $value) {
-            $setting->updateSetting($key, $value, $account,$request->form_id);
+            $setting->updateSetting($key, $value, $account);
         }
         if ($request->has('send_type')) {
             if ($request->file()) {

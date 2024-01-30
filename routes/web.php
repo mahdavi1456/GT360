@@ -42,6 +42,7 @@ use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
+use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormItemController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
@@ -56,6 +57,8 @@ Route::get('/', [DashboardController::class, 'index']);
     Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
     Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
     Route::delete('account/image/{account}/destroy', [AccountController::class, 'imageDestroy'])->name('account.image.destroy');
+
+
 
     Route::post('/customer-login', [CustomerController::class, 'sendLoginCode'])->name('customerlogin');
     Route::post('/resendLoginCode', [CustomerController::class, 'resendLoginCode'])->name('resendLoginCode');
@@ -72,6 +75,8 @@ Route::get('/', [DashboardController::class, 'index']);
     //admin routes
     Route::middleware(['auth','visit'])->group(function () {
 
+        Route::get('change-password', [NewPasswordController::class, 'create']); //used for change-password
+        Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
         Route::prefix('admin')->group(function () {
 
             Route::get('/dashboard', function () {
