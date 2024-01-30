@@ -88,10 +88,6 @@
                         oninvalid="this.setCustomValidity('.لطفا تکرا رمز را وارد کنید')"
                         oninput="this.setCustomValidity('')">
                     </div>
-                    <label class="form-label">نامک </label>
-                    <div class="input-group mb-3">
-                        <input type="text" name="slug" class="form-control" placeholder="نامک..."  value="{{ old('slug') }}">
-                    </div>
                     <div class="row">
                         <div class="col-8">
                             <div class="checkbox icheck">

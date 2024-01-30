@@ -34,7 +34,6 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
             'account_type' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'mobile' => ['required', 'string', 'digits:11', 'unique:' . User::class],
@@ -45,7 +44,6 @@ class RegisteredUserController extends Controller
             'mobile' => $request->mobile,
             'family' => $request->family,
             'account_type' => $request->account_type,
-            'slug'=>$request->slug,
             'account_acl'=>0
         ]);
         $setting= new Setting();
