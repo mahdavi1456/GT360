@@ -32,7 +32,9 @@ class NewPasswordController extends Controller
 
         $request->validate([
             'password' => ['required', Rules\Password::defaults()],
-            'newPassword' => ['required', 'confirmed', Rules\Password::defaults()],
+            'newPassword' => ['required', 'confirmed', Rules\Password::defaults(),"not_in:$request->password"],
+        ],[
+            'newPassword.not_id'=>'پسورد جدید نمی تواند برابر قبل باشد'
         ]);
         $user=auth()->user();
         if (Hash::check($request->password, $user->password)) {
