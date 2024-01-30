@@ -33,7 +33,7 @@
                         <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-lock text-danger"></i>
-                                <p>تعاریف پایه<i class="right fa fa-angle-left"></i></p>
+                                <p>تعاریف پایه <i class="right fa fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
                                 <li class="nav-item" {{ active_menu('theme') }}>
@@ -79,11 +79,8 @@
                     @can('SuperAccount')
                         <li class="nav-item has-treeview {{active_dropdown(['account.index'])}}">
                             <a href="#" class="nav-link main-menu">
-                                <i class="nav-icon fa fa-th"></i>
-                                <p>
-                                    مشترکین
-                                    <i class="right fa fa-angle-left"></i>
-                                </p>
+                                <i class="nav-icon fa fa-lock text-danger"></i>
+                                <p>مشترکین <i class="right fa fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview sub-menu" {{active_list(['account.index'])}}>
                                 <li class="nav-item {{ active_menu('account.index') }}">
