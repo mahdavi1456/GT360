@@ -102,21 +102,21 @@
                     laoree.</p>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.9s">
-                <img src="{{ asset('front-theme-asset/roma') }}/images/team1.jpg" class="img-responsive" alt="team img">
+                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive" alt="team img">
                 <div class="team-des">
                     <h4>Tracy</h4>
                     <h3>Designer</h3>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="1.3s">
-                <img src="{{ asset('front-theme-asset/roma') }}/images/team2.jpg" class="img-responsive" alt="team img">
+                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive" alt="team img">
                 <div class="team-des">
                     <h4>Linda</h4>
                     <h3>Manager</h3>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="1.6s">
-                <img src="{{ asset('front-theme-asset/roma') }}/images/team3.jpg" class="img-responsive" alt="team img">
+                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive" alt="team img">
                 <div class="team-des">
                     <h4>Mary</h4>
                     <h3>Developer</h3>
