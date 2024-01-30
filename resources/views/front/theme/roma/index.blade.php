@@ -41,13 +41,13 @@
             <a href="#" class="navbar-brand">{{ $settingModel->getSetting('title', $accountId) }}</a></div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home" class="smoothScroll">HOME</a></li>
-                <li><a href="#intro" class="smoothScroll">INTRO</a></li>
-                <li><a href="#work" class="smoothScroll">WORK</a></li>
-                <li><a href="#team" class="smoothScroll">TEAM</a></li>
-                <li><a href="#portfolio" class="smoothScroll">PORTFOLIO</a></li>
-                <li><a href="#price" class="smoothScroll">PRICE</a></li>
-                <li><a href="#contact" class="smoothScroll">CONTACT</a></li>
+                <li><a href="#home" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId) }}</a></li>
+                <li><a href="#intro" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId) }}</a></li>
+                <li><a href="#work" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId) }}</a></li>
+                <li><a href="#team" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId) }}</a></li>
+                <li><a href="#portfolio" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId) }}</a></li>
+                <li><a href="#price" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId) }}</a></li>
+                <li><a href="#contact" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId) }}</a></li>
             </ul>
         </div>
     </div>
