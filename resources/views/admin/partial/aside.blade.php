@@ -28,6 +28,54 @@
                             <p>رسانه</p>
                         </a>
                     </li>
+
+                    @can('SuperAccount')
+                        <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index']) }}">
+                            <a href="#" class="nav-link main-menu">
+                                <i class="nav-icon fa fa-lock text-danger"></i>
+                                <p>تعاریف پایه<i class="right fa fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
+                                <li class="nav-item" {{ active_menu('theme') }}>
+                                    <a href="{{ route('theme.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>قالب ها</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" {{ active_menu('taxonomy') }}>
+                                    <a href="{{ route('taxonomy.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>طبقه بندی ها</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" {{ active_menu('theme') }}>
+                                    <a href="{{ route('component.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>بخش ها</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" {{ active_menu('font.index') }}>
+                                    <a href="{{ route('font.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>فونت ها</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" {{ active_menu('pallete.index') }}>
+                                    <a href="{{ route('pallete.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>پالت های رنگ</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" {{ active_menu('setting.index') }}>
+                                    <a href="{{ route('setting.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>تنظیمات</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+
                     @can('SuperAccount')
                         <li class="nav-item has-treeview {{active_dropdown(['account.index'])}}">
                             <a href="#" class="nav-link main-menu">
@@ -71,6 +119,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="nav-item has-treeview {{active_dropdown(['category.index', 'product.index'])}}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
@@ -184,53 +233,20 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index']) }}">
+
+                    <li class="nav-item has-treeview {{ active_dropdown(['log.visits'] )}}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-clipboard"></i>
-                            <p>تعاریف پایه<i class="right fa fa-angle-left"></i></p>
+                            <p>
+                                گزارشات
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
                         </a>
-                        <ul class="nav nav-treeview sub-menu" {{ active_list(['theme', 'theme.index'])}}>
-                            <li class="nav-item" {{ active_menu('theme') }}>
-                                <a href="{{ route('theme.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>قالب ها</p>
-                                </a>
-                            </li>
-                          
-                            <li class="nav-item" {{ active_menu('taxonomy') }}>
-                                <a href="{{ route('taxonomy.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>طبقه بندی ها</p>
-                                </a>
-                            </li>
-                            <li class="nav-item" {{ active_menu('theme') }}>
-                                <a href="{{ route('component.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>بخش ها</p>
-                                </a>
-                            </li>
-                            <li class="nav-item" {{ active_menu('font.index') }}>
-                                <a href="{{ route('font.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>فونت ها</p>
-                                </a>
-                            </li>
-                            <li class="nav-item" {{ active_menu('pallete.index') }}>
-                                <a href="{{ route('pallete.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>پالت های رنگ</p>
-                                </a>
-                            </li>
-                            <li class="nav-item" {{ active_menu('setting.index') }}>
-                                <a href="{{ route('setting.index') }}" class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>تنظیمات</p>
-                                </a>
-                            </li>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['log.visits'])}}>
                             <li class="nav-item" {{ active_menu('log.visits') }}>
                                 <a href="{{ route('log.visits') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>گزارشات</p>
+                                    <p>آمار بازدید</p>
                                 </a>
                             </li>
                         </ul>
