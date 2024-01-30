@@ -1,16 +1,11 @@
 @extends('admin.master')
-@section('title', 'Account')
+@section('title', 'میز کار')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
-        {{ breadcrumb('داشبورد') }}
-
-        <!-- Main content -->
+        {{ breadcrumb('میز کار') }}
         <section class="content">
             <div class="container-fluid">
                 @if (!auth()->user()->accountFieldsCompleted())
@@ -32,14 +27,12 @@
                                 <div class="row">
                                     <div class="col-6 bg-info text-center p-4">
                                         <i class="fa fa-calendar" style="font-size:48px;"></i>
-
                                     </div>
                                     <div class="col-6 text-center p-4">
                                         تاریخ :
                                         @php
                                             echo verta()->format('Y/m/d');
                                         @endphp
-
                                     </div>
                                 </div>
                             </div>
@@ -51,15 +44,12 @@
                                 <div class="row">
                                     <div class="col-6 bg-primary text-center p-4">
                                         <i class="fa fa-clock-o" style="font-size:48px;"></i>
-
                                     </div>
-
                                     <div class="col-6 d-flex justify-content-center p-4">
                                         ساعت :
                                         @php
                                             echo verta()->format('H:i');
                                         @endphp
-
                                     </div>
                                 </div>
                             </div>
@@ -71,15 +61,10 @@
                                 <div class="row">
                                     <div class="col-6 bg-success text-center p-4">
                                         <i class="fa fa-eye " style="font-size:48px;color: white;"></i>
-
                                     </div>
-
                                     <div class="col-6 text-center p-4">
                                         بازدید سایت :
-
                                         {{ convertToPersian(12344324) }}
-
-
                                     </div>
                                 </div>
                             </div>
@@ -88,11 +73,8 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
-
 @section('scripts')
     <script>
         $(document).ready(function() {

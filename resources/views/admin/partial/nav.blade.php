@@ -10,7 +10,7 @@
         </li>
         @if ($slug=auth()->user()->slug())
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('enterSite',$slug)}}" class="nav-link">ورود به سایت</a>
+            <a href="{{route('enterSite', $slug)}}" target="_blank" class="nav-link">ورود به سایت</a>
         </li>
         @endif
     </ul>
