@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Setting;
 use App\Models\Transport;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\FontController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TermController;
@@ -29,6 +31,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\FormItemController;
 use App\Http\Controllers\TaxonomyController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\TransportController;
@@ -40,151 +43,157 @@ use App\Http\Controllers\ThemeSettingController;
 use App\Http\Controllers\CheckoutOptionController;
 use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\Front\DashboardController;
+use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\FormController;
-use App\Http\Controllers\FormItemController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
-Route::get('/panel/{slug}', [AccountController::class, 'loadSite']);
+Route::get('/website/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
 
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
 Route::get('/', [DashboardController::class, 'index']);
+Route::get('/test', function(){
+    // $paras=['username'=>'rasoul','password'=>'oihrthgfuh'];
+    $paras=['code'=>44853];
+    $sms=Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,'09913814509');
+    dump($sms);
+});
 
-    Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
-    Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
-    Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
-    Route::delete('account/image/{account}/destroy', [AccountController::class, 'imageDestroy'])->name('account.image.destroy');
-
-
-
-    Route::post('/customer-login', [CustomerController::class, 'sendLoginCode'])->name('customerlogin');
-    Route::post('/resendLoginCode', [CustomerController::class, 'resendLoginCode'])->name('resendLoginCode');
-    Route::post('/confirmLogin', [CustomerController::class, 'confirmLogin'])->name('confirmLogin');
-
-    Route::post('/completeInfo/{customer_id}', [CheckoutController::class, 'storeInfo'])->name('storeInfo');
-    Route::post('/addAddress/{customer_id}', [CustomerAddressController::class, 'addAddress'])->name('addAddress');
-
-    Route::get('customer/checkout', [CheckoutController::class, 'index'])->name('checkout');
-    Route::post('customer/checkout/transport', [CheckoutController::class, 'transportSelect'])->name('checkout.transport');
-    Route::post('customer/checkout/addon', [CheckoutController::class, 'addonSelect'])->name('checkout.addon');
-    Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'])->name('checkout.factor');
-
-    //admin routes
-    Route::middleware(['auth','visit'])->group(function () {
-
-        Route::get('change-password', [NewPasswordController::class, 'create']); //used for change-password
-        Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
-        Route::prefix('admin')->group(function () {
-
-            Route::get('/dashboard', function () {
-                return view('admin.dashboard');
-            })->middleware('verified')->name('dashboard');
-
-            Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');
-            Route::resource('media', MediaController::class);
-            Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
-            Route::post('media-list', [MediaController::class, 'mediaList'])->name('mediaList');
-            Route::post('media-delete', [MediaController::class, 'mediaDelete'])->name('mediaDelete');
-
-            Route::resource('social-media', SocialMediaController::class);
-            Route::resource('contact', ContactController::class);
-            Route::resource('font', FontController::class);
-            Route::resource('pallete', PalleteController::class);
-
-            Route::post('/image-upload',[PostController::class,'uploadImage'])->name('post.thumb');
-            Route::get('/post-image/{post}/destroy',[PostController::class,'thumbDestroy'])->name('thumb.destroy');
-            Route::resource('product', ProductController::class);
-
-            Route::get('theme/choose', [ThemeController::class,'choose'])->name('theme.choose');
-            Route::get('theme/{image}/destroy', [ThemeController::class,'imageDestroy'])->name('theme.imageDestroy');
-            Route::resource('theme', ThemeController::class);
-            Route::get('theme/{theme}/active-theme', [ThemeController::class,'activeTheme'])->name('theme.activeTheme');
-            Route::get('theme/{theme}/component/', [ThemeController::class,'selectComponent'])->name('theme.selectComponent');
-            Route::post('theme/{theme}/component/store', [ThemeController::class,'componentStore'])->name('theme.componentStore');
-
-            Route::resource('taxonomy', TaxonomyController::class);
-
-            Route::resource('component', ComponentController::class);
-            Route::get('theme-components', [ComponentController::class, 'themeComponents'])->name('themeComponents');
+Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
+Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
+Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
+Route::delete('account/image/{account}/destroy', [AccountController::class, 'imageDestroy'])->name('account.image.destroy');
 
 
-            Route::resource('term', TermController::class);
-            Route::post('term-list', [TermController::class, 'termList'])->name('termList');
 
-            Route::resource('post', PostController::class);
-            Route::resource('category', CategoryController::class);
-            Route::resource('transport', TransportController::class);
-            Route::resource('discount', DiscountController::class);
-            Route::resource('setting', SettingController::class);
-            Route::resource('theme-setting', ThemeSettingController::class);
-            Route::resource('form', FormController::class);
-            Route::resource('form-item', FormItemController::class);
+Route::post('/customer-login', [CustomerController::class, 'sendLoginCode'])->name('customerlogin');
+Route::post('/resendLoginCode', [CustomerController::class, 'resendLoginCode'])->name('resendLoginCode');
+Route::post('/confirmLogin', [CustomerController::class, 'confirmLogin'])->name('confirmLogin');
 
-            // Route::get('getimages/')
+Route::post('/completeInfo/{customer_id}', [CheckoutController::class, 'storeInfo'])->name('storeInfo');
+Route::post('/addAddress/{customer_id}', [CustomerAddressController::class, 'addAddress'])->name('addAddress');
 
-            Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
-            Route::resource('addons', AddonController::class);
-            Route::resource('payments_type', PaymentTypeController::class);
-            Route::resource('account', AccountController::class);
+Route::get('customer/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('customer/checkout/transport', [CheckoutController::class, 'transportSelect'])->name('checkout.transport');
+Route::post('customer/checkout/addon', [CheckoutController::class, 'addonSelect'])->name('checkout.addon');
+Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'])->name('checkout.factor');
 
-            Route::get('/result-product', [ProductController::class, 'searchproduct'])->name('search');
+//admin routes
+Route::middleware(['auth', 'visit'])->group(function () {
 
-            Route::get('/PaymentTypeVariable/{paymentType}/create', [PaymentTypeVariableController::class, 'create'])->name('PaymentTypeVariable.create');
-            Route::get('users/create/{accountId}', [UserController::class, 'create'])->name('users.create');
+    Route::get('change-password', [NewPasswordController::class, 'create']); //used for change-password
+    Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
+    Route::prefix('admin')->group(function () {
 
-            Route::get('/shop-setting', [ShopSettingController::class, 'index'])->name('shopSetting');
+        // Route::get('/dashboard', function () {
+        //     return view('admin.dashboard');
+        // })->middleware('verified')->name('dashboard');
 
-            Route::get('/AccountPaymentTypeVariable/{paymentType}', [AccountPaymentTypeVariableController::class, 'create'])->name('AccountPaymentTypeVariable');
-            Route::post('AccountPaymentTypeVariable', [AccountPaymentTypeVariableController::class, 'store'])->name('CreateAccountPaymentTypeVariable');
+        Route::get('/dashboard',[AccountController::class,'dashboard'])->middleware('verified')->name('dashboard');
 
-            Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
+        Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');
+        Route::resource('media', MediaController::class);
+        Route::post('media-upload', [MediaController::class, 'mediaUpload'])->name('mediaUpload');
+        Route::post('media-list', [MediaController::class, 'mediaList'])->name('mediaList');
+        Route::post('media-delete', [MediaController::class, 'mediaDelete'])->name('mediaDelete');
 
-            Route::prefix('account')->group(function () {
-                Route::get('{account}/profile', [AccountController::class, 'editProfile'])->name('account.profile.edit');
-                Route::put('{account}/profile', [AccountController::class, 'updateProfile'])->name('account.profile.update');
-                Route::get('{accountId}/users', [UserController::class, 'showUsers'])->name('user.showUsers');
-                Route::get('{accountId}/users/{userId}/edit', [UserController::class, 'editUser'])->name('user.editUser');
-                Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
-                Route::delete('{accountId}/users/{userId}', [UserController::class, 'destroyUser'])->name('account.users.destroy');
-            });
+        Route::resource('social-media', SocialMediaController::class);
+        Route::resource('contact', ContactController::class);
+        Route::resource('font', FontController::class);
+        Route::resource('pallete', PalleteController::class);
 
-            //cart
-            Route::post('cart/add', [CartHeadController::class, 'addToCart']);
-            Route::get('cart', [CartHeadController::class, 'showCart'])->name('showCart');
-            Route::delete('cart/remove/{body}', [CartHeadController::class, 'removeFromCart']);
-            Route::put('cart/amount/{body}', [CartHeadController::class, 'amount']);
-            Route::put('cart/discount/{cart}', [CartHeadController::class, 'discount']);
-            Route::put('cart/discount/remove/{cart}', [CartHeadController::class, 'removeDiscount']);
+        Route::post('/image-upload', [PostController::class, 'uploadImage'])->name('post.thumb');
+        Route::get('/post-image/{post}/destroy', [PostController::class, 'thumbDestroy'])->name('thumb.destroy');
+        Route::resource('product', ProductController::class);
 
-            Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-            Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-            Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('theme/choose', [ThemeController::class, 'choose'])->name('theme.choose');
+        Route::get('theme/{image}/destroy', [ThemeController::class, 'imageDestroy'])->name('theme.imageDestroy');
+        Route::resource('theme', ThemeController::class);
+        Route::get('theme/{theme}/active-theme', [ThemeController::class, 'activeTheme'])->name('theme.activeTheme');
+        Route::get('theme/{theme}/component/', [ThemeController::class, 'selectComponent'])->name('theme.selectComponent');
+        Route::post('theme/{theme}/component/store', [ThemeController::class, 'componentStore'])->name('theme.componentStore');
 
-            // Route::get('/customer-login', [CustomerController::class, 'loginForm'])->name('customer.login');
-            // Route::get('/completeInfo/{customer_id}', [CheckoutController::class, 'completeInfo'])->name('completeInfo');
+        Route::resource('taxonomy', TaxonomyController::class);
+
+        Route::resource('component', ComponentController::class);
+        Route::get('theme-components', [ComponentController::class, 'themeComponents'])->name('themeComponents');
+
+
+        Route::resource('term', TermController::class);
+        Route::post('term-list', [TermController::class, 'termList'])->name('termList');
+
+        Route::resource('post', PostController::class);
+        Route::resource('category', CategoryController::class);
+        Route::resource('transport', TransportController::class);
+        Route::resource('discount', DiscountController::class);
+        Route::resource('setting', SettingController::class);
+        Route::resource('theme-setting', ThemeSettingController::class);
+        Route::resource('form', FormController::class);
+        Route::resource('form-item', FormItemController::class);
+
+        // Route::get('getimages/')
+
+        Route::resource('PaymentTypeVariable', PaymentTypeVariableController::class);
+        Route::resource('addons', AddonController::class);
+        Route::resource('payments_type', PaymentTypeController::class);
+        Route::resource('account', AccountController::class);
+
+        Route::get('/result-product', [ProductController::class, 'searchproduct'])->name('search');
+
+        Route::get('/PaymentTypeVariable/{paymentType}/create', [PaymentTypeVariableController::class, 'create'])->name('PaymentTypeVariable.create');
+        Route::get('users/create/{accountId}', [UserController::class, 'create'])->name('users.create');
+
+        Route::get('/shop-setting', [ShopSettingController::class, 'index'])->name('shopSetting');
+
+        Route::get('/AccountPaymentTypeVariable/{paymentType}', [AccountPaymentTypeVariableController::class, 'create'])->name('AccountPaymentTypeVariable');
+        Route::post('AccountPaymentTypeVariable', [AccountPaymentTypeVariableController::class, 'store'])->name('CreateAccountPaymentTypeVariable');
+
+        Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
+
+        Route::prefix('account')->group(function () {
+            Route::get('{account}/profile', [AccountController::class, 'editProfile'])->name('account.profile.edit');
+            Route::put('{account}/profile', [AccountController::class, 'updateProfile'])->name('account.profile.update');
+            Route::get('{accountId}/users', [UserController::class, 'showUsers'])->name('user.showUsers');
+            Route::get('{accountId}/users/{userId}/edit', [UserController::class, 'editUser'])->name('user.editUser');
+            Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
+            Route::delete('{accountId}/users/{userId}', [UserController::class, 'destroyUser'])->name('account.users.destroy');
         });
 
-        Route::Post('user/create', [AccountController::class, 'newUserAccount'])->name('newUserAccount');
-        Route::put('account/activation', [AccountController::class, 'accountusersactivation'])->name('account.activation');
+        //cart
+        Route::post('cart/add', [CartHeadController::class, 'addToCart']);
+        Route::get('cart', [CartHeadController::class, 'showCart'])->name('showCart');
+        Route::delete('cart/remove/{body}', [CartHeadController::class, 'removeFromCart']);
+        Route::put('cart/amount/{body}', [CartHeadController::class, 'amount']);
+        Route::put('cart/discount/{cart}', [CartHeadController::class, 'discount']);
+        Route::put('cart/discount/remove/{cart}', [CartHeadController::class, 'removeDiscount']);
 
-        Route::put('user/activation', [UserController::class, 'accountusersactivation'])->name('account.users.activation');
-        Route::post('users', [UserController::class, 'store'])->name('users.store');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        Route::post('/uploadFile', [ApiController::class, 'uploadFile']);
-
-        Route::put('/delete-image', [CategoryController::class, 'deleteImage'])->name('deleteimage');
-
-        Route::put('/delete-product-images', [ProductController::class, 'deleteImage'])->name('deleteproductimage');
-
-        Route::post('/payment-type-to-account', [ShopSettingController::class, 'PaymentTypeToAccount'])->name('PaymentTypeToAccount');
-        Route::post('/transport-to-account', [ShopSettingController::class, 'transportToAccount'])->name('transportToAccount');
+        // Route::get('/customer-login', [CustomerController::class, 'loginForm'])->name('customer.login');
+        // Route::get('/completeInfo/{customer_id}', [CheckoutController::class, 'completeInfo'])->name('completeInfo');
     });
 
-    Route::Post('forgotPassword', [AccountController::class, 'forgotPassword'])->name('forgotPassword');
-    Route::Post('codePassword', [AccountController::class, 'codePassword'])->name('codePassword');
-    Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
+    Route::Post('user/create', [AccountController::class, 'newUserAccount'])->name('newUserAccount');
+    Route::put('account/activation', [AccountController::class, 'accountusersactivation'])->name('account.activation');
 
-    require __DIR__ . '/auth.php';
+    Route::put('user/activation', [UserController::class, 'accountusersactivation'])->name('account.users.activation');
+    Route::post('users', [UserController::class, 'store'])->name('users.store');
+
+    Route::post('/uploadFile', [ApiController::class, 'uploadFile']);
+
+    Route::put('/delete-image', [CategoryController::class, 'deleteImage'])->name('deleteimage');
+
+    Route::put('/delete-product-images', [ProductController::class, 'deleteImage'])->name('deleteproductimage');
+
+    Route::post('/payment-type-to-account', [ShopSettingController::class, 'PaymentTypeToAccount'])->name('PaymentTypeToAccount');
+    Route::post('/transport-to-account', [ShopSettingController::class, 'transportToAccount'])->name('transportToAccount');
+});
+
+Route::Post('forgotPassword', [AccountController::class, 'forgotPassword'])->name('forgotPassword');
+Route::Post('codePassword', [AccountController::class, 'codePassword'])->name('codePassword');
+Route::post('/resendCode', [AccountController::class, 'resendCode'])->name('resendCode');
+
+require __DIR__ . '/auth.php';

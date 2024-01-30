@@ -14,6 +14,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+     
         $accounts = Account::where('slug', '!=', null)->where('company', '!=', null)->get();
 
         $cartItemCount = fa_number(0);

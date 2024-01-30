@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Setting;
 use Illuminate\Support\Str;
@@ -12,13 +13,16 @@ use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use App\Providers\RouteServiceProvider;
-use RealRashid\SweetAlert\Facades\Alert;
 
+use RealRashid\SweetAlert\Facades\Alert;
 use function PHPUnit\Framework\fileExists;
 
 class AccountController extends Controller
 {
 
+    public function dashboard(){
+        return view('admin.dashboard');
+    }
     public function loadSite($slug)
     {
         $settingModel = new Setting;
@@ -274,9 +278,9 @@ class AccountController extends Controller
             Cache::put('remember_token', $code, Carbon::now()->addSeconds(60));
 
             $mobile = $validate['mobile'];
-            $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
-
             //  sendSMS($mobile, $message);
+            $paras=['code'=>$code];
+            Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,$mobile);
 
         } else {
 
@@ -313,7 +317,7 @@ class AccountController extends Controller
             $mobile = $user->mobile;
             $message = 'کابر گرامی رمز عبور شما با موفقیت تغییر یافت. رمز عبور جدید : ' . $newPassword;
 
-            // sendSMS($mobile, $message);
+            ;
 
             Auth::login($user);
 
@@ -341,7 +345,6 @@ class AccountController extends Controller
         if ($user) {
             $code = rand(1000, 9999);
             $mobile = $validate['mobile'];
-            $username = $mobile;
 
             $user->update([
                 'remember_token' => $code
@@ -349,9 +352,8 @@ class AccountController extends Controller
 
             Cache::put('remember_token', $code, Carbon::now()->addSeconds(31));
 
-            $message = 'کابر گرامی کد یکبار مصرف شما : ' . $code;
-
-            // sendSMS($mobile, $message);
+            $paras=['code'=>$code];
+            Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,$mobile);
 
         }
     }
@@ -471,6 +473,6 @@ class AccountController extends Controller
         ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
-        return redirect()->back();
+        return to_route('dashboard');
     }
 }

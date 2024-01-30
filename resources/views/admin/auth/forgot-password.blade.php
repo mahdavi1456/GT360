@@ -64,8 +64,11 @@
                             placeholder="موبایل...">
                     </div>
                     <!-- /.col -->
-                    <div class="col-4">
+                    <div class="col-12">
                         <button type="button" class="btn btn-primary btn-block btn-flat" id="submit-btn">ارسال</button>
+                        <a href="{{ route('login') }}" class="btn btn-warning btn-block btn-flat btn-sm"
+                            id="">بازگشت به صفحه ورود <i class="fa fa-undo"></i></a>
+
                     </div>
                     <!-- /.col -->
 
@@ -81,14 +84,16 @@
                     </div>
                     <div class="row">
                         <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat"
+                        <div class="col-12 mb-1 d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary btn-flat"
                                 id="code-submit">تایید</button>
+                            <button type="button" class="btn btn-secondary btn-flat" id="resend-code">ارسال
+                                مجدد کد</button>
                         </div>
                         <!-- /.col -->
-                        <div class="col-6">
-                            <button type="button" class="btn btn-secondary btn-block btn-flat" id="resend-code">ارسال
-                                مجدد کد</button>
+                        <div class="col-12">
+                            <a href="{{ route('login') }}" class="btn btn-warning btn-block btn-flat btn-sm"
+                                id="">بازگشت به صفحه ورود <i class="fa fa-undo"></i></a>
                         </div>
                     </div>
 

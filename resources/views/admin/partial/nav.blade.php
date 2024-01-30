@@ -8,9 +8,11 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('dashboard') }}" class="nav-link">خانه</a>
         </li>
+        @if ($slug=auth()->user()->slug())
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">تماس</a>
+            <a href="{{route('enterSite',$slug)}}" class="nav-link">ورود به سایت</a>
         </li>
+        @endif
     </ul>
 
     <!-- SEARCH FORM -->

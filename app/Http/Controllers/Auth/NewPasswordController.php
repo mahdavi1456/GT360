@@ -29,12 +29,22 @@ class NewPasswordController extends Controller
      */
     public function storePassword(Request $request)
     {
-        dd('dd');
+
         $request->validate([
-            'password'=>'required',
+            'password' => ['required', Rules\Password::defaults()],
             'newPassword' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        return 'rr';
+        $user=auth()->user();
+        if (Hash::check($request->password, $user->password)) {
+           $user->update([
+            'password'=>Hash::make(($request->newPassword)),
+           ]);
+           alert()->success('موفق','رمز شما تغییر کرد');
+           return to_route('dashboard');
+        }else{
+            alert()->error('خطا','رمز وارد شده اشتباه است');
+            return back();
+        }
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.

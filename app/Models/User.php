@@ -49,7 +49,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Account::class);
     }
-
+    public function slug() {
+        return $this->account->slug;
+    }
     public function categories()
     {
         return $this->hasMany(Category::class);

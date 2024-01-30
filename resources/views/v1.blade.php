@@ -40,7 +40,9 @@
 					@if ($accounts->count() > 0)
 						@foreach ($accounts as $account)
 						<article class="col-3">
-							<a href="{{ route('slug.products', ['slug'=>$account->slug]) }}">
+							<a href="
+                            {{-- {{ route('slug.products', ['slug'=>$account->slug]) }} --}}
+                            ">
 								<img src="{{ asset('images/no-img.jpg') }}" class="img-fluid">
 								<h2>{{ $account->company }}</h2>
 							</a>

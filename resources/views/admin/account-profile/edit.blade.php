@@ -162,7 +162,7 @@
                                         </div>
                                         <div class="col-3">
                                             <div class="form-group">
-                                                <label class="form-label required"> نامک <span
+                                                <label class="form-label required"> نام سایت <span
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="slug"
                                                     class="form-control nonPersianletters" id="slug"
@@ -257,7 +257,7 @@
                                                     style="font-size: 17px;color: #FFF !important;">فعال</span>
                                             @else
                                                 <span class="badge bg-danger"
-                                                    style="font-size: 17px;color: #FFF !important;">غیرفعال</span>
+                                                    style="font-size: 17px;color: #FFF !important;">وضعیت ست نشده</span>
                                             @endif
                                         </div>
                                     </div>
