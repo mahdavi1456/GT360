@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('family');
             $table->string('mobile');
             $table->string('phone')->nullable();
+            $table->string('account_image')->nullable();
             $table->string('email')->nullable();
             $table->date('birthday')->nullable();
             $table->string('mellicode')->nullable();

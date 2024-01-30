@@ -151,10 +151,13 @@ function ert($variable)
     if ($variable == 'tsp') {  //theme-setting-path
         return 'uploads/themeSetting/';
     }
+    if ($variable == 'aip') {  //account-image-path
+        return 'uploads/account/';
+    }
     if ($variable == 'cd') {  //confirmDelete
         confirmDelete('مطمئنید؟', 'آیا از حذف این مورد اطمینان دارید؟');
         return true;
     }
 
-    dd('اسمت اشتباهه');
+    dd('ورودی اشتباهه');
 }

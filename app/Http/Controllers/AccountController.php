@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Cache;
 use App\Providers\RouteServiceProvider;
 use RealRashid\SweetAlert\Facades\Alert;
 
+use function PHPUnit\Framework\fileExists;
+
 class AccountController extends Controller
 {
 
@@ -98,6 +100,15 @@ class AccountController extends Controller
         return redirect()->route('account.index');
     }
 
+    public function imageDestroy(Account $account){
+        if (file_exists(public_path(ert('aip').$account->account_image))) {
+            unlink(public_path(ert('aip').$account->account_image));
+        }
+        $account->update(['account_image'=>null]);
+        alert()->success('موفق','تصویر مورد نظر حذف شد');
+        return back();
+    }
+
     /**
      * Display the specified resource.
      */
@@ -110,6 +121,7 @@ class AccountController extends Controller
      */
     public function edit(string $id)
     {
+
         $account = Account::findOrFail($id);
         return view('admin.account.edit', compact('account'));
     }
@@ -383,6 +395,7 @@ class AccountController extends Controller
 
     public function editProfile(Account $account)
     {
+        ert('cd');
         return view('admin.account-profile.edit', compact('account'));
     }
 
@@ -407,6 +420,7 @@ class AccountController extends Controller
             'national_id' => 'nullable|string|max:20',
             'registration_number' => 'nullable|string|max:20',
             'registration_date' => 'nullable',
+            'account_image'=>'image'
         ]);
 
         if ($validatedData['birthday']  != null) {
@@ -421,7 +435,18 @@ class AccountController extends Controller
         } else {
             $registration_date = null;
         }
+        $fileName=$account->account_image;
 
+        if ($request->file('account_image')) {
+            if ($account->account_image and file_exists(public_path(ert('aip').$account->account_image))) {
+                unlink(public_path(ert('aip').$account->account_image));
+            }
+            $file=$request->account_image;
+
+            $fileName=now()->timestamp.'_'.$file->getClientOriginalName();
+            $file->move(public_path(ert('aip')),$fileName);
+        }
+       // dd($fileName);
         $account->update([
             'account_type' => $validatedData['account_type'],
             'name' => $validatedData['name'],
@@ -441,6 +466,7 @@ class AccountController extends Controller
             'national_id' => $validatedData['national_id'],
             'registration_number' => $validatedData['registration_number'],
             'registration_date' => $registration_date,
+            'account_image'=>$fileName,
 
         ]);
 

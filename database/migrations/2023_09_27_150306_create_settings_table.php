@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('key');
             $table->text('value')->nullable();
             $table->bigInteger('account_id');
-            $table->bigInteger('form_id');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
