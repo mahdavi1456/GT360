@@ -117,25 +117,12 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview {{active_dropdown(['category.index', 'product.index'])}}">
+                    <li class="nav-item has-treeview  {{ active_list(['discount.index', 'addons.index', 'addons.edit', 'payments_type.index', 'transport.index', 'shopSetting']) }}">
                         <a href="#" class="nav-link main-menu">
-                            <i class="nav-icon fa fa-th"></i>
-                            <p>
-                                محصولات
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
+                            <i class="nav-icon fa fa-cubes"></i>
+                            <p>فروشگاه <i class="right fa fa-angle-left"></i></p>
                         </a>
-                    </li>
-
-                    <li class="nav-item has-treeview  {{ active_dropdown(['discount.index', 'addons.index', 'addons.edit']) }}">
-                        <a href="#" class="nav-link main-menu">
-                            <i class="nav-icon fa fa-gear"></i>
-                            <p>
-                                فروشگاه
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview sub-menu" {{active_list(['discount.index', 'addons.index', 'addons.edit'])}}>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['discount.index', 'addons.index', 'addons.edit', 'payments_type.index', 'transport.index', 'shopSetting']) }}>
                             <li class="nav-item" {{ active_menu('product.index') }}>
                                 <a href="{{ route('product.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
@@ -160,40 +147,26 @@
                                     <p>افزودنی های سفارش</p>
                                 </a>
                             </li>
+                            <li class="nav-item" {{ active_menu('payments_type.index') }}>
+                                <a href="{{ route('payments_type.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>روش های پرداخت</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('transport.index') }}>
+                                <a href="{{ route('transport.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>حمل و نقل</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('shopSetting') }}>
+                                <a href="{{ route('shopSetting') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>تنظیمات فروشگاه</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
-
-                    @can('SuperAccount')
-                        <li class="nav-item has-treeview {{active_dropdown(['payments_type.index', 'transport.index'])}}">
-                            <a href="#" class="nav-link main-menu">
-                                <i class="nav-icon fa fa-clipboard"></i>
-                                <p>
-                                    تعاریف
-                                    <i class="right fa fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview sub-menu" {{active_list(['payments_type.index', 'transport.index'])}}>
-                                <li class="nav-item" {{ active_menu('payments_type.index') }}>
-                                    <a href="{{ route('payments_type.index') }}" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>روش های پرداخت</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" {{ active_menu('transport.index') }}>
-                                    <a href="{{ route('transport.index') }}" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>حمل و نقل</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" {{ active_menu('shopSetting') }}>
-                                    <a href="{{ route('shopSetting') }}" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>تنظیمات فروشگاه</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    @endcan
 
                     <li class="nav-item has-treeview {{ active_dropdown(['shopSetting'] )}}">
                         <a href="#" class="nav-link main-menu">
