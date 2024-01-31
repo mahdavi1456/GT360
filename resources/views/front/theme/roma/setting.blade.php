@@ -72,21 +72,23 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">سربرگ</h3>
+        <h3 class="card-title">معرفی</h3>
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-4 form-group">
+            <div class="col-6 form-group">
                 <label class="form-label">عنوان اول</label>
                 <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
                        value="{{ $settingModel->getSetting('first_title', $account->id) }}">
             </div>
-            <div class="col-4 form-group">
+            <div class="col-6 form-group">
                 <label class="form-label">زیر عنوان اول</label>
                 <input type="text" name="first_subtitle" class="form-control" placeholder="زیر عنوان اول..."
                        value="{{ $settingModel->getSetting('first_subtitle', $account->id) }}">
             </div>
-            <div class="col-4 form-group">
+        </div>
+        <div class="row">
+            <div class="col-12 form-group">
                 <label class="form-label">متن اول</label>
                 <input type="text" name="first_text" class="form-control" placeholder="متن اول..."
                        value="{{ $settingModel->getSetting('first_text', $account->id) }}">
