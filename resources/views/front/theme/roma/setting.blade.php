@@ -90,8 +90,7 @@
         <div class="row">
             <div class="col-12 form-group">
                 <label class="form-label">متن اول</label>
-                <input type="text" name="first_text" class="form-control" placeholder="متن اول..."
-                       value="{{ $settingModel->getSetting('first_text', $account->id) }}">
+                <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
             </div>
         </div>
     </div>
