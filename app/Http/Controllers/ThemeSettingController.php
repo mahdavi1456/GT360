@@ -27,7 +27,9 @@ class ThemeSettingController extends Controller
                 }
         }
       //  return $images;
-        return view('admin.settings.image_table_setting',compact('images'));
+      if ($images) {
+          return view('admin.settings.image_table_setting',compact('images'));
+      }
     }
 
     public function destroyImage()

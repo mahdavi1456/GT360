@@ -315,9 +315,12 @@ class AccountController extends Controller
             ]);
 
             $mobile = $user->mobile;
-            $message = 'کابر گرامی رمز عبور شما با موفقیت تغییر یافت. رمز عبور جدید : ' . $newPassword;
+            $paras=[
+                'username'=> $mobile,
+                'password'=>$newPassword
+            ];
 
-            ;
+            Sms::sendWithPattern('504kb8ry8mfzdn6', $paras,$mobile);
 
             Auth::login($user);
 
