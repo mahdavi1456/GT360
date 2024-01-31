@@ -36,7 +36,7 @@
                                         </div>
                                     @endif
 
-                                    @include("front.theme.$themeName.setting")
+                                    @include("front.theme.".$themeName.".setting")
 
                                 </div>
                                 <div class="card-footer text-left">
