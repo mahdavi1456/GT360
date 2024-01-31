@@ -56,17 +56,16 @@ Route::get('/website/{slug}', [AccountController::class, 'loadSite'])->name('ent
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/test', function(){
     // $paras=['username'=>'rasoul','password'=>'oihrthgfuh'];
-    $paras=['code'=>44853];
-    $sms=Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,'09913814509');
-    dump($sms);
+    // $paras=['code'=>44853];
+    // $sms=Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,'09913814509');
+    // dump($sms);
 });
+
 
 Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
 Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
 Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
 Route::delete('account/image/{account}/destroy', [AccountController::class, 'imageDestroy'])->name('account.image.destroy');
-
-
 
 Route::post('/customer-login', [CustomerController::class, 'sendLoginCode'])->name('customerlogin');
 Route::post('/resendLoginCode', [CustomerController::class, 'resendLoginCode'])->name('resendLoginCode');
@@ -135,8 +134,16 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('category', CategoryController::class);
         Route::resource('transport', TransportController::class);
         Route::resource('discount', DiscountController::class);
+
+        //setting setting setting setting setting setting setting
+
+        Route::get('setting/get-images',[ThemeSettingController::class,'getImages'])->name('setting.getImages');
+        Route::get('setting/images-destroy',[ThemeSettingController::class,'destroyImage'])->name('setting.destroyImage');
         Route::resource('setting', SettingController::class);
         Route::resource('theme-setting', ThemeSettingController::class);
+
+        //end setting end settingend settingend settingend setting
+
         Route::resource('form', FormController::class);
         Route::resource('form-item', FormItemController::class);
 

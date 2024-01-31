@@ -52,7 +52,7 @@ class SettingController extends Controller
                     $images[]=$image;
                 }
             }
-            return view('admin.settings.image_table_setting',compact('images'));
+            return true;
         }
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
         return back();
@@ -61,7 +61,7 @@ class SettingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Setting $setting)
+    public function getImages(Setting $setting)
     {
         //
     }

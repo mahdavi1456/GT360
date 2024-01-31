@@ -1,5 +1,12 @@
 @extends('admin.master')
 @section('title', 'تنظیمات قالب')
+@section('style')
+    <style>
+        tr td {
+            vertical-align: middle !important;
+        }
+    </style>
+@endsection
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -8,7 +15,7 @@
         @php
             $themeName = $settingModel->getSetting('active_theme', $account->id, 0);
         @endphp
-        {{ breadcrumb(' تنظیمات قالب - ' .$themeName) }}
+        {{ breadcrumb(' تنظیمات قالب - ' . $themeName) }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -46,32 +53,75 @@
 
 @section('scripts')
     <script>
-        // let imageNames = [];
-        // $.each($('input[type=file]'), function(i, ele) {
-        //     imageNames.push($(ele).attr('name'));
-        // });
-        // if (imageNames.length > 0) {
-        //     imageNames['send_type'] = 'get-images';
-        //     $.ajax({
-        //         type: 'get',
-        //         url: "{{ route('setting.store') }}",
-        //         data: imageNames,
-        //         success: function(response) {
-        //             $('#image-part').remove();
-        //             $('#outer-div').append(response);
-        //             Swal.fire({
-        //                 title: "موفق",
-        //                 text: "فایل و اطلاعات ذخیره شدند",
-        //                 icon: "success"
-        //             });
+        function getImages() {
+            let imageNames = {};
+            $.each($('input[type=file]'), function(i, ele) {
+                imageNames['key' + i] = $(ele).attr('name');
+                // imageNames.push(['key'+i=:]);
+            });
 
-        //         },
-        //         error: function(response) {
-        //             alert('error');
-        //             console.log(response);
-        //         }
-        //     });
-        // }
+
+            //console.log(imageNames);
+
+            $.ajax({
+                type: 'get',
+                url: "{{ route('setting.getImages') }}",
+                data: imageNames,
+                success: function(response) {
+                    //console.log(response);
+                    $('#image-part').remove();
+                    $('#outer-div').append(response);
+                },
+                error: function(response) {
+                    alert('error');
+                    console.log(response);
+                }
+            });
+
+        }
+        getImages();
+
+        function resetFile() {
+            $('input[type="file"]').val('');
+        }
+
+        function destroyImage(key) {
+            Swal.fire({
+                title: "اطمینان دارید؟",
+                text: "آیا از حذف این مورد اطمینان دارید؟",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "بله، مطمئنم.",
+                cancelButtonText: "نه، پشیمون شدم."
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "get",
+                        url: "{{route('setting.destroyImage')}}",
+                        data:{
+                            'key':key
+                        },
+                        success: function(data) {
+                            getImages();
+                            Swal.fire({
+                                title: "موفق",
+                                text: 'تصویر با موفقیت حذف شد',
+                                icon: "success"
+                            });
+
+                        },
+                        error: function(data) {
+                            Swal.fire({
+                                title: "خطا",
+                                text: data.responseJSON.message,
+                                icon: "error"
+                            });
+                        }
+                    });
+                }
+            });
+
+        }
 
         function uploadImage() {
 
@@ -85,8 +135,8 @@
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    $('#image-part').remove();
-                    $('#outer-div').append(response);
+                    getImages();
+                    resetFile();
                     Swal.fire({
                         title: "موفق",
                         text: "فایل و اطلاعات ذخیره شدند",

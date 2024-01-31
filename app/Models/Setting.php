@@ -19,7 +19,7 @@ class Setting extends Model
         if ($s) {
             if ($file=='theme-setting') {
                 $fileName=$this->getSetting($key,$account_id);
-                if (file_exists(public_path(ert('tsp').$fileName))) {
+                if ($fileName and file_exists(public_path(ert('tsp').$fileName))) {
                    unlink(public_path(ert('tsp').$fileName));
                 }
             }
