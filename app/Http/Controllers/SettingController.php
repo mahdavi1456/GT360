@@ -25,17 +25,16 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
-
         $account = 0;
         if ($request->has('action_type') and $request->action_type == 'theme') {
             $account = auth()->user()->account->id;
         }
         $setting = new Setting;
-        $fileIndexes=array_keys($request->file());
-        $fileIndexes[]='_token';
-        $fileIndexes[]='action_type';
-        $fileIndexes[]='send_type';
-        $fileIndexes[]='form_id';
+        $fileIndexes = array_keys($request->file());
+        $fileIndexes[] = '_token';
+        $fileIndexes[] = 'action_type';
+        $fileIndexes[] = 'send_type';
+        $fileIndexes[] = 'form_id';
 
         $settings = $request->except($fileIndexes);
         foreach ($settings as $key => $value) {
@@ -46,13 +45,13 @@ class SettingController extends Controller
                 $images=[];
                 foreach ($request->file() as $key => $value) {
                     $fileName = now()->timestamp . '_' . $value->getClientOriginalName();
-                    $value->move(public_path(ert('tsp')),$fileName);
+                    $value->move(public_path(ert('tsp')), $fileName);
                  //   dd($fileName);
-                    $image=$setting->updateSetting($key, $fileName, $account,'theme-setting');
-                    $images[]=$image;
+                    $image = $setting->updateSetting($key, $fileName, $account,'theme-setting');
+                    $images[] = $image;
                 }
             }
-            return view('admin.settings.image_table_setting',compact('images'));
+            return view('admin.settings.image_table_setting', compact('images'));
         }
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
         return back();

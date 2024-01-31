@@ -10,11 +10,11 @@
         <tbody>
             @foreach ($images as $image)
                 <tr>
-                    <td >{{ $image->key }}</td>
+                    <td>{{ $image->key }}</td>
                     <td>
                         <img style="max-width: 200px" src="{{ asset(ert('tsp') . $image->value) }}" class="object-fit-contain w-100">
                     </td>
-                    <td> <a href="#" class="btn btn-danger"> <i class=" fa fa-trash"></i></a> </td>
+                    <td><a href="#" class="btn btn-danger"> <i class=" fa fa-trash"></i></a></td>
                 </tr>
             @endforeach
         </tbody>

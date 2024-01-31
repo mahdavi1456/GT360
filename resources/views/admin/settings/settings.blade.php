@@ -4,13 +4,8 @@
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
         {{ breadcrumb("دسته بندی محصولات") }}
-
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -18,27 +13,27 @@
                         <div class="card">
                             <div class="card-body">
                                 @if ($errors->any())
-                                <div class="container">
-                                    <div class="row alert alert-danger  justify-content-center mt-4">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
+                                    <div class="container">
+                                        <div class="row alert alert-danger  justify-content-center mt-4">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
+                                @endif
                                 <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-4">
-                                                <label for="">قالب پیشفرض</label>
-                                                <select class="custom-select" name="default_theme">
-                                                    @foreach ($themes  as $theme )
-                                                    <option @selected($defaultTheme==$theme->name) value="{{$theme->name}}">{{$theme->name}}</option>
-                                                    @endforeach
-                                                  </select>
-
+                                            <label for="">قالب پیشفرض</label>
+                                            <select class="custom-select" name="default_theme">
+                                                @foreach ($themes  as $theme )
+                                                    <option
+                                                        @selected($defaultTheme==$theme->name) value="{{$theme->name}}">{{$theme->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         {{-- <div class="col-4">
                                             <div class="form-group">
@@ -67,8 +62,5 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
 @endsection

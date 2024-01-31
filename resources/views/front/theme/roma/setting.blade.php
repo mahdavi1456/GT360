@@ -170,12 +170,16 @@
     </div>
 </div>
 
-
-<div class="col-6 form-group">
-    <label class="form-label">فایل 2</label>
-    <input type="file" name="theme-image-one" onchange="uploadImage()">
-</div>
-<div class="col-6 form-group">
-    <label class="form-label">فایل 3</label>
-    <input type="file" onchange="uploadImage()" name="theme-image-two">
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title">تصاویر</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6 form-group">
+                <label class="form-label">تصویر کاور اول</label>
+                <input type="file" name="first_cover" onchange="uploadImage()">
+            </div>
+        </div>
+    </div>
 </div>

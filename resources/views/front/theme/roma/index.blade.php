@@ -20,13 +20,15 @@
     <div class="sk-spinner sk-spinner-rotating-plane"></div>
 </div>
 <!-- home section -->
-<section id="home">
+<section id="home"
+         style="background: url(' {{ asset(ert('tsp') . $settingModel->getSetting('first_cover', $accountId)) }}') 50% 0 repeat-y fixed;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title', $accountId) }}</h1>
                 <h2 class="wow bounce">{{ $settingModel->getSetting('description', $accountId) }}</h2>
-                <a href="#intro" class="btn btn-default smoothScroll">{{ $settingModel->getSetting('start_btn_text', $accountId) }}</a>
+                <a href="#intro"
+                   class="btn btn-default smoothScroll">{{ $settingModel->getSetting('start_btn_text', $accountId) }}</a>
             </div>
         </div>
     </div>
@@ -41,13 +43,20 @@
             <a href="#" class="navbar-brand">{{ $settingModel->getSetting('title', $accountId) }}</a></div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId) }}</a></li>
-                <li><a href="#intro" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId) }}</a></li>
-                <li><a href="#work" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId) }}</a></li>
-                <li><a href="#team" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId) }}</a></li>
-                <li><a href="#portfolio" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId) }}</a></li>
-                <li><a href="#price" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId) }}</a></li>
-                <li><a href="#contact" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId) }}</a></li>
+                <li><a href="#home"
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId) }}</a></li>
+                <li><a href="#intro"
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId) }}</a></li>
+                <li><a href="#work"
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId) }}</a></li>
+                <li><a href="#team"
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId) }}</a></li>
+                <li><a href="#portfolio"
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId) }}</a></li>
+                <li><a href="#price"
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId) }}</a></li>
+                <li><a href="#contact"
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId) }}</a></li>
             </ul>
         </div>
     </div>
@@ -102,21 +111,24 @@
                     laoree.</p>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.9s">
-                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive" alt="team img">
+                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive"
+                     alt="team img">
                 <div class="team-des">
                     <h4>Tracy</h4>
                     <h3>Designer</h3>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="1.3s">
-                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive" alt="team img">
+                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive"
+                     alt="team img">
                 <div class="team-des">
                     <h4>Linda</h4>
                     <h3>Manager</h3>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="1.6s">
-                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive" alt="team img">
+                <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive"
+                     alt="team img">
                 <div class="team-des">
                     <h4>Mary</h4>
                     <h3>Developer</h3>

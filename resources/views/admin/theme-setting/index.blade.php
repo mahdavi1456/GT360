@@ -28,24 +28,21 @@
                                             </div>
                                         </div>
                                     @endif
-
                                     @include("front.theme.$themeName.setting")
-
                                 </div>
                                 <div class="card-footer text-left">
                                     <button type="submit" class="btn btn-success">ذخیره</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 @endsection
-
 @section('scripts')
-    <script>
+    <script type="text/javascript">
         // let imageNames = [];
         // $.each($('input[type=file]'), function(i, ele) {
         //     imageNames.push($(ele).attr('name'));
@@ -74,7 +71,6 @@
         // }
 
         function uploadImage() {
-
             var form = $('#setting-form');
             var formData = new FormData(form[0]);
             formData.append('send_type', "ajax")
@@ -92,7 +88,6 @@
                         text: "فایل و اطلاعات ذخیره شدند",
                         icon: "success"
                     });
-
                 },
                 error: function(response) {
                     alert('error');

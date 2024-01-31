@@ -31,10 +31,10 @@ class ThemeController extends Controller
             'label' => 'required',
             'category' => 'required'
         ]);
-        $fileName=null;
+        $fileName = null;
         if ($request->file('preview')) {
-            $fileName=now()->timestamp.'_'.$request->file('preview')->getClientOriginalName();
-            $request->file('preview')->move(public_path(ert('theme-path')),$fileName);
+            $fileName = now()->timestamp . '_' . $request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move(public_path(ert('theme-path')), $fileName);
         }
         $theme = Theme::create([
             'name' => $request->name,
@@ -43,7 +43,7 @@ class ThemeController extends Controller
             'slogan' => $request->slogan,
             'details' => $request->details,
             'status' => $request->status,
-            'preview'=>$fileName
+            'preview' => $fileName
         ]);
 
         Alert::success('موفق', 'قالب جدید با موفقیت ایجاد شد.');
@@ -65,10 +65,10 @@ class ThemeController extends Controller
             'label' => 'required',
             'category' => 'required'
         ]);
-        $fileName=null;
+        $fileName = null;
         if ($request->file('preview')) {
-            $fileName=now()->timestamp.'_'.$request->file('preview')->getClientOriginalName();
-            $request->file('preview')->move(public_path(ert('theme-path')),$fileName);
+            $fileName = now()->timestamp . '_' . $request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move(public_path(ert('theme-path')), $fileName);
         }
         $theme->update([
             'name' => $request->name,
@@ -77,7 +77,7 @@ class ThemeController extends Controller
             'slogan' => $request->slogan,
             'details' => $request->details,
             'status' => $request->status,
-            'preview'=>$fileName
+            'preview' => $fileName
         ]);
 
         Alert::success('موفق', 'قالب با موفقیت ویرایش شد.');
@@ -146,15 +146,17 @@ class ThemeController extends Controller
         Alert::success('موفق', 'قالب با موفقیت انتخاب شد.');
         return back();
     }
+
     public function selectComponent($theme)
     {
         $theme = Theme::findOrFail($theme);
         $themComponents = $theme->components;
         //dd($themComponents);
-        $pluck= $themComponents->pluck('id')->toArray();
+        $pluck = $themComponents->pluck('id')->toArray();
         $components = Component::latest()->get();
-        return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents','pluck'));
+        return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents', 'pluck'));
     }
+
     public function componentStore(Request $request, $theme)
     {
         $request->validate([
@@ -165,13 +167,15 @@ class ThemeController extends Controller
         Alert::success('موفق', 'بخش ها تخصیص داده شد.');
         return back();
     }
-     public function imageDestroy($theme) {
-        $theme=Theme::findOrFail($theme);
-        if (file_exists(public_path(ert('theme-path').$theme->preview))) {
-            unlink(public_path(ert('theme-path').$theme->preview));
+
+    public function imageDestroy($theme)
+    {
+        $theme = Theme::findOrFail($theme);
+        if (file_exists(public_path(ert('theme-path') . $theme->preview))) {
+            unlink(public_path(ert('theme-path') . $theme->preview));
         }
         $theme->update([
-            'preview'=>null
+            'preview' => null
         ]);
         Alert::success('موفق', 'تصویر مورد نظر حذف شد');
         return back();
