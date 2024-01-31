@@ -48,6 +48,7 @@ use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\PlanController;
 
 Route::get('/website/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
 
@@ -55,17 +56,16 @@ Route::get('/website/{slug}', [AccountController::class, 'loadSite'])->name('ent
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/test', function(){
     // $paras=['username'=>'rasoul','password'=>'oihrthgfuh'];
-    $paras=['code'=>44853];
-    $sms=Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,'09913814509');
-    dump($sms);
+    // $paras=['code'=>44853];
+    // $sms=Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,'09913814509');
+    // dump($sms);
 });
+
 
 Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
 Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
 Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
 Route::delete('account/image/{account}/destroy', [AccountController::class, 'imageDestroy'])->name('account.image.destroy');
-
-
 
 Route::post('/customer-login', [CustomerController::class, 'sendLoginCode'])->name('customerlogin');
 Route::post('/resendLoginCode', [CustomerController::class, 'resendLoginCode'])->name('resendLoginCode');
@@ -82,14 +82,21 @@ Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'
 //admin routes
 Route::middleware(['auth', 'visit'])->group(function () {
 
-    Route::get('change-password', [NewPasswordController::class, 'create']); //used for change-password
+    Route::get('change-password', [NewPasswordController::class, 'create'])->name('change.pass'); //used for change-password
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
 
-        // Route::get('/dashboard', function () {
-        //     return view('admin.dashboard');
-        // })->middleware('verified')->name('dashboard');
+        //plan
+        Route::resource('plan',PlanController::class);
+        Route::get('plan/{plan}/items',[PlanController::class,'ListItems'])->name('plan.ListItems');
+        // Route::get('plan/{plan}/items-create',[PlanController::class,'itemCreate'])->name('plan.itemCreate');
+        Route::post('plan-item',[PlanController::class,'stroeItem'])->name('plan.stroeItem');
+        // Route::get('plan-item/{item}/edit',[PlanController::class,'itemEdit'])->name('plan.itemEdit');
+        // Route::put('plan-item/{item}/update',[PlanController::class,'itemUpdate'])->name('plan.itemUpdate');
+        Route::delete('plan-item/{item}/delete',[PlanController::class,'itemDelete'])->name('plan.itemDelete');
 
+
+        //end plan
         Route::get('/dashboard',[AccountController::class,'dashboard'])->middleware('verified')->name('dashboard');
 
         Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');
@@ -127,8 +134,16 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('category', CategoryController::class);
         Route::resource('transport', TransportController::class);
         Route::resource('discount', DiscountController::class);
+
+        //setting setting setting setting setting setting setting
+
+        Route::get('setting/get-images',[ThemeSettingController::class,'getImages'])->name('setting.getImages');
+        Route::get('setting/images-destroy',[ThemeSettingController::class,'destroyImage'])->name('setting.destroyImage');
         Route::resource('setting', SettingController::class);
         Route::resource('theme-setting', ThemeSettingController::class);
+
+        //end setting end settingend settingend settingend setting
+
         Route::resource('form', FormController::class);
         Route::resource('form-item', FormItemController::class);
 

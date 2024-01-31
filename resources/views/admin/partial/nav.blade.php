@@ -132,6 +132,9 @@
                     @csrf
                      <button type="submit" class="dropdown-item dropdown-footer">خروج از حساب کاربری</button>
                 </form>
+                <div class="dropdown-divider"></div>
+                    <a href="{{route('change.pass')}}" class="dropdown-item dropdown-footer">تغییر رمز</a>
+
             </div>
         </li>
         <li class="nav-item">

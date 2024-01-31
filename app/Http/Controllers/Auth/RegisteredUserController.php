@@ -7,6 +7,7 @@ use App\Models\Account;
 use App\Models\Setting;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Servieses\Sms;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -60,7 +61,8 @@ class RegisteredUserController extends Controller
             'user_type' => 'admin',
             'account_id'=>$account->id
         ]);
-
+        $paras=['username'=>$user->mobile,'password'=>$request->password];
+        Sms::sendWithPattern('hiopokjsgtkplga',$paras,$user->mobile);
         event(new Registered($user));
 
         Auth::login($user);
