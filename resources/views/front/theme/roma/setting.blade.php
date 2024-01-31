@@ -173,6 +173,26 @@
 
 <div class="card card-warning">
     <div class="card-header">
+        <h3 class="card-title">محصولات / نمونه کارها</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6 form-group">
+                <label class="form-label">عنوان</label>
+                <input type="text" name="portfolio_title" class="form-control" placeholder="عنوان..."
+                       value="{{ $settingModel->getSetting('portfolio_title', $account->id) }}">
+            </div>
+            <div class="col-6 form-group">
+                <label class="form-label">توضیحات</label>
+                <input type="text" name="portfolio_text" class="form-control" placeholder="توضیحات..."
+                       value="{{ $settingModel->getSetting('portfolio_text', $account->id) }}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card-warning">
+    <div class="card-header">
         <h3 class="card-title">تصاویر</h3>
     </div>
     <div class="card-body">

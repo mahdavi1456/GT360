@@ -142,10 +142,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                <h2>Portfolio</h2>
+                <h2>{{ $settingModel->getSetting('portfolio_title', $accountId) }}</h2>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                    laoree.</p>
+                <p>{{ $settingModel->getSetting('portfolio_text', $accountId) }}</p>
             </div>
             <div class="col-md-12 col-sm-12"></div>
             <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
