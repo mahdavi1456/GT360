@@ -82,7 +82,7 @@ Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'
 //admin routes
 Route::middleware(['auth', 'visit'])->group(function () {
 
-    Route::get('change-password', [NewPasswordController::class, 'create']); //used for change-password
+    Route::get('change-password', [NewPasswordController::class, 'create'])->name('change.pass'); //used for change-password
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
 
