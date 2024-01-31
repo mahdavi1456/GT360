@@ -18,11 +18,6 @@ class SettingController extends Controller
         return view('admin.settings.settings', compact('themes', 'defaultTheme'));
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
         $account = 0;
@@ -42,48 +37,18 @@ class SettingController extends Controller
         }
         if ($request->has('send_type')) {
             if ($request->file()) {
-                $images=[];
+                $images = [];
                 foreach ($request->file() as $key => $value) {
                     $fileName = now()->timestamp . '_' . $value->getClientOriginalName();
                     $value->move(public_path(ert('tsp')), $fileName);
-                 //   dd($fileName);
-                    $image = $setting->updateSetting($key, $fileName, $account,'theme-setting');
+                    //   dd($fileName);
+                    $image = $setting->updateSetting($key, $fileName, $account, 'theme-setting');
                     $images[] = $image;
                 }
             }
             return view('admin.settings.image_table_setting', compact('images'));
-        return back();
+            return back();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function getImages(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Setting $setting)
-    {
-        //
-    }
 }
