@@ -48,6 +48,7 @@ use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\PlanController;
 
 Route::get('/website/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
 
@@ -86,10 +87,17 @@ Route::middleware(['auth', 'visit'])->group(function () {
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
 
-        // Route::get('/dashboard', function () {
-        //     return view('admin.dashboard');
-        // })->middleware('verified')->name('dashboard');
+        //plan
+        Route::resource('plan',PlanController::class);
+        Route::get('plan/{plan}/items',[PlanController::class,'ListItems'])->name('plan.ListItems');
+        // Route::get('plan/{plan}/items-create',[PlanController::class,'itemCreate'])->name('plan.itemCreate');
+        Route::post('plan-item',[PlanController::class,'stroeItem'])->name('plan.stroeItem');
+        // Route::get('plan-item/{item}/edit',[PlanController::class,'itemEdit'])->name('plan.itemEdit');
+        // Route::put('plan-item/{item}/update',[PlanController::class,'itemUpdate'])->name('plan.itemUpdate');
+        Route::delete('plan-item/{item}/delete',[PlanController::class,'itemDelete'])->name('plan.itemDelete');
 
+
+        //end plan
         Route::get('/dashboard',[AccountController::class,'dashboard'])->middleware('verified')->name('dashboard');
 
         Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');

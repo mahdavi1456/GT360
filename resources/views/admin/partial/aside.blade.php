@@ -220,6 +220,14 @@
                                 </a>
                             </li>
                         </ul>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['plan.index'])}}>
+                            <li class="nav-item" {{ active_menu('plan.index') }}>
+                                <a href="{{ route('plan.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>پکیج ها</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                 </ul>
