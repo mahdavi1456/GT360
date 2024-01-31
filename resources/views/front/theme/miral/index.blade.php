@@ -1,19 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>The Mairala Website Template | Home :: w3layouts</title>
-
+    <title>{{ $settingModel->getSetting('title', $accountId) }}</title>
     <link href="{{ asset('front-theme-asset/miral') }}/css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
     <link href="{{ asset('front-theme-asset/miral') }}/css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <script type="text/javascript" src="{{ asset('front-theme-asset/miral') }}/js/bootstrap.js"></script>
     <script type="text/javascript" src="{{ asset('front-theme-asset/miral') }}/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ $settingModel->getSetting('title', $accountId) }}">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script type="application/x-javascript">
-        addEventListener("load",
-            function () {
-                setTimeout(hideURLbar, 0);
-            }, false);
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
         function hideURLbar() {
             window.scrollTo(0, 1);
@@ -85,7 +84,8 @@
                             <div class="clearfix"></div>
                         </ul>
                     </nav>
-                    <h1><a href="index.html"><img src="{{ asset('front-theme-asset/miral') }}/images/logo.png" alt=""/></a></h1>
+                    <h1><a href="index.html"><img src="{{ asset('front-theme-asset/miral') }}/images/logo.png" alt=""/></a>
+                    </h1>
                     <a href="#" id="navbtn">Nav Menu</a>
                     <div class="clearfix"></div>
                 </header>
@@ -115,7 +115,8 @@
                         <h4 class="title">THE <span>PREMIUM</span> QUALITY<br>
                             PSD TEMPLATE FOR <span>FREE</span></h4>
                         <!-- /Text title -->
-                        <p class="description"><a href="index.html">DOWNLOAD <img src="{{ asset('front-theme-asset/miral') }}/images/download.png" alt=""/></a>
+                        <p class="description"><a href="index.html">DOWNLOAD <img
+                                    src="{{ asset('front-theme-asset/miral') }}/images/download.png" alt=""/></a>
                         </p>
                         <div class="slide-btns description">
                         </div>
@@ -135,7 +136,8 @@
                         <h4 class="title">THE <span>PREMIUM</span> QUALITY<br>
                             PSD TEMPLATE FOR <span>FREE</span></h4>
                         <!-- /Text title -->
-                        <p class="description"><a href="index.html">DOWNLOAD <img src="{{ asset('front-theme-asset/miral') }}/images/download.png" alt=""/></a>
+                        <p class="description"><a href="index.html">DOWNLOAD <img
+                                    src="{{ asset('front-theme-asset/miral') }}/images/download.png" alt=""/></a>
                         </p>
                         <div class="slide-btns description">
                         </div>
@@ -153,7 +155,8 @@
                         <h4 class="title">THE <span>PREMIUM</span> QUALITY<br>
                             PSD TEMPLATE FOR <span>FREE</span></h4>
                         <!-- /Text title -->
-                        <p class="description"><a href="index.html">DOWNLOAD <img src="{{ asset('front-theme-asset/miral') }}/images/download.png" alt=""/></a>
+                        <p class="description"><a href="index.html">DOWNLOAD <img
+                                    src="{{ asset('front-theme-asset/miral') }}/images/download.png" alt=""/></a>
                         </p>
                         <div class="slide-btns description">
                         </div>
