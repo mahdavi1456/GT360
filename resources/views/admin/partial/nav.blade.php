@@ -1,6 +1,4 @@
-<!-- Navbar -->
 <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-    <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
@@ -9,13 +7,11 @@
             <a href="{{ route('dashboard') }}" class="nav-link">خانه</a>
         </li>
         @if ($slug=auth()->user()->slug())
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('enterSite', $slug)}}" target="_blank" class="nav-link">ورود به سایت</a>
-        </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{ route('enterSite', $slug) }}" target="_blank" class="nav-link">ورود به سایت</a>
+            </li>
         @endif
     </ul>
-
-    <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
             <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
@@ -26,10 +22,7 @@
             </div>
         </div>
     </form>
-
-    <!-- Right navbar links -->
     <ul class="navbar-nav mr-auto">
-        <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-comments-o"></i>
@@ -53,7 +46,6 @@
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
                     <div class="media">
                         <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle ml-3">
                         <div class="media-body">
@@ -65,11 +57,9 @@
                             <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 ساعت قبل</p>
                         </div>
                     </div>
-                    <!-- Message End -->
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
                     <div class="media">
                         <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle ml-3">
                         <div class="media-body">
@@ -81,13 +71,11 @@
                             <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i>4 ساعت قبل</p>
                         </div>
                     </div>
-                    <!-- Message End -->
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">مشاهده همه پیام‌ها</a>
             </div>
         </li>
-        <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell-o"></i>
@@ -114,33 +102,25 @@
                 <a href="#" class="dropdown-item dropdown-footer">مشاهده همه نوتیفیکیشن</a>
             </div>
         </li>
-          <!-- Account Dropdown Menu -->
-          <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
-
-
-
-                <span class="dropdown-item dropdown-header">{{ Auth::user()->name .' '. Auth::user()->family; }}</span>
+                <span class="dropdown-item dropdown-header">{{ Auth::user()->name . ' ' . Auth::user()->family }}</span>
                 <div class="dropdown-divider"></div>
-
                 <div class="dropdown-divider"></div>
                 {{-- <a href="#" class="dropdown-item dropdown-footer">مشاهده همه نوتیفیکیشن</a> --}}
+                <div class="dropdown-divider"></div>
+                <a href="{{route('change.pass')}}" class="dropdown-item dropdown-footer">تغییر رمز</a>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                     <button type="submit" class="dropdown-item dropdown-footer">خروج از حساب کاربری</button>
+                    <button type="submit" class="dropdown-item dropdown-footer">خروج از حساب کاربری</button>
                 </form>
-                <div class="dropdown-divider"></div>
-                    <a href="{{route('change.pass')}}" class="dropdown-item dropdown-footer">تغییر رمز</a>
-
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-                    class="fa fa-th-large"></i></a>
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i class="fa fa-th-large"></i></a>
         </li>
     </ul>
 </nav>
-<!-- /.navbar -->
