@@ -66,10 +66,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                <h4>{{ $settingModel->getSetting('first_title', $accountId) }}</h4>
-                <h2>{{ $settingModel->getSetting('first_subtitle', $accountId) }}</h2>
+                <h4>{{ fa_number($settingModel->getSetting('first_title', $accountId)) }}</h4>
+                <h2>{{ fa_number($settingModel->getSetting('first_subtitle', $accountId)) }}</h2>
                 <hr>
-                <p>{{ $settingModel->getSetting('first_text', $accountId) }}</p>
+                <p>{{ fa_number($settingModel->getSetting('first_text', $accountId)) }}</p>
             </div>
         </div>
     </div>
@@ -79,9 +79,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 title">
-                <h2>{{ $settingModel->getSetting('service_title', $accountId) }}</h2>
+                <h2>{{ fa_number($settingModel->getSetting('service_title', $accountId)) }}</h2>
                 <hr>
-                <p>{{ $settingModel->getSetting('service_text', $accountId) }}</p>
+                <p>{{ fa_number($settingModel->getSetting('service_text', $accountId)) }}</p>
             </div>
             <div class="col-md-8 col-sm-8">
                 <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-mobile"></i>

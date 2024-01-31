@@ -2,8 +2,7 @@
 
 use App\Models\Setting;
 
-function breadcrumb($title)
-{ ?>
+function breadcrumb($title) { ?>
     <div class="col-md-6">
         <h1 class="p-4" style="font-size: 25px"><?php echo $title; ?></h1>
     </div>
@@ -14,18 +13,16 @@ function breadcrumb($title)
             <li class="breadcrumb-item active">فرم‌های پیشرفته</li>
         </ol>
     </div> -->
-<?php
+    <?php
 }
 
-function fa_number($string)
-{
+function fa_number($string) {
     $en = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
     $fa = array("۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹");
     return str_replace($en, $fa, $string);
 }
 
-function getSetting($key)
-{
+function getSetting($key) {
     $s = Setting::where('key', $key)->first();
     if ($s) {
         $value = $s->value;
@@ -36,8 +33,7 @@ function getSetting($key)
     return $value;
 }
 
-function sendSMS($mobile, $message)
-{
+function sendSMS($mobile, $message) {
     $username = "arsha-74390";
     $password = "XuKAZDHX0i2USZKA";
     $domain = "magfa";
@@ -87,16 +83,14 @@ function sendSMS($mobile, $message)
 }
 
 
-function active_menu($route)
-{
+function active_menu($route) {
     if (is_array($route))
         return in_array(request()->route()->getName(), $route) ? ' active' : '';
     else
         return request()->route()->getName() == $route ? ' active' : '';
 }
 
-function active_dropdown($route)
-{
+function active_dropdown($route) {
     if (is_array($route)) {
         return in_array(request()->route()->getName(), $route) ? ' menu-open' : '';
     } else {
@@ -104,8 +98,7 @@ function active_dropdown($route)
     }
 }
 
-function active_list($route)
-{
+function active_list($route) {
     if (is_array($route)) {
         return in_array(request()->route()->getName(), $route) ? 'style=display:block;' : '';
     } else {
@@ -113,12 +106,11 @@ function active_list($route)
     }
 }
 
-function make_slug($string)
-{
+function make_slug($string) {
     return preg_replace('/\s+/u', '-', trim($string));
 }
-function convertToPersian($string)
-{
+
+function convertToPersian($string) {
     $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
     $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١', '٠'];
 
@@ -128,20 +120,20 @@ function convertToPersian($string)
 
     return $englishNumbersOnly;
 }
-function zaman($date)
-{
+
+function zaman($date) {
     if ($date) {
         return convertToPersian(verta($date)->format('H:i Y/m/d'));
     }
 }
-function price($amount)
-{
+
+function price($amount) {
     if ($amount) {
         return convertToPersian(number_format($amount));
     }
 }
-function ert($variable)
-{
+
+function ert($variable) {
     if ($variable == 'thumb-path') {
         return 'uploads/thumbs';
     }
@@ -158,6 +150,5 @@ function ert($variable)
         confirmDelete('مطمئنید؟', 'آیا از حذف این مورد اطمینان دارید؟');
         return true;
     }
-
     dd('ورودی اشتباهه');
 }
