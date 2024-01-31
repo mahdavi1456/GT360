@@ -21,15 +21,15 @@ class ThemeSettingController extends Controller
         $images=[];
         $account_id=auth()->user()->account->id;
         foreach ($req->all() as $key=> $value) {
-                if ($name=$setting->getSetting($value,$account_id)) {
-                   $images[$key]['key']=$value;
-                   $images[$key]['value']=$name;
-                }
+            if ($name=$setting->getSetting($value,$account_id)) {
+                $images[$key]['key']=$value;
+                $images[$key]['value']=$name;
+            }
         }
-      //  return $images;
-      if ($images) {
-          return view('admin.settings.image_table_setting',compact('images'));
-      }
+        //  return $images;
+        if ($images) {
+            return view('admin.settings.image_table_setting',compact('images'));
+        }
     }
 
     public function destroyImage()
