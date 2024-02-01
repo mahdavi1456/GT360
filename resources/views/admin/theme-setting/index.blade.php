@@ -91,6 +91,7 @@
                 cancelButtonText: "نه، پشیمون شدم."
             }).then((result) => {
                 if (result.isConfirmed) {
+                    $("#loading-overlay").fadeIn();
                     $.ajax({
                         type: "get",
                         url: "{{route('setting.destroyImage')}}",
@@ -99,6 +100,7 @@
                         },
                         success: function(data) {
                             getImages();
+                            $("#loading-overlay").fadeOut();
                             Swal.fire({
                                 title: "موفق",
                                 text: 'تصویر با موفقیت حذف شد',
@@ -122,7 +124,8 @@
         function uploadImage() {
             var form = $('#setting-form');
             var formData = new FormData(form[0]);
-            formData.append('send_type', "ajax")
+            formData.append('send_type', "ajax");
+            $("#loading-overlay").fadeIn();
             $.ajax({
                 type: 'post',
                 url: "{{ route('setting.store') }}",
@@ -132,6 +135,7 @@
                 success: function(response) {
                     getImages();
                     resetFile();
+                    $("#loading-overlay").fadeOut();
                     Swal.fire({
                         title: "موفق",
                         text: "فایل و اطلاعات ذخیره شدند",
@@ -139,6 +143,7 @@
                     });
                 },
                 error: function(response) {
+                    $("#loading-overlay").fadeOut();
                     alert('error');
                     console.log(response);
                 }

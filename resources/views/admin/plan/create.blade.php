@@ -45,7 +45,7 @@
                                                 <label class="required">برچسب <span class="text-danger">*</span></label>
                                                 <input type="text" name="label" class="form-control"
                                                     value="{{ old('label') }}" placeholder="برچسب..." required
-                                                    oninvalid="this.setCustomValidity('فیلد نشان داده شده رو تکمیل کنید.')"
+                                                    oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>

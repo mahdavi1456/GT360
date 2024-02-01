@@ -30,6 +30,9 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'desc'=>'required'
+        ]);
         $data = $request->except('_token', 'q');
         Plan::create($data);
         alert()->success('موفق', 'پکیج با موفقیت ایجاد شد');

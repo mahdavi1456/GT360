@@ -132,10 +132,10 @@ class PostController extends Controller
             }
         }
     }
-    public function thumbDestroy($post)
+    public function thumbDestroy()
     {
 
-        $post = Post::findOrFail($post);
+        $post = Post::findOrFail(request('post_id'));
         unlink(public_path(ert('thumb-path') . '/' . $post->thumbnail));
         $post->update([
             'thumbnail' => null,

@@ -202,6 +202,7 @@
 
 
         function destroyImage() {
+
                 Swal.fire({
                     title: "اطمینان دارید؟",
                     text: "آیا از حذف این مورد اطمینان دارید؟",
@@ -213,7 +214,10 @@
                     if (result.isConfirmed) {
                         $.ajax({
                             type: "get",
-                            url: "{{ route('thumb.destroy',$post->id??0) }}",
+                            url: "{{ route('thumb.destroy') }}",
+                            data:{
+                                'post_id': $('#post_id').val()
+                            },
                             success:function(data) {
                                 Swal.fire({
                                     title: "موفق",
@@ -247,6 +251,7 @@
             @endif
         }
         $('#primary_image').change(function() {
+           $("#loading-overlay").fadeIn();
                 var image = $('#primary_image').prop('files')[0];
                 var formData = new FormData();
                 formData.append('image', image);
@@ -261,10 +266,12 @@
                     contentType: false,
                     processData: false,
                     success: function(respnse) {
+
                             $('#action').val(respnse.action);
                             $('.thumb-show-image img').attr('src',respnse.path);
                             $('.thumb-show-image').removeClass('d-none');
                             $('.thumb-show-input').addClass('d-none');
+                            $("#loading-overlay").fadeOut();
                             $('#post_id').val(respnse.post);
                             Swal.fire({
                                     title: "موفق",

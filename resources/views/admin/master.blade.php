@@ -56,7 +56,9 @@
 
 <body class="hold-transition sidebar-mini">
     @include('sweetalert::alert')
-
+    <div id="loading-overlay">
+        <div class="spinner"><i class="fa fa-refresh fa-4x fa-spin"></i></div>
+    </div>
     <div class="wrapper">
         @yield('content')
     </div>

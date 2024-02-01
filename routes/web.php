@@ -111,7 +111,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('pallete', PalleteController::class);
 
         Route::post('/image-upload', [PostController::class, 'uploadImage'])->name('post.thumb');
-        Route::get('/post-image/{post}/destroy', [PostController::class, 'thumbDestroy'])->name('thumb.destroy');
+        Route::get('/post-image-destroy', [PostController::class, 'thumbDestroy'])->name('thumb.destroy');
         Route::resource('product', ProductController::class);
 
         Route::get('theme/choose', [ThemeController::class, 'choose'])->name('theme.choose');

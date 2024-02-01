@@ -23,7 +23,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('admin.auth.register');
+        $setting=new Setting();
+        return view('admin.auth.register',compact('setting'));
     }
 
     /**

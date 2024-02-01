@@ -46,9 +46,10 @@ class SettingController extends Controller
                     $images[] = $image;
                 }
             }
-            return view('admin.settings.image_table_setting', compact('images'));
-            return back();
+            return 'success';
         }
+        alert()->success('موفق','موارد مورد نظر ثبت شد');
+        return back();
     }
 
 }
