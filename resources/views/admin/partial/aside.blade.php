@@ -128,6 +128,13 @@
                                     <p>تکمیل اطلاعات</p>
                                 </a>
                             </li>
+                            <li class="nav-item {{ active_menu('accountSite.edit') }}">
+                                <a href="{{ route('accountSite.edit',Auth::user()->account->id) }}"
+                                    class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>وب سایت</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

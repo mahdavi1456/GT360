@@ -151,26 +151,6 @@
                                                     value="{{ old('postalcode') ?? $account->postalcode }}" />
                                             </div>
                                         </div>
-                                        <div class="col-3">
-                                            <div class="form-group">
-                                                <label class="form-label required"> نام شرکت / فروشگاه <span
-                                                        class="text-danger">*</span></label>
-                                                <input type="text" name="company" class="form-control persianletters"
-                                                    id="company" placeholder="نام شرکت..."
-                                                    value="{{ old('company') ?? $account->company }}" />
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="form-group">
-                                                <label class="form-label required"> نام سایت <span
-                                                        class="text-danger">*</span></label>
-                                                <input type="text" name="slug"
-                                                    class="form-control nonPersianletters" id="slug"
-                                                    placeholder="اسلاگ..." value="{{ old('slug') ?? $account->slug }}"
-                                                    required oninvalid="this.setCustomValidity('.لطفا اسلاگ را وارد کنید')"
-                                                    oninput="this.setCustomValidity('')" />
-                                            </div>
-                                        </div>
                                         <div class="form-group col-md-3">
                                             <label for="primary_image"> انتخاب تصویر پروفایل </label>
                                             <div class="custom-file">
@@ -179,6 +159,16 @@
                                                 <label class="custom-file-label" for="primary_image"> انتخاب فایل </label>
                                             </div>
                                         </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label class="form-label required"> نام شرکت / فروشگاه <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" name="company" class="form-control persianletters"
+                                                    id="company" placeholder="نام شرکت..."
+                                                    value="{{ old('company') ?? $account->company }}" />
+                                            </div>
+                                        </div>
+
 
                                     </div>
                                     <div id="company_fields">

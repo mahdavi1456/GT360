@@ -66,7 +66,10 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-
+        if (!$theme) {
+           alert()->warning('هشدار','لطفا ابتدا یک قالب انتخاب کنید');
+           return to_route('theme.choose');
+        }
         return redirect(RouteServiceProvider::HOME);
     }
 }

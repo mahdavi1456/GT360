@@ -166,6 +166,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
 
         Route::get('/result-accounts', [AccountController::class, 'searchAccounts'])->name('accounts.search');
 
+        // account account account account account
+        // account account account account account
         Route::prefix('account')->group(function () {
             Route::get('{account}/profile', [AccountController::class, 'editProfile'])->name('account.profile.edit');
             Route::put('{account}/profile', [AccountController::class, 'updateProfile'])->name('account.profile.update');
@@ -173,6 +175,9 @@ Route::middleware(['auth', 'visit'])->group(function () {
             Route::get('{accountId}/users/{userId}/edit', [UserController::class, 'editUser'])->name('user.editUser');
             Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
             Route::delete('{accountId}/users/{userId}', [UserController::class, 'destroyUser'])->name('account.users.destroy');
+
+            Route::get('{accountId}/website', [AccountController::class, 'accountSiteEdit'])->name('accountSite.edit');
+            Route::put('{accountId}/website', [AccountController::class, 'accountSiteUpdate'])->name('accountSite.update');
         });
 
         //cart

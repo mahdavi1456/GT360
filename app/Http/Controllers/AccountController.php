@@ -20,7 +20,8 @@ use function PHPUnit\Framework\fileExists;
 class AccountController extends Controller
 {
 
-    public function dashboard(){
+    public function dashboard()
+    {
         return view('admin.dashboard');
     }
     public function loadSite($slug)
@@ -33,9 +34,7 @@ class AccountController extends Controller
             $accountId = $account->id;
             return view($view, compact('settingModel', 'accountId'));
         }
-       return "یک تم برای خود انتخاب کنید";
-
-
+        return "یک تم برای خود انتخاب کنید";
     }
     public function index()
     {
@@ -104,12 +103,13 @@ class AccountController extends Controller
         return redirect()->route('account.index');
     }
 
-    public function imageDestroy(Account $account){
-        if (file_exists(public_path(ert('aip').$account->account_image))) {
-            unlink(public_path(ert('aip').$account->account_image));
+    public function imageDestroy(Account $account)
+    {
+        if (file_exists(public_path(ert('aip') . $account->account_image))) {
+            unlink(public_path(ert('aip') . $account->account_image));
         }
-        $account->update(['account_image'=>null]);
-        alert()->success('موفق','تصویر مورد نظر حذف شد');
+        $account->update(['account_image' => null]);
+        alert()->success('موفق', 'تصویر مورد نظر حذف شد');
         return back();
     }
 
@@ -279,9 +279,8 @@ class AccountController extends Controller
 
             $mobile = $validate['mobile'];
             //  sendSMS($mobile, $message);
-            $paras=['code'=>$code];
-            Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,$mobile);
-
+            $paras = ['code' => $code];
+            Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras, $mobile);
         } else {
 
             return response()->json(['message' => 'کاربری با این موبایل یافت نشد'], 404);
@@ -315,12 +314,12 @@ class AccountController extends Controller
             ]);
 
             $mobile = $user->mobile;
-            $paras=[
-                'username'=> $mobile,
-                'password'=>$newPassword
+            $paras = [
+                'username' => $mobile,
+                'password' => $newPassword
             ];
 
-            Sms::sendWithPattern('504kb8ry8mfzdn6', $paras,$mobile);
+            Sms::sendWithPattern('504kb8ry8mfzdn6', $paras, $mobile);
 
             Auth::login($user);
 
@@ -355,9 +354,8 @@ class AccountController extends Controller
 
             Cache::put('remember_token', $code, Carbon::now()->addSeconds(31));
 
-            $paras=['code'=>$code];
-            Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,$mobile);
-
+            $paras = ['code' => $code];
+            Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras, $mobile);
         }
     }
 
@@ -425,7 +423,7 @@ class AccountController extends Controller
             'national_id' => 'nullable|string|max:20',
             'registration_number' => 'nullable|string|max:20',
             'registration_date' => 'nullable',
-            'account_image'=>'image'
+            'account_image' => 'image'
         ]);
 
         if ($validatedData['birthday']  != null) {
@@ -440,18 +438,18 @@ class AccountController extends Controller
         } else {
             $registration_date = null;
         }
-        $fileName=$account->account_image;
+        $fileName = $account->account_image;
 
         if ($request->file('account_image')) {
-            if ($account->account_image and file_exists(public_path(ert('aip').$account->account_image))) {
-                unlink(public_path(ert('aip').$account->account_image));
+            if ($account->account_image and file_exists(public_path(ert('aip') . $account->account_image))) {
+                unlink(public_path(ert('aip') . $account->account_image));
             }
-            $file=$request->account_image;
+            $file = $request->account_image;
 
-            $fileName=now()->timestamp.'_'.$file->getClientOriginalName();
-            $file->move(public_path(ert('aip')),$fileName);
+            $fileName = now()->timestamp . '_' . $file->getClientOriginalName();
+            $file->move(public_path(ert('aip')), $fileName);
         }
-       // dd($fileName);
+        // dd($fileName);
         $account->update([
             'account_type' => $validatedData['account_type'],
             'name' => $validatedData['name'],
@@ -471,11 +469,26 @@ class AccountController extends Controller
             'national_id' => $validatedData['national_id'],
             'registration_number' => $validatedData['registration_number'],
             'registration_date' => $registration_date,
-            'account_image'=>$fileName,
+            'account_image' => $fileName,
 
         ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
+        return to_route('dashboard');
+    }
+
+    public function accountSiteEdit( $account)
+    {
+        $account=Account::findOrFail($account);
+        return view('admin.account.editWebsite', compact('account'));
+    }
+
+    public function accountSiteUpdate(Request $req, $account)
+    {
+        $account=Account::findOrFail($account);
+        $data=$req->except('_token','_method','q');
+        $account->update($data);
+        Alert::success('موفق', 'اطلاعات وب سایت با موفقیت ثبت شد.');
         return to_route('dashboard');
     }
 }
