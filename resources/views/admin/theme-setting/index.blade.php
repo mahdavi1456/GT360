@@ -64,6 +64,8 @@
                 url: "{{ route('setting.getImages') }}",
                 data: imageNames,
                 success: function(response) {
+                    // $(ele).parent().find('.imageLoader').remove();
+                    // $(ele).parent().append(response);
                     //console.log(response);
                     $('#image-part').remove();
                     $('#outer-div').append(response);
@@ -75,7 +77,6 @@
             });
 
         }
-        getImages();
 
         function resetFile() {
             $('input[type="file"]').val('');
@@ -121,10 +122,13 @@
 
         }
 
-        function uploadImage() {
-            var form = $('#setting-form');
-            var formData = new FormData(form[0]);
+        function uploadImage(ele) {
+            var formData = new FormData();
             formData.append('send_type', "ajax");
+            var image=$(ele).prop('files')[0];
+           // console.log($(ele).attr);
+            formData.append($(ele).attr('name'),image);
+            formData.append('_token',"{{csrf_token()}}");
             $("#loading-overlay").fadeIn();
             $.ajax({
                 type: 'post',
@@ -133,7 +137,8 @@
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    getImages();
+                    $(ele).parent().find('.imageLoader').remove();
+                    $(ele).parent().append(response);
                     resetFile();
                     $("#loading-overlay").fadeOut();
                     Swal.fire({
@@ -149,5 +154,33 @@
                 }
             });
         }
+        // function uploadImage(ele) {
+        //     var form = $('#setting-form');
+        //     var formData = new FormData(form[0]);
+        //     formData.append('send_type', "ajax");
+        //     $("#loading-overlay").fadeIn();
+        //     $.ajax({
+        //         type: 'post',
+        //         url: "{{ route('setting.store') }}",
+        //         data: formData,
+        //         contentType: false,
+        //         processData: false,
+        //         success: function(response) {
+        //             getImages();
+        //             resetFile();
+        //             $("#loading-overlay").fadeOut();
+        //             Swal.fire({
+        //                 title: "موفق",
+        //                 text: "فایل و اطلاعات ذخیره شدند",
+        //                 icon: "success"
+        //             });
+        //         },
+        //         error: function(response) {
+        //             $("#loading-overlay").fadeOut();
+        //             alert('error');
+        //             console.log(response);
+        //         }
+        //     });
+        // }
     </script>
 @endsection

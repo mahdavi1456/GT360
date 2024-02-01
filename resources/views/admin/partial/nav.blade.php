@@ -6,11 +6,11 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('dashboard') }}" class="nav-link">خانه</a>
         </li>
-        @if ($slug=auth()->user()->slug())
+        {{-- @if ($slug=auth()->user()->slug())
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('enterSite', $slug) }}" target="_blank" class="nav-link">ورود به سایت</a>
             </li>
-        @endif
+        @endif --}}
     </ul>
     <form class="form-inline ml-3">
         <div class="input-group input-group-sm">

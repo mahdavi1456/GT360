@@ -20,6 +20,18 @@
                             href="{{ route('account.profile.edit', auth()->user()->account->id) }}">کلیک کنید</a>
                     </div>
                 @endif
+                @if (!$setting->getSetting('active_theme', auth()->user()->account->id))
+                    <div class="alert alert-warning">
+                        شما قالب فعال ندارید. برای فعال کردن قالب <a
+                            href="{{ route('theme.choose', auth()->user()->account->id) }}">کلیک کنید</a>
+                    </div>
+                @endif
+                @if (auth()->user()->slug() and $setting->getSetting('active_theme', auth()->user()->account->id))
+                <div class="alert alert-warning">
+                    <a href="{{ route('enterSite', auth()->user()->slug()) }}" target="_blank" class="nav-link">ورود به سایت</a>
+                </div>
+                @endif
+
                 <div class="row">
                     <div class="col-6">
                         <div class="card">

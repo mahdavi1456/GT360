@@ -22,7 +22,8 @@ class AccountController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $setting=new Setting();
+        return view('admin.dashboard',compact('setting'));
     }
     public function loadSite($slug)
     {
