@@ -34,6 +34,7 @@ class ThemeSettingController extends Controller
 
     public function destroyImage()
     {
+        
         $setting=new Setting();
         $setting->updateSetting(request('key'),null,auth()->user()->account->id,'theme-setting');
         return true;

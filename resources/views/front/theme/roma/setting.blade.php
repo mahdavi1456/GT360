@@ -202,8 +202,10 @@
                 <input type="file" name="first_cover" onchange="uploadImage(this)">
 
                 @if ($image = imageLoader('first_cover'))
-                    <div class="imageLoader">
+                    <div class="imageLoader position-relative">
                         <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                        <button type="button" onclick="destroyImage('first_cover')" class="btn btn-sm btn-danger position-absolute"
+                            style="bottom: 0; left: 49%">حذف</button>
                     </div>
                 @endif
             </div>

@@ -34,8 +34,10 @@ class SettingController extends Controller
                     $image = $setting->updateSetting($key, $fileName, auth()->user()->account->id, 'theme-setting');
                 }
             }
-            return '  <div class="imageLoader">
+            return '  <div class="imageLoader  position-relative ">
                         <img src="' .asset(ert('tsp') . $image['value'] ). '" class="w-100 object-fit-contain">
+                        <button type="button" onclick="destroyImage(`'.$image['key'].'`)" class="btn btn-sm btn-danger position-absolute"
+                         style="bottom: 0; left: 49%">حذف</button>
                               </div>';
         }
 

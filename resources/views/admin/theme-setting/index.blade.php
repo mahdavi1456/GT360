@@ -100,8 +100,8 @@
                             'key':key
                         },
                         success: function(data) {
-                            getImages();
                             $("#loading-overlay").fadeOut();
+                            $(`input[name="${key}"]`).parent().find('.imageLoader').remove();
                             Swal.fire({
                                 title: "موفق",
                                 text: 'تصویر با موفقیت حذف شد',
