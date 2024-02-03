@@ -172,31 +172,31 @@
 
     <section class="thumb-container">
       <div class="item">
-        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img04_original.jpg">
+        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img04_original.jpg">
           <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img04.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
-        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img05_original.jpg">
+        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img05_original.jpg">
           <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img05.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
-        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img06_original.jpg">
+        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img06_original.jpg">
           <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img06.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
-        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img07_original.jpg">
+        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img07_original.jpg">
           <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img07.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
-        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img08_original.jpg">
+        <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img08_original.jpg">
           <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img08.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
