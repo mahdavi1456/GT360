@@ -7,14 +7,11 @@
     <!-- ===========================
     THEME INFO
     =========================== -->
-    <meta name="description" content="SantaGo is another free Bootstrap HTML Christmas sales and affiliate page template built and distributed by EvenFly Team as a small Cristmas gift under Creative Commons 3.0 license.">
-    <meta name="keywords" content="Christmas Template, Free Christmas Landing Page, Christmas Affiliate Landing Page, Free Christmas Sales Page Template">
-    <meta name="author" content="Mamun Srizon">
-
+    <meta name="description" content="{{ $settingModel->getSetting('description', $accountId) }}">
     <!-- ===========================
     SITE TITLE
     =========================== -->
-    <title>SantaGo - Free Christmas Sales and Affiliate Landing Page Template</title>
+    <title>{{ $settingModel->getSetting('description', $accountId) }}</title>
 
     <!-- ===========================
     FAVICONS
