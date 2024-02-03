@@ -364,7 +364,7 @@
 			</li>
 
 			<li>
-			    <a href="{{ $settingModel->getSetting('instagram', $account->id) }}">
+			    <a href="#">
                     <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/google_plus.svg" />
                     <p>Google Plus</p>
 				</a>
