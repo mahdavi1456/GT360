@@ -222,7 +222,7 @@
 
           <li>
             <a href="#">
-              <img src="{{ asset('front-theme-asset/creative-branding') }}/portfolio/6.png" alt="Portfolio item" />
+              <img src="{{ asset('front-theme-asset/creative-branding') }}/img/portfolio/6.png" alt="Portfolio item" />
                 <div class="text">
                   <p>PORTFOLIO 6</p>
                   <p class="description">Your text here...</p>
