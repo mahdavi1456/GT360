@@ -415,7 +415,7 @@
 
 	<script src="{{ asset('front-theme-asset/creative-branding') }}/js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src="{{ asset('front-theme-asset/creative-branding') }}/js/jquery-ui-1.10.4.min.js" type="text/javascript"></script> <!-- jQuery -->
-	<script src="{{ asset('front-theme-asset/creative-branding') }}/js/jquery.nicescroll.js"></script> <!-- jQuery NiceScroll -->
+	{{-- <script src="{{ asset('front-theme-asset/creative-branding') }}/js/jquery.nicescroll.js"></script> <!-- jQuery NiceScroll --> --}}
 	<script src="{{ asset('front-theme-asset/creative-branding') }}/js/jquery.sticky.js"></script> <!-- jQuery Stick Menu -->
 	<script src="{{ asset('front-theme-asset/creative-branding') }}/js/masonry.pkgd.min.js"></script> <!-- All script -->
 	<script src="{{ asset('front-theme-asset/creative-branding') }}/js/imagesloaded.pkgd.min.js"></script> <!-- All script -->
