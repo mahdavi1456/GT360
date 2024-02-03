@@ -20,44 +20,29 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">فهرست</h3>
+        <h3 class="card-title">بخش اول</h3>
     </div>
     <div class="card-body">
         <div class="row">
             <div class="col form-group">
-                <label class="form-label">مورد اول</label>
-                <input type="text" name="nav_item_text1" class="form-control" placeholder="مورد اول..."
-                    value="{{ $settingModel->getSetting('nav_item_text1', $account->id) }}">
+                <label class="form-label">عنوان اول</label>
+                <input type="text" name="first_title_sec1" class="form-control" placeholder="عنوان کوچک..."
+                    value="{{ $settingModel->getSetting('small_title', $account->id) }}">
             </div>
             <div class="col form-group">
-                <label class="form-label">مورد دوم</label>
-                <input type="text" name="nav_item_text2" class="form-control" placeholder="مورد دوم..."
-                    value="{{ $settingModel->getSetting('nav_item_text2', $account->id) }}">
+                <label class="form-label">عنوان دوم</label>
+                <input type="text" name="second_title_sec1" class="form-control" placeholder="عنوان بزرگ..."
+                    value="{{ $settingModel->getSetting('big_title', $account->id) }}">
             </div>
             <div class="col form-group">
-                <label class="form-label">مورد سوم</label>
-                <input type="text" name="nav_item_text3" class="form-control" placeholder="مورد سوم..."
-                    value="{{ $settingModel->getSetting('nav_item_text3', $account->id) }}">
+                <label class="form-label">متن دکمه</label>
+                <input type="text" name="button_title_sec1" class="form-control" placeholder="متن دکمه..."
+                    value="{{ $settingModel->getSetting('button_title_sec1', $account->id) }}">
             </div>
             <div class="col form-group">
-                <label class="form-label">مورد چهارم</label>
-                <input type="text" name="nav_item_text4" class="form-control" placeholder="مورد چهارم..."
-                    value="{{ $settingModel->getSetting('nav_item_text4', $account->id) }}">
-            </div>
-            <div class="col form-group">
-                <label class="form-label">مورد پنجم</label>
-                <input type="text" name="nav_item_text5" class="form-control" placeholder="مورد پنجم..."
-                    value="{{ $settingModel->getSetting('nav_item_text5', $account->id) }}">
-            </div>
-            <div class="col form-group">
-                <label class="form-label">مورد ششم</label>
-                <input type="text" name="nav_item_text6" class="form-control" placeholder="مورد ششم..."
-                    value="{{ $settingModel->getSetting('nav_item_text6', $account->id) }}">
-            </div>
-            <div class="col form-group">
-                <label class="form-label">مورد هفتم</label>
-                <input type="text" name="nav_item_text7" class="form-control" placeholder="مورد هفتم..."
-                    value="{{ $settingModel->getSetting('nav_item_text7', $account->id) }}">
+                <label class="form-label">عنوان سوم</label>
+                <input type="text" name="third_title_sec1" class="form-control" placeholder="عنوان سوم..."
+                    value="{{ $settingModel->getSetting('third_title_sec1', $account->id) }}">
             </div>
         </div>
     </div>

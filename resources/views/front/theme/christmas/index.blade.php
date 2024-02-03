@@ -58,14 +58,14 @@
             <div class="container">
                 <div class="row">
                     <div class="herotext">
-                        <h2 class="wow zoomInDown" data-wow-duration="3s">HoHo Holiday Sale Started!</h2>
-                        <h1 class="wow flipInY">It’s The time</h1>
+                        <h2 class="wow zoomInDown" data-wow-duration="3s">{{ $settingModel->getSetting('first_title_sec1', $accountId) }}</h2>
+                        <h1 class="wow flipInY">{{ $settingModel->getSetting('second_title_sec1', $accountId) }}</h1>
 
                         <a class="btn btn-reverse wow zoomIn" href="#products">
-                            <h3>To save upto 75% this holiday <span class="optional">or bang your head!</span></h3>
+                            <h3>{{ $settingModel->getSetting('button_title_sec1', $accountId) }}</h3>
                         </a><!--#NOTE: texts inside the OPTIONAL tag above would be hidden on smaller mobile screens -->
 
-                        <p class="wow fadeInUp" data-wow-duration="2s">Offer ends On December 31 Wednesday</p>
+                        <p class="wow fadeInUp" data-wow-duration="2s">{{ $settingModel->getSetting('third_title_sec1', $accountId) }}</p>
 
                         <img class="bigbell wow tada infinite" data-wow-duration="30s" src="{{ asset('front-theme-asset/christmas') }}/img/bell.png" alt="">
                     </div>
