@@ -11,7 +11,7 @@
 		<meta name="keywords" content="responsive, html5, onepage, themes, template, clean layout, free web"/>
 		<meta name="author" content="Thomsoon.com"/>
 
-		<link rel="shortcut icon" href="img/favicon.png">
+		<link rel="shortcut icon" href="{{ asset('front-theme-asset/creative-branding') }}/img/favicon.png">
 
 		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/creative-branding') }}/css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/creative-branding') }}/css/style.css" />
