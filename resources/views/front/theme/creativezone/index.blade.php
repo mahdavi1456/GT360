@@ -54,12 +54,13 @@
 
       <form id="bookingForm" class="booking-form">
         <div class="tmInput">
+          <input name="Name" placeHolder="Name" type="text" >
         </div>
         <div class="tmInput">
-          <input name="Email" placeHolder="E - mail " type="text" data-constraints="@NotEmpty @Required @Email">
+          <input name="Email" placeHolder="E - mail " type="text" >
         </div>
         <div class="tmInput">
-          <input name="Phone" placeHolder="Phone" type="text" data-constraints="@NotEmpty @Required @Phone">
+          <input name="Phone" placeHolder="Phone" type="text">
         </div>
         <div class="booking-form_controls">
           <a href="#" class="btn" data-type="submit">Get Started Now!</a>
