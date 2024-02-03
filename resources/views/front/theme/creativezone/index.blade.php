@@ -88,7 +88,7 @@
         <div class="row">
           <div class="grid_4">
             <div class="lazy-img" style="padding-bottom:70.27027027027027%;">
-              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img01.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img01.jpg" src="#" alt=""/>
             </div>
             <h3 class="primary">Sam Kromstain</h3>
 
@@ -97,7 +97,7 @@
           </div>
           <div class="grid_4">
             <div class="lazy-img" style="padding-bottom:70.27027027027027%;">
-              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img02.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img02.jpg" src="#" alt=""/>
             </div>
             <h3 class="primary">Alan Smith</h3>
 
@@ -106,7 +106,7 @@
           </div>
           <div class="grid_4">
             <div class="lazy-img" style="padding-bottom:70.27027027027027%;">
-              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img03.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img03.jpg" src="#" alt=""/>
             </div>
             <h3 class="primary">John Franklin </h3>
 
@@ -117,7 +117,7 @@
       </div>
     </section>
 
-    <section class="parallax center bg-secondary2" data-url="{{ asset('front-theme-asset/creativezone') }}/images/parallax.jpg" data-mobile="true" data-speed="0.5">
+    <section class="parallax center bg-secondary2" data-url="images/parallax.jpg" data-mobile="true" data-speed="0.5">
       <div class="well3">
         <div class="container">
           <h2>
@@ -173,31 +173,31 @@
     <section class="thumb-container">
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img04_original.jpg">
-          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img04.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img04.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img05_original.jpg">
-          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img05.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img05.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img06_original.jpg">
-          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img06.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img06.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img07_original.jpg">
-          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img07.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img07.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img08_original.jpg">
-          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img08.jpg" src="{{ asset('front-theme-asset/creativezone') }}/#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img08.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
