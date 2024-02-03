@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="format-detection" content="telephone=no"/>
   <link rel="icon" href="{{ asset('front-theme-asset/creativezone') }}/images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/images/css/grid.css">
-  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/images/css/style.css">
-  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/images/css/booking.css"/>
-  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/images/css/jquery.fancybox.css"/>
-  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/images/css/owl-carousel.css"/>
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/grid.css">
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/style.css">
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/booking.css"/>
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/jquery.fancybox.css"/>
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/owl-carousel.css"/>
 
   <script src="{{ asset('front-theme-asset/creativezone') }}/js/jquery.js"></script>
   <script src="{{ asset('front-theme-asset/creativezone') }}/js/jquery-migrate-1.2.1.js"></script>
