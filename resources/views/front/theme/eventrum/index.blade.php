@@ -7,7 +7,7 @@
 <link rel="icon" href="{{ asset('front-theme-asset/eventrum') }}/images/favicon.ico">
 <link rel="shortcut icon" href="{{ asset('front-theme-asset/eventrum') }}/images/favicon.ico" />
 <link rel="stylesheet" href="{{ asset('front-theme-asset/eventrum') }}/css/touchTouch.css">
-<link rel="st{{ asset('front-theme-asset/eventrum') }}/ylesheet" href="{{ asset('front-theme-asset/eventrum') }}/css/style.css">
+<link rel="stylesheet" href="{{ asset('front-theme-asset/eventrum') }}/css/style.css">
 <script src="{{ asset('front-theme-asset/eventrum') }}/js/jquery.js"></script>
 <script src="{{ asset('front-theme-asset/eventrum') }}/js/jquery-migrate-1.1.1.js"></script>
 <script src="{{ asset('front-theme-asset/eventrum') }}/js/jquery.easing.1.3.js"></script>
