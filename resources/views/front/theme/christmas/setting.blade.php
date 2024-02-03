@@ -15,13 +15,6 @@
                     value="{{ $settingModel->getSetting('description', $account->id) }}">
             </div>
         </div>
-        <div class="row">
-            <div class="col-3 form-group">
-                <label class="form-label">متن دکمه شروع</label>
-                <input type="text" name="start_btn_text" class="form-control" placeholder="متن دکمه شروع..."
-                    value="{{ $settingModel->getSetting('start_btn_text', $account->id) }}">
-            </div>
-        </div>
     </div>
 </div>
 
