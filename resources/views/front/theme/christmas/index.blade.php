@@ -70,7 +70,7 @@
 
                         <p class="wow fadeInUp" data-wow-duration="2s">Offer ends On December 31 Wednesday</p>
 
-                        <img class="bigbell wow tada infinite" data-wow-duration="30s" src="img/bell.png" alt="">
+                        <img class="bigbell wow tada infinite" data-wow-duration="30s" src="{{ asset('front-theme-asset/christmas') }}/img/bell.png" alt="">
                     </div>
 
                     <div class="santa wow bounceInDown" data-wow-duration="2s">
@@ -119,7 +119,7 @@
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="img/o5.png" alt="">
+                <img src="{{ asset('front-theme-asset/christmas') }}/img/o5.png" alt="">
                 <h4>Surprise gift included</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
             </div><!--ITEM END-->
