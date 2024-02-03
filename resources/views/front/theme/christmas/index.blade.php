@@ -6,44 +6,44 @@
 
     <!-- ===========================
     THEME INFO
-    =========================== -->    
+    =========================== -->
     <meta name="description" content="SantaGo is another free Bootstrap HTML Christmas sales and affiliate page template built and distributed by EvenFly Team as a small Cristmas gift under Creative Commons 3.0 license.">
     <meta name="keywords" content="Christmas Template, Free Christmas Landing Page, Christmas Affiliate Landing Page, Free Christmas Sales Page Template">
     <meta name="author" content="Mamun Srizon">
-    
+
     <!-- ===========================
     SITE TITLE
     =========================== -->
     <title>SantaGo - Free Christmas Sales and Affiliate Landing Page Template</title>
-    
+
     <!-- ===========================
     FAVICONS
     =========================== -->
-    <link rel="icon" href="img/favicon.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-ipad-retina.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-iphone-retina.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-ipad.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-iphone.png" />
-    
+    <link rel="icon" href="{{ asset('front-theme-asset/christmas') }}/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-ipad-retina.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-iphone.png" />
+
     <!-- ===========================
     STYLESHEETS
-    =========================== --> 
+    =========================== -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/animate.css">        
-    
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/christmas') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/christmas') }}/css/responsive.css">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/christmas') }}/css/animate.css">
+
     <!-- ===========================
     FONTS
     =========================== -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,900,600|Pacifico' rel='stylesheet' type='text/css'>
-    
+
     <!-- ===========================
     GOOGLE ANALYTICS (Optional)
     =========================== -->
-        
+
     <!-- #NOTE: Replace this line with your analytics code -->
-    
+
     <!--ANALYTICS END-->
 
     <!--[if IE]>
@@ -65,7 +65,7 @@
                         <h1 class="wow flipInY">It’s The time</h1>
 
                         <a class="btn btn-reverse wow zoomIn" href="#products">
-                            <h3>To save upto 75% this holiday <span class="optional">or bang your head!</span></h3>                            
+                            <h3>To save upto 75% this holiday <span class="optional">or bang your head!</span></h3>
                         </a><!--#NOTE: texts inside the OPTIONAL tag above would be hidden on smaller mobile screens -->
 
                         <p class="wow fadeInUp" data-wow-duration="2s">Offer ends On December 31 Wednesday</p>
@@ -74,46 +74,46 @@
                     </div>
 
                     <div class="santa wow bounceInDown" data-wow-duration="2s">
-                        <img src="img/santa.png" alt="">
+                        <img src="{{ asset('front-theme-asset/christmas') }}/img/santa.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div><!--HERO SECTION END-->
-    
+
     <!-- ===========================
     OVERVIEW SECTION
-    =========================== --> 
-    <div id="overview" class="container">       
+    =========================== -->
+    <div id="overview" class="container">
         <!--SECTIONHEAD START-->
-        <div class="sectionhead">            
+        <div class="sectionhead">
             <h2>Best <span class="highlight">free</span> christmas template ever</h2>
             <p>SantaGo is another free Bootstrap HTML Christmas sales and affiliate page template built and distributed by EvenFly Team as a small Cristmas gift under Creative Commons 3.0 license.</p>
             <hr>
         </div><!--SECTIONHEAD END-->
-        
+
         <!--OVERVIEW ITEMS-->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <img src="img/o1.png" alt="">
+                <img src="{{ asset('front-theme-asset/christmas') }}/img/o1.png" alt="">
                 <h4>Exclusively on EvenFly</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="img/o2.png" alt="">
+                <img src="{{ asset('front-theme-asset/christmas') }}/img/o2.png" alt="">
                 <h4>Money back guarantee</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="img/o3.png" alt="">
+                <img src="{{ asset('front-theme-asset/christmas') }}/img/o3.png" alt="">
                 <h4>Free worldwide home deivery</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="img/o4.png" alt="">
+                <img src="{{ asset('front-theme-asset/christmas') }}/img/o4.png" alt="">
                 <h4>Pre & Post purchase support</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
             </div><!--ITEM END-->
@@ -125,13 +125,13 @@
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="img/o6.png" alt="">
+                <img src="{{ asset('front-theme-asset/christmas') }}/img/o6.png" alt="">
                 <h4>It will be free forever</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
             </div><!--ITEM END-->
         </div><!--OVERVIEW ITEMS END-->
     </div><!--OVERVIEW SECTION END-->
-    
+
     <!-- ===========================
     CALL-TO-ACTION SECTION
     =========================== -->
@@ -139,7 +139,7 @@
     <div class="lightoverlay">
         <div class="container">
             <div class="col-md-4">
-                <img src="img/tree.gif" alt="">
+                <img src="{{ asset('front-theme-asset/christmas') }}/img/tree.gif" alt="">
             </div><!--CALL-TO-ACTION IMAGE END-->
 
             <div class="sectionhead content col-md-8">
@@ -152,7 +152,7 @@
         </div><!--CALL-TO-ACTION CONTAINER END-->
     </div><!--CALL-TO-ACTION OVERLAY END-->
 </div><!--CALL-TO-ACTION END-->
-    
+
     <!-- ===========================
     PRODUCTS SECTION
     =========================== -->
@@ -169,7 +169,7 @@
         <div class="featureditem row">
             <div class="col-md-5 text-center">
                 <a href="">
-                    <img class="productimg" src="img/product-1.jpg" alt="">
+                    <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-1.jpg" alt="">
                 </a>
 
                 <!--DISCOUNT TAG-->
@@ -202,7 +202,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="img/product-2.jpg" alt="">
+                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-2.jpg" alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -226,7 +226,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="img/product-3.jpg" alt="">
+                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-3.jpg" alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -253,7 +253,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="img/product-4.jpg" alt="">
+                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-4.jpg" alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -277,7 +277,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="img/product-5.jpg" alt="">
+                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-5.jpg" alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -297,23 +297,23 @@
             </div><!--SMALL ITEM 4 END-->
         </div><!--SMALL ITEM 2ND ROW END-->
     </div><!--PRODUCTS SECTION END-->
-    
+
     <!-- ===========================
     SUBSCRIBE SECTION
     =========================== -->
     <div id="subscribe">
         <div class="darkoverlay">
             <div class="container text-center">
-                <img class="santaicon wow tada infinite" data-wow-duration="20s" src="img/santa-sm.png" alt="">
-                <div class="sectionhead">            
+                <img class="santaicon wow tada infinite" data-wow-duration="20s" src="{{ asset('front-theme-asset/christmas') }}/img/santa-sm.png" alt="">
+                <div class="sectionhead">
                     <h2>Don’t miss the <span class="highlight">upcoming hot deals</span> amymore</h2>
-                    <p>Just give us your email address below, and forget it. We’ll send you every time we have something special for you. No worries, Santa never send spam mails. And you can unsubscribe anytime as well.</p>    
-                </div><!--SECTIONHEAD END-->            
+                    <p>Just give us your email address below, and forget it. We’ll send you every time we have something special for you. No worries, Santa never send spam mails. And you can unsubscribe anytime as well.</p>
+                </div><!--SECTIONHEAD END-->
 
-                <!--MAILCHIMP FORM START-->  
+                <!--MAILCHIMP FORM START-->
                 <div class="mailchimp">
                     <form action="http://evenfly.us8.list-manage.com/subscribe/post?u=62bca83399cf0083546588b62&amp;id=f85a072005" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><!-- #NOTE: Replace this with your Mailchimp action URL -->
-                                                      
+
                             <input type="text" value="" name="FNAME" id="mce-FNAME" placeholder="First Name" required>
                             <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required>
                             <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-inverse">
@@ -321,18 +321,18 @@
                 </div>
             </div><!--SUBSCRIBE CONTAINER END-->
         </div><!--OVERLAY END-->
-    </div><!--SUBSCRIBE SECTION END-->        
-    
+    </div><!--SUBSCRIBE SECTION END-->
+
     <!-- ===========================
     FOOTER
     =========================== -->
-    <footer class="container text-center">             
+    <footer class="container text-center">
         <h2 class="logo">Santa<span class="highlight">Go</span></h2>
-        <img class="santacap" src="img/santa_cap.png" alt="">
+        <img class="santacap" src="{{ asset('front-theme-asset/christmas') }}/img/santa_cap.png" alt="">
         <P>Another free Bootstrap Landing page temlate from <a href="http://evenfly.com">EvenFly</a> released under <a href="https://creativecommons.org/licenses/by/3.0/">CC 3.0</a> license.</P>
         <hr>
     </footer><!--FOOTER END-->
-    
+
     <!-- ===========================
     SOCIAL ICONS
     =========================== -->
@@ -340,42 +340,42 @@
 		<ul class="sticky">
 			<li>
 				<a href="">
-                    <img title="" alt="" src="img/facebook.svg" />
+                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/facebook.svg" />
                     <p>Facebook</p>
 				</a>
 			</li>
-			
+
 			<li>
 				<a href="">
-                    <img title="" alt="" src="img/twitter.svg" />
+                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/twitter.svg" />
                     <p>Twitter</p>
 				</a>
 			</li>
-			
+
 			<li>
 				<a href="">
-                    <img title="" alt="" src="img/pinterest.svg" />
+                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/pinterest.svg" />
                     <p>Pinterest</p>
 				</a>
 			</li>
-			
+
 			<li>
 				<a href="">
-                    <img title="" alt="" src="img/linkedin.svg" />
+                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/linkedin.svg" />
                     <p>Linkedin</p>
 				</a>
 			</li>
-			
+
 			<li>
 			    <a href="">
-                    <img title="" alt="" src="img/google_plus.svg" />
+                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/google_plus.svg" />
                     <p>Google Plus</p>
 				</a>
 			</li>
-			
+
 			<li>
 			    <a href="">
-                    <img title="" alt="" src="img/instagram.svg" />
+                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/instagram.svg" />
                     <p>Instagram</p>
 				</a>
 			</li>
@@ -384,13 +384,13 @@
 	</div>
     <!-- ===========================
     NECESSARY SCRIPTS
-    =========================== --> 
+    =========================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="js/evenfly.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/snowstorm-min.js"></script>
-    <script>new WOW().init();</script>    
+    <script src="{{ asset('front-theme-asset/christmas') }}/js/evenfly.js"></script>
+    <script src="{{ asset('front-theme-asset/christmas') }}/js/jquery.nicescroll.min.js"></script>
+    <script src="{{ asset('front-theme-asset/christmas') }}/js/wow.min.js"></script>
+    <script src="{{ asset('front-theme-asset/christmas') }}/js/snowstorm-min.js"></script>
+    <script>new WOW().init();</script>
 </body>
 </html>
