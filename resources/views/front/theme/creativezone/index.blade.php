@@ -4,15 +4,15 @@
   <title>Home</title>
   <meta charset="utf-8">
   <meta name="format-detection" content="telephone=no"/>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/grid.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/booking.css"/>
-  <link rel="stylesheet" href="css/jquery.fancybox.css"/>
-  <link rel="stylesheet" href="css/owl-carousel.css"/>
+  <link rel="icon" href="{{ asset('front-theme-asset/creativezone') }}/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/grid.css">
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/style.css">
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/booking.css"/>
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/jquery.fancybox.css"/>
+  <link rel="stylesheet" href="{{ asset('front-theme-asset/creativezone') }}/css/owl-carousel.css"/>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
+  <script src="{{ asset('front-theme-asset/creativezone') }}/js/jquery.js"></script>
+  <script src="{{ asset('front-theme-asset/creativezone') }}/js/jquery-migrate-1.2.1.js"></script>
 
   <!--[if lt IE 9]>
   <html class="lt-ie9">
@@ -25,7 +25,7 @@
   <script src="js/html5shiv.js"></script>
   <![endif]-->
 
-  <script src='js/device.min.js'></script>
+  <script src='{{ asset('front-theme-asset/creativezone') }}/js/device.min.js'></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
   <header class="vide" data-vide-bg="video/video-bg">
     <div class="container vide_content">
       <div class="brand">
-        <img src="images/logo.png" alt=""/>
+        <img src="{{ asset('front-theme-asset/creativezone') }}/images/logo.png" alt=""/>
 
         <h1 class="brand_name">
           <a href="./">
@@ -88,7 +88,7 @@
         <div class="row">
           <div class="grid_4">
             <div class="lazy-img" style="padding-bottom:70.27027027027027%;">
-              <img data-src="images/page-1_img01.jpg" src="#" alt=""/>
+              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img01.jpg" src="#" alt=""/>
             </div>
             <h3 class="primary">Sam Kromstain</h3>
 
@@ -97,7 +97,7 @@
           </div>
           <div class="grid_4">
             <div class="lazy-img" style="padding-bottom:70.27027027027027%;">
-              <img data-src="images/page-1_img02.jpg" src="#" alt=""/>
+              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img02.jpg" src="#" alt=""/>
             </div>
             <h3 class="primary">Alan Smith</h3>
 
@@ -106,7 +106,7 @@
           </div>
           <div class="grid_4">
             <div class="lazy-img" style="padding-bottom:70.27027027027027%;">
-              <img data-src="images/page-1_img03.jpg" src="#" alt=""/>
+              <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img03.jpg" src="#" alt=""/>
             </div>
             <h3 class="primary">John Franklin </h3>
 
@@ -173,31 +173,31 @@
     <section class="thumb-container">
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img04_original.jpg">
-          <img data-src="images/page-1_img04.jpg" src="#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img04.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img05_original.jpg">
-          <img data-src="images/page-1_img05.jpg" src="#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img05.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img06_original.jpg">
-          <img data-src="images/page-1_img06.jpg" src="#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img06.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img07_original.jpg">
-          <img data-src="images/page-1_img07.jpg" src="#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img07.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
       <div class="item">
         <a class="lazy-img thumb" style="padding-bottom:73.17073170731707%;" href="images/page-1_img08_original.jpg">
-          <img data-src="images/page-1_img08.jpg" src="#" alt=""/>
+          <img data-src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img08.jpg" src="#" alt=""/>
           <span class="thumb_overlay"></span>
         </a>
       </div>
@@ -210,7 +210,7 @@
         <div class="owl-carousel">
           <div class="item">
             <blockquote>
-              <img src="images/page-1_img13.jpg" alt=""/>
+              <img src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img13.jpg" alt=""/>
 
               <p><q>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
                     et <br/>
@@ -224,7 +224,7 @@
           </div>
           <div class="item">
             <blockquote>
-              <img src="images/page-1_img09.jpg" alt=""/>
+              <img src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img09.jpg" alt=""/>
 
               <p><q>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
                     et <br/>
@@ -241,9 +241,9 @@
 
       <div class="container center">
         <ul class="flex-list">
-          <li><img src="images/page-1_img10.jpg" alt=""/></li>
-          <li><img src="images/page-1_img11.jpg" alt=""/></li>
-          <li><img src="images/page-1_img12.jpg" alt=""/></li>
+          <li><img src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img10.jpg" alt=""/></li>
+          <li><img src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img11.jpg" alt=""/></li>
+          <li><img src="{{ asset('front-theme-asset/creativezone') }}/images/page-1_img12.jpg" alt=""/></li>
         </ul>
       </div>
     </section>
@@ -291,14 +291,14 @@
     </div>
     <div class="well5 center">
       <div class="container">
-        <a href='#'><img src="images/tm-logo.png" alt="Tempalte Monster"/></a>
+        <a href='#'><img src="{{ asset('front-theme-asset/creativezone') }}/images/tm-logo.png" alt="Tempalte Monster"/></a>
       </div>
     </div>
 
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<script src="{{ asset('front-theme-asset/creativezone') }}/js/script.js"></script>
 <!-- coded by Diversant -->
 </body>
 </html>
