@@ -210,7 +210,6 @@
                 @endif
             </div>
             <div class="col-6 form-group">
-
                 <label class="form-label">تصویر کاور  دوم</label>
                 <input type="file" name="second_cover" onchange="uploadImage(this)">
 

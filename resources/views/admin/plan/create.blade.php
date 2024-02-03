@@ -36,7 +36,7 @@
                                                 <label class="required">نام <span class="text-danger">*</span></label>
                                                 <input type="text" name="name" class="form-control"
                                                     value="{{ old('name') }}" placeholder="نام..." required
-                                                    oninvalid="this.setCustomValidity('نام بخش را وارد نمایید.')"
+                                                    oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>

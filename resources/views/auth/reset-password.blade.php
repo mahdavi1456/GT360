@@ -44,20 +44,20 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-4 m-auto">
-                                                    <label class="required">رمز جدید <span
+                                                    <label class="required">رمز عبور جدید <span
                                                             class="text-danger">*</span></label>
-                                                    <input type="text" name="newPassword" class="form-control"
-                                                        value="" placeholder="نام..." required
+                                                    <input type="password" name="newPassword" class="form-control"
+                                                        value="" placeholder="رمز عبور جدید..." required
                                                         oninvalid="this.setCustomValidity('رمز جدید را وارد نمایید.')"
                                                         oninput="this.setCustomValidity('')">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-4 m-auto">
-                                                    <label class="required">تکرار رمز <span
+                                                    <label class="required">تکرار رمز عبور<span
                                                             class="text-danger">*</span></label>
-                                                    <input type="text" name="newPassword_confirmation" class="form-control"
-                                                        value="" placeholder="نام..." required
+                                                    <input type="password" name="newPassword_confirmation" class="form-control"
+                                                        value="" placeholder="تکرار رمز عبور..." required
                                                         oninvalid="this.setCustomValidity(' تکرار رمز را وارد نمایید.')"
                                                         oninput="this.setCustomValidity('')">
                                                 </div>

@@ -63,7 +63,7 @@
                                             <div class="form-group">
                                                 <label class="required">نوع <span class="text-danger">*</span></label>
                                                 <select name="type" class="custom-select select2" id="">
-                                                    <option @selected($item->type == 'text') value="text">متن کوتاه</option>
+                                                    <option @selected($item->type == 'text') value="text">متنی</option>
                                                     <option @selected($item->type == 'file') value="file">فایل</option>
                                                 </select>
                                             </div>

@@ -63,7 +63,7 @@
                                                 <label class="required">نوع <span class="text-danger">*</span></label>
                                                 <select required name="type" class="custom-select select2" >
                                                     <option value="">انتخاب کنید...</option>
-                                                    <option value="text">متن کوتاه</option>
+                                                    <option value="text">متنی</option>
                                                     <option value="file">فایل</option>
                                                 </select>
                                             </div>
