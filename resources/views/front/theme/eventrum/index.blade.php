@@ -19,7 +19,6 @@
 <script src="{{ asset('front-theme-asset/eventrum') }}/js/jquery.ui.totop.js"></script>
 <script src="{{ asset('front-theme-asset/eventrum') }}/js/touchTouch.jquery.js"></script>
 <script src="{{ asset('front-theme-asset/eventrum') }}/js/jquery.shuffle-images.js"></script>
-{{ asset('front-theme-asset/eventrum') }}/
 <script>
   $(window).load(function(){
     $().UItoTop({ easingType: 'easeOutQuart' });
