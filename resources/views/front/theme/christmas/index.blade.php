@@ -11,7 +11,7 @@
     <!-- ===========================
     SITE TITLE
     =========================== -->
-    <title>{{ $settingModel->getSetting('description', $accountId) }}</title>
+    <title>{{ $settingModel->getSetting('title', $accountId) }}</title>
 
     <!-- ===========================
     FAVICONS
