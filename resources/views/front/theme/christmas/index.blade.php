@@ -84,8 +84,8 @@
     <div id="overview" class="container">
         <!--SECTIONHEAD START-->
         <div class="sectionhead">
-            <h2>Best <span class="highlight">free</span> christmas template ever</h2>
-            <p>SantaGo is another free Bootstrap HTML Christmas sales and affiliate page template built and distributed by EvenFly Team as a small Cristmas gift under Creative Commons 3.0 license.</p>
+            <h2>{{ $settingModel->getSetting('first_title_sec2', $accountId) }}</h2>
+            <p>{{ $settingModel->getSetting('second_title_sec2', $accountId) }}</p>
             <hr>
         </div><!--SECTIONHEAD END-->
 
@@ -364,14 +364,14 @@
 			</li>
 
 			<li>
-			    <a href="">
+			    <a href="{{ $settingModel->getSetting('instagram', $account->id) }}">
                     <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/google_plus.svg" />
                     <p>Google Plus</p>
 				</a>
 			</li>
 
 			<li>
-			    <a href="">
+			    <a href="{{ $settingModel->getSetting('instagram', $account->id) }}">
                     <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/instagram.svg" />
                     <p>Instagram</p>
 				</a>
