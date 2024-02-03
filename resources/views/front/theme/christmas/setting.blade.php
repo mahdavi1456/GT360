@@ -27,12 +27,12 @@
             <div class="col form-group">
                 <label class="form-label">عنوان اول</label>
                 <input type="text" name="first_title_sec1" class="form-control" placeholder="عنوان کوچک..."
-                    value="{{ $settingModel->getSetting('small_title', $account->id) }}">
+                    value="{{ $settingModel->getSetting('first_title_sec1', $account->id) }}">
             </div>
             <div class="col form-group">
                 <label class="form-label">عنوان دوم</label>
                 <input type="text" name="second_title_sec1" class="form-control" placeholder="عنوان بزرگ..."
-                    value="{{ $settingModel->getSetting('big_title', $account->id) }}">
+                    value="{{ $settingModel->getSetting('second_title_sec1', $account->id) }}">
             </div>
             <div class="col form-group">
                 <label class="form-label">متن دکمه</label>
