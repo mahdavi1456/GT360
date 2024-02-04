@@ -2,16 +2,16 @@
 <html>
 <head>
 	<title>Senkadagala</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/senkadagala') }}/css/bootstrap.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,400italic,500,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	
+	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/senkadagala') }}/css/main.css">
 
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/singlepagenav.js"></script>
-	<script type="text/javascript" src="js/queryloader.js"></script>	
-	<script type="text/javascript" src="js/main.js"></script>
+
+	<script type="text/javascript" src="{{ asset('front-theme-asset/senkadagala') }}/js/jquery.js"></script>
+	<script type="text/javascript" src="{{ asset('front-theme-asset/senkadagala') }}/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ asset('front-theme-asset/senkadagala') }}/js/singlepagenav.js"></script>
+	<script type="text/javascript" src="{{ asset('front-theme-asset/senkadagala') }}/js/queryloader.js"></script>
+	<script type="text/javascript" src="{{ asset('front-theme-asset/senkadagala') }}/js/main.js"></script>
 
 	<meta charset="UTF-8">
 	<meta name="description" content="Senkadagala - a simple HTML template">
@@ -68,7 +68,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<img class="img-responsive" title="PixelMock Introduction" src="img/big-mac.jpg">
+						<img class="{{ asset('front-theme-asset/senkadagala') }}/img-responsive" title="PixelMock Introduction" src="img/big-mac.jpg">
 					</div>
 					<div class="col-md-6 intro-text">
 						<h3 id="aboutus-title">What is Senkadagala?</h3>
@@ -77,33 +77,33 @@
 						</p>
 
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id ultricies felis. Fusce sed nisi velit. Quisque cursus pharetra diam, non congue ligula sodales at. Phasellus sodales sem sagittis arcu vulputate dictum. Vestibulum faucibus malesuada risus. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id ultricies felis. Fusce sed nisi velit. Quisque cursus pharetra diam, non congue ligula sodales at. Phasellus sodales sem sagittis arcu vulputate dictum. Vestibulum faucibus malesuada risus.
 						</p>
 					</div>
 				</div>
 				<div class="row team">
 					<div class="col-md-4">
-						<img src="img/team/user1.png" class="img-responsive">
+						<img src="{{ asset('front-theme-asset/senkadagala') }}/img/team/user1.png" class="img-responsive">
 						<h3 class="team-name">Member One</h3>
 						<h4 class="team-subtitle">Awesome Designation</h4>
 						<p class="team-details">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod. Maecenas ut tellus sit amet lectus molestie dapibus. Quisque fermentum rutrum felis, nec hendrerit diam mollis vitae. Integer sodales varius odio, vel pharetra ante rhoncus vel. Phasellus quis urna rutrum, molestie purus. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod. Maecenas ut tellus sit amet lectus molestie dapibus. Quisque fermentum rutrum felis, nec hendrerit diam mollis vitae. Integer sodales varius odio, vel pharetra ante rhoncus vel. Phasellus quis urna rutrum, molestie purus.
 						</p>
 					</div>
 					<div class="col-md-4">
-						<img src="img/team/user2.png" class="img-responsive">
+						<img src="{{ asset('front-theme-asset/senkadagala') }}/img/team/user2.png" class="img-responsive">
 						<h3 class="team-name">Member Two</h3>
 						<h4 class="team-subtitle">Awesome Designation</h4>
 						<p class="team-details">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod. Maecenas ut tellus sit amet lectus molestie dapibus. Quisque fermentum rutrum felis, nec hendrerit diam mollis vitae. Integer sodales varius odio, vel pharetra ante rhoncus vel. Phasellus quis urna rutrum, molestie purus. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod. Maecenas ut tellus sit amet lectus molestie dapibus. Quisque fermentum rutrum felis, nec hendrerit diam mollis vitae. Integer sodales varius odio, vel pharetra ante rhoncus vel. Phasellus quis urna rutrum, molestie purus.
 						</p>
 					</div>
 					<div class="col-md-4">
-						<img src="img/team/user3.png" class="img-responsive">
+						<img src="{{ asset('front-theme-asset/senkadagala') }}/img/team/user3.png" class="img-responsive">
 						<h3 class="team-name">Member Three</h3>
 						<h4 class="team-subtitle">Awesome Designation</h4>
 						<p class="team-details">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod. Maecenas ut tellus sit amet lectus molestie dapibus. Quisque fermentum rutrum felis, nec hendrerit diam mollis vitae. Integer sodales varius odio, vel pharetra ante rhoncus vel. Phasellus quis urna rutrum, molestie purus. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod. Maecenas ut tellus sit amet lectus molestie dapibus. Quisque fermentum rutrum felis, nec hendrerit diam mollis vitae. Integer sodales varius odio, vel pharetra ante rhoncus vel. Phasellus quis urna rutrum, molestie purus.
 						</p>
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-md-3 service-item">
-						<img src="img/web-design.png" title="Web design" class="img-responsive">
+						<img src="{{ asset('front-theme-asset/senkadagala') }}/img/web-design.png" title="Web design" class="img-responsive">
 						<h3>Web Designing</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
@@ -127,14 +127,14 @@
 						</p>
 					</div>
 					<div class="col-sm-6 col-md-3 service-item">
-						<img src="img/print.png" title="Print media design" class="img-responsive">
+						<img src="{{ asset('front-theme-asset/senkadagala') }}/img/print.png" title="Print media design" class="img-responsive">
 						<h3>Print Media Designing</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
 						</p>
 					</div>
 					<div class="col-sm-6 col-md-3 service-item">
-						<img src="img/branding.png" title="Branding" class="img-responsive">
+						<img src="{{ asset('front-theme-asset/senkadagala') }}/img/branding.png" title="Branding" class="img-responsive">
 						<h3>Branding</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
@@ -151,7 +151,7 @@
 				</div>
 
 				<div id="portfolio-items" class="clearfix">
-					
+
 
 					<!-- start of a portfolio item -->
 					<div class="item w3">
@@ -159,7 +159,7 @@
 							<h3>Awseome Project Name</h3>
 						</div>
 						<div class="hidden-item">
-							<img src="img/portfolio/web/sankalana/1.jpg" title="Sankalan Holdings" data-axisX="20" data-axisY="10">
+							<img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/sankalana/1.jpg" title="Sankalan Holdings" data-axisX="20" data-axisY="10">
 						</div>
 						<div class="modal fade portfolio-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                        <div class="modal-dialog modal-lg">
@@ -183,7 +183,7 @@
 	                                    </div>
 	                                    <div class="col-xs-12">
 	                                        <div class='popup-image-container'>
-	                                            <img src="img/portfolio/web/sankalana/1.jpg" title="Sankalana Holdings web site" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/sankalana/1.jpg" title="Sankalana Holdings web site" class="portfolio-big img-responsive">
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -199,7 +199,7 @@
 							<h3>Awseome Project Name</h3>
 						</div>
 						<div class="hidden-item">
-							<img src="img/portfolio/print/blackwelling/1.jpg" title="Blackwelling Recruitment" data-axisX="50" data-axisY="10">
+							<img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/print/blackwelling/1.jpg" title="Blackwelling Recruitment" data-axisX="50" data-axisY="10">
 						</div>
 						<div class="modal fade portfolio-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                        <div class="modal-dialog modal-lg">
@@ -223,7 +223,7 @@
 	                                    </div>
 	                                    <div class="col-xs-12">
 	                                        <div class='popup-image-container'>
-	                                            <img src="img/portfolio/print/blackwelling/1.jpg" title="Blackwelling Recruitment" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/print/blackwelling/1.jpg" title="Blackwelling Recruitment" class="portfolio-big img-responsive">
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -239,7 +239,7 @@
 							<h3>Awseome Project Name</h3>
 						</div>
 						<div class="hidden-item">
-							<img src="img/portfolio/web/whoor/1.jpg" title="WHOOR audio" data-axisX="50" data-axisY="50">
+							<img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/whoor/1.jpg" title="WHOOR audio" data-axisX="50" data-axisY="50">
 						</div>
 						<div class="modal fade portfolio-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                        <div class="modal-dialog modal-lg">
@@ -263,7 +263,7 @@
 	                                    </div>
 	                                    <div class="col-xs-12">
 	                                        <div class='popup-image-container'>
-	                                            <img src="img/portfolio/web/whoor/1.jpg" title="WHOOR audio" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/whoor/1.jpg" title="WHOOR audio" class="portfolio-big img-responsive">
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -279,7 +279,7 @@
 							<h3>Awseome Project Name</h3>
 						</div>
 						<div class="hidden-item">
-							<img src="img/portfolio/logo/chocodiles/1.jpg" title="Chocodiles" data-axisX="45" data-axisY="50">
+							<img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/logo/chocodiles/1.jpg" title="Chocodiles" data-axisX="45" data-axisY="50">
 						</div>
 						<div class="modal fade portfolio-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                        <div class="modal-dialog modal-lg">
@@ -303,7 +303,7 @@
 	                                    </div>
 	                                    <div class="col-xs-12">
 	                                        <div class='popup-image-container'>
-	                                            <img src="img/portfolio/logo/chocodiles/1.jpg" title="Chocodiles" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/logo/chocodiles/1.jpg" title="Chocodiles" class="portfolio-big img-responsive">
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -319,7 +319,7 @@
 							<h3>Awseome Project Name</h3>
 						</div>
 						<div class="hidden-item">
-							<img src="img/portfolio/logo/1tl/1.jpg" title="1LT" data-axisX="50" data-axisY="50">
+							<img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/logo/1tl/1.jpg" title="1LT" data-axisX="50" data-axisY="50">
 						</div>
 						<div class="modal fade portfolio-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                        <div class="modal-dialog modal-lg">
@@ -343,7 +343,7 @@
 	                                    </div>
 	                                    <div class="col-xs-12">
 	                                        <div class='popup-image-container'>
-	                                            <img src="img/portfolio/logo/1tl/1.jpg" title="1LT" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/logo/1tl/1.jpg" title="1LT" class="portfolio-big img-responsive">
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -359,7 +359,7 @@
 							<h3>Awseome Project Name</h3>
 						</div>
 						<div class="hidden-item">
-							<img src="img/portfolio/web/sajath/1.jpg" title="Sajath Lakshita's Website" data-axisX="95" data-axisY="10">
+							<img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/sajath/1.jpg" title="Sajath Lakshita's Website" data-axisX="95" data-axisY="10">
 						</div>
 						<div class="modal fade portfolio-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                        <div class="modal-dialog modal-lg">
@@ -383,8 +383,8 @@
 	                                    </div>
 	                                    <div class="col-xs-12">
 	                                        <div class='popup-image-container'>
-	                                            <img src="img/portfolio/web/sajath/1.jpg" title="Sajath Lakshita's Website" class="portfolio-big img-responsive">
-	                                            <img src="img/portfolio/web/sajath/2.jpg" title="Sajath Lakshita's Website" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/sajath/1.jpg" title="Sajath Lakshita's Website" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/sajath/2.jpg" title="Sajath Lakshita's Website" class="portfolio-big img-responsive">
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -400,7 +400,7 @@
 							<h3>Awseome Project Name</h3>
 						</div>
 						<div class="hidden-item">
-							<img src="img/portfolio/web/udara/1.png" title="Udara Kiriella Photography Website" data-axisX="50" data-axisY="50">
+							<img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/udara/1.png" title="Udara Kiriella Photography Website" data-axisX="50" data-axisY="50">
 						</div>
 						<div class="modal fade portfolio-popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                        <div class="modal-dialog modal-lg">
@@ -424,7 +424,7 @@
 	                                    </div>
 	                                    <div class="col-xs-12">
 	                                        <div class='popup-image-container'>
-	                                            <img src="img/portfolio/web/udara/1.png" title="Udara Kiriella Photography Website" class="portfolio-big img-responsive">
+	                                            <img src="{{ asset('front-theme-asset/senkadagala') }}/img/portfolio/web/udara/1.png" title="Udara Kiriella Photography Website" class="portfolio-big img-responsive">
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -434,7 +434,7 @@
 					</div>
 					<!-- end of a portfolio item -->
 				</div>
-				
+
 			</div>
 		</div>
 
@@ -445,8 +445,8 @@
 				</div>
                 <div class="row">
                     <div class="col-md-5 contact-description">
-                        <p>We are bunch of open minded people. So, we are really keen to know what you're thinking of our work.</p> 
-                        <p>Furthermore, if you're having some sort of work that we can assist you, a design project, web site, branding project... anything that matching our skill profile, send us a mail using below form. We will get back to you soon!</p>	
+                        <p>We are bunch of open minded people. So, we are really keen to know what you're thinking of our work.</p>
+                        <p>Furthermore, if you're having some sort of work that we can assist you, a design project, web site, branding project... anything that matching our skill profile, send us a mail using below form. We will get back to you soon!</p>
                         <p><strong>Tel : +94 71 350 6348<br>
                                 Email : hello@pixelmock.com</strong></p>
                         <p class="sm-wrapper clearfix">
