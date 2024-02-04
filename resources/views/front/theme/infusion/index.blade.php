@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Infusion WP Theme</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/infusion') }}/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/infusion') }}/css/styles.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/infusion') }}/css/queries.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -201,7 +201,7 @@
       </div>
       <div class="row articles">
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/07.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/07.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
@@ -209,7 +209,7 @@
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/09.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/09.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
@@ -294,7 +294,7 @@
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{{ asset('front-theme-asset/infusion') }}/bootstrap.min.js"></script>
+    <script src="{{ asset('front-theme-asset/infusion') }}/js/bootstrap.min.js"></script>
     <script src="{{ asset('front-theme-asset/infusion') }}/js/scripts.js"></script>
     <script src="{{ asset('front-theme-asset/infusion') }}/js/unslider.min.js"></script>
   </body>
