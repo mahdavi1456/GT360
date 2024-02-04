@@ -5,10 +5,9 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- css -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
-	<link href="color/default.css" rel="stylesheet" media="screen">
-	<script src="js/modernizr.custom.js"></script>
+    <link href="{{ asset('front-theme-asset/mabur') }}/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{ asset('front-theme-asset/mabur') }}/css/style.css" rel="stylesheet" media="screen">
+	<link href="{{ asset('front-theme-asset/mabur') }}/color/default.css" rel="stylesheet" media="screen">
       </head>
   <body>
 	<div class="menu-area">
@@ -31,18 +30,18 @@
 							</li>
 						</ul>
 					</div><!-- /dl-menuwrapper -->
-	</div>	
+	</div>
 
-	  <!-- intro area -->	  
+	  <!-- intro area -->
 	  <div id="intro">
-	  
+
 			<div class="intro-text">
 				<div class="container">
 					<div class="row">
-					
-						
+
+
 					<div class="col-md-12">
-			
+
 						<div class="brand">
 							<h1><a href="index.html">Mamba</a></h1>
 							<div class="line-spacer"></div>
@@ -52,12 +51,12 @@
 					</div>
 				</div>
 		 	</div>
-			
-	 </div>
-	  
 
-	  
-	  
+	 </div>
+
+
+
+
 	  <!-- About -->
 	  <section id="about" class="home-section bg-white">
 		<div class="container">
@@ -72,50 +71,50 @@
 			  <div class="row">
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 					<div class="box-team wow bounceInDown" data-wow-delay="0.1s">
-                    <img src="img/team/1.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/1.jpg" alt="" class="img-responsive" />
                     <h4>Kurt coleman</h4>
                     <p>Art Director</p>
 					</div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
 					<div class="box-team wow bounceInDown">
-                    <img src="img/team/2.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/2.jpg" alt="" class="img-responsive" />
                     <h4>Isobel lyna</h4>
                     <p>Web Designer</p>
 					</div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.5s">
 					<div class="box-team wow bounceInDown">
-                    <img src="img/team/3.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/3.jpg" alt="" class="img-responsive" />
                     <h4>Leslie gutierrez</h4>
                     <p>Illustrator</p>
 					</div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.7s">
 					<div class="box-team wow bounceInDown">
-                    <img src="img/team/4.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/4.jpg" alt="" class="img-responsive" />
                     <h4>Letitia pena</h4>
                     <p>Typographer</p>
 					</div>
                 </div>
-			  </div>			  
-		  </div>	  
+			  </div>
+		  </div>
 	  </section>
-	  
-		<!-- spacer -->	  
-		<section id="spacer1" class="home-section spacer">	
+
+		<!-- spacer -->
+		<section id="spacer1" class="home-section spacer">
            <div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="color-light">
 						<h2 class="wow bounceInDown" data-wow-delay="1s">Details are the key for perfection</h2>
-						<p class="lead wow bounceInUp" data-wow-delay="2s">We mix all detailed things together</p>	
+						<p class="lead wow bounceInUp" data-wow-delay="2s">We mix all detailed things together</p>
 						</div>
-					</div>				
+					</div>
 				</div>
             </div>
-		</section>	  
-	  
+		</section>
+
 	  <!-- Services -->
 	 <section id="services" class="home-section bg-white">
 		<div class="container">
@@ -160,10 +159,10 @@
 						<a class="btn btn-primary">Learn more</a>
 					</div>
                 </div>
-			  </div>	
+			  </div>
 		</div>
 	</section>
-	
+
 	 <!-- Works -->
 	<section id="works" class="home-section bg-gray">
 			<div class="container">
@@ -177,150 +176,150 @@
 			  </div>
 				<div class="row">
 					<div class="col-md-offset-2 col-md-8">
-					
+
 					<ul class="lb-album">
 						<li>
 							<a href="#image-1">
-								<img src="img/works/thumbs/1.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/1.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-1">
 								<a href="#page" class="lb-close">X</a>
-								<img src="img/works/1.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/1.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
 						<li>
 							<a href="#image-2">
-								<img src="img/works/thumbs/2.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/2.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-2">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="img/works/2.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/2.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
 						<li>
 							<a href="#image-3">
-								<img src="img/works/thumbs/3.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/3.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-3">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="img/works/3.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/3.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
 						<li>
 							<a href="#image-4">
-								<img src="img/works/thumbs/4.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/4.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-4">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="img/works/4.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/4.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
-						
+
 						<li>
 							<a href="#image-5">
-								<img src="img/works/thumbs/5.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/5.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-5">
 								<a href="#page" class="lb-close">X</a>
-								<img src="img/works/5.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/5.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
 						<li>
 							<a href="#image-6">
-								<img src="img/works/thumbs/6.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/6.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-6">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="img/works/6.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/6.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
 						<li>
 							<a href="#image-7">
-								<img src="img/works/thumbs/7.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/7.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-7">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="img/works/7.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/7.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
 						<li>
 							<a href="#image-8">
-								<img src="img/works/thumbs/8.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/8.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-8">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="img/works/8.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/8.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
 								</div>
-								
+
 							</div>
 						</li>
 					</ul>
-					
+
 					</div>
 				</div>
 			</div>
-		</section>	  
-	
-		<!-- spacer 2 -->	  
-		<section id="spacer2" class="home-section spacer">	
+		</section>
+
+		<!-- spacer 2 -->
+		<section id="spacer2" class="home-section spacer">
            <div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="color-light">
 						<h2 class="wow bounceInDown" data-wow-delay="1s">Details are the key for perfection</h2>
-						<p class="lead wow bounceInUp" data-wow-delay="2s">We mix all detailed things together</p>	
+						<p class="lead wow bounceInUp" data-wow-delay="2s">We mix all detailed things together</p>
 						</div>
-					</div>				
+					</div>
 				</div>
             </div>
-		</section>	
-	  
+		</section>
+
 	 <!-- Contact -->
 	  <section id="contact" class="home-section bg-white">
 	  	<div class="container">
@@ -363,10 +362,10 @@
 					</div>
 				  </div>
 				</form>
-	
+
 	  			</div>
-			
-				
+
+
 	  		</div>
 			<div class="row mar-top30 ">
 				<div class="col-md-offset-2 col-md-8">
@@ -397,11 +396,11 @@
 						</span></a>
 						</li>
 					</ul>
-				</div>				
+				</div>
 			</div>
 
 	  	</div>
-	  </section>  
+	  </section>
 
 	<footer>
 		<div class="container">
@@ -409,16 +408,16 @@
 				<div class="col-md-12">
 					<p>Copyright &copy;2014 Mamba company. All rights reserved. By <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
 				</div>
-			</div>		
-		</div>	
+			</div>
+		</div>
 	</footer>
-	 
+
 	 <!-- js -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.smooth-scroll.min.js"></script>
-	<script src="js/jquery.dlmenu.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/custom.js"></script>
-  	
+    <script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.js"></script>
+    <script src="{{ asset('front-theme-asset/mabur') }}/js/bootstrap.min.js"></script>
+	<script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.smooth-scroll.min.js"></script>
+	<script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.dlmenu.js"></script>
+	<script src="{{ asset('front-theme-asset/mabur') }}/js/wow.min.js"></script>
+	<script src="{{ asset('front-theme-asset/mabur') }}/js/custom.js"></script>
+
 </html>
