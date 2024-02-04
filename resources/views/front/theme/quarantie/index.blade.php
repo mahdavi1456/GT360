@@ -8,23 +8,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Free Quarantie Bootstrap Website Template | Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/quarantie') }}/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/quarantie') }}/css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script src="js/jquery-1.9.1.min.js"></script>
+<script src="{{ asset('front-theme-asset/quarantie') }}/js/jquery-1.9.1.min.js"></script>
 <!----requred-js-files---->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{ asset('front-theme-asset/quarantie') }}/js/jquery.min.js"></script>
+<script src="{{ asset('front-theme-asset/quarantie') }}/js/bootstrap.min.js"></script>
 <!----//requred-js-files---->
-<script src="js/hover_pack.js"></script>
-<script type="text/javascript" src="js/move-top.js"></script>
-			<script type="text/javascript" src="js/easing.js"></script>
+<script src="{{ asset('front-theme-asset/quarantie') }}/js/hover_pack.js"></script>
+<script type="text/javascript" src="{{ asset('front-theme-asset/quarantie') }}/js/move-top.js"></script>
+			<script type="text/javascript" src="{{ asset('front-theme-asset/quarantie') }}/js/easing.js"></script>
 			   <script type="text/javascript">
 					jQuery(document).ready(function($) {
-						$(".scroll").click(function(event){		
+						$(".scroll").click(function(event){
 							event.preventDefault();
 							$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 						});
@@ -32,14 +32,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</script>
 </head>
 <body>
-	<div class="header">	
-      <div class="container"> 
+	<div class="header">
+      <div class="container">
       	<div class="header-shadow">
       	  <div class="header-top">
       		<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/><br><span class="m_1">Software Development</span></a>
+				<a href="index.html"><img src="{{ asset('front-theme-asset/quarantie') }}/images/logo.png" alt=""/><br><span class="m_1">Software Development</span></a>
 			 </div>
-			 <nav class="navbar navbar-default menu" role="navigation"><h3 class="nav_right"><a href="index.html"><img src="images/logo.png" class="img-responsive" alt=""/></a></h3>
+			 <nav class="navbar navbar-default menu" role="navigation"><h3 class="nav_right"><a href="index.html"><img src="{{ asset('front-theme-asset/quarantie') }}/images/logo.png" class="img-responsive" alt=""/></a></h3>
 			  <div class="container-fluid">
 			    <!-- Brand and toggle get grouped for better mobile display -->
 			    <div class="navbar-header">
@@ -62,11 +62,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			        <li><a href="#clients" class="scroll">Clients</a></li>
 			        <li><a href="#contact" class="scroll">Contact</a></li>
 			       </ul>
-			        <div class="social">	
-					   <ul>	
+			        <div class="social">
+					   <ul>
 						  <li class="fb"><a href="#"><span> </span></a></li>
 						  <li class="tw"><a href="#"><span> </span></a></li>
-						  <li class="linkedin"><a href="#"><span> </span></a></li>		
+						  <li class="linkedin"><a href="#"><span> </span></a></li>
 						</ul>
 				    </div>
 			      <form class="navbar-form navbar-left search1" role="search">
@@ -81,13 +81,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			  </div><!-- /.container-fluid -->
 			</nav>
             <div class="clear"></div>
-		 </div>  
+		 </div>
 		</div>
 		</div>
 	     <div class="index-banner" id="home">
        	   <div class="wmuSlider example1">
 			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
+				   <article style="position: absolute; width: 100%; opacity: 0;">
 				   	<div class="banner-wrap">
 				   		 <div class="slider-left">
 						    <h1>Creativity<br><span class="m_2">is our life style</span></h1>
@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					     <div class="clear"></div>
 					 </div>
 					</article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
+				   <article style="position: relative; width: 100%; opacity: 1;">
 				   	 <div class="banner-wrap">
 				   	 	<div class="slider-left">
 						    <h1>vulputat<br><span class="m_2">is our life style</span></h1>
@@ -125,13 +125,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 	<li><a href="#" class="wmuActive">2</a></li>
                 </ul>
             </div>
-            <script src="js/jquery.wmuSlider.js"></script> 
+            <script src="{{ asset('front-theme-asset/quarantie') }}/js/jquery.wmuSlider.js"></script>
 			  <script>
-       			$('.example1').wmuSlider();         
-   		     </script> 	           	      
+       			$('.example1').wmuSlider();
+   		     </script>
       </div>
 	</div>
-    <div class="main">	
+    <div class="main">
 	  <div class="container">
 	    <div class="about" id="about">
 			<div class="row about-top">
@@ -175,13 +175,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	    <div class="projects" id="projects">
 	    	<div class="m_3"><span class="left_line1"> </span><h3>Projects</h3><span class="right_line1"> </span></div>
 	    </div>
-	  </div> 
+	  </div>
 	  <div class="project_top">
 	  	<div class="container">
 	  		<div class="row">
 	  			<div class="col-md-3 project_grid">
 	  			  <a href="#" class="b-link-stripe b-animate-go  thickbox">
-					<img src="images/p1.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/link.png" alt=""/></h2>
+					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p1.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/quarantie') }}/images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('front-theme-asset/quarantie') }}/images/link.png" alt=""/></h2>
 				  </div></a>
 				  <div class="project_desc">
 				  	<h3>Dating app</h3>
@@ -192,7 +192,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 	  			<div class="col-md-3 project_grid">
 	  			  <a href="#" class="b-link-stripe b-animate-go  thickbox">
-					<img src="images/p2.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/link.png" alt=""/></h2>
+					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p2.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('front-theme-asset/quarantie') }}/images/link.png" alt=""/></h2>
 				  </div></a>
 				  <div class="project_desc">
 				  	<h3>Wedding Site</h3>
@@ -203,7 +203,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 	  			<div class="col-md-3 project_grid">
 	  			  <a href="#" class="b-link-stripe b-animate-go  thickbox">
-					<img src="images/p3.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/link.png" alt=""/></h2>
+					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p3.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/quarantie') }}/images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/link.png" alt=""/></h2>
 				  </div></a>
 				  <div class="project_desc">
 				  	<h3>Travel Guide</h3>
@@ -214,7 +214,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 	  			<div class="col-md-3">
 	  			  <a href="#" class="b-link-stripe b-animate-go  thickbox">
-					<img src="images/p4.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/link.png" alt=""/></h2>
+					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p4.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/quarantie') }}/images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('front-theme-asset/quarantie') }}/images/link.png" alt=""/></h2>
 				  </div></a>
 				  <div class="project_desc">
 				  	<h3>Baby E-commerce</h3>
@@ -232,7 +232,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <div class="horizontalSlider">
 			 <div class="jcarousel">
 				<ul>
-			    	<li><figure><img src="images/t1.jpg" class="img-responsive" alt=""/></figure>
+			    	<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t1.jpg" class="img-responsive" alt=""/></figure>
 			    		<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -246,7 +246,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 					</li>
-					<li><figure><img src="images/t2.jpg" class="img-responsive" alt=""/></figure>
+					<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t2.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -260,7 +260,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-			    	<li><figure><img src="images/t3.jpg" class="img-responsive" alt=""/></figure>
+			    	<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t3.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -274,7 +274,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-					<li><figure><img src="images/t4.jpg" class="img-responsive" alt=""/></figure>
+					<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t4.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -288,7 +288,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-			    	<li><figure><img src="images/t1.jpg" class="img-responsive" alt=""/></figure>
+			    	<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t1.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -302,7 +302,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-					<li><figure><img src="images/t2.jpg" class="img-responsive" alt=""/></figure>
+					<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t2.jpg" class="img-responsive" alt=""/></figure>
 			        <h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -316,7 +316,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-			    	<li><figure><img src="images/t3.jpg" class="img-responsive" alt=""/></figure>
+			    	<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t3.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -330,7 +330,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-					<li><figure><img src="images/t4.jpg" class="img-responsive" alt=""/></figure>
+					<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t4.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -344,7 +344,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-			    	<li><figure><img src="images/t1.jpg" class="img-responsive" alt=""/></figure>
+			    	<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t1.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -358,7 +358,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-					<li><figure><img src="images/t2.jpg" class="img-responsive" alt=""/></figure>
+					<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t2.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -372,7 +372,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-			    	<li><figure><img src="images/t3.jpg" class="img-responsive" alt=""/></figure>
+			    	<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t3.jpg" class="img-responsive" alt=""/></figure>
 			        <h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -386,7 +386,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  <div class="clear"> </div>
 						</div>
 			        </li>
-					<li><figure><img src="images/t4.jpg" class="img-responsive" alt=""/></figure>
+					<li><figure><img src="{{ asset('front-theme-asset/quarantie') }}/images/t4.jpg" class="img-responsive" alt=""/></figure>
 			        	<h4 class="m_5"><a href="#">Lorem Ipsum</a></h4>
 			    		<p class="m_6">Ceo Founder</p>
 			    		<div class="project-btn"><a href="#">Look at me</a></div>
@@ -410,9 +410,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="jcarousel-pagination"></div>
 		</div>
 		</div>
-		<script src="js/jquery.touchSwipe.min.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/jcarousel.js"></script>
+		<script src="{{ asset('front-theme-asset/quarantie') }}/js/jquery.touchSwipe.min.js"></script>
+		<script src="{{ asset('front-theme-asset/quarantie') }}/js/app.js"></script>
+		<script src="{{ asset('front-theme-asset/quarantie') }}/js/jcarousel.js"></script>
         <div class="m_3" id="news"><span class="left_line1"> </span><h3>News</h3><span class="right_line1"> </span></div>
 	 </div>
 	</div>
@@ -428,13 +428,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					 <li class="date_desc">
 	  			   	 	<ul class="list_img">
 	  			   	 		<li class="list_img_left">
-	  			   	 			<img src="images/n1.jpg" class="img-responsive" alt=""/>
+	  			   	 			<img src="{{ asset('front-theme-asset/quarantie') }}/images/n1.jpg" class="img-responsive" alt=""/>
 	  			   	 		</li>
 	  			   	 		<li class="list_desc">
 	  			   	 		 <div class="extra">
 							   <time pubdate="" datetime="2014-03-30T14:47:59">
-								 Writter				</time> 
-								<span class="username">aliquam</span> / 
+								 Writter				</time>
+								<span class="username">aliquam</span> /
 								<a href="#" class="comment_count">Finance</a>
 							 </div>
 							 <div class="extra_bottom"><i class="audio"> </i>
@@ -447,7 +447,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	  			   	 </li>
 	  			   	 <div class="clear"> </div>
 	  			  </ul>
-	  			  <ul class="news_bottom"> 	
+	  			  <ul class="news_bottom">
 	  			    <li class="comment_section">
 					  <i class="comment1"> </i>
 					  <i class="comment2"> </i>
@@ -471,17 +471,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					 <li class="date_desc">
 	  			   	 	<ul class="list_img">
 	  			   	 		<li class="list_img_left">
-	  			   	 			<img src="images/n2.jpg"  class="img-responsive" alt=""/>
+	  			   	 			<img src="{{ asset('front-theme-asset/quarantie') }}/images/n2.jpg"  class="img-responsive" alt=""/>
 	  			   	 		</li>
 	  			   	 		<li class="list_desc">
 	  			   	 		 <div class="extra">
 							   <time pubdate="" datetime="2014-03-30T14:47:59">
-								 Writter				</time> 
-								<span class="username">aliquam</span> / 
+								 Writter				</time>
+								<span class="username">aliquam</span> /
 								<a href="#" class="comment_count">Finance</a>
 							 </div>
 							 <div class="extra_bottom"><i class="audio"> </i>
-							 
+
 							 </div>
 	  			   	 		</li>
 	  			   	 		<li class="hours">6 Days Ago</li>
@@ -490,7 +490,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	  			   	 </li>
 	  			   	 <div class="clear"> </div>
 	  			  </ul>
-	  			  <ul class="news_bottom"> 	
+	  			  <ul class="news_bottom">
 	  			    <li class="comment_section">
 					  <i class="comment1"> </i>
 					  <i class="comment2"> </i>
@@ -512,52 +512,52 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	 <div class="container">
 	 	<div class="m_3"><span class="left_line1"> </span><h3>Clients</h3><span class="right_line1"> </span></div>
 	  	<ul id="flexiselDemo3">
-			<li><img src="images/c1.jpg" /></li>
-			<li><img src="images/c2.jpg" /></li>
-			<li><img src="images/c3.jpg" /></li>
-			<li><img src="images/c4.jpg" /></li>
-			<li><img src="images/c5.jpg" /></li>
-			<li><img src="images/c6.jpg" /></li>
-			<li><img src="images/c7.jpg" /></li>
-			<li><img src="images/c8.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c1.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c2.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c3.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c4.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c5.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c6.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c7.jpg" /></li>
+			<li><img src="{{ asset('front-theme-asset/quarantie') }}/images/c8.jpg" /></li>
 		</ul>
 	<script type="text/javascript">
 $(window).load(function() {
-	
+
 
 	$("#flexiselDemo3").flexisel({
 		visibleItems: 5,
 		animationSpeed: 1000,
 		autoPlay: true,
-		autoPlaySpeed: 3000,    		
+		autoPlaySpeed: 3000,
 		pauseOnHover: true,
 		enableResponsiveBreakpoints: true,
-    	responsiveBreakpoints: { 
-    		portrait: { 
+    	responsiveBreakpoints: {
+    		portrait: {
     			changePoint:480,
     			visibleItems: 1
-    		}, 
-    		landscape: { 
+    		},
+    		landscape: {
     			changePoint:640,
     			visibleItems: 2
     		},
-    		tablet: { 
+    		tablet: {
     			changePoint:768,
     			visibleItems: 3
     		}
     	}
     });
-    
+
 });
 </script>
-<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+<script type="text/javascript" src="{{ asset('front-theme-asset/quarantie') }}/js/jquery.flexisel.js"></script>
 </div>
 </div>
 </div>
 	<div class="footer">
 		<div class="container">
 			 <div class="footer-logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/><br><span class="m_1">Software Development</span></a>
+				<a href="index.html"><img src="{{ asset('front-theme-asset/quarantie') }}/images/logo.png" alt=""/><br><span class="m_1">Software Development</span></a>
 			 </div>
 			<div class="social_footer">
 			  <ul>
@@ -628,17 +628,17 @@ $(window).load(function() {
      </div>
 	<script type="text/javascript">
 			$(document).ready(function() {
-			
+
 				var defaults = {
 		  			containerID: 'toTop', // fading element id
 					containerHoverID: 'toTopHover', // fading element hover id
 					scrollSpeed: 1200,
-					easingType: 'linear' 
+					easingType: 'linear'
 		 		};
-				
-				
+
+
 				$().UItoTop({ easingType: 'easeOutQuart' });
-				
+
 			});
 		</script>
         <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
