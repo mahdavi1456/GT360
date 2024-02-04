@@ -138,7 +138,7 @@
         </div>
       </div>
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-05"><img src="images/portfolio/judah.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-05"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/judah.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Judah</a></h5>
           </div>
