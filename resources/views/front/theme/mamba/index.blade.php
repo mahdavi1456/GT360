@@ -51,12 +51,7 @@
 					</div>
 				</div>
 		 	</div>
-
 	 </div>
-
-
-
-
 	  <!-- About -->
 	  <section id="about" class="home-section bg-white">
 		<div class="container">
