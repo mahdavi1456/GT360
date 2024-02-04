@@ -10,18 +10,18 @@
 
     <title>MARCO - One Page Bootstrap 3 Theme</title>
 
-    <link href="assets/css/hover_pack.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/macro') }}/css/hover_pack.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/macro') }}/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/colors/color-74c9be.css" rel="stylesheet">    
-    <link href="assets/css/animations.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-    
-    
+    <link href="{{ asset('front-theme-asset/macro') }}/css/main.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/macro') }}/css/colors/color-74c9be.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/macro') }}/css/animations.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/macro') }}/css/font-awesome.min.css" rel="stylesheet">
+
+
     <!-- JavaScripts needed at the beginning
     ================================================== -->
     <script type="text/javascript" src="http://alvarez.is/demo/marco/assets/js/twitterFetcher_v10_min.js"></script>
@@ -31,25 +31,25 @@
     <script type="text/javascript">
         // When the window has finished loading create our google map below
         google.maps.event.addDomListener(window, 'load', init);
-    
+
         function init() {
             // Basic options for a simple Google Map
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var mapOptions = {
                 // How zoomed in you want the map to start at (always required)
                 zoom: 11,
-                
+
                 scrollwheel: false,
 
                 // The latitude and longitude to center the map (always required)
                 center: new google.maps.LatLng(40.6700, -73.9400), // New York
 
-                // How you would like to style the map. 
+                // How you would like to style the map.
                 // This is where you would paste any style found on Snazzy Maps.
                 styles: [	{		featureType:'water',		stylers:[{color:'#74c9be'},{visibility:'on'}]	},{		featureType:'landscape',		stylers:[{color:'#f2f2f2'}]	},{		featureType:'road',		stylers:[{saturation:-100},{lightness:45}]	},{		featureType:'road.highway',		stylers:[{visibility:'simplified'}]	},{		featureType:'road.arterial',		elementType:'labels.icon',		stylers:[{visibility:'off'}]	},{		featureType:'administrative',		elementType:'labels.text.fill',		stylers:[{color:'#444444'}]	},{		featureType:'transit',		stylers:[{visibility:'off'}]	},{		featureType:'poi',		stylers:[{visibility:'off'}]	}]
             };
 
-            // Get the HTML DOM element that will contain your map 
+            // Get the HTML DOM element that will contain your map
             // We are using a div with id="map" seen below in the <body>
             var mapElement = document.getElementById('map');
 
@@ -57,12 +57,12 @@
             var map = new google.maps.Map(mapElement, mapOptions);
         }
     </script>
-    
-    
+
+
     <!-- Main Jquery & Hover Effects. Should load first -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/hover_pack.js"></script>
-    
+    <script src="{{ asset('front-theme-asset/macro') }}/js/hover_pack.js"></script>
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -74,7 +74,7 @@
   <body>
 
 
-	<! ========== HEADERWRAP ==================================================================================================== 
+	<! ========== HEADERWRAP ====================================================================================================
 	=============================================================================================================================>
     <div id="headerwrap">
     	<div class="container">
@@ -83,14 +83,14 @@
 					<h1 class="animation slideDown">We are a digital creative agency. We focus on design, consulting, and technology.</h1>
     				<p class="mt"><button type="button" class="btn btn-cta btn-lg">LEARN MORE</button></p>
 				</div>
-				
+
 			</div><!-- /row -->
     	</div><!-- /container -->
     </div> <!-- /headerwrap -->
 
-	<! ========== BLOG POSTS ==================================================================================================== 
-	=============================================================================================================================>    
-	<div class="container">	
+	<! ========== BLOG POSTS ====================================================================================================
+	=============================================================================================================================>
+	<div class="container">
 
 		<div class="row mt centered ">
 			<div class="col-lg-4 col-lg-offset-4">
@@ -112,7 +112,7 @@
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 3 | <i class="fa fa-calendar"></i> 14 Nov.</p>
 			</div><!-- col-lg-4 -->
-			
+
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
 				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port05.jpg" alt="" />
 					<div class="b-wrapper">
@@ -125,7 +125,7 @@
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 1 | <i class="fa fa-calendar"></i> 13 Oct.</p>
 			</div><!-- col-lg-4 -->
-			
+
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
 				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port06.jpg" alt="" />
 					<div class="b-wrapper">
@@ -138,12 +138,12 @@
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 1 | <i class="fa fa-calendar"></i> 13 Oct.</p>
 			</div><!-- col-lg-4 -->
-			
+
 		</div><!-- /row -->
 	</div><!-- /container -->
-	
-	<! ========== CALL TO ACTION 1 ============================================================================================== 
-	=============================================================================================================================>    
+
+	<! ========== CALL TO ACTION 1 ==============================================================================================
+	=============================================================================================================================>
     <div id="cta01">
     	<div class="container">
     		<div class="row">
@@ -155,8 +155,8 @@
     	</div><!-- /container -->
     </div><! --/cta01 -->
 
-	<! ========== PORTFOLIO SECTION ============================================================================================= 
-	=============================================================================================================================>    
+	<! ========== PORTFOLIO SECTION =============================================================================================
+	=============================================================================================================================>
 	<div class="container">
 		<div class="row mt centered ">
 			<div class="col-lg-4 col-lg-offset-4">
@@ -164,7 +164,7 @@
 				<hr>
 			</div>
 		</div><!-- /row -->
-		<div class="row mt centered">	
+		<div class="row mt centered">
 			<div class="col-lg-4 desc">
 				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port01.jpg" alt="" />
 					<div class="b-wrapper">
@@ -193,7 +193,7 @@
 				<p>VIKINGS - <i class="fa fa-heart-o"></i></p>
 			</div>
 		</div><!-- /row -->
-		<div class="row mt centered">	
+		<div class="row mt centered">
 			<div class="col-lg-4 desc">
 				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port03.jpg" alt="" />
 					<div class="b-wrapper">
@@ -230,8 +230,8 @@
 		</div><!-- /row -->
 	</div><!-- /container -->
 
-	<! ========== BRANDS & CLIENTS =============================================================================================== 
-	=============================================================================================================================>    
+	<! ========== BRANDS & CLIENTS ===============================================================================================
+	=============================================================================================================================>
 	<div id="grey">
 		<div class="container">
 			<div class="row mt centered ">
@@ -240,28 +240,28 @@
 					<hr>
 				</div><!-- /col-lg-4 -->
 			</div><!-- /row -->
-			
+
 			<div class="row centered">
 				<div class="col-lg-3 pt">
-					<img class="img-responsive" src="assets/img/clients/client01.png" alt="">
+					<img class="img-responsive" src="{{ asset('front-theme-asset/macro') }}/img/clients/client01.png" alt="">
 				</div>
 				<div class="col-lg-3 pt">
-					<img class="img-responsive" src="assets/img/clients/client02.png" alt="">
+					<img class="img-responsive" src="{{ asset('front-theme-asset/macro') }}/img/clients/client02.png" alt="">
 				</div>
 				<div class="col-lg-3 pt">
-					<img class="img-responsive" src="assets/img/clients/client03.png" alt="">
+					<img class="img-responsive" src="{{ asset('front-theme-asset/macro') }}/img/clients/client03.png" alt="">
 				</div>
 				<div class="col-lg-3 pt">
-					<img class="img-responsive" src="assets/img/clients/client04.png" alt="">
+					<img class="img-responsive" src="{{ asset('front-theme-asset/macro') }}/img/clients/client04.png" alt="">
 				</div>
 
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /grey -->
 
-	
-	<! ========== BLACK SECTION ================================================================================================= 
-	=============================================================================================================================>    
+
+	<! ========== BLACK SECTION =================================================================================================
+	=============================================================================================================================>
 	<div id="black">
 		<div class="container">
 			<div class="row mt centered">
@@ -270,7 +270,7 @@
 					<hr>
 				</div><!-- /col-lg-4 -->
 			</div><!-- /row -->
-			
+
 			<div class="row mt">
 				<div class="col-lg-8 col-lg-offset-2">
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
@@ -280,8 +280,8 @@
 	</div><!-- /black -->
 
 
-	<! ========== FEATURED ICONS ================================================================================================ 
-	=============================================================================================================================>    
+	<! ========== FEATURED ICONS ================================================================================================
+	=============================================================================================================================>
     <div id="white">
 	    <div class="container">
 	    	<div class="row mt">
@@ -305,8 +305,8 @@
 	    			<p class="capitalize">3</p>
 	    			<h4>Planning</h4>
 	    			<p>Marco fits any device handsomely. We tested our theme in major devices and browsers. Check it out and test it before buy it on responsinator.com.</p>
-	    		</div>    	
-	
+	    		</div>
+
 	    		<div class="col-lg-3">
 	    			<p class="capitalize">4</p>
 	    			<h4>Execution</h4>
@@ -316,8 +316,8 @@
 	    </div><!-- /container -->
     </div><!-- /white -->
 
-	<! ========== CALL TO ACTION 2 ============================================================================================== 
-	=============================================================================================================================>    
+	<! ========== CALL TO ACTION 2 ==============================================================================================
+	=============================================================================================================================>
     <div id="cta02">
     	<div class="container">
     		<div class="row">
@@ -329,8 +329,8 @@
     	</div><!-- /container -->
     </div><! --/cta02 -->
 
-	<! ========== FEATURED ICONS ================================================================================================ 
-	=============================================================================================================================>    
+	<! ========== FEATURED ICONS ================================================================================================
+	=============================================================================================================================>
     <div class="container">
     	<div class="row mt">
     		<div class="col-lg-4 centered si">
@@ -347,7 +347,7 @@
     			<i class="fa fa-mobile"></i>
     			<h4>Responsive Design Always</h4>
     			<p>Marco fits any device handsomely. We tested our theme in major devices and browsers. Check it out and test it before buy it on responsinator.com.</p>
-    		</div>    	
+    		</div>
 
     		<div class="col-lg-4 centered si">
     			<i class="fa fa-cog"></i>
@@ -363,13 +363,13 @@
     			<i class="fa fa-heart"></i>
     			<h4>Carefully Crafted</h4>
     			<p>We aim to design both, functional & beautiful themes. Details are an important part of our main concept. We work hard to keep our code and front-end flawless.</p>
-    		</div>    	
+    		</div>
     	</div><!-- /row -->
     </div><!-- /container -->
-    
-	<! ========== OUR TEAM ====================================================================================================== 
-	=============================================================================================================================>    
-	
+
+	<! ========== OUR TEAM ======================================================================================================
+	=============================================================================================================================>
+
 	<div id="white">
 		<div class="container">
 	    	<div class="row mt">
@@ -378,11 +378,11 @@
 	    			<hr>
 	    		</div>
 	    	</div><! --/row -->
-			
+
 			<div class="row">
 				<div class="col-lg-4 centered">
 					<div class="members">
-					  <img src="assets/img/team/gianni.png" alt="">
+					  <img src="{{ asset('front-theme-asset/macro') }}/img/team/gianni.png" alt="">
 					  <div class="team-info">
 					    <div class="subhead">Developer</div>
 					    <h2 class="team-name">Gianni</h2>
@@ -390,10 +390,10 @@
 					  </div>
 					</div>
 				</div><!-- /col-lg-4 -->
-				
+
 				<div class="col-lg-4 centered">
 					<div class="members">
-					  <img src="assets/img/team/rebecca.png" alt="">
+					  <img src="{{ asset('front-theme-asset/macro') }}/img/team/rebecca.png" alt="">
 					  <div class="team-info">
 					    <div class="subhead">Designer</div>
 					    <h2 class="team-name">Rebecca</h2>
@@ -401,10 +401,10 @@
 					  </div>
 					</div>
 				</div><!-- /col-lg-4 -->
-				
+
 				<div class="col-lg-4 centered">
 					<div class="members">
-					  <img src="assets/img/team/william.png" alt="">
+					  <img src="{{ asset('front-theme-asset/macro') }}/img/team/william.png" alt="">
 					  <div class="team-info">
 					    <div class="subhead">Designer</div>
 					    <h2 class="team-name">William</h2>
@@ -413,12 +413,12 @@
 					</div>
 				</div><!-- /col-lg-4 -->
 
-			</div><! --/row -->	
+			</div><! --/row -->
 		</div><! --/container -->
 	</div><! --/white -->
-	
-	<! ========== BLACK SECTION ================================================================================================= 
-	=============================================================================================================================>    
+
+	<! ========== BLACK SECTION =================================================================================================
+	=============================================================================================================================>
 	<div id="black">
 		<div class="container pt">
 			<div class="row mt centered">
@@ -454,8 +454,8 @@
 		</div><!-- /container -->
 	</div><!-- /black -->
 
-	<! ========== TESTIMONIAL CAROUSEL ========================================================================================== 
-	=============================================================================================================================>    
+	<! ========== TESTIMONIAL CAROUSEL ==========================================================================================
+	=============================================================================================================================>
 
 	<div class="container">
     	<div class="row mt">
@@ -464,31 +464,31 @@
     			<hr>
     		</div>
     	</div><! --/row -->
-	
+
 		<div class="row mt">
 			<div class="col-lg-8 col-lg-offset-2 centered">
-				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">				
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
 						  <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</h2>
 						  <h5>Paul Morrison - BlackTie.co</h5>
 						</div>
-						
+
 						<div class="item">
 						  <h2>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h2>
 						  <h5>Mike Wellington - BlackTie.co</h5>
 						</div>
 					</div><!-- /carousel-inner -->
-				
-				</div><! --/carousel-example -->		
+
+				</div><! --/carousel-example -->
 			</div><!-- /col-lg-8 -->
 		</div><! --/row -->
 	</div><!-- /container -->
 
 
-	<! ========== CONTACT SECTION =============================================================================================== 
-	=============================================================================================================================>    
+	<! ========== CONTACT SECTION ===============================================================================================
+	=============================================================================================================================>
 
 	<div id="white">
 		<div class="container">
@@ -499,14 +499,14 @@
 	    		</div>
 	    	</div><! --/row -->
 		</div><!-- /container -->
-	<div id="map"></div>	
+	<div id="map"></div>
 	</div><!-- /white -->
 
 
 
-	
-	<! ========== CALL TO ACTION BAR =============================================================================================== 
-	=============================================================================================================================>    
+
+	<! ========== CALL TO ACTION BAR ===============================================================================================
+	=============================================================================================================================>
 	<div id="cta-bar">
 		<div class="container">
 			<div class="row centered">
@@ -514,10 +514,10 @@
 			</div>
 		</div><!-- /container -->
 	</div><!-- /cta-bar -->
-	
-	<! ========== FOOTER ======================================================================================================== 
-	=============================================================================================================================>    
-	
+
+	<! ========== FOOTER ========================================================================================================
+	=============================================================================================================================>
+
 	<div id="f">
 		<div class="container">
 			<div class="row">
@@ -534,14 +534,14 @@
 						<i class="fa fa-envelope-o"></i> hello@yourdomain.com
 					</p>
 				</div><! --/col-lg-3 -->
-				
+
 				<!-- TWEETS -->
 				<div class="col-lg-3">
 					<h4>Recent Tweets</h4>
 					<div id="showtweets"></div>
 						<script>
 							twitterFetcher.fetch('258157205101088768', 'showtweets', 2, true, false, false, '', false, handleTweets, false);
-							
+
 							function handleTweets(tweets){
 							    var x = tweets.length;
 							    var n = 0;
@@ -553,11 +553,11 @@
 							    }
 							    html += '</ul>';
 							    element.innerHTML = html;
-							}					
+							}
 						</script>
 					<p>Follow us <b>@Alvrz_is</b></p>
 				</div><!-- /col-lg-3 -->
-				
+
 				<!-- LATEST POSTS -->
 				<div class="col-lg-3">
 					<h4>Latest Posts</h4>
@@ -569,42 +569,42 @@
 						<i class="fa fa-angle-right"></i> Yet another single post<br/>
 					</p>
 				</div><!-- /col-lg-3 -->
-				
+
 				<!-- NEW PROJECT -->
 				<div class="col-lg-3">
 					<h4>New Project</h4>
-					<a href="#"><img class="img-responsive" src="assets/img/portfolio/port03.jpg" alt="" /></a>
+					<a href="#"><img class="img-responsive" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port03.jpg" alt="" /></a>
 				</div><!-- /col-lg-3 -->
-				
-				
+
+
 			</div><! --/row -->
 		</div><!-- /container -->
 	</div><!-- /f -->
-	
+
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/retina.js"></script>
+    <script src="{{ asset('front-theme-asset/macro') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('front-theme-asset/macro') }}/js/retina.js"></script>
 
 
   	<script>
 		$(window).scroll(function() {
 			$('.si').each(function(){
 			var imagePos = $(this).offset().top;
-	
+
 			var topOfWindow = $(window).scrollTop();
 				if (imagePos < topOfWindow+400) {
 					$(this).addClass("slideUp");
 				}
 			});
 		});
-	</script>    
+	</script>
 
 
 
-  
+
   </body>
 </html>
