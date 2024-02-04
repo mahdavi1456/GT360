@@ -192,7 +192,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 	  			<div class="col-md-3 project_grid">
 	  			  <a href="#" class="b-link-stripe b-animate-go  thickbox">
-					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p2.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('front-theme-asset/quarantie') }}/images/link.png" alt=""/></h2>
+					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p2.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/quarantie') }}/images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('front-theme-asset/quarantie') }}/images/link.png" alt=""/></h2>
 				  </div></a>
 				  <div class="project_desc">
 				  	<h3>Wedding Site</h3>
@@ -203,7 +203,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 	  			<div class="col-md-3 project_grid">
 	  			  <a href="#" class="b-link-stripe b-animate-go  thickbox">
-					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p3.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/quarantie') }}/images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/link.png" alt=""/></h2>
+					<img src="{{ asset('front-theme-asset/quarantie') }}/images/p3.jpg" class="img-responsive" alt=""/><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/quarantie') }}/images/heart.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ asset('front-theme-asset/quarantie') }}/images/link.png" alt=""/></h2>
 				  </div></a>
 				  <div class="project_desc">
 				  	<h3>Travel Guide</h3>
