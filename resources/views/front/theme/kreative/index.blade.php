@@ -6,8 +6,8 @@
 <title>Kreative</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="{{ asset('front-theme-asset/kreative') }}/stylesheet" href="{{ asset('front-theme-asset/kreative') }}/css/base.css">
-<link rel="{{ asset('front-theme-asset/kreative') }}/stylesheet" href="{{ asset('front-theme-asset/kreative') }}/css/layout.css">
+<link rel="stylesheet" href="{{ asset('front-theme-asset/kreative') }}/css/base.css">
+<link rel="stylesheet" href="{{ asset('front-theme-asset/kreative') }}/css/layout.css">
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <![endif]-->
