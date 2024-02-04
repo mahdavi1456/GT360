@@ -299,6 +299,6 @@
         </div>
     </div>
 </footer>
-<script src="{{ asset('front-theme-asset/primex') }}/js/script.js"></script>
+{{-- <script src="{{ asset('front-theme-asset/primex') }}/js/script.js"></script> --}}
 </body>
 </html>
