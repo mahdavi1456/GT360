@@ -101,7 +101,7 @@
 
 		<div class="row mt">
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port04.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port04.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Post 1</h4>
 					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
@@ -114,7 +114,7 @@
 			</div><!-- col-lg-4 -->
 
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port05.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port05.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Post 2</h4>
 					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
@@ -127,7 +127,7 @@
 			</div><!-- col-lg-4 -->
 
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port06.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port06.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Post 3</h4>
 					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
@@ -166,7 +166,7 @@
 		</div><!-- /row -->
 		<div class="row mt centered">
 			<div class="col-lg-4 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port01.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port01.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Project 1</h4>
 					  	<p class="b-from-right b-animate b-delay03">View Details</p>
@@ -175,7 +175,7 @@
 				<p>APE - <i class="fa fa-heart-o"></i></p>
 			</div>
 			<div class="col-lg-4 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port02.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port02.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Project 2</h4>
 					  	<p class="b-from-right b-animate b-delay03">View Details</p>
@@ -184,7 +184,7 @@
 				<p>RAIDERS - <i class="fa fa-heart-o"></i></p>
 			</div>
 			<div class="col-lg-4 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port03.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port03.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Project 3</h4>
 					  	<p class="b-from-right b-animate b-delay03">View Details</p>
@@ -195,7 +195,7 @@
 		</div><!-- /row -->
 		<div class="row mt centered">
 			<div class="col-lg-4 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port03.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port03.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Project 4</h4>
 					  	<p class="b-from-right b-animate b-delay03">View Details</p>
@@ -204,7 +204,7 @@
 				<p>APE - <i class="fa fa-heart-o"></i></p>
 			</div>
 			<div class="col-lg-4 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port01.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port01.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Project 5</h4>
 					  	<p class="b-from-right b-animate b-delay03">View Details</p>
@@ -213,7 +213,7 @@
 				<p>RAIDERS - <i class="fa fa-heart-o"></i></p>
 			</div>
 			<div class="col-lg-4 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="assets/img/portfolio/port02.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port02.jpg" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Project 6</h4>
 					  	<p class="b-from-right b-animate b-delay03">View Details</p>
