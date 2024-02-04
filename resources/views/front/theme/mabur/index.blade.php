@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>MABUR Bootstarp Website Template | Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/mabur') }}/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.min.js"></script>
 <!---- start-smoth-scrolling---->
@@ -24,13 +24,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</script>
 <!---- start-smoth-scrolling---->
 <!-- Custom Theme files -->
-<link href="css/theme-style.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/mabur') }}/css/theme-style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 </script>
 <!----font-Awesome----->
-<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ asset('front-theme-asset/mabur') }}/fonts/css/font-awesome.min.css">
 <!----font-Awesome----->
 <!----webfonts---->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
