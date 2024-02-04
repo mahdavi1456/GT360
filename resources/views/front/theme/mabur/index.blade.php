@@ -10,13 +10,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>MABUR Bootstarp Website Template | Home :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
+<script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.min.js"></script>
 <!---- start-smoth-scrolling---->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="{{ asset('front-theme-asset/mabur') }}/js/move-top.js"></script>
+<script type="text/javascript" src="{{ asset('front-theme-asset/mabur') }}/js/easing.js"></script>
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
+				$(".scroll").click(function(event){
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
@@ -63,7 +63,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="container">
 				<!---- start-logo---->
 				<div class="logo">
-					<a href="index.html"><img src="images/logo.png" title="Mabur" /></a>
+					<a href="index.html"><img src="{{ asset('front-theme-asset/mabur') }}/images/logo.png" title="Mabur" /></a>
 				</div>
 				<!---- //End-logo---->
 				<!----start-top-nav---->
@@ -76,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li class="page-scroll"><a href="#test" class="scroll">Testimonials</a></li>
 						<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Contact</a></li>
 					</ul>
-					<a href="#" id="pull"><img src="images/nav-icon.png" title="menu" /></a>
+					<a href="#" id="pull"><img src="{{ asset('front-theme-asset/mabur') }}/images/nav-icon.png" title="menu" /></a>
 				</nav>
 				<div class="clearfix"> </div>
 				<div class="slide-text text-center">
@@ -171,12 +171,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!----start-portfolio---->
                <div id="port" class="portfolio-main">
 	        	<!---- start-portfolio-script----->
-					<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+					<script type="text/javascript" src="{{ asset('front-theme-asset/mabur') }}/js/jquery.mixitup.min.js"></script>
 					<script type="text/javascript">
 						$(function () {
 							var filterList = {
 								init: function () {
-								
+
 									// MixItUp plugin
 									// http://mixitup.io
 									$('#portfoliolist').mixitup({
@@ -186,28 +186,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										easing: 'snap',
 										// call the hover effect
 										onMixEnd: filterList.hoverEffect()
-									});				
-								
+									});
+
 								},
 								hoverEffect: function () {
 									// Simple parallax effect
 									$('#portfoliolist .portfolio').hover(
 										function () {
 											$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-											$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+											$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
 										},
 										function () {
 											$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-											$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
-										}		
-									);				
-								
+											$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+										}
+									);
+
 								}
-					
+
 							};
 							// Run the show!
 							filterList.init();
-						});	
+						});
 					</script>
 					<!----//End-portfolio-script----->
 					<ul id="filters" class="clearfix">
@@ -217,7 +217,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</ul>
 					<div id="portfoliolist">
 					<div class="portfolio logo1 mix_all" data-cat="logo" style="display: inline-block; opacity: 1;">
-						<div class="portfolio-wrapper">	
+						<div class="portfolio-wrapper">
 							<div class="port-grid">
 								<div class="port-grid-text">
 									<p>//Lorem Ipsum</p>
@@ -225,15 +225,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="port-grid-pic block last">
 									<a href="#" class="b-link-stripe b-animate-go  thickbox">
-								     <img src="images/p1.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/plus.png" alt=""/></h2>
+								     <img src="{{ asset('front-theme-asset/mabur') }}/images/p1.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/mabur') }}/images/plus.png" alt=""/></h2>
 								  	</div></a>
 								</div>
 								<div class="clearfix"> </div>
-							</div>	
+							</div>
 		                </div>
-					</div>				
+					</div>
 					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
-						<div class="portfolio-wrapper">		
+						<div class="portfolio-wrapper">
 							<div class="port-grid">
 								<div class="port-grid-text port-grid-text-c">
 									<p>//Lorem Ipsum</p>
@@ -241,15 +241,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="port-grid-pic block last">
 									<a href="#" class="b-link-stripe b-animate-go  thickbox">
-								     <img src="images/p2.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/plus.png" alt=""/></h2>
+								     <img src="{{ asset('front-theme-asset/mabur') }}/images/p2.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/mabur') }}/images/plus.png" alt=""/></h2>
 								  	</div></a>
 								</div>
 								<div class="clearfix"> </div>
-							</div>	
+							</div>
 		                </div>
-					</div>		
+					</div>
 					<div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
-						<div class="portfolio-wrapper">		
+						<div class="portfolio-wrapper">
 							<div class="port-grid">
 								<div class="port-grid-text port-grid-text-c">
 									<p>//Lorem Ipsum</p>
@@ -257,19 +257,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="port-grid-pic block last">
 									<a href="#" class="b-link-stripe b-animate-go  thickbox">
-								     <img src="images/p3.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/plus.png" alt=""/></h2>
+								     <img src="{{ asset('front-theme-asset/mabur') }}/images/p3.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/mabur') }}/images/plus.png" alt=""/></h2>
 								  	</div></a>
 								</div>
 								<div class="clearfix"> </div>
-							</div>	
+							</div>
 		                </div>
-					</div>				
+					</div>
 					<div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
-						<div class="portfolio-wrapper">		
+						<div class="portfolio-wrapper">
 							<div class="port-grid">
 								<div class="port-grid-pic block last">
 									<a href="#" class="b-link-stripe b-animate-go  thickbox">
-								     <img src="images/p4.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/plus.png" alt=""/></h2>
+								     <img src="{{ asset('front-theme-asset/mabur') }}/images/p4.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/mabur') }}/images/plus.png" alt=""/></h2>
 								  	</div></a>
 								</div>
 								<div class="port-grid-text port-grid-text-c">
@@ -277,15 +277,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<label class="arrow-icon1 arrow-icon1-r"> </label>
 								</div>
 								<div class="clearfix"> </div>
-							</div>	
+							</div>
 		                </div>
-					</div>	
+					</div>
 					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
-						<div class="portfolio-wrapper">		
+						<div class="portfolio-wrapper">
 							<div class="port-grid">
 								<div class="port-grid-pic block last">
 									<a href="#" class="b-link-stripe b-animate-go  thickbox">
-								     <img src="images/p5.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/plus.png" alt=""/></h2>
+								     <img src="{{ asset('front-theme-asset/mabur') }}/images/p5.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/mabur') }}/images/plus.png" alt=""/></h2>
 								  	</div></a>
 								</div>
 								<div class="port-grid-text port-grid-text-c">
@@ -293,15 +293,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<label class="arrow-icon1  arrow-icon1-r"> </label>
 								</div>
 								<div class="clearfix"> </div>
-							</div>	
+							</div>
 		                </div>
-					</div>			
+					</div>
 					<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
-						<div class="portfolio-wrapper">		
+						<div class="portfolio-wrapper">
 							<div class="port-grid">
 								<div class="port-grid-pic block last">
 									<a href="#" class="b-link-stripe b-animate-go  thickbox">
-								     <img src="images/p6.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="images/plus.png" alt=""/></h2>
+								     <img src="{{ asset('front-theme-asset/mabur') }}/images/p6.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 "><img src="{{ asset('front-theme-asset/mabur') }}/images/plus.png" alt=""/></h2>
 								  	</div></a>
 								</div>
 								<div class="port-grid-text port-grid-text-c">
@@ -309,10 +309,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<label class="arrow-icon1  arrow-icon1-r"> </label>
 								</div>
 								<div class="clearfix"> </div>
-							</div>	
+							</div>
 		                </div>
-					</div>	
-					<div class="clearfix"> </div>	
+					</div>
+					<div class="clearfix"> </div>
 				</div>
 		</div>
 		</div>
@@ -406,7 +406,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a.</p>
 						</div>
 						<div class="col-md-3 test-monial-time-line-left-pic">
-							<img src="images/pic1.jpg" title="name" />
+							<img src="{{ asset('front-theme-asset/mabur') }}/images/pic1.jpg" title="name" />
 							<a href="#">John Doe</a>
 						</div>
 						<span class="grid-point"> </span>
@@ -415,7 +415,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-6 test-monial-time-line-right">
 					<div class="test-monial-time-line-grid test-monial-time-line-grid-r1">
 						<div class="col-md-3 test-monial-time-line-left-pic">
-							<img src="images/pic2.png" title="name" />
+							<img src="{{ asset('front-theme-asset/mabur') }}/images/pic2.png" title="name" />
 							<a href="#">John Doe</a>
 						</div>
 						<div class="col-md-9 test-monial-time-line-left-text">
@@ -425,7 +425,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="test-monial-time-line-grid test-monial-time-line-grid-r2">
 						<div class="col-md-3 test-monial-time-line-left-pic">
-							<img src="images/pic2.png" title="name" />
+							<img src="{{ asset('front-theme-asset/mabur') }}/images/pic2.png" title="name" />
 							<a href="#">John Doe</a>
 						</div>
 						<div class="col-md-9 test-monial-time-line-left-text">
@@ -446,7 +446,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="clearfix"> </div>
 			<!----//End-testmonial-time-line---->
 			<!----start-contact---->
-				<div id="contact" class="contact"> 
+				<div id="contact" class="contact">
 					<div class="contact-map">
 						<iframe src="https://maps.google.com/maps?t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=embed&amp;q=United+States&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.359243,-91.525727&amp;spn=0.409036,0.837021&amp;z=11&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=embed&amp;q=United+States&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.359243,-91.525727&amp;spn=0.409036,0.837021&amp;z=11&amp;source=embed"> </a></small>
 					</div>
@@ -473,7 +473,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="footer">
 			<div class="container">
 				<div class="footer-left">
-					<a href="#"><img src="images/footer-logo.png" title="mabur" /></a>
+					<a href="#"><img src="{{ asset('front-theme-asset/mabur') }}/images/footer-logo.png" title="mabur" /></a>
 					<p>Template by <a href="http://w3layouts.com/">W3layouts</a></p>
 				</div>
 				<script type="text/javascript">
@@ -483,12 +483,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			  			containerID: 'toTop', // fading element id
 						containerHoverID: 'toTopHover', // fading element hover id
 						scrollSpeed: 1200,
-						easingType: 'linear' 
+						easingType: 'linear'
 			 		};
 					*/
-					
+
 					$().UItoTop({ easingType: 'easeOutQuart' });
-					
+
 				});
 			</script>
 				<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
