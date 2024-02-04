@@ -253,12 +253,12 @@
 						</div>
 						<div class="col-md-3">
 							<a href="{{ asset('front-theme-asset/ninestars') }}/img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/4.jpg" class="img-responsive" alt="img">
+								<img src="{{ asset('front-theme-asset/ninestars') }}img/works/4.jpg" class="img-responsive" alt="img">
 							</a>
 						</div>
 						<div class="col-md-3">
-							<a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/5.jpg" class="img-responsive" alt="img">
+							<a href="{{ asset('front-theme-asset/ninestars') }}img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+								<img src="{{ asset('front-theme-asset/ninestars') }}img/works/5.jpg" class="img-responsive" alt="img">
 							</a>
 						</div>
 						<div class="col-md-3">
@@ -267,8 +267,8 @@
 							</a>
 						</div>
 						<div class="col-md-3">
-							<a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
-								<img src="img/works/7.jpg" class="img-responsive" alt="img">
+							<a href="{{ asset('front-theme-asset/ninestars') }}img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg">
+								<img src="{{ asset('front-theme-asset/ninestars') }}img/works/7.jpg" class="img-responsive" alt="img">
 							</a>
 						</div>
 						<div class="col-md-3">
