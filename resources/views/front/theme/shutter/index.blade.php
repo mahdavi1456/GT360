@@ -8,14 +8,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Shutter Bootstarp Website Template | Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/shutter') }}/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!--<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <script src="js/bootstrap.min.js"></script>-->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/shutter') }}/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
+<script src="{{ asset('front-theme-asset/shutter') }}/js/jquery.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/shutter') }}/css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -24,25 +24,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,500,700,900' rel='stylesheet' type='text/css'>
 <!----//webfonts---->
 <!----//requred-js-files---->
-<script src="js/easing.js"></script>
-	<script type="text/javascript" 	src="js/jquery.smint.js"></script>
+<script src="{{ asset('front-theme-asset/shutter') }}/js/easing.js"></script>
+	<script type="text/javascript" 	src="{{ asset('front-theme-asset/shutter') }}/js/jquery.smint.js"></script>
 		<script type="text/javascript">
 			$(document).ready( function() {
 			    $('.subMenu').smint({
 			    	'scrollSpeed' : 1000
 			    });
 			});
-		</script>	
+		</script>
 </head>
 <body>
 	<div class="header">
 		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+			<a href="index.html"><img src="{{ asset('front-theme-asset/shutter') }}/images/logo.png" alt=""/></a>
 		</div>
 	    <div class="slider_container sTop">
   		<div class="wmuSlider example1">
 			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
+				   <article style="position: absolute; width: 100%; opacity: 0;">
 				   	 <div class="banner-wrap">
 				   		 <div class="slider-left">
 						    <h1>Never Stop Photographing</h1>
@@ -51,7 +51,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						 </div>
 					 </div>
 					</article>
-				   <article style="position: relative; width: 100%; opacity: 1;"> 
+				   <article style="position: relative; width: 100%; opacity: 1;">
 				   	 <div class="banner-wrap">
 				   		 <div class="slider-left">
 						    <h1>dolore eu feugiat nulla</h1>
@@ -77,17 +77,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </ul>
                 <div class="header_btn"><a class="btn2" href="#"><span>Come Closer</span></a></div>
               </div>
-              <script src="js/jquery.wmuSlider.js"></script> 
+              <script src="{{ asset('front-theme-asset/shutter') }}/js/jquery.wmuSlider.js"></script>
 				 <script>
-       			   $('.example1').wmuSlider();         
-   			     </script> 	           	     
-   	     </div>    
-	</div>  
+       			   $('.example1').wmuSlider();
+   			     </script>
+   	     </div>
+	</div>
 	<nav class="subMenu navbar-custom navbar-scroll-top smint" role="navigation" style="position: absolute; top: 737px;">
 	        <div class="container">
 	            <div class="navbar-header page-scroll">
 	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-main-collapse">
-	                    <img src="images/nav-icon.png" title="drop-down-menu"> 
+	                    <img src="{{ asset('front-theme-asset/shutter') }}/images/nav-icon.png" title="drop-down-menu">
 	                </button>
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
@@ -124,10 +124,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	  <div class="portfolio_box">
 		<div class="col_1_of_4 span_1_of_4">
 	 	   <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p1.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p1.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -137,10 +137,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	    <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p2.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p2.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -150,10 +150,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	    <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p3.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p3.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -163,10 +163,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	   <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p4.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p4.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -179,10 +179,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="portfolio_box">
 		<div class="col_1_of_4 span_1_of_4">
 	 	   <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p5.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p5.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -192,10 +192,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	    <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p6.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p6.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -205,10 +205,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	    <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p7.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p7.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -218,10 +218,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	   <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p8.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p8.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -234,10 +234,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="portfolio_box">
 		<div class="col_1_of_4 span_1_of_4">
 	 	   <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p9.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p9.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -247,10 +247,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	    <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p10.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p10.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -260,10 +260,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	    <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p11.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p11.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -273,10 +273,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="col_1_of_4 span_1_of_4">
 	 	   <a href="#" class="b-link-stripe b-animate-go  thickbox">
-			<img src="images/p12.jpg" class="img-responsive" alt=""/>
+			<img src="{{ asset('front-theme-asset/shutter') }}/images/p12.jpg" class="img-responsive" alt=""/>
 			    <div class="b-wrapper">
 				   <h2 class="b-animate b-from-left    b-delay03 ">
-					 <img src="images/p_logo.png" class="img-responsive" alt=""/>
+					 <img src="{{ asset('front-theme-asset/shutter') }}/images/p_logo.png" class="img-responsive" alt=""/>
 					 <span>Shutter Project title</span>
 					 <button>View photo</button>
 					 <label> <i class="heart"> </i>21</label>
@@ -345,22 +345,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    			<p class="m_5">nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan</p>
    			<div class="row text-center">
    				<div class="col-md-3 about-grid text-center">
-   				  <img src="images/pic1.png" class="img-responsive" alt=""/>
+   				  <img src="{{ asset('front-theme-asset/shutter') }}/images/pic1.png" class="img-responsive" alt=""/>
    				  <h3><a href="#">John Doe<br>General Manager</a></h3>
    				  <p>diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation </p>
    				</div>
    				<div class="col-md-3 about-grid text-center">
-   				  <img src="images/pic3.png" class="img-responsive" alt=""/>
+   				  <img src="{{ asset('front-theme-asset/shutter') }}/images/pic3.png" class="img-responsive" alt=""/>
    				  <h3><a href="#">John Doe<br>General Manager</a></h3>
    				  <p>diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation </p>
    				</div>
    				<div class="col-md-3 about-grid text-center">
-   				  <img src="images/pic2.png" class="img-responsive" alt=""/>
+   				  <img src="{{ asset('front-theme-asset/shutter') }}/images/pic2.png" class="img-responsive" alt=""/>
    				  <h3><a href="#">John Doe<br>General Manager</a></h3>
    				  <p>diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation </p>
    				</div>
    				<div class="col-md-3 about-grid text-center">
-   				  <img src="images/pic4.png" class="img-responsive" alt=""/>
+   				  <img src="{{ asset('front-theme-asset/shutter') }}/images/pic4.png" class="img-responsive" alt=""/>
    				  <h3><a href="#">John Doe<br>General Manager</a></h3>
    				  <p>diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation </p>
    				</div>
@@ -401,18 +401,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
    			<div class="copy">
 		       <p>&copy; 2014 Template by <a href="http://w3layouts.com" target="_blank"> w3layouts</a></p>
 		    </div>
-		    <div class="social">	
-		      <ul>	
+		    <div class="social">
+		      <ul>
 			   <li class="facebook"><a href="#"><span> </span></a></li>
 			   <li class="twitter"><a href="#"><span> </span></a></li>
-			   <li class="rss"><a href="#"><span> </span></a></li>	
-			   <li class="google"><a href="#"><span> </span></a></li>			
+			   <li class="rss"><a href="#"><span> </span></a></li>
+			   <li class="google"><a href="#"><span> </span></a></li>
 		     </ul>
 			</div>
 			<div class="clearfix"></div>
    		</div>
    	</div>
-   	<script src="js/bootstrap.min.js"></script>
+   	<script src="{{ asset('front-theme-asset/shutter') }}/js/bootstrap.min.js"></script>
 </body>
 </html>
 
