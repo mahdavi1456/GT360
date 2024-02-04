@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- css -->
-    <link href="{{ asset('front-theme-asset/mabur') }}/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="{{ asset('front-theme-asset/mabur') }}/css/style.css" rel="stylesheet" media="screen">
-	<link href="{{ asset('front-theme-asset/mabur') }}/color/default.css" rel="stylesheet" media="screen">
+    <link href="{{ asset('front-theme-asset/mamba') }}/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{ asset('front-theme-asset/mamba') }}/css/style.css" rel="stylesheet" media="screen">
+	<link href="{{ asset('front-theme-asset/mamba') }}/color/default.css" rel="stylesheet" media="screen">
       </head>
   <body>
 	<div class="menu-area">
@@ -71,28 +71,28 @@
 			  <div class="row">
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 					<div class="box-team wow bounceInDown" data-wow-delay="0.1s">
-                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/1.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mamba') }}/img/team/1.jpg" alt="" class="img-responsive" />
                     <h4>Kurt coleman</h4>
                     <p>Art Director</p>
 					</div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
 					<div class="box-team wow bounceInDown">
-                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/2.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mamba') }}/img/team/2.jpg" alt="" class="img-responsive" />
                     <h4>Isobel lyna</h4>
                     <p>Web Designer</p>
 					</div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.5s">
 					<div class="box-team wow bounceInDown">
-                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/3.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mamba') }}/img/team/3.jpg" alt="" class="img-responsive" />
                     <h4>Leslie gutierrez</h4>
                     <p>Illustrator</p>
 					</div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.7s">
 					<div class="box-team wow bounceInDown">
-                    <img src="{{ asset('front-theme-asset/mabur') }}/img/team/4.jpg" alt="" class="img-responsive" />
+                    <img src="{{ asset('front-theme-asset/mamba') }}/img/team/4.jpg" alt="" class="img-responsive" />
                     <h4>Letitia pena</h4>
                     <p>Typographer</p>
 					</div>
@@ -180,12 +180,12 @@
 					<ul class="lb-album">
 						<li>
 							<a href="#image-1">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/1.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/1.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-1">
 								<a href="#page" class="lb-close">X</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/1.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/1.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -195,12 +195,12 @@
 						</li>
 						<li>
 							<a href="#image-2">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/2.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/2.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-2">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/2.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/2.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -210,12 +210,12 @@
 						</li>
 						<li>
 							<a href="#image-3">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/3.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/3.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-3">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/3.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/3.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -225,12 +225,12 @@
 						</li>
 						<li>
 							<a href="#image-4">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/4.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/4.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-4">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/4.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/4.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -241,12 +241,12 @@
 
 						<li>
 							<a href="#image-5">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/5.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/5.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-5">
 								<a href="#page" class="lb-close">X</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/5.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/5.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -256,12 +256,12 @@
 						</li>
 						<li>
 							<a href="#image-6">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/6.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/6.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-6">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/6.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/6.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -271,12 +271,12 @@
 						</li>
 						<li>
 							<a href="#image-7">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/7.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/7.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-7">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/7.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/7.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -286,12 +286,12 @@
 						</li>
 						<li>
 							<a href="#image-8">
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/thumbs/8.jpg" alt="">
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/thumbs/8.jpg" alt="">
 								<span>+</span>
 							</a>
 							<div class="lb-overlay" id="image-8">
 								<a href="#page" class="lb-close">x Close</a>
-								<img src="{{ asset('front-theme-asset/mabur') }}/img/works/8.jpg" alt="" />
+								<img src="{{ asset('front-theme-asset/mamba') }}/img/works/8.jpg" alt="" />
 								<div>
 									<h3>Sleek <span>/Design/</h3>
 									<p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>
@@ -413,11 +413,11 @@
 	</footer>
 
 	 <!-- js -->
-    <script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.js"></script>
-    <script src="{{ asset('front-theme-asset/mabur') }}/js/bootstrap.min.js"></script>
-	<script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.smooth-scroll.min.js"></script>
-	<script src="{{ asset('front-theme-asset/mabur') }}/js/jquery.dlmenu.js"></script>
-	<script src="{{ asset('front-theme-asset/mabur') }}/js/wow.min.js"></script>
-	<script src="{{ asset('front-theme-asset/mabur') }}/js/custom.js"></script>
+    <script src="{{ asset('front-theme-asset/mamba') }}/js/jquery.js"></script>
+    <script src="{{ asset('front-theme-asset/mamba') }}/js/bootstrap.min.js"></script>
+	<script src="{{ asset('front-theme-asset/mamba') }}/js/jquery.smooth-scroll.min.js"></script>
+	<script src="{{ asset('front-theme-asset/mamba') }}/js/jquery.dlmenu.js"></script>
+	<script src="{{ asset('front-theme-asset/mamba') }}/js/wow.min.js"></script>
+	<script src="{{ asset('front-theme-asset/mamba') }}/js/custom.js"></script>
 
 </html>
