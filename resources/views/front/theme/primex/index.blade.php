@@ -186,7 +186,7 @@
         <div class="grid_6">
             <div class="wrap_6">
                 <div class="box_2 maxheight2">
-                    <div class="put-left"><img src="images/index_img01.png" alt="Image 1"/></div>
+                    <div class="put-left"><img src="{{ asset('front-theme-asset/primex') }}/images/index_img01.png" alt="Image 1"/></div>
                     <div class="caption">
                         <h3 class="text_2 color_2">
                             Save Your Time <br/>
@@ -205,7 +205,7 @@
         <div class="grid_6">
                 <div class="wrap_6">
                     <div class="box_2 maxheight2">
-                        <div class="put-left"><img src="images/index_img02.png" alt="Image 2"/></div>
+                        <div class="put-left"><img src="{{ asset('front-theme-asset/primex') }}/images/index_img02.png" alt="Image 2"/></div>
                         <div class="caption">
                             <h3 class="text_2 color_2">
                                 The Highest <br/>
