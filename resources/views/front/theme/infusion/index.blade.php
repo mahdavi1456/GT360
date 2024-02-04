@@ -39,7 +39,7 @@
 		</header>
     <div class="banner">
     <ul>
-        <li style="background-image: url('img/01.jpg');">
+        <li style="background-image: url('{{ asset('front-theme-asset/infusion') }}/img/01.jpg');">
           <div class="container">
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
@@ -52,7 +52,7 @@
             </div>
           </div>
         </li>
-        <li style="background-image: url('img/02.jpg');">
+        <li style="background-image: url('{{ asset('front-theme-asset/infusion') }}/img/02.jpg');">
           <div class="container">
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
@@ -294,7 +294,7 @@
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{{ asset('front-theme-asset/infusion') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('front-theme-asset/infusion') }}/bootstrap.min.js"></script>
     <script src="{{ asset('front-theme-asset/infusion') }}/js/scripts.js"></script>
     <script src="{{ asset('front-theme-asset/infusion') }}/js/unslider.min.js"></script>
   </body>
