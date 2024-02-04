@@ -6,18 +6,18 @@
 <title>Kreative</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
+<link rel="{{ asset('front-theme-asset/kreative') }}/stylesheet" href="{{ asset('front-theme-asset/kreative') }}/css/base.css">
+<link rel="{{ asset('front-theme-asset/kreative') }}/stylesheet" href="{{ asset('front-theme-asset/kreative') }}/css/layout.css">
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <![endif]-->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="{{ asset('front-theme-asset/kreative') }}/images/favicon.ico">
 </head>
 <body data-spy="scroll" data-target="#nav-wrap">
 <header class="mobile">
   <div class="row">
     <div class="col full">
-      <div class="logo"> <a href="#"><img alt="" src="images/logo.png"></a> </div>
+      <div class="logo"> <a href="#"><img alt="" src="{{ asset('front-theme-asset/kreative') }}/images/logo.png"></a> </div>
       <nav id="nav-wrap"> <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
          <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
         <ul id="nav" class="nav">
@@ -110,28 +110,28 @@
   <div class="row">
     <div id="portfolio-wrapper">
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-01"><img src="images/portfolio/cosmic-sneakers.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-01"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/cosmic-sneakers.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Cosmic Sneakers</a></h5>
           </div>
         </div>
       </div>
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-02"><img src="images/portfolio/milk-splash.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-02"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/milk-splash.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Milk Splash</a></h5>
           </div>
         </div>
       </div>
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-03"><img src="images/portfolio/eve.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-03"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/eve.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Eve</a></h5>
           </div>
         </div>
       </div>
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-04"><img src="images/portfolio/sneaker-splash.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-04"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/sneaker-splash.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Sneaker Splash</a></h5>
           </div>
@@ -145,21 +145,21 @@
         </div>
       </div>
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-06"><img src="images/portfolio/vector-flower.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-06"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/vector-flower.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Vector Flower</a></h5>
           </div>
         </div>
       </div>
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-07"><img src="images/portfolio/clock.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-07"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/clock.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Clock</a></h5>
           </div>
         </div>
       </div>
       <div class="col portfolio-item">
-        <div class="item-wrap"> <a href="#" data-reveal-id="modal-08"><img src="images/portfolio/fields.jpg" alt=""></a>
+        <div class="item-wrap"> <a href="#" data-reveal-id="modal-08"><img src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/fields.jpg" alt=""></a>
           <div class="portfolio-item-meta">
             <h5><a href="#">Fields</a></h5>
           </div>
@@ -167,56 +167,56 @@
       </div>
     </div>
   </div>
-  <div id="modal-01" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-cosmic-sneakers.jpg" alt="">
+  <div id="modal-01" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-cosmic-sneakers.jpg" alt="">
     <div class="description-box">
       <h4>The Cosmic Sneakers</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
       <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span> </div>
     <div class="link-box"> <a href="#">Details</a> <a class="close-reveal-modal">Close</a> </div>
   </div>
-  <div id="modal-02" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-milk-splash.jpg" alt="">
+  <div id="modal-02" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-milk-splash.jpg" alt="">
     <div class="description-box">
       <h4>Milk Splash</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
       <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span></div>
     <div class="link-box"> <a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
   </div>
-  <div id="modal-03" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-eve.jpg" alt="">
+  <div id="modal-03" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-eve.jpg" alt="">
     <div class="description-box">
       <h4>Eve</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
       <span class="categories"><i class="icon-tag"></i>Photography, Branding</span></div>
     <div class="link-box"> <a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
   </div>
-  <div id="modal-04" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-sneaker-splash.jpg" alt="">
+  <div id="modal-04" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-sneaker-splash.jpg" alt="">
     <div class="description-box">
       <h4>Sneaker Splash</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
       <span class="categories"><i class="icon-tag"></i>Photography, Branding</span></div>
     <div class="link-box"> <a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
   </div>
-  <div id="modal-05" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-judah.jpg" alt="">
+  <div id="modal-05" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-judah.jpg" alt="">
     <div class="description-box">
       <h4>Judah</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
       <span class="categories"><i class="icon-tag"></i>Photography, Web Design</span> </div>
     <div class="link-box"> <a href="#">Details</a> <a class="close-reveal-modal">Close</a> </div>
   </div>
-  <div id="modal-06" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-vector-flower.jpg" alt="">
+  <div id="modal-06" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-vector-flower.jpg" alt="">
     <div class="description-box">
       <h4>Vector Flower</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
       <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span></div>
     <div class="link-box"> <a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
   </div>
-  <div id="modal-07" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-clock.jpg" alt="">
+  <div id="modal-07" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-clock.jpg" alt="">
     <div class="description-box">
       <h4>Clock</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
       <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span></div>
     <div class="link-box"> <a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
   </div>
-  <div id="modal-08" class="reveal-modal"> <img class="scale-with-grid" src="images/portfolio/modals/m-fields.jpg" alt="">
+  <div id="modal-08" class="reveal-modal"> <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative') }}/images/portfolio/modals/m-fields.jpg" alt="">
     <div class="description-box">
       <h4>Fields</h4>
       <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
@@ -234,7 +234,7 @@
   <div class="blog-entries">
     <article class="entry">
       <div class="row entry-header">
-        <div class="author-image"> <img src="images/user-03.png" alt=""></div>
+        <div class="author-image"> <img src="{{ asset('front-theme-asset/kreative') }}/images/user-03.png" alt=""></div>
         <div class="col g-9 offset-1 entry-title">
           <h3><a href="blog-single.html">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h3>
         </div>
@@ -252,7 +252,7 @@
     </article>
     <article class="entry">
       <div class="row entry-header">
-        <div class="author-image"> <img src="images/user-03.png" alt=""></div>
+        <div class="author-image"> <img src="{{ asset('front-theme-asset/kreative') }}/images/user-03.png" alt=""></div>
         <div class="col g-9 offset-1 entry-title">
           <h3><a href="blog-single.html">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed.</a></h3>
         </div>
@@ -270,7 +270,7 @@
     </article>
     <article class="entry">
       <div class="row entry-header">
-        <div class="author-image"> <img src="images/user-03.png" alt=""></div>
+        <div class="author-image"> <img src="{{ asset('front-theme-asset/kreative') }}/images/user-03.png" alt=""></div>
         <div class="col g-9 offset-1 entry-title">
           <h3><a href="blog-single.html">Quis autem vel esse eum iure reprehenderit qui in ea voluptate velit esse.</a></h3>
         </div>
@@ -327,7 +327,7 @@
     </div>
   </div>
   <div class="row team-wrap">
-    <div class="col one-fourth"> <img src="images/team/team-img-01.jpg" alt="">
+    <div class="col one-fourth"> <img src="{{ asset('front-theme-asset/kreative') }}/images/team/team-img-01.jpg" alt="">
       <div class"member-name">
         <h5>Naruto Uzumaki</h5>
         <span>Director</span> </div>
@@ -339,7 +339,7 @@
         <li><a href="#"><i class="icon-skype"></i></a></li>
       </ul>
     </div>
-    <div class="col one-fourth"> <img src="images/team/team-img-02.jpg" alt="">
+    <div class="col one-fourth"> <img src="{{ asset('front-theme-asset/kreative') }}/images/team/team-img-02.jpg" alt="">
       <div class"member-name">
         <h5>Sakura Haruno</h5>
         <span>Director</span> </div>
@@ -351,7 +351,7 @@
         <li><a href="#"><i class="icon-skype"></i></a></li>
       </ul>
     </div>
-    <div class="col one-fourth"> <img src="images/team/team-img-03.jpg" alt="">
+    <div class="col one-fourth"> <img src="{{ asset('front-theme-asset/kreative') }}/images/team/team-img-03.jpg" alt="">
       <div class"member-name">
         <h5>Sasuke Uchiha</h5>
         <span>Senior Web Designer</span> </div>
@@ -363,7 +363,7 @@
         <li><a href="#"><i class="icon-skype"></i></a></li>
       </ul>
     </div>
-    <div class="col one-fourth"> <img src="images/team/team-img-03.jpg" alt="">
+    <div class="col one-fourth"> <img src="{{ asset('front-theme-asset/kreative') }}/images/team/team-img-03.jpg" alt="">
       <div class"member-name">
         <h5>Shikamaru Nara</h5>
         <span>Web Designer</span> </div>
@@ -384,7 +384,7 @@
   </div>
   <div class="row testimonials">
     <div class="col half">
-      <div class="client-author"> <img src="images/client-img.png" alt="">
+      <div class="client-author"> <img src="{{ asset('front-theme-asset/kreative') }}/images/client-img.png" alt="">
         <div class="name">
           <p>John Doe<span>Designer</span></p>
         </div>
@@ -394,7 +394,7 @@
       </div>
     </div>
     <div class="col half">
-      <div class="client-author"> <img src="images/client-img.png" alt="">
+      <div class="client-author"> <img src="{{ asset('front-theme-asset/kreative') }}/images/client-img.png" alt="">
         <div class="name">
           <p>Michael Smith<span>CEO</span></p>
         </div>
@@ -437,7 +437,7 @@
           </div>
           <div>
             <button class="submit">Submit</button>
-            <span id="image-loader"> <img src="images/loader.gif" alt=""> </span> </div>
+            <span id="image-loader"> <img src="{{ asset('front-theme-asset/kreative') }}/images/loader.gif" alt=""> </span> </div>
         </fieldset>
       </form>
       <div id="message-warning"></div>
@@ -478,14 +478,14 @@
     </div>
   </div>
 </footer>
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/scrollspy.js"></script>
-<script src="js/jquery.flexslider.js"></script>
-<script src="js/jquery.reveal.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/jquery-1.10.2.min.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/scrollspy.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/jquery.flexslider.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/jquery.reveal.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="js/gmaps.js"></script>
-<script src="js/init.js"></script>
-<script src="js/smoothscrolling.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/gmaps.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/init.js"></script>
+<script src="{{ asset('front-theme-asset/kreative') }}/js/smoothscrolling.js"></script>
 </body>
 </html>
