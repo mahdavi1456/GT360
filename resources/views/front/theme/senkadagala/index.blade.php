@@ -18,7 +18,7 @@
 	<meta name="keywords" content="web design, web development, branding, Social media marketing, print media design, digital design, HTML,CSS,XML,JavaScript">
 	<meta name="author" content="PixelMock">
 
-	<link rel="icon" type="image/png"  href="img/fav.png" />
+	<link rel="icon" type="image/png"  href="{{ asset('front-theme-asset/senkadagala') }}/img/fav.png" />
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top top-nav" role="navigation">
@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-          	<img src="img/pm-brand.png" title="PixelMock Logo">
+          	<img src="{{ asset('front-theme-asset/senkadagala') }}/img/pm-brand.png" title="PixelMock Logo">
           </a>
         </div>
         <div class="collapse navbar-collapse ">
@@ -68,7 +68,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<img class="{{ asset('front-theme-asset/senkadagala') }}/img-responsive" title="PixelMock Introduction" src="img/big-mac.jpg">
+						<img class="{{ asset('front-theme-asset/senkadagala') }}/img-responsive" title="PixelMock Introduction" src="{{ asset('front-theme-asset/senkadagala') }}/img/big-mac.jpg">
 					</div>
 					<div class="col-md-6 intro-text">
 						<h3 id="aboutus-title">What is Senkadagala?</h3>
@@ -120,7 +120,7 @@
 						</p>
 					</div>
 					<div class="col-sm-6 col-md-3 service-item">
-						<img src="img/web-dev.png" title="Web development" class="img-responsive">
+						<img src="{{ asset('front-theme-asset/senkadagala') }}/img/web-dev.png" title="Web development" class="img-responsive">
 						<h3>Web Development</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet dolor nec diam pharetra, eu sodales massa euismod.
