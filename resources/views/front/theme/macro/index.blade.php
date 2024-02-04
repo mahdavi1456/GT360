@@ -587,7 +587,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{{ asset('front-theme-asset/macro') }}/js/bootstrap.min.js"></script>
-    <script src="{{ asset('front-theme-asset/macro') }}/js/retina.js"></script>
+    {{-- <script src="{{ asset('front-theme-asset/macro') }}/js/retina.js"></script> --}}
 
 
   	<script>
