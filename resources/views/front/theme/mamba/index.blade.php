@@ -411,7 +411,7 @@
     <script src="{{ asset('front-theme-asset/mamba') }}/js/jquery.js"></script>
     <script src="{{ asset('front-theme-asset/mamba') }}/js/bootstrap.min.js"></script>
 	<script src="{{ asset('front-theme-asset/mamba') }}/js/jquery.smooth-scroll.min.js"></script>
-	<script src="{{ asset('front-theme-asset/mamba') }}/js/jquery.dlmenu.js"></script>
+	{{-- <script src="{{ asset('front-theme-asset/mamba') }}/js/jquery.dlmenu.js"></script> --}}
 	<script src="{{ asset('front-theme-asset/mamba') }}/js/wow.min.js"></script>
 	<script src="{{ asset('front-theme-asset/mamba') }}/js/custom.js"></script>
 
