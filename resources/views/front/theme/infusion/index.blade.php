@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Infusion WP Theme</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/queries.css">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/infusion') }}/css/styles.css">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/infusion') }}/css/queries.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	  <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
@@ -35,7 +35,7 @@
         </nav>
         <div class="pullcontainer">
         <a href="#" id="pull"><i class="fa fa-bars fa-2x"></i></a>
-        </div>     
+        </div>
 		</header>
     <div class="banner">
     <ul>
@@ -76,7 +76,7 @@
         <div class="col-md-3">
         <div class="ca-hover">
           <div class="carousel-img">
-            <img src="img/c01.jpg" alt="Carousel Img">
+            <img src="{{ asset('front-theme-asset/infusion') }}/img/c01.jpg" alt="Carousel Img">
           </div>
           <div class="carousel-avatar av1">
           </div>
@@ -91,7 +91,7 @@
         <div class="col-md-3">
         <div class="ca-hover">
           <div class="carousel-img">
-            <img src="img/c02.jpg" alt="Carousel Img">
+            <img src="{{ asset('front-theme-asset/infusion') }}/img/c02.jpg" alt="Carousel Img">
           </div>
           <div class="carousel-avatar av2">
           </div>
@@ -106,7 +106,7 @@
         <div class="col-md-3">
         <div class="ca-hover">
           <div class="carousel-img">
-            <img src="img/c03.jpg" alt="Carousel Img">
+            <img src="{{ asset('front-theme-asset/infusion') }}/img/c03.jpg" alt="Carousel Img">
           </div>
           <div class="carousel-avatar av3">
           </div>
@@ -121,7 +121,7 @@
         <div class="col-md-3">
         <div class="ca-hover">
           <div class="carousel-img">
-            <img src="img/c04.jpg" alt="Carousel Img">
+            <img src="{{ asset('front-theme-asset/infusion') }}/img/c04.jpg" alt="Carousel Img">
           </div>
           <div class="carousel-avatar av4">
           </div>
@@ -159,7 +159,7 @@
           <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed.</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa. Nullam condimentum mauris et rhoncus sagittis. Sed eu metus in diam tincidunt egestas non at odio.</p>
           <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean vitae lectus erat. Duis consequat laoreet velit. Mauris convallis, sapien sit amet scelerisque accumsan, felis urna aliquet nunc, viverra mollis odio tellus a nisl. Nulla lobortis lectus non rutrum viverra. Sed et molestie libero. Sed ut ultrices dui.</p>
-        </div>  
+        </div>
       </div>
     </div>
     </div>
@@ -175,27 +175,27 @@
     <div class="container-fluid container-articles">
       <div class="row articles">
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/01.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/01.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/02.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/02.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/03.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/03.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/04.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/04.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/05.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/05.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/06.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/06.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
       </div>
@@ -205,7 +205,7 @@
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/08.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/08.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
@@ -213,15 +213,15 @@
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/10.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/10.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/11.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/11.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
         <div class="col-md-2 article-img">
-          <a href="#"><img src="img/articles/12.jpg" alt=""></a>
+          <a href="#"><img src="{{ asset('front-theme-asset/infusion') }}/img/articles/12.jpg" alt=""></a>
           <div class="article-overlay"></div>
         </div>
       </div>
@@ -231,15 +231,15 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1 laptop-placeholder">
         <div class="slideshow">
-        <figure class="show"><img alt="" src="img/slider/slide-01.png" /></figure>
-        <figure><img alt="" src="img/slider/slide-02.png" /></figure>
-        <figure><img alt="" src="img/slider/slide-01.png" /></figure>
-        <figure><img alt="" src="img/slider/slide-02.png" /></figure>
+        <figure class="show"><img alt="" src="{{ asset('front-theme-asset/infusion') }}/img/slider/slide-01.png" /></figure>
+        <figure><img alt="" src="{{ asset('front-theme-asset/infusion') }}/img/slider/slide-02.png" /></figure>
+        <figure><img alt="" src="{{ asset('front-theme-asset/infusion') }}/img/slider/slide-01.png" /></figure>
+        <figure><img alt="" src="{{ asset('front-theme-asset/infusion') }}/img/slider/slide-02.png" /></figure>
         <span class="prev"><i class="fa fa-angle-left fa-4x"></i></span>
         <span class="next"><i class="fa fa-angle-right fa-4x"></i></span>
         </div>
         </div>
-        <div> 
+        <div>
         </div>
       </div>
     </div>
@@ -291,11 +291,11 @@
             </ul>
           </div>
         </div>
-      </div>  
+      </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/unslider.min.js"></script>
+    <script src="{{ asset('front-theme-asset/infusion') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('front-theme-asset/infusion') }}/js/scripts.js"></script>
+    <script src="{{ asset('front-theme-asset/infusion') }}/js/unslider.min.js"></script>
   </body>
 </html>
