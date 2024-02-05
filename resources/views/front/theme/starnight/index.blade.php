@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Starnight - A Sexy As Hell Free HTML5/CSS3 Template</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/starnight') }}/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/flexslider.css" type="text/css">
-    <link href="css/styles.css?v=1.6" rel="stylesheet">
-    <link href="css/queries.css?v=1.6" rel="stylesheet">
-    <link href="css/jquery.fancybox.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/starnight') }}/css/flexslider.css" type="text/css">
+    <link href="{{ asset('front-theme-asset/starnight') }}/css/styles.css?v=1.6" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/starnight') }}/css/queries.css?v=1.6" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/starnight') }}/css/jquery.fancybox.css" rel="stylesheet">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -84,15 +84,15 @@
               <div id="firstSlider">
                 <ul class="slides">
                   <li>
-                    <div class="avatar"><img src="img/av-blaz.png" alt="Blaz Robar"></div>
+                    <div class="avatar"><img src="{{ asset('front-theme-asset/starnight') }}/img/av-blaz.png" alt="Blaz Robar"></div>
                     <h1>I couldnt possibly use my own eyes to look at the stars, thansk Starnught App.</h1>
                   </li>
                   <li>
-                    <div class="avatar"><img src="img/av-pete.png" alt="Pete Finlan"></div>
+                    <div class="avatar"><img src="{{ asset('front-theme-asset/starnight') }}/img/av-pete.png" alt="Pete Finlan"></div>
                     <h1>Staring at the stars has given me feels like never before.</h1>
                   </li>
                   <li>
-                    <div class="avatar"><img src="img/av-doge.png" alt="Doge Finbar"></div>
+                    <div class="avatar"><img src="{{ asset('front-theme-asset/starnight') }}/img/av-doge.png" alt="Doge Finbar"></div>
                     <h1>Much flat, many design, so app. Wow.</h1>
                   </li>
                 </ul>
@@ -209,13 +209,13 @@
       </footer>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="js/jquery.fancybox.pack.js"></script>
+      <script src="{{ asset('front-theme-asset/starnight') }}/js/jquery.fancybox.pack.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/scripts.js?v=1.7"></script>
-      <script src="js/jquery.flexslider.js"></script>
-      <script src="js/jquery.smooth-scroll.js"></script>
-      <script src="js/modernizr.js"></script>
-      <script src="js/waypoints.min.js"></script>
+      <script src="{{ asset('front-theme-asset/starnight') }}/js/bootstrap.min.js"></script>
+      <script src="{{ asset('front-theme-asset/starnight') }}/js/scripts.js?v=1.7"></script>
+      <script src="{{ asset('front-theme-asset/starnight') }}/js/jquery.flexslider.js"></script>
+      <script src="{{ asset('front-theme-asset/starnight') }}/js/jquery.smooth-scroll.js"></script>
+      <script src="{{ asset('front-theme-asset/starnight') }}/js/modernizr.js"></script>
+      <script src="{{ asset('front-theme-asset/starnight') }}/js/waypoints.min.js"></script>
     </body>
   </html>

@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/img/favicon.ico">
+    {{-- <link rel="icon" href="assets/img/favicon.ico"> --}}
 
     <title>TS - Creative Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/ts') }}/assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/ts') }}/assets/css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/ts') }}/assets/css/style.css" rel="stylesheet">
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/ie10-viewport-bug-workaround.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,7 +46,7 @@
     <section class="features" id="features">
 			<div class="container">
 				<div class="row">
-				
+
 					<div data-wow-duration="500ms" class="sec-title text-center mb50 wow bounceInDown animated animated" style="visibility: visible; animation-duration: 500ms; animation-name: bounceInDown;">
 						<h2>Features</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
@@ -58,7 +58,7 @@
 							<div class="service-icon">
 								<i class="fa fa-github fa-2x"></i>
 							</div>
-							
+
 							<div class="service-desc">
 								<h3>Branding</h3>
 								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
@@ -66,14 +66,14 @@
 						</div>
 					</div>
 					<!-- end service item -->
-					
+
 					<!-- service item -->
 					<div data-wow-delay="500ms" data-wow-duration="500ms" class="col-md-4 wow fadeInUp animated" style="visibility: visible; animation-duration: 500ms; animation-delay: 500ms; animation-name: fadeInUp;">
 						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-pencil fa-2x"></i>
 							</div>
-							
+
 							<div class="service-desc">
 								<h3>Development</h3>
 								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
@@ -81,14 +81,14 @@
 						</div>
 					</div>
 					<!-- end service item -->
-					
+
 					<!-- service item -->
 					<div data-wow-delay="900ms" data-wow-duration="500ms" class="col-md-4 wow fadeInRight animated" style="visibility: visible; animation-duration: 500ms; animation-delay: 900ms; animation-name: fadeInRight;">
 						<div class="service-item">
 							<div class="service-icon">
 								<i class="fa fa-bullhorn fa-2x"></i>
 							</div>
-							
+
 							<div class="service-desc">
 								<h3>Consulting</h3>
 								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
@@ -96,22 +96,22 @@
 						</div>
 					</div>
 					<!-- end service item -->
-						
+
 				</div>
-			</div>	
-		</section>	
+			</div>
+		</section>
 
     <div class="container ptb">
       <div class="row">
-				
+
 		<div class="sec-title text-center">
 			<h2>Other Services We Provide</h2>
 			<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 		</div>
-															
-	  </div>	
+
+	  </div>
       <div class="row">
-        
+
         <div class="col-md-6">
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div><!--/col-md-6-->
@@ -123,7 +123,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <img src="assets/img/items.png" class="img-responsive" alt="">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/items.png" class="img-responsive" alt="">
         </div>
       </div><!--/row-->
     </div><!--/.container-->
@@ -131,15 +131,15 @@
     <div id="themesell-g">
       <div class="container">
       <div class="row">
-				
+
 		<div class="sec-title text-center">
 			<h2>Check some of our latest works.</h2>
 			<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 		</div>
-															
-	  </div>		  
+
+	  </div>
         <div class="row centered">
-          
+
           <div class="col-md-8 col-md-offset-2">
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text.<br/>It has roots in a piece of classical Latin literature.</p>
 
@@ -151,131 +151,131 @@
 
         <div class="portfolio-item graphic-design">
           <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
             <div class="he-view">
               <div class="bg a0" data-animate="fadeIn">
                 <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_09.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_09.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                 <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
                </div><!-- he bg -->
-            </div><!-- he view -->    
+            </div><!-- he view -->
           </div><!-- he wrap -->
         </div><!-- end col-12 -->
-                            
+
         <div class="portfolio-item web-design">
           <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_02.jpg" class="img-responsive" alt="">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_02.jpg" class="img-responsive" alt="">
             <div class="he-view">
               <div class="bg a0" data-animate="fadeIn">
                 <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_02.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class=" fa fa-search"></i></a>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_02.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class=" fa fa-search"></i></a>
                 <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
               </div><!-- he bg -->
-            </div><!-- he view -->    
-          </div><!-- he wrap -->
-        </div><!-- end col-12 -->
-        
-        <div class="portfolio-item graphic-design">
-          <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_03.jpg" class="img-responsive" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_03.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-              </div><!-- he bg -->
-            </div><!-- he view -->    
-          </div><!-- he wrap -->
-        </div><!-- end col-12 -->
-        
-        <div class="portfolio-item graphic-design">
-          <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_04.jpg" class="img-responsive" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-              </div><!-- he bg -->
-            </div><!-- he view -->    
-          </div><!-- he wrap -->
-        </div><!-- end col-12 -->
-                                        
-        <div class="portfolio-item books">
-          <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_05.jpg" class="img-responsive" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Book Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_05.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-              </div><!-- he bg -->
-            </div><!-- he view -->    
+            </div><!-- he view -->
           </div><!-- he wrap -->
         </div><!-- end col-12 -->
 
         <div class="portfolio-item graphic-design">
           <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_06.jpg" class="img-responsive" alt="">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_03.jpg" class="img-responsive" alt="">
             <div class="he-view">
               <div class="bg a0" data-animate="fadeIn">
                 <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_06.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-               </div><!-- he bg -->
-            </div><!-- he view -->    
-          </div><!-- he wrap -->
-        </div><!-- end col-12 -->
-                            
-        <div class="portfolio-item web-design">
-          <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_07.jpg" class="img-responsive" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_07.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_03.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                 <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
               </div><!-- he bg -->
-            </div><!-- he view -->    
+            </div><!-- he view -->
           </div><!-- he wrap -->
         </div><!-- end col-12 -->
-        
+
         <div class="portfolio-item graphic-design">
           <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_08.jpg" class="img-responsive" alt="">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_04.jpg" class="img-responsive" alt="">
             <div class="he-view">
               <div class="bg a0" data-animate="fadeIn">
                 <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_08.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                 <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
               </div><!-- he bg -->
-            </div><!-- he view -->    
+            </div><!-- he view -->
           </div><!-- he wrap -->
         </div><!-- end col-12 -->
-        
-        <div class="portfolio-item graphic-design">
-          <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_01.jpg" class="img-responsive" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_01.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-              </div><!-- he bg -->
-            </div><!-- he view -->    
-          </div><!-- he wrap -->
-        </div><!-- end col-12 -->
-                                        
+
         <div class="portfolio-item books">
           <div class="he-wrap tpl6">
-          <img src="assets/img/portfolio/portfolio_10.jpg" class="img-responsive" alt="">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_05.jpg" class="img-responsive" alt="">
             <div class="he-view">
               <div class="bg a0" data-animate="fadeIn">
                 <h3 class="a1" data-animate="fadeInDown">A Book Design Item</h3>
-                <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_10.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_05.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+              </div><!-- he bg -->
+            </div><!-- he view -->
+          </div><!-- he wrap -->
+        </div><!-- end col-12 -->
+
+        <div class="portfolio-item graphic-design">
+          <div class="he-wrap tpl6">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_06.jpg" class="img-responsive" alt="">
+            <div class="he-view">
+              <div class="bg a0" data-animate="fadeIn">
+                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_06.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+               </div><!-- he bg -->
+            </div><!-- he view -->
+          </div><!-- he wrap -->
+        </div><!-- end col-12 -->
+
+        <div class="portfolio-item web-design">
+          <div class="he-wrap tpl6">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_07.jpg" class="img-responsive" alt="">
+            <div class="he-view">
+              <div class="bg a0" data-animate="fadeIn">
+                <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_07.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+              </div><!-- he bg -->
+            </div><!-- he view -->
+          </div><!-- he wrap -->
+        </div><!-- end col-12 -->
+
+        <div class="portfolio-item graphic-design">
+          <div class="he-wrap tpl6">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_08.jpg" class="img-responsive" alt="">
+            <div class="he-view">
+              <div class="bg a0" data-animate="fadeIn">
+                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_08.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+              </div><!-- he bg -->
+            </div><!-- he view -->
+          </div><!-- he wrap -->
+        </div><!-- end col-12 -->
+
+        <div class="portfolio-item graphic-design">
+          <div class="he-wrap tpl6">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_01.jpg" class="img-responsive" alt="">
+            <div class="he-view">
+              <div class="bg a0" data-animate="fadeIn">
+                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_01.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+              </div><!-- he bg -->
+            </div><!-- he view -->
+          </div><!-- he wrap -->
+        </div><!-- end col-12 -->
+
+        <div class="portfolio-item books">
+          <div class="he-wrap tpl6">
+          <img src="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_10.jpg" class="img-responsive" alt="">
+            <div class="he-view">
+              <div class="bg a0" data-animate="fadeIn">
+                <h3 class="a1" data-animate="fadeInDown">A Book Design Item</h3>
+                <a data-rel="prettyPhoto" href="{{ asset('front-theme-asset/ts') }}/assets/img/portfolio/portfolio_10.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                 <a href="" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
               </div><!-- he bg -->
-            </div><!-- he view -->    
+            </div><!-- he view -->
           </div><!-- he wrap -->
         </div><!-- end col-12 -->
        </div><!-- portfolio -->
@@ -285,19 +285,19 @@
         <div class="row clients centered">
           <p class="mb">Some of our clients that I had the pleasure to working for.</p>
           <div class="col-sm-2 col-sm-offset-1">
-            <img src="assets/img/client1.png" alt="">
+            <img src="{{ asset('front-theme-asset/ts') }}/assets/img/client1.png" alt="">
           </div>
           <div class="col-sm-2">
-            <img src="assets/img/client3.png" alt="">
+            <img src="{{ asset('front-theme-asset/ts') }}/assets/img/client3.png" alt="">
           </div>
           <div class="col-sm-2">
-            <img src="assets/img/client2.png" alt="">
+            <img src="{{ asset('front-theme-asset/ts') }}/assets/img/client2.png" alt="">
           </div>
           <div class="col-sm-2">
-            <img src="assets/img/client4.png" alt="">
+            <img src="{{ asset('front-theme-asset/ts') }}/assets/img/client4.png" alt="">
           </div>
           <div class="col-sm-2">
-            <img src="assets/img/client5.png" alt="">
+            <img src="{{ asset('front-theme-asset/ts') }}/assets/img/client5.png" alt="">
           </div>
         </div><!--/row-->
       </div><!--/container-->
@@ -331,14 +331,14 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/retina-1.1.0.js"></script>
-    <script src="assets/js/jquery.hoverdir.js"></script>
-    <script src="assets/js/jquery.hoverex.min.js"></script>
-    <script src="assets/js/jquery.prettyPhoto.js"></script>
-    <script src="assets/js/jquery.isotope.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/jquery.min.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/bootstrap.min.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/retina-1.1.0.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/jquery.hoverdir.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/jquery.hoverex.min.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/jquery.prettyPhoto.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/jquery.isotope.min.js"></script>
+    <script src="{{ asset('front-theme-asset/ts') }}/assets/js/custom.js"></script>
 
 
     <script>
@@ -348,11 +348,11 @@
   var $container = $('.portfolio'),
     $items = $container.find('.portfolio-item'),
     portfolioLayout = 'fitRows';
-    
+
     if( $container.hasClass('portfolio-centered') ) {
       portfolioLayout = 'masonry';
     }
-        
+
     $container.isotope({
       filter: '*',
       animationEngine: 'best-available',
@@ -365,12 +365,12 @@
     masonry: {
     }
     }, refreshWaypoints());
-    
+
     function refreshWaypoints() {
       setTimeout(function() {
-      }, 1000);   
+      }, 1000);
     }
-        
+
     $('nav.portfolio-filter ul a').on('click', function() {
         var selector = $(this).attr('data-filter');
         $container.isotope({ filter: selector }, refreshWaypoints());
@@ -378,11 +378,11 @@
         $(this).addClass('active');
         return false;
     });
-    
-    function getColumnNumber() { 
-      var winWidth = $(window).width(), 
+
+    function getColumnNumber() {
+      var winWidth = $(window).width(),
       columnNumber = 1;
-    
+
       if (winWidth > 1200) {
         columnNumber = 5;
       } else if (winWidth > 950) {
@@ -395,31 +395,31 @@
         columnNumber = 1;
       }
         return columnNumber;
-      }       
-      
+      }
+
       function setColumns() {
-        var winWidth = $(window).width(), 
-        columnNumber = getColumnNumber(), 
+        var winWidth = $(window).width(),
+        columnNumber = getColumnNumber(),
         itemWidth = Math.floor(winWidth / columnNumber);
-        
-        $container.find('.portfolio-item').each(function() { 
-          $(this).css( { 
-          width : itemWidth + 'px' 
+
+        $container.find('.portfolio-item').each(function() {
+          $(this).css( {
+          width : itemWidth + 'px'
         });
       });
     }
-    
-    function setPortfolio() { 
+
+    function setPortfolio() {
       setColumns();
       $container.isotope('reLayout');
     }
-      
-    $container.imagesLoaded(function () { 
+
+    $container.imagesLoaded(function () {
       setPortfolio();
     });
-    
-    $(window).on('resize', function () { 
-    setPortfolio();          
+
+    $(window).on('resize', function () {
+    setPortfolio();
   });
 })(jQuery);
 </script>
