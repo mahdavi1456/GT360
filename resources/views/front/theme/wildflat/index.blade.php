@@ -21,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.min.js"></script>
     <!---//script---->
     <!-----768px-menu----->
-    <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
+    <link type="text/css" rel="stylesheet" href="{{ asset('front-theme-asset/wildflat') }}/css/jquery.mmenu.all.css" />
     <script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.mmenu.js"></script>
     <script type="text/javascript">
         //	The menu on the left
@@ -31,7 +31,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </script>
     <!-----//768px-menu----->
     <!---strat-slider---->
-    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/wildflat') }}/css/style2.css" />
     <script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/modernizr.custom.28468.js"></script>
     <!---//strat-slider---->
 </head>
