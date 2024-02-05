@@ -8,23 +8,23 @@
     <meta name="author" content="">
 
     <title>Shuffle bootstrap 3 one page template</title>
-	
+
     <!-- css -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-	<link href="css/nivo-lightbox.css" rel="stylesheet" />
-	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
-	<link href="css/owl.carousel.css" rel="stylesheet" media="screen" />
-    <link href="css/owl.theme.css" rel="stylesheet" media="screen" />
-	<link href="css/flexslider.css" rel="stylesheet" />
-	<link href="css/animate.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet">
-	<link href="color/default.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/shuffle') }}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('front-theme-asset/shuffle') }}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('front-theme-asset/shuffle') }}/css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="{{ asset('front-theme-asset/shuffle') }}/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('front-theme-asset/shuffle') }}/css/owl.carousel.css" rel="stylesheet" media="screen" />
+    <link href="{{ asset('front-theme-asset/shuffle') }}/css/owl.theme.css" rel="stylesheet" media="screen" />
+	<link href="{{ asset('front-theme-asset/shuffle') }}/css/flexslider.css" rel="stylesheet" />
+	<link href="{{ asset('front-theme-asset/shuffle') }}/css/animate.css" rel="stylesheet" />
+    <link href="{{ asset('front-theme-asset/shuffle') }}/css/style.css" rel="stylesheet">
+	<link href="{{ asset('front-theme-asset/shuffle') }}/color/default.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-	
+
 	<section id="intro" class="home-slide text-light">
 
 		<!-- Carousel -->
@@ -38,7 +38,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
-			    	<img src="img/1.jpg" alt="First slide">
+			    	<img src="{{ asset('front-theme-asset/shuffle') }}/img/1.jpg" alt="First slide">
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -56,7 +56,7 @@
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="img/2.jpg" alt="Second slide">
+			    	<img src="{{ asset('front-theme-asset/shuffle') }}/img/2.jpg" alt="Second slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -74,7 +74,7 @@
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="img/3.jpg" alt="Third slide">
+			    	<img src="{{ asset('front-theme-asset/shuffle') }}/img/3.jpg" alt="Third slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -103,8 +103,8 @@
 
 	</section>
 	<!-- /Section: intro -->
-	
-	
+
+
     <!-- Navigation -->
     <div id="navigation">
         <nav class="navbar navbar-custom" role="navigation">
@@ -115,10 +115,10 @@
                                                             <a href="index.html" class="brand">Shuffle</a>
                                                     </div>
                                           </div>
-                                          
+
 
                                           <div class="col-md-10">
-                         
+
                                                       <!-- Brand and toggle get grouped for better mobile display -->
                                           <div class="navbar-header">
                                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
@@ -131,20 +131,20 @@
                                                                   <li class="active"><a href="#intro">Home</a></li>
                                                                   <li><a href="#about">About Us</a></li>
 																   <li><a href="#service">Services</a></li>
-                                                                  <li><a href="#works">Works</a></li>				                                                                  
-                                                                  
+                                                                  <li><a href="#works">Works</a></li>
+
                                                                   <li><a href="#contact">Contact</a></li>
                                                             </ul>
                                                       </div>
                                                       <!-- /.Navbar-collapse -->
-                             
+
                                           </div>
                                     </div>
                               </div>
                               <!-- /.container -->
                         </nav>
-    </div> 
-    <!-- /Navigation -->  
+    </div>
+    <!-- /Navigation -->
 
 	<!-- Section: about -->
     <section id="about" class="home-section color-dark bg-white">
@@ -165,16 +165,16 @@
 
 		<div class="container">
 
-		
+
         <div class="row">
-		
+
 			<div class="col-md-6">
-			    <img src="img/dummy1.jpg" alt="" class="img-responsive" />
-      
+			    <img src="{{ asset('front-theme-asset/shuffle') }}/img/dummy1.jpg" alt="" class="img-responsive" />
+
            </div>
-			
-            <div class="col-md-6">		
-			<p>Graeco voluptua sed ea, malorum quaeque cotidieque per eu, quo id possit dissentias.</p>			
+
+            <div class="col-md-6">
+			<p>Graeco voluptua sed ea, malorum quaeque cotidieque per eu, quo id possit dissentias.</p>
 			<div class="progress progress-striped active">
 			  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
 				40% - eCommerce
@@ -197,15 +197,15 @@
 			</div>
 
             </div>
-		
 
-        </div>		
+
+        </div>
 		</div>
 
 	</section>
 	<!-- /Section: about -->
-	
-	
+
+
 	<!-- Section: services -->
     <section id="service" class="home-section color-dark bg-gray">
 		<div class="container marginbot-50">
@@ -231,9 +231,9 @@
 				<div class="wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="fa fa-cogs fa-5x"></span> 
+						<span class="fa fa-cogs fa-5x"></span>
 					</div>
-					<div class="service-desc">						
+					<div class="service-desc">
 						<h5>Web Design</h5>
 						<p>
 						Ad denique euripidis signiferumque vim, iusto admodum quo cu. No tritani neglegentur mediocritatem duo.
@@ -247,7 +247,7 @@
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="fa fa-camera fa-5x"></span> 
+						<span class="fa fa-camera fa-5x"></span>
 					</div>
 					<div class="service-desc">
 						<h5>Photography</h5>
@@ -263,7 +263,7 @@
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="fa fa-laptop fa-5x"></span> 
+						<span class="fa fa-laptop fa-5x"></span>
 					</div>
 					<div class="service-desc">
 						<h5>Graphic design</h5>
@@ -279,7 +279,7 @@
 				<div class="wow fadeInRight" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<span class="fa fa-mobile-phone fa-5x"></span> 
+						<span class="fa fa-mobile-phone fa-5x"></span>
 					</div>
 					<div class="service-desc">
 						<h5>Mobile apps</h5>
@@ -291,12 +291,12 @@
                 </div>
 				</div>
             </div>
-        </div>		
+        </div>
 		</div>
 		</div>
 	</section>
 	<!-- /Section: services -->
-	
+
 
 	<!-- Section: works -->
     <section id="works" class="home-section color-dark text-center bg-white">
@@ -320,14 +320,14 @@
                 <div class="col-sm-12 col-md-12 col-lg-12" >
 					<div class="wow bounceInUp" data-wow-delay="0.4s">
                     <div id="owl-works" class="owl-carousel">
-                        <div class="item"><a href="img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg"><img src="img/works/1.jpg" class="img-responsive" alt="img"></a></div>
-                        <div class="item"><a href="img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/2@2x.jpg"><img src="img/works/2.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/3@2x.jpg"><img src="img/works/3.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/4@2x.jpg"><img src="img/works/4.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/5@2x.jpg"><img src="img/works/5.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/6@2x.jpg"><img src="img/works/6.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/7@2x.jpg"><img src="img/works/7.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/8@2x.jpg"><img src="img/works/8.jpg" class="img-responsive " alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/1.jpg" class="img-responsive" alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/2@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/2.jpg" class="img-responsive " alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/3@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/3.jpg" class="img-responsive " alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/4@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/4.jpg" class="img-responsive " alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/5@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/5.jpg" class="img-responsive " alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/6@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/6.jpg" class="img-responsive " alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/7.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/7@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/7.jpg" class="img-responsive " alt="img"></a></div>
+                        <div class="item"><a href="{{ asset('front-theme-asset/shuffle') }}/img/works/8.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/8@2x.jpg"><img src="{{ asset('front-theme-asset/shuffle') }}/img/works/8.jpg" class="img-responsive " alt="img"></a></div>
                     </div>
 					</div>
                 </div>
@@ -353,7 +353,7 @@
 			</div>
 
 		</div>
-		
+
 		<div class="container">
 
 			<div class="row marginbot-80">
@@ -375,14 +375,14 @@
 								<div class="form-group">
 									<textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
 										placeholder="Message"></textarea>
-								</div>						
+								</div>
 								<button type="submit" class="btn btn-skin btn-lg btn-block" id="btnContactUs">
 									Send Message</button>
 							</div>
 						</div>
 						</form>
 				</div>
-			</div>	
+			</div>
 
 
 		</div>
@@ -394,7 +394,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					
+
 					<div class="text-center">
 						<a href="#intro" class="totop"><i class="fa fa-angle-up fa-3x"></i></a>
 
@@ -402,24 +402,24 @@
 						&copy;Copyright 2014 - Shuffle. Designed by <a href="http://bootstraptaste.com">Bootstraptaste</a></p>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</footer>
 
     <!-- Core JavaScript Files -->
-    <script src="js/jquery.min.js"></script>	 
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.sticky.js"></script>
-	<script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
-	<script src="js/jquery.scrollTo.js"></script>
-	<script src="js/jquery.appear.js"></script>
-	<script src="js/stellar.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/nivo-lightbox.min.js"></script>
+    <script src="{{ asset('front-theme-asset/shuffle') }}/js/jquery.min.js"></script>
+    <script src="{{ asset('front-theme-asset/shuffle') }}/js/bootstrap.min.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/jquery.sticky.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/jquery.flexslider-min.js"></script>
+    <script src="{{ asset('front-theme-asset/shuffle') }}/js/jquery.easing.min.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/jquery.scrollTo.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/jquery.appear.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/stellar.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/wow.min.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/owl.carousel.min.js"></script>
+	<script src="{{ asset('front-theme-asset/shuffle') }}/js/nivo-lightbox.min.js"></script>
 
-    <script src="js/custom.js"></script>
+    <script src="{{ asset('front-theme-asset/shuffle') }}/js/custom.js"></script>
 
 </body>
 
