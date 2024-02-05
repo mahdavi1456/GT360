@@ -13,11 +13,13 @@
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/jquery.min.js"></script>
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/jquery.dropotron.min.js"></script>
-		<script src="{{ asset('front-theme-asset/twenty') }}/js/skel.min.js"></script>
+		{{-- <script src="{{ asset('front-theme-asset/twenty') }}/js/skel.min.js"></script> --}}
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/skel-layers.min.js"></script>
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/init.js"></script>
+		{{-- <noscript> --}}
 			<link rel="stylesheet" href="{{ asset('front-theme-asset/twenty') }}/css/skel.css" />
 			<link rel="stylesheet" href="{{ asset('front-theme-asset/twenty') }}/css/style.css" />
+		{{-- </noscript> --}}
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	</head>
