@@ -4,26 +4,26 @@
      <title>Home</title>
      <meta charset="utf-8">
      <meta name = "format-detection" content = "telephone=no" />
-     <link rel="icon" href="images/favicon.ico">
-     <link rel="shortcut icon" href="images/favicon.ico" />
-     <link rel="stylesheet" href="css/camera.css">
-    <link rel="stylesheet"  href="css/component.css" />
-  <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
-     <link rel="stylesheet" href="css/style.css">
-     <script src="js/jquery.js"></script>
-     <script src="js/jquery-migrate-1.2.1.js"></script>
-     <script src="js/script.js"></script> 
-     <script src="js/superfish.js"></script>
-     <script src="js/jquery.ui.totop.js"></script>
-     <script src="js/jquery.equalheights.js"></script>
-     <script src="js/jquery.mobilemenu.js"></script>
-     <script src="js/jquery.easing.1.3.js"></script>
-      <script src="js/jquery.tooltipster.js"></script>
-     <script src="js/camera.js"></script>
+     <link rel="icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico">
+     <link rel="shortcut icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico" />
+     <link rel="stylesheet" href="{{ asset('front-theme-asset/yourhome') }}/css/camera.css">
+    <link rel="stylesheet"  href="{{ asset('front-theme-asset/yourhome') }}/css/component.css" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/yourhome') }}/css/tooltipster.css" />
+     <link rel="stylesheet" href="{{ asset('front-theme-asset/yourhome') }}/css/style.css">
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery-migrate-1.2.1.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/script.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/superfish.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery.ui.totop.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery.equalheights.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery.mobilemenu.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery.easing.1.3.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery.tooltipster.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/camera.js"></script>
      <!--[if (gt IE 9)|!(IE)]><!-->
-     <script src="js/jquery.mobile.customized.min.js"></script>
+     <script src="{{ asset('front-theme-asset/yourhome') }}/js/jquery.mobile.customized.min.js"></script>
      <!--<![endif]-->
-    <script src="js/modernizr.custom.js"></script>
+    <script src="{{ asset('front-theme-asset/yourhome') }}/js/modernizr.custom.js"></script>
      <script>
        $(document).ready(function(){
         jQuery('#camera_wrap').camera({
@@ -54,11 +54,11 @@
 
     <![endif]-->
      </head>
-     
+
      <body class="page1" id="top">
-     
-<!--==============================header=================================--> 
-<header>  
+
+<!--==============================header=================================-->
+<header>
   <div class="container_12">
     <div class="grid_12">
         <h1>
@@ -78,33 +78,33 @@
             </nav>
            <div class="clear"></div>
         </div>
-      </div>      
+      </div>
    </div>
 </header>
 <div class="container_12">
   <div class="grid_12">
     <div class="slider_wrapper ">
        <div class="camera_wrap" id="camera_wrap">
-            <div data-thumb="images/thumb.png" data-src="images/slide.jpg">
+            <div data-thumb="{{ asset('front-theme-asset/yourhome') }}/images/thumb.png" data-src="{{ asset('front-theme-asset/yourhome') }}/images/slide.jpg">
                 <div class="caption fadeFromBottom">
                     Clever interior projects for your home
                 </div>
             </div>
-            <div data-thumb="images/thumb1.jpg" data-src="images/slide1.jpg">
+            <div data-thumb="{{ asset('front-theme-asset/yourhome') }}/images/thumb1.jpg" data-src="{{ asset('front-theme-asset/yourhome') }}/images/slide1.jpg">
                 <div class="caption fadeFromBottom">
                     Home improvement ideas for you
                 </div>
             </div>
-            <div data-thumb="images/thumb2.png" data-src="images/slide2.jpg">
+            <div data-thumb="{{ asset('front-theme-asset/yourhome') }}/images/thumb2.png" data-src="{{ asset('front-theme-asset/yourhome') }}/images/slide2.jpg">
                 <div class="caption fadeFromBottom">
                     Premium design tips
                 </div>
             </div>
-            <div data-thumb="images/thumb3.png" data-src="images/slide3.jpg">
+            <div data-thumb="{{ asset('front-theme-asset/yourhome') }}/images/thumb3.png" data-src="{{ asset('front-theme-asset/yourhome') }}/images/slide3.jpg">
                 <div class="caption fadeFromBottom">
                   Only creative ideas
                 </div>
-            </div>           
+            </div>
         </div>
     </div>
   </div>
@@ -129,13 +129,13 @@
       <h3>Featured Works</h3>
       <section class="tt-grid-wrapper">
         <ul class="tt-grid tt-effect-stackback tt-effect-delay">
-          
-          <li><a href="#"><img src="images/feat1.jpg" alt="img01"></a></li>
-          <li><a href="#"><img src="images/feat2.jpg" alt="img02"></a></li>
-          <li><a href="#"><img src="images/feat3.jpg" alt="img03"></a></li>
-          <li><a href="#"><img src="images/feat4.jpg" alt="img04"></a></li>
-          <li><a href="#"><img src="images/feat5.jpg" alt="img05"></a></li>
-          <li><a href="#"><img src="images/feat6.jpg" alt="img06"></a></li>
+
+          <li><a href="#"><img src="{{ asset('front-theme-asset/yourhome') }}/images/feat1.jpg" alt="img01"></a></li>
+          <li><a href="#"><img src="{{ asset('front-theme-asset/yourhome') }}/images/feat2.jpg" alt="img02"></a></li>
+          <li><a href="#"><img src="{{ asset('front-theme-asset/yourhome') }}/images/feat3.jpg" alt="img03"></a></li>
+          <li><a href="#"><img src="{{ asset('front-theme-asset/yourhome') }}/images/feat4.jpg" alt="img04"></a></li>
+          <li><a href="#"><img src="{{ asset('front-theme-asset/yourhome') }}/images/feat5.jpg" alt="img05"></a></li>
+          <li><a href="#"><img src="{{ asset('front-theme-asset/yourhome') }}/images/feat6.jpg" alt="img06"></a></li>
         </ul>
         <nav>
           <a class="tt-current"></a><a></a><a></a><a></a>
@@ -154,7 +154,7 @@
     </div>
     <div class="grid_3">
       <h4>Articles</h4>
-      <img src="images/page1_img1.jpg" alt="" class="img_inner">
+      <img src="{{ asset('front-theme-asset/yourhome') }}/images/page1_img1.jpg" alt="" class="img_inner">
       Lorem ipsum dolor sit t,tetur adipiscing elit. In molliseri eratttis neque facilisi
       <div class="alright"><a href="#" class="btn">More</a></div>
     </div>
@@ -194,15 +194,15 @@
         <li><a href="#">Mcies erat rutrumsu </a></li>
         <li><a href="#">Vacilisis Nulla vel uivra </a></li>
         <li><a href="#">Nuctoreo Magna sodale </a></li>
-      </ul>    
+      </ul>
       <div class="alright"><a href="#" class="btn">More</a></div>
     </div>
   </div>
 </div>
 <!--==============================footer=================================-->
-<footer>   
+<footer>
     <div class="container_12">
-      
+
       <div class="grid_12">
       <div class="socials">
       <section id="facebook">
@@ -210,24 +210,24 @@
         </section>
         <section id="twitter">
         <a href="#" target="_blank"><span id="twitter-default" class="tooltip" title="Follow us on Twitter">t</span></a>
-        </section>      
+        </section>
         <section id="google">
         <a href="#" target="_blank"><span id="google-default" class="tooltip" title="Follow us on Google Plus">g<span>+</span></span></a>
-        </section>        
+        </section>
         <section id="rss">
         <a href="#" target="_blank"><span id="rss-default" class="tooltip" title="Follow us on Dribble">d</span></a>
-        </section>      
+        </section>
         </div>
         <div class="copy">
         YourHome &copy; 2014  |  <a href="#">Privacy Policy</a> <br> Website designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com  </a>
         </div>
-         
-      </div>
-    </div>  
-</footer>
-    <script src="js/classie.js"></script>
 
-    <script src="js/thumbnailGridEffects.js"></script>
+      </div>
+    </div>
+</footer>
+    <script src="{{ asset('front-theme-asset/yourhome') }}/js/classie.js"></script>
+
+    <script src="{{ asset('front-theme-asset/yourhome') }}/js/thumbnailGridEffects.js"></script>
 
 </body>
 </html>
