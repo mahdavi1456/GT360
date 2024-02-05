@@ -16,11 +16,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!----//webfonts---->
 		<!---script---->
-		<script src="js/jquery.min.js"></script>
+		<script src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.min.js"></script>
 		<!---//script---->
 		<!-----768px-menu----->
 		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
-		<script type="text/javascript" src="js/jquery.mmenu.js"></script>
+		<script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.mmenu.js"></script>
 			<script type="text/javascript">
 				//	The menu on the left
 				$(function() {
@@ -30,7 +30,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-----//768px-menu----->
 		 <!---strat-slider---->
 	    <link rel="stylesheet" type="text/css" href="css/style2.css" />
-		<script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+		<script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/modernizr.custom.28468.js"></script>
 		<!---//strat-slider---->
 	</head>
 	<body>
@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="header-left">
 					<!----start-logo---->
 					<div class="logo">
-						<a href="index.html"><img src="images/logo.png" title="wildflat" /> </a>
+						<a href="index.html"><img src="{{ asset('front-theme-asset/wildflat') }}/images/logo.png" title="wildflat" /> </a>
 					</div>
 					<!----//End-logo---->
 				</div>
@@ -87,9 +87,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</div>
 						</div>
 						<!----search-scripts---->
-						<script src="js/modernizr.custom.js"></script>
-						<script src="js/classie.js"></script>
-						<script src="js/uisearch.js"></script>
+						<script src="{{ asset('front-theme-asset/wildflat') }}/js/modernizr.custom.js"></script>
+						<script src="{{ asset('front-theme-asset/wildflat') }}/js/classie.js"></script>
+						<script src="{{ asset('front-theme-asset/wildflat') }}/js/uisearch.js"></script>
 						<script>
 							new UISearch( document.getElementById( 'sb-search' ) );
 						</script>
@@ -133,15 +133,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<span class="da-arrows-next"></span>
 				</nav>
 			</div>
-			<script type="text/javascript" src="js/jquery.cslider.js"></script>
+			<script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.cslider.js"></script>
 			<script type="text/javascript">
 				$(function() {
-				
+
 					$('#da-slider').cslider({
 						autoplay	: true,
 						bgincrement	: 450
 					});
-				
+
 				});
 			</script>
 				<!---//End-da-slider----->
@@ -149,7 +149,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!---- //End-slider---->
 			<!---start-works---->
 			<!---image-hover-effects---->
-			 <script src="js/hover.zoom.js"></script>
+			 <script src="{{ asset('front-theme-asset/wildflat') }}/js/hover.zoom.js"></script>
 						  <script>
 					        $(function() {
 					            $('.pink').hoverZoom({
@@ -159,9 +159,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					                zoom: 0, // amount to zoom (px)
 					                speed: 300 // speed of the hover
 					            });
-					            
-					            
-					        }); 
+
+
+					        });
 			    		</script>
 		<!---//image-hover-effects---->
 			<div class="works" id="work">
@@ -170,7 +170,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<span> </span>
 						<h3>WILDFLAT works</h3>
 					</div>
-					<!---start-mfp ---->	
+					<!---start-mfp ---->
 			<div id="small-dialog1" class="mfp-hide">
 				<div class="pop_up">
 					<h2>Yours text place Here</h2>
@@ -188,69 +188,69 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</ul>
 						<div id="portfoliolist" style="     ">
 						<div class="portfolio logo1 mix_all" data-cat="logo" style="display: inline-block; opacity: 1;">
-							<div class="portfolio-wrapper">				
+							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p1.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p1.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>				
+						</div>
 						<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
-							<div class="portfolio-wrapper">			
+							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p2.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p2.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>		
+						</div>
 						<div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
-							<div class="portfolio-wrapper">						
+							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p3.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p3.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>				
+						</div>
 						<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
-							<div class="portfolio-wrapper">			
+							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p4.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p4.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>	
-									
+						</div>
+
 						<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p5.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p5.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>			
-						
+						</div>
+
 						<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
-							<div class="portfolio-wrapper">			
+							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p6.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p6.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>	
+						</div>
 						<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
 							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p7.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p7.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>			
-						
+						</div>
+
 						<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
-							<div class="portfolio-wrapper">			
+							<div class="portfolio-wrapper">
 								<a class="popup-with-zoom-anim zoom pink" href="#small-dialog1">
-									<img src="images/p8.jpg" alt="Image 2" style="top: 0px;">
+									<img src="{{ asset('front-theme-asset/wildflat') }}/images/p8.jpg" alt="Image 2" style="top: 0px;">
 								</a>
 							</div>
-						</div>	
+						</div>
 					</div>
 				</div><!-- container -->
 				<div class="clear"> </div>
 				<!---start-gallery-script----->
-					<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+					<script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.mixitup.min.js"></script>
 					<script type="text/javascript">
 					$(function () {
 						var filterList = {
@@ -259,23 +259,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								// http://mixitup.io
 								$('#portfoliolist').mixitup({
 									targetSelector: '.portfolio',
-									filterSelector: '.filter',	
+									filterSelector: '.filter',
 									effects: ['fade'],
 									easing: 'snap',
 									// call the hover effect
 									onMixEnd: filterList.hoverEffect()
-								});				
+								});
 							},
 							hoverEffect: function () {
 							}
 						};
 						// Run the show!
 						filterList.init();
-					});	
+					});
 					</script>
 					<!-- Add fancyBox main JS and CSS files -->
-					<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-					<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+					<script src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.magnific-popup.js" type="text/javascript"></script>
+					<link href="{{ asset('front-theme-asset/wildflat') }}/css/magnific-popup.css" rel="stylesheet" type="text/css">
 							<script>
 								$(document).ready(function() {
 									$('.popup-with-zoom-anim').magnificPopup({
@@ -296,7 +296,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 			<div class="works-bg">
-				
+
 			</div>
 			</div>
 			</div>
@@ -377,7 +377,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 				</div>
 				<div class="services-bg">
-				
+
 				</div>
 			</div>
 			<!----//End-services---->
@@ -402,19 +402,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					        visibleItems: 3,
 					        animationSpeed: 1000,
 					        autoPlay: true,
-					        autoPlaySpeed: 3000,            
+					        autoPlaySpeed: 3000,
 					        pauseOnHover: true,
 					        enableResponsiveBreakpoints: true,
-					        responsiveBreakpoints: { 
-					            portrait: { 
+					        responsiveBreakpoints: {
+					            portrait: {
 					                changePoint:480,
 					                visibleItems: 1
-					            }, 
-					            landscape: { 
+					            },
+					            landscape: {
 					                changePoint:640,
 					                visibleItems: 2
 					            },
-					            tablet: { 
+					            tablet: {
 					                changePoint:768,
 					                visibleItems: 3
 					            }
@@ -447,7 +447,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					    		<p>Bacon ipsum dolor sit amet shank tri-tip pig, short loin pork belly boudin ground round flank sirloin bresaola filet mignon sausage beef ribs kielbasa.</p>
 					    	</div>
 					    </li>
-					</ul>  
+					</ul>
 					<div class="clear"> </div>
 					<!----//news-grid-scroller---->
 					<!----latest-news-bottom-border---->
@@ -487,12 +487,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="flicker-grids">
 							<ul>
-								<li><a href="#"><img src="images/f1.jpg" alt="" /></a></li>
-								<li><a href="#"><img src="images/f2.jpg" alt="" /></a></li>
-								<li><a href="#"><img src="images/f3.jpg" alt="" /></a></li>
-								<li><a href="#"><img src="images/f4.jpg" alt="" /></a></li>
-								<li><a href="#"><img src="images/f5.jpg" alt="" /></a></li>
-								<li><a href="#"><img src="images/f6.jpg" alt="" /></a></li>
+								<li><a href="#"><img src="{{ asset('front-theme-asset/wildflat') }}/images/f1.jpg" alt="" /></a></li>
+								<li><a href="#"><img src="{{ asset('front-theme-asset/wildflat') }}/images/f2.jpg" alt="" /></a></li>
+								<li><a href="#"><img src="{{ asset('front-theme-asset/wildflat') }}/images/f3.jpg" alt="" /></a></li>
+								<li><a href="#"><img src="{{ asset('front-theme-asset/wildflat') }}/images/f4.jpg" alt="" /></a></li>
+								<li><a href="#"><img src="{{ asset('front-theme-asset/wildflat') }}/images/f5.jpg" alt="" /></a></li>
+								<li><a href="#"><img src="{{ asset('front-theme-asset/wildflat') }}/images/f6.jpg" alt="" /></a></li>
 							</ul>
 						</div>
 					</div>
@@ -502,7 +502,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!----//End-contact---->
 			<!---- start-footer---->
 			<div class="footer">
-				<div class="wrap"> 
+				<div class="wrap">
 				<div class="footer-left">
 					<h2>FANKS FOR WATCHING, <span>I hope you enjoyed it</span></h2>
 				</div>
@@ -526,12 +526,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="wrap">
 					<p>Template by <a href="http://w3layouts.com/">W3layouts</a></p>
 					<!---scrolling---->
-					<script type="text/javascript" src="js/move-top.js"></script>
+					<script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/move-top.js"></script>
 					<script type="text/javascript">
 							$(function() {
 							  $('a[href*=#]:not([href=#])').click(function() {
 							    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-						
+
 							      var target = $(this.hash);
 							      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 							      if (target.length) {
@@ -552,12 +552,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  			containerID: 'toTop', // fading element id
 									containerHoverID: 'toTopHover', // fading element hover id
 									scrollSpeed: 1200,
-									easingType: 'linear' 
+									easingType: 'linear'
 						 		};
 								*/
-								
+
 								$().UItoTop({ easingType: 'easeOutQuart' });
-								
+
 							});
 						</script>
 				    <a href="#move-top" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"> </span></a>
