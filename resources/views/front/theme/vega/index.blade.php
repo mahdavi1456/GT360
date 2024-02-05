@@ -16,13 +16,13 @@
     <title>Free Bootstrap Background Slider Template- VEGA by Binarytheme</title>
      <!--REQUIRED STYLE SHEETS-->
     <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="{{ asset('front-theme-asset/vega') }}/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLE CSS -->
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="{{ asset('front-theme-asset/vega') }}/assets/css/font-awesome.min.css" rel="stylesheet" />
     <!-- VEGAS STYLE CSS -->
-    <link href="assets/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <link href="{{ asset('front-theme-asset/vega') }}/assets/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
        <!-- CUSTOM STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="{{ asset('front-theme-asset/vega') }}/assets/css/style.css" rel="stylesheet" />
      <!-- GOOGLE FONT -->
      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,7 +32,7 @@
     <![endif]-->
     </head>
 <body>
-   
+
 
     <!--Header section  -->
     <div class="container" id="home">
@@ -41,7 +41,7 @@
           <h1 class="head-main">  NOW OR NEVER</h1>
            <h2 class="head-sub-main"> Lorem ipsum dolor</h2>
           <h3 class="head-last"> Lorem ipsum dolor sit ametLorem ipsum dolor sit amet</h3>
-          
+
           </div>
 
 
@@ -67,7 +67,7 @@
                     <li><a href="#home">HOME</a>
                     </li>
                      <li><a href="#about">ABOUT</a>
-                    </li>                    
+                    </li>
                     <li><a href="#about-team">TEAM</a>
                     </li>
                        <li><a href="#price-sec">PRICING</a>
@@ -81,13 +81,13 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav> 
+    </nav>
      <!--End Navigation -->
 
     <!--About Section-->
     <section class="for-full-back color-white " id="about"  >
    <div class="container" >
-      
+
             <div class="row text-center" >
                 <div class="col-md-8 col-md-offset-2 ">
                     <h1>Company's Profile</h1>
@@ -98,14 +98,14 @@
                             </strong>
                     </h4>
                 </div>
-                
+
             </div>
-        
+
         <div class="row text-center g-pad-bottom" >
                 <div class="col-md-12">
                     <h2> Lorem ipsum dolor sit amet</h2>
                     <p>
-                       
+
                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -124,16 +124,16 @@
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
                     </p>
                 </div>
-                
+
             </div>
       </div>
 </section>
     <!--End About Section-->
 
-    <!-- About Team Section -->  
+    <!-- About Team Section -->
        <section class="for-full-back color-light" id="about-team"  >
    <div class="container" >
-      
+
             <div class="row text-center" >
                 <div class="col-md-8 col-md-offset-2 ">
                     <h1>Who We Are ?</h1>
@@ -144,13 +144,13 @@
                             </strong>
                     </h4>
                 </div>
-                
+
             </div>
         <div class="row text-center" >
             <div class="col-md-12 g-pad-bottom" >
                 <div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="team-member">
-							<img src="assets/img/team.png" alt="">
+							<img src="{{ asset('front-theme-asset/vega') }}/assets/img/team.png" alt="">
                             <h3> <strong> ANDREW ALEX </strong>
                                 <br /><br />
 						UI Designer</h3>
@@ -158,7 +158,7 @@
 					</div>
                  <div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="team-member">
-							<img src="assets/img/team.png" alt="">
+							<img src="{{ asset('front-theme-asset/vega') }}/assets/img/team.png" alt="">
                             <h3> <strong> ANDREW ALEX </strong>
                                 <br /><br />
 						UI Designer</h3>
@@ -166,7 +166,7 @@
 					</div>
                  <div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="team-member">
-							<img src="assets/img/team.png" alt="">
+							<img src="{{ asset('front-theme-asset/vega') }}/assets/img/team.png" alt="">
                             <h3> <strong> ANDREW ALEX </strong>
                                 <br /><br />
 						UI Designer</h3>
@@ -174,24 +174,24 @@
 					</div>
                  <div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="team-member">
-							<img src="assets/img/team.png" alt="">
+							<img src="{{ asset('front-theme-asset/vega') }}/assets/img/team.png" alt="">
                             <h3> <strong> ANDREW ALEX </strong>
                                 <br /><br />
 						UI Designer</h3>
 						</div>
 					</div>
-					
-					
-					
-					
-					
+
+
+
+
+
             </div>
         </div>
         <div class="row text-center" >
                 <div class="col-md-12">
                     <h2> Lorem ipsum dolor sit amet</h2>
                     <p>
-                       
+
                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -210,21 +210,21 @@
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
                     </p>
                 </div>
-                
+
             </div>
       </div>
 </section>
 <!--End About Team Section -->
 
      <!-- Pricing Section -->
-   
+
      <section class="for-full-back color-dark " id="price-sec"  >
    <div class="container" >
           <div class="row text-center" >
 
 <div class="col-md-12 g-pad-bottom" >
-        
-      
+
+
 
                 <div class="col-md-3">
 	                <ul class="plan">
@@ -290,11 +290,11 @@
 
       <!--End Pricing Section -->
 
-       
-   <!-- Services Section -->  
+
+   <!-- Services Section -->
      <section class="for-full-back color-white " id="services-sec"  >
    <div class="container" >
-      
+
             <div class="row text-center" >
                 <div class="col-md-8 col-md-offset-2 ">
                     <h1>See Our Services</h1>
@@ -305,84 +305,84 @@
                             </strong>
                     </h4>
                 </div>
-                
+
             </div>
-        
+
         <div class="row text-center g-pad-bottom" >
                 <div class="col-md-12">
                       <div class="col-md-3 ">
-                                
-              <div class="service-div">   									 
-                                 
-                  <i class="fa fa-desktop fa-5x"></i>                   
-              
-                                 
-                  <h3>Responsive </h3>                   
+
+              <div class="service-div">
+
+                  <i class="fa fa-desktop fa-5x"></i>
+
+
+                  <h3>Responsive </h3>
                   <p>
                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                  </p>                   
-                                   
-              </div>	
-             					
-            </div>								
+                  </p>
+
+              </div>
+
+            </div>
                <div class="col-md-3 ">
-                                
-              <div class="service-div">   									 
-                                 
-                  <i class="fa fa-flask fa-5x"></i>                   
-              
-                                 
-                  <h3>100% Free </h3>                   
+
+              <div class="service-div">
+
+                  <i class="fa fa-flask fa-5x"></i>
+
+
+                  <h3>100% Free </h3>
                   <p>
                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                  </p>                   
-                                   
-              </div>	
-             					
-            </div>				
+                  </p>
+
+              </div>
+
+            </div>
     <div class="col-md-3 ">
-                                
-              <div class="service-div">   									 
-                                 
-                  <i class="fa fa-check fa-5x"></i>                   
-              
-                                 
-                  <h3>Tested </h3>                   
+
+              <div class="service-div">
+
+                  <i class="fa fa-check fa-5x"></i>
+
+
+                  <h3>Tested </h3>
                   <p>
                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                  </p>                   
-                                   
-              </div>	
-             					
-            </div>				
+                  </p>
+
+              </div>
+
+            </div>
                         <div class="col-md-3 ">
-                                
-              <div class="service-div">   									 
-                                 
-                  <i class="fa fa-cog fa-5x"></i>                   
-              
-                                 
-                  <h3>Clean Code </h3>                   
+
+              <div class="service-div">
+
+                  <i class="fa fa-cog fa-5x"></i>
+
+
+                  <h3>Clean Code </h3>
                   <p>
                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                  </p>                   
-                                   
-              </div>	
-             					
-            </div>				
+                  </p>
+
+              </div>
+
+            </div>
                 </div>
-                
+
             </div>
       </div>
 </section>
-    <!--End Services Section -->  
-    <!-- Contact Section -->  
+    <!--End Services Section -->
+    <!-- Contact Section -->
      <section class="for-full-back color-light " id="contact-sec"  >
-   <div class="container" >      
+   <div class="container" >
             <div class="row text-center" >
                 <div class="col-md-8 col-md-offset-2 ">
                     <h1>Queries ? Ask Us Now.</h1>
@@ -393,9 +393,9 @@
                             </strong>
                     </h4>
                 </div>
-                
+
             </div>
-        
+
         <div class="row" >
             <div class="col-md-5 contact-cls" >
                 <h3>Our Contact Details</h3>
@@ -413,19 +413,19 @@
 						<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
 						<a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
 						<a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
-						<a href="#"><i class="fa fa-pinterest fa-2x"></i></a>					
+						<a href="#"><i class="fa fa-pinterest fa-2x"></i></a>
 					</div>
             </div>
                 <div class="col-md-7">
                     <h2> Lorem ipsum dolor sit amet</h2>
                     <p>
-                       
+
                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                          Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
-                       
-                       
+
+
                     </p>
                         <form>
                             <div class="row">
@@ -452,28 +452,28 @@
                             </div>
                         </form>
                 </div>
-                
+
             </div>
       </div>
 </section>
 <!--End Contact Section -->
     <!--footer Section -->
      <div  class="for-full-back "  id="footer" >
-               
-          
+
+
          2014 www.yourdomain.com | All Right Reserved
-         
+
             </div>
     <!--End footer Section -->
      <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
      <!-- CORE JQUERY  -->
-    <script src="assets/plugins/jquery-1.10.2.js"></script>
+    <script src="{{ asset('front-theme-asset/vega') }}/assets/plugins/jquery-1.10.2.js"></script>
      <!-- BOOTSTRAP CORE SCRIPT   -->
-    <script src="assets/plugins/bootstrap.js"></script>
+    <script src="{{ asset('front-theme-asset/vega') }}/assets/plugins/bootstrap.js"></script>
     <!-- VEGAS SLIDESHOW SCRIPTS -->
-    <script src="assets/plugins/vegas/jquery.vegas.min.js"></script>
+    <script src="{{ asset('front-theme-asset/vega') }}/assets/plugins/vegas/jquery.vegas.min.js"></script>
      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-     
+    <script src="{{ asset('front-theme-asset/vega') }}/assets/js/custom.js"></script>
+
 </body>
 </html>
