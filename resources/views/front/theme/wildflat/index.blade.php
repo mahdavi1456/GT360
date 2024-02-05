@@ -395,7 +395,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<h3>LAtest NEWS</h3>
 					</div>
 					<!----news-grid-scroller---->
-					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+					<script type="text/javascript" src="{{ asset('front-theme-asset/wildflat') }}/js/jquery.flexisel.js"></script>
 					<script type="text/javascript">
 					$(window).load(function() {
 					    $("#flexiselDemo3").flexisel({
