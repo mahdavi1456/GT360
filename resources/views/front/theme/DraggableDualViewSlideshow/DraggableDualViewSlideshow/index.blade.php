@@ -2,19 +2,19 @@
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Draggable Dual-View Slideshow</title>
 		<meta name="description" content="Draggable Dual-View Slideshow: A Slideshow with two views and content area" />
 		<meta name="keywords" content="draggable, slideshow, fullscreen, carousel, views, zoomed, 3d transform, perspective, dragdealer" />
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link href='http://fonts.googleapis.com/css?family=Playfair+Display:900,400|Lato:300,400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/dragdealer.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-  		<script src="js/modernizr.custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/css/dragdealer.css" />
+		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/css/component.css" />
+  		<script src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/js/modernizr.custom.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -33,49 +33,49 @@
 					<span class="info-drag">Drag Sliders</span>
 					<span class="info-keys">Use Arrows</span>
 					<span class="info-switch">Switch view</span>
-					<button>Got it!</button>	
+					<button>Got it!</button>
 				</div>
 			</div>
 			<div id="slideshow" class="dragslider">
 				<section class="img-dragger img-dragger-large dragdealer">
 					<div class="handle">
 						<div class="slide" data-content="content-1">
-							<div class="img-wrap"><img src="img/1.jpg" alt="img1"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/1.jpg" alt="img1"/></div>
 							<h2>Lorem Waldy<span>Distilling design ideas and other interesting topics</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-2">
-							<div class="img-wrap"><img src="img/2.jpg" alt="img2"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/2.jpg" alt="img2"/></div>
 							<h2>Round Table <span>King Arthur's creative team techniques</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-3">
-							<div class="img-wrap"><img src="img/3.jpg" alt="img3"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/3.jpg" alt="img3"/></div>
 							<h2>Taking Sneezes <span>Nothing is out there&mdash;let's try again</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-4">
-							<div class="img-wrap"><img src="img/4.jpg" alt="img4"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/4.jpg" alt="img4"/></div>
 							<h2>Heavy Talks <span>Heated conversations in the back yard</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-5">
-							<div class="img-wrap"><img src="img/5.jpg" alt="img5"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/5.jpg" alt="img5"/></div>
 							<h2>Mountain Sun <span>Crazy nature and other weather ideas</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-6">
-							<div class="img-wrap"><img src="img/6.jpg" alt="img6"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/6.jpg" alt="img6"/></div>
 							<h2>Beloved Mother <span>Decomposing fruits and burning houses</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-7">
-							<div class="img-wrap"><img src="img/7.jpg" alt="img7"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/7.jpg" alt="img7"/></div>
 							<h2>Kale <i>&amp;</i> Karen <span>Only kale could make her happy</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-8">
-							<div class="img-wrap"><img src="img/8.jpg" alt="img8"/></div>
+							<div class="img-wrap"><img src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/img/8.jpg" alt="img8"/></div>
 							<h2>Happiness <span>On self-sufficient homes and pets</span></h2>
 							<button class="content-switch">Read more</button>
 						</div>
@@ -158,10 +158,10 @@
 					</div>
 				</section>
 			</div>
-		</div><!-- /container --> 
-		<script src="js/dragdealer.js"></script>
-		<script src="js/classie.js"></script>
-		<script src="js/dragslideshow.js"></script>
+		</div><!-- /container -->
+		<script src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/js/dragdealer.js"></script>
+		<script src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/js/classie.js"></script>
+		<script src="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/js/dragslideshow.js"></script>
 		<script>
 			(function() {
 
@@ -187,7 +187,7 @@
 							classie.remove( header, 'hide' );
 						}
 					},
-					slideshow = new DragSlideshow( document.getElementById( 'slideshow' ), { 
+					slideshow = new DragSlideshow( document.getElementById( 'slideshow' ), {
 						// toggle between fullscreen and minimized slideshow
 						onToggle : toggleBtnn,
 						// toggle the main image and the content view
