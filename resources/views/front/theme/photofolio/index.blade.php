@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name = "format-detection" content = "telephone=no" />
 {{-- <link rel="icon" href="favicon.ico"> --}}
-<link rel="shortcut icon" href="images/favicon.ico" />
+{{-- <link rel="shortcut icon" href="images/favicon.ico" /> --}}
 <link rel="stylesheet" href="{{ asset('front-theme-asset/photofolio') }}/css/style.css">
 <script src="{{ asset('front-theme-asset/photofolio') }}/js/jquery.js"></script>
 <script src="{{ asset('front-theme-asset/photofolio') }}/js/jquery-migrate-1.1.1.js"></script>
