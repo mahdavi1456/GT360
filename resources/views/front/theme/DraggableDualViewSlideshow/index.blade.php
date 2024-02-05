@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Drag0000000000000000000000000000</title>
+		<title>DraggableDualViewSlideshow</title>
 		<meta name="description" content="Draggable Dual-View Slideshow: A Slideshow with two views and content area" />
 		<meta name="keywords" content="draggable, slideshow, fullscreen, carousel, views, zoomed, 3d transform, perspective, dragdealer" />
 		<meta name="author" content="Codrops" />
