@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="{{ asset('front-theme-asset/spot') }}/assets/ico/favicon.png">
+    <link rel="shortcut icon" href="{{ asset('front-theme-asset/spot') }}/ico/favicon.png">
 
     <title>SPOT - Free Bootstrap 3 Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('front-theme-asset/spot') }}/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="{{ asset('front-theme-asset/spot') }}/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/spot') }}/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/spot') }}/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('front-theme-asset/spot') }}/assets/css/main.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/spot') }}/css/main.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -96,19 +96,19 @@
 				<br>
 				<div class="col-lg-4">
 					<div class="tilt">
-					<a href="#"><img src="{{ asset('front-theme-asset/spot') }}/assets/img/p01.png" alt=""></a>
+					<a href="#"><img src="{{ asset('front-theme-asset/spot') }}/img/p01.png" alt=""></a>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
 					<div class="tilt">
-					<a href="#"><img src="{{ asset('front-theme-asset/spot') }}/assets/img/p03.png" alt=""></a>
+					<a href="#"><img src="{{ asset('front-theme-asset/spot') }}/img/p03.png" alt=""></a>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
 					<div class="tilt">
-					<a href="#"><img src="{{ asset('front-theme-asset/spot') }}/assets/img/p02.png" alt=""></a>
+					<a href="#"><img src="{{ asset('front-theme-asset/spot') }}/img/p02.png" alt=""></a>
 					</div>
 				</div>
 			</div><!-- row -->
@@ -127,7 +127,7 @@
 			</div>
 			<div class="col-lg-2"></div>
 			<div class="col-lg-10 col-lg-offset-1">
-				<img class="img-responsive" src="{{ asset('front-theme-asset/spot') }}/assets/img/munter.png" alt="">
+				<img class="img-responsive" src="{{ asset('front-theme-asset/spot') }}/img/munter.png" alt="">
 			</div>
 		</div><!-- row -->
 	</div><!-- container -->
@@ -138,19 +138,19 @@
 			<div class="row centered">
 				<h4>OUR AWESOME CLIENTS</h4>
 				<div class="col-lg-2 col-lg-offset-1">
-					<img src="{{ asset('front-theme-asset/spot') }}/assets/img/c01.gif" alt="">
+					<img src="{{ asset('front-theme-asset/spot') }}/img/c01.gif" alt="">
 				</div>
 				<div class="col-lg-2">
-					<img src="{{ asset('front-theme-asset/spot') }}/assets/img/c02.gif" alt="">
+					<img src="{{ asset('front-theme-asset/spot') }}/img/c02.gif" alt="">
 				</div>
 				<div class="col-lg-2">
-					<img src="{{ asset('front-theme-asset/spot') }}/assets/img/c03.gif" alt="">
+					<img src="{{ asset('front-theme-asset/spot') }}/img/c03.gif" alt="">
 				</div>
 				<div class="col-lg-2">
-					<img src="{{ asset('front-theme-asset/spot') }}/assets/img/c04.gif" alt="">
+					<img src="{{ asset('front-theme-asset/spot') }}/img/c04.gif" alt="">
 				</div>
 				<div class="col-lg-2">
-					<img src="{{ asset('front-theme-asset/spot') }}/assets/img/c05.gif" alt="">
+					<img src="{{ asset('front-theme-asset/spot') }}/img/c05.gif" alt="">
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
@@ -215,6 +215,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="{{ asset('front-theme-asset/spot') }}/ssets/js/bootstrap.min.js"></script>
+    <script src="{{ asset('front-theme-asset/spot') }}/js/bootstrap.min.js"></script>
   </body>
 </html>
