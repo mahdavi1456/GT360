@@ -4,24 +4,24 @@
 <title>Home</title>
 <meta charset="utf-8">
 <meta name = "format-detection" content = "telephone=no" />
-<link rel="icon" href="images/favicon.ico">
-<link rel="shortcut icon" href="images/favicon.ico" />
-<link rel="stylesheet" href="css/style.css">
-<script src="js/jquery.js"></script>
-<script src="js/jquery-migrate-1.1.1.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/script.js"></script> 
-<script src="js/superfish.js"></script>
-<script src="js/jquery.equalheights.js"></script>
-<script src="js/jquery.mobilemenu.js"></script>
-<script src="js/tmStickUp.js"></script>
-<script src="js/jquery.ui.totop.js"></script>
-<script src="js/jquery.shuffle-images.js"></script>
+<link rel="icon" href="{{ asset('front-theme-asset/photo.folio') }}/images/favicon.ico">
+<link rel="shortcut icon" href="{{ asset('front-theme-asset/photo.folio') }}/images/favicon.ico" />
+<link rel="stylesheet" href="{{ asset('front-theme-asset/photo.folio') }}/css/style.css">
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/jquery.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/jquery-migrate-1.1.1.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/jquery.easing.1.3.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/script.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/superfish.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/jquery.equalheights.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/jquery.mobilemenu.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/tmStickUp.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/jquery.ui.totop.js"></script>
+<script src="{{ asset('front-theme-asset/photo.folio') }}/js/jquery.shuffle-images.js"></script>
 <script>
  $(window).load(function(){
   $().UItoTop({ easingType: 'easeOutQuart' });
-  $('#stuck_container').tmStickUp({});  
- }); 
+  $('#stuck_container').tmStickUp({});
+ });
 
  $(document).ready(function(){
        $(".shuffle-me").shuffleImages({
@@ -81,11 +81,11 @@
              </ul>
             </nav>
             <div class="clear"></div>
-          </div>       
-         <div class="clear"></div>  
+          </div>
+         <div class="clear"></div>
         </div>
-     </div> 
-    </div> 
+     </div>
+    </div>
   </section>
 </header>
 <!--=====================
@@ -102,9 +102,9 @@
               <div data-si-mousemove-trigger="100"  class="shuffle-me offset__1">
                 <a href="gallery.html" class="info" target="_blank"></a>
                 <div class="images">
-                  <img src="images/gall_1.jpg" alt="">
-                  <img src="images/gall_1-1.jpg" alt="">
-                  <img src="images/gall_1-2.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_1.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_1-1.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_1-2.jpg" alt="">
                 </div>
               </div>
             </div>
@@ -112,17 +112,17 @@
               <div data-si-mousemove-trigger="100" class="shuffle-me">
                 <a href="gallery.html" class="info" target="_blank"></a>
                 <div class="images">
-                  <img src="images/gall_2.jpg" alt="">
-                  <img src="images/gall_2-1.jpg" alt="">
-                  <img src="images/gall_2-2.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_2.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_2-1.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_2-2.jpg" alt="">
                 </div>
               </div>
               <div data-si-mousemove-trigger="100" class="shuffle-me offset__1">
                 <a href="gallery.html" class="info" target="_blank"></a>
-                <div class="images">
-                  <img src="images/gall_3.jpg" alt="">
-                  <img src="images/gall_3-1.jpg" alt="">
-                  <img src="images/gall_3-2.jpg" alt="">
+                <div class="{{ asset('front-theme-asset/photo.folio') }}/images">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_3.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_3-1.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_3-2.jpg" alt="">
                 </div>
               </div>
             </div>
@@ -131,17 +131,17 @@
               <div data-si-mousemove-trigger="100" class="shuffle-me">
                 <a href="gallery.html" class="info" target="_blank"></a>
                 <div class="images">
-                  <img src="images/gall_4.jpg" alt="">
-                  <img src="images/gall_4-1.jpg" alt="">
-                  <img src="images/gall_4-2.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_4.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_4-1.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_4-2.jpg" alt="">
                 </div>
               </div>
               <div data-si-mousemove-trigger="100" class="shuffle-me">
                 <a href="gallery.html" class="info" target="_blank"></a>
                 <div class="images">
-                  <img src="images/gall_5.jpg" alt="">
-                  <img src="images/gall_5-1.jpg" alt="">
-                  <img src="images/gall_5-2.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_5.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_5-1.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_5-2.jpg" alt="">
                 </div>
               </div>
             </div>
@@ -149,9 +149,9 @@
               <div data-si-mousemove-trigger="100"  class="shuffle-me">
                 <a href="gallery.html" class="info" target="_blank"></a>
                 <div class="images">
-                  <img src="images/gall_6.jpg" alt="">
-                  <img src="images/gall_6-1.jpg" alt="">
-                  <img src="images/gall_6-2.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_6.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_6-1.jpg" alt="">
+                  <img src="{{ asset('front-theme-asset/photo.folio') }}/images/gall_6-2.jpg" alt="">
                 </div>
               </div>
             </div>
@@ -165,13 +165,13 @@
     <div class="row">
       <div class="grid_8">
         <h3>Bio</h3>
-        <img src="images/page1_img1.jpg" alt="" class="img_inner fleft noresize">
+        <img src="{{ asset('front-theme-asset/photo.folio') }}/images/page1_img1.jpg" alt="" class="img_inner fleft noresize">
         <div class="extra_wrapper"><p class="offset__1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies erat rutrum. Cras facilisis, nulla vel viverra auctor, leo magna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a scelerisque eros convallis accumsan. Maecenas vehicula egestas  derto venenatis. Duis massa elit, auctor non pellentesque vel, aliquet sit amet erat.</p></div>
         <div class="clear"></div>
         <p>Find detailed information about the <a href=" http://blog.templatemonster.com/free-website-templates/" rel="nofollow" class="color1"><strong>freebie</strong></a> here. </p>
         <p>Visit TemplateMonster.com to find more <a href="http://www.templatemonster.com/properties/topic/design-photography/" rel="nofollow" class="color1"><strong>goodies</strong></a> of this kind.</p>
         Proin pharetra luctus diam, a scelerisque eros convallis accumsan. Maecenas vehicula egestas venenatis. <br>
-        <a href="#" class="btn">more</a> 
+        <a href="#" class="btn">more</a>
       </div>
       <div class="grid_4">
         <h3>Follow me</h3>
@@ -208,7 +208,7 @@
       <div class="grid_4 preffix_1">
         <h3 class="head__1">Testimonials</h3>
         <blockquote class="bq_1">
-          <img src="images/page1_img2.jpg" alt="" class="img_inner fleft noresize">
+          <img src="{{ asset('front-theme-asset/photo.folio') }}/images/page1_img2.jpg" alt="" class="img_inner fleft noresize">
           <div class="extra_wrapper">
             <div class="bq_title">Lize Jons</div>
           </div>
@@ -227,7 +227,7 @@
 <footer id="footer">
   <div class="container">
     <div class="row">
-      <div class="grid_12"> 
+      <div class="grid_12">
         <h2>Contacts</h2>
         <div class="footer_phone">+1 800 559 6580</div>
         <a href="#" class="footer_mail">info@demolink.org</a>
@@ -235,7 +235,7 @@
       </div>
     </div>
 
-  </div>  
+  </div>
 </footer>
 <a href="#" id="toTop" class="fa fa-chevron-up"></a>
 </body>
