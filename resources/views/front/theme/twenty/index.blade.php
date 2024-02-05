@@ -13,7 +13,7 @@
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/jquery.min.js"></script>
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/jquery.dropotron.min.js"></script>
-		{{-- <script src="{{ asset('front-theme-asset/twenty') }}/js/skel.min.js"></script> --}}
+		<script src="{{ asset('front-theme-asset/twenty') }}/js/skel.min.js"></script>
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/skel-layers.min.js"></script>
 		<script src="{{ asset('front-theme-asset/twenty') }}/js/init.js"></script>
 		{{-- <noscript> --}}
