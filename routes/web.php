@@ -15,6 +15,7 @@ use App\Http\Controllers\FontController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AddonController;
@@ -131,6 +132,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::post('term-list', [TermController::class, 'termList'])->name('termList');
 
         Route::resource('post', PostController::class);
+        Route::resource('page', PageController::class);
         Route::resource('category', CategoryController::class);
         Route::resource('transport', TransportController::class);
         Route::resource('discount', DiscountController::class);
