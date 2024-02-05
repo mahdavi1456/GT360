@@ -4,7 +4,7 @@
      <title>Home</title>
      <meta charset="utf-8">
      <meta name = "format-detection" content = "telephone=no" />
-     <link rel="icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico">
+     {{-- <link rel="icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico"> --}}
      <link rel="shortcut icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico" />
      <link rel="stylesheet" href="{{ asset('front-theme-asset/yourhome') }}/css/camera.css">
     <link rel="stylesheet"  href="{{ asset('front-theme-asset/yourhome') }}/css/component.css" />
@@ -63,7 +63,7 @@
     <div class="grid_12">
         <h1>
         <a href="index.html">
-          <img src="images/logo.png" alt="Your Happy Family">
+          <img src="{{ asset('front-theme-asset/yourhome') }}/images/logo.png" alt="Your Happy Family">
         </a>
       </h1>
         <div class="menu_block ">
