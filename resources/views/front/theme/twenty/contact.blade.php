@@ -11,20 +11,20 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+		<script src="{{ asset('front-theme-asset/twenty') }}/js/jquery.min.js"></script>
+		<script src="{{ asset('front-theme-asset/twenty') }}/js/jquery.dropotron.min.js"></script>
+		<script src="{{ asset('front-theme-asset/twenty') }}/js/skel.min.js"></script>
+		<script src="{{ asset('front-theme-asset/twenty') }}/js/skel-layers.min.js"></script>
+		<script src="{{ asset('front-theme-asset/twenty') }}/js/init.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
+			<link rel="{{ asset('front-theme-asset/twenty') }}/stylesheet" href="css/skel.css" />
+			<link rel="{{ asset('front-theme-asset/twenty') }}/stylesheet" href="css/style.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	</head>
 	<body class="contact loading">
-	
+
 		<!-- Header -->
 			<header id="header">
 				<h1 id="logo"><a href="index.html">Twenty <span>by HTML5 UP</span></a></h1>
@@ -54,7 +54,7 @@
 					</ul>
 				</nav>
 			</header>
-		
+
 		<!-- Main -->
 			<article id="main">
 
@@ -63,10 +63,10 @@
 					<h2>Get In Touch</h2>
 					<p>Use the form below to give /dev/null a piece of your mind.</p>
 				</header>
-					
+
 				<!-- One -->
 					<section class="wrapper style4 special container small">
-					
+
 						<!-- Content -->
 							<div class="content">
 								<form>
@@ -97,14 +97,14 @@
 									</div>
 								</form>
 							</div>
-							
+
 					</section>
-				
+
 			</article>
 
 		<!-- Footer -->
 			<footer id="footer">
-			
+
 				<ul class="icons">
 					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
@@ -112,9 +112,9 @@
 					<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
 					<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
 				</ul>
-				
+
 				<span class="copyright">&copy; Untitled. All rights reserved. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
-			
+
 			</footer>
 
 	</body>
