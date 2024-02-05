@@ -135,7 +135,7 @@
                                 </a>
                             </li>
                             <li class="nav-item {{ active_menu('accountSite.edit') }}">
-                                <a href="{{ route('accountSite.edit',Auth::user()->account->id) }}"
+                                <a href="{{ route('accountSite.edit', Auth::user()->account->id) }}"
                                     class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>وب سایت</p>
@@ -268,7 +268,30 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
 
+                    <li class="nav-item has-treeview {{ active_dropdown(['reserve.part', 'reserve.plan']) }}">
+                        <a href="#" class="nav-link main-menu">
+                            <i class="nav-icon fa fa-clipboard"></i>
+                            <p>
+                                رزرو آنلاین
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['reserve-part.index', 'reserve-plan.index']) }}>
+                            <li class="nav-item" {{ active_menu('reserve-part.index') }}>
+                                <a href="{{ route('reserve-part.index') }}" class="nav-link">
+                                    <i class="fa fa-th-list text-warning nav-icon"></i>
+                                    <p>سانس ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('reserve-plan.index') }}>
+                                <a href="{{ route('reserve-plan.index') }}" class="nav-link">
+                                    <i class="fa fa-edit text-warning nav-icon"></i>
+                                    <p>برنامه ریزی</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                 </ul>

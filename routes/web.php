@@ -49,6 +49,8 @@ use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
+use App\Http\Controllers\ReservePartController;
+use App\Http\Controllers\ReservePlanController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
@@ -113,6 +115,9 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('contact', ContactController::class);
         Route::resource('font', FontController::class);
         Route::resource('pallete', PalleteController::class);
+
+        Route::resource('reserve-part', ReservePartController::class);
+        Route::resource('reserve-plan', ReservePlanController::class);
 
         Route::post('/image-upload', [PostController::class, 'uploadImage'])->name('post.thumb');
         Route::get('/post-image-destroy', [PostController::class, 'thumbDestroy'])->name('thumb.destroy');
