@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('front-theme-asset/studio') }}/assets/ico/favicon.ico">
 
     <title>NYC - Design Studio</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/studio') }}/assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" />
+    <link href="{{ asset('front-theme-asset/studio') }}/assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/studio') }}/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/studio') }}/assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" />
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -29,7 +29,7 @@
   </head>
 
   <body data-spy="scroll" data-offset="0" data-target="#theMenu">
-		
+
 	<!-- Menu -->
 	<nav class="menu" id="theMenu">
 		<div class="menu-wrap">
@@ -45,7 +45,7 @@
 			<a href="#"><i class="fa fa-dribbble"></i></a>
 			<a href="#"><i class="fa fa-envelope"></i></a>
 		</div>
-		
+
 		<!-- Menu button -->
 		<div id="menuToggle"><i class="fa fa-bars"></i></div>
 	</nav>
@@ -60,20 +60,20 @@
 			</div><! --/row -->
 		</div><! --/container -->
 	</div><! --/headerwrap -->
-	
+
 	<section id="about" name="about"></section>
 	<div id="aboutwrap">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 name">
-					<img class="img-responsive" src="assets/img/pic.png">
+					<img class="img-responsive" src="{{ asset('front-theme-asset/studio') }}/assets/img/pic.png">
 					<p>DANIEL PRATT</p>
 					<div class="name-label"></div>
 				</div><! --/col-lg-4-->
 				<div class="col-lg-8 name-desc">
 					<h2>TALENTED DESIGNER & <br/>FRONT-END DEVELOPER <br/>ENJOYING THE BEAUTIFUL NYC</h2>
 					<div class="name-zig"></div>
-					
+
 					<div class="col-md-6">
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 						<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
@@ -82,16 +82,16 @@
 						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
 						<p> Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
 					</div>
-					
+
 				</div><! --/col-lg-8-->
-		
+
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /aboutwrap -->
-	
+
 	<! -- ABOUT SEPARATOR -->
 	<div class="sep about" data-stellar-background-ratio="0.5"></div>
-	
+
 	<! -- PORTFOLIO SECTION -->
 	<section id="portfolio" name="portfolio"></section>
 	<div id="portfoliowrap">
@@ -103,33 +103,33 @@
 	                    <div class="project">
 	                        <div class="photo-wrapper">
 	                            <div class="photo">
-	                            	<a class="fancybox" href="assets/img/portfolio/port04.jpg"><img class="img-responsive" src="assets/img/portfolio/port04.jpg" alt=""></a>
+	                            	<a class="fancybox" href="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port04.jpg"><img class="img-responsive" src="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port04.jpg" alt=""></a>
 	                            </div>
 	                            <div class="overlay"></div>
 	                        </div>
 	                    </div>
 	                </div>
 				</div><!-- col-lg-4 -->
-				
+
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
 					<div class="project-wrapper">
 	                    <div class="project">
 	                        <div class="photo-wrapper">
 	                            <div class="photo">
-	                            	<a class="fancybox" href="assets/img/portfolio/port05.jpg"><img class="img-responsive" src="assets/img/portfolio/port05.jpg" alt=""></a>
+	                            	<a class="fancybox" href="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port05.jpg"><img class="img-responsive" src="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port05.jpg" alt=""></a>
 	                            </div>
 	                            <div class="overlay"></div>
 	                        </div>
 	                    </div>
 	                </div>
 				</div><!-- col-lg-4 -->
-				
+
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
 					<div class="project-wrapper">
 	                    <div class="project">
 	                        <div class="photo-wrapper">
 	                            <div class="photo">
-	                            	<a class="fancybox" href="assets/img/portfolio/port06.jpg"><img class="img-responsive" src="assets/img/portfolio/port06.jpg" alt=""></a>
+	                            	<a class="fancybox" href="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port06.jpg"><img class="img-responsive" src="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port06.jpg" alt=""></a>
 	                            </div>
 	                            <div class="overlay"></div>
 	                        </div>
@@ -137,40 +137,40 @@
 	                </div>
 				</div><!-- col-lg-4 -->
 			</div><!-- /row -->
-	
+
 			<div class="row mt">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
 					<div class="project-wrapper">
 	                    <div class="project">
 	                        <div class="photo-wrapper">
 	                            <div class="photo">
-	                            	<a class="fancybox" href="assets/img/portfolio/port01.jpg"><img class="img-responsive" src="assets/img/portfolio/port01.jpg" alt=""></a>
+	                            	<a class="fancybox" href="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port01.jpg"><img class="img-responsive" src="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port01.jpg" alt=""></a>
 	                            </div>
 	                            <div class="overlay"></div>
 	                        </div>
 	                    </div>
 	                </div>
 				</div><!-- col-lg-4 -->
-				
+
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
 					<div class="project-wrapper">
 	                    <div class="project">
 	                        <div class="photo-wrapper">
 	                            <div class="photo">
-	                            	<a class="fancybox" href="assets/img/portfolio/port02.jpg"><img class="img-responsive" src="assets/img/portfolio/port02.jpg" alt=""></a>
+	                            	<a class="fancybox" href="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port02.jpg"><img class="img-responsive" src="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port02.jpg" alt=""></a>
 	                            </div>
 	                            <div class="overlay"></div>
 	                        </div>
 	                    </div>
 	                </div>
 				</div><!-- col-lg-4 -->
-				
+
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
 					<div class="project-wrapper">
 	                    <div class="project">
 	                        <div class="photo-wrapper">
 	                            <div class="photo">
-	                            	<a class="fancybox" href="assets/img/portfolio/port03.jpg"><img class="img-responsive" src="assets/img/portfolio/port03.jpg" alt=""></a>
+	                            	<a class="fancybox" href="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port03.jpg"><img class="img-responsive" src="{{ asset('front-theme-asset/studio') }}/assets/img/portfolio/port03.jpg" alt=""></a>
 	                            </div>
 	                            <div class="overlay"></div>
 	                        </div>
@@ -197,15 +197,15 @@
 					<h3>The Product</h3>
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
 				</div>
-				
+
 			</div><! --/row -->
 		</div><! --/container -->
 	</div><! --/Portfoliowrap -->
 
 	<! -- PORTFOLIO SEPARATOR -->
 	<div class="sep portfolio" data-stellar-background-ratio="0.5"></div>
-	
-	
+
+
 	<! -- SERVICE SECTION -->
 	<section id="services" name="services"></section>
 	<div id="servicewrap">
@@ -217,7 +217,7 @@
 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 				</div><!-- /col-lg-8 -->
 			</div><! --/row -->
-			
+
 			<div class="row mt">
 				<div class="col-lg-3 service">
 					<i class="fa fa-star"></i><p>PREMIUM QUALITY<br/><small>LOREM IPSUM DOLOR</small></p>
@@ -254,34 +254,34 @@
 					<p class="text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
 				</div>
 			</div><! --/row -->
-			
+
 		</div><! --/container -->
 	</div><! --/servicewrap -->
-	
+
 	<div id="testimonials">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 mt">
-				
+
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner">
 					    <div class="item active mb centered">
 					      <h3>MARK WEBBER</h3>
 					      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					      <p><img class="img-circle" src="assets/img/pic-t1.jpg" width="80"></p>
+					      <p><img class="img-circle" src="{{ asset('front-theme-asset/studio') }}/assets/img/pic-t1.jpg" width="80"></p>
 					    </div>
 
 					    <div class="item mb centered">
 					      <h3>PAUL LEVINGSTON</h3>
 					      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					      <p><img class="img-circle" src="assets/img/pic-t2.jpg" width="80"></p>
+					      <p><img class="img-circle" src="{{ asset('front-theme-asset/studio') }}/assets/img/pic-t2.jpg" width="80"></p>
 					    </div>
 
 					    <div class="item mb centered">
 					      <h3>LUCY LENNIN</h3>
 					      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					      <p><img class="img-circle" src="assets/img/pic-t3.jpg" width="80"></p>
+					      <p><img class="img-circle" src="{{ asset('front-theme-asset/studio') }}/assets/img/pic-t3.jpg" width="80"></p>
 					    </div>
 
 					  </div>
@@ -292,17 +292,17 @@
 					    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
 					  </ol>
 					</div>
-					  
+
 				</div><! --/col-lg-8 -->
 			</div><! --/row -->
 		</div><! --/container -->
 	</div><! --/testimonials -->
-	
+
 	<! -- SERVICE SECTION -->
 	<section id="contact" name="contact"></section>
 	<! -- CONTACT SEPARATOR -->
 	<div class="sep contact" data-stellar-background-ratio="0.5"></div>
-	
+
 	<div id="contactwrap">
 		<div class="container">
 			<div class="row">
@@ -319,9 +319,9 @@
 						Mail. Hello@coolfolks.com<br/>
 						Skype. NYCDesign
 					</p>
-			
+
 				</div>
-				
+
 				<div class="col-lg-6">
 					<form role="form">
 					  <div class="form-group">
@@ -335,21 +335,21 @@
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
 				</div>
-			
+
 			</div><! --/row -->
 		</div><!-- /container -->
 	</div>
-	
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="assets/js/classie.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/smoothscroll.js"></script>
-	<script src="assets/js/jquery.stellar.min.js"></script>
-	<script src="assets/js/fancybox/jquery.fancybox.js"></script>    
-	<script src="assets/js/main.js"></script>
+	<script src="{{ asset('front-theme-asset/studio') }}/assets/js/classie.js"></script>
+    <script src="{{ asset('front-theme-asset/studio') }}/assets/js/bootstrap.min.js"></script>
+    <script src="{{ asset('front-theme-asset/studio') }}/assets/js/smoothscroll.js"></script>
+	<script src="{{ asset('front-theme-asset/studio') }}/assets/js/jquery.stellar.min.js"></script>
+	<script src="{{ asset('front-theme-asset/studio') }}/assets/js/fancybox/jquery.fancybox.js"></script>
+	<script src="{{ asset('front-theme-asset/studio') }}/assets/js/main.js"></script>
 		<script>
 		$(function(){
 			$.stellar({
@@ -358,7 +358,7 @@
 			});
 		});
 		</script>
-		
+
 		<script type="text/javascript">
       $(function() {
         //    fancybox
