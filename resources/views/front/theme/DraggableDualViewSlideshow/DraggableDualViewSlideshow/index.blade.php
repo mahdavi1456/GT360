@@ -8,7 +8,7 @@
 		<meta name="description" content="Draggable Dual-View Slideshow: A Slideshow with two views and content area" />
 		<meta name="keywords" content="draggable, slideshow, fullscreen, carousel, views, zoomed, 3d transform, perspective, dragdealer" />
 		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="shortcut icon" href="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/../favicon.ico">
 		<link href='http://fonts.googleapis.com/css?family=Playfair+Display:900,400|Lato:300,400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/DraggableDualViewSlideshow') }}/css/demo.css" />
