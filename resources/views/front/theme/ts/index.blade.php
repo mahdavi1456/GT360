@@ -11,7 +11,7 @@
     <title>TS - Creative Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('front-theme-asset/ts') }}/assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('front-theme-asset/ts') }}/assets/css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
