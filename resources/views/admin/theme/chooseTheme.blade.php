@@ -18,7 +18,7 @@
                                             @if ($theme->preview)
                                                 <img class="w-100 object-fit-contain" src="{{ asset(ert('theme-path') . $theme->preview) }}" alt="">
                                             @else
-                                                <img class="card-img-top" src="{{ asset('images/no-img.jpg') }}" alt="Card image cap">
+                                                <img class="card-img-top" src="{{ asset('images/no-img-theme.jpg') }}" alt="Card image cap">
                                             @endif
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $theme->label }}</h5>
