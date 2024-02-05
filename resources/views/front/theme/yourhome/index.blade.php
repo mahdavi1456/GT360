@@ -5,7 +5,7 @@
      <meta charset="utf-8">
      <meta name = "format-detection" content = "telephone=no" />
      {{-- <link rel="icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico"> --}}
-     <link rel="shortcut icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico" />
+     {{-- <link rel="shortcut icon" href="{{ asset('front-theme-asset/yourhome') }}/images/favicon.ico" /> --}}
      <link rel="stylesheet" href="{{ asset('front-theme-asset/yourhome') }}/css/camera.css">
     <link rel="stylesheet"  href="{{ asset('front-theme-asset/yourhome') }}/css/component.css" />
   <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/yourhome') }}/css/tooltipster.css" />
