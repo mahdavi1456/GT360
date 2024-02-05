@@ -52,7 +52,7 @@
                                         <p>قالب ها</p>
                                     </a>
                                 </li>
-                                <li class="nav-item" {{ active_menu('nav') }}>
+                                <li class="nav-item" {{ active_menu('nav.index') }}>
                                     <a href="{{ route('nav.index') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>فهرست ها</p>
