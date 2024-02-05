@@ -8,7 +8,7 @@
     <meta name="author" content="">
     {{-- <link rel="icon" href="assets/img/favicon.ico"> --}}
 
-    <title>Thhhhhhhhhhhhhhhhhhhhhhhhhhhh</title>
+    <title>TS - Creative Template</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('front-theme-asset/ts') }}/assets/css/bootstrap.css" rel="stylesheet">
