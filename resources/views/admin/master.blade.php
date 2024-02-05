@@ -167,7 +167,11 @@
             $(this).next('.custom-file-label').html(fileName);
         });
 
+        $("a[data-confirm-delete='true']").click(function(e){
+            e.preventDefault();
+        });
     </script>
+
     @yield('scripts')
 </body>
 

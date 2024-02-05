@@ -11,11 +11,13 @@ use App\Http\Controllers\ShopSetting;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\NavController;
 use App\Http\Controllers\FontController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AddonController;
@@ -49,13 +51,12 @@ use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
-use App\Http\Controllers\PlanController;
 
 Route::get('/website/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
 
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
 Route::get('/', [DashboardController::class, 'index']);
-Route::get('/test', function(){
+Route::get('/test', function () {
     // $paras=['username'=>'rasoul','password'=>'oihrthgfuh'];
     // $paras=['code'=>44853];
     // $sms=Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras,'09913814509');
@@ -86,19 +87,21 @@ Route::middleware(['auth', 'visit'])->group(function () {
     Route::get('change-password', [NewPasswordController::class, 'create'])->name('change.pass'); //used for change-password
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
+        //nav
+        Route::resource('nav', NavController::class);
 
         //plan
-        Route::resource('plan',PlanController::class);
-        Route::get('plan/{plan}/items',[PlanController::class,'ListItems'])->name('plan.ListItems');
+        Route::resource('plan', PlanController::class);
+        Route::get('plan/{plan}/items', [PlanController::class, 'ListItems'])->name('plan.ListItems');
         // Route::get('plan/{plan}/items-create',[PlanController::class,'itemCreate'])->name('plan.itemCreate');
-        Route::post('plan-item',[PlanController::class,'stroeItem'])->name('plan.stroeItem');
+        Route::post('plan-item', [PlanController::class, 'stroeItem'])->name('plan.stroeItem');
         // Route::get('plan-item/{item}/edit',[PlanController::class,'itemEdit'])->name('plan.itemEdit');
         // Route::put('plan-item/{item}/update',[PlanController::class,'itemUpdate'])->name('plan.itemUpdate');
-        Route::delete('plan-item/{item}/delete',[PlanController::class,'itemDelete'])->name('plan.itemDelete');
+        Route::delete('plan-item/{item}/delete', [PlanController::class, 'itemDelete'])->name('plan.itemDelete');
 
 
         //end plan
-        Route::get('/dashboard',[AccountController::class,'dashboard'])->middleware('verified')->name('dashboard');
+        Route::get('/dashboard', [AccountController::class, 'dashboard'])->middleware('verified')->name('dashboard');
 
         Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');
         Route::resource('media', MediaController::class);
@@ -121,6 +124,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::get('theme/{theme}/active-theme', [ThemeController::class, 'activeTheme'])->name('theme.activeTheme');
         Route::get('theme/{theme}/component/', [ThemeController::class, 'selectComponent'])->name('theme.selectComponent');
         Route::post('theme/{theme}/component/store', [ThemeController::class, 'componentStore'])->name('theme.componentStore');
+        Route::get('theme/{theme}/nav', [ThemeController::class, 'selectNav'])->name('theme.selectNav');
+        Route::post('theme/{theme}/nav/store', [ThemeController::class, 'NavStore'])->name('theme.navStore');
 
         Route::resource('taxonomy', TaxonomyController::class);
 
@@ -139,8 +144,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
 
         //setting setting setting setting setting setting setting
 
-        Route::get('setting/get-images',[ThemeSettingController::class,'getImages'])->name('setting.getImages');
-        Route::get('setting/images-destroy',[ThemeSettingController::class,'destroyImage'])->name('setting.destroyImage');
+        Route::get('setting/get-images', [ThemeSettingController::class, 'getImages'])->name('setting.getImages');
+        Route::get('setting/images-destroy', [ThemeSettingController::class, 'destroyImage'])->name('setting.destroyImage');
         Route::resource('setting', SettingController::class);
         Route::resource('theme-setting', ThemeSettingController::class);
 

@@ -54,6 +54,8 @@
                                                 </td>
                                                 <td>{!! ($theme->status == "active") ? "<span class='badge bg-success text-white'>فعال</span>" : "<span class='badge bg-danger text-white'>غیرفعال</span>" !!}</td>
                                                 <td class="d-flex b">
+                                                    <a href="{{ route('theme.selectNav', $theme->id) }}"
+                                                       class="btn btn-primary m-1">تخصیص فهرست</a>
                                                     <a href="{{ route('theme.selectComponent', $theme->id) }}"
                                                        class="btn btn-info m-1">تخصیص بخش</a>
                                                     <a href="{{ route('theme.edit', $theme) }}"

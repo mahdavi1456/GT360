@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Nav;
 use App\Models\Theme;
 use App\Models\Setting;
 use App\Models\Component;
@@ -156,15 +157,23 @@ class ThemeController extends Controller
         $components = Component::latest()->get();
         return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents', 'pluck'));
     }
+    public function selectNav($theme)
+    {
+        $theme = Theme::findOrFail($theme);
+        $themNavs = $theme->navs;
+        $pluck = $themNavs->pluck('id')->toArray();
+        $navs = Nav::latest()->get();
+        return view('admin.theme.selectNavs', compact('theme', 'navs', 'themNavs', 'pluck'));
+    }
 
-    public function componentStore(Request $request, $theme)
+    public function navStore(Request $request, $theme)
     {
         $request->validate([
-            'components' => 'required',
+            'navs' => 'required',
         ]);
         $theme = Theme::findOrFail($theme);
-        $theme->components()->sync($request->components);
-        Alert::success('موفق', 'بخش ها تخصیص داده شد.');
+        $theme->navs()->sync($request->navs);
+        Alert::success('موفق', 'فهرست ها تخصیص داده شد.');
         return back();
     }
 

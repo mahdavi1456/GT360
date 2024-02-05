@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Nav;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Theme extends Model
 {
@@ -16,4 +17,9 @@ class Theme extends Model
     {
         return $this->belongsToMany(Component::class, 'component_theme');
     }
+    public function navs()
+    {
+        return $this->belongsToMany(Nav::class, 'nav_theme');
+    }
+
 }

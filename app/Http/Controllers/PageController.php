@@ -19,7 +19,7 @@ class PageController extends Controller
         $pages = Page::latest()->paginate(50);
         $users = User::all();
 
-        return view('admin.page.list', compact(['pages', 'users']));
+        return view('admin.page.list', compact(['pages', 'users', 'request']));
     }
 
     public function create()
@@ -56,10 +56,10 @@ class PageController extends Controller
             $data['author'] = auth()->id();
             //  dd($data);
             $page = Page::create($data);
-            $page->terms()->attach($request->term);
+            //$page->terms()->attach($request->term);
             DB::commit();
             alert()->success('موفق', 'صفحه با موفقیت ساخته شد.');
-        }else if ($request->action == "update") {
+        } else if ($request->action == "update") {
             DB::beginTransaction();
             $data = $request->except('_token', 'thumbnail', 'action', 'q', 'page');
 
@@ -81,7 +81,7 @@ class PageController extends Controller
             if ($request->action == 'create') {
                 $post = Post::create([
                     'user_id' => auth()->id(),
-                    'author'=>auth()->id(),
+                    'author' => auth()->id(),
                     'component_id' => $request->component_id,
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
@@ -93,7 +93,7 @@ class PageController extends Controller
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
                 ]);
-                return ['action' => 'update','post'=>$post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
+                return ['action' => 'update', 'post' => $post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
             }
         }
     }
@@ -109,5 +109,4 @@ class PageController extends Controller
         ]);
         return 'success';
     }
-
 }
