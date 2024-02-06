@@ -198,8 +198,8 @@
 <!-- service -->
 <div class="service text-center">
     <div class="container">
-        <h3>{{ $settingModel->getSetting('service_title', $account->id) }}</h3>
-        <p>{{ $settingModel->getSetting('service_text', $account->id) }}</p>
+        <h3>{{ fa_number($settingModel->getSetting('service_title', $accountId)) }}</h3>
+        <p>{{ fa_number($settingModel->getSetting('service_text', $accountId)) }}</p>
         <div class="service-bottom">
             <div class="row">
                 <div class="col-md-4">
