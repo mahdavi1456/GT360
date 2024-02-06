@@ -188,7 +188,7 @@
         <h4>{{ fa_number($settingModel->getSetting('first_title_section2', $accountId)) }}</h4>
         <p>{{ fa_number($settingModel->getSetting('secound_title_section2', $accountId)) }} </p>
         <p>{{ fa_number($settingModel->getSetting('thired_title_section2', $accountId)) }}</p>
-        <p><a href="index.html">READ MORE</a></p>
+        <p><a href="index.html">{{ fa_number($settingModel->getSetting('button_section2', $accountId)) }}</a></p>
     </div>
     <div class="about-right pull-right">
         <img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_cover', $accountId)) }}" alt=""/>
