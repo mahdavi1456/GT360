@@ -223,7 +223,7 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">محصولات / نمونه کارها</h3>
+        <h3 class="card-title">پروژه ها</h3>
     </div>
     <div class="card-body">
         <div class="row">
