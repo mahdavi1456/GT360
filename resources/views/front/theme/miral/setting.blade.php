@@ -182,7 +182,7 @@
                     value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
             </div>
         </div> --}}
-    </div>
+
     <div class="row">
         <div class="col-6 form-group">
             <label class="form-label">آیکن سوم</label>
