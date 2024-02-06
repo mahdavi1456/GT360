@@ -204,21 +204,18 @@
             <div class="row">
                 <div class="col-md-4">
                     <img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_icon', $accountId)) }}" alt=""/>
-                    <h4><a href="index.html">CONSULTANCY</a></h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
-                        has been.</p>
+                    <h4><a href="index.html">{{ fa_number($settingModel->getSetting('first_title_section3', $accountId)) }}</a></h4>
+                    <p>{{ fa_number($settingModel->getSetting('first_subtitle_section3', $accountId)) }}</p>
                 </div>
                 <div class="col-md-4">
                     <img src="{{ asset(ert('tsp') . $settingModel->getSetting('secound_icon', $accountId)) }}" alt=""/>
-                    <h4><a href="index.html">MARKETING</a></h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
-                        has been.</p>
+                    <h4><a href="index.html">{{ fa_number($settingModel->getSetting('secound_title_section3', $accountId)) }}</a></h4>
+                    <p>{{ fa_number($settingModel->getSetting('secound_subtitle_section3', $accountId)) }}</p>
                 </div>
                 <div class="col-md-4">
                     <img src="{{ asset(ert('tsp') . $settingModel->getSetting('third_icon', $accountId)) }}" alt=""/>
-                    <h4><a href="index.html">RESEARCH</a></h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
-                        has been.</p>
+                    <h4><a href="index.html">{{ fa_number($settingModel->getSetting('third_title_section3', $accountId)) }}</a></h4>
+                    <p>{{ fa_number($settingModel->getSetting('third_subtitle_section3', $accountId)) }}</p>
                 </div>
             </div>
         </div>
