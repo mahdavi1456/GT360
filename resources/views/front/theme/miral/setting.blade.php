@@ -201,7 +201,6 @@
                 <input type="text" name="service_second_title" class="form-control" placeholder="عنوان دوم..."
                     value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
             </div>
-
             <div class="col-6 form-group">
                 <label class="form-label">آیکن سوم</label>
                 <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
