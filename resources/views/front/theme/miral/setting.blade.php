@@ -131,20 +131,6 @@
     </div>
 </div>
 </div>
-{{-- <div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title">تماس</h3>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-12 form-group">
-                <label class="form-label">نقشه گوگل</label>
-                <textarea name="google_map" class="form-control ltr" placeholder="نقشه گوگل...">{{ $settingModel->getSetting('google_map', $account->id) }}</textarea>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title">خدمات</h3>
@@ -162,26 +148,6 @@
                     value="{{ $settingModel->getSetting('service_text', $account->id) }}">
             </div>
         </div>
-        {{-- <div class="row">
-            <div class="col-md-4">
-                <img src="{{ asset('front-theme-asset/miral') }}/images/contact.png" alt="" />
-                <h4><a href="index.html">CONSULTANCY</a></h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
-                    has been.</p>
-            </div>
-            <div class="col-md-4">
-                <img src="{{ asset('front-theme-asset/miral') }}/images/flag.png" alt="" />
-                <h4><a href="index.html">MARKETING</a></h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
-                    has been.</p>
-            </div>
-            <div class="col-md-4">
-                <img src="{{ asset('front-theme-asset/miral') }}/images/fl.png" alt="" />
-                <h4><a href="index.html">RESEARCH</a></h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
-                    has been.</p>
-            </div>
-        </div> --}}
         <div class="row">
             <div class="col-6 form-group">
                 <label class="form-label">آیکن اول</label>
@@ -216,16 +182,6 @@
                     value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
             </div>
         </div>
-        {{-- <div class="col-6 form-group">
-                <label class="form-label">آیکن چهارم</label>
-                <input type="text" name="service_fourth_icon" class="form-control" placeholder="آیکن چهارم..."
-                    value="{{ $settingModel->getSetting('service_fourth_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان چهارم</label>
-                <input type="text" name="service_fourth_title" class="form-control" placeholder="عنوان چهارم..."
-                    value="{{ $settingModel->getSetting('service_fourth_title', $account->id) }}">
-            </div>
-        </div> --}}
     </div>
 </div>
 
