@@ -66,7 +66,7 @@
 <!-- start header -->
 <div class="header_bg">
     <!-- start header -->
-    <div class="header_bg">
+    <div class="header_bg" color=>
         <!-----start-conatiner---->
         <div class="container">
             <!-----start-header---->
