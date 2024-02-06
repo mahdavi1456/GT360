@@ -198,11 +198,8 @@
 <!-- service -->
 <div class="service text-center">
     <div class="container">
-        <h3>SERVICES WE PROVIDE</h3>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
-            some form, by injected humour, or randomised words which don't look even slightly believable. If you are
-            going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
-            middle of text.</p>
+        <h3>{{ $settingModel->getSetting('service_title', $account->id) }}</h3>
+        <p>{{ $settingModel->getSetting('service_text', $account->id) }}</p>
         <div class="service-bottom">
             <div class="row">
                 <div class="col-md-4">
