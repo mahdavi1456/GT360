@@ -12,7 +12,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h3 class="card-title col-md-4">فیلتر نوشته ها</h3>
+                                <h3 class="card-title col-md-4">فیلتر صفحه </h3>
                             </div>
                             <div class="card-body">
                                 <form action="{{ route('page.index') }}" method="get" class="col-md-12">
@@ -57,15 +57,15 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h3 class="card-title">لیست نوشته‌ها ({{ $pages->total() }})</h3>
+                                <h3 class="card-title">لیست صفحات ({{ $pages->total() }})</h3>
                                 <a href="{{ route('page.create', ['action' => 'create']) }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
-                                    <i class="fa fa-plus ml-2"></i> افزودن نوشته
+                                    <i class="fa fa-plus ml-2"></i> افزودن صفحه
                                 </a>
                             </div>
                             <div class="card-body">
                                 @if ($pages->isEmpty())
                                     <div class="d-flex justify-content-center">
-                                        <span class="not-found">نوشته یافت نشد.</span>
+                                        <span class="not-found">صفحه یافت نشد.</span>
                                     </div>
                                 @else
                                     <table class="table table-bordered table-striped table-hover">
@@ -73,7 +73,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>تصویر شاخص</th>
-                                                <th>نوع نوشته</th>
+                                              
                                                 <th>عنوان</th>
                                                 <th>بازدید</th>
                                                 <th>نویسنده</th>
@@ -85,24 +85,24 @@
                                         <tbody>
                                             @foreach ($pages as $key => $page)
                                                 <tr>
-                                                    <td>{{ $page->firstItem() + $key }}</td>
+                                                    <td>{{ $pages->firstItem() + $key }}</td>
                                                     <td>
                                                         <div class="text-center">
                                                             @if ($page->thumbnail)
-                                                                <img  style="width:100px !important; object-fit: contain" src="{{ asset(ert('thumb-path')) . '/' . $page->thumbnail }}">
+                                                                <img  style="width:100px !important; object-fit: contain" src="{{ asset(ert('pip')) . '/' . $page->thumbnail }}">
                                                                 @else
-                                                                بدون تصویر
+                                                                فاقد تصویر
                                                             @endif
                                                         </div>
                                                     </td>
-                                                    <td></td>
+
                                                     <td>{{ $page->title }}</td>
                                                     {{-- <td>{{ $post->visitLogs()->count() }}</td> --}}
                                                     <td>{{ 25 }}</td>
                                                     <td>{{ ($page->author_object->name . ' ' . $page->author_object->family) }}</td>
                                                     <td>{{ zaman(($page->created_at)) }}</td>
                                                     <td>
-                                                        <span class="badge {{ $page->publish_status == 'draft' ? 'badge-danger' : 'badge-success' }}">{{ $page->publish_status =='draft' ? 'عدم انتشار' : 'انتشار' }}</span>
+                                                        <span class="badge {{ $page->publish_status == 'publish' ? 'badge-success' :'badge-danger'  }}">{{ $page->publish_status =='publish' ? 'انتشار': 'عدم انتشار'  }}</span>
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
@@ -139,8 +139,8 @@
             var form =  $(this).closest("form");
             event.preventDefault();
             new swal({
-                title: "حذف نوشته",
-                text:  "آیا از حذف نوشته مطمئن هستید؟",
+                title: "حذف صفحه",
+                text:  "آیا از حذف صفحه مطمئن هستید؟",
                 icon: "warning",
                 dangerMode: true,
                 buttons: ["خیر","بله"],

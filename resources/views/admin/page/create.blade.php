@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Theme List')
+@section('title', 'page create')
 @section('style')
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <style>
@@ -25,7 +25,7 @@
                 <form action="{{ route('page.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" id="action" name="action" value="{{ $action }}">
-                    <input type="hidden" id="page_id" name="post" value="{{ $page?->id }}">
+                    <input type="hidden" id="page_id" name="page" value="{{ $page?->id }}">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
@@ -104,10 +104,9 @@
                                 <div class="card-body">
                                     <div class="col-12 mb-2">
                                         <label>تصویر شاخص </label>
-
                                             <div class="col-12 pos-relative thumb-show-image d-none">
                                                 <img style="width:100% !important; object-fit:contain"
-                                                    src="{{ asset(ert('thumb-path')) . '/' . $page?->thumbnail }}">
+                                                    src="{{ asset(ert('pip')) . '/' . $page?->thumbnail }}">
                                                 <button type="button" onclick="destroyImage()"
                                                 style="left:44%;bottom:0"
                                                 class="btn btn-danger btn-sm position-absolute"> حذف</button>
@@ -118,13 +117,12 @@
                                                 <label class="custom-file-label" for="primary_image">انتخاب فایل</label>
                                             </div>
 
-
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label class="required">ترتیب</label>
-                                            <input type="text" name="post_order" class="form-control"
-                                                value="{{ old('post_order') }}" placeholder="ترتیب...">
+                                            <input type="text" name="page_order" class="form-control"
+                                                value="{{ old('page_order') }}" placeholder="ترتیب...">
                                         </div>
                                     </div>
                                 </div>
@@ -153,9 +151,9 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "get",
-                        url: "{{ route('thumb.destroy') }}",
+                        url: "{{ route('pageImage.destroy') }}",
                         data: {
-                            'post_id': $('#post_id').val()
+                            'page_id': $('#page_id').val()
                         },
                         success:function(data) {
                             Swal.fire({
@@ -181,7 +179,7 @@
         if ("{{ $action }}" == "create") {
             $(".thumb-show-image").addClass('d-none');
         } else {
-            @if ($page->thumbnail)
+            @if ($page?->thumbnail)
                 $('.thumb-show-image').removeClass('d-none');
                 $('.thumb-show-input').addClass('d-none');
             @else
@@ -196,11 +194,10 @@
             formData.append('image', image);
             formData.append('_token', "{{ csrf_token() }}");
             formData.append('action', "{{ $action }}");
-            formData.append('component_id', "{{ request('component_id') }}");
-            formData.append('post', "{{$post->id??0 }}");
+            formData.append('page', "{{$page?->id??0 }}");
             $.ajax({
                 type: 'post',
-                url: "{{ route('post.thumb') }}",
+                url: "{{ route('page.image') }}",
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -210,7 +207,7 @@
                     $('.thumb-show-image').removeClass('d-none');
                     $('.thumb-show-input').addClass('d-none');
                     $("#loading-overlay").fadeOut();
-                    $('#post_id').val(respnse.post);
+                    $('#page_id').val(respnse.page);
                     Swal.fire({
                         title: "موفق",
                         text: "تصویری خواسته شده ذخیره شد",

@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Theme List')
+@section('title', 'page create/update')
 @section('style')
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <style>

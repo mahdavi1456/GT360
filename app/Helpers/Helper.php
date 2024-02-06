@@ -155,6 +155,9 @@ function ert($variable)
     if ($variable == 'tsp') {  //theme-setting-path
         return 'uploads/themeSetting/';
     }
+    if ($variable == 'pip') {  //page-image-path
+        return 'uploads/pageImages/';
+    }
     if ($variable == 'aip') {  //account-image-path
         return 'uploads/account/';
     }
