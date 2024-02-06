@@ -107,17 +107,25 @@
                     </div>
                 @endif
             </div>
-            <div class="col-6 form-group">
-                <label class="form-label">تصویر کاور دوم</label>
-                <input type="file" name="second_cover" onchange="uploadImage(this)">
-
-                @if ($image = imageLoader('second_cover'))
-                    <div class="imageLoader position-relative">
-                        <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                        <button type="button" onclick="destroyImage('second_cover')"
-                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
-                    </div>
-                @endif
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="first_title_section2" class="form-control"
+                        placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('first_title_section2', $account->id) }}">
+                </div>
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="secound_title_section2" class="form-control"
+                        placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('secound_title_section2', $account->id) }}">
+                </div>
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان سوم</label>
+                    <input type="text" name="thired_title_section2" class="form-control"
+                        placeholder="عنوان سوم..."
+                        value="{{ $settingModel->getSetting('thired_title_section2', $account->id) }}">
+                </div>
             </div>
         </div>
     </div>
