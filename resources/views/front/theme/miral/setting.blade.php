@@ -27,7 +27,7 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">فهرست</h3>
+        <h3 class="card-title">فهرست و لوگو</h3>
     </div>
     <div class="card-body">
         <div class="row">
@@ -62,8 +62,8 @@
                     value="{{ $settingModel->getSetting('nav_item_text6', $account->id) }}">
             </div>
             <div class="col form-group">
-                <label class="form-label">مورد هفتم</label>
-                <input type="text" name="nav_item_text7" class="form-control" placeholder="مورد هفتم..."
+                <label class="form-label">لوگو</label>
+                <input type="text" name="nav_item_text7" class="form-control" placeholder="لوگو..."
                     value="{{ $settingModel->getSetting('nav_item_text7', $account->id) }}">
             </div>
         </div>
