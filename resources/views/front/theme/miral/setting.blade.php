@@ -192,15 +192,17 @@
                 <input type="text" name="service_first_icon" class="form-control" placeholder="عنوان اول..."
                     value="{{ $settingModel->getSetting('service_first_title', $account->id) }}">
             </div>
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن دوم</label>
-                <input type="text" name="service_second_icon" class="form-control" placeholder="آیکن دوم..."
-                    value="{{ $settingModel->getSetting('service_second_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان دوم</label>
-                <input type="text" name="service_second_title" class="form-control" placeholder="عنوان دوم..."
-                    value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
-            </div>
+        </div>
+        <div class="col-6 form-group">
+            <label class="form-label">آیکن دوم</label>
+            <input type="text" name="service_second_icon" class="form-control" placeholder="آیکن دوم..."
+                value="{{ $settingModel->getSetting('service_second_icon', $account->id) }}">
+            <hr>
+            <label class="form-label">عنوان دوم</label>
+            <input type="text" name="service_second_title" class="form-control" placeholder="عنوان دوم..."
+                value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
+        </div>
+        <div class="row">
             <div class="col-6 form-group">
                 <label class="form-label">آیکن سوم</label>
                 <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
