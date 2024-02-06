@@ -208,7 +208,7 @@
                     value="{{ $settingModel->getSetting('service_third_icon', $account->id) }}">
                 <hr>
                 <label class="form-label">عنوان سوم</label>
-                <input type="text" name="service_third_title" class="form-control" placeholder="عنوان چهارم..."
+                <input type="text" name="service_third_title" class="form-control" placeholder="عنوان سوم..."
                     value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
             </div>
         </div>
