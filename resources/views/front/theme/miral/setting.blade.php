@@ -160,12 +160,12 @@
                     </div>
                 @endif
             </div>
-            <div class="col-6 form-group">
+            <div class="col-3 form-group">
                 <label class="form-label">عنوان اول</label>
                 <input type="text" name="title_first_icon" class="form-control" placeholder="عنوان اول..."
                     value="{{ $settingModel->getSetting('title_first_icon', $account->id) }}">
             </div>
-              <div class="col-6 form-group">
+              <div class="col-3 form-group">
                 <label class="form-label">زیر عنوان اول</label>
                 <input type="text" name="subtitle_first_icon" class="form-control" placeholder="زیر عنوان اول..."
                     value="{{ $settingModel->getSetting('subtitle_first_icon', $account->id) }}">
