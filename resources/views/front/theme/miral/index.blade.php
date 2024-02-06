@@ -176,7 +176,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3>KNOW ABOUT US</h3>
+                <h3>{{ fa_number($settingModel->getSetting('first_title', $accountId)) }}</h3>
                 <span> </span>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum has
                     been.</p>
