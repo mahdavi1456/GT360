@@ -229,13 +229,13 @@
         <div class="row">
             <div class="col-6 form-group">
                 <label class="form-label">عنوان</label>
-                <input type="text" name="portfolio_title" class="form-control" placeholder="عنوان..."
-                    value="{{ $settingModel->getSetting('portfolio_title', $account->id) }}">
+                <input type="text" name="title_section7" class="form-control" placeholder="عنوان..."
+                    value="{{ $settingModel->getSetting('title_section7', $account->id) }}">
             </div>
             <div class="col-6 form-group">
                 <label class="form-label">توضیحات</label>
-                <input type="text" name="portfolio_text" class="form-control" placeholder="توضیحات..."
-                    value="{{ $settingModel->getSetting('portfolio_text', $account->id) }}">
+                <input type="text" name="text_section7" class="form-control" placeholder="توضیحات..."
+                    value="{{ $settingModel->getSetting('text_section7', $account->id) }}">
             </div>
         </div>
     </div>

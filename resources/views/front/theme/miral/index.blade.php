@@ -224,7 +224,7 @@
 <!-- skills -->
 <div class="skills text-center">
     <div class="container">
-        <h4>OUR SKILLS</h4>
+        <h4></h4>
         <div class="client">
             <div class="pie-wrapper progress-45 style-2">
                 <span class="label">45<span class="smaller">%</span></span>
@@ -280,10 +280,9 @@
         <div class="about">
             <div class="row  Protects">
                 <div class="col-md-12">
-                    <h3>SOME RECENT PROJECTS</h3>
+                    <h3>{{ fa_number($settingModel->getSetting('title_section7', $accountId)) }}</h3>
                     <span></span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
-                        has been.</p>
+                    <p>{{ fa_number($settingModel->getSetting('text_section7', $accountId)) }}</p>
                 </div>
             </div>
         </div>
