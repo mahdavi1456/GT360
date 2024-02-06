@@ -121,11 +121,14 @@
                 <textarea name="thired_title_section2" class="form-control" placeholder="عنوان سوم..."
                     value="{{ $settingModel->getSetting('thired_title_section2', $account->id) }}"></textarea>
             </div>
-            <div class="col-2 form-group">
-                <label class="form-label">دکمه</label>
-                <input type="text" name="button_section2" class="form-control" placeholder="دکمه"
-                    value="{{ $settingModel->getSetting('button_section2', $account->id) }}">
-            </div>
+            @if ($button_section2 = $settingModel->getSetting('button_section2', $account->id))
+                <div class="col-2 form-group">
+                    <label class="form-label">دکمه</label>
+                    <input type="text" name="button_section2" class="form-control" placeholder="دکمه"
+                        value="{{$button_section2 }}">
+                </div>
+            @endif
+
         </div>
     </div>
 </div>
