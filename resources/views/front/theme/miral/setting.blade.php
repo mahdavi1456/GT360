@@ -154,15 +154,15 @@
             <div class="col-6 form-group">
                 <label class="form-label">عنوان خدمات</label>
                 <input type="text" name="service_title" class="form-control" placeholder="عنوان خدمات..."
-                    value="{{ ($settingModel->getSetting('service_title', $accountId)) }}">
+                    value="{{ $settingModel->getSetting('service_title', $account->id) }}">
             </div>
             <div class="col-6 form-group">
                 <label class="form-label">متن خدمات</label>
                 <input type="text" name="service_text" class="form-control" placeholder="متن خدمات..."
-                    value="{{ ($settingModel->getSetting('service_text', $accountId)) }}">
+                    value="{{ $settingModel->getSetting('service_text', $account->id) }}">
             </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-6 form-group">
                 <label class="form-label">آیکن اول</label>
                 <input type="text" name="service_first_icon" class="form-control" placeholder="آیکن اول..."
@@ -181,7 +181,7 @@
                 <input type="text" name="service_second_title" class="form-control" placeholder="عنوان دوم..."
                     value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
             </div>
-        </div>
+        </div> --}}
 
     <div class="row">
         <div class="col-6 form-group">
