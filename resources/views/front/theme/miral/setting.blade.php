@@ -15,13 +15,6 @@
                     value="{{ $settingModel->getSetting('description', $account->id) }}">
             </div>
         </div>
-        {{-- <div class="row">
-            <div class="col-3 form-group">
-                <label class="form-label">متن دکمه شروع</label>
-                <input type="text" name="start_btn_text" class="form-control" placeholder="متن دکمه شروع..."
-                    value="{{ $settingModel->getSetting('start_btn_text', $account->id) }}">
-            </div>
-        </div> --}}
     </div>
 </div>
 
@@ -108,18 +101,18 @@
             </div>
             <div class="col-2 form-group">
                 <label class="form-label">عنوان اول</label>
-                <input type="text" name="first_title_section2" class="form-control" placeholder="عنوان اول..."
-                    value="{{ $settingModel->getSetting('first_title_section2', $account->id) }}">
+                <textarea type="text" name="first_title_section2" class="form-control" placeholder="عنوان اول..."
+                    value="{{ $settingModel->getSetting('first_title_section2', $account->id) }}"></textarea>
             </div>
             <div class="col-2 form-group">
                 <label class="form-label">عنوان دوم</label>
-                <input type="text" name="secound_title_section2" class="form-control" placeholder="عنوان دوم..."
+                <textarea> type="text" name="secound_title_section2" class="form-control" placeholder="عنوان دوم..."
                     value="{{ $settingModel->getSetting('secound_title_section2', $account->id) }}">
             </div>
             <div class="col-2 form-group">
                 <label class="form-label">عنوان سوم</label>
-                <textarea name="thired_title_section2" class="form-control" placeholder="عنوان سوم..."
-                    value="{{ $settingModel->getSetting('thired_title_section2', $account->id) }}"></textarea>
+                <input type="text" name="thired_title_section2" class="form-control" placeholder="عنوان سوم..."
+                    value="{{ $settingModel->getSetting('thired_title_section2', $account->id) }}">
             </div>
             <div class="col-2 form-group">
                 <label class="form-label">دکمه</label>
