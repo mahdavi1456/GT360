@@ -187,25 +187,30 @@
                 <label class="form-label">آیکن اول</label>
                 <input type="text" name="service_first_icon" class="form-control" placeholder="آیکن اول..."
                     value="{{ $settingModel->getSetting('service_first_icon', $account->id) }}">
-                <hr>
+            </div>
+            <div class="col-6 form-group">
                 <label class="form-label">عنوان اول</label>
                 <input type="text" name="service_first_icon" class="form-control" placeholder="عنوان اول..."
                     value="{{ $settingModel->getSetting('service_first_title', $account->id) }}">
             </div>
+            <hr>
             <div class="col-6 form-group">
                 <label class="form-label">آیکن دوم</label>
                 <input type="text" name="service_second_icon" class="form-control" placeholder="آیکن دوم..."
                     value="{{ $settingModel->getSetting('service_second_icon', $account->id) }}">
-                <hr>
+            </div>
+            <div class="col-6 form-group">
                 <label class="form-label">عنوان دوم</label>
                 <input type="text" name="service_second_title" class="form-control" placeholder="عنوان دوم..."
                     value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
             </div>
+            <hr>
             <div class="col-6 form-group">
                 <label class="form-label">آیکن سوم</label>
                 <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
                     value="{{ $settingModel->getSetting('service_third_icon', $account->id) }}">
-                <hr>
+            </div>
+            <div class="col-6 form-group">
                 <label class="form-label">عنوان سوم</label>
                 <input type="text" name="service_third_title" class="form-control" placeholder="عنوان سوم..."
                     value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
