@@ -61,7 +61,7 @@
                 <input type="text" name="nav_item_text6" class="form-control" placeholder="مورد ششم..."
                     value="{{ $settingModel->getSetting('nav_item_text6', $account->id) }}">
             </div>
-            <div class="col-4 form-group">
+            <div class="col-4 form-group bg-secondary">
                 <label class="form-label">تصویر لوگو</label>
                 <input type="file" name="logo" onchange="uploadImage(this)">
                 @if ($image = imageLoader('logo'))
