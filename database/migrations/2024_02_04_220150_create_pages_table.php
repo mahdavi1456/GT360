@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('component_id');
+            $table->integer('account_id');
             $table->string('title');
             $table->string('slug');
             $table->text('content');

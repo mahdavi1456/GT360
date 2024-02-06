@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\fileExists;
+
 class PageController extends Controller
 {
 
@@ -27,7 +29,7 @@ class PageController extends Controller
         $action = request('action');
 
         if ($action == "create") {
-            $page = new Page();
+            $page = null;
             return view('admin.page.create', compact(['action', 'page']));
         } else if ($action == "update") {
             $id = request('page');
@@ -54,7 +56,8 @@ class PageController extends Controller
 
             $data['user_id'] = auth()->id();
             $data['author'] = auth()->id();
-            //  dd($data);
+            $data['account_id'] = auth()->user()->account->id;
+            // dd($data);
             $page = Page::create($data);
             //$page->terms()->attach($request->term);
             DB::commit();
@@ -63,7 +66,7 @@ class PageController extends Controller
             DB::beginTransaction();
             $data = $request->except('_token', 'thumbnail', 'action', 'q', 'page');
 
-            $page = Page::findOrFail($request->post);
+            $page = Page::findOrFail($request->page);
             $page->update($data);
             DB::commit();
 
@@ -77,36 +80,50 @@ class PageController extends Controller
     {
         if ($request->image) {
             $fileName = now()->timestamp . '_' . $request->image->getClientOriginalName();
-            $request->image->move(public_path(ert('thumb-path')), $fileName);
+            $request->image->move(public_path(ert('pip')), $fileName);
             if ($request->action == 'create') {
-                $post = Post::create([
+                $page = Page::create([
                     'user_id' => auth()->id(),
                     'author' => auth()->id(),
-                    'component_id' => $request->component_id,
+                    'account_id' => auth()->user()->account->id,
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
                 ]);
-                return ['action' => 'created', 'post' => $post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
+                return ['action' => 'created', 'page' => $page->id, 'path' => asset(ert('pip')) . '/' . $page->thumbnail];
             } else {
-                $post = Post::findOrFail($request->post);
-                $post->update([
+                $page = Page::findOrFail($request->page);
+                $page->update([
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
                 ]);
-                return ['action' => 'update', 'post' => $post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
+                return ['action' => 'update', 'page' => $page->id, 'path' => asset(ert('pip')) . '/' . $page->thumbnail];
             }
         }
     }
 
-    public function thumbDestroy()
+    public function pageImageDestroy()
     {
 
-        $post = Post::findOrFail(request('post_id'));
-        unlink(public_path(ert('thumb-path') . '/' . $post->thumbnail));
-        $post->update([
+        $page = Page::findOrFail(request('page_id'));
+        if ($page->thumbnail and file_exists(public_path(ert('pip') . '/' . $page->thumbnail))) {
+            unlink(public_path(ert('pip') . '/' . $page->thumbnail));
+        }
+        $page->update([
             'thumbnail' => null,
             'thumbnail_status' => 0,
         ]);
         return 'success';
     }
+
+    public function destroy($id)
+    {
+        $page = Page::findOrFail($id);
+        $page->delete();
+        alert()->success('حذف پست', 'صفحه با موفقیت حذف شد. ');
+        return redirect()->route('page.index');
+    }
+
+
+
+
 }
