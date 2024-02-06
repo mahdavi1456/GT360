@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('target');
             $table->string('rel');
             $table->string('item_type');
+            $table->bigInteger('object_id');
+            $table->integer('order_num');
             $table->timestamps();
         });
     }

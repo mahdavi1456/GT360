@@ -1,6 +1,7 @@
 @extends('admin.master')
 @section('title', 'Category List')
 @section('style')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <style>
         [data-toggle="collapse"] .fa:before {
             content: "\f139";
@@ -8,6 +9,10 @@
 
         [data-toggle="collapse"].collapsed .fa:before {
             content: "\f13a";
+        }
+
+        .nav-info ul {
+            list-style-type: none;
         }
     </style>
 @endsection
@@ -52,7 +57,8 @@
                                         </div>
                                     </div>
                                 @endif --}}
-                               <div class="nav-info p-3" style="min-height: 100px;"></div>
+                                <div class="nav-info p-3" style="min-height: 100px;">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,32 +70,92 @@
     <!-- /.content-wrapper -->
 
 @endsection
-
 @section('scripts')
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        $('select[name="nav"]').change(function() {
+        $(function() {
+            $("#sortable").sortable({
+                revert: true
+            });
+            $("#draggable").draggable({
+                connectToSortable: "#sortable",
+                helper: "clone",
+                revert: "invalid"
+            });
+            $("ul, li").disableSelection();
+        });
+    </script>
+    <script>
+        $('select[name="nav"]').on('change', function() {
             $("#loading-overlay").fadeIn();
             let data = $('#nav-list-form').serialize();
             $.ajax({
                 url: "{{ url()->current() }}",
                 method: 'get',
-                data:data,
-                success:function(res){
-                  //  console.log(res);
+                data: data,
+                success: function(res) {
                     $('.nav-info').empty();
                     $('.nav-info').append(res);
+                    //dragable
+                    $("#sortable").sortable({
+                        revert: true
+                    });
+                    $("#draggable").draggable({
+                        connectToSortable: "#sortable",
+                        helper: "clone",
+                        revert: "invalid"
+                    });
+                    $("ul, li").disableSelection();
+                    //end of dragable
                     $("#loading-overlay").fadeOut();
+
                 },
-                error:function(res){
+                error: function(res) {
                     $("#loading-overlay").fadeOut();
                     Swal.fire({
                         title: "خطا",
-                        text: " خطاااااا",
+                        text: res.responseJSON.message,
                         icon: "error"
                     });
                     console.log(res);
                 }
             });
         });
+
+        function submitForm(form) {
+            $("#loading-overlay").fadeIn();
+            let data = $(form).serialize();
+            $.ajax({
+                url: "{{ url()->current() }}",
+                method: 'get',
+                data: data,
+                success: function(res) {
+                    $('.nav-info').empty();
+                    $('.nav-info').append(res);
+                    //dragable
+                    $("#sortable").sortable({
+                        revert: true
+                    });
+                    $("#draggable").draggable({
+                        connectToSortable: "#sortable",
+                        helper: "clone",
+                        revert: "invalid"
+                    });
+                    $("ul, li").disableSelection();
+                    //end of dragable
+                    $("#loading-overlay").fadeOut();
+
+                },
+                error: function(res) {
+                    $("#loading-overlay").fadeOut();
+                    Swal.fire({
+                        title: "خطا",
+                        text: res.responseJSON.message,
+                        icon: "error"
+                    });
+                    console.log(res);
+                }
+            });
+        }
     </script>
 @endsection
