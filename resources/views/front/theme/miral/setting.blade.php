@@ -118,8 +118,8 @@
             </div>
             <div class="col-2 form-group">
                 <label class="form-label">عنوان سوم</label>
-                <input type="textarea" name="thired_title_section2" class="form-control" placeholder="عنوان سوم..."
-                    value="{{ $settingModel->getSetting('thired_title_section2', $account->id) }}">
+                <textarea name="thired_title_section2" class="form-control" placeholder="عنوان سوم..."
+                    value="{{ $settingModel->getSetting('thired_title_section2', $account->id) }}"></textarea>
             </div>
             <div class="col-2 form-group">
                 <label class="form-label">دکمه</label>
