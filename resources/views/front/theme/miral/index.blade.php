@@ -66,7 +66,7 @@
 <!-- start header -->
 <div class="header_bg">
     <!-- start header -->
-    <div class="header_bg" color=>
+    <div class="header_bg" >
         <!-----start-conatiner---->
         <div class="container">
             <!-----start-header---->
@@ -84,7 +84,7 @@
                             <div class="clearfix"></div>
                         </ul>
                     </nav>
-                    <h1 class="bg-secondary"><a href="index.html"><img src="{{ asset(ert('tsp') . $settingModel->getSetting('logo', $accountId)) }}" alt=""/></a>
+                    <h1><a href="index.html"><img src="{{ asset(ert('tsp') . $settingModel->getSetting('logo', $accountId)) }}" alt=""/></a>
                     </h1>
                     <a href="#" id="navbtn">Nav Menu</a>
                     <div class="clearfix"></div>
