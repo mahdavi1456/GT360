@@ -182,27 +182,28 @@
                     value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
             </div>
         </div> --}}
-        <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن سوم</label>
-                <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
-                    value="{{ $settingModel->getSetting('service_third_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان سوم</label>
-                <input type="text" name="service_third_title" class="form-control" placeholder="عنوان چهارم..."
-                    value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
-            </div>
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن چهارم</label>
-                <input type="text" name="service_fourth_icon" class="form-control" placeholder="آیکن چهارم..."
-                    value="{{ $settingModel->getSetting('service_fourth_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان چهارم</label>
-                <input type="text" name="service_fourth_title" class="form-control" placeholder="عنوان چهارم..."
-                    value="{{ $settingModel->getSetting('service_fourth_title', $account->id) }}">
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-6 form-group">
+            <label class="form-label">آیکن سوم</label>
+            <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
+                value="{{ $settingModel->getSetting('service_third_icon', $account->id) }}">
+            <hr>
+            <label class="form-label">عنوان سوم</label>
+            <input type="text" name="service_third_title" class="form-control" placeholder="عنوان چهارم..."
+                value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
+        </div>
+        <div class="col-6 form-group">
+            <label class="form-label">آیکن چهارم</label>
+            <input type="text" name="service_fourth_icon" class="form-control" placeholder="آیکن چهارم..."
+                value="{{ $settingModel->getSetting('service_fourth_icon', $account->id) }}">
+            <hr>
+            <label class="form-label">عنوان چهارم</label>
+            <input type="text" name="service_fourth_title" class="form-control" placeholder="عنوان چهارم..."
+                value="{{ $settingModel->getSetting('service_fourth_title', $account->id) }}">
         </div>
     </div>
+</div>
 </div>
 
 <div class="card card-warning">
