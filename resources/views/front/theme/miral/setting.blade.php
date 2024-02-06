@@ -162,7 +162,7 @@
                     value="{{ $settingModel->getSetting('service_text', $account->id) }}">
             </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-4">
                 <img src="{{ asset('front-theme-asset/miral') }}/images/contact.png" alt="" />
                 <h4><a href="index.html">CONSULTANCY</a></h4>
@@ -181,12 +181,12 @@
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
                     has been.</p>
             </div>
-        </div>F
-        {{-- <div class="row">
+        </div> --}}
+        <div class="row">
             <div class="col-6 form-group">
                 <label class="form-label">آیکن اول</label>
                 <input type="text" name="service_first_icon" class="form-control" placeholder="آیکن اول..."
-                    value="{{ ($settingModel->getSetting('service_title', $accountId)) }}">
+                    value="{{ $settingModel->getSetting('service_title', $accountId) }}">
                 <hr>
                 <label class="form-label">عنوان اول</label>
                 <input type="text" name="service_first_icon" class="form-control" placeholder="عنوان اول..."
@@ -201,19 +201,17 @@
                 <input type="text" name="service_second_title" class="form-control" placeholder="عنوان دوم..."
                     value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
             </div>
-        </div> --}}
-
-        {{-- <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن سوم</label>
-                <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
-                    value="{{ $settingModel->getSetting('service_third_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان سوم</label>
-                <input type="text" name="service_third_title" class="form-control" placeholder="عنوان چهارم..."
-                    value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
-            </div>
-            <div class="col-6 form-group">
+        </div>
+        <div class="col-6 form-group">
+            <label class="form-label">آیکن سوم</label>
+            <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
+                value="{{ $settingModel->getSetting('service_third_icon', $account->id) }}">
+            <hr>
+            <label class="form-label">عنوان سوم</label>
+            <input type="text" name="service_third_title" class="form-control" placeholder="عنوان چهارم..."
+                value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
+        </div>
+        {{-- <div class="col-6 form-group">
                 <label class="form-label">آیکن چهارم</label>
                 <input type="text" name="service_fourth_icon" class="form-control" placeholder="آیکن چهارم..."
                     value="{{ $settingModel->getSetting('service_fourth_icon', $account->id) }}">
