@@ -161,13 +161,13 @@
             </div>
             <div class="col-4 form-group">
                 <label class="form-label">عنوان اول</label>
-                <input type="text" name="title_first_icon" class="form-control" placeholder="عنوان اول..."
-                    value="{{ $settingModel->getSetting('title_first_icon', $account->id) }}">
+                <input type="text" name="first_title_section3" class="form-control" placeholder="عنوان اول..."
+                    value="{{ $settingModel->getSetting('first_title_section3', $account->id) }}">
             </div>
             <div class="col-4 form-group">
                 <label class="form-label">زیر عنوان اول</label>
-                <input type="text" name="subtitle_first_icon" class="form-control" placeholder="زیر عنوان اول..."
-                    value="{{ $settingModel->getSetting('subtitle_first_icon', $account->id) }}">
+                <input type="text" name="first_subtitle_section3" class="form-control" placeholder="زیر عنوان اول..."
+                    value="{{ $settingModel->getSetting('first_subtitle_section3', $account->id) }}">
             </div>
             <hr>
             <div class="col-4 form-group">
