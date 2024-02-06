@@ -54,7 +54,10 @@ use App\Http\Controllers\ReservePlanController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
+//Website
 Route::get('/website/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
+Route::get('/website/{slug}/reserve', [AccountController::class, 'reserve'])->name('reserve');
+
 
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
 Route::get('/', [DashboardController::class, 'index']);

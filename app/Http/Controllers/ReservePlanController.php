@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ReserveParts;
+use App\Models\ReservePart;
 use App\Models\ReservePlan;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class ReservePlanController extends Controller
             $currentYear = $v->year;
             $currentMonth = $v->month;
         }
-        $reserveParts = ReserveParts::all();
+        $reserveParts = ReservePart::all();
         $reservePlanModel = New ReservePlan;
         return view('admin.reserve.plan.index', compact('reserveParts', 'currentYear', 'currentMonth', 'reservePlanModel', 'request'));
     }
@@ -70,7 +70,7 @@ class ReservePlanController extends Controller
             $currentYear = 1402;
             $currentMonth = 3;
         }
-        $reserveParts = ReserveParts::all();
+        $reserveParts = ReservePart::all();
         $reservePlanModel = New ReservePlan;
         return view('admin.reserve.plan.index', compact('reserveParts', 'currentYear', 'currentMonth', 'reservePlanModel'));
     }

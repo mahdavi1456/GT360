@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ReservePlan;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Servieses\Sms;
@@ -22,7 +23,7 @@ class AccountController extends Controller
 
     public function dashboard()
     {
-        $setting=new Setting();
+        $setting = new Setting();
         return view('admin.dashboard',compact('setting'));
     }
     public function loadSite($slug)
@@ -37,6 +38,27 @@ class AccountController extends Controller
         }
         return "یک تم برای خود انتخاب کنید";
     }
+
+    public function reserve($slug)
+    {
+        $settingModel = new Setting;
+        $reservePlanModel = new ReservePlan;
+        $account = Account::where('slug', $slug)->first();
+
+        $v = new Verta();
+        $currentYear = $v->year;
+        $currentMonth = $v->month;
+        $currentDay = $v->day;
+
+        if ($account) {
+            $theme = $account->activeTheme();
+            $view = "front.theme.$theme.reserve";
+            $accountId = $account->id;
+            return view($view, compact('settingModel', 'reservePlanModel', 'accountId', 'currentYear', 'currentMonth', 'currentDay'));
+        }
+        return "یک تم برای خود انتخاب کنید";
+    }
+
     public function index()
     {
         $accounts = Account::all();

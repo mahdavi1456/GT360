@@ -1,0 +1,200 @@
+@font-face {
+	font-family: iranyekan;
+	font-style: normal;
+	font-weight: bold;
+	src: url('../font/eot/iranyekanwebbold.eot');
+	src: url('../font/eot/iranyekanwebbold.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../font/woff2/iranyekanwebbold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../font/woff/iranyekanwebbold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../font/ttf/iranyekanwebbold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: iranyekan;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../font/eot/iranyekanweblight.eot');
+	src: url('../font/eot/iranyekanweblight.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../font/woff2/iranyekanweblight.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../font/woff/iranyekanweblight.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../font/ttf/iranyekanweblight.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: iranyekan;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../font/eot/iranyekanwebregular.eot');
+	src: url('../font/eot/iranyekanwebregular.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../font/woff2/iranyekanwebregular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../font/woff/iranyekanwebregular.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../font/ttf/iranyekanwebregular.ttf') format('truetype');
+}
+
+/* Latin fonts (Roboto) */
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: bold;
+	src: url('../font/eot/robotobold.eot');
+	src: url('../font/eot/robotobold.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../font/woff2/robotobold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../font/woff/robotobold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../font/ttf/robotobold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: 300;
+	src: url('../font/eot/robotolight.eot');
+	src: url('../font/eot/robotolight.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../font/woff2/robotolight.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../font/woff/robotolight.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../font/ttf/robotolight.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../font/eot/robotoregular.eot');
+	src: url('../font/eot/robotoregular.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('../font/woff2/robotoregular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('../font/woff/robotoregular.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('../font/ttf/robotoregular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:  url('../font/icomoon/icomoon.eot?fydzi8');
+	src:  url('../font/icomoon/icomoon.eot?fydzi8#iefix') format('embedded-opentype'),
+		url('../font/icomoon/icomoon.ttf?fydzi8') format('truetype'),
+		url('../font/icomoon/icomoon.woff?fydzi8') format('woff'),
+		url('../font/icomoon/icomoon.svg?fydzi8#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+  
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-hexagonal:before {
+	content: "\e90a";
+  }
+  .icon-thin-left:before {
+	content: "\e900";
+  }
+  .icon-search:before {
+	content: "\e901";
+  }
+  .icon-focus-2:before {
+	content: "\e907";
+  }
+  .icon-play-button:before {
+	content: "\e90c";
+  }
+  .icon-periscope-logo:before {
+	content: "\e913";
+  }
+  .icon-arrow-botom:before {
+	content: "\e914";
+  }
+  .icon-arrow-btm-poinst:before {
+	content: "\e915";
+  }
+  .icon-arrow-left:before {
+	content: "\e916";
+  }
+  .icon-facebook:before {
+	content: "\e903";
+  }
+  .icon-instagram1:before {
+	content: "\e904";
+  }
+  .icon-linkedin1:before {
+	content: "\e905";
+  }
+  .icon-question:before {
+	content: "\e906";
+  }
+  .icon-telegram:before {
+	content: "\e908";
+  }
+  .icon-twitter:before {
+	content: "\e909";
+  }
+  .icon-user1:before {
+	content: "\e917";
+  }
+  .icon-whatsapp:before {
+	content: "\e90b";
+  }
+  .icon-customer1:before {
+	content: "\e90d";
+  }
+  .icon-customer2:before {
+	content: "\e90e";
+  }
+  .icon-customer:before {
+	content: "\e90f";
+  }
+  .icon-customer4:before {
+	content: "\e910";
+  }
+  .icon-heart:before {
+	content: "\e918";
+  }
+  .icon-error:before {
+	content: "\e919";
+  }
+  .icon-arrow-left-c:before {
+	content: "\e91a";
+  }
+  .icon-envelope-c:before {
+	content: "\e91d";
+  }
+  .icon-mail-p:before {
+	content: "\e91b";
+  }
+  .icon-phone:before {
+	content: "\e91c";
+  }
+  .icon-star:before {
+	content: "\e921";
+  }
+  .icon-quote:before {
+	content: "\e926";
+  }
+  .icon-open-menu:before {
+	content: "\e92b";
+  }
+  .icon-close:before {
+	content: "\e92c";
+  }
+  .icon-arr-left:before {
+	content: "\e92f";
+  }
+  .icon-map-pin:before {
+	content: "\e902";
+  }
+  .icon-phone1:before {
+	content: "\e911";
+  }
+  .icon-phone-call:before {
+	content: "\e912";
+  }
