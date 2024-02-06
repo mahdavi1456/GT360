@@ -61,10 +61,16 @@
                 <input type="text" name="nav_item_text6" class="form-control" placeholder="مورد ششم..."
                     value="{{ $settingModel->getSetting('nav_item_text6', $account->id) }}">
             </div>
-            <div class="col form-group">
-                <label class="form-label">لوگو</label>
-                <input type="text" name="nav_item_text7" class="form-control" placeholder="لوگو..."
-                    value="{{ $settingModel->getSetting('nav_item_text7', $account->id) }}">
+            <div class="col-4 form-group">
+                <label class="form-label">تصویرآیکن لوگو</label>
+                <input type="file" name="logo" onchange="uploadImage(this)">
+                @if ($image = imageLoader('logo'))
+                    <div class="imageLoader position-relative">
+                        <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                        <button type="button" onclick="destroyImage('logo')"
+                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -165,7 +171,7 @@
                 <input type="text" name="title_first_icon" class="form-control" placeholder="عنوان اول..."
                     value="{{ $settingModel->getSetting('title_first_icon', $account->id) }}">
             </div>
-              <div class="col-4 form-group">
+            <div class="col-4 form-group">
                 <label class="form-label">زیر عنوان اول</label>
                 <input type="text" name="subtitle_first_icon" class="form-control" placeholder="زیر عنوان اول..."
                     value="{{ $settingModel->getSetting('subtitle_first_icon', $account->id) }}">
@@ -188,7 +194,7 @@
                     value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
             </div>
             <hr>
-                        <div class="col-4 form-group">
+            <div class="col-4 form-group">
                 <label class="form-label">تصویرآیکن سوم</label>
                 <input type="file" name="third_icon" onchange="uploadImage(this)">
                 @if ($image = imageLoader('third_icon'))
