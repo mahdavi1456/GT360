@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-12 form-group">
                         <label class="form-label">عنوان دوم</label>
-                        <textarea type="text" name="secound_title_section2" class="form-control" placeholder="عنوان دوم..."
+                        <textarea type="text" name="secound_title_section2" class="form-control" placeholder="عنوان دوم..." rows="4"
                             value="{{ $settingModel->getSetting('secound_title_section2', $account->id) }}"></textarea>
                     </div>
                     <div class="col-6 form-group">
