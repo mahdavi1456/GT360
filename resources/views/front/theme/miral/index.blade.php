@@ -215,7 +215,7 @@
                         has been.</p>
                 </div>
                 <div class="col-md-4">
-                    <img {{ asset(ert('tsp') . $settingModel->getSetting('third_icon', $accountId)) }}" alt=""/>
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('third_icon', $accountId)) }}" alt=""/>
                     <h4><a href="index.html">RESEARCH</a></h4>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum Lorem Ipsum
                         has been.</p>
