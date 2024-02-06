@@ -84,7 +84,7 @@
                             <div class="clearfix"></div>
                         </ul>
                     </nav>
-                    <h1><a href="index.html"><img src="{{ asset('front-theme-asset/miral') }}/images/logo.png" alt=""/></a>
+                    <h1><a href="index.html"><img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_cover', $accountId)) }}" alt=""/></a>
                     </h1>
                     <a href="#" id="navbtn">Nav Menu</a>
                     <div class="clearfix"></div>
