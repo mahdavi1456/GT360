@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nav;
+use App\Models\NavItem;
 use App\Models\Page;
 use App\Models\Theme;
 use App\Models\Setting;
@@ -84,19 +85,49 @@ class NavController extends Controller
 
     public function navItems()
     {
-        if (request('type')=='get-nav-info') {
-            $nav=Nav::findOrFail(request('nav'));
-            $pages=Page::latest()->get();
-            return view('admin.nav.editItems',compact('nav','pages'));
+        $pages = Page::latest()->get();
+        $accounId = auth()->user()->account->id;
+        if (request('item_type') == 'link') {
+            request()->validate([
+                'name' => ['required'],
+                'link' => ['required'],
+            ]);
+            $nav = Nav::findOrFail(request('nav_id'));
+
+            NavItem::create([
+                'nav_id' => request('nav_id'),
+                'account_id' => $accounId,
+                'name' => request('name'),
+                'link' => request('link'),
+                'target' => request('target'),
+                'rel' => request('rel'),
+                'item_type' => request('item_type'),
+                'object_id' => 0,
+                'order_num' => $this->getLastOrder(request('nav_id')) + 1,
+            ]);
+            $items = $nav->items;
+            return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
+        } elseif (request('type') == 'get-nav-info') {
+            $nav = Nav::findOrFail(request('nav'));
+
+            $items = $nav->items;
+            return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
         }
 
         $setting = new Setting();
         $themeName = $setting->getSetting('active_theme', auth()->user()->account->id);
         if (!$themeName) {
-            abort(403,"شما قالب فعال ندارید لطفا یک قالب انتخاب کنید");
+            abort(403, "شما قالب فعال ندارید لطفا یک قالب انتخاب کنید");
         }
-        $theme=Theme::where('name',$themeName)->first();
-        $navs=$theme->navs;
-        return view('admin.nav.selectItems',compact('navs'));
+        //$nav=Nav::find('5')->items;
+       // //dd($nav);
+        $theme = Theme::where('name', $themeName)->first();
+        $navs = $theme->navs;
+        return view('admin.nav.selectItems', compact('navs'));
+    }
+
+    public function getLastOrder($nav)
+    {
+        return NavItem::getLastOrder($nav);
     }
 }

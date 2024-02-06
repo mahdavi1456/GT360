@@ -9,4 +9,8 @@ class Nav extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
+    public function items(){
+        return $this->hasMany(NavItem::class)->where('account_id',auth()->user()->account->id);
+    }
 }
