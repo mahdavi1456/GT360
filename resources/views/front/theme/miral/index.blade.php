@@ -196,7 +196,7 @@
         <p><a href="index.html">READ MORE</a></p>
     </div>
     <div class="about-right pull-right">
-        <img src="{{ asset('front-theme-asset/miral') }}/images/about.jpg" alt=""/>
+        <img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_cover', $accountId)) }}" alt=""/>
     </div>
     <div class="clearfix"></div>
 </div>
