@@ -249,6 +249,12 @@
                                     <p>مدیریت محتوا</p>
                                 </a>
                             </li>
+                            <li class="nav-item" {{ active_menu('nav.items') }}>
+                                <a href="{{ route('nav.items') }}" class="nav-link">
+                                    <i class="fa fa-edit text-warning nav-icon"></i>
+                                    <p>مدیریت فهرست ها</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

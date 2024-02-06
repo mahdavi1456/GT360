@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nav;
+use App\Models\Page;
+use App\Models\Theme;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class NavController extends Controller
@@ -77,5 +80,23 @@ class NavController extends Controller
         $nav->delete();
         alert()->success('موفق', 'فهرست موردنظر حذف شد');
         return to_route('nav.index');
+    }
+
+    public function navItems()
+    {
+        if (request('type')=='get-nav-info') {
+            $nav=Nav::findOrFail(request('nav'));
+            $pages=Page::latest()->get();
+            return view('admin.nav.editItems',compact('nav','pages'));
+        }
+
+        $setting = new Setting();
+        $themeName = $setting->getSetting('active_theme', auth()->user()->account->id);
+        if (!$themeName) {
+            abort(403,"شما قالب فعال ندارید لطفا یک قالب انتخاب کنید");
+        }
+        $theme=Theme::where('name',$themeName)->first();
+        $navs=$theme->navs;
+        return view('admin.nav.selectItems',compact('navs'));
     }
 }
