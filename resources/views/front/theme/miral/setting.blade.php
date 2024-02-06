@@ -62,7 +62,7 @@
                     value="{{ $settingModel->getSetting('nav_item_text6', $account->id) }}">
             </div>
             <div class="col-4 form-group">
-                <label class="form-label">تصویرآیکن لوگو</label>
+                <label class="form-label">تصویر لوگو</label>
                 <input type="file" name="logo" onchange="uploadImage(this)">
                 @if ($image = imageLoader('logo'))
                     <div class="imageLoader position-relative">
