@@ -168,9 +168,6 @@ class ThemeController extends Controller
 
     public function navStore(Request $request, $theme)
     {
-        $request->validate([
-            'navs' => 'required',
-        ]);
         $theme = Theme::findOrFail($theme);
         $theme->navs()->sync($request->navs);
         Alert::success('موفق', 'فهرست ها تخصیص داده شد.');

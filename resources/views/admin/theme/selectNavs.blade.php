@@ -28,7 +28,9 @@
                                 @endif
                                 <form  action="{{ route('theme.navStore', $theme->id) }}" method="POST">
                                     @csrf
-                                    <select name="navs[]" class="custom-select" multiple>
+                                    <label for=""> فهرست ها</label>
+                                    <select name="navs[]" class="custom-select select2" multiple>
+                                        <option value="">انتخاب کنید...</option>
                                         @foreach ($navs as $nav)
                                             <option @selected(in_array($nav->id,$pluck)) value="{{ $nav->id }}">{{ $nav->name }}</option>
                                         @endforeach
@@ -40,7 +42,7 @@
                                 </form>
                             </div>
                             <div class="col-md-6">
-
+                                <label for=""> لیست فهرست ها</label>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item list-group-item-action active">
                                         <strong>فهرست های مربوط به قالب {{ $theme->name }}</strong>

@@ -91,6 +91,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
     Route::prefix('admin')->group(function () {
         //nav
         Route::resource('nav', NavController::class);
+        Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');
 
         //plan
         Route::resource('plan', PlanController::class);
