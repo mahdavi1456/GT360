@@ -197,7 +197,7 @@
             <h4>{{ fa_number($settingModel->getSetting('first_title_section2', $accountId)) }}</h4>
             <p>{{ fa_number($settingModel->getSetting('secound_title_section2', $accountId)) }} </p>
             <p>{{ fa_number($settingModel->getSetting('thired_title_section2', $accountId)) }}</p>
-            @if ($button_section2 = $settingModel->getSetting('button_section2', $account->id))
+            @if ($button_section2 = $settingModel->getSetting('button_section2', $accountId->id))
                 <p><a href="index.html">{{ fa_number($settingModel->getSetting('button_section2', $accountId)) }}</a>
                 </p>
             @endif
