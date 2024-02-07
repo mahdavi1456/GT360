@@ -109,6 +109,9 @@ class NavController extends Controller
             }
             //create page
             if (request('item_type') == 'page') {
+                request()->validate([
+                    'pages' => ['required'],
+                ]);
                 foreach (request('pages') as $pageId) {
                     $page = Page::findOrFail($pageId);
                     NavItem::create([

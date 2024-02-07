@@ -59,16 +59,12 @@
                                 <input type="hidden" name="item_type" value="link">
                                 <input type="hidden" name="nav_id" value="{{ $nav->id }}">
                                 <div class="form-group">
-                                    <label for="">نام پیوند </label>
-                                    <input type="text" class="form-control" required name="name"
-                                        oninvalid="this.setCustomValidity('تکمیل این کادر الزامیست')"
-                                        oninput="this.setCustomValidity('')">
+                                    <label for="">عنوان </label>
+                                    <input type="text" class="form-control"  placeholder="عنوان..." name="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="">نشانی </label>
-                                    <input type="text" class="form-control" required name="link"
-                                        oninvalid="this.setCustomValidity('تکمیل این کادر الزامیست')"
-                                        oninput="this.setCustomValidity('')">
+                                    <input type="text" class="form-control"  placeholder="نشانی..."  name="link">
                                 </div>
                                 <div class="form-group">
                                     <label for="">بازشدن در</label>
@@ -122,13 +118,13 @@
                                         <form>
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <div class="form-group">
-                                                <label for="">نام پیوند </label>
-                                                <input name="name" type="text" class="form-control"
+                                                <label for="">عنوان</label>
+                                                <input name="name" placeholder="عنوان..." type="text" class="form-control"
                                                     value="{{ $item->name }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">نشانی </label>
-                                                <input name="link" type="text" class="form-control"
+                                                <input name="link" type="text" placeholder="نشانی..." class="form-control"
                                                     value="{{ $item->link }}">
                                             </div>
                                             <div class="form-group">
@@ -179,13 +175,13 @@
                                         <form>
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                                             <div class="form-group">
-                                                <label for="">نام پیوند </label>
-                                                <input name="name" type="text" class="form-control"
+                                                <label for="">عنوان </label>
+                                                <input name="name" placeholder="عنوان..." type="text" class="form-control"
                                                     value="{{ $item->name }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">نشانی </label>
-                                                <input name="link" readonly type="text" class="form-control"
+                                                <input name="link"  placeholder="نشانی..." readonly type="text" class="form-control"
                                                     value="{{ $item->link }}">
                                             </div>
                                             <div class="form-group">

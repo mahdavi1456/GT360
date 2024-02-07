@@ -129,7 +129,9 @@
                 }
             });
         });
-
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+        });
         //submit ajax function
         function submitForm(form) {
             $("#loading-overlay").fadeIn();
@@ -200,7 +202,8 @@
             });
         }
         //delele itesm function
-        function destroyItem(item,nav) {
+        function destroyItem(item, nav) {
+
             Swal.fire({
                 title: "اطمینان دارید؟",
                 text: "آیا از حذف این مورد اطمینان دارید؟",
@@ -210,6 +213,7 @@
                 cancelButtonText: "نه، پشیمون شدم."
             }).then((result) => {
                 if (result.isConfirmed) {
+                    $("#loading-overlay").fadeIn();
                     $.ajax({
                         type: "get",
                         url: "{{ url()->current() }}",
@@ -226,8 +230,13 @@
                             });
                             $('.nav-info').empty();
                             $('.nav-info').append(res);
+                            $('.selectpicker').selectpicker({
+                                noneSelectedText: 'بدون انتخاب'
+                            });
+                            $("#loading-overlay").fadeOut();
                         },
                         error: function(data) {
+                            $("#loading-overlay").fadeOut();
                             Swal.fire({
                                 title: "خطا",
                                 text: data.responseJSON.message,
