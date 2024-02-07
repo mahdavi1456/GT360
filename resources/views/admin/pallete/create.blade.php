@@ -47,22 +47,22 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-4 form-group">
+                                        <div class="col-3 form-group">
                                             <label>رنگ اول</label>
                                             <input type="text" name="first_color" class="form-control"
                                                    value="{{ old('first_color') }}" placeholder="رنگ اول...">
                                         </div>
-                                        <div class="col-4 form-group">
+                                        <div class="col-3 form-group">
                                             <label>رنگ دوم</label>
                                             <input type="text" name="second_color" class="form-control"
                                                    value="{{ old('second_color') }}" placeholder="رنگ دوم...">
                                         </div>
-                                        <div class="col-4 form-group">
+                                        <div class="col-3 form-group">
                                             <label>رنگ سوم</label>
                                             <input type="text" name="third_color" class="form-control"
                                                    value="{{ old('third_color') }}" placeholder="رنگ سوم...">
                                         </div>
-                                        <div class="col-4 form-group">
+                                        <div class="col-3 form-group">
                                             <label>رنگ چهارم</label>
                                             <input type="text" name="fourth_color" class="form-control"
                                                    value="{{ old('fourth_color') }}" placeholder="رنگ چهارم...">
