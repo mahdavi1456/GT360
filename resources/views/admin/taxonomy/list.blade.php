@@ -58,12 +58,12 @@
                                                     @endif
                                                 </td>
                                                 <td class="d-flex">
-                                                    <button type="button" class="btn btn-info btn-sm load-term" data-id="0" data-taxonomy-id="{{ $taxonomy->id }}" data-toggle="modal" data-target="#termModal"><i class="fa fa-plus ml-1"></i>لیست مقادیر</button>
-                                                    <a class="btn btn-warning btn-sm" href="{{ route('taxonomy.edit', $taxonomy->id) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-info btn-sm mx-1 load-term" data-id="0" data-taxonomy-id="{{ $taxonomy->id }}" data-toggle="modal" data-target="#termModal"><i class="fa fa-plus ml-1"></i>لیست مقادیر</button>
+                                                    <a class="btn btn-warning mx-1 btn-sm" href="{{ route('taxonomy.edit', $taxonomy->id) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
                                                     <form method="post" action="{{route('taxonomy.destroy', $taxonomy->id)}}">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button data-toggle="tooltip" data-placement="top" title="حذف" type="submit" class="h-100 delete-confirm-taxonomy btn btn-danger btn-sm d-flex align-items-center"><i class="fa fa-close"></i></button>
+                                                        <button data-toggle="tooltip" data-placement="top" title="حذف" type="submit" class="delete-confirm-taxonomy btn btn-danger btn-sm mx-1 align-items-center"><i class="fa fa-close"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
