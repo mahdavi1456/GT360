@@ -86,7 +86,7 @@
                                 <div class="card-body">
                                     <div class="col-12">
                                         <div class="form-group Rcontent">
-                                            <label>محتوا</label>
+                                            <label> محتوا <span class="text-danger">*</span></label>
                                             <textarea name="content" class="form-control Reditor2" placeholder="محتوا ...">{{ old('content') ?? $post?->content }}</textarea>
                                         </div>
                                     </div>

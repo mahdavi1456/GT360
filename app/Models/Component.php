@@ -46,4 +46,7 @@ class Component extends Model
                 break;
         }
     }
+    public function taxonomies(){
+        return $this->belongsToMany(Taxonomy::class,'component_taxonomy');
+    }
 }

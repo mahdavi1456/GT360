@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Component;
 use App\Models\Setting;
+use App\Models\Taxonomy;
 use App\Models\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -90,4 +91,20 @@ class ComponentController extends Controller
         return view('admin.component.theme-components', compact('components'));
     }
 
+    public function chooseTaxonomy($component)
+    {
+        $component = Component::findOrFail($component);
+        $taxonomies = Taxonomy::where('status', 1)->latest()->get();
+        $componentTaxonomy = $component->taxonomies;
+        $pluck = $componentTaxonomy->pluck('id')->toArray();
+       // dd($taxonomies,$component);
+        return view('admin.component.selectTaxonomy', compact('taxonomies', 'component','componentTaxonomy','pluck'));
+    }
+    public function taxonomyStore(Request $request, $component)
+    {
+        $component = Component::findOrFail($component);
+        $component->taxonomies()->sync($request->taxonomies);
+        alert()->success('موفق','طبقه بندی ها تخصیص داده شد');
+        return back();
+    }
 }

@@ -206,7 +206,7 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview sub-menu"
-                            {{ active_list(['theme.choose', 'theme-setting.index', 'social-media.index', 'themeComponents']) }}>
+                            {{ active_list(['theme.choose', 'theme-setting.index', 'social-media.index']) }}>
                             <li class="nav-item" {{ active_menu('theme.choose') }}>
                                 <a href="{{ route('theme.choose') }}" class="nav-link">
                                     <i class="fa fa-th-list text-warning nav-icon"></i>
@@ -228,7 +228,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview {{ active_dropdown(['shopSetting']) }}">
+                    <li class="nav-item has-treeview {{ active_dropdown(['themeComponents','page.index','nav.items']) }}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-clipboard"></i>
                             <p>

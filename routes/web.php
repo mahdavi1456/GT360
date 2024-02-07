@@ -139,6 +139,9 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('taxonomy', TaxonomyController::class);
 
         Route::resource('component', ComponentController::class);
+        Route::get('component/{component}/choose-taxonomy', [ComponentController::class, 'chooseTaxonomy'])->name('component.chooseTaxonomy');
+        Route::post('component/{component}/choose-taxonomy', [ComponentController::class, 'taxonomyStore'])->name('component.taxonomyStore');
+
         Route::get('theme-components', [ComponentController::class, 'themeComponents'])->name('themeComponents');
 
 

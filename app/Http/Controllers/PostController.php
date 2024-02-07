@@ -56,7 +56,9 @@ class PostController extends Controller
     {
         $action = request('action');
         $term_array = [];
-        $taxonomies = Taxonomy::where('status', 1)->with('parents')->latest()->get();
+        $compnent=Component::findOrFail(request('component_id'));
+        // $taxonomies = Taxonomy::where(['status', 1])->with('parents')->latest()->get();
+        $taxonomies = $compnent->taxonomies()->with('parents')->latest()->get();
         // $components = Component::all();
         // $componentModel = new Component;
         if ($action == 'create') {
@@ -73,9 +75,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //  dd($request->all());
-        $request->validate([
-            'content' => 'required|min:5'
-        ]);
+     
         if ($request->action == 'create') {
             $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post');
             // if ($request->thumbnail) {
@@ -104,7 +104,7 @@ class PostController extends Controller
 
         alert()->success('موفق', 'نوسته مورد نظر ویرایش شد');
         }
-
+        //dd($request->action);
 
         return to_route('post.index', ['component_id' => $post->component_id]);
     }
@@ -121,7 +121,7 @@ class PostController extends Controller
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
                 ]);
-                return ['action' => 'created', 'post' => $post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
+                return ['action' => 'update', 'post' => $post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
             } else {
                 $post = Post::findOrFail($request->post);
                 $post->update([

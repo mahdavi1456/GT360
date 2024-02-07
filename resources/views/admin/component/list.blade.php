@@ -18,7 +18,8 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('component.create') }}" class="pull-left btn btn-info text-white">افزودن جدید</a>
+                                        <a href="{{ route('component.create') }}"
+                                            class="pull-left btn btn-info text-white">افزودن جدید</a>
                                     </div>
                                 </div>
                             </div>
@@ -44,16 +45,25 @@
                                                 <td>{{ $component->details }}</td>
                                                 <td>{{ $component->preview }}</td>
                                                 <td>
-                                                    {!! ($component->status == "active") ? "<span class='badge bg-success'>فعال</span>" : "<span class='badge bg-danger '>غیرفعال</span>" !!}
+                                                    {!! $component->status == 'active'
+                                                        ? "<span class='badge bg-success'>فعال</span>"
+                                                        : "<span class='badge bg-danger '>غیرفعال</span>" !!}
                                                 </td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('component.edit', $component) }}" class="btn btn-warning m-1">ویرایش</a>
-                                                    <form action="{{ route('component.destroy', $component) }}" method="POST">
+                                                    <a href="{{ route('post.index', ['component_id' => $component->id]) }}"
+                                                        class="btn btn-info btn-sm mx-1">محتوا</a>
+                                                    <a href="{{ route('component.chooseTaxonomy', $component->id) }}"
+                                                        class="btn btn-secondary btn-sm mx-1">تخصیص طبقه بندی</a>
+                                                    <a href="{{ route('component.edit', $component) }}"
+                                                        class="btn btn-warning btn-sm mx-1"><i class="fa fa-edit"></i></a>
+                                                    <form action="{{ route('component.destroy', $component) }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $component->id }}">حذف</button>
+                                                        <button type="submit" class="btn btn-danger btn-sm mx-1"
+                                                            id="confirmdelete{{ $component->id }}"><i
+                                                                class="fa fa-trash"></i></button>
                                                     </form>
-                                                    <a href="{{ route('post.index',['component_id'=> $component->id]) }}" class="btn btn-info m-1">لیست محتوا</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -84,18 +94,18 @@
                     var name = $(this).data("name");
                     event.preventDefault();
                     Swal.fire({
-                        title: `آیا مطمئنید؟`,
-                        text: "این مورد برای همیشه حذف خواهد شد.",
-                        icon: "warning",
-                        showCancelButton: true,
-                        cancelButtonText: 'انصراف',
-                        confirmButtonText: 'تایید',
-                    })
-                    .then((result) => {
-                        if (result.isConfirmed) {
-                            form.submit();
-                        }
-                    });
+                            title: `آیا مطمئنید؟`,
+                            text: "این مورد برای همیشه حذف خواهد شد.",
+                            icon: "warning",
+                            showCancelButton: true,
+                            cancelButtonText: 'انصراف',
+                            confirmButtonText: 'تایید',
+                        })
+                        .then((result) => {
+                            if (result.isConfirmed) {
+                                form.submit();
+                            }
+                        });
                 });
             </script>
         @endforeach
