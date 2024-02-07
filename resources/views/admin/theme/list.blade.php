@@ -20,7 +20,7 @@
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($themes->count() > 0)
-                                    <table class="table table-hover table-bordered text-center">
+                                    <table class="table table-hover table-bordered table-info text-center">
                                         <tr>
                                             <th style="width: 10px">#</th>
                                             <th>نام</th>
