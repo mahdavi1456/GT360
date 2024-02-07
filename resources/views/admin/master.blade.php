@@ -30,6 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- Sweetalert2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <!-- bootstrap rtl -->
     <link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap-rtl.min.css') }}">
@@ -46,6 +47,9 @@
             border-left: unset;
             border-right: inherit;
             border-radius: 0.35rem 0 0 0.35rem;
+        }
+        .filter-option-inner-inner{
+            text-align: right;
         }
     </style>
     @yield('style')
@@ -110,8 +114,9 @@
     <script>
         $(function() {
             //Initialize Select2 Elements
-            $('.select2').select2()
-
+            $('.select2').select2({
+                minimumResultsForSearch: 20 // at least 20 results must be displayed
+            })
             //Datemask dd/mm/yyyy
             $('#datemask').inputmask('dd/mm/yyyy', {
                 'placeholder': 'dd/mm/yyyy'
@@ -171,7 +176,7 @@
             e.preventDefault();
         });
     </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     @yield('scripts')
 </body>
 

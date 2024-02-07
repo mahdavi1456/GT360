@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>وضعیت</label>
-                                            <select class="form-control select2" name="status" id="status">
+                                            <select class="form-control select2"  name="status" id="status">
                                                 <option value="all" {{ 'status' == 'all' ? 'selected' : '' }}>همه</option>
                                                 <option value="1" {{ 'status' == '1' ? 'selected' : '' }}>منتشر شده</option>
                                                 <option value="0" {{ 'status' == '0' ? 'selected' : '' }}>منتشر نشده</option>
@@ -73,7 +73,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>تصویر شاخص</th>
-                                              
+
                                                 <th>عنوان</th>
                                                 <th>بازدید</th>
                                                 <th>نویسنده</th>

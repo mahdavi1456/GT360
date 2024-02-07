@@ -14,6 +14,7 @@
         .nav-info ul {
             list-style-type: none;
         }
+
     </style>
 @endsection
 @section('content')
@@ -86,6 +87,7 @@
         });
     </script>
     <script>
+        //get info ajax
         $('select[name="nav"]').on('change', function() {
             $("#loading-overlay").fadeIn();
             let data = $('#nav-list-form').serialize();
@@ -94,8 +96,15 @@
                 method: 'get',
                 data: data,
                 success: function(res) {
+                    console.log(res);
                     $('.nav-info').empty();
                     $('.nav-info').append(res);
+                    // $('.select2').select2({
+                    //     minimumResultsForSearch: 20 // at least 20 results must be displayed
+                    // })
+                    $('.selectpicker').selectpicker({
+                        noneSelectedText:'بدون انتخاب'
+                    });
                     //dragable
                     $("#sortable").sortable({
                         revert: true
@@ -122,6 +131,7 @@
             });
         });
 
+        //submit ajax function
         function submitForm(form) {
             $("#loading-overlay").fadeIn();
             let data = $(form).serialize();
@@ -132,6 +142,10 @@
                 success: function(res) {
                     $('.nav-info').empty();
                     $('.nav-info').append(res);
+                    $(form).parents('.collapse').addClass('show');
+                    $('.selectpicker').selectpicker({
+                        noneSelectedText:'بدون انتخاب'
+                    });
                     //dragable
                     $("#sortable").sortable({
                         revert: true
@@ -143,8 +157,37 @@
                     });
                     $("ul, li").disableSelection();
                     //end of dragable
+
+                    console.log(res);
                     $("#loading-overlay").fadeOut();
 
+                },
+                error: function(res) {
+                    $("#loading-overlay").fadeOut();
+                    Swal.fire({
+                        title: "خطا",
+                        text: res.responseJSON.message,
+                        icon: "error"
+                    });
+                    console.log(res);
+                }
+            });
+        }
+        //edit form function
+        function submiteditForm(e) {
+            $("#loading-overlay").fadeIn();
+            let data = $(e).parents('form').serialize();
+            $.ajax({
+                url: "{{ url()->current() }}",
+                method: 'get',
+                data: data,
+                success: function(res) {
+                    Swal.fire({
+                        title: "موفق",
+                        text: "تغییرات با موفقیت اعمال شد",
+                        icon: "success"
+                    });
+                    $("#loading-overlay").fadeOut();
                 },
                 error: function(res) {
                     $("#loading-overlay").fadeOut();

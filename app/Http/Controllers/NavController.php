@@ -87,40 +87,69 @@ class NavController extends Controller
     {
         $pages = Page::latest()->get();
         $accounId = auth()->user()->account->id;
-        if (request('item_type') == 'link') {
-            request()->validate([
-                'name' => ['required'],
-                'link' => ['required'],
-            ]);
+        //create link
+        if (request()->has('item_type')) {
             $nav = Nav::findOrFail(request('nav_id'));
+            if (request('item_type') == 'link') {
+                request()->validate([
+                    'name' => ['required'],
+                    'link' => ['required'],
+                ]);
+                NavItem::create([
+                    'nav_id' => request('nav_id'),
+                    'account_id' => $accounId,
+                    'name' => request('name'),
+                    'link' => request('link'),
+                    'target' => request('target'),
+                    'rel' => request('rel'),
+                    'item_type' => request('item_type'),
+                    'object_id' => 0,
+                    'order_num' => $this->getLastOrder(request('nav_id')) + 1,
+                ]);
+            }
+            //create page
+            if (request('item_type') == 'page') {
+                foreach (request('pages') as $pageId) {
+                    $page = Page::findOrFail($pageId);
+                    NavItem::create([
+                        'nav_id' => request('nav_id'),
+                        'account_id' => $accounId,
+                        'name' => $page->title,
+                        'link' => $page->slug,
+                        'target' => '_self',
+                        'rel' => 'ture',
+                        'item_type' => request('item_type'),
+                        'object_id' => $page->id,
+                        'order_num' => $this->getLastOrder(request('nav_id')) + 1,
+                    ]);
+                }
+            }
 
-            NavItem::create([
-                'nav_id' => request('nav_id'),
-                'account_id' => $accounId,
-                'name' => request('name'),
-                'link' => request('link'),
-                'target' => request('target'),
-                'rel' => request('rel'),
-                'item_type' => request('item_type'),
-                'object_id' => 0,
-                'order_num' => $this->getLastOrder(request('nav_id')) + 1,
-            ]);
             $items = $nav->items;
+
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
+            //ebd of createLink
         } elseif (request('type') == 'get-nav-info') {
             $nav = Nav::findOrFail(request('nav'));
 
             $items = $nav->items;
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
+        } elseif (request()->has('item_id')) {
+            // edit item
+            $data=request()->except('item_id');
+            $item=NavItem::where(['id'=>request('item_id'),'account_id'=>auth()->user()->account->id])->firstOrFail();
+            $item->update($data);
+            // return "alert";
+            return $data;
         }
-
+        // end of ajax requests
         $setting = new Setting();
         $themeName = $setting->getSetting('active_theme', auth()->user()->account->id);
         if (!$themeName) {
             abort(403, "شما قالب فعال ندارید لطفا یک قالب انتخاب کنید");
         }
         //$nav=Nav::find('5')->items;
-       // //dd($nav);
+        // //dd($nav);
         $theme = Theme::where('name', $themeName)->first();
         $navs = $theme->navs;
         return view('admin.nav.selectItems', compact('navs'));

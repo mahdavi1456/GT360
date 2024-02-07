@@ -173,3 +173,4 @@ function imageLoader($key)
     $setting = new Setting();
     return $setting->getSetting($key,auth()->user()->account->id);
 }
+
