@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Create Font')
+@section('title', 'ایجاد فونت')
 @section('content')
     @include('sweetalert::alert')
     @include("admin.partial.nav")
@@ -8,21 +8,21 @@
         {{ breadcrumb('ایجاد فونت') }}
         <section class="content">
             <div class="container-fluid">
+                @if ($errors->any())
+                    <div class="row">
+                        <div class="col-12">
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger">{{ $error }}</div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <form action="{{ route('font.store') }}" method="POST">
                                 @csrf
                                 <div class="card-body">
-                                    @if ($errors->any())
-                                        <div class="row">
-                                            <div class="col-12">
-                                                @foreach ($errors->all() as $error)
-                                                    <div class="alert alert-danger">{{ $error }}</div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    @endif
                                     <div class="row">
                                         <div class="col-6 form-group">
                                             <label class="required">نام لاتین <span
@@ -65,10 +65,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
-
-    </script>
 @endsection
 @section('style')
-
 @endsection
