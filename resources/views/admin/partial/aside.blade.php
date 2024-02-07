@@ -30,8 +30,6 @@
                             <p>رسانه</p>
                         </a>
                     </li>
-
-
                     @can('SuperAccount')
                         <li class="nav-item has-treeview">
                             <a href="{{ route('plan.index') }}" class="nav-link">
@@ -40,7 +38,7 @@
                             </a>
                         </li>
                         <li
-                            class="nav-item has-treeview {{ active_dropdown(['theme.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index']) }}">
+                            class="nav-item has-treeview {{ active_dropdown(['theme.index', 'nav.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-lock text-danger"></i>
                                 <p>تعاریف پایه <i class="right fa fa-angle-left"></i></p>
