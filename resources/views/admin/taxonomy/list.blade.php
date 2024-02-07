@@ -1,11 +1,11 @@
 @extends('admin.master')
-@section('title', 'Taxonomy List')
+@section('title', 'طبقه بندی ها')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('طبقه بندی') }}
+        {{ breadcrumb('طبقه بندی ها') }}
         <section class="content">
             <div class="modal fade" id="termModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
@@ -28,50 +28,46 @@
                             <div class="card-header d-flex justify-content-between">
                                 <h3 class="card-title">لیست طبقه بندی ها</h3>
                                 <a href="{{ route('taxonomy.create') }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
-                                    <i class="fa fa-plus ml-2"></i> افزودن جدید
+                                    جدید
                                 </a>
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($taxonomies->isEmpty())
                                     <div class="alert alert-danger m-2 text-center">موردی جهت نمایش موجود نیست.</div>
                                 @else
-                                    <table class="table table-bordered table-striped">
-                                        <thead>
+                                    <table class="table table-bordered table-hover text-center">
+                                        <tr class="table-warning">
+                                            <th>#</th>
+                                            <th>عنوان</th>
+                                            <th>توضیحات</th>
+                                            <th>نوع</th>
+                                            <th>وضعیت</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        @foreach ($taxonomies as $key => $taxonomy)
                                             <tr>
-                                                <th>شماره</th>
-                                                <th>عنوان</th>
-                                                <th>توضیحات</th>
-                                                <th>نوع</th>
-                                                <th>وضعیت</th>
-                                                <th width="10%">عملیات</th>
+                                                <td>{{ $key + 1 }}</td>
+                                                <td>{{ $taxonomy->name }}</td>
+                                                <td>{{ $taxonomy->description }}</td>
+                                                <td>{{ $taxonomy->type == 'select' ? 'انتخاب تکی' : 'انتخاب چند تایی' }}</td>
+                                                <td>
+                                                    @if ($taxonomy->status == 1)
+                                                        <span class="badge badge-success">نمایش</span>
+                                                    @else
+                                                        <span class="badge badge-danger">عدم نمایش</span>
+                                                    @endif
+                                                </td>
+                                                <td class="d-flex">
+                                                    <button type="button" class="btn btn-info btn-sm load-term" data-id="0" data-taxonomy-id="{{ $taxonomy->id }}" data-toggle="modal" data-target="#termModal"><i class="fa fa-plus ml-1"></i>لیست مقادیر</button>
+                                                    <a class="btn btn-warning btn-sm" href="{{ route('taxonomy.edit', $taxonomy->id) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
+                                                    <form method="post" action="{{route('taxonomy.destroy', $taxonomy->id)}}">
+                                                        @csrf
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button data-toggle="tooltip" data-placement="top" title="حذف" type="submit" class="h-100 delete-confirm-taxonomy btn btn-danger btn-sm d-flex align-items-center"><i class="fa fa-close"></i></button>
+                                                    </form>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($taxonomies as $key => $taxonomy)
-                                                <tr>
-                                                    <td>{{ $key + 1 }}</td>
-                                                    <td>{{ $taxonomy->name }}</td>
-                                                    <td>{{ $taxonomy->description }}</td>
-                                                    <td>{{ $taxonomy->type == 'select' ? 'انتخاب تکی' : 'انتخاب چند تایی' }}</td>
-                                                    <td>
-                                                        @if ($taxonomy->status == 1)
-                                                            <span class="badge badge-success">نمایش</span>
-                                                        @else
-                                                            <span class="badge badge-danger">عدم نمایش</span>
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-info btn-sm load-term" data-id="0" data-taxonomy-id="{{ $taxonomy->id }}" data-toggle="modal" data-target="#termModal"><i class="fa fa-plus ml-1"></i>لیست مقادیر</button>
-                                                        <a class="btn btn-warning btn-sm" href="{{ route('taxonomy.edit', $taxonomy->id) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
-                                                        <form method="post" action="{{route('taxonomy.destroy', $taxonomy->id)}}">
-                                                            @csrf
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                            <button data-toggle="tooltip" data-placement="top" title="حذف" type="submit" class="h-100 delete-confirm-taxonomy btn btn-danger btn-sm d-flex align-items-center"><i class="fa fa-close"></i></button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
+                                        @endforeach
                                     </table>
                                 @endif
                             </div>
@@ -82,7 +78,6 @@
         </section>
     </div>
 @endsection
-
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/media.js') }}"></script>
     <script type="text/javascript">
@@ -97,7 +92,7 @@
                 text:  "آیا از حذف طبقه بندی مطمئن هستید؟",
                 icon: "warning",
                 dangerMode: true,
-                buttons: ["خیر","بله"]
+                buttons: ["خیر", "بله"]
             }).then((willDelete) => {
                 if (willDelete) {
                     form.submit();
@@ -118,7 +113,7 @@
 
             let children= Array.from(e.target.parentNode.parentNode.children);
 
-            if(children.indexOf(e.target.parentNode)>children.indexOf(row)){
+            if (children.indexOf(e.target.parentNode)>children.indexOf(row)){
                 e.target.parentNode.after(row);
             } else {
                 e.target.parentNode.before(row);
