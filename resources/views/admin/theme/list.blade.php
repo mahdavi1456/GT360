@@ -52,6 +52,8 @@
                                                     <a href="{{ route('theme.edit', $theme) }}"
                                                        class="btn btn-warning btn-sm mx-1"><i
                                                             class="fa fa-edit"></i></a>
+                                                    <a href="{{ route('form.index', ['theme_id'=>$theme->id]) }}"
+                                                       class="btn btn-secondary btn-sm mx-1">فرم ها</a>
                                                     <form action="{{ route('theme.destroy', $theme) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
@@ -60,8 +62,6 @@
                                                                 class="fa fa-trash"></i>
                                                         </button>
                                                     </form>
-                                                    <a href="{{ route('form.index', ['theme_id'=>$theme->id]) }}"
-                                                       class="btn btn-secondary btn-sm mx-1">فرم ها</a>
                                                 </td>
                                             </tr>
                                         @endforeach
