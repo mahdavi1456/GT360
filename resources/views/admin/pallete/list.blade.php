@@ -1,15 +1,11 @@
 @extends('admin.master')
-@section('title', 'Product List')
+@section('title', 'پالت ها')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
         {{ breadcrumb('پالت ها') }}
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -18,15 +14,15 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('pallete.create') }}" class="pull-left btn btn-info text-white">افزودن جدید</a>
+                                        <a href="{{ route('pallete.create') }}" class="pull-left btn btn-info btn-sm">جدید</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($palletes->count() > 0)
-                                    <table class="table table-hover table-bordered">
-                                        <tr>
-                                            <th style="width: 10px">#</th>
+                                    <table class="table table-hover table-bordered text-center">
+                                        <tr class="table-warning">
+                                            <th">#</th>
                                             <th>نام</th>
                                             <th>برچسب</th>
                                             <th>توضیح کامل</th>
@@ -47,11 +43,11 @@
                                                 <td>{{ $pallete->third_color }}</td>
                                                 <td>{{ $pallete->fourth_color }}</td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('pallete.edit', $pallete) }}" class="btn btn-warning m-1">ویرایش</a>
+                                                    <a href="{{ route('pallete.edit', $pallete) }}" class="btn btn-warning btn-sm mx-1"><i class="fa fa-edit"></i></a>
                                                     <form action="{{ route('pallete.destroy', $pallete) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger m-1" id="confirmdelete{{ $pallete->id }}">حذف</button>
+                                                        <button type="submit" class="btn btn-danger btn-sm mx-1" id="confirmdelete{{ $pallete->id }}"><i class="fa fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
