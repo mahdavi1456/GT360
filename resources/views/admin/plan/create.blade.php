@@ -1,86 +1,68 @@
 @extends('admin.master')
-@section('title', 'create form')
+@section('title', 'ایجاد بسته')
 @section('content')
-    {{-- @include('sweetalert::alert') --}}
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
-        {{ breadcrumb('ایجاد پکیج') }}
-
-        <!-- Main content -->
+        {{ breadcrumb('ایجاد بسته') }}
         <section class="content">
             <div class="container-fluid">
+                @if ($errors->any())
+                        <div class="row">
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger">{{ $error }}</div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
-                                <form action="{{ route('plan.store') }}" method="POST">
-                                    @csrf
+                            <form action="{{ route('plan.store') }}" method="POST">
+                                @csrf
+                                <div class="card-body">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="form-group">
-                                                <label class="required">نام <span class="text-danger">*</span></label>
-                                                <input type="text" name="name" class="form-control"
-                                                    value="{{ old('name') }}" placeholder="نام..." required
-                                                    oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
-                                                    oninput="this.setCustomValidity('')">
-                                            </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label class="required">نام <span class="text-danger">*</span></label>
+                                            <input type="text" name="name" class="form-control"
+                                                value="{{ old('name') }}" placeholder="نام..." required
+                                                oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
+                                                oninput="this.setCustomValidity('')">
                                         </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="form-group">
-                                                <label class="required">برچسب <span class="text-danger">*</span></label>
-                                                <input type="text" name="label" class="form-control"
-                                                    value="{{ old('label') }}" placeholder="برچسب..." required
-                                                    oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
-                                                    oninput="this.setCustomValidity('')">
-                                            </div>
+                                        <div class="col-lg-3 form-group">
+                                            <label class="required">برچسب <span class="text-danger">*</span></label>
+                                            <input type="text" name="label" class="form-control"
+                                                value="{{ old('label') }}" placeholder="برچسب..." required
+                                                oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
+                                                oninput="this.setCustomValidity('')">
                                         </div>
-                                        <div class="col-12">
-                                            <div>
-                                                <label class="required ">توضیحات <span class="text-danger">*</span></label>
-                                                <textarea name="desc" class="form-control Reditor1" ></textarea>
-                                            </div>
+                                        <div class="col-12 form-group">
+                                            <label class="required ">توضیحات <span class="text-danger">*</span></label>
+                                            <textarea name="desc" class="form-control Reditor1" ></textarea>
                                         </div>
                                     </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12">
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-12 text-left">
                                             <button type="submit" class="btn btn-success">ذخیره</button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
 @section('scripts')
-
-
     <script src="{{ asset('js/validation.js') }}"></script>
     <script src="{{ asset('js/ckeditor.js') }}"></script>
     <script>
         ClassicEditor
             .create(document.querySelector('.Reditor1'), {
-
                 toolbar: {
                     items: [
                         'undo', 'redo',
@@ -96,14 +78,13 @@
                     // And the content will be edited in Arabic.
                     content: 'fa'
                 }
-            })
-            .catch(error => {
+            }).catch(error => {
                 console.error(error);
             });
     </script>
 @endsection
 @section('style')
-<style>
+<style type="text/css">
     .ck-editor__editable{
         height: 150px;
     }

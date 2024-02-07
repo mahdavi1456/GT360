@@ -1,15 +1,11 @@
 @extends('admin.master')
-@section('title', 'form List')
+@section('title', 'بسته ها')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
-        {{ breadcrumb('پکیج ها') }}
-        <!-- Main content -->
+        {{ breadcrumb('بسته ها') }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -19,15 +15,15 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <a href="{{ route('plan.create') }}"
-                                            class="pull-left btn btn-info text-white">افزودن جدید</a>
+                                           class="pull-left btn btn-info btn-sm">جدید</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($plans->count() > 0)
-                                    <table class="table table-hover table-bordered">
-                                        <tr>
-                                            <th style="width: 10px">#</th>
+                                    <table class="table table-hover table-bordered text-center">
+                                        <tr class="table-warning">
+                                            <th>#</th>
                                             <th>نام</th>
                                             <th>برچسب</th>
                                             <th>توضیحات</th>
@@ -38,16 +34,15 @@
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
                                                 <td>{{ $plan->name }}</td>
                                                 <td>{{ $plan->label }}</td>
-
                                                 <td class="pr-4">{!! $plan->desc !!}</td>
-
-                                                <td>
+                                                <td class="d-flex">
                                                     <a href="{{ route('plan.ListItems', ['plan' => $plan->id]) }}"
-                                                        class="btn btn-info m-1"> آیتم ها</a>
+                                                       class="btn btn-info btn-sm mx-1"> آیتم ها</a>
                                                     <a href="{{ route('plan.edit', ['plan' => $plan->id]) }}"
-                                                        class="btn btn-warning m-1">ویرایش</a>
+                                                       class="btn btn-warning btn-sm mx-1"><i class="fa fa-edit"></i></a>
                                                     <a href="{{ route('plan.destroy', $plan->id) }}"
-                                                        data-confirm-delete="true" class="btn btn-danger m-1">حذف</a>
+                                                       data-confirm-delete="true"
+                                                       class="btn btn-danger btn-sm mx-1"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -63,12 +58,7 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
-
 @section('scripts')
-
-
 @endsection

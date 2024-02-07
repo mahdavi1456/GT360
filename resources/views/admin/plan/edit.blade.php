@@ -1,35 +1,25 @@
 @extends('admin.master')
-@section('title', 'edit form')
+@section('title', 'ویرایش بسته')
 @section('content')
-    {{-- @include('sweetalert::alert') --}}
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
-        {{ breadcrumb('ویرایش پکیج') }}
-
-        <!-- Main content -->
+        {{ breadcrumb('ویرایش بسته') }}
         <section class="content">
             <div class="container-fluid">
+                @if ($errors->any())
+                    <div class="row">
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">{{ $error }}</div>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
-                                <form action="{{ route('plan.update', $plan->id) }}" method="POST">
-                                    @csrf
+                            <form action="{{ route('plan.update', $plan->id) }}" method="POST">
+                                @csrf
+                                <div class="card-body">
                                     @method('put')
                                     <div class="row">
                                         <div class="col-4">
@@ -59,31 +49,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="card-footer">
                                     <div class="row">
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-success">ویرایش</button>
+                                        <div class="col-12 text-left">
+                                            <button type="submit" class="btn btn-warning">ویرایش</button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
 @section('scripts')
-
-
     <script src="{{ asset('js/validation.js') }}"></script>
     <script src="{{ asset('js/ckeditor.js') }}"></script>
     <script>
         ClassicEditor
             .create(document.querySelector('.Reditor1'), {
-
                 toolbar: {
                     items: [
                         'undo', 'redo',
@@ -99,8 +86,7 @@
                     // And the content will be edited in Arabic.
                     content: 'fa'
                 }
-            })
-            .catch(error => {
+            }).catch(error => {
                 console.error(error);
             });
     </script>
