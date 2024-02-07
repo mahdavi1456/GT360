@@ -39,9 +39,9 @@
                                                 <td>{{ $nav->label }}</td>
                                                 <td>{!! $nav->desc !!}</td>
                                                 <td>{{ $nav->status }}</td>
-                                                <td class="d-flex">
-                                                    <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center" href="{{ route('nav.create', ['action' => 'update', 'nav_id' => $nav->id]) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
-                                                    <a class="btn btn-danger btn-sm ml-2 d-flex align-items-center" data-confirm-delete='true' href="{{ route('nav.destroy',$nav->id ) }}" data-toggle="tooltip" data-placement="top" title="حذف"><i class="fa fa-trash"></i></a>
+                                                <td>
+                                                    <a class="btn btn-warning btn-sm" href="{{ route('nav.create', ['action' => 'update', 'nav_id' => $nav->id]) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
+                                                    <a class="btn btn-danger btn-sm" href="{{ route('nav.destroy', $nav->id ) }}" data-toggle="tooltip" data-placement="top" title="حذف" data-confirm-delete="true"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
