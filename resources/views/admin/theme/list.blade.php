@@ -49,11 +49,11 @@
                                                        class="btn btn-primary btn-sm mx-1">فهرست ها</a>
                                                     <a href="{{ route('theme.selectComponent', $theme->id) }}"
                                                        class="btn btn-info btn-sm mx-1">بخش ها</a>
+                                                    <a href="{{ route('form.index', ['theme_id'=>$theme->id]) }}"
+                                                       class="btn btn-secondary btn-sm mx-1">فرم ها</a>
                                                     <a href="{{ route('theme.edit', $theme) }}"
                                                        class="btn btn-warning btn-sm mx-1"><i
                                                             class="fa fa-edit"></i></a>
-                                                    <a href="{{ route('form.index', ['theme_id'=>$theme->id]) }}"
-                                                       class="btn btn-secondary btn-sm mx-1">فرم ها</a>
                                                     <form action="{{ route('theme.destroy', $theme) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
