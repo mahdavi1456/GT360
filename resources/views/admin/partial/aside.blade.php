@@ -58,7 +58,7 @@
                                         <p>فهرست ها</p>
                                     </a>
                                 </li>
-                                <li class="nav-item" {{ active_menu('taxonomy') }}>
+                                <li class="nav-item" {{ active_menu('taxonomy','taxonomy.create') }}>
                                     <a href="{{ route('taxonomy.index') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>طبقه بندی ها</p>

@@ -165,6 +165,13 @@ class ThemeController extends Controller
         $navs = Nav::latest()->get();
         return view('admin.theme.selectNavs', compact('theme', 'navs', 'themNavs', 'pluck'));
     }
+    public function componentStore(Request $request, $theme)
+    {
+        $theme = Theme::findOrFail($theme);
+        $theme->components()->sync($request->components);
+        Alert::success('موفق', 'بخش ها تخصیص داده شد.');
+        return back();
+    }
 
     public function navStore(Request $request, $theme)
     {

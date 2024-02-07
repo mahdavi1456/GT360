@@ -63,9 +63,9 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label>وضعیت</label>
-                                                <select name="status" class="form-control" multiple>
+                                                <select name="status select2" class="form-control">
                                                     <option {{ $component->status == "active" ? "selected" : "" }} value="active">فعال</option>
-                                                    <option {{ $component->status == "active" ? "selected" : "" }} value="deactive">غیرفعال</option>
+                                                    <option {{ $component->status == "deactive" ? "selected" : "" }} value="deactive">غیرفعال</option>
                                                 </select>
                                             </div>
                                         </div>

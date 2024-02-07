@@ -30,7 +30,7 @@
                                 @endif
                                 <form  action="{{ route('theme.componentStore', $theme->id) }}" method="POST">
                                     @csrf
-                                    <select name="components[]" class="custom-select" multiple>>
+                                    <select name="components[]" class="custom-select select2" multiple>>
                                         @foreach ($components as $component)
                                             <option @selected(in_array($component->id,$pluck)) value="{{ $component->id }}">{{ $component->name }}</option>
                                         @endforeach
