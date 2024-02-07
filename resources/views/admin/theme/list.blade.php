@@ -1,15 +1,11 @@
 @extends('admin.master')
-@section('title', 'Product List')
+@section('title', 'قالب ها')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
         {{ breadcrumb('قالب ها') }}
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -18,21 +14,18 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('theme.create') }}" class="pull-left btn btn-info text-white">افزودن
-                                            جدید</a>
+                                        <a href="{{ route('theme.create') }}" class="pull-left btn btn-info btn-sm">جدید</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($themes->count() > 0)
-                                    <table class="table table-hover table-bordered">
+                                    <table class="table table-hover table-bordered text-center">
                                         <tr>
                                             <th style="width: 10px">#</th>
                                             <th>نام</th>
                                             <th>برچسب</th>
                                             <th>نوع قالب</th>
-                                            <th>توضیح کوتاه</th>
-                                            <th>توضیح کامل</th>
                                             <th>تصویر پیش نمایش</th>
                                             <th>وضعیت</th>
                                             <th>عملیات</th>
@@ -43,40 +36,38 @@
                                                 <td>{{ $theme->name }}</td>
                                                 <td>{{ $theme->label }}</td>
                                                 <td>{{ $theme->category }}</td>
-                                                <td>{{ $theme->slogan }}</td>
-                                                <td>{{ $theme->details }}</td>
                                                 <td>
                                                     @if ($theme->preview)
-                                                        <img class="w-100 object-fit-contain"
+                                                        <img class="w-100 img-thumbnail object-fit-contain"
                                                              style="max-width: 180px"
-                                                             src="{{asset(ert('theme-path').$theme->preview)}}" alt="">
+                                                             src="{{ asset(ert('theme-path') . $theme->preview) }}">
                                                     @endif
                                                 </td>
                                                 <td>{!! ($theme->status == "active") ? "<span class='badge bg-success text-white'>فعال</span>" : "<span class='badge bg-danger text-white'>غیرفعال</span>" !!}</td>
-                                                <td class="d-flex b">
+                                                <td class="d-flex">
                                                     <a href="{{ route('theme.selectNav', $theme->id) }}"
-                                                       class="btn btn-primary m-1">تخصیص فهرست</a>
+                                                       class="btn btn-primary btn-sm mx-1">فهرست ها</a>
                                                     <a href="{{ route('theme.selectComponent', $theme->id) }}"
-                                                       class="btn btn-info m-1">تخصیص بخش</a>
+                                                       class="btn btn-info btn-sm mx-1">بخش ها</a>
                                                     <a href="{{ route('theme.edit', $theme) }}"
-                                                       class="btn btn-warning m-1">ویرایش</a>
+                                                       class="btn btn-warning btn-sm mx-1"><i
+                                                            class="fa fa-edit"></i></a>
                                                     <form action="{{ route('theme.destroy', $theme) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" class="btn btn-danger m-1"
-                                                                id="confirmdelete{{ $theme->id }}">حذف
+                                                        <button type="submit" class="btn btn-danger btn-sm mx-1"
+                                                                id="confirmdelete{{ $theme->id }}"><i
+                                                                class="fa fa-trash"></i>
                                                         </button>
                                                     </form>
                                                     <a href="{{ route('form.index', ['theme_id'=>$theme->id]) }}"
-                                                       class="btn btn-secondary m-1">فرم ها</a>
+                                                       class="btn btn-secondary btn-sm mx-1">فرم ها</a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 @else
-                                    <div class="alert alert-danger m-2 text-center">
-                                        موردی جهت نمایش موجود نیست.
-                                    </div>
+                                    <div class="alert alert-danger m-2 text-center">موردی جهت نمایش موجود نیست.</div>
                                 @endif
                             </div>
                         </div>
@@ -84,13 +75,9 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
-
 @section('scripts')
-
     @if ($themes->count() > 0)
         @foreach ($themes as $theme)
             <script>
@@ -103,17 +90,15 @@
                         text: "این مورد برای همیشه حذف خواهد شد.",
                         icon: "warning",
                         showCancelButton: true,
-                        cancelButtonText: 'انصراف',
-                        confirmButtonText: 'تایید',
-                    })
-                        .then((result) => {
-                            if (result.isConfirmed) {
-                                form.submit();
-                            }
-                        });
+                        cancelButtonText: "انصراف",
+                        confirmButtonText: "تایید",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
                 });
             </script>
         @endforeach
     @endif
-
 @endsection
