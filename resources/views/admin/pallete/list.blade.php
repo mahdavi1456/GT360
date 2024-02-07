@@ -1,11 +1,11 @@
 @extends('admin.master')
-@section('title', 'پالت ها')
+@section('title', 'پالت های رنگ')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('پالت ها') }}
+        {{ breadcrumb('پالت های رنگ') }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -22,7 +22,7 @@
                                 @if ($palletes->count() > 0)
                                     <table class="table table-hover table-bordered text-center">
                                         <tr class="table-warning">
-                                            <th">#</th>
+                                            <th>#</th>
                                             <th>نام</th>
                                             <th>برچسب</th>
                                             <th>توضیح کامل</th>
@@ -66,25 +66,22 @@
         </section>
     </div>
 @endsection
-
 @section('scripts')
-
     @if ($palletes->count() > 0)
         @foreach ($palletes as $pallete)
             <script>
-                $('#confirmdelete{{ $pallete->id }}').click(function(event) {
+                $("#confirmdelete{{ $pallete->id }}").click(function(event) {
                     var form = $(this).closest("form");
                     var name = $(this).data("name");
                     event.preventDefault();
                     Swal.fire({
-                        title: `آیا مطمئنید؟`,
+                        title: "اطمینان دارید؟",
                         text: "این مورد برای همیشه حذف خواهد شد.",
                         icon: "warning",
                         showCancelButton: true,
-                        cancelButtonText: 'انصراف',
-                        confirmButtonText: 'تایید',
-                    })
-                    .then((result) => {
+                        cancelButtonText: "انصراف",
+                        confirmButtonText: "تایید",
+                    }).then((result) => {
                         if (result.isConfirmed) {
                             form.submit();
                         }
@@ -93,5 +90,4 @@
             </script>
         @endforeach
     @endif
-
 @endsection
