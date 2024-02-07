@@ -27,7 +27,7 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <h3 class="card-title">لیست طبقه بندی ها</h3>
-                                <a href="{{ route('taxonomy.create') }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
+                                <a href="{{ route('taxonomy.create') }}" class="d-flex align-items-center btn btn-info btn-sm mr-auto text-white">
                                     جدید
                                 </a>
                             </div>
