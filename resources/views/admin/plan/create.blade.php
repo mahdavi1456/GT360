@@ -22,20 +22,22 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-lg-3 form-group">
+                                        <div class="col-6 form-group">
                                             <label class="required">نام <span class="text-danger">*</span></label>
                                             <input type="text" name="name" class="form-control"
                                                 value="{{ old('name') }}" placeholder="نام..." required
                                                 oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
                                                 oninput="this.setCustomValidity('')">
                                         </div>
-                                        <div class="col-lg-3 form-group">
+                                        <div class="col-6 form-group">
                                             <label class="required">برچسب <span class="text-danger">*</span></label>
                                             <input type="text" name="label" class="form-control"
                                                 value="{{ old('label') }}" placeholder="برچسب..." required
                                                 oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
                                                 oninput="this.setCustomValidity('')">
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-12 form-group">
                                             <label class="required ">توضیحات <span class="text-danger">*</span></label>
                                             <textarea name="desc" class="form-control Reditor1" ></textarea>
