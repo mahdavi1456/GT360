@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Category List')
+@section('title', 'تنظیمات')
 @section('style')
     <style>
         .ck-editor__editable {
@@ -12,30 +12,30 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('دسته بندی محصولات') }}
+        {{ breadcrumb('تنظیمات') }}
         <section class="content">
             <div class="container-fluid">
+                @if ($errors->any())
+                    <div class="row">
+                        <div class="col-12">
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger">
+                                    {{ $error }}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+               @endif
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger  justify-content-center mt-4">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
-                                <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
+                            <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-4">
-                                            <label for="">قالب پیشفرض</label>
-                                            <select class="custom-select" name="default_theme">
+                                            <label>قالب پیشفرض</label>
+                                            <select name="default_theme" class="custom-select">
                                                 <option value="">انتخاب کنید...</option>
                                                 @foreach ($themes as $theme)
                                                     <option @selected($defaultTheme == $theme->name) value="{{ $theme->name }}">
@@ -43,14 +43,6 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        {{-- <div class="col-4">
-                                            <div class="form-group">
-                                                <label class="form-label">عنوان سایت <span class="text-danger">*</span></label>
-                                                <input type="text" name="settings[title]" class="form-control" id="title" placeholder="عنوان سایت..." value = "{{ getSetting('title') }}" required oninvalid="this.setCustomValidity('.لطفا عنوان را وارد کنید')"
-                                                oninput="this.setCustomValidity('')">
-                                            </div>
-                                        </div> --}}
-
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
@@ -60,13 +52,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12">
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-12 text-left">
                                             <button type="submit" class="btn btn-success">ذخیره</button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -79,7 +73,6 @@
     <script>
         ClassicEditor
             .create(document.querySelector('.Reditor1'), {
-
                 toolbar: {
                     items: [
                         'undo', 'redo',
