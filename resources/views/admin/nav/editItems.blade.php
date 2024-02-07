@@ -101,111 +101,121 @@
             <div class="container">
                 <div id="accordion1">
                     @foreach ($items as $item)
-                    @if ($item->item_type=='link')
-                    {{-- link edit section --}}
-                    <div class="card">
-                        <div class="card-header p-0" id="heading-{{ $item->id }}">
-                            <h5 class="mb-0">
-                                <button class="btn bg-white d-block w-100 collapsed" data-toggle="collapse"
-                                    type="button" data-target="#collapse-{{ $item->id }}"
-                                    aria-expanded="true" aria-controls="collapse">
-                                    <i class="fa float-left" aria-hidden="true"></i>
-                                    <small class="float-left ml-3 text-secondary">{{ $item->type_value }}</small>
-                                    <span class="float-right"><strong>{{ $item->name }}</strong></span>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapse-{{ $item->id }}" class="collapse" aria-labelledby="headingOne"
-                            data-parent="#accordion1">
-                            <div class="card-body">
-                                <form >
-                                    <input type="hidden" name="item_id" value="{{$item->id}}">
-                                    <div class="form-group">
-                                        <label for="">نام پیوند </label>
-                                        <input name="name" type="text" class="form-control"
-                                            value="{{ $item->name }}">
+                        @if ($item->item_type == 'link')
+                            {{-- link edit section --}}
+                            <div class="card">
+                                <div class="card-header p-0" id="heading-{{ $item->id }}">
+                                    <h5 class="mb-0">
+                                        <button class="btn bg-white d-block w-100 collapsed" data-toggle="collapse"
+                                            type="button" data-target="#collapse-{{ $item->id }}"
+                                            aria-expanded="true" aria-controls="collapse">
+                                            <i class="fa float-left" aria-hidden="true"></i>
+                                            <small
+                                                class="float-left ml-3 text-secondary">{{ $item->type_value }}</small>
+                                            <span class="float-right"><strong>{{ $item->name }}</strong></span>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapse-{{ $item->id }}" class="collapse" aria-labelledby="headingOne"
+                                    data-parent="#accordion1">
+                                    <div class="card-body">
+                                        <form>
+                                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                                            <div class="form-group">
+                                                <label for="">نام پیوند </label>
+                                                <input name="name" type="text" class="form-control"
+                                                    value="{{ $item->name }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">نشانی </label>
+                                                <input name="link" type="text" class="form-control"
+                                                    value="{{ $item->link }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">بازشدن در</label>
+                                                <select name="target" class="custom-select select2">
+                                                    <option @selected($item->target == '_self') value="_self">پنجره کنونی
+                                                    </option>
+                                                    <option @selected($item->target == '_blank') value="_blank">پنجره جدید
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">قابل مشاهده برای موتورهای جستجو</label>
+                                                <select name="rel" class="custom-select select2">
+                                                    <option @selected($item->rel == 'true') value="true">بله</option>
+                                                    <option @selected($item->rel == 'false') value="false">خیر</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group text-left">
+                                                <button type="button" onclick="submiteditForm(this)"
+                                                    class="btn btn-primary btn-sm">ویرایش</button>
+                                                <button type="button"
+                                                    onclick="destroyItem({{ $item->id.','.$nav->id }})"
+                                                    class="btn btn-danger btn-sm">حذف</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">نشانی </label>
-                                        <input name="link" type="text" class="form-control"
-                                            value="{{ $item->link }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">بازشدن در</label>
-                                        <select name="target" class="custom-select select2">
-                                            <option @selected($item->target == '_self') value="_self">پنجره کنونی
-                                            </option>
-                                            <option @selected($item->target == '_blank') value="_blank">پنجره جدید</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">قابل مشاهده برای موتورهای جستجو</label>
-                                        <select name="rel" class="custom-select select2">
-                                            <option @selected($item->rel == 'true') value="true">بله</option>
-                                            <option @selected($item->rel == 'false') value="false">خیر</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group text-left">
-                                        <button type="button" onclick="submiteditForm(this)"
-                                            class="btn btn-primary btn-sm">ویرایش</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    {{-- page edit section --}}
-                    @elseif ($item->item_type=='page')
-                    <div class="card">
-                        <div class="card-header p-0" id="heading-{{ $item->id }}">
-                            <h5 class="mb-0">
-                                <button class="btn bg-white d-block w-100 collapsed" data-toggle="collapse"
-                                    type="button" data-target="#collapse-{{ $item->id }}"
-                                    aria-expanded="true" aria-controls="collapse">
-                                    <i class="fa float-left" aria-hidden="true"></i>
-                                    <small class="float-left ml-3 text-secondary">{{ $item->type_value }}</small>
-                                    <span class="float-right"><strong>{{ $item->name }}</strong></span>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapse-{{ $item->id }}" class="collapse" aria-labelledby="headingOne"
-                            data-parent="#accordion1">
-                            <div class="card-body">
-                                <form >
-                                    <input type="hidden" name="item_id" value="{{$item->id}}">
-                                    <div class="form-group">
-                                        <label for="">نام پیوند </label>
-                                        <input name="name" type="text" class="form-control"
-                                            value="{{ $item->name }}">
+                            {{-- page edit section --}}
+                        @elseif ($item->item_type == 'page')
+                            <div class="card">
+                                <div class="card-header p-0" id="heading-{{ $item->id }}">
+                                    <h5 class="mb-0">
+                                        <button class="btn bg-white d-block w-100 collapsed" data-toggle="collapse"
+                                            type="button" data-target="#collapse-{{ $item->id }}"
+                                            aria-expanded="true" aria-controls="collapse">
+                                            <i class="fa float-left" aria-hidden="true"></i>
+                                            <small
+                                                class="float-left ml-3 text-secondary">{{ $item->type_value }}</small>
+                                            <span class="float-right"><strong>{{ $item->name }}</strong></span>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapse-{{ $item->id }}" class="collapse" aria-labelledby="headingOne"
+                                    data-parent="#accordion1">
+                                    <div class="card-body">
+                                        <form>
+                                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                                            <div class="form-group">
+                                                <label for="">نام پیوند </label>
+                                                <input name="name" type="text" class="form-control"
+                                                    value="{{ $item->name }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">نشانی </label>
+                                                <input name="link" readonly type="text" class="form-control"
+                                                    value="{{ $item->link }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">بازشدن در</label>
+                                                <select name="target" class="custom-select select2">
+                                                    <option @selected($item->target == '_self') value="_self">پنجره کنونی
+                                                    </option>
+                                                    <option @selected($item->target == '_blank') value="_blank">پنجره جدید
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">قابل مشاهده برای موتورهای جستجو</label>
+                                                <select name="rel" class="custom-select select2">
+                                                    <option @selected($item->rel == 'true') value="true">بله</option>
+                                                    <option @selected($item->rel == 'false') value="false">خیر</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group text-left">
+                                                <button type="button" onclick="submiteditForm(this)"
+                                                    class="btn btn-primary btn-sm">ویرایش</button>
+                                                    <button type="button"
+                                                    onclick="destroyItem({{ $item->id.','.$nav->id }})"
+                                                    class="btn btn-danger btn-sm">حذف</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">نشانی </label>
-                                        <input name="link" readonly type="text" class="form-control"
-                                            value="{{ $item->link }}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">بازشدن در</label>
-                                        <select name="target" class="custom-select select2">
-                                            <option @selected($item->target == '_self') value="_self">پنجره کنونی
-                                            </option>
-                                            <option @selected($item->target == '_blank') value="_blank">پنجره جدید</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">قابل مشاهده برای موتورهای جستجو</label>
-                                        <select name="rel" class="custom-select select2">
-                                            <option @selected($item->rel == 'true') value="true">بله</option>
-                                            <option @selected($item->rel == 'false') value="false">خیر</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group text-left">
-                                        <button type="button" onclick="submiteditForm(this)"
-                                            class="btn btn-primary btn-sm">ویرایش</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    @endif
+                        @endif
                     @endforeach
                 </div>
             </div>

@@ -134,6 +134,12 @@ class NavController extends Controller
 
             $items = $nav->items;
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
+        }elseif (request('type')=='delete_item') {
+            $item=NavItem::where(['id'=>request('item_id'),'account_id'=>auth()->user()->account->id])->firstOrFail();
+            $item->delete();
+            $nav = Nav::findOrFail(request('nav_id'));
+            $items = $nav->items;
+            return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
         } elseif (request()->has('item_id')) {
             // edit item
             $data=request()->except('item_id');

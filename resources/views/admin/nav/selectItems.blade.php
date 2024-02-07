@@ -14,7 +14,6 @@
         .nav-info ul {
             list-style-type: none;
         }
-
     </style>
 @endsection
 @section('content')
@@ -96,14 +95,14 @@
                 method: 'get',
                 data: data,
                 success: function(res) {
-                    console.log(res);
+                    //console.log(res);
                     $('.nav-info').empty();
                     $('.nav-info').append(res);
                     // $('.select2').select2({
                     //     minimumResultsForSearch: 20 // at least 20 results must be displayed
                     // })
                     $('.selectpicker').selectpicker({
-                        noneSelectedText:'بدون انتخاب'
+                        noneSelectedText: 'بدون انتخاب'
                     });
                     //dragable
                     $("#sortable").sortable({
@@ -144,7 +143,7 @@
                     $('.nav-info').append(res);
                     $(form).parents('.collapse').addClass('show');
                     $('.selectpicker').selectpicker({
-                        noneSelectedText:'بدون انتخاب'
+                        noneSelectedText: 'بدون انتخاب'
                     });
                     //dragable
                     $("#sortable").sortable({
@@ -197,6 +196,45 @@
                         icon: "error"
                     });
                     console.log(res);
+                }
+            });
+        }
+        //delele itesm function
+        function destroyItem(item,nav) {
+            Swal.fire({
+                title: "اطمینان دارید؟",
+                text: "آیا از حذف این مورد اطمینان دارید؟",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "بله، مطمئنم.",
+                cancelButtonText: "نه، پشیمون شدم."
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "get",
+                        url: "{{ url()->current() }}",
+                        data: {
+                            'item_id': item,
+                            'type': 'delete_item',
+                            'nav_id': nav
+                        },
+                        success: function(res) {
+                            Swal.fire({
+                                title: "موفق",
+                                text: 'آیتم انتخاب شده حذف شد',
+                                icon: "success"
+                            });
+                            $('.nav-info').empty();
+                            $('.nav-info').append(res);
+                        },
+                        error: function(data) {
+                            Swal.fire({
+                                title: "خطا",
+                                text: data.responseJSON.message,
+                                icon: "error"
+                            });
+                        }
+                    });
                 }
             });
         }
