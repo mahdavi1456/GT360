@@ -52,30 +52,6 @@ class NavController extends Controller
         return to_route('nav.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Nav $nav)
     {
         $nav->delete();
@@ -131,27 +107,27 @@ class NavController extends Controller
             $items = $nav->items;
 
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
-            //ebd of createLink
+            //end of createLink
         } elseif (request('type') == 'get-nav-info') {
 
             request()->validate([
-                'nav'=>'required'
-            ],[
-                'nav.required'=>"انتخاب اشتباه!"
+                'nav' => 'required'
+            ], [
+                'nav.required' => "انتخاب اشتباه!"
             ]);
             $nav = Nav::findOrFail(request('nav'));
             $items = $nav->items;
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
-        }elseif (request('type')=='delete_item') {
-            $item=NavItem::where(['id'=>request('item_id'),'account_id'=>auth()->user()->account->id])->firstOrFail();
+        } elseif (request('type') == 'delete_item') {
+            $item = NavItem::where(['id' => request('item_id'), 'account_id' => auth()->user()->account->id])->firstOrFail();
             $item->delete();
             $nav = Nav::findOrFail(request('nav_id'));
             $items = $nav->items;
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
         } elseif (request()->has('item_id')) {
             // edit item
-            $data=request()->except('item_id');
-            $item=NavItem::where(['id'=>request('item_id'),'account_id'=>auth()->user()->account->id])->firstOrFail();
+            $data = request()->except('item_id');
+            $item = NavItem::where(['id' => request('item_id'), 'account_id' => auth()->user()->account->id])->firstOrFail();
             $item->update($data);
             // return "alert";
             return $data;
