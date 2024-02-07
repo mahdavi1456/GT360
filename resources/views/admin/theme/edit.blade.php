@@ -1,11 +1,10 @@
 @extends('admin.master')
-@section('title', 'Theme List')
+@section('title', 'ویرایش قالب')
 @section('style')
     <style>
         .custom-file-label::after {
             content: "فایل";
         }
-
         .custom-file-label:after {
             right: unset;
             left: 0;
@@ -19,33 +18,23 @@
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
         {{ breadcrumb('ویرایش قالب') }}
-
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @if ($errors->any())
+                    <div class="row">
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">{{ $error }}</div>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
-                                <form action="{{ route('theme.update', $theme) }}" method="POST"
-                                    enctype="multipart/form-data">
-                                    @csrf
+                            <form action="{{ route('theme.update', $theme) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="card-body">
                                     @method('put')
                                     <div class="row">
                                         <div class="col-4">
@@ -116,32 +105,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if ($theme->preview)
+                                        <div class="row">
+                                            <div class="col-12 text-center">
+                                                <img src="{{ url(ert('theme-path') . $theme->preview )}}" alt="" class="w-100">
+                                                <a href="{{ route('theme.imageDestroy', $theme->id )}}" class="btn btn-sm btn-danger">حذف</a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="card-footer">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-12 text-left">
                                             <button type="submit" class="btn btn-success">ذخیره</button>
                                         </div>
                                     </div>
-                                </form>
-
-                                @if ($theme->preview)
-                                <hr />
-                                    <div class="row">
-                                        <div class="col-4 text-center">
-                                            <img src="{{url(ert('theme-path').$theme->preview)}}" alt="" class="w-100">
-                                            <a href="{{route('theme.imageDestroy',$theme->id)}}" class="btn btn-sm btn-danger">حذف</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
 @section('scripts')
     <script>
