@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-12 text-left">
                                             <button type="submit" class="btn btn-success">ذخیره</button>
                                         </div>
                                     </div>
@@ -120,34 +120,6 @@
             //replace the "Choose a file" label
             $(this).next('.custom-file-label').html(fileName);
         });
-
-        //     let files = [];
-
-        //     let myDropzone = new Dropzone(".dropzone", {
-        //         url: "/uploadFile",
-        //         dictDefaultMessage: "برای اپلود کلیک کنید یا فایل را در این باکس بیاندازید ",
-        //         sending: function(file, xhr, formData) {
-        //             // Append the CSRF token to the form data
-        //             var csrfToken = $('meta[name="csrf-token"]').attr('content');
-        //             formData.append("_token", csrfToken);
-        //         },
-        //         success: (res) => {
-        //             data = JSON.parse(res.xhr.responseText)
-        //             files.push(data.file)
-        //             $("#files").val(JSON.stringify(files))
-        //         },
-        //         error: (file, res) => {
-        //             alert(res.message.file[0]);
-        //             swal.fire({
-        //                 text: res.message.file[0],
-        //                 icon: "error",
-        //                 button: "باشه"
-        //             })
-        //             file.previewElement.remove();
-
-        //         },
-        //     });
-        //
     </script>
     <script src="{{ asset('js/validation.js') }}"></script>
 @endsection
