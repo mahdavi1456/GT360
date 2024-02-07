@@ -133,8 +133,13 @@ class NavController extends Controller
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
             //ebd of createLink
         } elseif (request('type') == 'get-nav-info') {
-            $nav = Nav::findOrFail(request('nav'));
 
+            request()->validate([
+                'nav'=>'required'
+            ],[
+                'nav.required'=>"انتخاب اشتباه!"
+            ]);
+            $nav = Nav::findOrFail(request('nav'));
             $items = $nav->items;
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
         }elseif (request('type')=='delete_item') {

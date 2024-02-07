@@ -36,8 +36,8 @@
                                         <form id="nav-list-form">
                                             <input type="hidden" name="type" value="get-nav-info">
                                             <label for="">فهرست های قالب</label>
-                                            <select name="nav" class="custom-select select3" id="">
-                                                <option value="">انتخاب فهرست...</option>
+                                            <select name="nav" class="custom-select select2" id="">
+                                                <option selected value="">انتخاب فهرست...</option>
                                                 @foreach ($navs as $nav)
                                                     <option value="{{ $nav->id }}">{{ $nav->label }}</option>
                                                 @endforeach
