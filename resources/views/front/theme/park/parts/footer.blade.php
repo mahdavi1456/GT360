@@ -1,6 +1,6 @@
     <footer class="main-footer"><h6>ساخته شده با <i class="fa fa-heart"></i> در گراتک</h6></footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script type="text/javascript" src="{{ asset('front-theme-asset/park/js/jquery-3.5.1.min.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('front-theme-asset/park/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front-theme-asset/park/js/video.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('front-theme-asset/park/js/owl.carousel.min.js') }}"></script>

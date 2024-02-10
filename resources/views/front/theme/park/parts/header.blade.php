@@ -5,6 +5,7 @@
 	<title></title>
 	<meta name="description" content="">
 	<meta name="theme-color" content="#2cb99c">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/x-icon" href="{{ asset('front-theme-asset/park/images/favico.ico') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/css/style.css?v=1.70') }}">

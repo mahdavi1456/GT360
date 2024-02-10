@@ -182,24 +182,23 @@ a { color: #363636; }
     display:inline-block;
     white-space:nowrap;
 }
-
-.MainMenu li a{
+.MainMenu li a {
     color: #191919;
 }
-.MainMenu li a:hover{
+.MainMenu li a:hover {
     text-decoration:none;
 }
-.MainMenu li:first-child a{
+.MainMenu li:first-child a {
     color: var(--primary-color);
     font-weight: 600;
 }
 .box-one-image {
     text-align:left;
 }
-.box-one-content{
+.box-one-content {
     margin-top: 70px;
 }
-.box-one-content .wizbox-title{
+.box-one-content .wizbox-title {
     font-weight: 900;
     color: #191919;
     word-spacing: -3.5px;
@@ -209,7 +208,7 @@ a { color: #363636; }
     margin-bottom: 10px;
     font-size: 18pt;
 }
-.box-one-content .wizbox-title > span{
+.box-one-content .wizbox-title > span {
     background: var(--primary-color);
     color: #fff;
     font-weight: 400;
@@ -243,28 +242,28 @@ a { color: #363636; }
     border-radius: 100px;
     transition: 0.2s ease-out;
 }
-.box-one-content-btn:first-child a{
+.box-one-content-btn:first-child a {
     box-shadow: var(--primary-color)40 0px 8px 24px;
 }
-.box-one-content-btn:last-child a{
+.box-one-content-btn:last-child a {
     background:var(--secondary-color);
     color:#424242;
     word-spacing:-2px;
     font-weight:bolder;
 }
-.box-one-content-btn a:hover{
+.box-one-content-btn a:hover {
     text-decoration: none;
     transition: 0.2s ease-out;
     transform: translateY(2px);
 }
-.box-two{
+.box-two {
     margin-bottom: 50px;
     padding-bottom: 22px;
     background: url('images/box2Bg1.png');
     background-repeat: no-repeat;
     background-position: bottom right;
 }
-.box-two-title{
+.box-two-title {
     margin-bottom: 70px;
 }
 .box-four-title{
@@ -1370,32 +1369,30 @@ li li .comment-box:after{
     padding:5px 20px;
     border-radius:5px;
 }
-.reserveBoxResult  thead tr th{
-    font-weight:bold;
-    padding-bottom:10px;
+.reserveBoxResult  thead tr th {
+    font-weight: bold;
+    padding-bottom: 10px;
 }
-.reserveBoxResult  tbody tr td{
-    background:#f5f5f5;
-    padding:10px;
-    border-radius:15px;
-    border:5px solid #fff;
+.reserveBoxResult  tbody tr td {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 15px;
+    border: 5px solid #fff;
 }
-.reserveBoxSelect{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-bottom:1px solid #f5f5f5;
-    padding-bottom:20px;
-    margin-bottom:20px;
-    flex-direction: column;
+.reserveBoxSelect {
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
-.reserveBoxSelect select{
-    background:#f5f5f5;
-    border:0;
-    padding:10px;
-    border-radius:10px;
+.reserveBoxSelect select {
+    background: #f5f5f5;
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
     border:1px solid #ddd;
-    min-width:30%;
+    min-width: 30%;
 }
 .reserveBoxSelect label{
     color: #464646;
@@ -1440,7 +1437,7 @@ label.required:after {
 .main-footer {
 	width: 100%;
 	background: #fff;
-	text-align: center;	
+	text-align: center;
 	box-shadow: rgb(33 35 38 / 3%) 0px 10px 10px -10px;
 	border-top: 1px solid #f0f1f6;
 }

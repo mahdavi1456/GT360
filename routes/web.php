@@ -44,6 +44,7 @@ use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\PaymentsTypeController;
 use App\Http\Controllers\ThemeSettingController;
 use App\Http\Controllers\CheckoutOptionController;
+use App\Http\Controllers\ConfirmCustomerController;
 use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -86,6 +87,8 @@ Route::post('customer/checkout/transport', [CheckoutController::class, 'transpor
 Route::post('customer/checkout/addon', [CheckoutController::class, 'addonSelect'])->name('checkout.addon');
 Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'])->name('checkout.factor');
 
+Route::post('/check-confirm-customer', [ConfirmCustomerController::class, 'check'])->name('confirm-customer.check');
+
 //admin routes
 Route::middleware(['auth', 'visit'])->group(function () {
 
@@ -122,6 +125,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
 
         Route::resource('reserve-part', ReservePartController::class);
         Route::resource('reserve-plan', ReservePlanController::class);
+        Route::post('reserve-plan/info-form', [ReservePlanController::class, 'InfoForm'])->name('reservePlan.InfoForm');
+        Route::post('reserve-plan/confirm-mobile-form', [ReservePlanController::class, 'ConfirmMobileForm'])->name('reservePlan.ConfirmMobileForm');
 
         Route::post('/image-upload', [PostController::class, 'uploadImage'])->name('post.thumb');
         Route::get('/post-image-destroy', [PostController::class, 'thumbDestroy'])->name('thumb.destroy');

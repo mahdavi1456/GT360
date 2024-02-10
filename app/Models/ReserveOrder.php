@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReserveOrder extends Model
 {
     use HasFactory;
+
+    protected $table = "reserve_orders";
+    protected $guarded = [];
 }

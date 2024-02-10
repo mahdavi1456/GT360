@@ -16,10 +16,10 @@ return new class extends Migration {
             $table->string('rp_name')->comment('نام سانس');
             $table->string('rp_details')->comment('توضیحات سانس');
             $table->double('rs_price')->comment('مبلغ');
-            $table->string('ro_name')->comment('نام مشتری');
+            $table->string('ro_name')->nullable()->comment('نام مشتری');
             $table->integer('ro_count')->comment('تعداد');
-            $table->string('ro_mobile')->comment('موبایل');
-            $table->string('ro_status')->comment('وضعیت');
+            $table->string('ro_mobile')->nullable()->comment('موبایل');
+            $table->string('ro_status')->default(0)->comment('وضعیت');
             $table->timestamps();
         });
     }
