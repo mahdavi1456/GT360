@@ -440,7 +440,6 @@ class AccountController extends Controller
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'slug' => 'required|string|max:255|unique:accounts,slug,' . $account->id,
             'company' => 'required|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
@@ -486,7 +485,6 @@ class AccountController extends Controller
             'city' => $validatedData['city'],
             'address' => $validatedData['address'],
             'postalcode' => $validatedData['postalcode'],
-            'slug' => $validatedData['slug'],
             'company' => $validatedData['company'],
             'company_type' => $validatedData['company_type'],
             'national_id' => $validatedData['national_id'],
@@ -509,6 +507,9 @@ class AccountController extends Controller
     public function accountSiteUpdate(Request $req, $account)
     {
         $account=Account::findOrFail($account);
+        $req->validate([
+            'slug' => 'required|string|max:255|unique:accounts,slug,' . $account->id,
+        ]);
         $data=$req->except('_token','_method','q');
         $account->update($data);
         Alert::success('موفق', 'اطلاعات وب سایت با موفقیت ثبت شد.');
