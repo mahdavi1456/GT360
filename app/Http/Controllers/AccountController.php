@@ -491,7 +491,6 @@ class AccountController extends Controller
             'registration_number' => $validatedData['registration_number'],
             'registration_date' => $registration_date,
             'account_image' => $fileName,
-
         ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
