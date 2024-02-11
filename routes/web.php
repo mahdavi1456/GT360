@@ -49,6 +49,7 @@ use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\PaymentTypeVariableController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
 use App\Http\Controllers\ReservePartController;
 use App\Http\Controllers\ReservePlanController;
@@ -88,6 +89,13 @@ Route::post('customer/checkout/addon', [CheckoutController::class, 'addonSelect'
 Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'])->name('checkout.factor');
 
 Route::post('/check-confirm-customer', [ConfirmCustomerController::class, 'check'])->name('confirm-customer.check');
+
+
+
+//Transaction
+Route::post('/start-transaction', [TransactionController::class, 'start'])->name('transaction.start');
+Route::post('/verify-transaction', [TransactionController::class, 'verify'])->name('transaction.verify');
+
 
 //admin routes
 Route::middleware(['auth', 'visit'])->group(function () {

@@ -136,7 +136,20 @@
                             code: code
                         },
                         success: function (data) {
-                            alert("yes");
+                            var id = data.id;
+                            $.ajax({
+                                type: "POST",
+                                url: "{{ route('transaction.start') }}",
+                                data: {
+                                    id: id
+                                },
+                                success: function (data2) {
+                                    window.location.href = data2;
+                                },
+                                error: function (data2) {
+                                    alert(data2);
+                                }
+                            });
                         },
                         error: function (data) {
                             alert("no");

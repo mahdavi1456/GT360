@@ -29,7 +29,7 @@ class ConfirmCustomer extends Model
     {
         $check = ConfirmCustomer::where('method', $method)->where('value', $value)->where('code', $code)->first();
         if ($check) {
-            return true;
+            return $check;
         } else {
             return false;
         }

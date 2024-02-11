@@ -14,8 +14,9 @@ class ConfirmCustomerController extends Controller
 
         $confirmCustomerModel = new ConfirmCustomer;
         $st = $confirmCustomerModel->check("mobile", $mobile, $code);
-        if ($st == true) {
+        if ($st) {
             return response([
+                'id' => $st->id,
                 'status' => true
             ], 200);
         } else {
