@@ -25,3 +25,9 @@ Swal.fire({
 ```
 Swal.fire("Title", "Text", "success");
 ```
+
+## Sessions Data
+```
+auth()->id();
+auth()->user()->account->id;
+```

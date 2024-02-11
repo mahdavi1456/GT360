@@ -31,10 +31,10 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->except('_token');
+        $data = $request->except('_token');
         Form::create($data);
-        alert()->success('موفق',"ایجاد شد");
-        return to_route('form.index',['theme_id'=>$request->theme_id]);
+        alert()->success("موفق", "ایجاد شد");
+        return to_route('form.index', ['theme_id' => $request->theme_id]);
     }
 
     /**
@@ -58,10 +58,10 @@ class FormController extends Controller
      */
     public function update(Request $request, Form $form)
     {
-        $data=$request->except('_token');
+        $data = $request->except('_token');
         $form->update($data);
-        alert()->success('موفق',"ویرایش شد");
-        return to_route('form.index',['theme_id'=>$form->theme_id]);
+        alert()->success("موفق", "ویرایش شد");
+        return to_route('form.index', ['theme_id' => $form->theme_id]);
     }
 
     /**
@@ -69,9 +69,9 @@ class FormController extends Controller
      */
     public function destroy(Form $form)
     {
-        $theme=$form->theme_id;
-        $form=$form->delete();
-        alert()->success('موفق','حذف شد');
-        return to_route('form.index',['theme_id'=>$theme]);
+        $theme = $form->theme_id;
+        $form = $form->delete();
+        alert()->success('موفق', 'حذف شد');
+        return to_route('form.index', ['theme_id' => $theme]);
     }
 }

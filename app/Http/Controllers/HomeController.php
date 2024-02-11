@@ -13,18 +13,15 @@ class HomeController extends Controller
     public function index(Request $request, $slug)
     {
 
-        if($slug == 'login') {
-
+        if ($slug == 'login') {
             return view('admin.auth.login');
         }
 
-        if($slug == 'register') {
-
+        if ($slug == 'register') {
             return view('admin.auth.register');
         }
 
-        if($slug == 'forgot-password') {
-
+        if ($slug == 'forgot-password') {
             return view('admin.auth.forgot-password');
         }
 
@@ -32,7 +29,6 @@ class HomeController extends Controller
         $account = Account::where('slug', $slug)->first();
 
         if (!$account) {
-
            return view('front.404.404');
         }
 
@@ -56,10 +52,6 @@ class HomeController extends Controller
             if ($cart)
                 $cartItemCount = fa_number($cart->bodies->count());
         }
-
-
-
         return view('front.index', compact('products', 'categories', 'cartItemCount'));
-
     }
 }
