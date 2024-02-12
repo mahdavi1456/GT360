@@ -82,7 +82,6 @@
                                     </table>
                                 @endif
                             </div>
-                            <div class="w-100 mt-3 d-flex justify-content-center"></div>
                         </div>
                     </div>
                 </div>
