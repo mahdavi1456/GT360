@@ -197,7 +197,6 @@
     <div class="card-body">
         <div class="row">
             <div class="col-6 form-group">
-
                 <label class="form-label">تصویر کاور اول</label>
                 <input type="file" name="first_cover" onchange="uploadImage(this)">
 
