@@ -51,40 +51,34 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body p-0 table-responsive">
                                 @if ($reserveParts->isEmpty())
-                                    <div class="d-flex justify-content-center">
-                                        <span class="not-found">نوشته یافت نشد.</span>
-                                    </div>
+                                    <div class="alert alert-danger m-2 text-center">موردی جهت نمایش موجود نیست.</div>
                                 @else
-                                    <table class="table table-bordered table-striped table-hover">
-                                        <thead>
+                                    <table class="table table-bordered table-striped table-hover text-center">
+                                        <tr class="table-warning">
+                                            <th>#</th>
+                                            <th>عنوان</th>
+                                            <th>توضیحات</th>
+                                            <th>قیمت</th>
+                                            <th>قیمت تخفیف خورده</th>
+                                            <th>وضعیت</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        @foreach ($reserveParts as $key => $reservePart)
                                             <tr>
-                                                <th>#</th>
-                                                <th>عنوان</th>
-                                                <th>توضیحات</th>
-                                                <th>قیمت</th>
-                                                <th>قیمت تخفیف خورده</th>
-                                                <th>وضعیت</th>
-                                                <th>عملیات</th>
+                                                <td>{{ $key + 1 }}</td>
+                                                <td>{{ $reservePart->name }}</td>
+                                                <td>{{ $reservePart->details }}</td>
+                                                <td>{{ number_format($reservePart->price) }}</td>
+                                                <td>{{ number_format($reservePart->off_price) }}</td>
+                                                <td>{{ $reservePart->status }}</td>
+                                                <td>
+                                                    <button class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($reserveParts as $key => $reservePart)
-                                                <tr>
-                                                    <td>{{ $key }}</td>
-                                                    <td>{{ $reservePart->name }}</td>
-                                                    <td>{{ $reservePart->details }}</td>
-                                                    <td>{{ number_format($reservePart->price) }}</td>
-                                                    <td>{{ number_format($reservePart->off_price) }}</td>
-                                                    <td>{{ $reservePart->status }}</td>
-                                                    <td>
-                                                        <button class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
-                                                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
+                                        @endforeach
                                     </table>
                                 @endif
                             </div>
