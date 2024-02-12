@@ -83,17 +83,17 @@ class IPG
         curl_close($ch);
         $result = json_decode($result, true);
 
-        dd($result);
+        $message = $result['errors']['message'];
+        $code = $result['errors']['code'];
+        $transaction->message = $message;
+        $transaction->save();
 
-        if ($err) {
-            echo "cURL Error #:" . $err;
+        if ($code == 100) {
+            echo 'Transation success. RefID:' . $result['data']['ref_id'];
         } else {
-            if ($result['data']['code'] == 100) {
-                echo 'Transation success. RefID:' . $result['data']['ref_id'];
-            } else {
-                echo 'code: ' . $result['errors']['code'];
-                echo 'message: ' . $result['errors']['message'];
-            }
+            echo 'code: ' . $result['errors']['code'];
+            echo 'message: ' . $result['errors']['message'];
         }
+
     }
 }
