@@ -20,6 +20,7 @@
                                 @else
                                     <table class="table table-bordered table-striped text-center table-hover">
                                         <tr class="table-warning">
+                                            <th>#</th>
                                             <th>تاریخ رزرو</th>
                                             <th>نام سانس</th>
                                             <th>توضیحات سانس</th>
@@ -31,10 +32,11 @@
                                         </tr>
                                         @foreach ($reserveOrders as $reserveOrder)
                                             <tr>
+                                                <td>{{ $loop->index + 1 }}</td>
                                                 <td>{{ $reserveOrder->ro_date }}</td>
                                                 <td>{{ $reserveOrder->rp_name }}</td>
                                                 <td>{{ $reserveOrder->rp_details }}</td>
-                                                <td>{{ $reserveOrder->rs_price }}</td>
+                                                <td>{{ number_format($reserveOrder->rs_price) }}</td>
                                                 <td>{{ $reserveOrder->ro_name }}</td>
                                                 <td>{{ $reserveOrder->ro_count }}</td>
                                                 <td>{{ $reserveOrder->ro_mobile }}</td>
