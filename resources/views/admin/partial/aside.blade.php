@@ -271,7 +271,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview {{ active_dropdown(['reserve.part', 'reserve.plan']) }}">
+                    <li class="nav-item has-treeview {{ active_dropdown(['reserve.part', 'reserve.plan', 'reserve.order']) }}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-clipboard"></i>
                             <p>
@@ -279,7 +279,7 @@
                                 <i class="right fa fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview sub-menu" {{ active_list(['reserve-part.index', 'reserve-plan.index']) }}>
+                        <ul class="nav nav-treeview sub-menu" {{ active_list(['reserve-part.index', 'reserve-plan.index', 'reserve-order.index']) }}>
                             <li class="nav-item" {{ active_menu('reserve-part.index') }}>
                                 <a href="{{ route('reserve-part.index') }}" class="nav-link">
                                     <i class="fa fa-th-list text-warning nav-icon"></i>
@@ -290,6 +290,12 @@
                                 <a href="{{ route('reserve-plan.index') }}" class="nav-link">
                                     <i class="fa fa-edit text-warning nav-icon"></i>
                                     <p>برنامه ریزی</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('reserve-order.index') }}>
+                                <a href="{{ route('reserve-order.index') }}" class="nav-link">
+                                    <i class="fa fa-edit text-warning nav-icon"></i>
+                                    <p>گزارشات</p>
                                 </a>
                             </li>
                         </ul>
