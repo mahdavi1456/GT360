@@ -14,7 +14,6 @@
                 </div>
             @endif
         </div>
-
         <div class="col-3 form-group">
             <label class="form-label">عنوان</label>
             <input type="text" name="title" class="form-control" placeholder="عنوان..."
@@ -26,7 +25,6 @@
                 value="{{ $settingModel->getSetting('description', $account->id) }}">
         </div>
     </div>
-</div>
 </div>
 
 <div class="card card-warning">
