@@ -12,11 +12,11 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">برنامه</h3>
+                                <h3 class="card-title"></h3>
                             </div>
                             <div id="reserve-plan-form" class="card-body p-0 table-responsive">
                                 @if ($reserveOrders->isEmpty())
-                                    <div class="alert alert-danger">موردی جهت نمایش موجود نیست.</div>
+                                    <div class="alert alert-danger text-center m-2">موردی جهت نمایش موجود نیست.</div>
                                 @else
                                     <table class="table table-bordered table-striped text-center table-hover">
                                         <tr class="table-warning">
