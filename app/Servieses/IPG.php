@@ -83,6 +83,8 @@ class IPG
         curl_close($ch);
         $result = json_decode($result, true);
 
+        dd($result);
+
         $message = $result['errors']['message'];
         $code = $result['errors']['code'];
         $transaction->message = $message;
