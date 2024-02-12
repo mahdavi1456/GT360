@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="" class="brand-link">
         <img src="{{ asset('asset/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
+             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">پنل مدیریت</span>
     </a>
     <div class="sidebar">
@@ -9,7 +9,7 @@
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
                     <img src="{{ asset('asset/dist/img/avatar5.png') }}" class="img-circle elevation-2"
-                        alt="User Image">
+                         alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
@@ -31,14 +31,7 @@
                         </a>
                     </li>
                     @can('SuperAccount')
-                        <li class="nav-item has-treeview">
-                            <a href="{{ route('plan.index') }}" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>پکیج ها</p>
-                            </a>
-                        </li>
-                        <li
-                            class="nav-item has-treeview {{ active_dropdown(['theme.index', 'nav.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index']) }}">
+                        <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'nav.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index', 'plan.index']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-lock text-danger"></i>
                                 <p>تعاریف پایه <i class="right fa fa-angle-left"></i></p>
@@ -86,6 +79,12 @@
                                         <p>تنظیمات</p>
                                     </a>
                                 </li>
+                                <li class="nav-item {{ active_menu('plan.index') }}">
+                                    <a href="{{ route('plan.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>پکیج ها</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     @endcan
@@ -106,9 +105,7 @@
                             </ul>
                         </li>
                     @endcan
-
-                    <li
-                        class="nav-item has-treeview {{ active_dropdown(['user.showUsers', 'account.profile.edit']) }}">
+                    <li class="nav-item has-treeview {{ active_dropdown(['user.showUsers', 'account.profile.edit']) }}">
                         <a href="#" class="nav-link main-menu">
                             <i class="nav-icon fa fa-th"></i>
                             <p>
@@ -120,21 +117,21 @@
                             {{ active_list(['account.profile.edit', 'user.showUsers']) }}>
                             <li class="nav-item {{ active_menu('user.showUsers') }}">
                                 <a href="{{ route('user.showUsers', ['accountId' => Auth::user()->account_id]) }}"
-                                    class="nav-link">
+                                   class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>کاربران</p>
                                 </a>
                             </li>
                             <li class="nav-item {{ active_menu('account.profile.edit') }}">
                                 <a href="{{ route('account.profile.edit', ['account' => Auth::user()->account]) }}"
-                                    class="nav-link">
+                                   class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>تکمیل اطلاعات</p>
                                 </a>
                             </li>
                             <li class="nav-item {{ active_menu('accountSite.edit') }}">
                                 <a href="{{ route('accountSite.edit', Auth::user()->account->id) }}"
-                                    class="nav-link">
+                                   class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>وب سایت</p>
                                 </a>
