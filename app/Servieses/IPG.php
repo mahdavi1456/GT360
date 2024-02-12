@@ -60,7 +60,6 @@ class IPG
     {
         $Authority = $_GET['Authority'];
         $transaction = Transaction::where("authority", $Authority)->first();
-        dd($transaction);
         $price = $transaction->price;
 
         $data = array(
@@ -83,6 +82,8 @@ class IPG
         $err = curl_error($ch);
         curl_close($ch);
         $result = json_decode($result, true);
+
+        dd($err);
 
         if ($err) {
             echo "cURL Error #:" . $err;
