@@ -18,10 +18,9 @@ class PageController extends Controller
 
     public function index(Request $request)
     {
-        $pages = Page::latest()->paginate(50);
-        $users = User::all();
-
-        return view('admin.page.list', compact(['pages', 'users', 'request']));
+        $pages = Page::where('account_id',auth()->user()->account_id)->filter()->latest()->paginate(3);
+        $accountUsers = auth()->user()->account->users;
+        return view('admin.page.list', compact(['pages', 'accountUsers', 'request']));
     }
 
     public function create()
@@ -40,7 +39,7 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        //  dd($request->all());
+      //   dd($request->all());
         $request->validate([
             'content' => 'required|min:5'
         ]);
@@ -56,7 +55,8 @@ class PageController extends Controller
 
             $data['user_id'] = auth()->id();
             $data['author'] = auth()->id();
-            $data['account_id'] = auth()->user()->account->id;
+            $data['account_id'] = auth()->user()->account_id;
+          //  dd($data);
             // dd($data);
             $page = Page::create($data);
             //$page->terms()->attach($request->term);
@@ -89,7 +89,7 @@ class PageController extends Controller
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
                 ]);
-                return ['action' => 'created', 'page' => $page->id, 'path' => asset(ert('pip')) . '/' . $page->thumbnail];
+                return ['action' => 'update', 'page' => $page->id, 'path' => asset(ert('pip')) . '/' . $page->thumbnail];
             } else {
                 $page = Page::findOrFail($request->page);
                 $page->update([

@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        $posts = Post::where('account_id',auth()->user()->account_id)->filter()->latest()->paginate(50);
+        $posts = Post::where('account_id',auth()->user()->account_id)->filter()->latest()->paginate(3);
 
         $accountUsers = auth()->user()->account->users;
         $activeTheme= Theme::getActive();

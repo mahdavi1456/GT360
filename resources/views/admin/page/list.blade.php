@@ -19,34 +19,46 @@
                                     <div class="d-flex flex-wrap align-items-end">
                                         <div class="col-md-4 form-group">
                                             <label>نویسنده</label>
-                                            <select class="form-control select2" name="user_id" id="user_id">
-                                                <option value="">انتخاب کنید...</option>
-                                                @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}" {{ $request->user_id == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                                            <select class="form-control select2" name="author" id="user_id">
+                                                <option value="">همه</option>
+                                                @foreach ($accountUsers as $user)
+                                                    <option value="{{ $user->id }}"
+                                                        {{ $request->author == $user->id ? 'selected' : '' }}>
+                                                        {{ $user->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>وضعیت</label>
-                                            <select class="form-control select2"  name="status" id="status">
-                                                <option value="all" {{ 'status' == 'all' ? 'selected' : '' }}>همه</option>
-                                                <option value="1" {{ 'status' == '1' ? 'selected' : '' }}>منتشر شده</option>
-                                                <option value="0" {{ 'status' == '0' ? 'selected' : '' }}>منتشر نشده</option>
+                                            <select class="form-control select2" name="publish_status" id="status">
+                                                <option value=""
+                                                    {{ $request->publish_status == '' ? 'selected' : '' }}>همه</option>
+                                                <option value="publish"
+                                                    {{ $request->publish_status == 'publish' ? 'selected' : '' }}>منتشر شده
+                                                </option>
+                                                <option value="draft"
+                                                    {{ $request->publish_status == 'draft' ? 'selected' : '' }}>پیش نویس
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>عنوان</label>
-                                            <input type="text" name="title" id="title" value="{{ $request->title }}" class="form-control form-control-sm" />
+                                            <input type="text" name="title" id="title"
+                                                value="{{ $request->title }}" class="form-control form-control-sm" />
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>از تاریخ:</label>
-                                            <input type="text" name="from" id="from" value="{{ $request->from }}" class="datePicker form-control form-control-sm" autocomplete="off" />
+                                            <input type="text" name="from" id="from" placeholder="از..."
+                                                value="{{ $request->from }}"
+                                                class="datePicker form-control form-control-sm" autocomplete="off" />
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>تا تاریخ:</label>
-                                            <input type="text" name="to" id="to" value="{{ $request->to }}" class="datePicker form-control form-control-sm" autocomplete="off" />
+                                            <input type="text" name="to" id="to" value="{{ $request->to }}"  placeholder="تا..."
+                                                class="datePicker form-control form-control-sm" autocomplete="off" />
                                         </div>
-                                        <button type="submit" class="btn btn-info mr-auto check-validity"><i class="fa fa-filter"></i>فیلتر</button>
+                                        <button type="submit" class="btn btn-info mr-auto check-validity"><i
+                                                class="fa fa-filter"></i>فیلتر</button>
                                     </div>
                                 </form>
                             </div>
@@ -73,7 +85,6 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>تصویر شاخص</th>
-
                                                 <th>عنوان</th>
                                                 <th>بازدید</th>
                                                 <th>نویسنده</th>
@@ -123,7 +134,9 @@
                                         </table>
                                     @endif
                                 </div>
-                                <div class="w-100 mt-3 d-flex justify-content-center"></div>
+                                <div class="w-100 mt-3 d-flex justify-content-center">
+                                    {{$pages->withQueryString()->render()}}
+                                </div>
                             </div>
                     </div>
                 </div>
@@ -151,7 +164,12 @@
             });
         });
         $(function() {
-            $("#from, #to").persianDatepicker();
+            $("#from, #to").persianDatepicker({
+                initialValue: false,
+                obsever: true,
+                format: 'YYYY/MM/DD',
+                autoClose: true
+            });
         });
     </script>
 @endsection

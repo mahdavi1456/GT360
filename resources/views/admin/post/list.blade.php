@@ -138,7 +138,7 @@
                                                             <a class="btn btn-info btn-sm ml-2" target="_blank"
                                                                 href="">مشاهده</a>
                                                             <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center"
-                                                                href="{{ route('post.create', ['component_id' => request('component_id'), 'action' => 'update', 'post' => $post->id]) }}"
+                                                                href="{{ route('post.create', ['component_id' => $post->component_id, 'action' => 'update', 'post' => $post->id]) }}"
                                                                 data-toggle="tooltip" data-placement="top" title="ویرایش"><i
                                                                     class="fa fa-edit"></i></a>
                                                             <div class="display-inline-block">
@@ -161,7 +161,9 @@
                                 @endif
                             </div>
                             <!-- /.card-body -->
-                            <div class="w-100 mt-3 d-flex justify-content-center"></div>
+                            <div class="w-100 mt-3 d-flex justify-content-center">
+                                {{$posts->withQueryString()->render()}}
+                            </div>
                         </div>
                         <!-- /.card -->
                     </div>
