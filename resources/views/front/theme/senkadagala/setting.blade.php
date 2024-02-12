@@ -3,7 +3,7 @@
         <h3 class="card-title">عمومی</h3>
     </div>
     <div class="card-body">
-        <div class="col-4 form-group bg-secondary">
+        <div class="col-3 form-group bg-secondary">
             <label class="form-label">تصویر لوگو</label>
             <input type="file" name="logo" onchange="uploadImage(this)">
             @if ($image = imageLoader('logo'))
@@ -15,12 +15,12 @@
             @endif
         </div>
 
-        <div class="col-4 form-group">
+        <div class="col-3 form-group">
             <label class="form-label">عنوان</label>
             <input type="text" name="title" class="form-control" placeholder="عنوان..."
                 value="{{ $settingModel->getSetting('title', $account->id) }}">
         </div>
-        <div class="col-8 form-group">
+        <div class="col-3 form-group">
             <label class="form-label">توضیحات</label>
             <input type="text" name="description" class="form-control" placeholder="توضیحات..."
                 value="{{ $settingModel->getSetting('description', $account->id) }}">
