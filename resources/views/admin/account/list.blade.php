@@ -50,17 +50,16 @@
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover text-center">
                                             <tr class="table-warning">
-                                                <th class="px-4">#</th>
-                                                <th class="px-4">نوع اکانت</th>
-                                                <th class="px-4">نام</th>
-                                                <th class="px-4">نام خانوادگی</th>
-                                                <th class="px-4">موبایل</th>
-                                                <th class="px-4">وضعیت اکانت</th>
-                                                <th class="px-4">دلیل غیرفعال سازی</th>
-                                                <th class="px-4">عملیات</th>
+                                                <th>#</th>
+                                                <th>نوع اکانت</th>
+                                                <th>نام</th>
+                                                <th>نام خانوادگی</th>
+                                                <th>موبایل</th>
+                                                <th>وضعیت اکانت</th>
+                                                <th>دلیل غیرفعال سازی</th>
+                                                <th>عملیات</th>
                                             </tr>
-                                            <tbody>
-                                                @foreach ($accounts as $account)
+                                            @foreach ($accounts as $account)
                                                     <tr>
                                                         <td>{{ fa_number($loop->index + 1) }}</td>
                                                         <td>{{ $account->account_type }}</td>
@@ -82,6 +81,14 @@
                                                             <td class="w-auto text-center">------</td>
                                                         @endif
                                                         <td class="d-flex">
+                                                            <div class="input-group mb-3">
+                                                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-mouse-pointer"></i></button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a class="dropdown-item" href="{{ $account->domain }}">Domain</a></li>
+                                                                    <li><a class="dropdown-item" href="https://app.gtch.ir/web/{{ $account->slug }}">GTCH Url</a></li>
+                                                                </ul>
+                                                            </div>
+
                                                             <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}"
                                                                 class="btn btn-primary btn-sm mx-1">مشاهده کاربران</a>
                                                             <a href="{{ route('account.edit', $account->id) }}"
@@ -137,7 +144,7 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-                                            </tbody>
+
                                         </table>
                                     </div>
                                 @else
