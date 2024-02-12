@@ -50,8 +50,11 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
+
 use App\Http\Controllers\ReservePartController;
 use App\Http\Controllers\ReservePlanController;
+use App\Http\Controllers\ReserveOrderController;
+
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
@@ -134,6 +137,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('reserve-plan', ReservePlanController::class);
         Route::post('reserve-plan/info-form', [ReservePlanController::class, 'InfoForm'])->name('reservePlan.InfoForm');
         Route::post('reserve-plan/confirm-mobile-form', [ReservePlanController::class, 'ConfirmMobileForm'])->name('reservePlan.ConfirmMobileForm');
+        Route::resource('reserve-order', ReserveOrderController::class);
 
         Route::post('/image-upload', [PostController::class, 'uploadImage'])->name('post.thumb');
         Route::get('/post-image-destroy', [PostController::class, 'thumbDestroy'])->name('thumb.destroy');
