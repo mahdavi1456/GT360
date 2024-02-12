@@ -3,31 +3,30 @@
         <h3 class="card-title">عمومی</h3>
     </div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">تصویر کاور اول</label>
-                <input type="file" name="first_cover" onchange="uploadImage(this)">
-                @if ($image = imageLoader('first_cover'))
-                    <div class="imageLoader position-relative">
-                        <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                        <button type="button" onclick="destroyImage('first_cover')"
-                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
-                    </div>
-                @endif
-            </div>
+        <div class="col-4 form-group bg-secondary">
+            <label class="form-label">تصویر لوگو</label>
+            <input type="file" name="logo" onchange="uploadImage(this)">
+            @if ($image = imageLoader('logo'))
+                <div class="imageLoader position-relative">
+                    <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                    <button type="button" onclick="destroyImage('logo')"
+                        class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
+                </div>
+            @endif
+        </div>
 
-            <div class="col-4 form-group">
-                <label class="form-label">عنوان</label>
-                <input type="text" name="title" class="form-control" placeholder="عنوان..."
-                    value="{{ $settingModel->getSetting('title', $account->id) }}">
-            </div>
-            <div class="col-8 form-group">
-                <label class="form-label">توضیحات</label>
-                <input type="text" name="description" class="form-control" placeholder="توضیحات..."
-                    value="{{ $settingModel->getSetting('description', $account->id) }}">
-            </div>
+        <div class="col-4 form-group">
+            <label class="form-label">عنوان</label>
+            <input type="text" name="title" class="form-control" placeholder="عنوان..."
+                value="{{ $settingModel->getSetting('title', $account->id) }}">
+        </div>
+        <div class="col-8 form-group">
+            <label class="form-label">توضیحات</label>
+            <input type="text" name="description" class="form-control" placeholder="توضیحات..."
+                value="{{ $settingModel->getSetting('description', $account->id) }}">
         </div>
     </div>
+</div>
 </div>
 
 <div class="card card-warning">
