@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('account_id')->comment('کد اشتراک');
             $table->string('authority')->comment('شناسه درخواست');
-            $table->tinyInteger('status')->nullable()->comment('وضعیت پرداخت');
+            $table->string('status')->nullable()->comment('وضعیت پرداخت');
             $table->integer('ref_id')->nullable()->comment('رسید پرداخت');
             $table->integer('record_id')->nullable()->comment('کد مورد');
             $table->string('record_type')->nullable()->comment('نوع مورد');

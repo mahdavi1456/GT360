@@ -86,6 +86,7 @@ class IPG
         $message = $result['errors']['message'];
         $code = $result['errors']['code'];
         $transaction->message = $message;
+        $transaction->status = $code;
         $transaction->save();
 
         if ($code == 100) {
