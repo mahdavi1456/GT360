@@ -3,7 +3,7 @@
         <h3 class="card-title">عمومی</h3>
     </div>
     <div class="card-body">
-        <div class="col-3 form-group bg-secondary">
+        <div class="col-3 form-group ">
             <label class="form-label">تصویر لوگو</label>
             <input type="file" name="logo" onchange="uploadImage(this)">
             @if ($image = imageLoader('logo'))
