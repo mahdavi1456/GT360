@@ -60,6 +60,7 @@ class IPG
     {
         $Authority = $_GET['Authority'];
         $transaction = Transaction::where("authority", $Authority)->first();
+        dd($transaction);
         $price = $transaction->price;
 
         $data = array(
