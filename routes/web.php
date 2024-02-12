@@ -96,7 +96,7 @@ Route::post('/check-confirm-customer', [ConfirmCustomerController::class, 'check
 
 //Transaction
 Route::post('/start-transaction', [TransactionController::class, 'start'])->name('transaction.start');
-Route::post('/verify-transaction', [TransactionController::class, 'verify'])->name('transaction.verify');
+Route::get('/verify-transaction', [TransactionController::class, 'verify'])->name('transaction.verify');
 
 
 //admin routes
