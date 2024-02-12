@@ -81,8 +81,8 @@
                                                             <td class="w-auto text-center">------</td>
                                                         @endif
                                                         <td>
-                                                            <a href="{{ $account->domain }}" class="btn btn-secondary btn-sm mx-1">Domain</a>
-                                                            <a href="https://app.gtch.ir/web/{{ $account->slug }}" class="btn btn-secondary btn-sm mx-1">GTCH URL</a>
+                                                            <a href="{{ $account->domain }}" target="_blank" class="btn btn-secondary btn-sm mx-1">Domain</a>
+                                                            <a href="https://app.gtch.ir/web/{{ $account->slug }}" target="_blank" class="btn btn-secondary btn-sm mx-1">LURL</a>
 
                                                             <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}"
                                                                 class="btn btn-primary btn-sm mx-1">مشاهده کاربران</a>
