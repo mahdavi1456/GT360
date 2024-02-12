@@ -80,14 +80,9 @@
                                                         @else
                                                             <td class="w-auto text-center">------</td>
                                                         @endif
-                                                        <td class="d-flex">
-                                                            <div class="input-group mb-3">
-                                                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-mouse-pointer"></i></button>
-                                                                <ul class="dropdown-menu">
-                                                                    <li><a class="dropdown-item" href="{{ $account->domain }}">Domain</a></li>
-                                                                    <li><a class="dropdown-item" href="https://app.gtch.ir/web/{{ $account->slug }}">GTCH Url</a></li>
-                                                                </ul>
-                                                            </div>
+                                                        <td>
+                                                            <a href="{{ $account->domain }}" class="btn btn-secondary btn-sm mx-1">Domain</a>
+                                                            <a href="https://app.gtch.ir/web/{{ $account->slug }}" class="btn btn-secondary btn-sm mx-1">GTCH URL</a>
 
                                                             <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}"
                                                                 class="btn btn-primary btn-sm mx-1">مشاهده کاربران</a>
