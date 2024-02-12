@@ -84,7 +84,6 @@ class IPG
         $result = json_decode($result, true);
 
         $message = $result['errors']['message'];
-        dd($message);
         $code = $result['errors']['code'];
         $transaction->message = $message;
         $transaction->save();
