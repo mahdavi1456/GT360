@@ -16,8 +16,8 @@
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if (count($users) > 0)
-                                    <table class="table table-hover table-striped table-bordered">
-                                        <tr>
+                                    <table class="table table-hover table-striped table-bordered text-center">
+                                        <tr class="table-warning">
                                             <th>#</th>
                                             <th>نام</th>
                                             <th>نام خانوادگی</th>
