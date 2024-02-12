@@ -154,7 +154,8 @@ class ThemeController extends Controller
         $themComponents = $theme->components;
         //dd($themComponents);
         $pluck = $themComponents->pluck('id')->toArray();
-        $components = Component::latest()->get();
+        $components = Component::where('status','active')->latest()->get();
+      
         return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents', 'pluck'));
     }
     public function selectNav($theme)
@@ -168,7 +169,7 @@ class ThemeController extends Controller
     public function componentStore(Request $request, $theme)
     {
         $theme = Theme::findOrFail($theme);
-        $theme->components()->sync($request->components);
+        $theme->relComponents()->sync($request->components);
         Alert::success('موفق', 'بخش ها تخصیص داده شد.');
         return back();
     }

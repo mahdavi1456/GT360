@@ -63,7 +63,7 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label>وضعیت</label>
-                                                <select name="status select2" class="form-control">
+                                                <select name="status" class="form-control select2">
                                                     <option {{ $component->status == "active" ? "selected" : "" }} value="active">فعال</option>
                                                     <option {{ $component->status == "deactive" ? "selected" : "" }} value="deactive">غیرفعال</option>
                                                 </select>

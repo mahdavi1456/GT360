@@ -12,13 +12,13 @@ class Setting extends Model
     protected $tabele = "settings";
     protected $guarded = [];
 
-    public function updateSetting($key, $value, $account_id,$file=null)
+    public static function updateSetting($key, $value, $account_id,$file=null)
     {
         // $s = Setting::where(['key' => $key, 'account_id' => $account_id])->first();
         $s = Setting::where(['key' => $key, 'account_id' => $account_id])->first();
         if ($s) {
             if ($file=='theme-setting') {
-                $fileName=$this->getSetting($key,$account_id);
+                $fileName=Setting::getSetting($key,$account_id);
                 if ($fileName and file_exists(public_path(ert('tsp').$fileName))) {
                    unlink(public_path(ert('tsp').$fileName));
                 }
@@ -37,7 +37,7 @@ class Setting extends Model
         }
     }
 
-    public function getSetting($key,$account_id,)
+    public static function getSetting($key,$account_id)
     {
         $s = Setting::where(['key' => $key, 'account_id' => $account_id])->first();
         if ($s) {

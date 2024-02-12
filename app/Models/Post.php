@@ -9,17 +9,48 @@ class Post extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function terms(){
-        return $this->belongsToMany(Term::class,'post_term');
+    public function terms()
+    {
+        return $this->belongsToMany(Term::class, 'post_term');
     }
-    public function component() {
+    public function component()
+    {
         return $this->belongsTo(Component::class);
     }
-    public function author_object()  {
+    public function author_object()
+    {
         return $this->belongsTo(User::class, 'author');
     }
-    public function getpublishValueAttribute(){
-        switch ($this->	publish_status) {
+
+    public function scopeFilter($query)
+    {
+        if (request()->filled('component_id')) {
+            if (request('component_id')) {
+                $query->where('component_id', request('component_id'));
+            }
+        }
+        if (request()->filled('author')) {
+            $query->where('author', request('author'));
+        }
+        if (request()->filled('publish_status')) {
+            $query->where('publish_status', request('publish_status'));
+        }
+        if (request()->filled('title')) {
+            $query->where('title','like', '%' . request('title') . '%');
+        }
+        if (request()->filled('from')) {
+           $from=verta()->parse(request('from'))->toCarbon();
+           $query->where('created_at','>=',$from);
+        }
+        if (request()->filled('to')) {
+            $to=verta()->parse(request('to'))->toCarbon();
+           $query->where('created_at','<=',$to);
+        }
+    }
+
+    public function getpublishValueAttribute()
+    {
+        switch ($this->publish_status) {
             case 'draft':
                 return 'پیش نویس';
                 break;
@@ -28,7 +59,7 @@ class Post extends Model
                 break;
 
             default:
-             return $this->publish_status;
+                return $this->publish_status;
                 break;
         }
     }
