@@ -57,9 +57,7 @@
 					<h2>Senkadagala</h2>
 				</div>
 				<div class="row">
-					<p>
-						A simple one page HTML layout.
-					</p>
+					<p>{{ $settingModel->getSetting('title', $accountId) }}					</p>
 				</div>
 			</div>
 			</div>
