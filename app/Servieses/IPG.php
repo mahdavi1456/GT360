@@ -7,11 +7,11 @@ use http\Env\Request;
 
 class IPG
 {
-    public function start($recordId, $recordType, $Price)
+    public function start($recordId, $recordType, $price)
     {
         $data = array(
             "merchant_id" => "22e6f21a-1348-4887-9c44-995e65e27472",
-            "amount" => $Price,
+            "amount" => $price,
             "callback_url" => route('transaction.verify'),
             "description" => "خرید تست",
             "sandbox" => true,
@@ -33,12 +33,14 @@ class IPG
         $result = json_decode($result, true, JSON_PRETTY_PRINT);
         curl_close($ch);
 
+
+        //Create Payment Transaction
         Transaction::create([
             'account_id' => auth()->user()->account->id,
             'authority' => $result['data']['authority'],
             'record_id' => $recordId,
             'record_type' => $recordType,
-            'price' => $Price
+            'price' => $price
         ]);
 
         if ($err) {
@@ -58,13 +60,13 @@ class IPG
 
     public function verify()
     {
-        $Authority = $_GET['Authority'];
-        $transaction = Transaction::where("authority", $Authority)->first();
+        $authority = $_GET['Authority'];
+        $transaction = Transaction::where("authority", $authority)->first();
         $price = $transaction->price;
 
         $data = array(
             "merchant_id" => "22e6f21a-1348-4887-9c44-995e65e27472",
-            "authority" => $Authority,
+            "authority" => $authority,
             "amount" => $price
         );
         $jsonData = json_encode($data);
@@ -83,19 +85,19 @@ class IPG
         curl_close($ch);
         $result = json_decode($result, true);
 
-        $message = $result['errors']['message'];
-        $code = $result['errors']['code'];
-        $transaction->message = $message;
-        $transaction->status = $code;
-        $transaction->save();
+        //Update Payment Transaction Result Data
+        $transaction->message = $result['errors']['message'];
+        $transaction->status = $result['errors']['code'];
 
-        if ($code == 100) {
+        if ($result['errors']['code'] == 100) {
             echo 'Transation success. RefID:' . $result['data']['ref_id'];
+            $transaction->ref_id = $result['data']['ref_id'];
         } else {
             echo 'code: ' . $this->getStatusDetails($result['errors']['code']);
             echo 'message: ' . $result['errors']['message'];
         }
 
+        $transaction->save();
     }
 
     public function getStatusDetails($code)
