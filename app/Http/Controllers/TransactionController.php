@@ -18,4 +18,11 @@ class TransactionController extends Controller
         $ipg = new IPG();
         $ipg->start($id, "reserve", $Price);
     }
+
+    public function verify(Request $request)
+    {
+        $ipg = new IPG();
+        $ipg->verify();
+    }
+
 }

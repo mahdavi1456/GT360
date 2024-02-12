@@ -7,7 +7,7 @@ use http\Env\Request;
 
 class IPG
 {
-    public function Start($recordId, $recordType, $Price)
+    public function start($recordId, $recordType, $Price)
     {
         $data = array(
             "merchant_id" => "22e6f21a-1348-4887-9c44-995e65e27472",
@@ -56,14 +56,14 @@ class IPG
         }
     }
 
-    public function Verify()
+    public function verify()
     {
         $Authority = $_GET['Authority'];
         $transaction = Transaction::where("authority", $Authority)->first();
         $price = $transaction->price;
 
         $data = array(
-            "merchant_id" => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "merchant_id" => "22e6f21a-1348-4887-9c44-995e65e27472",
             "authority" => $Authority,
             "amount" => $price
         );
