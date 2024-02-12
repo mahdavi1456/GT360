@@ -82,6 +82,9 @@ class IPG
         $err = curl_error($ch);
         curl_close($ch);
         $result = json_decode($result, true);
+
+        dd($result);
+
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
