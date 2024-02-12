@@ -51,7 +51,7 @@
 		<div class="section section1">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2 col-xs-offset-3 col-sm-offset-4 col-md-offset-5 main-logo"></div>
+					<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2 col-xs-offset-3 col-sm-offset-4 col-md-offset-5 main-logo">{{ $settingModel->getSetting('logo', $accountId) }}</div>
 				</div>
 				<div class="row">
 					<h2>{{ $settingModel->getSetting('title', $accountId) }}</h2>
