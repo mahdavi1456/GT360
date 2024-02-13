@@ -118,28 +118,6 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title pull-right">تماس</h3>
-        <select name="call_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('call_status', $account->id) == 1 ? 'selected' : '' }}
-                value="1">فعال</option>
-            <option {{ $settingModel->getSetting('call_status', $account->id) == 0 ? 'selected' : '' }}
-                value="0">غیرفعال</option>
-        </select>
-    </div>
-    @if ($settingModel->getSetting('call_status', $account->id) == 1)
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12 form-group">
-                    <label class="form-label">نقشه گوگل</label>
-                    <textarea name="google_map" class="form-control ltr" placeholder="نقشه گوگل...">{{ $settingModel->getSetting('google_map', $account->id) }}</textarea>
-                </div>
-            </div>
-        </div>
-    @endif
-</div>
-
-<div class="card card-warning">
-    <div class="card-header">
         <h3 class="card-title pull-right">خدمات</h3>
         <select name="service_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('service_status', $account->id) == 1 ? 'selected' : '' }}
@@ -348,6 +326,28 @@
                     <label class="form-label">توضیحات</label>
                     <input type="text" name="portfolio_text" class="form-control" placeholder="توضیحات..."
                         value="{{ $settingModel->getSetting('portfolio_text', $account->id) }}">
+                </div>
+            </div>
+        </div>
+    @endif
+</div>
+
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title pull-right">تماس</h3>
+        <select name="call_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('call_status', $account->id) == 1 ? 'selected' : '' }}
+                    value="1">فعال</option>
+            <option {{ $settingModel->getSetting('call_status', $account->id) == 0 ? 'selected' : '' }}
+                    value="0">غیرفعال</option>
+        </select>
+    </div>
+    @if ($settingModel->getSetting('call_status', $account->id) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 form-group">
+                    <label class="form-label">نقشه گوگل</label>
+                    <textarea name="google_map" class="form-control ltr" placeholder="نقشه گوگل...">{{ $settingModel->getSetting('google_map', $account->id) }}</textarea>
                 </div>
             </div>
         </div>
