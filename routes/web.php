@@ -166,8 +166,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
 
         Route::resource('post', PostController::class);
         Route::get('page/destroy-image',[PageController::class,'pageImageDestroy'])->name('pageImage.destroy');
-        Route::resource('page', PageController::class);
         Route::post('page/upload-image',[PageController::class,'uploadImage'])->name('page.image');
+        Route::resource('page', PageController::class);
         Route::resource('category', CategoryController::class);
         Route::resource('transport', TransportController::class);
         Route::resource('discount', DiscountController::class);
