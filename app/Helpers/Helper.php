@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Setting;
+use App\Models\Font;
 use Illuminate\Support\Facades\Auth;
 
 function adminBar()
@@ -33,24 +34,38 @@ function adminBar()
             <div class="container-fluid">
                 <ul class="admin-bar-list">
                     <li><a href="#">نوار ابزار مدیریت</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal">فونت</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal">رنگ بندی</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#fontModal">فونت</a></li>
                 </ul>
             </div>
         </nav>
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="fontModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
+                        <h4 class="modal-title">فونت قالب</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Some text in the modal.</p>
+                        <?php
+                        $fonts = Font::all();
+                        if ($fonts) {
+                            ?>
+                            <select name="" id="" class="form-control">
+                                <?php
+                                foreach ($fonts as $font) {?>
+                                    <option><?php echo $font->name; ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            <?php
+                        }
+                        ?>
+                        <button class="btn btn-success w-100">ذخیره</button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
                     </div>
                 </div>
             </div>
