@@ -260,8 +260,6 @@
                         </div>
                     @endif
                 </div>
-
-
                 <div class="col-12 form-group">
                     <label class="form-label">عنوان تصویر اول</label>
                     <input type="text" name="title_team_image1" class="form-control"
@@ -271,6 +269,56 @@
                     <input type="text" name="subtitle_team_image1" class="form-control"
                         placeholder="زیرعنوان تصویر اول..."
                         value="{{ $settingModel->getSetting('subtitle_team_image1', $account->id) }}">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 form-group ">
+                    <label class="form-label ">تصویر اول</label>
+                    <input type="file" name="team_image1" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('team_image1'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('team_image1')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-12 form-group">
+                    <label class="form-label">عنوان تصویر اول</label>
+                    <input type="text" name="title_team_image1" class="form-control"
+                        placeholder="عنوان تصویر اول..."
+                        value="{{ $settingModel->getSetting('title_team_image1', $account->id) }}">
+                    <label class="form-label">زیر عنوان تصویر اول</label>
+                    <input type="text" name="subtitle_team_image1" class="form-control"
+                        placeholder="زیرعنوان تصویر اول..."
+                        value="{{ $settingModel->getSetting('subtitle_team_image1', $account->id) }}">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 form-group ">
+                    <label class="form-label ">تصویر دوم</label>
+                    <input type="file" name="team_image2" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('team_image2'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('team_image2')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-12 form-group">
+                    <label class="form-label">عنوان تصویر دوم</label>
+                    <input type="text" name="title_team_image2" class="form-control"
+                        placeholder="عنوان تصویر دوم..."
+                        value="{{ $settingModel->getSetting('title_team_image2', $account->id) }}">
+                    <label class="form-label">زیر عنوان تصویر دوم</label>
+                    <input type="text" name="subtitle_team_image2" class="form-control"
+                        placeholder="زیرعنوان تصویردوم..."
+                        value="{{ $settingModel->getSetting('subtitle_team_image2', $account->id) }}">
 
                 </div>
             </div>
