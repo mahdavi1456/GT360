@@ -32,7 +32,7 @@
                                             <select name="pallete" class="form-control">
                                                 <option value="">-</option>
                                                 @foreach ($palletes as $pallete)
-                                                    <option {{ $settingModel->getSetting("pallete", auth()->user()->account->id) == $pallete->name) ? "selected" : "" }} value="{{ $pallete->name }}">{{ $pallete->label }}</option>
+                                                    <option {{ ($settingModel->getSetting("pallete", auth()->user()->account->id) == $pallete->name) ? "selected" : "" }} value="{{ $pallete->name }}">{{ $pallete->label }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
