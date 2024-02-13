@@ -106,7 +106,7 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">تماس</h3>
+        <h3 class="card-title pull-right">تماس</h3>
         <select name="call_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('call_status', $account->id) == 1 ? 'selected' : '' }}
                 value="1">فعال</option>
@@ -128,7 +128,7 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">خدمات</h3>
+        <h3 class="card-title pull-right">خدمات</h3>
         <select name="service_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('service_status', $account->id) == 1 ? 'selected' : '' }}
                 value="1">فعال</option>
