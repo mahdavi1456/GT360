@@ -259,7 +259,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-6 form-group">
+                <div class="col-3 form-group">
                     <label class="form-label">عنوان تصویر اول</label>
                     <input type="text" name="title_team_image1" class="form-control" placeholder="آیکن اول..."
                         value="{{ $settingModel->getSetting('title_team_image1', $account->id) }}">
