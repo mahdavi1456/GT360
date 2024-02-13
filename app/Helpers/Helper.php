@@ -17,28 +17,20 @@ function adminBar()
                 background-color: #222;
                 border-color: #080808;
             }
-
             .admin-bar-list {
+                list-style: none;
                 float: right;
                 display: inline-block;
                 margin: auto;
                 padding: 10px 20px;
             }
-
             .admin-bar-list li a {
                 padding: 5px 10px;
                 color: #828282;
             }
-
-            .admin-bar-logo, .admin-bar-list {
-                float: right;
-            }
         </style>
         <nav class="admin-bar">
             <div class="container-fluid">
-                <div class="admin-bar-logo">
-                    <a href="#">نوار ابزار مدیریت</a>
-                </div>
                 <ul class="admin-bar-list">
                     <li><a href="#" data-toggle="modal" data-target="#myModal">فونت</a></li>
                 </ul>
