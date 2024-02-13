@@ -24,7 +24,7 @@
     </div>
     <!-- home section -->
     <section id="home"
-        style="background: url(' {{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId)) }}') cover no-repeat  fixed;">
+        style="background: url(' {{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId)) }}') 100% 0 repeat-y fixed;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
