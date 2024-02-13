@@ -226,8 +226,8 @@
     @endif
 </div>
 <div class="card card-warning">
-    <div class="card-header pull-right">
-        <h3 class="card-title">تصاویر</h3>
+    <div class="card-header ">
+        <h3 class="card-title pull-right">تصاویر</h3>
         <select name="image_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('image_status', $account->id) == 1 ? 'selected' : '' }}
                 value="1">فعال</option>
