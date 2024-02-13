@@ -5,12 +5,25 @@ use App\Models\Setting;
 function adminBar()
 {
     ?>
-    <nav style="width: 100%; direction: rtl; position: fixed; top: 0; background-color: #222; border-color: #080808;">
+    <style type="text/css">
+        .admin-bar {
+            width: 100%;
+            direction: rtl;
+            position: fixed;
+            top: 0;
+            background-color: #222;
+            border-color: #080808;
+        }
+        .admin-bar-logo, .admin-bar-list {
+            float: right;
+        }
+    </style>
+    <nav class="admin-bar">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">نوار ابزار مدیریت</a>
+            <div class="admin-bar-logo">
+                <a href="#">نوار ابزار مدیریت</a>
             </div>
-            <ul class="nav navbar-nav">
+            <ul class="admin-bar-list">
                 <li><a href="#" data-toggle="modal" data-target="#myModal">فونت</a></li>
             </ul>
         </div>
