@@ -153,7 +153,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::post('theme/{theme}/nav/store', [ThemeController::class, 'NavStore'])->name('theme.navStore');
 
         Route::get('personalize', [ThemeController::class, 'personalize'])->name('theme.personalize');
-        Route::post('update-personalize', [ThemeController::class, 'updateUersonalize'])->name('theme.updatePersonalize');
+        Route::post('update-personalize', [ThemeController::class, 'updatePersonalize'])->name('theme.updatePersonalize');
 
         Route::resource('taxonomy', TaxonomyController::class);
 
