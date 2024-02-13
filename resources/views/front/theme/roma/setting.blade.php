@@ -5,8 +5,8 @@
     <div class="card-body">
         <div class="row">
             <div class="col-4 form-group">
-                <div class="col-6 form-group">
-                    <label class="form-label">تصویر بک گراند</label>
+                <div class="col-12 form-group ">
+                    <label class="form-label ">تصویر بک گراند</label>
                     <input type="file" name="background_cover" onchange="uploadImage(this)">
                     @if ($image = imageLoader('background_cover'))
                         <div class="imageLoader position-relative">
