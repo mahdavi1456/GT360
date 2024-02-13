@@ -24,7 +24,7 @@ class AccountController extends Controller
     public function dashboard()
     {
         $setting = new Setting();
-        return view('admin.dashboard',compact('setting'));
+        return view('admin.dashboard', compact('setting'));
     }
     public function loadSite($slug)
     {
@@ -34,7 +34,8 @@ class AccountController extends Controller
             $theme = $account->activeTheme();
             $view = "front.theme.$theme.index";
             $accountId = $account->id;
-            return view($view, compact('settingModel', 'accountId'));
+            $products = Product::all();
+            return view($view, compact('settingModel', 'accountId', 'products'));
         }
         return "یک تم برای خود انتخاب کنید";
     }

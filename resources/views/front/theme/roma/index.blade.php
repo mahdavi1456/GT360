@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo-lightbox.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo_themes/default/default.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/templatemo-style.css">
-    
+
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 <!-- preloader section -->
@@ -148,54 +148,16 @@
                 <p>{{ $settingModel->getSetting('portfolio_text', $accountId) }}</p>
             </div>
             <div class="col-md-12 col-sm-12"></div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img2.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img2.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img3.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img3.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img4.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img4.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img5.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img5.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img6.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img6.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img7.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img7.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img8.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img8.jpg" alt="portfolio img">
-                </a>
-            </div>
+            @if ($products->count() > 0)
+                @foreach ($products as $product)
+                    <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
+                        <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg"
+                            data-lightbox-gallery="portfolio-gallery">
+                            <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg" alt="portfolio img">
+                        </a>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </div>
