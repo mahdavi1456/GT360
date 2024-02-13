@@ -5,7 +5,7 @@ use App\Models\Setting;
 function adminBar()
 {
     ?>
-    <nav class="navbar navbar-inverse">
+    <nav style="direction: rtl; position: fixed; top: 0; background-color: #222; border-color: #080808;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">نوار ابزار مدیریت</a>
