@@ -72,7 +72,7 @@ function adminBar()
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="<?php asset('js/admin-bar.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo asset('js/admin-bar.js'); ?>"></script>
         <?php
     }
 }
