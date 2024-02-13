@@ -199,7 +199,6 @@
             <div class="col-6 form-group">
                 <label class="form-label">تصویر کاور اول</label>
                 <input type="file" name="first_cover" onchange="uploadImage(this)">
-
                 @if ($image = imageLoader('first_cover'))
                     <div class="imageLoader position-relative">
                         <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
