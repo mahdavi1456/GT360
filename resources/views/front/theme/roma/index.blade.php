@@ -109,11 +109,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>Our team</h2>
+                    <h2>{{ $settingModel->getSetting('title_team', $accountId) }}</h2>
                     <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut
-                        laoree.</p>
+                    <p>{{ $settingModel->getSetting('description_team', $accountId) }}</p>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.9s">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive"
