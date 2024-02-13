@@ -140,7 +140,7 @@
                     value="{{ $settingModel->getSetting('service_first_icon', $account->id) }}">
                 <hr>
                 <label class="form-label">عنوان اول</label>
-                <input type="text" name="service_first_icon" class="form-control" placeholder="عنوان اول..."
+                <input type="text" name="service_first_title" class="form-control" placeholder="عنوان اول..."
                     value="{{ $settingModel->getSetting('service_first_title', $account->id) }}">
             </div>
             <div class="col-6 form-group">
