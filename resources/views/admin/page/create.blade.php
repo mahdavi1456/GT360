@@ -1,8 +1,7 @@
 @extends('admin.master')
-@section('title', 'page create')
+@section('title', 'ایجاد صفحه')
 @section('style')
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
-    <style>
+    <style type="text/css">
         ul ul {
             list-style-type: none !important;
         }
@@ -26,22 +25,11 @@
                     @csrf
                     <input type="hidden" id="action" name="action" value="{{ $action }}">
                     <input type="hidden" id="page_id" name="page" value="{{ $page?->id }}">
+                    @include('admin.partial.error')
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-body">
-                                    @if ($errors->any())
-                                        <div class="container">
-                                            <div class="row alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    @endif
-
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-group">

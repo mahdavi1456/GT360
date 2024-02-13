@@ -12,7 +12,8 @@ class ReserveOrderController extends Controller
      */
     public function index()
     {
-        //
+        $reserveOrders = ReserveOrder::all();
+        return view('admin.reserve.order.index', compact('reserveOrders'));
     }
 
     /**

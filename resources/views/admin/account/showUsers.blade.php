@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Account')
+@section('title', 'کاربران')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -12,14 +12,13 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('users.create', ['accountId' => $account->id]) }}"
-                                   class="pull-left btn btn-primary">ایجاد کاربر</a>
+                                <a href="{{ route('users.create', ['accountId' => $account->id]) }}" class="pull-left btn btn-primary">ایجاد کاربر</a>
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if (count($users) > 0)
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
+                                    <table class="table table-hover table-striped table-bordered text-center">
+                                        <tr class="table-warning">
+                                            <th>#</th>
                                             <th>نام</th>
                                             <th>نام خانوادگی</th>
                                             <th>موبایل</th>
@@ -28,44 +27,41 @@
                                             <th>دلیل غیرفعال سازی</th>
                                             <th>عملیات</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
                                         @foreach ($users as $user)
                                             <tr>
+                                                <td>{{ fa_number($loop->index + 1) }}</td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->family }}</td>
                                                 <td>{{ $user->mobile }}</td>
                                                 <td>{{ $user->role }}</td>
                                                 <td>
                                                     @if ($user->user_status == 'Active')
-                                                        <span class="badge bg-success"
-                                                              style="font-size: 17px;color: #FFF !important;">فعال</span>
+                                                        <span class="badge bg-success">فعال</span>
                                                     @else
-                                                        <span class="badge bg-danger"
-                                                              style="font-size: 17px;color: #FFF !important;">غیرفعال</span>
+                                                        <span class="badge bg-danger">غیرفعال</span>
                                                     @endif
                                                 </td>
-                                                @if ($user->deactivation_reason)
-                                                    <td>{{ $user->deactivation_reason }}</td>
-                                                @else
-                                                    <td> ----</td>
-                                                @endif
-                                                <td class="d-flex"><a
-                                                        href="{{ route('user.editUser', ['accountId' => $account->id, 'userId' => $user->id]) }}"
-                                                        class="btn btn-warning  m-1">ویرایش</a>
+                                                <td>
+                                                    @if ($user->deactivation_reason)
+                                                        {{ $user->deactivation_reason }}
+                                                    @endif
+                                                </td>
+                                                <td class="d-flex">
+                                                    <a href="{{ route('user.editUser', ['accountId' => $account->id, 'userId' => $user->id]) }}"
+                                                        class="btn btn-warning btn-sm m-1">ویرایش</a>
                                                     @if ($user->user_type !='admin')
                                                         <form
                                                             action="{{ route('account.users.destroy', ['accountId' => $account->id, 'userId' => $user->id]) }}"
                                                             class="mt-1  m-1" method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger"
+                                                            <button type="submit" class="btn btn-danger btn-sm"
                                                                     id="confirmdelete{{ $user->id }}">حذف کاربر
                                                             </button>
                                                         </form>
                                                         @if ($user->user_status == 'Active')
                                                             <button type="button" name="active"
-                                                                    class="btn btn-danger Deactive-button"
+                                                                    class="btn btn-danger btn-sm Deactive-button"
                                                                     data-toggle="modal" data-target="#exampleModal"
                                                                     id="{{ $user->id }}" value="DeActive"
                                                                     style="height: 39px;margin-top: 4px;">غیرفعال سازی
@@ -79,7 +75,7 @@
                                                                 <input type="hidden" name="id"
                                                                        value="{{ $user->id }}">
                                                                 <button type="submit" name="active"
-                                                                        class="btn btn-success" value="Active">فعال سازی
+                                                                        class="btn btn-success btn-sm" value="Active">فعال سازی
                                                                     کاربر
                                                                 </button>
                                                             </form>
@@ -88,7 +84,6 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-                                        </tbody>
                                     </table>
                                 @else
                                     <div class="alert alert-danger text-center"> موردی جهت نمایش موجود نیست.</div>

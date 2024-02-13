@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('front-theme-asset/amib') }}/css/style.css">
     <!-- skin -->
     <link rel="stylesheet" href="{{ asset('front-theme-asset/amib') }}/skin/default.css">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/amib') }}css/amib_rtl.css">
 </head>
 <body>
 <section id="header" class="appear"></section>

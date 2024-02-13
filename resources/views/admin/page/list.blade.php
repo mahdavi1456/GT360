@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Page List')
+@section('title', 'صفحات')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -74,15 +74,13 @@
                                     <i class="fa fa-plus ml-2"></i> افزودن صفحه
                                 </a>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body p-0 table-responsive">
                                 @if ($pages->isEmpty())
-                                    <div class="d-flex justify-content-center">
-                                        <span class="not-found">صفحه یافت نشد.</span>
-                                    </div>
+                                    <div class="alert alert-danger m-2">موردی جهت نمایش موجود نیست.</div>
                                 @else
                                     <table class="table table-bordered table-striped table-hover">
                                         <thead>
-                                            <tr>
+                                            <tr class="table-warning">
                                                 <th>#</th>
                                                 <th>تصویر شاخص</th>
                                                 <th>عنوان</th>
@@ -90,7 +88,7 @@
                                                 <th>نویسنده</th>
                                                 <th>تاریخ</th>
                                                 <th>وضعیت</th>
-                                                <th width="10%">عملیات</th>
+                                                <th >عملیات</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -144,9 +142,7 @@
         </section>
     </div>
 @endsection
-
 @section('scripts')
-
     <script type="text/javascript">
         $(document).on('click', '.delete-confirm', function() {
             var form =  $(this).closest("form");

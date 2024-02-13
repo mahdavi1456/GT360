@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('publish_status');
             $table->string('thumbnail')->nullable();
             $table->integer('thumbnail_status')->nullable()->default(0);
-            $table->integer('post_order')->nullable()->default(0);
+            $table->integer('page_order')->nullable()->default(0);
             $table->string('author')->nullable();
             $table->timestamps();
         });

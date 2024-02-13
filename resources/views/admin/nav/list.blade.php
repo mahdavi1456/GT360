@@ -19,9 +19,7 @@
                             </div>
                             <div class="card-body p-0">
                                 @if ($navs->isEmpty())
-                                    <div class="d-flex justify-content-center">
-                                        <span class="not-found">فهرستی یافت نشد.</span>
-                                    </div>
+                                    <div class="alert alert-danger text-center m-2">موردی جهت نمایش موجود نیست.</div>
                                 @else
                                     <table class="table table-bordered table-striped text-center table-hover">
                                         <tr class="table-warning">
