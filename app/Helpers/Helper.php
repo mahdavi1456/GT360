@@ -72,6 +72,7 @@ function adminBar()
                 </div>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo asset('js/admin-bar.js'); ?>"></script>
         <?php
     }
