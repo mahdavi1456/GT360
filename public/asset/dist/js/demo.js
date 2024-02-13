@@ -227,7 +227,7 @@
         traverse(document.body);
     }
 
-  ConvertNumberToPersion();
+  //ConvertNumberToPersion();
 
   $('.sidebar-mini .main-header .nav-item').click(function () {
     let sidebar_mini = $('.sidebar-mini');
