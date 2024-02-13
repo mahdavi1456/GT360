@@ -260,8 +260,8 @@
                         </div>
                     @endif
                 </div>
-            </div>
-            <div class="row">
+
+
                 <div class="col-4 form-group">
                     <label class="form-label">عنوان تصویر اول</label>
                     <input type="text" name="title_team_image1" class="form-control"
