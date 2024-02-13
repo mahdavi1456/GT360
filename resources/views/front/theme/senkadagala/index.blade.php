@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div>
-                        <img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_cover_', $accountId)) }}"
+                        <img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_cover', $accountId)) }}"
                             alt="" />
                     </div>
                 </div>
