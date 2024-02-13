@@ -78,18 +78,14 @@
                         src="{{ asset('front-theme-asset/senkadagala') }}/img/big-mac.jpg">
                 </div>
                 <div class="col-md-6 intro-text">
-                    <h3 id="aboutus-title">What is Senkadagala?</h3>
-                    <p>
-                        Senkadagala is a small, responsive, Twitter Bootstrap based HTML5 web layout. It uses one page
-                        architecture and displays all the information on the same page. Name for this theme is inspired
-                        by the city in central Sri Lanka - Kandy.
-                    </p>
+                    <h3 id="aboutus-title">{{ $settingModel->getSetting('title_sec2', $accountId) }}</h3>
+                    <p>{{ $settingModel->getSetting('description_sec2', $accountId) }}</p>
 
-                    <p>
+                    {{-- <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id ultricies felis. Fusce sed nisi
                         velit. Quisque cursus pharetra diam, non congue ligula sodales at. Phasellus sodales sem
                         sagittis arcu vulputate dictum. Vestibulum faucibus malesuada risus.
-                    </p>
+                    </p> --}}
                 </div>
             </div>
             <div class="row team">
