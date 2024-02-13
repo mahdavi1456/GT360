@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Auth;
 function adminBar()
 {
     if (Auth::check()) {
-
         ?>
         <style type="text/css">
             .admin-bar {
                 width: 100%;
+                z-index: 99999;
                 direction: rtl;
                 position: fixed;
                 top: 0;
@@ -36,44 +36,13 @@ function adminBar()
             <div class="container-fluid">
                 <ul class="admin-bar-list">
                     <li><a href="#">نوار ابزار مدیریت</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#fontModal">فونت</a></li>
+                    <li><a href="<?php echo route('nav.items'); ?>">فهرست</a></li>
+                    <li><a href="<?php echo route('themeComponents'); ?>">محتوا</a></li>
+                    <li><a href="<?php echo route('social-media.index'); ?>">شبکه های اجتماعی</a></li>
+                    <li><a href="<?php echo route('theme-setting.index'); ?>">تنظیمات</a></li>
                 </ul>
             </div>
         </nav>
-        <div id="fontModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">فونت قالب</h4>
-                    </div>
-                    <div class="modal-body">
-                        <?php
-                        $fonts = Font::all();
-                        if ($fonts) {
-                            ?>
-                            <select name="" id="" class="form-control">
-                                <?php
-                                foreach ($fonts as $font) {?>
-                                    <option value="<?php echo $font->name; ?>"><?php echo $font->label; ?></option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                            <?php
-                        }
-                        ?>
-                        <button id="save-admin-bar-setting" class="btn btn-success" style="width: 100%; margin-top: 15px">ذخیره</button>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo asset('js/admin-bar.js'); ?>"></script>
         <?php
     }
 }
