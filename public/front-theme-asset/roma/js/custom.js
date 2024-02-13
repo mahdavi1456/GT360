@@ -60,7 +60,7 @@ $(function(){
   wow.init();
 
   // ------- GOOGLE MAP ----- //
-  loadGoogleMap();
+  //loadGoogleMap();
 
   // ------- JQUERY PARALLAX ---- //
   function initParallax() {
