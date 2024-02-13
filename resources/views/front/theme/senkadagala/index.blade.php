@@ -56,15 +56,15 @@
             <div class="container">
                 <div class="row">
                     <div>
-                        <img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_cover', $accountId)) }}"
+                        <img src="{{ asset(ert('tsp') . $settingModel->getSetting('first_cover_sec2', $accountId)) }}"
                             alt="" />
                     </div>
                 </div>
                 <div class="row">
-                    <h2>{{ $settingModel->getSetting('title', $accountId) }}</h2>
+                    <h2>{{ $settingModel->getSetting('title_sec2', $accountId) }}</h2>
                 </div>
                 <div class="row">
-                    <p>{{ $settingModel->getSetting('description', $accountId) }} </p>
+                    <p>{{ $settingModel->getSetting('description_sec2', $accountId) }} </p>
                 </div>
             </div>
         </div>

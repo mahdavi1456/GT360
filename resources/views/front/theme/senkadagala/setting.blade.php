@@ -95,13 +95,13 @@
         <div class="row">
             <div class="col-12 form-group">
                 <label class="form-label">عنوان اول</label>
-                <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
-                    value="{{ $settingModel->getSetting('first_title', $account->id) }}">
+                <input type="text" name="title_sec2" class="form-control" placeholder="عنوان اول..."
+                    value="{{ $settingModel->getSetting('title_sec2', $account->id) }}">
             </div>
             <div class="col-12 form-group">
                 <div class="col-12 form-group">
                     <label class="form-label">زیر عنوان اول</label>
-                    <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
+                    <textarea rows="4" name="description_sec2" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('description_sec2', $account->id) }}</textarea>
                 </div>
             </div>
         </div>
