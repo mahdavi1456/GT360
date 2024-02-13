@@ -335,14 +335,14 @@
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title pull-right">تماس</h3>
-        <select name="call_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('call_status', $account->id) == 1 ? 'selected' : '' }}
+        <select name="contact_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('contact_status', $account->id) == 1 ? 'selected' : '' }}
                     value="1">فعال</option>
-            <option {{ $settingModel->getSetting('call_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('contact_status', $account->id) == 0 ? 'selected' : '' }}
                     value="0">غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('call_status', $account->id) == 1)
+    @if ($settingModel->getSetting('contact_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col-12 form-group">
