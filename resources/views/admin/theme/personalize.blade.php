@@ -21,16 +21,18 @@
                                         <div class="col-6 form-group">
                                             <label>فونت</label>
                                             <select name="font" class="form-control">
+                                                <option value="">-</option>
                                                 @foreach ($fonts as $font)
-                                                    <option value="{{ $font->name }}">{{ $font->label }}</option>
+                                                    <option {{ ($settingModel->getSetting("font", auth()->user()->account->id) == $font->name) ? "selected" : "" }} value="{{ $font->name }}">{{ $font->label }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="col-6 form-group">
                                             <label>پالت رنگ</label>
                                             <select name="pallete" class="form-control">
+                                                <option value="">-</option>
                                                 @foreach ($palletes as $pallete)
-                                                    <option value="{{ $pallete->name }}">{{ $pallete->label }}</option>
+                                                    <option {{ $settingModel->getSetting("pallete", auth()->user()->account->id) == $pallete->name) ? "selected" : "" }} value="{{ $pallete->name }}">{{ $pallete->label }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

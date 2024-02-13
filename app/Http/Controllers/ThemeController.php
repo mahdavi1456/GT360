@@ -206,12 +206,20 @@ class ThemeController extends Controller
     {
         $fonts = Font::all();
         $palletes = Pallete::all();
-        return view('admin.theme.personalize', compact('fonts', 'palletes'));
+        $settingModel = new Setting;
+        return view('admin.theme.personalize', compact('fonts', 'palletes', 'settingModel'));
     }
 
     public function updatePersonalize(Request $request)
     {
+        $settingModel = new Setting;
+        $data = $request->request;
 
+        foreach ($data as $key => $value) {
+            $settingModel->updateSetting($key, $value, auth()->user()->account->id);
+        }
+        Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
+        return back();
     }
 
 }
