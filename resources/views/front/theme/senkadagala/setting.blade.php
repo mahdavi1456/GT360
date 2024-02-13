@@ -99,9 +99,8 @@
                     value="{{ $settingModel->getSetting('first_title', $account->id) }}">
             </div>
             <div class="col-6 form-group">
-                <label class="form-label">زیر عنوان اول</label>
                 <div class="col-12 form-group">
-                    <label class="form-label">متن اول</label>
+                    <label class="form-label">زیر عنوان اول</label>
                     <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
                 </div>
             </div>
