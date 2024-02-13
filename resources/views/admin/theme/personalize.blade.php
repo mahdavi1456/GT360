@@ -20,22 +20,18 @@
                                     <div class="row">
                                         <div class="col-6 form-group">
                                             <label>فونت</label>
-                                            <select name="category" class="form-control">
-                                                <option value="company">شرکتی</option>
-                                                <option value="shop">فروشگاهی</option>
-                                                <option value="news">خبری</option>
-                                                <option value="multiple">چند منظوره</option>
-                                                <option value="personal">شخصی</option>
+                                            <select name="font" class="form-control">
+                                                @foreach ($fonts as $font)
+                                                    <option value="{{ $font->name }}">{{ $font->label }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="col-6 form-group">
                                             <label>پالت رنگ</label>
-                                            <select name="category" class="form-control">
-                                                <option value="company">شرکتی</option>
-                                                <option value="shop">فروشگاهی</option>
-                                                <option value="news">خبری</option>
-                                                <option value="multiple">چند منظوره</option>
-                                                <option value="personal">شخصی</option>
+                                            <select name="pallete" class="form-control">
+                                                @foreach ($palletes as $pallete)
+                                                    <option value="{{ $pallete->name }}">{{ $pallete->label }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
