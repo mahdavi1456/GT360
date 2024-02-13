@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title', $accountId) }}</h1>
-                    <p class="wow bounce">{{ $settingModel->getSetting('description', $accountId) }}</p>
+                    <h2 class="wow bounce">{{ $settingModel->getSetting('description', $accountId) }}</h2>
                     <a href="#intro"
                         class="btn btn-default smoothScroll">{{ $settingModel->getSetting('start_btn_text', $accountId) }}</a>
                 </div>
