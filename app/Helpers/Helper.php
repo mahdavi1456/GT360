@@ -1,57 +1,68 @@
 <?php
 
 use App\Models\Setting;
+use Illuminate\Support\Facades\Auth;
 
 function adminBar()
 {
-    ?>
-    <style type="text/css">
-        .admin-bar {
-            width: 100%;
-            direction: rtl;
-            position: fixed;
-            top: 0;
-            background-color: #222;
-            border-color: #080808;
-        }
-        .admin-bar-list {
-            list-style: none;
-        }
-        .admin-bar-list li a {
-            padding: 5px 10px;
-        }
-        .admin-bar-logo, .admin-bar-list {
-            float: right;
-        }
-    </style>
-    <nav class="admin-bar">
-        <div class="container-fluid">
-            <div class="admin-bar-logo">
-                <a href="#">نوار ابزار مدیریت</a>
+    if (Auth::check()) {
+
+        ?>
+        <style type="text/css">
+            .admin-bar {
+                width: 100%;
+                direction: rtl;
+                position: fixed;
+                top: 0;
+                background-color: #222;
+                border-color: #080808;
+            }
+
+            .admin-bar-list {
+                float: right;
+                display: inline-block;
+                margin: auto;
+                padding: 10px 20px;
+            }
+
+            .admin-bar-list li a {
+                padding: 5px 10px;
+                color: #828282;
+            }
+
+            .admin-bar-logo, .admin-bar-list {
+                float: right;
+            }
+        </style>
+        <nav class="admin-bar">
+            <div class="container-fluid">
+                <div class="admin-bar-logo">
+                    <a href="#">نوار ابزار مدیریت</a>
+                </div>
+                <ul class="admin-bar-list">
+                    <li><a href="#" data-toggle="modal" data-target="#myModal">فونت</a></li>
+                </ul>
             </div>
-            <ul class="admin-bar-list">
-                <li><a href="#" data-toggle="modal" data-target="#myModal">فونت</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </nav>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <?php
+        <?php
+    }
 }
 
 function breadcrumb($title)
@@ -222,6 +233,6 @@ function ert($variable)
 function imageLoader($key)
 {
     $setting = new Setting();
-    return $setting->getSetting($key,auth()->user()->account->id);
+    return $setting->getSetting($key, auth()->user()->account->id);
 }
 
