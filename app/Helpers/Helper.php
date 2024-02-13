@@ -32,7 +32,9 @@ function adminBar()
         <nav class="admin-bar">
             <div class="container-fluid">
                 <ul class="admin-bar-list">
+                    <li><a href="#">نوار ابزار مدیریت</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#myModal">فونت</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#myModal">رنگ بندی</a></li>
                 </ul>
             </div>
         </nav>
