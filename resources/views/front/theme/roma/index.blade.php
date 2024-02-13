@@ -253,11 +253,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>Contact Us</h2>
+                    <h2>{{ $settingModel->getSetting('contact_title', $accountId) }}</h2>
                     <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut
-                        laoree.</p>
+                    <p>{{ $settingModel->getSetting('contact_text', $accountId) }}</p>
                 </div>
                 <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 contact-form wow fadeInUp"
                      data-wow-delay="0.9s">

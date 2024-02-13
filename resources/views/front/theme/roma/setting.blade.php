@@ -373,6 +373,18 @@
     @if ($settingModel->getSetting('contact_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان</label>
+                    <input type="text" name="contact_title" class="form-control" placeholder="عنوان..."
+                           value="{{ $settingModel->getSetting('contact_title', $account->id) }}">
+                </div>
+                <div class="col-6 form-group">
+                    <label class="form-label">توضیحات</label>
+                    <input type="text" name="contact_text" class="form-control" placeholder="توضیحات..."
+                           value="{{ $settingModel->getSetting('contact_text', $account->id) }}">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12 form-group">
                     <label class="form-label">نقشه گوگل</label>
                     <textarea name="google_map" class="form-control ltr" placeholder="نقشه گوگل...">{{ $settingModel->getSetting('google_map', $account->id) }}</textarea>
