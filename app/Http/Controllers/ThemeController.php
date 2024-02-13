@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nav;
+use App\Models\Pallete;
+use App\Models\Font;
 use App\Models\Theme;
 use App\Models\Setting;
 use App\Models\Component;
@@ -155,7 +157,7 @@ class ThemeController extends Controller
         //dd($themComponents);
         $pluck = $themComponents->pluck('id')->toArray();
         $components = Component::where('status','active')->latest()->get();
-      
+
         return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents', 'pluck'));
     }
     public function selectNav($theme)
@@ -194,4 +196,17 @@ class ThemeController extends Controller
         Alert::success('موفق', 'تصویر مورد نظر حذف شد');
         return back();
     }
+
+    public function personalize()
+    {
+        $fonts = Font::all();
+        $palletes = Pallete::all();
+        return view('admin.theme.personalize', compact('fonts', 'palletes'));
+    }
+
+    public function updatePersonalize(Request $request)
+    {
+
+    }
+
 }
