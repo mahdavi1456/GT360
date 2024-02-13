@@ -275,7 +275,7 @@
     <!-- google map section -->
     <div class="google_map">
         <iframe src="{{ $settingModel->getSetting('google_map', $accountId) }}" width="100%" height="450"
-                style="border: 0;" allowfullscreen="" loading="lazy"
+                style="border: 0;" allowfullscreen="yes" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 @endif
