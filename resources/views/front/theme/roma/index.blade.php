@@ -158,6 +158,7 @@
                     <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
                         <a href="{{ $src }}" data-lightbox-gallery="portfolio-gallery">
                             <img src="{{ $src }}" alt="">
+                            <h2>{{ $product->title }}</h2>
                         </a>
                     </div>
                 @endforeach
