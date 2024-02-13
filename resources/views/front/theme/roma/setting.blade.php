@@ -73,6 +73,10 @@
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title">معرفی</h3>
+        <select name="about_status" class="form-select pull-left">
+            <option value="1">فعال</option>
+            <option value="0">غیرفعال</option>
+        </select>
     </div>
     <div class="card-body">
         <div class="row">
