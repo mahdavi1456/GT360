@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo-lightbox.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo_themes/default/default.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/templatemo-style.css">
-    
+
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 <!-- preloader section -->
@@ -80,22 +80,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 title">
-                <h2>{{ fa_number($settingModel->getSetting('service_title', $accountId)) }}</h2>
+                <h2>{{ ($settingModel->getSetting('service_title', $accountId)) }}</h2>
                 <hr>
-                <p>{{ fa_number($settingModel->getSetting('service_text', $accountId)) }}</p>
+                <p>{{ ($settingModel->getSetting('service_text', $accountId)) }}</p>
             </div>
             <div class="col-md-8 col-sm-8">
                 <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-mobile"></i>
-                    <h3>Mobile UX</h3>
+                    <h3>{{ ($settingModel->getSetting('service_first_title', $accountId)) }}</h3>
                 </div>
                 <div class="col-md-6 col-sm-6 bg-red"><i class="fa fa-cloud"></i>
-                    <h3>Social media</h3>
+                    <h3>{{ ($settingModel->getSetting('service_secound_title', $accountId)) }}</h3>
                 </div>
                 <div class="col-md-6 col-sm-6 bg-red"><i class="fa fa-link"></i>
-                    <h3>Web Design</h3>
+                    <h3>{{ ($settingModel->getSetting('service_third_title', $accountId)) }}</h3>
                 </div>
                 <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-globe"></i>
-                    <h3>SEO</h3>
+                    <h3>{{ ($settingModel->getSetting('service_fourth_title', $accountId)) }}</h3>
                 </div>
             </div>
         </div>
@@ -148,54 +148,21 @@
                 <p>{{ $settingModel->getSetting('portfolio_text', $accountId) }}</p>
             </div>
             <div class="col-md-12 col-sm-12"></div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img2.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img2.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img3.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img3.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img4.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img4.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img5.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img5.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img6.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img6.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img7.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img7.jpg" alt="portfolio img">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img8.jpg"
-                   data-lightbox-gallery="portfolio-gallery">
-                    <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img8.jpg" alt="portfolio img">
-                </a>
-            </div>
+            @if ($products->count() > 0)
+                @foreach ($products as $product)
+                    @if ($product->thumbnail)
+                        @php $src = asset(ert('thumb-path')) . '/' . $product->thumbnail; @endphp
+                    @else
+                        @php $src = asset('front-theme-asset/roma') . "/images/portfolio-img1.jpg"; @endphp
+                    @endif
+                    <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
+                        <a href="{{ $src }}" data-lightbox-gallery="portfolio-gallery">
+                            <img src="{{ $src }}" alt="">
+                            <h4 class="product-title">{{ $product->title }}</h4>
+                        </a>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </div>
