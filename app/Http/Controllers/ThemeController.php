@@ -16,6 +16,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 class ThemeController extends Controller
 {
 
+    public function show()
+    {
+        
+    }
+
     public function index()
     {
         $themes = Theme::latest()->get();
