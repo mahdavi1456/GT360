@@ -14,6 +14,12 @@ function adminBar()
             background-color: #222;
             border-color: #080808;
         }
+        .admin-bar-list {
+            list-style: none;
+        }
+        .admin-bar-list li a {
+            padding: 5px 10px;
+        }
         .admin-bar-logo, .admin-bar-list {
             float: right;
         }
