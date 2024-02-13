@@ -2,6 +2,39 @@
 
 use App\Models\Setting;
 
+public function adminBar()
+{
+    ?>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">نوار ابزار مدیریت</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#" data-toggle="modal" data-target="#myModal">فونت</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
 function breadcrumb($title)
 { ?>
     <div class="col-md-6">
@@ -14,7 +47,7 @@ function breadcrumb($title)
             <li class="breadcrumb-item active">فرم‌های پیشرفته</li>
         </ol>
     </div> -->
-<?php
+    <?php
 }
 
 function fa_number($string)
@@ -32,7 +65,6 @@ function getSetting($key)
     } else {
         $value = null;
     }
-
     return $value;
 }
 

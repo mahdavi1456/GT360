@@ -1,3 +1,4 @@
+{{ adminBar() }}
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -285,7 +286,6 @@
                 <h2 class="wow fadeIn" data-wow-delay="0.9s">
                     {{ $settingModel->getSetting('follow_us_title', $accountId) }}</h2>
                 <ul class="social-icon">
-                    {{-- <li><a href="{{ $$settingModel->getSetting('facebook',autj) }}" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li> --}}
                     <li><a href="{{ $settingModel->getSetting('facebook', $accountId) }}"
                            class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
                     <li><a href="{{ $settingModel->getSetting('x', $accountId) }}"
