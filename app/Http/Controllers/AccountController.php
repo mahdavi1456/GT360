@@ -9,7 +9,7 @@ use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Setting;
 
-use App\Models\Product;
+use App\Models\Post;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -37,7 +37,7 @@ class AccountController extends Controller
             $theme = $account->activeTheme();
             $view = "front.theme.$theme.index";
             $accountId = $account->id;
-            $products = Product::all();
+            $products = Product::where('component_id', 2)->get();
             return view($view, compact('settingModel', 'accountId', 'products'));
         }
         return "یک تم برای خود انتخاب کنید";
