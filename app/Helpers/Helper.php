@@ -2,7 +2,7 @@
 
 use App\Models\Setting;
 
-public function adminBar()
+function adminBar()
 {
     ?>
     <nav class="navbar navbar-inverse">
