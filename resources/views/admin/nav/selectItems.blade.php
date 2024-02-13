@@ -14,6 +14,10 @@
         .nav-info ul {
             list-style-type: none;
         }
+        /* sort style */
+        .mr-30{
+            margin-right: 30px !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -44,7 +48,6 @@
                                             </select>
                                         </form>
                                     </div>
-
                                 </div>
                                 {{-- @if ($errors->any())
                                     <div class="container">
@@ -75,14 +78,15 @@
     <script>
         $(function() {
             $("#sortable").sortable({
-                revert: true
+                revert: true,
+                disableSelection: true
             });
-            $("#draggable").draggable({
-                connectToSortable: "#sortable",
-                helper: "clone",
-                revert: "invalid"
-            });
-            $("ul, li").disableSelection();
+            // $("#draggable").draggable({
+            //     connectToSortable: "#sortable",
+            //     helper: "clone",
+            //     revert: "invalid"
+            // });
+            //  $("ul, li").disableSelection();
         });
     </script>
     <script>
@@ -90,11 +94,13 @@
         $('select[name="nav"]').on('change', function() {
             $("#loading-overlay").fadeIn();
             let data = $('#nav-list-form').serialize();
+
             $.ajax({
                 url: "{{ url()->current() }}",
                 method: 'get',
                 data: data,
                 success: function(res) {
+
                     //console.log(res);
                     $('.nav-info').empty();
                     $('.nav-info').append(res);
@@ -104,18 +110,25 @@
                     $('.selectpicker').selectpicker({
                         noneSelectedText: 'بدون انتخاب'
                     });
-                    //dragable
-                    $("#sortable").sortable({
-                        revert: true
-                    });
-                    $("#draggable").draggable({
-                        connectToSortable: "#sortable",
-                        helper: "clone",
-                        revert: "invalid"
-                    });
-                    $("ul, li").disableSelection();
-                    //end of dragable
                     $("#loading-overlay").fadeOut();
+                    //dragable
+                    $(function() {
+                        $("#draggable").draggable({
+                            handle: "p"
+                        });
+                        $("#draggable2").draggable({
+                            cancel: "p.ui-widget-header"
+                        });
+
+                        $("#draggable").draggable({
+                            connectToSortable: "#sortable",
+                            helper: "clone",
+                            revert: "invalid"
+                        });
+                    });
+
+
+                    //end of dragable
 
                 },
                 error: function(res) {

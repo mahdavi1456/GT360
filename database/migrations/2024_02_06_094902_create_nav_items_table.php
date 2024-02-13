@@ -21,9 +21,12 @@ return new class extends Migration
             $table->string('link');
             $table->string('target');
             $table->string('rel');
+            $table->string('tag_id')->nullable();
+            $table->string('tag_class')->nullable();
             $table->string('item_type');
             $table->bigInteger('object_id');
             $table->integer('order_num');
+            $table->bigInteger('parent_id')->default(0);
             $table->timestamps();
         });
     }
