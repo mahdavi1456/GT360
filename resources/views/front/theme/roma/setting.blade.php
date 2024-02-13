@@ -97,19 +97,19 @@
             <div class="row">
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان اول</label>
-                    <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('first_title', $account->id) }}">
+                    <input type="text" name="about_first_title" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('about_first_title', $account->id) }}">
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">زیر عنوان اول</label>
-                    <input type="text" name="first_subtitle" class="form-control" placeholder="زیر عنوان اول..."
-                        value="{{ $settingModel->getSetting('first_subtitle', $account->id) }}">
+                    <input type="text" name="about_first_subtitle" class="form-control" placeholder="زیر عنوان اول..."
+                        value="{{ $settingModel->getSetting('about_first_subtitle', $account->id) }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 form-group">
                     <label class="form-label">متن اول</label>
-                    <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
+                    <textarea rows="4" name="about_first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('about_first_text', $account->id) }}</textarea>
                 </div>
             </div>
         </div>
