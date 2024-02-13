@@ -86,8 +86,9 @@ class ComponentController extends Controller
         $settingModel = new Setting;
         $accountId = auth()->user()->account->id;
         $themeName = $settingModel->getSetting('active_theme', $accountId);
-        $themeId = Theme::where("name", $themeName)->first()->id;
-        $components = Component::latest()->get();
+        $theme = Theme::where("name", $themeName)->first();
+       // dump($theme);
+        $components = $theme->components;
         return view('admin.component.theme-components', compact('components'));
     }
 

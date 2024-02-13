@@ -72,7 +72,6 @@ Route::get('/test', function () {
     // dump($sms);
 });
 
-
 Route::get('accounts/list', [FrontAccountController::class, 'index'])->name('front.accounts.list');
 Route::get('products/list', [FrontProductController::class, 'index'])->name('front.products.list');
 Route::get('products/{id}', [FrontProductController::class, 'single'])->name('front.products.single');
@@ -108,6 +107,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         //nav
         Route::resource('nav', NavController::class);
         Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');
+        Route::get('nav-item-resort', [NavController::class,'resortItems'])->name('nav.resort');
 
         //plan
         Route::resource('plan', PlanController::class);

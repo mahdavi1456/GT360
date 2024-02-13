@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('component_id');
+            $table->bigInteger('account_id');
+            $table->bigInteger('component_id');
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('content')->nullable();

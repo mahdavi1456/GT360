@@ -2,54 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Component;
-use App\Models\Taxonomy;
-use App\Models\Attachment;
-use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Term;
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Theme;
+use App\Models\Taxonomy;
+use App\Models\Component;
+use App\Models\Attachment;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
 
     public function index(Request $request)
     {
-        $posts = Post::latest()->paginate(50);
+        $posts = Post::where('account_id',auth()->user()->account_id)->filter()->latest()->paginate(3);
 
-        // if (count($request->all()) > 0) {
-        //     //$posts = Post::orderBy('created_at', 'desc')->where('remove_st', $request->remove_st)->paginate(50);
-        //     if ($request->user_id) {
-        //         $posts->where('user_id', $user_id);
-        //     }
-        //     if ($request->from) {
-        //         $date = shamsi_to_miladi($from);
-        //         $posts->whereDate('created_at', '>=', $date);
-        //     }
-        //     if ($request->to) {
-        //         $date = shamsi_to_miladi($to);
-        //         $posts->whereDate('created_at', '<=', $date);
-        //     }
-        //     if ($request->post_type) {
-        //         $posts->where('post_type_id', $post_type);
-        //     }
-        //     if ($request->title) {
-        //         $posts->where('title', 'like', '%' . $title . '%');
-        //     }
-        //     if ($request->status && $request->status != 'all') {
-        //         $posts->where('publish_status', $status);
-        //     }
-        // }
+        $accountUsers = auth()->user()->account->users;
+        $activeTheme= Theme::getActive();
 
-        //  dd($posts);
-        $users = User::all();
-
-        $components = Component::all();
-        return view('admin.post.list', compact(['components', 'request', 'posts', 'users']));
+        $components =$activeTheme->components;
+       // dd($components);
+        return view('admin.post.list', compact(['components', 'request', 'posts', 'accountUsers']));
     }
 
     public function create()
@@ -75,7 +53,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //  dd($request->all());
-     
+
         if ($request->action == 'create') {
             $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post');
             // if ($request->thumbnail) {
@@ -86,7 +64,7 @@ class PostController extends Controller
             // }
             DB::beginTransaction();
 
-            $data['user_id'] = auth()->id();
+            $data['account_id'] = auth()->user()->account->id;
             $data['author'] = auth()->id();
             //  dd($data);
             $post = Post::create($data);
@@ -115,7 +93,7 @@ class PostController extends Controller
             $request->image->move(public_path(ert('thumb-path')), $fileName);
             if ($request->action == 'create') {
                 $post = Post::create([
-                    'user_id' => auth()->id(),
+                    'account_id' => auth()->user()->account_id,
                     'author'=>auth()->id(),
                     'component_id' => $request->component_id,
                     'thumbnail' => $fileName,
