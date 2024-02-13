@@ -72,32 +72,34 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">معرفی</h3>
+        <h3 class="card-title pull-right">معرفی</h3>
         <select name="about_status" class="form-select pull-left">
-            <option value="1">فعال</option>
-            <option value="0">غیرفعال</option>
+            <option {{ ($settingModel->getSetting('about_status', $account->id) == 1) ? "selected" : "" }} value="1">فعال</option>
+            <option {{ ($settingModel->getSetting('about_status', $account->id) == 0) ? "selected" : "" }} value="0">غیرفعال</option>
         </select>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">عنوان اول</label>
-                <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
-                    value="{{ $settingModel->getSetting('first_title', $account->id) }}">
+    @if ($settingModel->getSetting('about_status', $account->id) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('first_title', $account->id) }}">
+                </div>
+                <div class="col-6 form-group">
+                    <label class="form-label">زیر عنوان اول</label>
+                    <input type="text" name="first_subtitle" class="form-control" placeholder="زیر عنوان اول..."
+                        value="{{ $settingModel->getSetting('first_subtitle', $account->id) }}">
+                </div>
             </div>
-            <div class="col-6 form-group">
-                <label class="form-label">زیر عنوان اول</label>
-                <input type="text" name="first_subtitle" class="form-control" placeholder="زیر عنوان اول..."
-                    value="{{ $settingModel->getSetting('first_subtitle', $account->id) }}">
+            <div class="row">
+                <div class="col-12 form-group">
+                    <label class="form-label">متن اول</label>
+                    <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 form-group">
-                <label class="form-label">متن اول</label>
-                <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
-            </div>
-        </div>
-    </div>
+    @endif
 </div>
 
 <div class="card card-warning">
