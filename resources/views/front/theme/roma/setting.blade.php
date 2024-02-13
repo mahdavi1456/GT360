@@ -248,7 +248,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-4 form-group ">
                     <label class="form-label ">تصویر اول</label>
                     <input type="file" name="team_image1" onchange="uploadImage(this)">
                     @if ($image = imageLoader('team_image1'))
@@ -262,7 +262,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-3 form-group">
+                <div class="col-4 form-group">
                     <label class="form-label">عنوان تصویر اول</label>
                     <input type="text" name="title_team_image1" class="form-control"
                         placeholder="عنوان تصویر اول..."
