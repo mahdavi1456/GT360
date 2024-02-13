@@ -56,7 +56,7 @@ function adminBar()
                             <select name="" id="" class="form-control">
                                 <?php
                                 foreach ($fonts as $font) {?>
-                                    <option><?php echo $font->name; ?></option>
+                                    <option value="<?php echo $font->name; ?>"><?php echo $font->label; ?></option>
                                     <?php
                                 }
                                 ?>
@@ -67,11 +67,12 @@ function adminBar()
                         <button class="btn btn-success" style="width: 100%; margin-top: 15px">ذخیره</button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                        <button type="button" id="save-admin-bar-setting" class="btn btn-default" data-dismiss="modal">بستن</button>
                     </div>
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="<?php asset('js/admin-bar.js'); ?>"></script>
         <?php
     }
 }
