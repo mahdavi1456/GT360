@@ -21,9 +21,11 @@ function adminBar()
             .admin-bar-list {
                 list-style: none;
                 float: right;
-                display: inline-block;
                 margin: auto;
                 padding: 10px 20px;
+            }
+            .admin-bar-list li {
+                display: inline-block;
             }
             .admin-bar-list li a {
                 padding: 5px 10px;
@@ -62,7 +64,7 @@ function adminBar()
                             <?php
                         }
                         ?>
-                        <button class="btn btn-success w-100">ذخیره</button>
+                        <button class="btn btn-success" style="width: 100%; margin-top: 15px">ذخیره</button>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
