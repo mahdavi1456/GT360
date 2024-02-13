@@ -210,9 +210,9 @@
         </div>
     @endif
 </div>
-<div class="card card-info">
+<div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">عمومی</h3>
+        <h3 class="card-title">تیم ما</h3>
     </div>
     <div class="card-body">
         <div class="row">
