@@ -77,7 +77,7 @@
                         alt="" />
                 </div>
                 <div class="col-md-6 intro-text">
-                    <h3 id="aboutus-title" rtl>{{ $settingModel->getSetting('title_sec2', $accountId) }}</h3>
+                    <h3 id="aboutus-title" class="rtl">{{ $settingModel->getSetting('title_sec2', $accountId) }}</h3>
                     <p>{{ $settingModel->getSetting('description_sec2', $accountId) }}</p>
                 </div>
             </div>
