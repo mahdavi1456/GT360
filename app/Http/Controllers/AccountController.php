@@ -8,6 +8,9 @@ use App\Models\User;
 use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Setting;
+
+use App\Models\Product;
+
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Hekmatinasser\Verta\Verta;
