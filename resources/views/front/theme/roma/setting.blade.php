@@ -262,13 +262,11 @@
                 </div>
 
 
-                <div class="col-4 form-group">
+                <div class="col-12 form-group">
                     <label class="form-label">عنوان تصویر اول</label>
                     <input type="text" name="title_team_image1" class="form-control"
                         placeholder="عنوان تصویر اول..."
                         value="{{ $settingModel->getSetting('title_team_image1', $account->id) }}">
-                    <hr>
-
                     <label class="form-label">زیر عنوان تصویر اول</label>
                     <input type="text" name="subtitle_team_image1" class="form-control"
                         placeholder="زیرعنوان تصویر اول..."
