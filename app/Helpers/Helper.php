@@ -64,10 +64,10 @@ function adminBar()
                             <?php
                         }
                         ?>
-                        <button class="btn btn-success" style="width: 100%; margin-top: 15px">ذخیره</button>
+                        <button id="save-admin-bar-setting" class="btn btn-success" style="width: 100%; margin-top: 15px">ذخیره</button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="save-admin-bar-setting" class="btn btn-default" data-dismiss="modal">بستن</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
                     </div>
                 </div>
             </div>

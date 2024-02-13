@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#save-admin-bar-setting").click(function () {
+    $(document.body).on("click", "#save-admin-bar-setting", function () {
         alert("yes");
     });
 });
