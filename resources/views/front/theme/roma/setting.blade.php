@@ -236,12 +236,12 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-6 form-group">
+                    <div class="col-12 form-group">
                         <label class="form-label">عنوان</label>
                         <input type="text" name="title_team" class="form-control" placeholder="عنوان..."
                             value="{{ $settingModel->getSetting('title_team', $account->id) }}">
                     </div>
-                    <div class="col-6 form-group">
+                    <div class="col-12 form-group">
                         <label class="form-label">توضیحات</label>
                         <input type="text" name="description_team" class="form-control" placeholder="توضیحات..."
                             value="{{ $settingModel->getSetting('description_team', $account->id) }}">
