@@ -80,9 +80,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 title">
-                <h2>{{ fa_number($settingModel->getSetting('service_title', $accountId)) }}</h2>
+                <h2>{{ ($settingModel->getSetting('service_title', $accountId)) }}</h2>
                 <hr>
-                <p>{{ fa_number($settingModel->getSetting('service_text', $accountId)) }}</p>
+                <p>{{ ($settingModel->getSetting('service_text', $accountId)) }}</p>
             </div>
             <div class="col-md-8 col-sm-8">
                 <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-mobile"></i>
