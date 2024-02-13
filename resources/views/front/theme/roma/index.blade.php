@@ -183,15 +183,14 @@
     </div>
 @endif
 
-
+@if ($settingModel->getSetting('price_status', $accountId) == 1)
 <!-- price section -->
 <div id="price">
     <div class="container">
         <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-            <h2>Our Plans</h2>
+            <h2>{{ $settingModel->getSetting('price_title', $accountId) }}</h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                laoree.</p>
+            <p>{{ $settingModel->getSetting('price_text', $accountId) }}</p>
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="plan wow bounceIn" data-wow-delay="0.3s">
@@ -246,7 +245,7 @@
         </div>
     </div>
 </div>
-
+@endif
 
 @if ($settingModel->getSetting('contact_status', $accountId) == 1)
     <!-- contact section -->
