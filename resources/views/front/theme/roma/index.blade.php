@@ -86,16 +86,16 @@
             </div>
             <div class="col-md-8 col-sm-8">
                 <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-mobile"></i>
-                    <h3>Mobile UX</h3>
+                    <h3>{{ ($settingModel->getSetting('service_first_title', $accountId)) }}</h3>
                 </div>
                 <div class="col-md-6 col-sm-6 bg-red"><i class="fa fa-cloud"></i>
-                    <h3>Social media</h3>
+                    <h3>{{ ($settingModel->getSetting('service_secound_title', $accountId)) }}</h3>
                 </div>
                 <div class="col-md-6 col-sm-6 bg-red"><i class="fa fa-link"></i>
-                    <h3>Web Design</h3>
+                    <h3>{{ ($settingModel->getSetting('service_third_title', $accountId)) }}</h3>
                 </div>
                 <div class="col-md-6 col-sm-6 bg-black"><i class="fa fa-globe"></i>
-                    <h3>SEO</h3>
+                    <h3>{{ ($settingModel->getSetting('service_fourth_title', $accountId)) }}</h3>
                 </div>
             </div>
         </div>
