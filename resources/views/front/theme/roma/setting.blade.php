@@ -243,7 +243,7 @@
                 <div class="col-12 form-group">
                     <label class="form-label">توضیحات</label>
                     <input type="text" name="description_team" class="form-control" placeholder="توضیحات..."
-                        value="{{ $settingModel->getSetting('description _team', $account->id) }}">
+                        value="{{ $settingModel->getSetting('description_team', $account->id) }}">
                 </div>
             </div>
             <div class="row">
