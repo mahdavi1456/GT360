@@ -216,7 +216,7 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-4 form-group">
+            <div class="col-12 form-group">
                 <div class="col-12 form-group ">
                     <label class="form-label ">تصویر بک گراند</label>
                     <input type="file" name="background_cover_team" onchange="uploadImage(this)">
@@ -233,14 +233,14 @@
                 <input type="text" name="title" class="form-control" placeholder="عنوان..."
                     value="{{ $settingModel->getSetting('title', $account->id) }}">
             </div>
-            <div class="col-8 form-group">
+            <div class="col-12 form-group">
                 <label class="form-label">توضیحات</label>
                 <input type="text" name="description" class="form-control" placeholder="توضیحات..."
                     value="{{ $settingModel->getSetting('description', $account->id) }}">
             </div>
         </div>
         <div class="row">
-            <div class="col-3 form-group">
+            <div class="col-12 form-group">
                 <label class="form-label">متن دکمه شروع</label>
                 <input type="text" name="start_btn_text" class="form-control" placeholder="متن دکمه شروع..."
                     value="{{ $settingModel->getSetting('start_btn_text', $account->id) }}">
