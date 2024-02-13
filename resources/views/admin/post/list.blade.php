@@ -1,11 +1,11 @@
 @extends('admin.master')
-@section('title', 'Post List')
+@section('title', 'لیست محتوا')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('محتوا') }}
+        {{ breadcrumb('لیست محتوا') }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">

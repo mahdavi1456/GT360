@@ -150,10 +150,14 @@
             <div class="col-md-12 col-sm-12"></div>
             @if ($products->count() > 0)
                 @foreach ($products as $product)
+                    @if ($product->thumbnail)
+                        @php $src = asset(ert('thumb-path')) . '/' . $product->thumbnail; @endphp
+                    @else
+                        @php $src = asset('front-theme-asset/roma') . "/images/portfolio-img1.jpg"; @endphp
+                    @endif
                     <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                        <a href="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg"
-                            data-lightbox-gallery="portfolio-gallery">
-                            <img src="{{ asset('front-theme-asset/roma') }}/images/portfolio-img1.jpg" alt="portfolio img">
+                        <a href="{{ $src }}" data-lightbox-gallery="portfolio-gallery">
+                            <img src="{{ $src }}" alt="">
                         </a>
                     </div>
                 @endforeach
