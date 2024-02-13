@@ -151,8 +151,9 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::post('theme/{theme}/component/store', [ThemeController::class, 'componentStore'])->name('theme.componentStore');
         Route::get('theme/{theme}/nav', [ThemeController::class, 'selectNav'])->name('theme.selectNav');
         Route::post('theme/{theme}/nav/store', [ThemeController::class, 'NavStore'])->name('theme.navStore');
-        Route::get('theme/personalize', [ThemeController::class, 'personalize'])->name('theme.personalize');
-        Route::post('theme/update-personalize', [ThemeController::class, 'updateUersonalize'])->name('theme.updatePersonalize');
+
+        Route::get('personalize', [ThemeController::class, 'personalize'])->name('theme.personalize');
+        Route::post('update-personalize', [ThemeController::class, 'updateUersonalize'])->name('theme.updatePersonalize');
 
         Route::resource('taxonomy', TaxonomyController::class);
 
