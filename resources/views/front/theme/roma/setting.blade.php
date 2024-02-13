@@ -153,7 +153,7 @@
                 <div class="col-3 form-group">
                     <label class="form-label">آیکن دوم</label>
                     <input type="text" name="service_second_icon" class="form-control" placeholder="آیکن دوم..."
-                        value="{{ $settingModel->getSetting('service_secound_icon', $account->id) }}">
+                        value="{{ $settingModel->getSetting('service_second_icon', $account->id) }}">
                     <hr>
                     <label class="form-label">عنوان دوم</label>
                     <input type="text" name="service_secound_title" class="form-control"

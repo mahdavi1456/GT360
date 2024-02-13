@@ -97,7 +97,7 @@
                             <h3>{{ $settingModel->getSetting('service_first_title', $accountId) }}</h3>
                         </div>
                         <div class="col-md-6 col-sm-6 bg-red"><i class="fa {{ $settingModel->getSetting('service_second_icon', $accountId) }}"></i>
-                            <h3>{{ $settingModel->getSetting('service_secound_title', $accountId) }}</h3>
+                            <h3>{{ $settingModel->getSetting('service_second_title', $accountId) }}</h3>
                         </div>
                         <div class="col-md-6 col-sm-6 bg-red"><i class="fa {{ $settingModel->getSetting('service_third_icon', $accountId) }}"></i>
                             <h3>{{ $settingModel->getSetting('service_third_title', $accountId) }}</h3>
