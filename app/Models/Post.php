@@ -10,15 +10,19 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
+
     public function terms()
     {
         return $this->belongsToMany(Term::class, 'post_term');
     }
+
     public function component()
     {
         return $this->belongsTo(Component::class);
     }
+
     public function author_object()
     {
         return $this->belongsTo(User::class, 'author');
@@ -38,15 +42,15 @@ class Post extends Model
             $query->where('publish_status', request('publish_status'));
         }
         if (request()->filled('title')) {
-            $query->where('title','like', '%' . request('title') . '%');
+            $query->where('title', 'like', '%' . request('title') . '%');
         }
         if (request()->filled('from')) {
-           $from=verta()->parse(request('from'))->toCarbon();
-           $query->where('created_at','>=',$from);
+            $from = verta()->parse(request('from'))->toCarbon();
+            $query->where('created_at', '>=', $from);
         }
         if (request()->filled('to')) {
-            $to=verta()->parse(request('to'))->toCarbon();
-           $query->where('created_at','<=',$to);
+            $to = verta()->parse(request('to'))->toCarbon();
+            $query->where('created_at', '<=', $to);
         }
     }
 
@@ -57,7 +61,7 @@ class Post extends Model
                 return "پیش نویس";
                 break;
             case "publish":
-                return "منتشر شده"
+                return "منتشر شده";
                 break;
             default:
                 return $this->publish_status;
