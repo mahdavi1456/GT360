@@ -491,7 +491,7 @@
     </div>
 </section>
 <section id="map">
-    <iframe src="{{ $settingModel->getSetting('google_map', $accountId) }}" width="100%" height="450"
+    <iframe src="{{ $settingModel->getSetting('google_map', $accountId) }}" width="100%" height="500"
             style="border: 0;" allowfullscreen="yes" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
