@@ -30,8 +30,8 @@
 	font-family: Kalameh;
 	font-style: normal;
 	font-weight: 600;
-	src: url('woff2/KalamehWeb-Semibold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('woff/KalamehWeb-Semibold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+	src: url('woff2/KalamehWeb-SemiBold.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('woff/KalamehWeb-SemiBold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
 
 @font-face {
