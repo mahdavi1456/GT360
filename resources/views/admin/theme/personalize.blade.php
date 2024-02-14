@@ -18,7 +18,7 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-6 form-group">
+                                        <div class="col-4 form-group">
                                             <label>فونت</label>
                                             <select name="font" class="form-control">
                                                 <option value="">-</option>
@@ -27,13 +27,21 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-6 form-group">
+                                        <div class="col-4 form-group">
                                             <label>پالت رنگ</label>
                                             <select name="pallete" class="form-control">
                                                 <option value="">-</option>
                                                 @foreach ($palletes as $pallete)
                                                     <option {{ ($settingModel->getSetting("pallete", auth()->user()->account->id) == $pallete->name) ? "selected" : "" }} value="{{ $pallete->name }}">{{ $pallete->label }}</option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-4 form-group">
+                                            <label>نوع زبان</label>
+                                            <select name="direction" class="form-control">
+                                                <option value="">-</option>
+                                                <option {{ ($settingModel->getSetting("direction", auth()->user()->account->id) == "rtl") ? "selected" : "" }} value="rtl">راست به چپ</option>
+                                                <option {{ ($settingModel->getSetting("direction", auth()->user()->account->id) == "ltr") ? "selected" : "" }} value="ltr">چپ به راست</option>
                                             </select>
                                         </div>
                                     </div>
