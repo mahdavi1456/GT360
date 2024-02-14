@@ -318,7 +318,7 @@
     </div>
     <div class="blog-entries">
         @if ($postModel->getPosts('journal')->count() > 0)
-            @foreach ($postModel->getPosts('journal')->count() > 0 as $journal)
+            @foreach ($postModel->getPosts('journal') as $journal)
                 <article class="entry">
                     <div class="row entry-header">
                         <div class="author-image">
