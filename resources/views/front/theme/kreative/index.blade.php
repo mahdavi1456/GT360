@@ -340,7 +340,7 @@
                         <div class="col g-9 offset-1 post-content">
                             <p>
                                 {{ $journal->abstract }}
-                                <a href="{{ route('showPage', 'gt', $journal->id) }}" class="more-link">Read More<i class="icon-angle-right"></i></a>
+                                <a href="{{ route('showPage', ['slug' => 'gt', 'id' => $journal->id]) }}" class="more-link">Read More<i class="icon-angle-right"></i></a>
                             </p>
                         </div>
                     </div>
