@@ -39,7 +39,7 @@ class AccountController extends Controller
             $view = "front.theme.$theme.index";
             $accountId = $account->id;
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'postModel', 'accountId', 'products'));
+            return view($view, compact('settingModel', 'postModel', 'accountId', 'slug'));
         }
         return "یک تم برای خود انتخاب کنید";
     }

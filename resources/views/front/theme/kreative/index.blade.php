@@ -17,7 +17,6 @@
     <script src="{{ asset('front-theme-asset/kreative/js/html5.js') }}"></script>
     <![endif]-->
     <link rel="shortcut icon" href="{{ asset('front-theme-asset/kreative/images/favicon.ico') }}">
-    @php $slug = $settingModel->getSetting('slug', $accountId) @endphp
 </head>
 <body data-spy="scroll" data-target="#nav-wrap">
 <header class="mobile">
