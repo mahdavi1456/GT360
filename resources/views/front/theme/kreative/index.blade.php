@@ -317,88 +317,36 @@
         </div>
     </div>
     <div class="blog-entries">
-        <article class="entry">
-            <div class="row entry-header">
-                <div class="author-image">
-                    <img src="{{ asset('front-theme-asset/kreative/images/user-03.png') }}" alt="">
-                </div>
-                <div class="col g-9 offset-1 entry-title">
-                    <h3>
-                        <a href="page.blade.php">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin
-                            auctor.</a>
-                    </h3>
-                </div>
-                <div class="col g-2">
-                    <p class="post-meta">
-                        <time pubdate="" class="post-date" datetime="2045-08-19">Aug 19, 2045</time>
-                        <span class="dauthor">By Sakura Haruno</span>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col g-9 offset-1 post-content">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                        deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate. At
-                        vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium. <a
-                            href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
-                </div>
-            </div>
-        </article>
-        <article class="entry">
-            <div class="row entry-header">
-                <div class="author-image">
-                    <img src="{{ asset('front-theme-asset/kreative/images/user-03.png') }}" alt="">
-                </div>
-                <div class="col g-9 offset-1 entry-title">
-                    <h3>
-                        <a href="page.blade.php">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                            fugit sed.</a>
-                    </h3>
-                </div>
-                <div class="col g-2">
-                    <p class="post-meta">
-                        <time pubdate="" class="post-date" datetime="2045-08-09">Aug 9, 2045</time>
-                        <span class="dauthor">By John Doe</span>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col g-9 offset-1 post-content">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                        deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate. At
-                        vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium. <a
-                            href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
-                </div>
-            </div>
-        </article>
-        <article class="entry">
-            <div class="row entry-header">
-                <div class="author-image">
-                    <img src="{{ asset('front-theme-asset/kreative/images/user-03.png') }}" alt="">
-                </div>
-                <div class="col g-9 offset-1 entry-title">
-                    <h3>
-                        <a href="page.blade.php">Quis autem vel esse eum iure reprehenderit qui in ea voluptate velit
-                            esse.</a>
-                    </h3>
-                </div>
-                <div class="col g-2">
-                    <p class="post-meta">
-                        <time pubdate="" class="post-date" datetime="2045-08-07">Aug 7, 2045</time>
-                        <span class="dauthor">By Naruto Uzumaki</span>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col g-9 offset-1 post-content">
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                        deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate. At
-                        vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium. <a
-                            href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a>
-                    </p>
-                </div>
-            </div>
-        </article>
+        @if ($postModel->getPosts('journal')->count() > 0)
+            @foreach ($postModel->getPosts('journal')->count() > 0 as $journal)
+                <article class="entry">
+                    <div class="row entry-header">
+                        <div class="author-image">
+                            <img src="{{ asset('front-theme-asset/kreative/images/user-03.png') }}" alt="">
+                        </div>
+                        <div class="col g-9 offset-1 entry-title">
+                            <h3>
+                                <a href="page.blade.php">{{ $journal->title }}</a>
+                            </h3>
+                        </div>
+                        <div class="col g-2">
+                            <p class="post-meta">
+                                <time pubdate="" class="post-date" datetime="2045-08-19">Aug 19, 2045</time>
+                                <span class="dauthor">By Sakura Haruno</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col g-9 offset-1 post-content">
+                            <p>
+                                {{ $post->abstract }}
+                                <a href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            @endforeach
+        @endif
     </div>
 </section>
 <section id="about">
