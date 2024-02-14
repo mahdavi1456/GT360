@@ -488,9 +488,7 @@
         </div>
     </div>
 </section>
-<section id="map">
-    <p class="map-error">Something went wrong... Unable to load map... Please try to enable javascript</p>
-</section>
+<section id="map">{{  $settingModel->getSetting('google_map', $accountId) }}</section>
 <section id="contact">
     <div class="row section-head">
         <div class="col full">
