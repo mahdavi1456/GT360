@@ -219,7 +219,7 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">بخش دوم</h3>
+        <h3 class="card-title pull-right" >بخش دوم</h3>
         <select name="sec2_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('sec2_status', $account->id) == 1 ? 'selected' : '' }}
                 value="1">
