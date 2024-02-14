@@ -519,4 +519,20 @@ class AccountController extends Controller
         Alert::success('موفق', 'اطلاعات وب سایت با موفقیت ثبت شد.');
         return to_route('dashboard');
     }
+
+    public function showPage($slug, $id)
+    {
+        $settingModel = new Setting;
+        $postModel = new Post;
+        $account = Account::where('slug', $slug)->first();
+        if ($account) {
+            $theme = $account->activeTheme();
+            $view = "front.theme.$theme.page";
+            $accountId = $account->id;
+            $products = Post::where('component_id', 2)->get();
+            return view($view, compact('settingModel', 'postModel', 'accountId', 'products'));
+        }
+        return "یک تم برای خود انتخاب کنید";
+    }
+
 }
