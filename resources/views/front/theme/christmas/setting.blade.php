@@ -403,11 +403,7 @@
                         value="{{ $settingModel->getSetting('subtitle2_sec5', $account->id) }}">
                 </div>
             </div>
-            <div class="col form-group">
-                <label class="form-label">متن دکمه</label>
-                <input type="text" name="button_title_sec5" class="form-control" placeholder="متن دکمه..."
-                    value="{{ $settingModel->getSetting('button_title_sec5', $account->id) }}">
-            </div>
+         
             <hr>
             <div class="row">
                 <div class="col-12 form-group ">
@@ -447,11 +443,7 @@
                         value="{{ $settingModel->getSetting('subtitle2_2_sec5', $account->id) }}">
                 </div>
             </div>
-            <div class="col form-group">
-                <label class="form-label">متن دکمه</label>
-                <input type="text" name="button_title_2_sec5" class="form-control" placeholder="متن دکمه..."
-                    value="{{ $settingModel->getSetting('button_title_2_sec5', $account->id) }}">
-            </div>
+
             <hr>
             <div class="row">
                 <div class="col-12 form-group ">
@@ -491,11 +483,6 @@
                         value="{{ $settingModel->getSetting('subtitle2_3_sec5', $account->id) }}">
                 </div>
             </div>
-            <div class="col form-group">
-                <label class="form-label">متن دکمه</label>
-                <input type="text" name="button_title_3_sec5" class="form-control" placeholder="متن دکمه..."
-                    value="{{ $settingModel->getSetting('button_title_3_sec5', $account->id) }}">
-            </div>
             <hr>
             <div class="row">
                 <div class="col-12 form-group ">
@@ -534,11 +521,6 @@
                     <input type="text" name="subtitle2_4_sec5" class="form-control" placeholder="عنوان بزرگ..."
                         value="{{ $settingModel->getSetting('subtitle2_4_sec5', $account->id) }}">
                 </div>
-            </div>
-            <div class="col form-group">
-                <label class="form-label">متن دکمه</label>
-                <input type="text" name="button_title_4_sec5" class="form-control" placeholder="متن دکمه..."
-                    value="{{ $settingModel->getSetting('button_title_4_sec5', $account->id) }}">
             </div>
             <hr>
         </div>
