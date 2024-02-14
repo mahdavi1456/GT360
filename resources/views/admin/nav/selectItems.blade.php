@@ -76,20 +76,6 @@
 @section('scripts')
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        $(function() {
-            $("#sortable").sortable({
-                revert: true,
-                disableSelection: true
-            });
-            // $("#draggable").draggable({
-            //     connectToSortable: "#sortable",
-            //     helper: "clone",
-            //     revert: "invalid"
-            // });
-            //  $("ul, li").disableSelection();
-        });
-    </script>
-    <script>
         //get info ajax
         $('select[name="nav"]').on('change', function() {
             $("#loading-overlay").fadeIn();
@@ -100,35 +86,12 @@
                 method: 'get',
                 data: data,
                 success: function(res) {
-
-                    //console.log(res);
                     $('.nav-info').empty();
                     $('.nav-info').append(res);
-                    // $('.select2').select2({
-                    //     minimumResultsForSearch: 20 // at least 20 results must be displayed
-                    // })
                     $('.selectpicker').selectpicker({
                         noneSelectedText: 'بدون انتخاب'
                     });
                     $("#loading-overlay").fadeOut();
-                    //dragable
-                    $(function() {
-                        $("#draggable").draggable({
-                            handle: "p"
-                        });
-                        $("#draggable2").draggable({
-                            cancel: "p.ui-widget-header"
-                        });
-
-                        $("#draggable").draggable({
-                            connectToSortable: "#sortable",
-                            helper: "clone",
-                            revert: "invalid"
-                        });
-                    });
-
-
-                    //end of dragable
 
                 },
                 error: function(res) {
@@ -160,18 +123,6 @@
                     $('.selectpicker').selectpicker({
                         noneSelectedText: 'بدون انتخاب'
                     });
-                    //dragable
-                    $("#sortable").sortable({
-                        revert: true
-                    });
-                    $("#draggable").draggable({
-                        connectToSortable: "#sortable",
-                        helper: "clone",
-                        revert: "invalid"
-                    });
-                    $("ul, li").disableSelection();
-                    //end of dragable
-
                     console.log(res);
                     $("#loading-overlay").fadeOut();
 
@@ -201,6 +152,8 @@
                         text: "تغییرات با موفقیت اعمال شد",
                         icon: "success"
                     });
+                    console.log('edit',res);
+                    $(e).parents('.card:first').find('h5 span').html(res.name);
                     $("#loading-overlay").fadeOut();
                 },
                 error: function(res) {

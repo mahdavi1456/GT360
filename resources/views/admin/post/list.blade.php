@@ -142,7 +142,7 @@
                                                                 data-toggle="tooltip" data-placement="top" title="ویرایش"><i
                                                                     class="fa fa-edit"></i></a>
                                                             <div class="display-inline-block">
-                                                                <form method="post" class="h-100"
+                                                                {{-- <form method="post" class="h-100"
                                                                     action="{{ route('post.destroy', $post->id) }}">
                                                                     @csrf
                                                                     <input type="hidden" name="_method" value="DELETE">
@@ -150,7 +150,10 @@
                                                                         data-placement="top" title="حذف"
                                                                         class="h-100 delete-confirm btn btn-danger btn-sm d-flex align-items-center"><i
                                                                             class="fa fa-close"></i></button>
-                                                                </form>
+                                                                </form> --}}
+                                                                <a href="{{ route('post.destroy', $post->id) }}" data-confirm-delete="true" class=' btn btn-danger btn-sm' title="حذف">
+                                                                <i class="fa fa-close"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -161,9 +164,11 @@
                                 @endif
                             </div>
                             <!-- /.card-body -->
+                            @if ($posts->render())
                             <div class="w-100 mt-3 d-flex justify-content-center">
                                 {{$posts->withQueryString()->render()}}
                             </div>
+                            @endif
                         </div>
                         <!-- /.card -->
                     </div>

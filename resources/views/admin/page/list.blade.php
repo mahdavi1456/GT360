@@ -117,13 +117,16 @@
                                                         <div class="d-flex">
                                                             <a class="btn btn-info btn-sm ml-2" target="_blank" href="">مشاهده</a>
                                                             <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center" href="{{ route('page.create', ['action' => 'update', 'page' => $page->id]) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
-                                                            <div class="display-inline-block">
+                                                            {{-- <div class="display-inline-block">
                                                                 <form method="post" class="h-100" action="{{ route('page.destroy', $page->id) }}">
                                                                     @csrf
                                                                     <input type="hidden" name="_method" value="DELETE">
                                                                     <button type="submit" data-toggle="tooltip" data-placement="top" title="حذف" class="h-100 delete-confirm btn btn-danger btn-sm d-flex align-items-center"><i class="fa fa-close"></i></button>
                                                                 </form>
-                                                            </div>
+                                                            </div> --}}
+                                                            <a href="{{ route('page.destroy', $page->id) }}" data-confirm-delete='true' data-toggle="tooltip" data-placement="top" title="حذف" class="btn btn-sm btn-danger">
+                                                                <i class="fa fa-close"></i>
+                                                            </a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -144,21 +147,6 @@
 @endsection
 @section('scripts')
     <script type="text/javascript">
-        $(document).on('click', '.delete-confirm', function() {
-            var form =  $(this).closest("form");
-            event.preventDefault();
-            new swal({
-                title: "حذف صفحه",
-                text:  "آیا از حذف صفحه مطمئن هستید؟",
-                icon: "warning",
-                dangerMode: true,
-                buttons: ["خیر","بله"],
-            }).then((willDelete) => {
-                if (willDelete) {
-                    form.submit();
-                }
-            });
-        });
         $(function() {
             $("#from, #to").persianDatepicker({
                 initialValue: false,

@@ -20,6 +20,7 @@ class PageController extends Controller
     {
         $pages = Page::where('account_id',auth()->user()->account_id)->filter()->latest()->paginate(3);
         $accountUsers = auth()->user()->account->users;
+        ert('cd');
         return view('admin.page.list', compact(['pages', 'accountUsers', 'request']));
     }
 

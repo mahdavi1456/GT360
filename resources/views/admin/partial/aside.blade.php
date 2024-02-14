@@ -12,7 +12,7 @@
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
+                    <a href="{{route('account.profile.edit',auth()->user()->account_id)}}" class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
                 </div>
             </div>
             <nav class="mt-2">

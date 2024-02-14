@@ -24,7 +24,7 @@ class PostController extends Controller
 
         $accountUsers = auth()->user()->account->users;
         $activeTheme= Theme::getActive();
-
+        ert('cd');
         $components =$activeTheme->components;
        // dd($components);
         return view('admin.post.list', compact(['components', 'request', 'posts', 'accountUsers']));
@@ -84,6 +84,13 @@ class PostController extends Controller
         }
         //dd($request->action);
 
+        return to_route('post.index', ['component_id' => $post->component_id]);
+    }
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        alert()->success('حذف پست', 'پست با موفقیت حذف شد. ');
         return to_route('post.index', ['component_id' => $post->component_id]);
     }
     public function uploadImage(Request $request)
@@ -314,17 +321,7 @@ class PostController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
-        $post = Post::find($id);
-        $post->update([
-            'remove_st' => 1,
-            'remove_user' => Auth::user()->id,
-            'remove_date' => date('Y-m-d'),
-        ]);
-        alert()->success('حذف پست', 'پست با موفقیت حذف شد. ');
-        return redirect()->route('posts.index');
-    }
+
 
     public function getTaxonomies(Request $request)
     {
