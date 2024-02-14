@@ -204,7 +204,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-2.jpg"
+                        <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec5', $accountId)) }}'
                             alt="">
                     </a>
 
@@ -217,10 +217,8 @@
 
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
-                    <h4><a href="">Eida Kintu Tomato Na Morich</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris.</p>
+                    <h4><a href="">{{ $settingModel->getSetting('title1_sec5', $accountId) }}</a></h4>
+                    <p>{{ $settingModel->getSetting('subtitle1_sec5', $accountId) }}</p>
                     <p class="price">US <span class="highlight">$4.25</span> / piece</p>
                     <p>Original Price: US $8.49 , You Save:US $4.24</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
