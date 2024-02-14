@@ -138,176 +138,30 @@
     </div>
     <div class="row">
         <div id="portfolio-wrapper">
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-01">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/cosmic-sneakers.jpg') }}"
-                             alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Cosmic Sneakers</a></h5>
+            @if ($postModel->getPosts('portfolio')->count() > 0)
+                @foreach ($postModel->getPosts('portfolio') as $portfolio)
+                    <div class="col portfolio-item">
+                        <div class="item-wrap">
+                            <a href="#" data-reveal-id="modal-{{ $portfolio->id }}">
+                                <img src="{{ asset('front-theme-asset/kreative/images/portfolio/cosmic-sneakers.jpg') }}" alt="">
+                            </a>
+                            <div class="portfolio-item-meta">
+                                <h5><a href="#">Cosmic Sneakers</a></h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-02">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/milk-splash.jpg') }}" alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Milk Splash</a></h5>
+                    <div id="modal-{{ $portfolio->id }}" class="reveal-modal">
+                        <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-cosmic-sneakers.jpg') }}" alt="">
+                        <div class="description-box">
+                            <h4>{{ $portfolio->title }}</h4>
+                            <p>{{ $portfolio->abstract }}</p>
+                            <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span>
+                        </div>
+                        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
                     </div>
-                </div>
-            </div>
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-03">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/eve.jpg') }}" alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Eve</a></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-04">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/sneaker-splash.jpg') }}" alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Sneaker Splash</a></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-05">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/judah.jpg') }}" alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Judah</a></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-06">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/vector-flower.jpg') }}" alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Vector Flower</a></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-07">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/clock.jpg') }}" alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Clock</a></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col portfolio-item">
-                <div class="item-wrap">
-                    <a href="#" data-reveal-id="modal-08">
-                        <img src="{{ asset('front-theme-asset/kreative/images/portfolio/fields.jpg') }}" alt="">
-                    </a>
-                    <div class="portfolio-item-meta">
-                        <h5><a href="#">Fields</a></h5>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+            @endif
         </div>
-    </div>
-    <div id="modal-01" class="reveal-modal">
-        <img class="scale-with-grid"
-             src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-cosmic-sneakers.jpg') }}" alt="">
-        <div class="description-box">
-            <h4>The Cosmic Sneakers</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
-    </div>
-    <div id="modal-02" class="reveal-modal">
-        <img class="scale-with-grid"
-             src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-milk-splash.jpg') }}" alt="">
-        <div class="description-box">
-            <h4>Milk Splash</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
-    </div>
-    <div id="modal-03" class="reveal-modal">
-        <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-eve.jpg') }}"
-             alt="">
-        <div class="description-box">
-            <h4>Eve</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Photography, Branding</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
-    </div>
-    <div id="modal-04" class="reveal-modal">
-        <img class="scale-with-grid"
-             src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-sneaker-splash.jpg') }}" alt="">
-        <div class="description-box">
-            <h4>Sneaker Splash</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Photography, Branding</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
-    </div>
-    <div id="modal-05" class="reveal-modal">
-        <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-judah.jpg') }}"
-             alt="">
-        <div class="description-box">
-            <h4>Judah</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Photography, Web Design</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
-    </div>
-    <div id="modal-06" class="reveal-modal">
-        <img class="scale-with-grid"
-             src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-vector-flower.jpg') }}" alt="">
-        <div class="description-box">
-            <h4>Vector Flower</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
-    </div>
-    <div id="modal-07" class="reveal-modal">
-        <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-clock.jpg') }}"
-             alt="">
-        <div class="description-box">
-            <h4>Clock</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Branding, Web Design</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
-    </div>
-    <div id="modal-08" class="reveal-modal">
-        <img class="scale-with-grid"
-             src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-fields.jpg') }}" alt="">
-        <div class="description-box">
-            <h4>Fields</h4>
-            <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
-                consequat ipsum, nec sagittis sem nibh id elit.</p>
-            <span class="categories"><i class="icon-tag"></i>Photography</span>
-        </div>
-        <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
     </div>
 </section>
 <section id="journal">
