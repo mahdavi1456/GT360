@@ -299,7 +299,8 @@
         <div class="link-box"><a href="#">Details</a> <a class="close-reveal-modal">Close</a></div>
     </div>
     <div id="modal-08" class="reveal-modal">
-        <img class="scale-with-grid" src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-fields.jpg') }}" alt="">
+        <img class="scale-with-grid"
+             src="{{ asset('front-theme-asset/kreative/images/portfolio/modals/m-fields.jpg') }}" alt="">
         <div class="description-box">
             <h4>Fields</h4>
             <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit
@@ -340,7 +341,8 @@
                         <div class="col g-9 offset-1 post-content">
                             <p>
                                 {!! $journal->abstract !!}
-                                <a href="{{ route('showPost', ['slug' => $slug, 'componentName' => 'journal', 'id' => $journal->id]) }}" class="more-link">Read More<i class="icon-angle-right"></i></a>
+                                <a href="{{ route('showPost', ['slug' => $slug, 'componentName' => 'journal', 'id' => $journal->id]) }}"
+                                   class="more-link">Read More<i class="icon-angle-right"></i></a>
                             </p>
                         </div>
                     </div>
@@ -488,7 +490,11 @@
         </div>
     </div>
 </section>
-<section id="map">{{  $settingModel->getSetting('google_map', $accountId) }}</section>
+<section id="map">
+    <iframe src="{{ $settingModel->getSetting('google_map', $accountId) }}" width="100%" height="450"
+            style="border: 0;" allowfullscreen="yes" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
 <section id="contact">
     <div class="row section-head">
         <div class="col full">
