@@ -122,7 +122,7 @@
             <div class="col-md-6 col-lg-4">
                 <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image6_sec1', $accountId)) }}'>
                 <h4>{{ $settingModel->getSetting('title6_sec1', $accountId) }}</h4>
-                <p>{{ $settingModel->getSetting('subtitle6_sec1', $accountId) }}</p>
+                <p>{{ $settingModel->getSetting('subtitle6 _sec1', $accountId) }}</p>
             </div><!--ITEM END-->
         </div><!--OVERVIEW ITEMS END-->
     </div><!--OVERVIEW SECTION END-->
@@ -134,13 +134,12 @@
     <div class="lightoverlay">
         <div class="container">
             <div class="col-md-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/tree.gif" alt="">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec2', $accountId)) }}'>
             </div><!--CALL-TO-ACTION IMAGE END-->
 
             <div class="sectionhead content col-md-8">
-                <h2>Best <span class="highlight">free landing page</span> template</h2>
-                <p>SantaGo is another free Christmas sales and affiliate landing page template built and distributed by <a href="http://evenfly.com">EvenFly Team</a> as a small cristmas gift under Creative Commons 3.0 license. If you have any question, suggestion or need assistance, feel free to <a href="mailto:support@venfly.com">email us</a> anytime.
-
+                <h2>{{ $settingModel->getSetting('title _sec2', $accountId) }}</h2>
+                <p>{{ $settingModel->getSetting('subtitle _sec2', $accountId) }}</p>
 </p>
                 <a href="" class="btn btn-default">Download</a>
             </div><!--CALL-TO-ACTION CONTENT END-->
