@@ -339,7 +339,7 @@
                     <div class="row">
                         <div class="col g-9 offset-1 post-content">
                             <p>
-                                {{ $post->abstract }}
+                                {{ $journal->abstract }}
                                 <a href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a>
                             </p>
                         </div>
