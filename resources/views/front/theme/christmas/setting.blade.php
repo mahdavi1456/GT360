@@ -307,7 +307,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12 form-group ">
-                    <label class="form-label ">تصویر</label>
+                    <label class="form-label ">تصویر </label>
                     <input type="file" name="image_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image_sec4'))
                         <div class="imageLoader position-relative">
@@ -367,12 +367,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12 form-group ">
-                    <label class="form-label ">تصویر</label>
-                    <input type="file" name="image_sec5" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image_sec4'))
+                    <label class="form-label ">تصویر اول</label>
+                    <input type="file" name="image1_sec5" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image1_sec5'))
                         <div class="imageLoader position-relative">
                             <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image_sec5')"
+                            <button type="button" onclick="destroyImage('image1_sec5')"
                                 class="btn btn-sm btn-danger position-absolute"
                                 style="bottom: 0; left: 49%">حذف</button>
                         </div>
@@ -412,11 +412,11 @@
             <div class="row">
                 <div class="col-12 form-group ">
                     <label class="form-label ">تصویر دوم</label>
-                    <input type="file" name="image_sec5" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image_sec4'))
+                    <input type="file" name="image2_sec5" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image2_sec5'))
                         <div class="imageLoader position-relative">
                             <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image_sec5')"
+                            <button type="button" onclick="destroyImage('image2_sec5')"
                                 class="btn btn-sm btn-danger position-absolute"
                                 style="bottom: 0; left: 49%">حذف</button>
                         </div>
@@ -451,6 +451,94 @@
                 <label class="form-label">متن دکمه</label>
                 <input type="text" name="button_title_2_sec5" class="form-control" placeholder="متن دکمه..."
                     value="{{ $settingModel->getSetting('button_title_2_sec5', $account->id) }}">
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 form-group ">
+                    <label class="form-label ">تصویر سوم</label>
+                    <input type="file" name="image3_sec5" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image3_sec5'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image3_sec5')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title1_3_sec5" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title1_3_sec5', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان اول</label>
+                    <input type="text" name="subtitle1_3_sec5" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('subtitle1_3_sec5', $account->id) }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="title2_3_sec5" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title2_3_sec5', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان دوم</label>
+                    <input type="text" name="subtitle2_3_sec5" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('subtitle2_3_sec5', $account->id) }}">
+                </div>
+            </div>
+            <div class="col form-group">
+                <label class="form-label">متن دکمه</label>
+                <input type="text" name="button_title_3_sec5" class="form-control" placeholder="متن دکمه..."
+                    value="{{ $settingModel->getSetting('button_title_3_sec5', $account->id) }}">
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 form-group ">
+                    <label class="form-label ">تصویر چهارم</label>
+                    <input type="file" name="image4_sec5" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image4_sec5'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image4_sec5')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title1_4_sec5" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title1_4_sec5', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان اول</label>
+                    <input type="text" name="subtitle1_4_sec5" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('subtitle1_4_sec5', $account->id) }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="title2_4_sec5" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title2_4_sec5', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان دوم</label>
+                    <input type="text" name="subtitle2_4_sec5" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('subtitle2_4_sec5', $account->id) }}">
+                </div>
+            </div>
+            <div class="col form-group">
+                <label class="form-label">متن دکمه</label>
+                <input type="text" name="button_title_4_sec5" class="form-control" placeholder="متن دکمه..."
+                    value="{{ $settingModel->getSetting('button_title_4_sec5', $account->id) }}">
             </div>
             <hr>
         </div>
