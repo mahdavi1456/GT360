@@ -62,7 +62,7 @@
                         <h1 class="wow flipInY">{{ $settingModel->getSetting('description', $accountId) }}</h1>
 
                         <a class="btn btn-reverse wow zoomIn" href="#products">
-                            <h3>{{ $settingModel->getSetting('button_title_sec1', $accountId) }}</h3>
+                            <h3>{{ $settingModel->getSetting('button_title', $accountId) }}</h3>
                         </a><!--#NOTE: texts inside the OPTIONAL tag above would be hidden on smaller mobile screens -->
 
                         <p class="wow fadeInUp" data-wow-duration="2s">{{ $settingModel->getSetting('third_title_sec1', $accountId) }}</p>

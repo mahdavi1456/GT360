@@ -14,6 +14,11 @@
                 <input type="text" name="description" class="form-control" placeholder="توضیحات..."
                     value="{{ $settingModel->getSetting('description', $account->id) }}">
             </div>
+            <div class="col form-group">
+                <label class="form-label">متن دکمه</label>
+                <input type="text" name="button_title" class="form-control" placeholder="متن دکمه..."
+                    value="{{ $settingModel->getSetting('button_title', $account->id) }}">
+            </div>
         </div>
     </div>
 </div>
