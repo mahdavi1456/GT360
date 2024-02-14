@@ -283,11 +283,11 @@
                     <input type="text" name="title_sec3" class="form-control" placeholder="عنوان اول..."
                         value="{{ $settingModel->getSetting('title_sec3', $account->id) }}">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 form-group">
-                    <label class="form-label">متن اول</label>
-                    <textarea rows="4" name="subtitle_sec3" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
+                <div class="row">
+                    <div class="col-6 form-group">
+                        <label class="form-label">متن اول</label>
+                        <textarea rows="4" name="subtitle_sec3" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
+                    </div>
                 </div>
             </div>
         </div>
