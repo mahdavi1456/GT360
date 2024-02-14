@@ -97,34 +97,32 @@
                 <p>{{ $settingModel->getSetting('subtitle1_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
 
-            <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o2.png" alt="">
-                <h4>Money back guarantee</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+          <div class="col-md-6 col-lg-4">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title2_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle2_sec1', $accountId) }}</p>
+            </div><!--ITEM END-->
+    <div class="col-md-6 col-lg-4">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title3_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle3_sec1', $accountId) }}</p>
+            </div><!--ITEM END-->
+    <div class="col-md-6 col-lg-4">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title4_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle4_sec1', $accountId) }}</p>
+            </div><!--ITEM END-->
+
+          <div class="col-md-6 col-lg-4">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image5_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title5_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle5_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o3.png" alt="">
-                <h4>Free worldwide home deivery</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div><!--ITEM END-->
-
-            <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o4.png" alt="">
-                <h4>Pre & Post purchase support</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div><!--ITEM END-->
-
-            <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o5.png" alt="">
-                <h4>Surprise gift included</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div><!--ITEM END-->
-
-            <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o6.png" alt="">
-                <h4>It will be free forever</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image6_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title6_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle6_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
         </div><!--OVERVIEW ITEMS END-->
     </div><!--OVERVIEW SECTION END-->
