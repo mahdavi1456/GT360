@@ -343,8 +343,7 @@
                     value="{{ $settingModel->getSetting('button_title_sec4', $account->id) }}">
             </div>
         </div>
-</div>
-@endif
+    @endif
 </div>
 <div class="card card-warning">
     <div class="card-header">
