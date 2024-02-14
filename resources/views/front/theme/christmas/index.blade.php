@@ -169,7 +169,7 @@
         <div class="featureditem row">
             <div class="col-md-5 text-center">
                 <a href="">
-                    <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-1.jpg"
+                    <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec4', $accountId)) }}'
                         alt="">
                 </a>
 
