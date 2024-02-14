@@ -147,7 +147,8 @@
                 <div class="sectionhead content col-md-8">
                     <h2>{{ $settingModel->getSetting('title_sec2', $accountId) }}</h2>
                     <p>{{ $settingModel->getSetting('subtitle_sec2', $accountId) }}</p>
-                    <a href="" class="btn btn-default">{{ $settingModel->getSetting('button_title_sec2', $accountId) }}</a>
+                    <a href=""
+                        class="btn btn-default">{{ $settingModel->getSetting('button_title_sec2', $accountId) }}</a>
                 </div><!--CALL-TO-ACTION CONTENT END-->
             </div><!--CALL-TO-ACTION CONTAINER END-->
         </div><!--CALL-TO-ACTION OVERLAY END-->
@@ -157,7 +158,6 @@
     PRODUCTS SECTION
     =========================== -->
     <div id="products" class="container">
-
         <!--SECTIONHEAD START-->
         <div class="sectionhead text-center">
             <h2>{{ $settingModel->getSetting('title_sec3', $accountId) }}</h2>
@@ -183,17 +183,15 @@
 
             <!--PRODUCT DETAILS STRART-->
             <div class="col-md-7">
-                <h4><a href="">Christmas Special Girls Shoe Dui Din O Tikbo na</a></h4>
+                <h4><a href="">{{ $settingModel->getSetting('title1_sec4', $accountId) }}</a></h4>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.</p>
+                <p>{{ $settingModel->getSetting('subtitle1_sec4', $accountId) }}</p>
 
-                <p class="price">US <span class="highlight">$4.25</span> / piece</p>
-                <p>Original Price: US $8.49 , You Save:US $4.24</p>
+                <p class="price">{{ $settingModel->getSetting('title2_sec4', $accountId) }}</p>
+                <p>{{ $settingModel->getSetting('subtitle2_sec4', $accountId) }}</p>
 
-                <a href="" class="btn btn-default">Buy now</a>
+                <a href=""
+                    class="btn btn-default">{{ $settingModel->getSetting('button_title_sec4', $accountId) }}</a>
             </div><!--ITEM DETAILS END-->
         </div><!--FEATURED PRODUCT END-->
 
