@@ -339,8 +339,8 @@
                     <div class="row">
                         <div class="col g-9 offset-1 post-content">
                             <p>
-                                {{ $journal->abstract }}
-                                <a href="{{ route('showPage', ['slug' => 'gt', 'id' => $journal->id]) }}" class="more-link">Read More<i class="icon-angle-right"></i></a>
+                                {!! $journal->abstract !!}
+                                <a href="{{ route('showPage', ['slug' => $settingModel->getSetting('slug', $accountId), 'id' => $journal->id]) }}" class="more-link">Read More<i class="icon-angle-right"></i></a>
                             </p>
                         </div>
                     </div>
