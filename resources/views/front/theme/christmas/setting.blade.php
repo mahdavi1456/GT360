@@ -200,20 +200,20 @@
                 @if ($image = imageLoader('image_sec2'))
                     <div class="imageLoader position-relative">
                         <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                        <button type="button" onclick="destroyImage('image_sec1')"
+                        <button type="button" onclick="destroyImage('image_sec2')"
                             class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
                     </div>
                 @endif
             </div>
             <div class="col form-group">
                 <label class="form-label">عنوان</label>
-                <input type="text" name="title_sec1" class="form-control" placeholder="عنوان کوچک..."
-                    value="{{ $settingModel->getSetting('title_sec1', $account->id) }}">
+                <input type="text" name="title_sec2" class="form-control" placeholder="عنوان کوچک..."
+                    value="{{ $settingModel->getSetting('title_sec2', $account->id) }}">
             </div>
             <div class="col form-group">
                 <label class="form-label">زیر عنوان </label>
                 <input type="text" name="subtitle_sec1" class="form-control" placeholder="عنوان بزرگ..."
-                    value="{{ $settingModel->getSetting('subtitle_sec1', $account->id) }}">
+                    value="{{ $settingModel->getSetting('subtitle_sec2', $account->id) }}">
             </div>
         </div>
     </div>
