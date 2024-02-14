@@ -311,7 +311,7 @@
         <div class="darkoverlay">
             <div class="container text-center">
                 <img class="santaicon wow tada infinite" data-wow-duration="20s"
-                    src="{{ asset('front-theme-asset/christmas') }}/img/santa-sm.png" alt="">
+                    src='{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec5', $accountId)) }}' alt="">
                 <div class="sectionhead">
                     <h2>{{ $settingModel->getSetting('title1_sec6', $accountId) }}</h2>
                     <p>{{ $settingModel->getSetting('subtitle1_sec6', $accountId) }}</p>
