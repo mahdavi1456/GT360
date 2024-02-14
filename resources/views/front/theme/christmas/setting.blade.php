@@ -50,12 +50,6 @@
                 <input type="text" name="subtitle_sec1" class="form-control" placeholder="عنوان بزرگ..."
                     value="{{ $settingModel->getSetting('subtitle_sec1', $account->id) }}">
             </div>
-
-            <div class="col form-group">
-                <label class="form-label">عنوان سوم</label>
-                <input type="text" name="third_title_sec1" class="form-control" placeholder="عنوان سوم..."
-                    value="{{ $settingModel->getSetting('third_title_sec1', $account->id) }}">
-            </div>
         </div>
     </div>
 </div>
