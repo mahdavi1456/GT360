@@ -62,6 +62,7 @@ use App\Http\Controllers\Front\ProductController as FrontProductController;
 Route::get('/web/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
 Route::get('/web/{slug}/reserve', [AccountController::class, 'reserve'])->name('reserve');
 Route::get('/web/{slug}/page/{id}', [AccountController::class, 'showPage'])->name('showPage');
+Route::get('/web/{slug}/{componentName}/{id}', [AccountController::class, 'showPost'])->name('showPost');
 
 
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');

@@ -520,6 +520,20 @@ class AccountController extends Controller
         return to_route('dashboard');
     }
 
+    public function showPost($slug, $componentName, $id)
+    {
+        $settingModel = new Setting;
+        $postModel = new Post;
+        $account = Account::where('slug', $slug)->first();
+        if ($account) {
+            $theme = $account->activeTheme();
+            $view = "front.theme.$theme.post";
+            $accountId = $account->id;
+            return view($view, compact('settingModel', 'postModel', 'accountId'));
+        }
+        return "یک تم برای خود انتخاب کنید";
+    }
+
     public function showPage($slug, $id)
     {
         $settingModel = new Setting;
