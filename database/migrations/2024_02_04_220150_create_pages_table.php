@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('account_id');
-            $table->string('title');
-            $table->string('slug');
-            $table->text('content');
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('content')->nullable();
             $table->text('abstract')->nullable();
-            $table->string('publish_status');
+            $table->string('publish_status')->default('draft');
             $table->string('thumbnail')->nullable();
             $table->integer('thumbnail_status')->nullable()->default(0);
             $table->integer('page_order')->nullable()->default(0);
