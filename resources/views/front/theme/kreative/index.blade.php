@@ -129,11 +129,9 @@
 <section id="portfolio">
     <div class="row section-head">
         <div class="col full">
-            <h2>Portfolio</h2>
-            <p class="desc">Check out our latest projects.</p>
-            <p class="intro">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate.
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium. </p>
+            <h2>{{ $settingModel->getSetting('portfolio_title', $accountId) }}</h2>
+            <p class="desc">{{ $settingModel->getSetting('portfolio_subtitle', $accountId) }}</p>
+            <p class="intro">{{ $settingModel->getSetting('portfolio_text', $accountId) }}</p>
         </div>
     </div>
     <div class="row">
@@ -146,7 +144,7 @@
                                 <img src="{{ asset('front-theme-asset/kreative/images/portfolio/cosmic-sneakers.jpg') }}" alt="">
                             </a>
                             <div class="portfolio-item-meta">
-                                <h5><a href="#">Cosmic Sneakers</a></h5>
+                                <h5><a href="#">{{ $portfolio->title }}</a></h5>
                             </div>
                         </div>
                     </div>
