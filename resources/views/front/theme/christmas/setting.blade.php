@@ -101,7 +101,7 @@
                 <div class="col form-group">
                     <label class="form-label">عنوان سوم</label>
                     <input type="text" name="title3_sec1" class="form-control" placeholder="عنوان کوچک..."
-                        value="{{ $settingModel->getSetting('title_sec1', $account->id) }}">
+                        value="{{ $settingModel->getSetting('title3_sec1', $account->id) }}">
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان سوم</label>
