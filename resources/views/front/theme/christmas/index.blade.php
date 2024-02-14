@@ -92,7 +92,7 @@
         <!--OVERVIEW ITEMS-->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <img src="{{ $settingModel->getSetting('image1_sec1', $accountId) }}">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec1', $accountId)) }}'>
                 <h4>{{ $settingModel->getSetting('title1_sec1', $accountId) }}</h4>
                 <p>{{ $settingModel->getSetting('subtitle1_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
