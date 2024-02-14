@@ -219,8 +219,8 @@
                 <div class="col-md-8">
                     <h4><a href="">{{ $settingModel->getSetting('title1_sec5', $accountId) }}</a></h4>
                     <p>{{ $settingModel->getSetting('subtitle1_sec5', $accountId) }}</p>
-                    <p class="price">US <span class="highlight">$4.25</span> / piece</p>
-                    <p>Original Price: US $8.49 , You Save:US $4.24</p>
+                    <p class="price">{{ $settingModel->getSetting('title2_sec5', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('subtitle2_sec5', $accountId) }}</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
             </div><!--SMALL ITEM 1 END-->
 
@@ -229,7 +229,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-3.jpg"
+                        <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec5', $accountId)) }}'
                             alt="">
                     </a>
 
@@ -242,12 +242,10 @@
 
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
-                    <h4><a href="">Girls' Pocha Chocolate Shoe</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris.</p>
-                    <p class="price">US <span class="highlight">$4.25</span> / piece</p>
-                    <p>Original Price: US $8.49 , You Save:US $4.24</p>
+                    <h4><a href="">{{ $settingModel->getSetting('title1_2_sec5', $accountId) }}</a></h4>
+                    <p>{{ $settingModel->getSetting('subtitle1_2_sec5', $accountId) }}.</p>
+                    <p class="price">{{ $settingModel->getSetting('title2_2_sec5', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('subtitle2_2_sec5', $accountId) }}</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
             </div><!--SMALL ITEM 2 END-->
         </div><!--SMALL ITEM 1ST ROW END-->
@@ -259,7 +257,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-4.jpg"
+                        <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec5', $accountId)) }}'
                             alt="">
                     </a>
 
@@ -272,12 +270,10 @@
 
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
-                    <h4><a href="">Dui Nombor Colorful Blanket</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris.</p>
-                    <p class="price">US <span class="highlight">$4.25</span> / piece</p>
-                    <p>Original Price: US $8.49 , You Save:US $4.24</p>
+                    <h4><a href="">{{ $settingModel->getSetting('title1_3_sec5', $accountId) }}</a></h4>
+                    <p>{{ $settingModel->getSetting('subtitle1_3_sec5', $accountId) }}</p>
+                    <p class="price">{{ $settingModel->getSetting('title1_3_sec5', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('subtitle1_3_sec5', $accountId) }}</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
             </div><!--SMALL ITEM 3 END-->
 
@@ -286,7 +282,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-5.jpg"
+                        <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec5', $accountId)) }}'
                             alt="">
                     </a>
 
@@ -299,12 +295,10 @@
 
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
-                    <h4><a href="">Azaira Baby Toy Kinley Dhora</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris</p>
-                    <p class="price">US <span class="highlight">$4.25</span> / piece</p>
-                    <p>Original Price: US $8.49 , You Save:US $4.24</p>
+                    <h4><a href="">{{ $settingModel->getSetting('title1_4_sec5', $accountId) }}</a></h4>
+                    <p>{{ $settingModel->getSetting('subtitle1_4_sec5', $accountId) }}</p>
+                    <p class="price">{{ $settingModel->getSetting('title1_4_sec5', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('subtitle1_4_sec5', $accountId) }}</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
             </div><!--SMALL ITEM 4 END-->
         </div><!--SMALL ITEM 2ND ROW END-->
