@@ -145,7 +145,7 @@
                     <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec2', $accountId)) }}'>
                 </div><!--CALL-TO-ACTION IMAGE END-->
                 <div class="sectionhead content col-md-8">
-                    <h2> {{ $settingModel->getSetting('title_sec2', $accountId) }}<span class="highlight"></span></h2>
+                    <h2>Best <span class="highlight">{{ $settingModel->getSetting('title_sec2', $accountId) }}</span> template</h2>
                     <p>{{ $settingModel->getSetting('subtitle_sec2', $accountId) }}</p>
                     <a href="" class="btn btn-default">Download</a>
                 </div><!--CALL-TO-ACTION CONTENT END-->
