@@ -75,8 +75,8 @@
                                         <i class="fa fa-eye " style="font-size:48px;color: white;"></i>
                                     </div>
                                     <div class="col-6 text-center p-4">
-                                        بازدید سایت :
-                                        {{ convertToPersian(12344324) }}
+                                        بازدید روز داشبورد :
+                                        {{ convertToPersian( App\Models\Visit::dashboardDayVisit())}}
                                     </div>
                                 </div>
                             </div>

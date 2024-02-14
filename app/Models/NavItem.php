@@ -35,4 +35,7 @@ class NavItem extends Model
     public function children(){
         return $this->hasMany(NavItem::class,'parent_id')->orderBy('order_num');
     }
+    public function object(){
+        return $this->belongsTo(Page::class,'object_id');
+    }
 }
