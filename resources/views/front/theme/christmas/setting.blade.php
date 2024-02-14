@@ -540,15 +540,29 @@
     @if ($settingModel->getSetting('sec6_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
+                <div class="col-12 form-group ">
+                    <label class="form-label ">تصویر </label>
+                    <input type="file" name="image_sec6" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image_sec6'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image_sec6')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان اول</label>
                     <input type="text" name="title1_sec6" class="form-control" placeholder="عنوان کوچک..."
-                        value="{{ $settingModel->getSetting('title1_sec4', $account->id) }}">
+                        value="{{ $settingModel->getSetting('title1_sec6', $account->id) }}">
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان اول</label>
                     <input type="text" name="subtitle1_sec6" class="form-control" placeholder="عنوان بزرگ..."
-                        value="{{ $settingModel->getSetting('subtitle1_sec4', $account->id) }}">
+                        value="{{ $settingModel->getSetting('subtitle1_sec6', $account->id) }}">
                 </div>
             </div>
             <div class="col form-group">

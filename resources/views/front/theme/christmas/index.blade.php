@@ -313,10 +313,8 @@
                 <img class="santaicon wow tada infinite" data-wow-duration="20s"
                     src="{{ asset('front-theme-asset/christmas') }}/img/santa-sm.png" alt="">
                 <div class="sectionhead">
-                    <h2>Don’t miss the <span class="highlight">upcoming hot deals</span> amymore</h2>
-                    <p>Just give us your email address below, and forget it. We’ll send you every time we have something
-                        special for you. No worries, Santa never send spam mails. And you can unsubscribe anytime as
-                        well.</p>
+                    <h2>{{ $settingModel->getSetting('title1_sec6', $accountId) }}</h2>
+                    <p>{{ $settingModel->getSetting('subtitle1_sec6', $accountId) }}</p>
                 </div><!--SECTIONHEAD END-->
 
                 <!--MAILCHIMP FORM START-->
