@@ -585,7 +585,7 @@
 </div>
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title pull-right">بخش ششم</h3>
+        <h3 class="card-title pull-right">بخش هفتم</h3>
         <select name="sec7_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('sec7_status', $account->id) == 1 ? 'selected' : '' }}
                 value="1">
@@ -620,76 +620,7 @@
         </div>
     @endif
 </div>
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title">تماس</h3>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-12 form-group">
-                <label class="form-label">نقشه گوگل</label>
-                <textarea name="google_map" class="form-control ltr" placeholder="نقشه گوگل...">{{ $settingModel->getSetting('google_map', $account->id) }}</textarea>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title">خدمات</h3>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">عنوان خدمات</label>
-                <input type="text" name="service_title" class="form-control" placeholder="عنوان خدمات..."
-                    value="{{ $settingModel->getSetting('service_title', $account->id) }}">
-            </div>
-            <div class="col-6 form-group">
-                <label class="form-label">متن خدمات</label>
-                <input type="text" name="service_text" class="form-control" placeholder="متن خدمات..."
-                    value="{{ $settingModel->getSetting('service_text', $account->id) }}">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن اول</label>
-                <input type="text" name="service_first_icon" class="form-control" placeholder="آیکن اول..."
-                    value="{{ $settingModel->getSetting('service_first_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان اول</label>
-                <input type="text" name="service_first_icon" class="form-control" placeholder="عنوان اول..."
-                    value="{{ $settingModel->getSetting('service_first_title', $account->id) }}">
-            </div>
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن دوم</label>
-                <input type="text" name="service_second_icon" class="form-control" placeholder="آیکن دوم..."
-                    value="{{ $settingModel->getSetting('service_second_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان دوم</label>
-                <input type="text" name="service_second_title" class="form-control" placeholder="عنوان دوم..."
-                    value="{{ $settingModel->getSetting('service_second_title', $account->id) }}">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن سوم</label>
-                <input type="text" name="service_third_icon" class="form-control" placeholder="آیکن سوم..."
-                    value="{{ $settingModel->getSetting('service_third_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان سوم</label>
-                <input type="text" name="service_third_title" class="form-control" placeholder="عنوان چهارم..."
-                    value="{{ $settingModel->getSetting('service_third_title', $account->id) }}">
-            </div>
-            <div class="col-6 form-group">
-                <label class="form-label">آیکن چهارم</label>
-                <input type="text" name="service_fourth_icon" class="form-control" placeholder="آیکن چهارم..."
-                    value="{{ $settingModel->getSetting('service_fourth_icon', $account->id) }}">
-                <hr>
-                <label class="form-label">عنوان چهارم</label>
-                <input type="text" name="service_fourth_title" class="form-control" placeholder="عنوان چهارم..."
-                    value="{{ $settingModel->getSetting('service_fourth_title', $account->id) }}">
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
