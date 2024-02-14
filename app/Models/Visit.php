@@ -56,7 +56,7 @@ class Visit extends Model
             // $query->orWhereDate('created_at', $from);
         }
         if (request()->filled('to')) {
-            $to = verta()->parse(request('to'))->datetime();
+            $to = verta()->parse(request('to'))->toCarbon()->addDay();
            // $query->WhereDate('created_at', $to);
             $query->where('created_at', '<=', $to);
         }
