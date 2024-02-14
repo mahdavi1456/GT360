@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Component;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -51,16 +53,25 @@ class Post extends Model
     public function getpublishValueAttribute()
     {
         switch ($this->publish_status) {
-            case 'draft':
-                return 'پیش نویس';
+            case "draft":
+                return "پیش نویس";
                 break;
-            case 'publish':
-                return 'منتشر شده';
+            case "publish":
+                return "منتشر شده"
                 break;
-
             default:
                 return $this->publish_status;
                 break;
         }
     }
+
+    public function getPosts($componentName)
+    {
+        $component = Component::where("name", $componentName)->first();
+        $componentId = $component->id;
+
+        $posts = Post::where("component_id", $componentId)->get();
+        return $posts;
+    }
+
 }

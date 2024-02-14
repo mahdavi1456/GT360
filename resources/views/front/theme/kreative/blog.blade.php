@@ -6,7 +6,7 @@
 <title>Kreative | Blog</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="{{ asset('front-theme-asset/kreative/css/base.css') }}">
 <link rel="stylesheet" href="css/layout.css">
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
@@ -31,7 +31,7 @@
   <article class="post">
     <div class="row">
       <div class="col entry-header cf">
-        <h1><a href="blog-single.html">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
+        <h1><a href="page.blade.php">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
         <div class="post-meta">
           <time class="date" datetime="2045-08-14T11:24">Aug 14, 2045</time>
           <p class="categories"> <span class="sep">/</span><a href="#">Design</a> <span class="sep">/</span><a href="#">User Inferface</a> <span class="sep">/</span><a href="#">Web Design</a> </p>
@@ -40,14 +40,14 @@
       <div class="col post-image"> <img src="images/post-image/post-image-c-972x360.jpg" alt="" title="post-image"> </div>
       <div class="col post-content offset-2">
         <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. </p>
-        <p><a href="blog-single.html" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
+        <p><a href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
       </div>
     </div>
   </article>
   <article class="post">
     <div class="row">
       <div class="col entry-header cf">
-        <h1><a href="blog-single.html">Quis autem vel esse eum iure reprehenderit qui in ea voluptate velit esse.</a></h1>
+        <h1><a href="page.blade.php">Quis autem vel esse eum iure reprehenderit qui in ea voluptate velit esse.</a></h1>
         <div class="post-meta">
           <time class="date" datetime="2045-08-12T10:24">Aug 12, 2045</time>
           <p class="categories"> <span class="sep">/</span><a href="#">Design</a> <span class="sep">/</span><a href="#">Photography</a> <span class="sep">/</span><a href="#">Branding</a> </p>
@@ -56,14 +56,14 @@
       <div class="col post-image"> <img src="images/post-image/post-image-b-972x360.jpg" alt="" title="post-image"> </div>
       <div class="col post-content offset-2">
         <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. </p>
-        <p><a href="blog-single.html" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
+        <p><a href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
       </div>
     </div>
   </article>
   <article class="post">
     <div class="row">
       <div class="col entry-header cf">
-        <h1><a href="blog-single.html">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed.</a></h1>
+        <h1><a href="page.blade.php">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed.</a></h1>
         <div class="post-meta">
           <time class="date" datetime="2045-08-10T10:24">Aug 10, 2045</time>
           <p class="categories"> <span class="sep">/</span><a href="#">Photography</a> <span class="sep">/</span><a href="#">Branding</a> <span class="sep">/</span><a href="#">Develpment</a> </p>
@@ -72,7 +72,7 @@
       <div class="col post-image"> <img src="images/post-image/post-image-a-972x360.jpg" alt="" title="post-image"> </div>
       <div class="col post-content offset-2">
         <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. </p>
-        <p><a href="blog-single.html" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
+        <p><a href="page.blade.php" class="more-link">Read More<i class="icon-angle-right"></i></a></p>
       </div>
     </div>
   </article>

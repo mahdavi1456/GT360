@@ -165,8 +165,8 @@
                     <p>{{ $settingModel->getSetting('portfolio_text', $accountId) }}</p>
                 </div>
                 <div class="col-md-12 col-sm-12"></div>
-                @if ($products->count() > 0)
-                    @foreach ($products as $product)
+                @if ($postModel->getPosts('product')->count() > 0)
+                    @foreach ($postModel->getPosts('product') as $product)
                         @if ($product->thumbnail)
                             @php $src = asset(ert('thumb-path')) . '/' . $product->thumbnail; @endphp
                         @else

@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Setting;
-
 use App\Models\Post;
 
 use Illuminate\Support\Str;
@@ -27,19 +26,20 @@ class AccountController extends Controller
     public function dashboard()
     {
         $setting = new Setting();
-        
+
         return view('admin.dashboard', compact('setting'));
     }
     public function loadSite($slug)
     {
         $settingModel = new Setting;
+        $postModel = new Post;
         $account = Account::where('slug', $slug)->first();
         if ($account) {
             $theme = $account->activeTheme();
             $view = "front.theme.$theme.index";
             $accountId = $account->id;
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'accountId', 'products'));
+            return view($view, compact('settingModel', 'postModel', 'accountId', 'products'));
         }
         return "یک تم برای خود انتخاب کنید";
     }
