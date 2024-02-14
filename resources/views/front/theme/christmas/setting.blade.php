@@ -29,16 +29,6 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col form-group">
-                <label class="form-label">عنوان اول</label>
-                <input type="text" name="title_sec1" class="form-control" placeholder="عنوان کوچک..."
-                    value="{{ $settingModel->getSetting('title_sec1', $account->id) }}">
-            </div>
-            <div class="col form-group">
-                <label class="form-label">زیر عنوان اول</label>
-                <input type="text" name="subtitle_sec1" class="form-control" placeholder="عنوان بزرگ..."
-                    value="{{ $settingModel->getSetting('subtitle_sec1', $account->id) }}">
-            </div>
             <div class="col-4 form-group ">
                 <label class="form-label ">تصویر اول</label>
                 <input type="file" name="image1_sec1" onchange="uploadImage(this)">
@@ -50,6 +40,17 @@
                     </div>
                 @endif
             </div>
+            <div class="col form-group">
+                <label class="form-label">عنوان اول</label>
+                <input type="text" name="title_sec1" class="form-control" placeholder="عنوان کوچک..."
+                    value="{{ $settingModel->getSetting('title_sec1', $account->id) }}">
+            </div>
+            <div class="col form-group">
+                <label class="form-label">زیر عنوان اول</label>
+                <input type="text" name="subtitle_sec1" class="form-control" placeholder="عنوان بزرگ..."
+                    value="{{ $settingModel->getSetting('subtitle_sec1', $account->id) }}">
+            </div>
+
             <div class="col form-group">
                 <label class="form-label">عنوان سوم</label>
                 <input type="text" name="third_title_sec1" class="form-control" placeholder="عنوان سوم..."
