@@ -17,6 +17,7 @@
     <script src="{{ asset('front-theme-asset/kreative/js/html5.js') }}"></script>
     <![endif]-->
     <link rel="shortcut icon" href="{{ asset('front-theme-asset/kreative/images/favicon.ico') }}">
+    @php $slug = $settingModel->getSetting('slug', $accountId) @endphp
 </head>
 <body data-spy="scroll" data-target="#nav-wrap">
 <header class="mobile">
@@ -340,7 +341,7 @@
                         <div class="col g-9 offset-1 post-content">
                             <p>
                                 {!! $journal->abstract !!}
-                                <a href="{{ route('showPage', ['slug' => $settingModel->getSetting('slug', $accountId), 'id' => $journal->id]) }}" class="more-link">Read More<i class="icon-angle-right"></i></a>
+                                <a href="{{ route('showPage', ['slug' => $slug, 'id' => $journal->id]) }}" class="more-link">Read More<i class="icon-angle-right"></i></a>
                             </p>
                         </div>
                     </div>
