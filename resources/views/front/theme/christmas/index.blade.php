@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,10 +18,14 @@
     FAVICONS
     =========================== -->
     <link rel="icon" href="{{ asset('front-theme-asset/christmas') }}/img/favicon.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-ipad-retina.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-iphone-retina.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-ipad.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-ipad-retina.png" />
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="{{ asset('front-theme-asset/christmas') }}/img/apple-touch-icon-iphone.png" />
 
     <!-- ===========================
     STYLESHEETS
@@ -58,16 +63,19 @@
             <div class="container">
                 <div class="row">
                     <div class="herotext">
-                        <h2 class="wow zoomInDown" data-wow-duration="3s">{{ $settingModel->getSetting('first_title_sec1', $accountId) }}</h2>
-                        <h1 class="wow flipInY">{{ $settingModel->getSetting('second_title_sec1', $accountId) }}</h1>
+                        <h2 class="wow zoomInDown" data-wow-duration="3s">
+                            {{ $settingModel->getSetting('title', $accountId) }}</h2>
+                        <h1 class="wow flipInY">{{ $settingModel->getSetting('description', $accountId) }}</h1>
 
                         <a class="btn btn-reverse wow zoomIn" href="#products">
-                            <h3>{{ $settingModel->getSetting('button_title_sec1', $accountId) }}</h3>
+                            <h3>{{ $settingModel->getSetting('button_title', $accountId) }}</h3>
                         </a><!--#NOTE: texts inside the OPTIONAL tag above would be hidden on smaller mobile screens -->
 
-                        <p class="wow fadeInUp" data-wow-duration="2s">{{ $settingModel->getSetting('third_title_sec1', $accountId) }}</p>
+                        <p class="wow fadeInUp" data-wow-duration="2s">
+                            {{ $settingModel->getSetting('third_title_sec1', $accountId) }}</p>
 
-                        <img class="bigbell wow tada infinite" data-wow-duration="30s" src="{{ asset('front-theme-asset/christmas') }}/img/bell.png" alt="">
+                        <img class="bigbell wow tada infinite" data-wow-duration="30s"
+                            src="{{ asset('front-theme-asset/christmas') }}/img/bell.png" alt="">
                     </div>
 
                     <div class="santa wow bounceInDown" data-wow-duration="2s">
@@ -84,47 +92,45 @@
     <div id="overview" class="container">
         <!--SECTIONHEAD START-->
         <div class="sectionhead">
-            <h2>{{ $settingModel->getSetting('first_title_sec2', $accountId) }}</h2>
-            <p>{{ $settingModel->getSetting('second_title_sec2', $accountId) }}</p>
+            <h2>{{ $settingModel->getSetting('first_title', $accountId) }}</h2>
+            <p>{{ $settingModel->getSetting('first_subtitle', $accountId) }}</p>
             <hr>
         </div><!--SECTIONHEAD END-->
 
         <!--OVERVIEW ITEMS-->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o1.png" alt="">
-                <h4>Exclusively on EvenFly</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title1_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle1_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o2.png" alt="">
-                <h4>Money back guarantee</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title2_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle2_sec1', $accountId) }}</p>
+            </div><!--ITEM END-->
+            <div class="col-md-6 col-lg-4">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title3_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle3_sec1', $accountId) }}</p>
+            </div><!--ITEM END-->
+            <div class="col-md-6 col-lg-4">
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title4_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle4_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o3.png" alt="">
-                <h4>Free worldwide home deivery</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image5_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title5_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle5_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o4.png" alt="">
-                <h4>Pre & Post purchase support</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div><!--ITEM END-->
-
-            <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o5.png" alt="">
-                <h4>Surprise gift included</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-            </div><!--ITEM END-->
-
-            <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o6.png" alt="">
-                <h4>It will be free forever</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image6_sec1', $accountId)) }}'>
+                <h4>{{ $settingModel->getSetting('title6_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle6_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
         </div><!--OVERVIEW ITEMS END-->
     </div><!--OVERVIEW SECTION END-->
@@ -133,32 +139,29 @@
     CALL-TO-ACTION SECTION
     =========================== -->
     <div class="calltoaction">
-    <div class="lightoverlay">
-        <div class="container">
-            <div class="col-md-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/tree.gif" alt="">
-            </div><!--CALL-TO-ACTION IMAGE END-->
-
-            <div class="sectionhead content col-md-8">
-                <h2>Best <span class="highlight">free landing page</span> template</h2>
-                <p>SantaGo is another free Christmas sales and affiliate landing page template built and distributed by <a href="http://evenfly.com">EvenFly Team</a> as a small cristmas gift under Creative Commons 3.0 license. If you have any question, suggestion or need assistance, feel free to <a href="mailto:support@venfly.com">email us</a> anytime.
-
-</p>
-                <a href="" class="btn btn-default">Download</a>
-            </div><!--CALL-TO-ACTION CONTENT END-->
-        </div><!--CALL-TO-ACTION CONTAINER END-->
-    </div><!--CALL-TO-ACTION OVERLAY END-->
-</div><!--CALL-TO-ACTION END-->
+        <div class="lightoverlay">
+            <div class="container">
+                <div class="col-md-4">
+                    <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec2', $accountId)) }}'>
+                </div><!--CALL-TO-ACTION IMAGE END-->
+                <div class="sectionhead content col-md-8">
+                    <h2>{{ $settingModel->getSetting('title_sec2', $accountId) }}</h2>
+                    <p>{{ $settingModel->getSetting('subtitle_sec2', $accountId) }}</p>
+                    <a href=""
+                        class="btn btn-default">{{ $settingModel->getSetting('button_title_sec2', $accountId) }}</a>
+                </div><!--CALL-TO-ACTION CONTENT END-->
+            </div><!--CALL-TO-ACTION CONTAINER END-->
+        </div><!--CALL-TO-ACTION OVERLAY END-->
+    </div><!--CALL-TO-ACTION END-->
 
     <!-- ===========================
     PRODUCTS SECTION
     =========================== -->
     <div id="products" class="container">
-
         <!--SECTIONHEAD START-->
         <div class="sectionhead text-center">
-            <h2>Catch the <span class="highlight">bang head</span> deals</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+            <h2>{{ $settingModel->getSetting('title_sec3', $accountId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle_sec3', $accountId) }}</p>
             <hr>
         </div><!--SECTIONHEAD END-->
 
@@ -166,7 +169,8 @@
         <div class="featureditem row">
             <div class="col-md-5 text-center">
                 <a href="">
-                    <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-1.jpg" alt="">
+                    <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec4', $accountId)) }}'
+                        alt="">
                 </a>
 
                 <!--DISCOUNT TAG-->
@@ -179,14 +183,15 @@
 
             <!--PRODUCT DETAILS STRART-->
             <div class="col-md-7">
-                <h4><a href="">Christmas Special Girls Shoe Dui Din O Tikbo na</a></h4>
+                <h4><a href="">{{ $settingModel->getSetting('title1_sec4', $accountId) }}</a></h4>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>{{ $settingModel->getSetting('subtitle1_sec4', $accountId) }}</p>
 
-                <p class="price">US <span class="highlight">$4.25</span> / piece</p>
-                <p>Original Price: US $8.49 , You Save:US $4.24</p>
+                <p class="price">{{ $settingModel->getSetting('title2_sec4', $accountId) }}</p>
+                <p>{{ $settingModel->getSetting('subtitle2_sec4', $accountId) }}</p>
 
-                <a href="" class="btn btn-default">Buy now</a>
+                <a href=""
+                    class="btn btn-default">{{ $settingModel->getSetting('button_title_sec4', $accountId) }}</a>
             </div><!--ITEM DETAILS END-->
         </div><!--FEATURED PRODUCT END-->
 
@@ -199,7 +204,8 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-2.jpg" alt="">
+                        <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec5', $accountId)) }}'
+                            alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -211,8 +217,8 @@
 
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
-                    <h4><a href="">Eida Kintu Tomato Na Morich</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <h4><a href="">{{ $settingModel->getSetting('title1_sec5', $accountId) }}</a></h4>
+                    <p>{{ $settingModel->getSetting('subtitle1_sec5', $accountId) }}</p>
                     <p class="price">US <span class="highlight">$4.25</span> / piece</p>
                     <p>Original Price: US $8.49 , You Save:US $4.24</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
@@ -223,7 +229,8 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-3.jpg" alt="">
+                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-3.jpg"
+                            alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -236,7 +243,9 @@
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
                     <h4><a href="">Girls' Pocha Chocolate Shoe</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris.</p>
                     <p class="price">US <span class="highlight">$4.25</span> / piece</p>
                     <p>Original Price: US $8.49 , You Save:US $4.24</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
@@ -250,7 +259,8 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-4.jpg" alt="">
+                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-4.jpg"
+                            alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -263,7 +273,9 @@
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
                     <h4><a href="">Dui Nombor Colorful Blanket</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris.</p>
                     <p class="price">US <span class="highlight">$4.25</span> / piece</p>
                     <p>Original Price: US $8.49 , You Save:US $4.24</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
@@ -274,7 +286,8 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-5.jpg" alt="">
+                        <img class="productimg" src="{{ asset('front-theme-asset/christmas') }}/img/product-5.jpg"
+                            alt="">
                     </a>
 
                     <!--DISCOUNT TAG-->
@@ -287,7 +300,9 @@
                 <!--SMALL PRODUCT DESCRIPTION START-->
                 <div class="col-md-8">
                     <h4><a href="">Azaira Baby Toy Kinley Dhora</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris</p>
                     <p class="price">US <span class="highlight">$4.25</span> / piece</p>
                     <p>Original Price: US $8.49 , You Save:US $4.24</p>
                 </div><!--SMALL PRODUCT DESCRIPTION END-->
@@ -301,19 +316,29 @@
     <div id="subscribe">
         <div class="darkoverlay">
             <div class="container text-center">
-                <img class="santaicon wow tada infinite" data-wow-duration="20s" src="{{ asset('front-theme-asset/christmas') }}/img/santa-sm.png" alt="">
+                <img class="santaicon wow tada infinite" data-wow-duration="20s"
+                    src="{{ asset('front-theme-asset/christmas') }}/img/santa-sm.png" alt="">
                 <div class="sectionhead">
                     <h2>Don’t miss the <span class="highlight">upcoming hot deals</span> amymore</h2>
-                    <p>Just give us your email address below, and forget it. We’ll send you every time we have something special for you. No worries, Santa never send spam mails. And you can unsubscribe anytime as well.</p>
+                    <p>Just give us your email address below, and forget it. We’ll send you every time we have something
+                        special for you. No worries, Santa never send spam mails. And you can unsubscribe anytime as
+                        well.</p>
                 </div><!--SECTIONHEAD END-->
 
                 <!--MAILCHIMP FORM START-->
                 <div class="mailchimp">
-                    <form action="http://evenfly.us8.list-manage.com/subscribe/post?u=62bca83399cf0083546588b62&amp;id=f85a072005" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><!-- #NOTE: Replace this with your Mailchimp action URL -->
+                    <form
+                        action="http://evenfly.us8.list-manage.com/subscribe/post?u=62bca83399cf0083546588b62&amp;id=f85a072005"
+                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                        class="validate" target="_blank" novalidate>
+                        <!-- #NOTE: Replace this with your Mailchimp action URL -->
 
-                            <input type="text" value="" name="FNAME" id="mce-FNAME" placeholder="First Name" required>
-                            <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required>
-                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-inverse">
+                        <input type="text" value="" name="FNAME" id="mce-FNAME" placeholder="First Name"
+                            required>
+                        <input type="email" value="" name="EMAIL" id="mce-EMAIL"
+                            placeholder="Email Address" required>
+                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                            class="btn btn-inverse">
                     </form>
                 </div>
             </div><!--SUBSCRIBE CONTAINER END-->
@@ -326,7 +351,8 @@
     <footer class="container text-center">
         <h2 class="logo">Santa<span class="highlight">Go</span></h2>
         <img class="santacap" src="{{ asset('front-theme-asset/christmas') }}/img/santa_cap.png" alt="">
-        <P>Another free Bootstrap Landing page temlate from <a href="http://evenfly.com">EvenFly</a> released under <a href="https://creativecommons.org/licenses/by/3.0/">CC 3.0</a> license.</P>
+        <P>Another free Bootstrap Landing page temlate from <a href="http://evenfly.com">EvenFly</a> released under <a
+                href="https://creativecommons.org/licenses/by/3.0/">CC 3.0</a> license.</P>
         <hr>
     </footer><!--FOOTER END-->
 
@@ -334,51 +360,57 @@
     SOCIAL ICONS
     =========================== -->
     <div class="sticky-container">
-		<ul class="sticky">
-			<li>
-				<a href="">
-                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/facebook.svg" />
+        <ul class="sticky">
+            <li>
+                <a href="">
+                    <img title="" alt=""
+                        src="{{ asset('front-theme-asset/christmas') }}/img/facebook.svg" />
                     <p>Facebook</p>
-				</a>
-			</li>
+                </a>
+            </li>
 
-			<li>
-				<a href="">
-                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/twitter.svg" />
+            <li>
+                <a href="">
+                    <img title="" alt=""
+                        src="{{ asset('front-theme-asset/christmas') }}/img/twitter.svg" />
                     <p>Twitter</p>
-				</a>
-			</li>
+                </a>
+            </li>
 
-			<li>
-				<a href="">
-                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/pinterest.svg" />
+            <li>
+                <a href="">
+                    <img title="" alt=""
+                        src="{{ asset('front-theme-asset/christmas') }}/img/pinterest.svg" />
                     <p>Pinterest</p>
-				</a>
-			</li>
+                </a>
+            </li>
 
-			<li>
-				<a href="">
-                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/linkedin.svg" />
+            <li>
+                <a href="">
+                    <img title="" alt=""
+                        src="{{ asset('front-theme-asset/christmas') }}/img/linkedin.svg" />
                     <p>Linkedin</p>
-				</a>
-			</li>
+                </a>
+            </li>
 
-			<li>
-			    <a href="">
-                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/google_plus.svg" />
+            <li>
+                <a href="">
+                    <img title="" alt=""
+                        src="{{ asset('front-theme-asset/christmas') }}/img/google_plus.svg" />
                     <p>Google Plus</p>
-				</a>
-			</li>
+                </a>
+            </li>
 
-			<li>
-			    <a href="">
-                    <img title="" alt="" src="{{ asset('front-theme-asset/christmas') }}/img/instagram.svg" />
+            <li>
+                <a href="">
+                    <img title="" alt=""
+                        src="{{ asset('front-theme-asset/christmas') }}/img/instagram.svg" />
                     <p>Instagram</p>
-				</a>
-			</li>
+                </a>
+            </li>
 
-		</ul>
-	</div>
+        </ul>
+    </div>
     <!-- ===========================
     NECESSARY SCRIPTS
     =========================== -->
@@ -388,6 +420,9 @@
     <script src="{{ asset('front-theme-asset/christmas') }}/js/jquery.nicescroll.min.js"></script>
     <script src="{{ asset('front-theme-asset/christmas') }}/js/wow.min.js"></script>
     <script src="{{ asset('front-theme-asset/christmas') }}/js/snowstorm-min.js"></script>
-    <script>new WOW().init();</script>
+    <script>
+        new WOW().init();
+    </script>
 </body>
+
 </html>
