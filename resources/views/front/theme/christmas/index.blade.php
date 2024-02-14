@@ -92,8 +92,8 @@
     <div id="overview" class="container">
         <!--SECTIONHEAD START-->
         <div class="sectionhead">
-            <h2>{{ $settingModel->getSetting('first_title_sec2', $accountId) }}</h2>
-            <p>{{ $settingModel->getSetting('second_title_sec2', $accountId) }}</p>
+            <h2>{{ $settingModel->getSetting('first_title', $accountId) }}</h2>
+            <p>{{ $settingModel->getSetting('first_subtitle', $accountId) }}</p>
             <hr>
         </div><!--SECTIONHEAD END-->
 
