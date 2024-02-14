@@ -19,7 +19,7 @@ class visit
     {
         $response=$next($request);
         ModelsVisit::create([
-            'ip'=>request()->ip(),
+            'ip'=>getIp(),
             'url'=>request()->url(),
             'route'=>request()->route()->getName(),
             'browser'=>Agent::browser(),
