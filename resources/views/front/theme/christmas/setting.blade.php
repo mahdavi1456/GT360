@@ -403,7 +403,7 @@
                         value="{{ $settingModel->getSetting('subtitle2_sec5', $account->id) }}">
                 </div>
             </div>
-         
+
             <hr>
             <div class="row">
                 <div class="col-12 form-group ">
@@ -522,7 +522,6 @@
                         value="{{ $settingModel->getSetting('subtitle2_4_sec5', $account->id) }}">
                 </div>
             </div>
-            <hr>
         </div>
     @endif
 </div>
