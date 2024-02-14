@@ -109,7 +109,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');
         Route::get('nav-item-resort', [NavController::class,'resortItems'])->name('nav.resort');
 
-        //plan
+        //Plan
         Route::resource('plan', PlanController::class);
         Route::get('plan/{plan}/items', [PlanController::class, 'ListItems'])->name('plan.ListItems');
         // Route::get('plan/{plan}/items-create',[PlanController::class,'itemCreate'])->name('plan.itemCreate');
@@ -151,6 +151,9 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::post('theme/{theme}/component/store', [ThemeController::class, 'componentStore'])->name('theme.componentStore');
         Route::get('theme/{theme}/nav', [ThemeController::class, 'selectNav'])->name('theme.selectNav');
         Route::post('theme/{theme}/nav/store', [ThemeController::class, 'NavStore'])->name('theme.navStore');
+
+        Route::get('personalize', [ThemeController::class, 'personalize'])->name('theme.personalize');
+        Route::post('update-personalize', [ThemeController::class, 'updatePersonalize'])->name('theme.updatePersonalize');
 
         Route::resource('taxonomy', TaxonomyController::class);
 

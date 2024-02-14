@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nav;
+use App\Models\Pallete;
+use App\Models\Font;
 use App\Models\Theme;
 use App\Models\Setting;
 use App\Models\Component;
@@ -13,6 +15,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class ThemeController extends Controller
 {
+
+    public function show()
+    {
+
+    }
 
     public function index()
     {
@@ -155,7 +162,7 @@ class ThemeController extends Controller
         //dd($themComponents);
         $pluck = $themComponents->pluck('id')->toArray();
         $components = Component::where('status','active')->latest()->get();
-      
+
         return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents', 'pluck'));
     }
     public function selectNav($theme)
@@ -194,4 +201,25 @@ class ThemeController extends Controller
         Alert::success('موفق', 'تصویر مورد نظر حذف شد');
         return back();
     }
+
+    public function personalize()
+    {
+        $fonts = Font::all();
+        $palletes = Pallete::all();
+        $settingModel = new Setting;
+        return view('admin.theme.personalize', compact('fonts', 'palletes', 'settingModel'));
+    }
+
+    public function updatePersonalize(Request $request)
+    {
+        $settingModel = new Setting;
+        $data = $request->request;
+
+        foreach ($data as $key => $value) {
+            $settingModel->updateSetting($key, $value, auth()->user()->account->id);
+        }
+        Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
+        return back();
+    }
+
 }

@@ -1,8 +1,8 @@
 @extends('front.theme.park.parts.master')
 @section('content')
     <div class="MainSlider" style="background-image:url( {{ asset('front-theme-asset/park/img/wall.jpg') }})">
-        <h1></h1>
-        <p></p>
+        <h1>{{ $settingModel->getSetting('title', $accountId) }}</h1>
+        <p>{{ $settingModel->getSetting('description', $accountId) }}</p>
     </div>
     <div class="container-fluid">
         <div class="MainWidgetBtn">
@@ -15,12 +15,10 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
                 <div class="website-introduce">
-                    <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=214737&Code='><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=214737&Code=' alt='' style='cursor:pointer' Code=''></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
                 <div class="website-video">
-
                 </div>
             </div>
         </div>

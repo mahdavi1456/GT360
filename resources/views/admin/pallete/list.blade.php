@@ -38,10 +38,10 @@
                                                 <td>{{ $pallete->name }}</td>
                                                 <td>{{ $pallete->label }}</td>
                                                 <td>{{ $pallete->details }}</td>
-                                                <td>{{ $pallete->first_color }}</td>
-                                                <td>{{ $pallete->second_color }}</td>
-                                                <td>{{ $pallete->third_color }}</td>
-                                                <td>{{ $pallete->fourth_color }}</td>
+                                                <td style="background: #{{ $pallete->first_color }}">{{ $pallete->first_color }}</td>
+                                                <td style="background: #{{ $pallete->second_color }}">{{ $pallete->second_color }}</td>
+                                                <td style="background: #{{ $pallete->third_color }}">{{ $pallete->third_color }}</td>
+                                                <td style="background: #{{ $pallete->fourth_color }}">{{ $pallete->fourth_color }}</td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('pallete.edit', $pallete) }}" class="btn btn-warning btn-sm mx-1"><i class="fa fa-edit"></i></a>
                                                     <form action="{{ route('pallete.destroy', $pallete) }}" method="POST">

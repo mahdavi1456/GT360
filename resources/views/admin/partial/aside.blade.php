@@ -201,11 +201,17 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview sub-menu"
-                            {{ active_list(['theme.choose', 'theme-setting.index', 'social-media.index']) }}>
+                            {{ active_list(['theme.choose', 'theme.personalize', 'theme-setting.index', 'social-media.index']) }}>
                             <li class="nav-item" {{ active_menu('theme.choose') }}>
                                 <a href="{{ route('theme.choose') }}" class="nav-link">
                                     <i class="fa fa-th-list text-warning nav-icon"></i>
                                     <p>قالب</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" {{ active_menu('theme.personalize') }}>
+                                <a href="{{ route('theme.personalize') }}" class="nav-link">
+                                    <i class="fa fa-th-list text-warning nav-icon"></i>
+                                    <p>شخصی سازی</p>
                                 </a>
                             </li>
                             <li class="nav-item" {{ active_menu('social-media.index') }}>

@@ -1,6 +1,51 @@
 <?php
 
 use App\Models\Setting;
+use App\Models\Font;
+use Illuminate\Support\Facades\Auth;
+
+function adminBar()
+{
+    if (Auth::check()) {
+        ?>
+        <style type="text/css">
+            .admin-bar {
+                width: 100%;
+                z-index: 99999;
+                direction: rtl;
+                position: fixed;
+                top: 0;
+                background-color: #222;
+                border-color: #080808;
+            }
+            .admin-bar-list {
+                list-style: none;
+                float: right;
+                margin: auto;
+                padding: 10px 20px;
+            }
+            .admin-bar-list li {
+                display: inline-block;
+            }
+            .admin-bar-list li a {
+                padding: 5px 10px;
+                color: #828282;
+            }
+        </style>
+        <nav class="admin-bar">
+            <div class="container-fluid">
+                <ul class="admin-bar-list">
+                    <li><a href="#">نوار ابزار مدیریت</a></li>
+                    <li><a href="<?php echo route('nav.items'); ?>">فهرست</a></li>
+                    <li><a href="<?php echo route('themeComponents'); ?>">محتوا</a></li>
+                    <li><a href="<?php echo route('social-media.index'); ?>">شبکه های اجتماعی</a></li>
+                    <li><a href="<?php echo route('theme-setting.index'); ?>">تنظیمات</a></li>
+                </ul>
+            </div>
+        </nav>
+        <?php
+    }
+}
 
 function breadcrumb($title)
 { ?>
@@ -14,7 +59,7 @@ function breadcrumb($title)
             <li class="breadcrumb-item active">فرم‌های پیشرفته</li>
         </ol>
     </div> -->
-<?php
+    <?php
 }
 
 function fa_number($string)
@@ -32,7 +77,6 @@ function getSetting($key)
     } else {
         $value = null;
     }
-
     return $value;
 }
 
@@ -171,6 +215,6 @@ function ert($variable)
 function imageLoader($key)
 {
     $setting = new Setting();
-    return $setting->getSetting($key,auth()->user()->account->id);
+    return $setting->getSetting($key, auth()->user()->account->id);
 }
 
