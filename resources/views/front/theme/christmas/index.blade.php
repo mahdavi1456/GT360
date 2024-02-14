@@ -341,10 +341,9 @@
     FOOTER
     =========================== -->
     <footer class="container text-center">
-        <h2 class="logo">Santa<span class="highlight">Go</span></h2>
-        <img class="santacap" src="{{ asset('front-theme-asset/christmas') }}/img/santa_cap.png" alt="">
-        <P>Another free Bootstrap Landing page temlate from <a href="http://evenfly.com">EvenFly</a> released under <a
-                href="https://creativecommons.org/licenses/by/3.0/">CC 3.0</a> license.</P>
+        <h2 class="logo">{{ $settingModel->getSetting('title1_sec7', $accountId) }}</h2>
+        <img class="santacap" src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec7', $accountId)) }}' alt="">
+        <P>{{ $settingModel->getSetting('title2_sec7', $accountId) }}</P>
         <hr>
     </footer><!--FOOTER END-->
 

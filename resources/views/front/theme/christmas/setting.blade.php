@@ -611,16 +611,17 @@
                     @endif
                 </div>
                 <div class="col-12 form-group">
-                    <label class="form-label">عنوان</label>
+                    <label class="form-label">عنوان اول</label>
                     <input type="text" name="title1_sec7" class="form-control" placeholder="عنوان کوچک..."
                         value="{{ $settingModel->getSetting('title1_sec7', $account->id) }}">
+                </div>
+                <div class="col-12 form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title2_sec7" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title2_sec7', $account->id) }}">
                 </div>
             </div>
 
         </div>
     @endif
 </div>
-
-
-
-
