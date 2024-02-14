@@ -92,9 +92,9 @@
         <!--OVERVIEW ITEMS-->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <img src="{{ asset('front-theme-asset/christmas') }}/img/o1.png" alt="">
-                <h4>Exclusively on EvenFly</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                <img src="{{ $settingModel->getSetting('image1_sec1', $accountId) }}>
+                <h4>{{ $settingModel->getSetting('title1_sec1', $accountId) }}</h4>
+                <p>{{ $settingModel->getSetting('subtitle1_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
 
             <div class="col-md-6 col-lg-4">
