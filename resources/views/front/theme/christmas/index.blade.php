@@ -146,8 +146,8 @@
                 </div><!--CALL-TO-ACTION IMAGE END-->
 
                 <div class="sectionhead content col-md-8">
-                    <h2>{{ $settingModel->getSetting('title _sec2', $accountId) }}</h2>
-                    <p>{{ $settingModel->getSetting('subtitle _sec2', $accountId) }}</p>
+                    <h2>{{ $settingModel->getSetting('title_sec2', $accountId) }}</h2>
+                    <p>{{ $settingModel->getSetting('subtitle_sec2', $accountId) }}</p>
                     <a href="" class="btn btn-default">Download</a>
                 </div><!--CALL-TO-ACTION CONTENT END-->
             </div><!--CALL-TO-ACTION CONTAINER END-->
