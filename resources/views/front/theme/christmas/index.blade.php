@@ -160,9 +160,8 @@
 
         <!--SECTIONHEAD START-->
         <div class="sectionhead text-center">
-            <h2>Catch the <span class="highlight">bang head</span> deals</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+            <h2>{{ $settingModel->getSetting('title_sec3', $accountId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle_sec3', $accountId) }}</p>
             <hr>
         </div><!--SECTIONHEAD END-->
 
