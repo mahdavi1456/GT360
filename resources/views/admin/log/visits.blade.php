@@ -8,7 +8,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb('بازدید صفحات - ' . $visits->total()) }}
+        {{ breadcrumb('بازدید صفحات - ' . fa_number($visits->total())) }}
 
         <!-- Main content -->
 
