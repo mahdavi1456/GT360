@@ -204,7 +204,7 @@
                 <!--SMALL PRODUCT IMAGE START-->
                 <div class="col-md-4 text-center">
                     <a href="">
-                        <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image_sec5', $accountId)) }}'
+                        <img class="productimg" src='{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec5', $accountId)) }}'
                             alt="">
                     </a>
 
