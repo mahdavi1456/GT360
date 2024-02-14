@@ -24,29 +24,39 @@
 </div>
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">معرفی</h3>
+        <h3 class="card-title pull-right">معرفی</h3>
+        <select name="introduce_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('introduce_status', $account->id) == 1 ? 'selected' : '' }}
+                value="1">
+                فعال</option>
+            <option {{ $settingModel->getSetting('introduce_status', $account->id) == 0 ? 'selected' : '' }}
+                value="0">
+                غیرفعال</option>
+        </select>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-6 form-group">
-                <label class="form-label">عنوان اول</label>
-                <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
-                    value="{{ $settingModel->getSetting('first_title', $account->id) }}">
+    @if ($settingModel->getSetting('introduce_status', $account->id) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('first_title', $account->id) }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 form-group">
+                    <label class="form-label">متن اول</label>
+                    <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 form-group">
-                <label class="form-label">متن اول</label>
-                <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
-            </div>
-        </div>
-    </div>
+    @endif
 </div>
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title pull-right">بخش اول</h3>
         <select name="sec1_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec_status', $account->id) == 1 ? 'selected' : '' }} value="1">
+            <option {{ $settingModel->getSetting('sec1_status', $account->id) == 1 ? 'selected' : '' }} value="1">
                 فعال</option>
             <option {{ $settingModel->getSetting('sec1_status', $account->id) == 0 ? 'selected' : '' }} value="0">
                 غیرفعال</option>
@@ -210,37 +220,48 @@
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title">بخش دوم</h3>
+        <select name="sec2_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('sec2_status', $account->id) == 1 ? 'selected' : '' }}
+                value="1">
+                فعال</option>
+            <option {{ $settingModel->getSetting('sec2_status', $account->id) == 0 ? 'selected' : '' }}
+                value="0">
+                غیرفعال</option>
+        </select>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-4 form-group ">
-                <label class="form-label ">تصویر</label>
-                <input type="file" name="image_sec2" onchange="uploadImage(this)">
-                @if ($image = imageLoader('image_sec2'))
-                    <div class="imageLoader position-relative">
-                        <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                        <button type="button" onclick="destroyImage('image_sec2')"
-                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
-                    </div>
-                @endif
-            </div>
-            <div class="col form-group">
-                <label class="form-label">عنوان</label>
-                <input type="text" name="title_sec2" class="form-control" placeholder="عنوان کوچک..."
-                    value="{{ $settingModel->getSetting('title_sec2', $account->id) }}">
-            </div>
-            <div class="col form-group">
-                <label class="form-label">زیر عنوان </label>
-                <input type="text" name="subtitle_sec2" class="form-control" placeholder="عنوان بزرگ..."
-                    value="{{ $settingModel->getSetting('subtitle_sec2', $account->id) }}">
-            </div>
-            <div class="col form-group">
-                <label class="form-label">متن دکمه</label>
-                <input type="text" name="button_title_sec2" class="form-control" placeholder="متن دکمه..."
-                    value="{{ $settingModel->getSetting('button_title_sec2', $account->id) }}">
+    @if ($settingModel->getSetting('sec2_status', $account->id) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4 form-group ">
+                    <label class="form-label ">تصویر</label>
+                    <input type="file" name="image_sec2" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image_sec2'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image_sec2')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان</label>
+                    <input type="text" name="title_sec2" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title_sec2', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان </label>
+                    <input type="text" name="subtitle_sec2" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('subtitle_sec2', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">متن دکمه</label>
+                    <input type="text" name="button_title_sec2" class="form-control" placeholder="متن دکمه..."
+                        value="{{ $settingModel->getSetting('button_title_sec2', $account->id) }}">
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 </div>
 
 
