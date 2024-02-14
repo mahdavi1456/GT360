@@ -130,7 +130,7 @@
             <div class="col-md-6 col-lg-4">
                 <img src='{{ asset(ert('tsp') . $settingModel->getSetting('image6_sec1', $accountId)) }}'>
                 <h4>{{ $settingModel->getSetting('title6_sec1', $accountId) }}</h4>
-                <p>{{ $settingModel->getSetting('subtitle6 _sec1', $accountId) }}</p>
+                <p>{{ $settingModel->getSetting('subtitle6_sec1', $accountId) }}</p>
             </div><!--ITEM END-->
         </div><!--OVERVIEW ITEMS END-->
     </div><!--OVERVIEW SECTION END-->
