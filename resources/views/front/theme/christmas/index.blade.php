@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +38,8 @@
     FONTS
     =========================== -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,900,600|Pacifico' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{{ asset('fonts/' . $settingModel->getSetting('font', $accountId) . '/face.css') }}">
 
     <!-- ===========================
     GOOGLE ANALYTICS (Optional)
