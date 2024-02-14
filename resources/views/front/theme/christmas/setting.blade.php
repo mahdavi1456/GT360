@@ -598,7 +598,7 @@
     @if ($settingModel->getSetting('sec7_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر </label>
                     <input type="file" name="image_sec7" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image_sec7'))
