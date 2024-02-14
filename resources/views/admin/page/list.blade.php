@@ -49,13 +49,14 @@
                                         <div class="col-md-4 form-group">
                                             <label>از تاریخ:</label>
                                             <input type="text" name="from" id="from" placeholder="از..."
-                                                value="{{ $request->from }}"
-                                                class="datePicker form-control form-control-sm" autocomplete="off" />
+                                                value="{{ $request->from }}" class="datePicker form-control form-control-sm"
+                                                autocomplete="off" />
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>تا تاریخ:</label>
-                                            <input type="text" name="to" id="to" value="{{ $request->to }}"  placeholder="تا..."
-                                                class="datePicker form-control form-control-sm" autocomplete="off" />
+                                            <input type="text" name="to" id="to" value="{{ $request->to }}"
+                                                placeholder="تا..." class="datePicker form-control form-control-sm"
+                                                autocomplete="off" />
                                         </div>
                                         <button type="submit" class="btn btn-info mr-auto check-validity"><i
                                                 class="fa fa-filter"></i>فیلتر</button>
@@ -70,7 +71,8 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <h3 class="card-title">لیست صفحات ({{ $pages->total() }})</h3>
-                                <a href="{{ route('page.create', ['action' => 'create']) }}" class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
+                                <a href="{{ route('page.create', ['action' => 'create']) }}"
+                                    class="d-flex align-items-center btn btn-success btn-sm mr-auto text-white">
                                     <i class="fa fa-plus ml-2"></i> افزودن صفحه
                                 </a>
                             </div>
@@ -88,7 +90,7 @@
                                                 <th>نویسنده</th>
                                                 <th>تاریخ</th>
                                                 <th>وضعیت</th>
-                                                <th >عملیات</th>
+                                                <th>عملیات</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -98,8 +100,9 @@
                                                     <td>
                                                         <div class="text-center">
                                                             @if ($page->thumbnail)
-                                                                <img  style="width:100px !important; object-fit: contain" src="{{ asset(ert('pip')) . '/' . $page->thumbnail }}">
-                                                                @else
+                                                                <img style="width:100px !important; object-fit: contain"
+                                                                    src="{{ asset(ert('pip')) . '/' . $page->thumbnail }}">
+                                                            @else
                                                                 فاقد تصویر
                                                             @endif
                                                         </div>
@@ -108,15 +111,21 @@
                                                     <td>{{ $page->title }}</td>
                                                     {{-- <td>{{ $post->visitLogs()->count() }}</td> --}}
                                                     <td>{{ 25 }}</td>
-                                                    <td>{{ ($page->author_object->name . ' ' . $page->author_object->family) }}</td>
-                                                    <td>{{ zaman(($page->created_at)) }}</td>
+                                                    <td>{{ $page->author_object->name . ' ' . $page->author_object->family }}
+                                                    </td>
+                                                    <td>{{ zaman($page->created_at) }}</td>
                                                     <td>
-                                                        <span class="badge {{ $page->publish_status == 'publish' ? 'badge-success' :'badge-danger'  }}">{{ $page->publish_status =='publish' ? 'انتشار': 'عدم انتشار'  }}</span>
+                                                        <span
+                                                            class="badge {{ $page->publish_status == 'publish' ? 'badge-success' : 'badge-danger' }}">{{ $page->publish_status == 'publish' ? 'انتشار' : 'عدم انتشار' }}</span>
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a class="btn btn-info btn-sm ml-2" target="_blank" href="">مشاهده</a>
-                                                            <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center" href="{{ route('page.create', ['action' => 'update', 'page' => $page->id]) }}" data-toggle="tooltip" data-placement="top" title="ویرایش"><i class="fa fa-edit"></i></a>
+                                                            <a class="btn btn-info btn-sm ml-2" target="_blank"
+                                                                href="">مشاهده</a>
+                                                            <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center"
+                                                                href="{{ route('page.create', ['action' => 'update', 'page' => $page->id]) }}"
+                                                                data-toggle="tooltip" data-placement="top" title="ویرایش"><i
+                                                                    class="fa fa-edit"></i></a>
                                                             {{-- <div class="display-inline-block">
                                                                 <form method="post" class="h-100" action="{{ route('page.destroy', $page->id) }}">
                                                                     @csrf
@@ -124,21 +133,24 @@
                                                                     <button type="submit" data-toggle="tooltip" data-placement="top" title="حذف" class="h-100 delete-confirm btn btn-danger btn-sm d-flex align-items-center"><i class="fa fa-close"></i></button>
                                                                 </form>
                                                             </div> --}}
-                                                            <a href="{{ route('page.destroy', $page->id) }}" data-confirm-delete='true' data-toggle="tooltip" data-placement="top" title="حذف" class="btn btn-sm btn-danger">
+                                                            <a href="{{ route('page.destroy', $page->id) }}"
+                                                                data-confirm-delete='true' data-toggle="tooltip"
+                                                                data-placement="top" title="حذف"
+                                                                class="btn btn-sm btn-danger">
                                                                 <i class="fa fa-close"></i>
                                                             </a>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            </tbody>
-                                        </table>
-                                    @endif
-                                </div>
-                                <div class="w-100 mt-3 d-flex justify-content-center">
-                                    {{$pages->withQueryString()->render()}}
-                                </div>
+                                        </tbody>
+                                    </table>
+                                @endif
                             </div>
+                            <div class="w-100 mt-3 d-flex justify-content-center">
+                                {{ $pages->withQueryString()->render() }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

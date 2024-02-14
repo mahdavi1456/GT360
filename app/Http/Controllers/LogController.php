@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class LogController extends Controller
 {
-    public function visits()
+    public function visits(Request $request)
     {
-        $visits = Visit::latest()->paginate(30);
-        // dd($visits->total());
-        return view('admin.log.visits', compact('visits'));
+
+        //dd($userAgent = $request->header('User-Agent'));
+        $visits = Visit::filter()->latest()->paginate(50);
+        return view('admin.log.visits', compact('visits','request'));
     }
 }

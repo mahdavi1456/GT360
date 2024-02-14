@@ -4,15 +4,20 @@
              class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">پنل مدیریت</span>
     </a>
+    @php
+        $account=auth()->user()->account;
+    @endphp
     <div class="sidebar">
+
         <div>
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{ asset('asset/dist/img/avatar5.png') }}" class="img-circle elevation-2"
+                <div class="image d-flex justify-content-center align-items-center">
+
+                    <img src="{{$account->account_image? asset(ert('aip') . $account->account_image): asset('asset/dist/img/avatar5.png') }}" class="img-circle elevation-2"
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="{{route('account.profile.edit',auth()->user()->account_id)}}" class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
+                    <a href="{{route('account.profile.edit',$account->id)}}" class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
                 </div>
             </div>
             <nav class="mt-2">
