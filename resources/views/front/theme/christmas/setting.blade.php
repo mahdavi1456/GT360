@@ -215,6 +215,11 @@
                 <input type="text" name="subtitle_sec2" class="form-control" placeholder="عنوان بزرگ..."
                     value="{{ $settingModel->getSetting('subtitle_sec2', $account->id) }}">
             </div>
+            <div class="col form-group">
+                <label class="form-label">متن دکمه</label>
+                <input type="text" name="button_title_sec2" class="form-control" placeholder="متن دکمه..."
+                    value="{{ $settingModel->getSetting('button_title'_sec2, $account->id) }}">
+            </div>
         </div>
     </div>
 </div>
