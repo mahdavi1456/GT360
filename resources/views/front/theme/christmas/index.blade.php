@@ -140,7 +140,6 @@
             <div class="sectionhead content col-md-8">
                 <h2>{{ $settingModel->getSetting('title _sec2', $accountId) }}</h2>
                 <p>{{ $settingModel->getSetting('subtitle _sec2', $accountId) }}</p>
-</p>
                 <a href="" class="btn btn-default">Download</a>
             </div><!--CALL-TO-ACTION CONTENT END-->
         </div><!--CALL-TO-ACTION CONTAINER END-->
