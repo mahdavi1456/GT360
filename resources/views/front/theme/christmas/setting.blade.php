@@ -25,7 +25,14 @@
 
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title">بخش اول</h3>
+        <h3 class="card-title pull-right">بخش اول</h3>
+        <select name="sec1_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('sec_status', $account->id) == 1 ? 'selected' : '' }} value="1">
+                فعال</option>
+            <option {{ $settingModel->getSetting('sec1_status', $account->id) == 0 ? 'selected' : '' }} value="0">
+                غیرفعال</option>
+        </select>
+
     </div>
     <div class="card-body">
         <div class="row">
@@ -53,6 +60,7 @@
         </div>
     </div>
 </div>
+<hr>
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title">بخش دوم</h3>
