@@ -30,7 +30,6 @@
                                 @endif
                                 <form action="{{ route('accountSite.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @method('put')
                                     <div class="row">
                                         <div class="col-lg-3 col-md-6">
                                             <div class="form-group">

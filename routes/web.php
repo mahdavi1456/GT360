@@ -223,8 +223,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
             Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
             Route::delete('{accountId}/users/{userId}', [UserController::class, 'destroyUser'])->name('account.users.destroy');
 
-            Route::get('website', [AccountController::class, 'accountSiteEdit'])->name('accountSite.edit');
-            Route::put('website', [AccountController::class, 'accountSiteUpdate'])->name('accountSite.update');
+            Route::get('/project/website', [AccountController::class, 'accountSiteEdit'])->name('accountSite.edit');
+            Route::post('website', [AccountController::class, 'accountSiteUpdate'])->name('accountSite.update');
         });
 
         //cart

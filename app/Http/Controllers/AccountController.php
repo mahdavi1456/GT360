@@ -39,11 +39,13 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $postModel = new Post;
-        $account = Account::where('slug', $slug)->first();
-        if ($account) {
-            $theme = $account->activeTheme();
+
+       // $account = Account::where('slug', $slug)->first();
+        $project = Project::where('slug', $slug)->first();
+        if ($project) {
+            $theme = Account::activeTheme();
             $view = "front.theme.$theme.index";
-            $accountId = $account->id;
+            $accountId =session('account_id');
             $products = Post::where('component_id', 2)->get();
             return view($view, compact('settingModel', 'postModel', 'accountId', 'slug'));
         }
@@ -54,17 +56,17 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $reservePlanModel = new ReservePlan;
-        $account = Account::where('slug', $slug)->first();
+        $project = Project::where('slug', $slug)->first();
 
         $v = new Verta();
         $currentYear = $v->year;
         $currentMonth = $v->month;
         $currentDay = $v->day;
 
-        if ($account) {
-            $theme = $account->activeTheme();
+        if ($project) {
+            $theme = Account::activeTheme();
             $view = "front.theme.$theme.reserve";
-            $accountId = $account->id;
+            $accountId = session('account_id');
             return view($view, compact('settingModel', 'reservePlanModel', 'accountId', 'currentYear', 'currentMonth', 'currentDay'));
         }
         return "یک تم برای خود انتخاب کنید";
@@ -510,13 +512,14 @@ class AccountController extends Controller
 
     public function accountSiteEdit()
     {
-        dd('dd');
+        //dd('dd');
         $project=Project::findOrFail(session('project_id'));
         return view('admin.account.editWebsite', compact('project'));
     }
 
     public function accountSiteUpdate(Request $req)
     {
+       // dd(session('project_id'));
         $project=Project::findOrFail(session('project_id'));
         $req->validate([
             'slug' => 'required|string|max:255|unique:projects,slug,' . $project->id,

@@ -20,9 +20,9 @@ class Account extends Model
         return $this->hasMany(User::class);
     }
 
-    public function activeTheme() {
-         $theme = Setting::getSetting('active_theme',session('account_id'));
-         
+    public static function activeTheme() {
+         $theme = Setting::getSetting('active_theme');
+
          if ($theme) {
             return $theme;
          }
