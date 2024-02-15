@@ -1,11 +1,19 @@
 @extends('admin.master')
 @section('title', 'میز کار')
+@section('style')
+    <style>
+        td {
+            vertical-align: middle !important;
+        }
+    </style>
+@endsection
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
         {{ breadcrumb('میز کار') }}
+
         <section class="content">
             <div class="container-fluid">
                 @if (!auth()->user()->accountFieldsCompleted())
@@ -14,23 +22,33 @@
                         امکانات پنل نخواهید بود.
                     </div>
                 @endif
-                @if (!auth()->user()->slug())
-                    <div class="alert alert-warning">
-                        نام سایت ثبت نشده جهت ثبت <a
-                            href="{{ route('account.profile.edit', auth()->user()->account->id) }}">کلیک کنید</a>
+                @if (session('project_id'))
+                    @if (!auth()->user()->slug())
+                        <div class="alert alert-warning">
+                            نام سایت ثبت نشده جهت ثبت <a
+                                href="{{ route('accountSite.edit', auth()->user()->account->id) }}">کلیک
+                                کنید</a>
+                        </div>
+                    @endif
+                    @if (!$setting->getSetting('active_theme'))
+                        <div class="alert alert-warning">
+                            شما قالب فعال ندارید. برای فعال کردن قالب <a
+                                href="{{ route('theme.choose', auth()->user()->account->id) }}">کلیک کنید</a>
+                        </div>
+                    @endif
+                    @if (auth()->user()->slug() and $setting->getSetting('active_theme', auth()->user()->account->id))
+                        <div class="alert alert-warning">
+                            <a href="{{ route('enterSite', auth()->user()->slug()) }}" target="_blank" class="nav-link">ورود
+                                به
+                                سایت</a>
+                        </div>
+                    @endif
+                    @else
+                    <div class="alert alert-danger">
+                    لطفا در ابتدا پروژه مورد نظر را انتخاب کنید
                     </div>
                 @endif
-                @if (!$setting->getSetting('active_theme', auth()->user()->account->id))
-                    <div class="alert alert-warning">
-                        شما قالب فعال ندارید. برای فعال کردن قالب <a
-                            href="{{ route('theme.choose', auth()->user()->account->id) }}">کلیک کنید</a>
-                    </div>
-                @endif
-                @if (auth()->user()->slug() and $setting->getSetting('active_theme', auth()->user()->account->id))
-                <div class="alert alert-warning">
-                    <a href="{{ route('enterSite', auth()->user()->slug()) }}" target="_blank" class="nav-link">ورود به سایت</a>
-                </div>
-                @endif
+
 
                 <div class="row">
                     <div class="col-6">
@@ -76,9 +94,59 @@
                                     </div>
                                     <div class="col-6 text-center p-4">
                                         بازدید روز داشبورد :
-                                        {{ convertToPersian( App\Models\Visit::dashboardDayVisit())}}
+                                        {{ convertToPersian(App\Models\Visit::dashboardDayVisit()) }}
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a href="{{ route('project.create') }}"
+                                            class="pull-left btn btn-info text-white">افزودن جدید</a>
+                                        <h5 class="pull-right">پروژه های من</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0 table-responsive">
+                                @if ($projects->count() > 0)
+                                    <table class="table table-hover table-bordered">
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>لوگو</th>
+                                            <th>عنوان</th>
+                                            <th>توضیحات</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        @foreach ($projects as $project)
+                                            <tr>
+                                                <td>{{ fa_number($loop->index + 1) }}</td>
+                                                <td><img class="object-fit-contain" style="width: 150px"
+                                                        src="{{ $project->logo ? asset(ert('aip') . $project->logo) : asset('v1/images/logo.png') }}"
+                                                        alt="logo"></td>
+                                                <td>{{ $project->title }}</td>
+                                                <td>{!! $project->description !!}</td>
+                                                <td>
+                                                    @if (session('project_id') == $project->id)
+                                                        <button class="  btn btn-success btn-sm m-1"> پروژه فعال </button>
+                                                    @else
+                                                        <a href="{{ route('dashboard', ['project' => $project->id]) }}"
+                                                            class="  btn btn-sm btn-primary m-1"> فعال کردن </a>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                @else
+                                    <div class="alert alert-danger m-2 text-center">
+                                        موردی جهت نمایش موجود نیست.
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -89,16 +157,43 @@
 @endsection
 @section('scripts')
     <script>
-        $(document).ready(function() {
-            $('#company_fields').hide();
+        //alert('ff');
+        // $('.project-status').on('click',function () {
+        //    // alert('ff');
+        //     $("#loading-overlay").fadeIn();
+        //     let id=$(this).attr('item-id');
+        //     $.ajax({
+        //         type: 'get',
+        //         url: "{{ url()->current() }}",
+        //         data: {
+        //             project:id
+        //         },
+        //         success: function(respnse) {
+        //             $("#loading-overlay").fadeOut();
+        //             $('td.b-b-p button').attr('class','project-status btn btn-sm btn-primary m-1');
+        //             $(`.project-status[item-id=${id}]`).attr('class','project-status btn btn-success btn-sm m-1').html('پروژه فعال');
+        //             Swal.fire({
+        //                 title: "موفق",
+        //                 text: "پروژه خواسته شده فعال شد",
+        //                 icon: "success"
+        //             });
+        //         },
+        //         error: function(respnse) {
+        //             alert('eroor');
+        //             console.log(respnse);
+        //         }
+        //     });
+        // });
+        // $(document).ready(function() {
+        //     $('#company_fields').hide();
 
-            $('#account_type').change(function() {
-                if ($(this).val() === 'حقوقی') {
-                    $('#company_fields').show();
-                } else {
-                    $('#company_fields').hide();
-                }
-            });
-        });
+        //     $('#account_type').change(function() {
+        //         if ($(this).val() === 'حقوقی') {
+        //             $('#company_fields').show();
+        //         } else {
+        //             $('#company_fields').hide();
+        //         }
+        //     });
+        // });
     </script>
 @endsection

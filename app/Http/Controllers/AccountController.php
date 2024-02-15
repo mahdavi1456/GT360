@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ReservePlan;
 use Carbon\Carbon;
+use App\Models\Post;
 use App\Models\User;
 use App\Servieses\Sms;
 use App\Models\Account;
+use App\Models\Project;
 use App\Models\Setting;
-use App\Models\Post;
 
+use App\Models\ReservePlan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use App\Providers\RouteServiceProvider;
 
+use App\Providers\RouteServiceProvider;
 use RealRashid\SweetAlert\Facades\Alert;
 use function PHPUnit\Framework\fileExists;
 
@@ -26,8 +27,13 @@ class AccountController extends Controller
     public function dashboard()
     {
         $setting = new Setting();
-
-        return view('admin.dashboard', compact('setting'));
+        if (request()->has('project')) {
+            session(['project_id'=> request('project')]);
+            Alert::success('موفق', 'قالب مورد نظر فعال شد');
+            return back();
+        }
+        $projects = Project::where('account_id', auth()->user()->account_id)->latest()->get();
+        return view('admin.dashboard', compact('setting', 'projects'));
     }
     public function loadSite($slug)
     {
@@ -502,20 +508,20 @@ class AccountController extends Controller
         return to_route('dashboard');
     }
 
-    public function accountSiteEdit( $account)
+    public function accountSiteEdit()
     {
-        $account=Account::findOrFail($account);
-        return view('admin.account.editWebsite', compact('account'));
+        $project=Project::findOrFail(session('project_id'));
+        return view('admin.account.editWebsite', compact('project'));
     }
 
-    public function accountSiteUpdate(Request $req, $account)
+    public function accountSiteUpdate(Request $req)
     {
-        $account=Account::findOrFail($account);
+        $project=Project::findOrFail(session('project_id'));
         $req->validate([
-            'slug' => 'required|string|max:255|unique:accounts,slug,' . $account->id,
+            'slug' => 'required|string|max:255|unique:projects,slug,' . $project->id,
         ]);
         $data=$req->except('_token','_method','q');
-        $account->update($data);
+        $project->update($data);
         Alert::success('موفق', 'اطلاعات وب سایت با موفقیت ثبت شد.');
         return to_route('dashboard');
     }

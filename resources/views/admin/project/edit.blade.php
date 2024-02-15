@@ -1,14 +1,14 @@
 @extends('admin.master')
-@section('title', 'create form')
+@section('title', 'edit form')
 @section('content')
     {{-- @include('sweetalert::alert') --}}
-    @include('admin.partial.nav')
-    @include('admin.partial.aside')
+    @include("admin.partial.nav")
+    @include("admin.partial.aside")
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
-        {{ breadcrumb('اطلاعات وبسایت '.$project->title) }}
+        {{ breadcrumb('ویرایش فرم') }}
 
         <!-- Main content -->
         <section class="content">
@@ -28,31 +28,20 @@
                                         </div>
                                     </div>
                                 @endif
-                                <form action="{{ route('accountSite.update') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('form.update',$form->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-6">
+                                        <div class="col-4">
                                             <div class="form-group">
-                                                <label class="required">دامین <span class="text-danger">*</span></label>
-                                                <input type="text" name="domain" class="form-control nonPersianletters"
-                                                    value="{{ old('domain')??$project->domain }}" placeholder="دامین..." required
-                                                    oninvalid="this.setCustomValidity('دامین  را وارد نمایید.')"
-                                                    oninput="this.setCustomValidity('')">
+                                                <label class="required">نام <span class="text-danger">*</span></label>
+                                                <input type="text" name="title" class="form-control" value="{{ $form->title }}" placeholder="نام..." required  oninvalid="this.setCustomValidity('نام بخش را وارد نمایید.')"
+                                                       oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-label required"> نام سایت <span
-                                                        class="text-danger">*</span></label>
-                                                <input type="text" name="slug"
-                                                    class="form-control nonPersianletters" id="slug"
-                                                    placeholder="نام سایت..." value="{{ old('slug') ?? $project->slug }}"
-                                                    required oninvalid="this.setCustomValidity('.لطفا نام سایت را وارد کنید')"
-                                                    oninput="this.setCustomValidity('')" />
-                                            </div>
-                                        </div>
+
                                     </div>
+
                                     <div class="row">
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-success">ذخیره</button>

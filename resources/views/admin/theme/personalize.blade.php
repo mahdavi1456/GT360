@@ -7,7 +7,7 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('شخصی سازی') }}
+        {{ breadcrumb('شخصی سازی '.projectName()) }}
         <section class="content">
             <div class="container-fluid">
                 @include('admin.partial.error')

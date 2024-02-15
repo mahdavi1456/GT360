@@ -1,7 +1,8 @@
 <?php
 
-use App\Models\Setting;
 use App\Models\Font;
+use App\Models\Project;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 
 function adminBar()
@@ -230,4 +231,8 @@ function getIp() {
         }
     }
     return request()->ip(); // it will return the server IP if the client IP is not found using this method.
+}
+function projectName(){
+   $name= Project::where('id',session('project_id'))->first()->title;
+    return " برای <strong>$name </strong> ";
 }

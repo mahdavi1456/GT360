@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group abstract">
-                                                <label>خلاصه</label>
+                                                <label>خلاصه </label>
                                                 <textarea name="abstract" class="form-control Reditor1" placeholder="خلاصه ...">{{ old('abstract') ?? $post?->abstract }}</textarea>
                                             </div>
                                         </div>

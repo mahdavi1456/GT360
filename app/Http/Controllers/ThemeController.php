@@ -143,7 +143,7 @@ class ThemeController extends Controller
         $themes = Theme::where('status', 'active')->get();
         // dd($themes);
         $account = auth()->user()->account;
-
+       // dd(session('project_id'));
         return view('admin.theme.chooseTheme', compact('themes', 'account'));
     }
 

@@ -14,9 +14,9 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-     
-        $accounts = Account::where('slug', '!=', null)->where('company', '!=', null)->get();
 
+      // اسلاگ از داخل اکانت نباید خونده بشه $accounts = Project::where('slug', '!=', null)->where('company', '!=', null)->get();
+        $accounts=collect([]);
         $cartItemCount = fa_number(0);
 
         if (!is_null($request->cookie('cart-token'))) {

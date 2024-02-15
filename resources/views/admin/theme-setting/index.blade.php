@@ -15,7 +15,7 @@
         @php
             $themeName = $settingModel->getSetting('active_theme', $account->id, 0);
         @endphp
-        {{ breadcrumb(' تنظیمات قالب - ' . $themeName) }}
+        {{ breadcrumb(' تنظیمات قالب  '.projectName().'-'. $themeName) }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">

@@ -5,7 +5,7 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb("انتخاب قالب") }}
+        {{ breadcrumb("انتخاب قالب ".projectName()) }}
         <section class="content">
             <div class="container-fluid">
                 <div class="col-md-12">

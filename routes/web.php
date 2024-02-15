@@ -27,6 +27,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PalleteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CartHeadController;
 use App\Http\Controllers\CategoryController;
@@ -38,23 +39,23 @@ use App\Http\Controllers\TaxonomyController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\PaymentTypeController;
+use App\Http\Controllers\ReservePartController;
+use App\Http\Controllers\ReservePlanController;
 use App\Http\Controllers\ShopSettingController;
 use App\Http\Controllers\SocialMediaController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\PaymentsTypeController;
+use App\Http\Controllers\ReserveOrderController;
 use App\Http\Controllers\ThemeSettingController;
 use App\Http\Controllers\CheckoutOptionController;
 use App\Http\Controllers\ConfirmCustomerController;
 use App\Http\Controllers\CustomerAddressController;
+
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\PaymentTypeVariableController;
-use App\Http\Controllers\TransactionController;
+
 use App\Http\Controllers\AccountPaymentTypeVariableController;
-
-use App\Http\Controllers\ReservePartController;
-use App\Http\Controllers\ReservePlanController;
-use App\Http\Controllers\ReserveOrderController;
-
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
@@ -110,6 +111,10 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('nav', NavController::class);
         Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');
         Route::get('nav-item-resort', [NavController::class,'resortItems'])->name('nav.resort');
+
+        //Projrct
+        Route::delete('project/{logo}/destroy', [ProjectController::class,'logoDestroy'])->name('project.logo.destroy');
+        Route::resource('project', ProjectController::class);
 
         //Plan
         Route::resource('plan', PlanController::class);
@@ -218,8 +223,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
             Route::put('{accountId}/users/{userId}', [UserController::class, 'updateUser'])->name('users.updateUser');
             Route::delete('{accountId}/users/{userId}', [UserController::class, 'destroyUser'])->name('account.users.destroy');
 
-            Route::get('{accountId}/website', [AccountController::class, 'accountSiteEdit'])->name('accountSite.edit');
-            Route::put('{accountId}/website', [AccountController::class, 'accountSiteUpdate'])->name('accountSite.update');
+            Route::get('website', [AccountController::class, 'accountSiteEdit'])->name('accountSite.edit');
+            Route::put('website', [AccountController::class, 'accountSiteUpdate'])->name('accountSite.update');
         });
 
         //cart

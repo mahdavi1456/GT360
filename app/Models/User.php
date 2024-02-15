@@ -50,7 +50,7 @@ class User extends Authenticatable
         return $this->belongsTo(Account::class);
     }
     public function slug() {
-        return $this->account->slug;
+        return Project::find(session('project_id'))->slug;
     }
     public function categories()
     {
@@ -69,7 +69,7 @@ class User extends Authenticatable
 
     public function accountFieldsCompleted()
     {
-        return (isset($this->account->slug) && isset($this->account->company));
+        return (isset($this->account->company));
     }
     public function getRoleAttribute() {
         switch ($this->user_type) {

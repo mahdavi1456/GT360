@@ -21,9 +21,10 @@ class Account extends Model
     }
 
     public function activeTheme() {
-         $theme = Setting::where(['key' => 'active_theme', 'account_id' => $this->id])->first();
+         $theme = Setting::getSetting('active_theme',session('account_id'));
+         
          if ($theme) {
-            return $theme->value;
+            return $theme;
          }
          return null;
     }
@@ -31,6 +32,10 @@ class Account extends Model
     public function products()
     {
         return $this->hasMany(Product::class, 'account_id');
+    }
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'account_id');
     }
 
     public function categories()

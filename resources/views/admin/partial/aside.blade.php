@@ -95,6 +95,12 @@
                     @endcan
 
                     @can('SuperAccount')
+                    <li class="nav-item has-treeview">
+                        <a href="{{ route('project.index') }}" class="nav-link main-menu">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>پروژه ها</p>
+                        </a>
+                    </li>
                         <li class="nav-item has-treeview {{ active_dropdown(['account.index']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-lock text-danger"></i>

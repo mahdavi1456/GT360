@@ -28,7 +28,8 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
+        session(['project_id' => 0]);
+        session(['account_id' => auth()->user()->account_id]);
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
