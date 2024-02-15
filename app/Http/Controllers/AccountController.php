@@ -510,6 +510,7 @@ class AccountController extends Controller
 
     public function accountSiteEdit()
     {
+        dd('dd');
         $project=Project::findOrFail(session('project_id'));
         return view('admin.account.editWebsite', compact('project'));
     }
