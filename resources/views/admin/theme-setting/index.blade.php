@@ -8,7 +8,7 @@
     @include('admin.partial.aside')
     <div class="content-wrapper">
         @php
-            $themeName = $settingModel->getSetting('active_theme', $account->id, );
+            $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
         @endphp
         {{ breadcrumb(' تنظیمات قالب  '.projectName().'-'. $themeName) }}
         <section class="content">
