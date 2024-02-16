@@ -140,8 +140,10 @@ class ThemeController extends Controller
     {
         $settingModel = new Setting;
         $themes = Theme::where('status', 'active')->get();
+
         $accountId = auth()->user()->account->id;
         $projectId = Project::checkOpenProject($accountId)->project_id;
+
         $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
         return view('admin.theme.chooseTheme', compact('themes', 'accountId', 'projectId', 'themeName'));
     }
@@ -149,7 +151,12 @@ class ThemeController extends Controller
     public function activeTheme($name)
     {
         $setting = new Setting();
-        $setting->updateSetting('active_theme', $name, auth()->user()->account->id);
+
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
+        $setting->updateSetting('active_theme', $name, $accountId, $projectId);
+
         Alert::success('موفق', 'قالب با موفقیت انتخاب شد.');
         return back();
     }
@@ -216,9 +223,13 @@ class ThemeController extends Controller
         $settingModel = new Setting;
         $data = $request->request;
 
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
         foreach ($data as $key => $value) {
-            $settingModel->updateSetting($key, $value, auth()->user()->account->id);
+            $settingModel->updateSetting($key, $value, $accountId, $projectId);
         }
+        
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
         return back();
     }
