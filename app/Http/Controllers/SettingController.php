@@ -20,7 +20,6 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
-
         $account = 0;
         if ($request->has('action_type') and $request->action_type == 'theme') {
             $account = auth()->user()->account->id;

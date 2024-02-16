@@ -20,26 +20,30 @@ class ThemeSettingController extends Controller
 
     public function getImages(Request $req)
     {
-        $setting=new Setting();
-        $images=[];
-        $account_id=auth()->user()->account->id;
+        $setting = new Setting;
+        $images = [];
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
         foreach ($req->all() as $key=> $value) {
-            if ($name=$setting->getSetting($value,$account_id)) {
-                $images[$key]['key']=$value;
-                $images[$key]['value']=$name;
+            if ($name = $setting->getSetting($value, $accountId, $projectId)) {
+                $images[$key]['key'] = $value;
+                $images[$key]['value'] = $name;
             }
         }
-        //  return $images;
         if ($images) {
-            return view('admin.settings.image_table_setting',compact('images'));
+            return view('admin.settings.image_table_setting', compact('images'));
         }
     }
 
     public function destroyImage()
     {
+        $setting = new Setting;
 
-        $setting=new Setting();
-        $setting->updateSetting(request('key'),null,auth()->user()->account->id,'theme-setting');
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
+        $setting->updateSetting(request('key'),null, $accountId, $projectId,'theme-setting');
         return true;
     }
 
