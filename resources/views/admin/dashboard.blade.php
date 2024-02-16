@@ -15,30 +15,6 @@
         {{ breadcrumb('میز کار') }}
         <section class="content">
             <div class="container-fluid">
-                @if (!auth()->user()->accountFieldsCompleted())
-                    <div class="alert alert-danger">
-                        لطفا از منوی سمت راست فرم تکمیل اطلاعات را پر کنید. در غیر این صورت قادر به استفاده از
-                        امکانات پنل نخواهید بود.
-                    </div>
-                @endif
-                @if (session('project_id'))
-                    @if (!auth()->user()->slug())
-                        <div class="alert alert-warning">
-                            <b>نام سایت ثبت نشده جهت ثبت</b>
-                            <a href="{{ route('accountSite.edit', auth()->user()->account->id) }}">کلیک کنید</a>
-                        </div>
-                    @endif
-                    @if (!$setting->getSetting('active_theme'))
-                        <div class="alert alert-warning">
-                            <b>شما قالب فعال ندارید. برای فعال کردن قالب</b>
-                            <a href="{{ route('theme.choose', auth()->user()->account->id) }}">کلیک کنید</a>
-                        </div>
-                    @endif
-                    @else
-                    <div class="alert alert-danger">
-                    لطفا در ابتدا پروژه مورد نظر را انتخاب کنید
-                    </div>
-                @endif
                 <div class="row">
                     <div class="col-4">
                         <div class="card">

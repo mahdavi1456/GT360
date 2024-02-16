@@ -5,19 +5,20 @@
         <span class="brand-text font-weight-light">پنل مدیریت</span>
     </a>
     @php
-        $account=auth()->user()->account;
+        $account = auth()->user()->account;
     @endphp
     <div class="sidebar">
-
         <div>
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image d-flex justify-content-center align-items-center">
-
-                    <img src="{{$account->account_image? asset(ert('aip') . $account->account_image): asset('asset/dist/img/avatar5.png') }}" class="img-circle elevation-2"
-                         alt="User Image">
+                    <img
+                        src="{{ $account->account_image ? asset(ert('aip') . $account->account_image) : asset('asset/dist/img/avatar5.png') }}"
+                        class="img-circle elevation-2"
+                        alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="{{route('account.profile.edit',$account->id)}}" class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
+                    <a href="{{ route('account.profile.edit', $account->id) }}"
+                       class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
                 </div>
             </div>
             <nav class="mt-2">
@@ -95,12 +96,12 @@
                     @endcan
 
                     @can('SuperAccount')
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('project.index') }}" class="nav-link main-menu">
-                            <i class="nav-icon fa fa-dashboard"></i>
-                            <p>پروژه ها</p>
-                        </a>
-                    </li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('project.index') }}" class="nav-link main-menu">
+                                <i class="nav-icon fa fa-dashboard"></i>
+                                <p>پروژه ها</p>
+                            </a>
+                        </li>
                         <li class="nav-item has-treeview {{ active_dropdown(['account.index']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-lock text-danger"></i>
