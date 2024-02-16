@@ -14,7 +14,9 @@ class ThemeSettingController extends Controller
         $settingModel = new Setting;
         $accountId = auth()->user()->account->id;
         $projectId = Project::checkOpenProject($accountId)->id;
-        return view('admin.theme-setting.index', compact('settingModel', 'accountId', 'projectId'));
+        dd($projectId);
+        $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
+        return view('admin.theme-setting.index', compact('settingModel', 'accountId', 'projectId', 'themeName'));
     }
 
     public function getImages(Request $req)

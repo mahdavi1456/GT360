@@ -7,12 +7,10 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        @php
-            $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
-        @endphp
-        {{ breadcrumb(' تنظیمات قالب  '.projectName().'-'. $themeName) }}
+        {{ breadcrumb(' تنظیمات قالب  '. projectName() . '-' . $themeName) }}
         <section class="content">
             <div class="container-fluid">
+                @include('admin.partial.error')
                 <div class="row">
                     <div class="col-12">
                         <div class="card" id="outer-div">
@@ -21,15 +19,6 @@
                                 @csrf
                                 <input type="hidden" name="action_type" value="theme">
                                 <div class="card-body">
-                                    @if ($errors->any())
-                                        <div class="row">
-                                            <div class="col-12">
-                                                @foreach ($errors->all() as $error)
-                                                    <div class="alert alert-danger">{{ $error }}</div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    @endif
                                     @include("front.theme.$themeName.setting")
                                 </div>
                                 <div class="card-footer text-left">
