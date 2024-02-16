@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Setting;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,11 +23,12 @@ class Account extends Model
 
     public static function activeTheme($accountId, $projectId)
     {
-         $theme = Setting::getSetting('active_theme', $accountId, $projectId);
-         if ($theme) {
+        $settingModel = new Setting;
+        $theme = $settingModel->getSetting('active_theme', $accountId, $projectId);
+        if ($theme) {
             return $theme;
-         }
-         return null;
+        }
+        return null;
     }
 
     public function products()
