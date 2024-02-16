@@ -26,7 +26,7 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title">{{ $theme->label }}</h5>
                                                     <p class="card-text">{{ $theme->slogan }}</p>
-                                                    @if ($account->activeTheme() == $theme->name)
+                                                    @if ($themeName == $theme->name)
                                                         <button class="btn btn-success">فعال شده</button>
                                                     @else
                                                         <a href="{{ route('theme.activeTheme', $theme->name) }}"
@@ -39,7 +39,7 @@
                                     @endif
                                 @endforeach
                                 @foreach ($themes as $theme)
-                                    @if ($account->activeTheme() == $theme->name)
+                                    @if ($themeName == $theme->name)
                                         @continue
                                     @endif
                                     <div class="col-md-3">
@@ -53,7 +53,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $theme->label }}</h5>
                                                 <p class="card-text">{{ $theme->slogan }}</p>
-                                                @if ($account->activeTheme() == $theme->name)
+                                                @if ($themeName == $theme->name)
                                                     <button class="btn btn-success">فعال شده</button>
                                                 @else
                                                     <a href="{{ route('theme.activeTheme', $theme->name) }}"
