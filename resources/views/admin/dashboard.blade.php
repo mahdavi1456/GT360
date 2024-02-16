@@ -14,8 +14,13 @@
     <div class="content-wrapper">
         @php
             $project = App\Models\Project::checkOpenProject(auth()->user()->account->id);
+            if ($project) {
+                $projectName = App\Models\Project::getProjectName($project->project_id);
+            } else {
+                $projectName = "";
+            }
         @endphp
-        {{ breadcrumb('میز کار ' . App\Models\Project::getProjectName($project->project_id)) }}
+        {{ breadcrumb('میز کار ' . $projectName) }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">

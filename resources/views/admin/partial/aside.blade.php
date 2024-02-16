@@ -26,14 +26,19 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     @php
-                        $project = App\Models\Project::checkOpenProject($accountId);
+                        $project = App\Models\Project::checkOpenProject(auth()->user()->account->id);
+                        if ($project) {
+                            $projectName = App\Models\Project::getProjectName($project->project_id);
+                        } else {
+                            $projectName = "";
+                        }
                     @endphp
                     @if ($project)
                         <li class="nav-item has-treeview">
                             <a href="{{ route('dashboard') }}" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>میز کار</p>
-                                {{ App\Models\Project::getProjectName($project->project_id) }}
+                                {{ $projectName }}
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
