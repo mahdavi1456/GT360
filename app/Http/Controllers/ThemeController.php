@@ -7,6 +7,7 @@ use App\Models\Pallete;
 use App\Models\Font;
 use App\Models\Theme;
 use App\Models\Setting;
+use App\Models\Project;
 use App\Models\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
