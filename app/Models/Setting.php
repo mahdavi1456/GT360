@@ -22,7 +22,7 @@ class Setting extends Model
         ])->first();
         if ($s) {
             if ($file == "theme-setting") {
-                $fileName = Setting::getSetting($key, $accountId);
+                $fileName = Setting::getSetting($key, $accountId, $projectId);
                 if ($fileName and file_exists(public_path(ert('tsp') . $fileName))) {
                     unlink(public_path(ert('tsp') . $fileName));
                 }
