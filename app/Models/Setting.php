@@ -12,15 +12,19 @@ class Setting extends Model
     protected $tabele = "settings";
     protected $guarded = [];
 
-    public static function updateSetting($key, $value, $account_id=0,$file=null)
+    public function updateSetting($key, $value, $accountId, $projectId, $file = null)
     {
         // $s = Setting::where(['key' => $key, 'account_id' => $account_id])->first();
-        $s = Setting::where(['key' => $key, 'account_id' => session('account_id'),'project_id'=>session('project_id')])->first();
+        $s = Setting::where([
+            'key' => $key,
+            'account_id' => $accountId,
+            'project_id' => $projectId
+        ])->first();
         if ($s) {
-            if ($file=='theme-setting') {
-                $fileName=Setting::getSetting($key,session('account_id'));
-                if ($fileName and file_exists(public_path(ert('tsp').$fileName))) {
-                   unlink(public_path(ert('tsp').$fileName));
+            if ($file == "theme-setting") {
+                $fileName = Setting::getSetting($key, $accountId);
+                if ($fileName and file_exists(public_path(ert('tsp') . $fileName))) {
+                    unlink(public_path(ert('tsp') . $fileName));
                 }
             }
             $s->update([
@@ -28,19 +32,23 @@ class Setting extends Model
             ]);
             return $s;
         } else {
-            $s=Setting::create([
+            $s = Setting::create([
                 'key' => $key,
                 'value' => $value,
-                'account_id' => session('account_id'),
-                'project_id'=>session('project_id')
+                'account_id' => $accountId,
+                'project_id' => $projectId
             ]);
             return $s;
         }
     }
 
-    public static function getSetting($key,$account_id=0)
+    public function getSetting($key, $accountId, $projectId)
     {
-        $s = Setting::where(['key' => $key, 'account_id' => session('account_id'),'project_id'=>session('project_id')])->first();
+        $s = Setting::where([
+            'key' => $key,
+            'account_id' => $accountId,
+            'project_id' => $projectId
+        ])->first();
         if ($s) {
             return $s->value;
         } else {

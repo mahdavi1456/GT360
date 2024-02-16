@@ -35,6 +35,7 @@ class AccountController extends Controller
         $projects = Project::where('account_id', auth()->user()->account_id)->latest()->get();
         return view('admin.dashboard', compact('setting', 'projects'));
     }
+
     public function loadSite($slug)
     {
         $settingModel = new Setting;
@@ -43,11 +44,12 @@ class AccountController extends Controller
        // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
         if ($project) {
-            $theme = Account::activeTheme();
+            $accountId = $project->account_id;
+            $projectId = $project->id;
+            $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.index";
-            $accountId =session('account_id');
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'postModel', 'accountId', 'slug'));
+            return view($view, compact('settingModel', 'postModel', 'accountId', 'projectId', 'slug'));
         }
         return "یک تم برای خود انتخاب کنید";
     }

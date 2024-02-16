@@ -20,9 +20,9 @@ class Account extends Model
         return $this->hasMany(User::class);
     }
 
-    public static function activeTheme() {
-         $theme = Setting::getSetting('active_theme');
-
+    public static function activeTheme($accountId, $projectId)
+    {
+         $theme = Setting::getSetting('active_theme', $accountId, $projectId);
          if ($theme) {
             return $theme;
          }
@@ -33,6 +33,7 @@ class Account extends Model
     {
         return $this->hasMany(Product::class, 'account_id');
     }
+
     public function projects()
     {
         return $this->hasMany(Project::class, 'account_id');
@@ -40,7 +41,6 @@ class Account extends Model
 
     public function categories()
     {
-
         return $this->hasMany(Category::class);
     }
 

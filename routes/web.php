@@ -101,7 +101,7 @@ Route::post('/start-transaction', [TransactionController::class, 'start'])->name
 Route::get('/verify-transaction', [TransactionController::class, 'verify'])->name('transaction.verify');
 
 
-//admin routes
+//Admin Routes
 Route::middleware(['auth', 'visit'])->group(function () {
 
     Route::get('change-password', [NewPasswordController::class, 'create'])->name('change.pass'); //used for change-password
