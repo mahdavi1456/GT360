@@ -9,7 +9,7 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $tabele = "settings";
+    protected $table = "settings";
     protected $guarded = [];
 
     public function updateSetting($key, $value, $accountId, $projectId, $file = null)

@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <title>{{ $settingModel->getSetting('title', $accountId) }}</title>
+    <title>{{ $settingModel->getSetting('title', $accountId, $projectId) }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $settingModel->getSetting('title', $accountId) }}">
+    <meta name="description" content="{{ $settingModel->getSetting('title', $accountId, $projectId) }}">
     <!-- STYLESHEET CSS FILES -->
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/animate.min.css">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo-lightbox.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo_themes/default/default.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/templatemo-style.css">
-    <link rel="stylesheet" href="{{ asset('fonts/' . $settingModel->getSetting('font', $accountId) . '/face.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/' . $settingModel->getSetting('font', $accountId, $projectId) . '/face.css') }}">
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -28,10 +28,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title', $accountId) }}</h1>
-                <h2 class="wow bounce">{{ $settingModel->getSetting('description', $accountId) }}</h2>
+                <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
+                <h2 class="wow bounce">{{ $settingModel->getSetting('description', $accountId, $projectId) }}</h2>
                 <a href="#intro"
-                   class="btn btn-default smoothScroll">{{ $settingModel->getSetting('start_btn_text', $accountId) }}</a>
+                   class="btn btn-default smoothScroll">{{ $settingModel->getSetting('start_btn_text', $accountId, $projectId) }}</a>
             </div>
         </div>
     </div>
@@ -43,71 +43,71 @@
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="icon icon-bar"></span> <span class="icon icon-bar"></span> <span
                     class="icon icon-bar"></span></button>
-            <a href="#" class="navbar-brand">{{ $settingModel->getSetting('title', $accountId) }}</a>
+            <a href="#" class="navbar-brand">{{ $settingModel->getSetting('title', $accountId, $projectId) }}</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#home"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId) }}</a></li>
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId, $projectId) }}</a></li>
                 <li><a href="#intro"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId) }}</a></li>
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId, $projectId) }}</a></li>
                 <li><a href="#work"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId) }}</a></li>
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId, $projectId) }}</a></li>
                 <li><a href="#team"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId) }}</a></li>
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId, $projectId) }}</a></li>
                 <li><a href="#portfolio"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId) }}</a></li>
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId, $projectId) }}</a></li>
                 <li><a href="#price"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId) }}</a></li>
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId, $projectId) }}</a></li>
                 <li><a href="#contact"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId) }}</a></li>
+                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId, $projectId) }}</a></li>
             </ul>
         </div>
     </div>
 </div>
 
-@if ($settingModel->getSetting('about_status', $accountId) == 1)
+@if ($settingModel->getSetting('about_status', $accountId, $projectId) == 1)
     <!-- intro section -->
     <section id="intro">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h4>{{ fa_number($settingModel->getSetting('about_first_title', $accountId)) }}</h4>
-                    <h2>{{ fa_number($settingModel->getSetting('about_first_subtitle', $accountId)) }}</h2>
+                    <h4>{{ fa_number($settingModel->getSetting('about_first_title', $accountId, $projectId)) }}</h4>
+                    <h2>{{ fa_number($settingModel->getSetting('about_first_subtitle', $accountId, $projectId)) }}</h2>
                     <hr>
-                    <p>{{ fa_number($settingModel->getSetting('about_first_text', $accountId)) }}</p>
+                    <p>{{ fa_number($settingModel->getSetting('about_first_text', $accountId, $projectId)) }}</p>
                 </div>
             </div>
         </div>
     </section>
 @endif
 
-@if ($settingModel->getSetting('service_status', $accountId) == 1)
+@if ($settingModel->getSetting('service_status', $accountId, $projectId) == 1)
     <!-- work section -->
     <section id="work">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-4 title">
-                    <h2>{{ $settingModel->getSetting('service_title', $accountId) }}</h2>
+                    <h2>{{ $settingModel->getSetting('service_title', $accountId, $projectId) }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('service_text', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('service_text', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-8 col-sm-8">
                     <div class="col-md-6 col-sm-6 bg-black"><i
-                            class="fa {{ $settingModel->getSetting('service_first_icon', $accountId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_first_title', $accountId) }}</h3>
+                            class="fa {{ $settingModel->getSetting('service_first_icon', $accountId, $projectId) }}"></i>
+                        <h3>{{ $settingModel->getSetting('service_first_title', $accountId, $projectId) }}</h3>
                     </div>
                     <div class="col-md-6 col-sm-6 bg-red"><i
-                            class="fa {{ $settingModel->getSetting('service_second_icon', $accountId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_second_title', $accountId) }}</h3>
+                            class="fa {{ $settingModel->getSetting('service_second_icon', $accountId, $projectId) }}"></i>
+                        <h3>{{ $settingModel->getSetting('service_second_title', $accountId, $projectId) }}</h3>
                     </div>
                     <div class="col-md-6 col-sm-6 bg-red"><i
-                            class="fa {{ $settingModel->getSetting('service_third_icon', $accountId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_third_title', $accountId) }}</h3>
+                            class="fa {{ $settingModel->getSetting('service_third_icon', $accountId, $projectId) }}"></i>
+                        <h3>{{ $settingModel->getSetting('service_third_title', $accountId, $projectId) }}</h3>
                     </div>
                     <div class="col-md-6 col-sm-6 bg-black"><i
-                            class="fa {{ $settingModel->getSetting('service_fourth_icon', $accountId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_fourth_title', $accountId) }}</h3>
+                            class="fa {{ $settingModel->getSetting('service_fourth_icon', $accountId, $projectId) }}"></i>
+                        <h3>{{ $settingModel->getSetting('service_fourth_title', $accountId, $projectId) }}</h3>
                     </div>
                 </div>
             </div>
@@ -115,15 +115,15 @@
     </section>
 @endif
 
-@if ($settingModel->getSetting('team_status', $accountId) == 1)
+@if ($settingModel->getSetting('team_status', $accountId, $projectId) == 1)
     <!-- team section -->
     <section id="team">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>{{ $settingModel->getSetting('title_team', $accountId) }}</h2>
+                    <h2>{{ $settingModel->getSetting('title_team', $accountId, $projectId) }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('description_team', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('description_team', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.9s">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive"
@@ -154,15 +154,15 @@
     </section>
 @endif
 
-@if ($settingModel->getSetting('portfolio_status', $accountId) == 1)
+@if ($settingModel->getSetting('portfolio_status', $accountId, $projectId) == 1)
     <!-- portfolio section -->
     <div id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>{{ $settingModel->getSetting('portfolio_title', $accountId) }}</h2>
+                    <h2>{{ $settingModel->getSetting('portfolio_title', $accountId, $projectId) }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('portfolio_text', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('portfolio_text', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-12 col-sm-12"></div>
                 @if ($postModel->getPosts('product')->count() > 0)
@@ -185,14 +185,14 @@
     </div>
 @endif
 
-@if ($settingModel->getSetting('price_status', $accountId) == 1)
+@if ($settingModel->getSetting('price_status', $accountId, $projectId) == 1)
 <!-- price section -->
 <div id="price">
     <div class="container">
         <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-            <h2>{{ $settingModel->getSetting('price_title', $accountId) }}</h2>
+            <h2>{{ $settingModel->getSetting('price_title', $accountId, $projectId) }}</h2>
             <hr>
-            <p>{{ $settingModel->getSetting('price_text', $accountId) }}</p>
+            <p>{{ $settingModel->getSetting('price_text', $accountId, $projectId) }}</p>
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="plan wow bounceIn" data-wow-delay="0.3s">
@@ -249,15 +249,15 @@
 </div>
 @endif
 
-@if ($settingModel->getSetting('contact_status', $accountId) == 1)
+@if ($settingModel->getSetting('contact_status', $accountId, $projectId) == 1)
     <!-- contact section -->
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>{{ $settingModel->getSetting('contact_title', $accountId) }}</h2>
+                    <h2>{{ $settingModel->getSetting('contact_title', $accountId, $projectId) }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('contact_text', $accountId) }}</p>
+                    <p>{{ $settingModel->getSetting('contact_text', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 contact-form wow fadeInUp"
                      data-wow-delay="0.9s">
@@ -273,7 +273,7 @@
     </section>
     <!-- google map section -->
     <div class="google_map">
-        <iframe src="{{ $settingModel->getSetting('google_map', $accountId) }}" width="100%" height="450"
+        <iframe src="{{ $settingModel->getSetting('google_map', $accountId, $projectId) }}" width="100%" height="450"
                 style="border: 0;" allowfullscreen="yes" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -285,17 +285,17 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <h2 class="wow fadeIn" data-wow-delay="0.9s">
-                    {{ $settingModel->getSetting('follow_us_title', $accountId) }}</h2>
+                    {{ $settingModel->getSetting('follow_us_title', $accountId, $projectId) }}</h2>
                 <ul class="social-icon">
-                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId) }}"
+                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId, $projectId) }}"
                            class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('x', $accountId) }}"
+                    <li><a href="{{ $settingModel->getSetting('x', $accountId, $projectId) }}"
                            class="fa fa-twitter wow bounceIn" data-wow-delay="0.6s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('behance', $accountId) }}"
+                    <li><a href="{{ $settingModel->getSetting('behance', $accountId, $projectId) }}"
                            class="fa fa-behance wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId) }}"
+                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId, $projectId) }}"
                            class="fa fa-dribbble wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('dribble', $accountId) }}"
+                    <li><a href="{{ $settingModel->getSetting('dribble', $accountId, $projectId) }}"
                            class="fa fa-github wow bounceIn" data-wow-delay="0.9s"></a></li>
                 </ul>
             </div>
@@ -316,5 +316,4 @@
 <script src="{{ asset('front-theme-asset/roma') }}/js/wow.min.js"></script>
 <script src="{{ asset('front-theme-asset/roma') }}/js/custom.js"></script>
 </body>
-
 </html>
