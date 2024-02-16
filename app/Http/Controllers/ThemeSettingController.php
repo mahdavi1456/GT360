@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,10 @@ class ThemeSettingController extends Controller
 
     public function index()
     {
-        $account = auth()->user()->account;
         $settingModel = new Setting;
-        return view('admin.theme-setting.index', compact('account','settingModel'));
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->id;
+        return view('admin.theme-setting.index', compact('settingModel', 'accountId', 'projectId'));
     }
 
     public function getImages(Request $req)
@@ -34,7 +36,7 @@ class ThemeSettingController extends Controller
 
     public function destroyImage()
     {
-        
+
         $setting=new Setting();
         $setting->updateSetting(request('key'),null,auth()->user()->account->id,'theme-setting');
         return true;

@@ -1,11 +1,6 @@
 @extends('admin.master')
 @section('title', 'تنظیمات قالب')
 @section('style')
-    <style>
-        tr td {
-            vertical-align: middle !important;
-        }
-    </style>
 @endsection
 @section('content')
     @include('sweetalert::alert')
@@ -13,7 +8,7 @@
     @include('admin.partial.aside')
     <div class="content-wrapper">
         @php
-            $themeName = $settingModel->getSetting('active_theme', $account->id, 0);
+            $themeName = $settingModel->getSetting('active_theme', $account->id, );
         @endphp
         {{ breadcrumb(' تنظیمات قالب  '.projectName().'-'. $themeName) }}
         <section class="content">
