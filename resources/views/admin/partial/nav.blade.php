@@ -12,7 +12,7 @@
             </li>
         @endif --}}
     </ul>
-    <form class="form-inline ml-3">
+    <!--form class="form-inline ml-3">
         <div class="input-group input-group-sm">
             <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
             <div class="input-group-append">
@@ -21,16 +21,16 @@
                 </button>
             </div>
         </div>
-    </form>
+    </form-->
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
+
+        <!--li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-comments-o"></i>
                 <span class="badge badge-danger navbar-badge">3</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
                 <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
                     <div class="media">
                         <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 ml-3 img-circle">
                         <div class="media-body">
@@ -42,7 +42,6 @@
                             <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 ساعت قبل</p>
                         </div>
                     </div>
-                    <!-- Message End -->
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
@@ -75,33 +74,37 @@
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">مشاهده همه پیام‌ها</a>
             </div>
-        </li>
+        </li-->
+
+        @php
+            $projects = App\Models\Project::accountProjects(auth()->user()->account->id);
+        @endphp
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fa fa-bell-o"></i>
-                <span class="badge badge-warning navbar-badge">15</span>
+                <i class="fa fa-cubes"></i>
+                <span class="badge badge-warning navbar-badge">{{ convertToPersian($projects->count()) }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
-                <span class="dropdown-item dropdown-header">15 نوتیفیکیشن</span>
+                <span class="dropdown-item dropdown-header">{{ convertToPersian($projects->count()) }} پروژه</span>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fa fa-envelope ml-2"></i> 4 پیام جدید
-                    <span class="float-left text-muted text-sm">3 دقیقه</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fa fa-users ml-2"></i> 8 درخواست دوستی
-                    <span class="float-left text-muted text-sm">12 ساعت</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fa fa-file ml-2"></i> 3 گزارش جدید
-                    <span class="float-left text-muted text-sm">2 روز</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">مشاهده همه نوتیفیکیشن</a>
+                @if ($projects->count() > 0)
+                    @foreach ($projects as $project)
+                        <a href="{{ route('openProject', ['project_id' => $project->id]) }}" class="dropdown-item">
+                            <i class="fa fa-check-circle ml-2"></i> {{ $project->title }}
+                            <span class="float-left text-muted text-sm">میز کار</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                    @endforeach
+                @else
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-envelope ml-2"></i> هیچ پروژه ای تعریف نشده است.
+                        <span class="float-left text-muted text-sm">3 دقیقه</span>
+                    </a>
+                @endif
+                <a href="{{ route('project.index') }}" class="dropdown-item dropdown-footer">مدیریت پروژه ها</a>
             </div>
         </li>
+
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="fa fa-user"></i>

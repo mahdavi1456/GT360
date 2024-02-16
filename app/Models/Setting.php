@@ -42,7 +42,7 @@ class Setting extends Model
         }
     }
 
-    public function getSetting($key, $accountId, $projectId)
+    public function getSetting($key, $accountId, $projectId = 0)
     {
         $s = Setting::where([
             'key' => $key,

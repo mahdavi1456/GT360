@@ -1,38 +1,31 @@
 @extends('admin.master')
-@section('title', 'create form')
+@section('title', 'ایجاد پروژه')
 @section('content')
-    {{-- @include('sweetalert::alert') --}}
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
         {{ breadcrumb('ایجاد پروژه') }}
-
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @include('admin.partial.error')
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
                                 <form action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="action" value="{{ $action }}">
                                     <input type="hidden" name="project" value="{{$project?->id}}">
                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="required">عنوان <span class="text-danger">*</span></label>
+                                                <input type="text" name="title" class="form-control"
+                                                       value="{{ $project?->title }}" placeholder="عنوان..." required
+                                                       oninvalid="this.setCustomValidity('عنوان را وارد نمایید.')"
+                                                       oninput="this.setCustomValidity('')">
+                                            </div>
+                                        </div>
                                         <div class="form-group col-md-6">
                                             <label for="primary_image"> لوگو پروژه </label>
                                             <div class="custom-file">
@@ -41,21 +34,11 @@
                                                 <label class="custom-file-label" for="primary_image"> انتخاب فایل </label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="required">عنوان <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control"
-                                                    value="{{ $project?->title }}" placeholder="عنوان..." required
-                                                    oninvalid="this.setCustomValidity('عنوان را وارد نمایید.')"
-                                                    oninput="this.setCustomValidity('')">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label> توضیحات </label>
-                                                <textarea name="description" class="form-control Reditor1" placeholder="توضیحات ...">{{$project?->description}}</textarea>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12">
+                                            <label> توضیحات </label>
+                                            <textarea name="description" class="form-control Reditor1" placeholder="توضیحات ...">{{$project?->description}}</textarea>
                                         </div>
                                     </div>
                                     <div class="row">

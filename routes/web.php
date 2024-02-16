@@ -4,8 +4,10 @@ use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Setting;
 use App\Models\Transport;
+use App\Models\Project;
 use App\Models\CustomerAddress;
 use Jenssegers\Agent\Facades\Agent;
+
 use App\Http\Controllers\ShopSetting;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
@@ -112,9 +114,11 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');
         Route::get('nav-item-resort', [NavController::class,'resortItems'])->name('nav.resort');
 
-        //Projrct
+        //Project
         Route::delete('project/{logo}/destroy', [ProjectController::class,'logoDestroy'])->name('project.logo.destroy');
         Route::resource('project', ProjectController::class);
+        Route::get('/choose-project', [ProjectController::class, 'chooseProject'])->name('chooseProject');
+        Route::get('/open-project', [ProjectController::class, 'openProject'])->name('openProject');
 
         //Plan
         Route::resource('plan', PlanController::class);
@@ -126,7 +130,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::delete('plan-item/{item}/delete', [PlanController::class, 'itemDelete'])->name('plan.itemDelete');
 
 
-        //end plan
+
+
         Route::get('/dashboard', [AccountController::class, 'dashboard'])->middleware('verified')->name('dashboard');
 
         Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');

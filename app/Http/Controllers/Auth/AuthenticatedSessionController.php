@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Project;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -38,6 +40,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        //Close Project on Logout
+        //Set close_project key = 0 in settings Table
+        Project::closeProject(auth()->user()->account_id);
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

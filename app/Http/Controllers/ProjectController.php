@@ -3,29 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-    //    dd(session('project_id'));
-        // $account=auth()->user()->account->with('projects');
-        //dd($account);
+        $settingModel = new Setting;
         ert('cd');
         $projects = Project::where('account_id', auth()->user()->account_id)->latest()->get();
-        return view('admin.project.list', compact('projects'));
+        return view('admin.project.list', compact('projects', 'settingModel'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        $action = 'create';
+        $settingModel = new Setting;
+        $action = "create";
         $project = null;
         if (request()->has('update')) {
             $action = 'update';
@@ -34,12 +29,9 @@ class ProjectController extends Controller
                 ->firstOrFail();
             ert('cd');
         }
-        return view('admin.project.create', compact('action', 'project'));
+        return view('admin.project.create', compact('action', 'project', 'settingModel'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         if ($request->action == 'create') {
@@ -51,10 +43,9 @@ class ProjectController extends Controller
                 $data['logo'] = $fileName;
             }
 
-
             Project::create($data);
             alert()->success('موفق', "پروژه با موفقیت ایجاد شد");
-        } elseif ($request->action == 'update') {
+        } else if ($request->action == 'update') {
             $data = $request->except('_token', 'action', 'project', 'logo');
             $project = Project::where(['id' => $request->project, 'account_id' => auth()->user()->account_id])->firstOrFail();
             if ($request->file('logo')) {
@@ -80,9 +71,6 @@ class ProjectController extends Controller
         return view('admin.project.show',compact('project'));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function logoDestroy(string $id)
     {
         $project = Project::Where(['account_id' => auth()->user()->account_id, 'id' => $id])->firstOrFail();
@@ -96,9 +84,6 @@ class ProjectController extends Controller
         return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $project = Project::Where(['account_id' => auth()->user()->account_id, 'id' => $id])->firstOrFail();
@@ -106,4 +91,20 @@ class ProjectController extends Controller
         alert()->warning('موفق', "پروژه با موفقیت حذف شد");
         return redirect()->route('project.index');
     }
+
+    public function chooseProject()
+    {
+        $settingModel = new Setting;
+        $projects = Project::where('account_id', auth()->user()->account_id)->latest()->get();
+        return view('admin.choose-project', compact('settingModel', 'projects'));
+    }
+
+    public function openProject(Request $request)
+    {
+        $accountId = auth()->user()->account_id;
+
+        $project = Project::openProject($accountId, $request->project_id);
+        return view('admin.dashboard');
+    }
+
 }

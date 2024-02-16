@@ -35,7 +35,6 @@ return new class extends Migration
             $table->date('registration_date')->nullable();
             $table->string('account_status')->nullable();
             $table->string('deactivation_reason')->nullable();
-            $table->string('domain')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

@@ -13,7 +13,7 @@ class Account extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $tabele = "accounts";
+    protected $table = "accounts";
     protected $guarded = [];
 
     public function users()

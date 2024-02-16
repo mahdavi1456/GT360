@@ -1,33 +1,18 @@
 @extends('admin.master')
-@section('title', 'Account')
+@section('title', 'ایجاد مشترک')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
-        {{ breadcrumb('حساب کاربری') }}
-
-        <!-- Main content -->
+        {{ breadcrumb('ایجاد مشترک') }}
         <section class="content">
             <div class="container-fluid">
+                @include('admin.partial.error')
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger  justify-content-center mt-4">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
                                 <form action="{{ route('account.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <h4>اطلاعات شخصی</h4>
@@ -57,7 +42,6 @@
                                                     placeholder="نام خانوادگی..." required>
                                             </div>
                                         </div>
-
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label class="form-label required"> موبایل <span
@@ -196,11 +180,8 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
-
 @section('scripts')
 <script>
     $(document).ready(function () {
@@ -216,4 +197,3 @@
     });
 </script>
 @endsection
-

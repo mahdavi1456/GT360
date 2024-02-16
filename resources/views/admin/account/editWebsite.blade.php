@@ -13,21 +13,11 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @include('admin.partial.error')
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
                                 <form action="{{ route('accountSite.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">

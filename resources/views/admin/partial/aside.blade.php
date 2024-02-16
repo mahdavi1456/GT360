@@ -6,6 +6,7 @@
     </a>
     @php
         $account = auth()->user()->account;
+        $accountId = $account->id;
     @endphp
     <div class="sidebar">
         <div>
@@ -24,18 +25,23 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('dashboard') }}" class="nav-link main-menu">
-                            <i class="nav-icon fa fa-dashboard"></i>
-                            <p>میز کار</p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="{{ route('media.index') }}" class="nav-link main-menu">
-                            <i class="nav-icon fa fa-file-video-o"></i>
-                            <p>رسانه</p>
-                        </a>
-                    </li>
+                    @php
+                        $project = App\Models\Project::checkOpenProject($accountId);
+                    @endphp
+                    @if ($project)
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('dashboard') }}" class="nav-link main-menu">
+                                <i class="nav-icon fa fa-dashboard"></i>
+                                <p>میز کار</p>
+                                {{ App\Models\Project::getProjectName($project->project_id) }}
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('media.index') }}" class="nav-link main-menu">
+                                <i class="nav-icon fa fa-file-video-o"></i>
+                                <p>رسانه</p>
+                            </a>
+                        </li>
                     @can('SuperAccount')
                         <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'nav.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index', 'plan.index']) }}">
                             <a href="#" class="nav-link main-menu">
@@ -320,6 +326,9 @@
                     </li>
 
                 </ul>
+                @else
+                    1
+                @endif
             </nav>
         </div>
     </div>

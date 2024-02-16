@@ -26,14 +26,14 @@ class AccountController extends Controller
 
     public function dashboard()
     {
-        $setting = new Setting();
+        $settingModel = new Setting;
         if (request()->has('project')) {
             session(['project_id'=> request('project')]);
             Alert::success('موفق', 'قالب مورد نظر فعال شد');
             return back();
         }
         $projects = Project::where('account_id', auth()->user()->account_id)->latest()->get();
-        return view('admin.dashboard', compact('setting', 'projects'));
+        return view('admin.dashboard', compact('settingModel', 'projects'));
     }
 
     public function loadSite($slug)
@@ -41,7 +41,7 @@ class AccountController extends Controller
         $settingModel = new Setting;
         $postModel = new Post;
 
-       // $account = Account::where('slug', $slug)->first();
+        // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
         if ($project) {
             $accountId = $project->account_id;
@@ -80,17 +80,11 @@ class AccountController extends Controller
         return view('admin.account.list', compact('accounts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.account.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([

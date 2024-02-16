@@ -12,7 +12,10 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('میز کار') }}
+        @php
+            $project = App\Models\Project::checkOpenProject(auth()->user()->account->id);
+        @endphp
+        {{ breadcrumb('میز کار ' . App\Models\Project::getProjectName($project->project_id)) }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -62,56 +65,6 @@
                                         {{ convertToPersian(App\Models\Visit::dashboardDayVisit()) }}
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <a href="{{ route('project.create') }}"
-                                            class="pull-left btn btn-info text-white">افزودن جدید</a>
-                                        <h5 class="pull-right">پروژه های من</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-0 table-responsive">
-                                @if ($projects->count() > 0)
-                                    <table class="table table-hover table-bordered">
-                                        <tr>
-                                            <th style="width: 10px">#</th>
-                                            <th>لوگو</th>
-                                            <th>عنوان</th>
-                                            <th>توضیحات</th>
-                                            <th>عملیات</th>
-                                        </tr>
-                                        @foreach ($projects as $project)
-                                            <tr>
-                                                <td>{{ fa_number($loop->index + 1) }}</td>
-                                                <td>
-                                                    <img class="object-fit-contain" style="width: 150px"
-                                                        src="{{ $project->logo ? asset(ert('aip') . $project->logo) : asset('v1/images/logo.png') }}"
-                                                        alt="logo">
-                                                </td>
-                                                <td>{{ $project->title }}</td>
-                                                <td>{!! $project->description !!}</td>
-                                                <td>
-                                                    @if (session('project_id') == $project->id)
-                                                        <button class="  btn btn-success btn-sm m-1"> پروژه فعال </button>
-                                                    @else
-                                                        <a href="{{ route('dashboard', ['project' => $project->id]) }}"
-                                                            class="btn btn-sm btn-primary m-1">فعال کردن</a>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                @else
-                                    <div class="alert alert-danger m-2 text-center">موردی جهت نمایش موجود نیست.</div>
-                                @endif
                             </div>
                         </div>
                     </div>

@@ -16,21 +16,21 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="name">نام</label>
+                                                <label>نام</label>
                                                 <input type="text" class="form-control" name="name"
                                                        placeholder="نام...">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="family">نام خانوادگی</label>
+                                                <label>نام خانوادگی</label>
                                                 <input type="text" class="form-control" name="family"
                                                        placeholder="نام خانوادگی...">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="company">نام شرکت</label>
+                                                <label>نام شرکت</label>
                                                 <input type="text" class="form-control" name="company"
                                                        placeholder="نام شرکت...">
                                             </div>
@@ -83,8 +83,6 @@
                                                     <td class="w-auto text-center">------</td>
                                                 @endif
                                                 <td>
-                                                    <a href="{{ $account->domain }}" target="_blank"
-                                                       class="btn btn-secondary btn-sm mx-1">Domain</a>
                                                     <a href="https://app.gtch.ir/web/{{ $account->slug }}"
                                                        target="_blank" class="btn btn-secondary btn-sm mx-1">LURL</a>
 
@@ -145,14 +143,12 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
                                     </table>
+                                @else
+                                    <div class="alert alert-danger text-center"> موردی جهت نمایش موجود نیست.</div>
+                                @endif
                             </div>
-                            @else
-                                <div class="alert alert-danger text-center"> موردی جهت نمایش موجود نیست.</div>
-                            @endif
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -194,7 +190,7 @@
 @section('scripts')
     @if ($accounts->count() > 0)
         @foreach ($accounts as $account)
-            <script>
+            <script type="text/javascript">
                 $('#confirmdelete{{ $account->id }}').click(function (event) {
                     var form = $(this).closest("form");
                     var name = $(this).data("name");
@@ -215,7 +211,7 @@
             </script>
         @endforeach
     @endif
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
             $('.Deactive-button[data-toggle="modal"]').each(function () {
                 $(this).click(function () {
