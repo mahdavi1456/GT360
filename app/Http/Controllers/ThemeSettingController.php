@@ -13,8 +13,7 @@ class ThemeSettingController extends Controller
     {
         $settingModel = new Setting;
         $accountId = auth()->user()->account->id;
-        $projectId = Project::checkOpenProject($accountId)->id;
-        dd($projectId);
+        $projectId = Project::checkOpenProject($accountId)->project_id;
         $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
         return view('admin.theme-setting.index', compact('settingModel', 'accountId', 'projectId', 'themeName'));
     }
