@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Theme;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -20,17 +21,16 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
-        $account = 0;
-        if ($request->has('action_type') and $request->action_type == 'theme') {
-            $account = auth()->user()->account->id;
-        }
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
         $setting = new Setting;
         if ($request->has('send_type') and $request->send_type == 'ajax') {
             if ($request->file()) {
                 foreach ($request->file() as $key => $value) {
                     $fileName = now()->timestamp . '_' . $value->getClientOriginalName();
                     $value->move(public_path(ert('tsp')), $fileName);
-                    $image = $setting->updateSetting($key, $fileName, auth()->user()->account->id, 'theme-setting');
+                    $image = $setting->updateSetting($key, $fileName, $accountId, $projectId, 'theme-setting');
                 }
             }
             return '  <div class="imageLoader  position-relative ">
@@ -48,7 +48,7 @@ class SettingController extends Controller
 
         $settings = $request->except($fileIndexes);
         foreach ($settings as $key => $value) {
-            $setting->updateSetting($key, $value, $account);
+            $setting->updateSetting($key, $value, $accountId, $projectId);
         }
 
         alert()->success('موفق', 'موارد مورد نظر ثبت شد');
