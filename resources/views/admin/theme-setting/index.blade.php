@@ -138,33 +138,5 @@
                 }
             });
         }
-        // function uploadImage(ele) {
-        //     var form = $('#setting-form');
-        //     var formData = new FormData(form[0]);
-        //     formData.append('send_type', "ajax");
-        //     $("#loading-overlay").fadeIn();
-        //     $.ajax({
-        //         type: 'post',
-        //         url: "{{ route('setting.store') }}",
-        //         data: formData,
-        //         contentType: false,
-        //         processData: false,
-        //         success: function(response) {
-        //             getImages();
-        //             resetFile();
-        //             $("#loading-overlay").fadeOut();
-        //             Swal.fire({
-        //                 title: "موفق",
-        //                 text: "فایل و اطلاعات ذخیره شدند",
-        //                 icon: "success"
-        //             });
-        //         },
-        //         error: function(response) {
-        //             $("#loading-overlay").fadeOut();
-        //             alert('error');
-        //             console.log(response);
-        //         }
-        //     });
-        // }
     </script>
 @endsection
