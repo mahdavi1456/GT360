@@ -143,7 +143,7 @@ class ThemeController extends Controller
         $accountId = auth()->user()->account->id;
         $projectId = Project::checkOpenProject($accountId)->project_id;
         $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
-        return view('admin.theme.chooseTheme', compact('themes', 'accountId', 'projectId'));
+        return view('admin.theme.chooseTheme', compact('themes', 'accountId', 'projectId', 'themeName'));
     }
 
     public function activeTheme($name)
