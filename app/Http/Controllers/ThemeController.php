@@ -92,9 +92,6 @@ class ThemeController extends Controller
         return redirect()->route('theme.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $theme = Theme::findOrFail($id);
@@ -140,11 +137,12 @@ class ThemeController extends Controller
 
     public function choose()
     {
+        $settingModel = new Setting;
         $themes = Theme::where('status', 'active')->get();
-        // dd($themes);
-        $account = auth()->user()->account;
-       // dd(session('project_id'));
-        return view('admin.theme.chooseTheme', compact('themes', 'account'));
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+        $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
+        return view('admin.theme.chooseTheme', compact('themes', 'accountId', 'projectId'));
     }
 
     public function activeTheme($name)
@@ -161,10 +159,11 @@ class ThemeController extends Controller
         $themComponents = $theme->components;
         //dd($themComponents);
         $pluck = $themComponents->pluck('id')->toArray();
-        $components = Component::where('status','active')->latest()->get();
+        $components = Component::where('status', 'active')->latest()->get();
 
         return view('admin.theme.selectComponent', compact('theme', 'components', 'themComponents', 'pluck'));
     }
+
     public function selectNav($theme)
     {
         $theme = Theme::findOrFail($theme);
@@ -173,6 +172,7 @@ class ThemeController extends Controller
         $navs = Nav::latest()->get();
         return view('admin.theme.selectNavs', compact('theme', 'navs', 'themNavs', 'pluck'));
     }
+
     public function componentStore(Request $request, $theme)
     {
         $theme = Theme::findOrFail($theme);
