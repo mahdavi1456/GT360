@@ -34,13 +34,6 @@
                             <a href="{{ route('theme.choose', auth()->user()->account->id) }}">کلیک کنید</a>
                         </div>
                     @endif
-                    @if (auth()->user()->slug() and $setting->getSetting('active_theme', auth()->user()->account->id))
-                        <div class="alert alert-warning">
-                            <a href="{{ route('enterSite', auth()->user()->slug()) }}" target="_blank" class="nav-link">ورود
-                                به
-                                سایت</a>
-                        </div>
-                    @endif
                     @else
                     <div class="alert alert-danger">
                     لطفا در ابتدا پروژه مورد نظر را انتخاب کنید
