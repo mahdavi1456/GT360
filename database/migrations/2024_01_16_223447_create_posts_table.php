@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('account_id');
+            $table->bigInteger('project_id');
             $table->bigInteger('component_id');
             $table->string('title')->nullable();
             $table->string('slug')->nullable();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Project;
 use App\Models\Term;
 use App\Models\User;
 use App\Models\Theme;
@@ -20,13 +21,13 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        $posts = Post::where('account_id',auth()->user()->account_id)->filter()->latest()->paginate(3);
+        $posts = Post::where('account_id', auth()->user()->account_id)->filter()->latest()->paginate(3);
 
         $accountUsers = auth()->user()->account->users;
-        $activeTheme= Theme::getActive();
+        $activeTheme = Theme::getActive();
         ert('cd');
-        $components =$activeTheme->components;
-       // dd($components);
+        $components = $activeTheme->components;
+        // dd($components);
         return view('admin.post.list', compact(['components', 'request', 'posts', 'accountUsers']));
     }
 
@@ -34,7 +35,7 @@ class PostController extends Controller
     {
         $action = request('action');
         $term_array = [];
-        $compnent=Component::findOrFail(request('component_id'));
+        $compnent = Component::findOrFail(request('component_id'));
         // $taxonomies = Taxonomy::where(['status', 1])->with('parents')->latest()->get();
         $taxonomies = $compnent->taxonomies()->with('parents')->latest()->get();
         // $components = Component::all();
@@ -52,10 +53,8 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        //  dd($request->all());
-
         if ($request->action == 'create') {
-            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post');
+            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q', 'post');
             // if ($request->thumbnail) {
             //     $fileName = now()->timestamp . '_' . $request->thumbnail->getClientOriginalName();
             //     $request->thumbnail->move(public_path(ert('thumb-path')), $fileName);
@@ -64,28 +63,32 @@ class PostController extends Controller
             // }
             DB::beginTransaction();
 
-            $data['account_id'] = auth()->user()->account->id;
+            $accountId = auth()->user()->account->id;
+            $projectId = Project::checkOpenProject($accountId)->project_id;
+
+            $data['account_id'] = $accountId;
+            $data['project_id'] = $projectId;
             $data['author'] = auth()->id();
             //  dd($data);
             $post = Post::create($data);
             $post->terms()->attach($request->term);
             DB::commit();
             alert()->success('موفق', 'نوسته مورد نظر ساخته شد');
-        }elseif ($request->action == 'update') {
+        } else if ($request->action == 'update') {
             DB::beginTransaction();
-            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q','post','component_id');
+            $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q', 'post', 'component_id');
 
-            $post=Post::findOrFail($request->post);
+            $post = Post::findOrFail($request->post);
             $post->update($data);
             $post->terms()->sync($request->term);
             DB::commit();
 
-        alert()->success('موفق', 'نوسته مورد نظر ویرایش شد');
+            alert()->success('موفق', 'نوسته مورد نظر ویرایش شد');
         }
-        //dd($request->action);
 
         return to_route('post.index', ['component_id' => $post->component_id]);
     }
+
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
@@ -93,6 +96,7 @@ class PostController extends Controller
         alert()->success('حذف پست', 'پست با موفقیت حذف شد. ');
         return to_route('post.index', ['component_id' => $post->component_id]);
     }
+
     public function uploadImage(Request $request)
     {
         if ($request->image) {
@@ -101,7 +105,7 @@ class PostController extends Controller
             if ($request->action == 'create') {
                 $post = Post::create([
                     'account_id' => auth()->user()->account_id,
-                    'author'=>auth()->id(),
+                    'author' => auth()->id(),
                     'component_id' => $request->component_id,
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
@@ -113,10 +117,11 @@ class PostController extends Controller
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
                 ]);
-                return ['action' => 'update','post'=>$post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
+                return ['action' => 'update', 'post' => $post->id, 'path' => asset(ert('thumb-path')) . '/' . $post->thumbnail];
             }
         }
     }
+
     public function thumbDestroy()
     {
 
