@@ -47,20 +47,41 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId, $projectId) }}</a></li>
-                <li><a href="#intro"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId, $projectId) }}</a></li>
-                <li><a href="#work"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId, $projectId) }}</a></li>
-                <li><a href="#team"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId, $projectId) }}</a></li>
-                <li><a href="#portfolio"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId, $projectId) }}</a></li>
-                <li><a href="#price"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId, $projectId) }}</a></li>
-                <li><a href="#contact"
-                       class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId, $projectId) }}</a></li>
+                @if ($settingModel->getSetting('nav_item_text1', $accountId, $projectId))
+                    <li>
+                        <a href="#home" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId, $projectId) }}</a>
+                    </li>
+                @endif
+                @if ($settingModel->getSetting('nav_item_text2', $accountId, $projectId))
+                    <li>
+                        <a href="#intro" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId, $projectId) }}</a>
+                    </li>
+                @endif
+                @if ($settingModel->getSetting('nav_item_text3', $accountId, $projectId))
+                    <li>
+                        <a href="#work" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId, $projectId) }}</a>
+                    </li>
+                @endif
+                @if ($settingModel->getSetting('nav_item_text4', $accountId, $projectId))
+                    <li>
+                        <a href="#team" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId, $projectId) }}</a>
+                    </li>
+                @endif
+                @if ($settingModel->getSetting('nav_item_text5', $accountId, $projectId))
+                    <li>
+                        <a href="#portfolio" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId, $projectId) }}</a>
+                    </li>
+                @endif
+                @if ($settingModel->getSetting('nav_item_text6', $accountId, $projectId))
+                    <li>
+                        <a href="#price" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId, $projectId) }}</a>
+                    </li>
+                @endif
+                @if ($settingModel->getSetting('nav_item_text7', $accountId, $projectId))
+                    <li>
+                        <a href="#contact" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId, $projectId) }}</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
