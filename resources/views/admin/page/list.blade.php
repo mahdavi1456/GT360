@@ -78,46 +78,42 @@
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($pages->isEmpty())
-                                    <div class="alert alert-danger m-2">موردی جهت نمایش موجود نیست.</div>
+                                    <div class="alert alert-danger text-center m-2">موردی جهت نمایش موجود نیست.</div>
                                 @else
-                                    <table class="table table-bordered table-striped table-hover">
-                                        <thead>
-                                            <tr class="table-warning">
-                                                <th>#</th>
-                                                <th>تصویر شاخص</th>
-                                                <th>عنوان</th>
-                                                <th>بازدید</th>
-                                                <th>نویسنده</th>
-                                                <th>تاریخ</th>
-                                                <th>وضعیت</th>
-                                                <th>عملیات</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($pages as $key => $page)
-                                                <tr>
-                                                    <td>{{ $pages->firstItem() + $key }}</td>
-                                                    <td>
-                                                        <div class="text-center">
-                                                            @if ($page->thumbnail)
-                                                                <img style="width:100px !important; object-fit: contain"
-                                                                    src="{{ asset(ert('pip')) . '/' . $page->thumbnail }}">
-                                                            @else
-                                                                فاقد تصویر
-                                                            @endif
-                                                        </div>
-                                                    </td>
+                                    <table class="table table-bordered table-striped table-hover text-center">
+                                        <tr class="table-warning">
+                                            <th>#</th>
+                                            <th>تصویر شاخص</th>
+                                            <th>عنوان</th>
+                                            <th>بازدید</th>
+                                            <th>نویسنده</th>
+                                            <th>تاریخ</th>
+                                            <th>وضعیت</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        @foreach ($pages as $key => $page)
+                                            <tr>
+                                                <td>{{ $pages->firstItem() + $key }}</td>
+                                                <td>
+                                                    @if ($page->thumbnail)
+                                                        <img style="width:100px !important; object-fit: contain"
+                                                            src="{{ asset(ert('pip')) . '/' . $page->thumbnail }}">
+                                                        @else
+                                                            فاقد تصویر
+                                                        @endif
 
-                                                    <td>{{ $page->title }}</td>
-                                                    {{-- <td>{{ $post->visitLogs()->count() }}</td> --}}
-                                                    <td>{{ 25 }}</td>
-                                                    <td>{{ $page->author_object->name . ' ' . $page->author_object->family }}
-                                                    </td>
-                                                    <td>{{ zaman($page->created_at) }}</td>
-                                                    <td>
-                                                        <span
-                                                            class="badge {{ $page->publish_status == 'publish' ? 'badge-success' : 'badge-danger' }}">{{ $page->publish_status == 'publish' ? 'انتشار' : 'عدم انتشار' }}</span>
-                                                    </td>
+                                                </td>
+                                                <td>{{ $page->title }}</td>
+                                                {{-- <td>{{ $post->visitLogs()->count() }}</td> --}}
+                                                <td>{{ 25 }}</td>
+                                                <td>{{ $page->author_object->name . ' ' . $page->author_object->family }}
+                                                </td>
+                                                <td>{{ zaman($page->created_at) }}</td>
+                                                <td>
+                                                    <span class="badge {{ $page->publish_status == 'publish' ? 'badge-success' : 'badge-danger' }}">
+                                                        {{ $page->publish_status == 'publish' ? 'انتشار' : 'عدم انتشار' }}
+                                                    </span>
+                                                </td>
                                                     <td>
                                                         <div class="d-flex">
                                                             <a class="btn btn-info btn-sm ml-2" target="_blank"
@@ -145,10 +141,10 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="w-100 mt-3 d-flex justify-content-center">
+                                        {{ $pages->withQueryString()->render() }}
+                                    </div>
                                 @endif
-                            </div>
-                            <div class="w-100 mt-3 d-flex justify-content-center">
-                                {{ $pages->withQueryString()->render() }}
                             </div>
                         </div>
                     </div>
