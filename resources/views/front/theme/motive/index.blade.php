@@ -5,21 +5,21 @@
 <title>قالب سایت خبری</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Motive Mag Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords" content="Motive Mag Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
-<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel='stylesheet' type='text/css' />	
-<script src="js/jquery.min.js"> </script>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<link href="{{ asset('front-theme-asset/motive/css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{ asset('front-theme-asset/motive/css/style.css') }}css/style.css" rel='stylesheet' type='text/css' />
+<script src="{{ asset('front-theme-asset/motive/js/jquery.min.js') }}"> </script>
+<script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/easing.js') }}"></script>
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <!--/script-->
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
+				$(".scroll").click(function(event){
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a class="navbar-brand" href="index.html"><h1>Motive<span> Mag</span></h1> </a>
 			</div>
 			<!--/.navbar-header-->
-		
+
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					 <li><a href="fashion.html">اخبار روز</a></li>
@@ -86,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="col-sm-6">
 									<ul class="multi-column-dropdown">
-									   <li><a href="#">ویژگی ها</a></li>	
+									   <li><a href="#">ویژگی ها</a></li>
 										<li class="divider"></li>
 										<li><a href="#">فیلم</a></li>
 									    <li class="divider"></li>
@@ -141,12 +141,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<p>
 
 لورم ایپسوم یا طرح‌نما</p>
-								</div>	
+								</div>
 							</li>
 						</ul>
 						</div>
 						<!--banner-Slider-->
-						<script src="js/responsiveslides.min.js"></script>
+						<script src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}"></script>
 						 <script>
 						// You can also use "$(window).load(function() {"
 						$(function () {
@@ -181,12 +181,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <div class="technology">
 			              <h2 class="tittle"><i class="glyphicon glyphicon-certificate"> </i>تکنولوژی</h2>
 							<div class="col-md-6 tech-img">
-					          <img src="images/tech.jpg" class="img-responsive" alt=""/>
+					          <img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/tech.jpg" class="img-responsive" alt=""/>
 							</div>
 							 <div class="col-md-6 tech-text">
 					            <div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f1.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/f1.jpg" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -197,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f2.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/f2.jpg" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -239,19 +239,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="gallery-images">
 								<div class="course_demo1">
-								  <ul id="flexiselDemo1">	
+								  <ul id="flexiselDemo1">
 									 <li>
-										<a href="single.html"><img src="images/mg1.jpg" alt="" /></a>						
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" /></a>
 									 </li>
 									 <li>
-										<a href="single.html"><img src="images/mg2.jpg" alt="" /></a>
-									  </li>	
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg2.jpg" alt="" /></a>
+									  </li>
 									 <li>
-										<a href="single.html"><img src="images/mg3.jpg" alt="" /></a>
-									 </li>	
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg3.jpg" alt="" /></a>
+									 </li>
 									 <li>
-										<a href="single.html"><img src="images/mg4.jpg" alt="" /></a>
-									 </li>	
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg4.jpg" alt="" /></a>
+									 </li>
 								 </ul>
 							 </div>
 								<script type="text/javascript">
@@ -260,46 +260,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									visibleItems: 3,
 									animationSpeed: 1000,
 									autoPlay: true,
-									autoPlaySpeed: 3000,    		
+									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
+									responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems: 2
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems: 2
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems: 3
 										}
 									}
 								});
-								
+
 							 });
 							  </script>
-							 <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+							 <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}js/jquery.flexisel.js"></script>
 						 </div>
 						  <div class="course_demo1">
-								  <ul id="flexiselDemo">	
+								  <ul id="flexiselDemo">
 									 <li>
-										<a href="single.html"><img src="images/mg7.jpg" alt="" /></a>							
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg7.jpg" alt="" /></a>
 									 </li>
 									 <li>
-										<a href="single.html"><img src="images/mg3.jpg" alt="" /></a>	
-									  </li>	
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg3.jpg" alt="" /></a>
+									  </li>
 									 <li>
-										<a href="single.html"><img src="images/mg6.jpg" alt="" /></a>	
-									 </li>	
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg6.jpg" alt="" /></a>
+									 </li>
 									 <li>
-										<a href="single.html"><img src="images/mg2.jpg" alt="" /></a>	
-									 </li>	
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg2.jpg" alt="" /></a>
+									 </li>
 									 <li>
-										<a href="single.html"><img src="images/mg6.jpg" alt="" /></a>	
-									 </li>	
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg6.jpg" alt="" /></a>
+									 </li>
 								 </ul>
 							 </div>
 							 <a class="more" href="single.html">
@@ -311,28 +311,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									visibleItems: 3,
 									animationSpeed: 1000,
 									autoPlay: true,
-									autoPlaySpeed: 3000,    		
+									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
+									responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems: 2
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems: 2
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems: 3
 										}
 									}
 								});
-								
+
 							 });
 							  </script>
-							 <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+							 <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/jquery.flexisel.js') }}"></script>
 
 					</div>
 				<!--business-->
@@ -340,7 +340,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <div class="business">
 			              <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
 						  <div class="business-inner">
-						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="images/time.jpg" alt=""/></a></div>
+						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/time.jpg" alt=""/></a></div>
 						    <div class="col-md-6 b-text">
 						      <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </a></h5>
 							  <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
@@ -354,10 +354,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <div class="business-bottom-content">
 							  <div class="col-md-6 business-bottom">
 							      <div class="col-md-3 b-bottom-pic">
-								  <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""/></a>
+								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/ti1.jpg" alt=""/></a>
 								  </div>
 								  <div class="col-md-9 b-bottom-text">
-								    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5> 
+								    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
 									<h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
 							        <div class="clearfix"></div>
 								  </div>
@@ -365,10 +365,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  </div>
 							    <div class="col-md-6 business-bottom">
 							      <div class="col-md-3 b-bottom-pic">
-								  <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""/></a>
+								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/ti1.jpg" alt=""/></a>
 								  </div>
 								  <div class="col-md-9 b-bottom-text">
-								    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5> 
+								    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
 									<h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
 							       <div class="clearfix"></div>
 								  </div>
@@ -378,7 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 </div>
 						  </div>
 						    <div class="business-inner two">
-						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="images/time2.jpg" alt=""/></a></div>
+						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/time2.jpg" alt=""/></a></div>
 						    <div class="col-md-6 b-text">
 						      <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
 							<h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
@@ -392,12 +392,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <div class="business-bottom-content">
 							  <div class="col-md-6 business-bottom">
 							      <div class="col-md-3 b-bottom-pic">
-								  <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""/></a>
+								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/ti1.jpg" alt=""/></a>
 								  </div>
 								  <div class="col-md-9 b-bottom-text">
 								    <h5><a href="single.html">
 اکنون زمان برای تغییر کار است
-</a></h5> 
+</a></h5>
 								<h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
 							   <div class="clearfix"></div>
 								  </div>
@@ -410,7 +410,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  <div class="col-md-9 b-bottom-text">
 								    <h5><a href="single.html">
 اکنون زمان برای تغییر کار است
-</a></h5> 
+</a></h5>
 									<h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
 							   <div class="clearfix"></div>
 								  </div>
@@ -429,7 +429,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </h3>
 				        <div class="world-news-grids">
 								<div class="world-news-grid">
-									<img src="images/a1.jpg" alt="" />
+									<img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/a1.jpg" alt="" />
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
 									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
 									<a class="read" href="single.html">
@@ -445,7 +445,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </a>
 								</div>
 								<div class="world-news-grid lost">
-									<img src="images/a1.jpg" alt="" />
+									<img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/a1.jpg" alt="" />
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
 									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
 									<a class="read" href="single.html">
@@ -475,7 +475,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="c5-element-dribble"><a href="#"><span class="icon3"></span><h5>99</h5><span class="text">
 
 لورم ایپسوم</span></a></li>
-						
+
 					  </ul>
 			      </div>
 				    <div class="modern">
@@ -483,42 +483,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					  <div id="example1" dir=ltr>
 			 	        <div id="owl-demo" class="owl-carousel text-center">
 					      <div class="item">
-					
-							<img class="img-responsive lot" src="images/p1.jpg" alt=""/>
+
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p1.jpg" alt=""/>
 					     </div>
 						 <div class="item">
-					
-							<img class="img-responsive lot" src="images/p2.jpg" alt=""/>
+
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p2.jpg" alt=""/>
 					    </div>
 						<div class="item">
-					
-							<img class="img-responsive lot" src="images/p33.jpg" alt=""/>
+
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p33.jpg" alt=""/>
 					    </div>
 						<div class="item">
-					
-							<img class="img-responsive lot" src="images/p1.jpg" alt=""/>
+
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p1.jpg" alt=""/>
 					</div>
 					<div class="item">
-					
-							<img class="img-responsive lot" src="images/p1.jpg" alt=""/>
+
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p1.jpg" alt=""/>
 					</div>
 						<div class="item">
-					
+
 							<img class="img-responsive lot" src="images/p2.jpg" alt=""/>
 					</div>
 						<div class="item">
-					
+
 							<img class="img-responsive lot" src="images/p33.jpg" alt=""/>
 					</div>
 						<div class="item">
-					
+
 							<img class="img-responsive lot" src="images/p1.jpg" alt=""/>
 					</div>
 				</div>
 				</div>
 				<!-- requried-jsfiles-for owl -->
 				<!--RTL & Persian LNG & Publicer By Www.20script.ir-->
-										<script src="js/owl.carousel.js"></script>
+										<script src="{{ asset('front-theme-asset/motive/js/owl.carousel.js') }}"></script>
 										  <script>
 										  $(document).ready(function() {
 											   $("#owl-demo").owlCarousel({
@@ -528,16 +528,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												navigation : true,
 												navigationText :  true,
 												pagination : false,
-												responsiveBreakpoints: { 
-										portrait: { 
+												responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems: 2
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems: 2
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems: 3
 										}
@@ -652,7 +652,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="#">
 مشاهده بیشتر
 </a>
-								</figcaption>			
+								</figcaption>
 							  </figure>
 							   <div class="m-b-text">
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</a>
@@ -667,7 +667,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="single.html">	<img src="images/pic2.jpg" alt="img25"/></a>
 								<figcaption>
 									<h4>اخبارهای<span>روز</span></h4>
-								</figcaption>			
+								</figcaption>
 							  </figure>
 							  <div class="m-b-text">
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</a>
@@ -682,7 +682,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="single.html"><img src="images/pic3.jpg" alt="img25"/></a>
 								<figcaption>
 									<h4>اخبارهای<span>روز</span></h4>
-								</figcaption>			
+								</figcaption>
 							  </figure>
 							  <div class="m-b-text">
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</a>
@@ -824,19 +824,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  			containerID: 'toTop', // fading element id
 											containerHoverID: 'toTopHover', // fading element hover id
 											scrollSpeed: 1200,
-											easingType: 'linear' 
+											easingType: 'linear'
 								 		};
 										*/
-										
+
 										$().UItoTop({ easingType: 'easeOutQuart' });
-										
+
 									});
 								</script>
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 
 <!--JS-->
-  <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+  <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/bootstrap-3.1.1.min.js') }}"></script>
 
 <!--//JS-->
 <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
