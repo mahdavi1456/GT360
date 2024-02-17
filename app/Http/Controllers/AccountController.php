@@ -529,14 +529,15 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $postModel = new Post;
-        $account = Account::where('slug', $slug)->first();
-        if ($account) {
-            $theme = $account->activeTheme();
+        
+        $project = Project::where('slug', $slug)->first();
+        if ($project) {
+            $accountId = $project->account_id;
+            $projectId = $project->id;
+            $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.post";
-            $accountId = $account->id;
-            return view($view, compact('settingModel', 'postModel', 'accountId'));
+            return view($view, compact('settingModel', 'postModel', 'accountId', 'projectId', 'slug'));
         }
-        return "یک تم برای خود انتخاب کنید";
     }
 
     public function showPage($slug, $id)
