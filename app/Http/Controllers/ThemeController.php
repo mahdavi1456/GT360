@@ -101,7 +101,6 @@ class ThemeController extends Controller
         return redirect()->route('theme.index');
     }
 
-
     public function searchTheme(Request $request)
     {
         $category = $request->input('category');
@@ -215,7 +214,11 @@ class ThemeController extends Controller
         $fonts = Font::all();
         $palletes = Pallete::all();
         $settingModel = new Setting;
-        return view('admin.theme.personalize', compact('fonts', 'palletes', 'settingModel'));
+
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
+        return view('admin.theme.personalize', compact('fonts', 'palletes', 'settingModel', 'accountId', 'projectId'));
     }
 
     public function updatePersonalize(Request $request)
@@ -229,7 +232,7 @@ class ThemeController extends Controller
         foreach ($data as $key => $value) {
             $settingModel->updateSetting($key, $value, $accountId, $projectId);
         }
-        
+
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
         return back();
     }

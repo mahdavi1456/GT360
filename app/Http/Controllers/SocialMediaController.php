@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -18,7 +19,11 @@ class SocialMediaController extends Controller
     public function index()
     {
         $settingModel = new Setting;
-        return view('admin.social-media.list', compact('settingModel'));
+
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
+        return view('admin.social-media.list', compact('settingModel', 'accountId', 'projectId'));
     }
 
     public function store(Request $request)
@@ -26,8 +31,11 @@ class SocialMediaController extends Controller
         $settingModel = new Setting;
         $data = $request->request;
 
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
         foreach ($data as $key => $value) {
-            $settingModel->updateSetting($key, $value, auth()->user()->account->id);
+            $settingModel->updateSetting($key, $value, $accountId, $projectId);
         }
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
         return back();
