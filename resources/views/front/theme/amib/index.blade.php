@@ -14,8 +14,8 @@
     <title>{{ $settingModel->getSetting('title', $accountId) }}</title>
     <meta name="description" content="{{ $settingModel->getSetting('description', $accountId) }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/amib') }}/css/isotope.css" media="screen"/>
-    <link rel="stylesheet" href="{{ asset('front-theme-asset/amib') }}/js/fancybox/jquery.fancybox.css" type="text/css"
+    <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/amib/css/isotope.css') }}" media="screen"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/amib/js/fancybox/jquery.fancybox.css') }}" type="text/css"
           media="screen"/>
     <link rel="stylesheet" href="{{ asset('front-theme-asset/amib') }}/css/bootstrap.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/amib') }}/css/bootstrap-theme.css">
