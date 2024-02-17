@@ -11,7 +11,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="{{ asset('front-theme-asset/motive/js/css/bootstrap-3.1.1.min.css') }}" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
 <link href="{{ asset('front-theme-asset/motive/css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all" />
-<link href="{{ asset('front-theme-asset/motive/css/style.css') }}css/style.css" rel='stylesheet' type='text/css' />
+<link href="{{ asset('front-theme-asset/motive/css/style.css') }}" rel='stylesheet' type='text/css' />
 <script src="{{ asset('front-theme-asset/motive/js/jquery.min.js') }}"> </script>
 <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/move-top.js') }}"></script>
 <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/easing.js') }}"></script>
