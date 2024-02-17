@@ -540,19 +540,19 @@ class AccountController extends Controller
         }
     }
 
-    public function showPage($slug, $id)
+    public function showPage($slug, $componentName, $postId)
     {
         $settingModel = new Setting;
-        $postModel = new Post;
-        $account = Account::where('slug', $slug)->first();
-        if ($account) {
-            $theme = $account->activeTheme();
+        $postModel = Post::find($postId);
+
+        $project = Project::where('slug', $slug)->first();
+        if ($project) {
+            $accountId = $project->account_id;
+            $projectId = $project->id;
+            $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.page";
-            $accountId = $account->id;
-            $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'postModel', 'accountId', 'products'));
+            return view($view, compact('settingModel', 'postModel', 'accountId', 'projectId', 'slug'));
         }
-        return "یک تم برای خود انتخاب کنید";
     }
 
 }
