@@ -156,9 +156,9 @@
                         value="{{ $settingModel->getSetting('service_second_icon', $accountId, $projectId) }}">
                     <hr>
                     <label class="form-label">عنوان دوم</label>
-                    <input type="text" name="service_secound_title" class="form-control"
+                    <input type="text" name="service_second_title" class="form-control"
                         placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('service_secound_title', $accountId, $projectId) }}">
+                        value="{{ $settingModel->getSetting('service_second_title', $accountId, $projectId) }}">
                 </div>
                 <div class="col-3 form-group">
                     <label class="form-label">آیکن سوم</label>
