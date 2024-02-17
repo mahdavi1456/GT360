@@ -621,20 +621,21 @@
 							<!--//edit-pics-->
 							<!--/top-news-->
 								<div class="top-news">
-								 <h4 class="side">
-اخبار مهم
-</h4>
+								 <h4 class="side">اخبار مهم</h4>
 							      <div class="top-inner">
-								     <div class="top-text">
-										 <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}" class="img-responsive" alt=""/></a>
-										 <h5 class="top"><a href="single.html">نظرسنجی:لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a></h5>
-										 <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
-								     </div>
-									  <div class="top-text two">
-										 <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/dest.jpg') }}" class="img-responsive" alt=""/></a>
-										 <h5 class="top"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h5>
-										 <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
-								     </div>
+
+                                    @if ($postModel->getPosts('news', $accountId, $projectId))
+                                        @foreach ( $postModel->getPosts('news', $accountId, $projectId) as $new)
+                                            <div class="top-text">
+                                                <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}" class="img-responsive" alt=""/></a>
+                                                <h5 class="top"><a href="single.html">{{ $new->title }}</a></h5>
+                                                <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
+                                            </div>
+                                            @endforeach
+                                     @endif
+
+
+
 								  </div>
 	                            </div>
 							<!--//top-news-->
