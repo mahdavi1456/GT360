@@ -432,30 +432,19 @@
 آخرین مقالات
 </h3>
 				        <div class="world-news-grids">
-								<div class="world-news-grid">
-									<img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}" alt="" />
-									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
-									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
-									<a class="read" href="single.html">
-ادامه مطلب
-</a>
-								</div>
-								<div class="world-news-grid">
-									<img src="{{ asset('front-theme-asset/motive/images/a3.jpg') }}" alt="" />
-									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
-									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
-									<a class="read" href="single.html">
-ادامه مطلب
-</a>
-								</div>
-								<div class="world-news-grid lost">
-									<img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}" alt="" />
-									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
-									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
-									<a class="read" href="single.html">
-ادامه مطلب
-</a>
-								</div>
+
+                            @if ($postModel->getPosts($accountId, $projectId, 'article'))
+                                @foreach ($postModel->getPosts($accountId, $projectId, 'article') as $article)
+                                    <div class="world-news-grid">
+                                        <img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}" alt="" />
+                                        <a href="single.html" class="wd">{{ $article->title }}</a>
+                                        <p>{{ $article->abstract }}</p>
+                                        <a class="read" href="single.html">ادامه مطلب</a>
+                                    </div>
+                                @endforeach
+                            @endif
+
+
 								<div class="clearfix"></div>
 							</div>
 					</div>
