@@ -9,6 +9,7 @@ use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Project;
 use App\Models\Setting;
+use App\Models\Page;
 
 use App\Models\ReservePlan;
 use Illuminate\Support\Str;
@@ -540,10 +541,10 @@ class AccountController extends Controller
         }
     }
 
-    public function showPage($slug, $componentName, $postId)
+    public function showPage($slug, $componentName, $pageId)
     {
         $settingModel = new Setting;
-        $postModel = Post::find($postId);
+        $pageModel = Page::find($pageId);
 
         $project = Project::where('slug', $slug)->first();
         if ($project) {
@@ -551,7 +552,7 @@ class AccountController extends Controller
             $projectId = $project->id;
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.page";
-            return view($view, compact('settingModel', 'postModel', 'accountId', 'projectId', 'slug'));
+            return view($view, compact('settingModel', 'pageModel', 'accountId', 'projectId', 'slug'));
         }
     }
 
