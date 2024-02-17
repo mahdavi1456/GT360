@@ -1,4 +1,4 @@
-@include('header')
+@include('front.theme.motive.header')
 <body>
 <div class="header" id="home">
     <div class="content white">
@@ -761,4 +761,4 @@
 </div>
 <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
 <!--//end-main-->
-@include('footer')
+@include('front.theme.motive.footer')

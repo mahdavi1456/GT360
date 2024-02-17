@@ -1,4 +1,4 @@
-@include('header')
+@include('front.theme.motive.header')
 <body>
 <!--start-header-->
 <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
@@ -491,4 +491,4 @@
 </div>
 <!--//end-main-->
 
-@include('footer')
+@include('front.theme.motive.footer')
