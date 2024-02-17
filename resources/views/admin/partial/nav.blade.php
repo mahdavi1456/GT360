@@ -98,7 +98,7 @@
                 @else
                     <a href="#" class="dropdown-item">
                         <i class="fa fa-envelope ml-2"></i> هیچ پروژه ای تعریف نشده است.
-                        <span class="float-left text-muted text-sm">3 دقیقه</span>
+                        <span class="float-left text-muted text-sm"></span>
                     </a>
                 @endif
                 <a href="{{ route('project.index') }}" class="dropdown-item dropdown-footer">مدیریت پروژه ها</a>

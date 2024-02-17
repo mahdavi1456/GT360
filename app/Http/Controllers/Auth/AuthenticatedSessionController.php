@@ -42,7 +42,9 @@ class AuthenticatedSessionController extends Controller
     {
         //Close Project on Logout
         //Set close_project key = 0 in settings Table
-        Project::closeProject(auth()->user()->account_id);
+        if (Project::checkOpenProject(auth()->user()->account_id)){
+            Project::closeProject(auth()->user()->account_id);
+        }
 
         Auth::guard('web')->logout();
 
