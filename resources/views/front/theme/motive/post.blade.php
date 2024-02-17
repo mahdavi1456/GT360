@@ -21,7 +21,7 @@
                     <div class="single-right-grid">
                         <img src="images/single.jpg" alt="">
 
-                        {{ $postModel->content }}
+                        {!! $postModel->content !!}
 
                         <div class="single-bottom">
                             <ul>
