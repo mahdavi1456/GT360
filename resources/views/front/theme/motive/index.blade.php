@@ -624,7 +624,7 @@
 								 <h4 class="side">اخبار مهم</h4>
 							      <div class="top-inner">
 
-                                    @if ($postModel->getPosts('news', $accountId, $projectId))
+                                    @if ($postModel->getPosts($accountId, $projectId, 'news'))
                                         @foreach ( $postModel->getPosts('news', $accountId, $projectId) as $new)
                                             <div class="top-text">
                                                 <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}" class="img-responsive" alt=""/></a>
