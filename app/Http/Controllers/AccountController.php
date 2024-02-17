@@ -525,10 +525,10 @@ class AccountController extends Controller
         return to_route('dashboard');
     }
 
-    public function showPost($slug, $componentName, $id)
+    public function showPost($slug, $componentName, $postId)
     {
         $settingModel = new Setting;
-        $postModel = new Post;
+        $postModel = Post::find($postId);
 
         $project = Project::where('slug', $slug)->first();
         if ($project) {
