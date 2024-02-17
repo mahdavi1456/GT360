@@ -7,19 +7,23 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb(' تنظیمات قالب  '. projectName() . '-' . $themeName) }}
+        {{ breadcrumb('تنظیمات قالب') }}
         <section class="content">
             <div class="container-fluid">
                 @include('admin.partial.error')
                 <div class="row">
                     <div class="col-12">
-                        <div class="card" id="outer-div">
+                        <div class="card">
                             <form id="setting-form" action="{{ route('setting.store') }}" method="POST"
                                   enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="action_type" value="theme">
-                                <div class="card-body">
-                                    @include("front.theme.$themeName.setting")
+                                <div class="card-body p-0">
+                                    @if ($themeName)
+                                        @include("front.theme.$themeName.setting")
+                                    @else
+                                        <div class="alert alert-danger m-2 text-center">لطفا ابتدا یک قالب انتخاب نمایید.</div>
+                                    @endif
                                 </div>
                                 <div class="card-footer text-left">
                                     <button type="submit" class="btn btn-success">ذخیره</button>

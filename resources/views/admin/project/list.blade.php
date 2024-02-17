@@ -1,15 +1,11 @@
 @extends('admin.master')
-@section('title', 'form List')
+@section('title', 'پروژه ها')
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
         {{ breadcrumb('پروژه ها') }}
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -18,14 +14,14 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('project.create') }}" class="pull-left btn btn-info text-white">افزودن جدید</a>
+                                        <a href="{{ route('project.create') }}" class="pull-left btn btn-info btn-sm text-white">پروژه جدید</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($projects->count() > 0)
-                                    <table class="table table-hover table-bordered">
-                                        <tr>
+                                    <table class="table table-hover table-bordered text-center">
+                                        <tr class="table-warning">
                                             <th style="width: 10px">#</th>
                                             <th>لوگو</th>
                                             <th>عنوان</th>
@@ -40,17 +36,15 @@
                                                 <td>{{ $project->title }}</td>
                                                 <td>{!! $project->description !!}</td>
                                                 <td>
-                                                    <a href="{{ route('project.show', $project->id) }}" class="btn btn-info m-1"> میز کار</a>
-                                                    <a href="{{ route('project.create',['update'=>$project->id]) }}" class="btn btn-warning m-1"><i class="fa fa-pencil"></i></a>
-                                                    <a href="{{ route('project.destroy', $project->id) }}"  data-confirm-delete="true" class="btn btn-danger m-1"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('project.show', $project->id) }}" class="btn btn-info btn-sm">میز کار</a>
+                                                    <a href="{{ route('project.create', ['update' => $project->id]) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{ route('project.destroy', $project->id) }}"  data-confirm-delete="true" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 @else
-                                    <div class="alert alert-danger m-2 text-center">
-                                        موردی جهت نمایش موجود نیست.
-                                    </div>
+                                    <div class="alert alert-danger m-2 text-center">موردی جهت نمایش موجود نیست.</div>
                                 @endif
                             </div>
                         </div>
@@ -58,12 +52,7 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection
-
 @section('scripts')
-
-
 @endsection

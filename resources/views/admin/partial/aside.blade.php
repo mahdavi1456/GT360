@@ -14,8 +14,7 @@
                 <div class="image d-flex justify-content-center align-items-center">
                     <img
                         src="{{ $account->account_image ? asset(ert('aip') . $account->account_image) : asset('asset/dist/img/avatar5.png') }}"
-                        class="img-circle elevation-2"
-                        alt="User Image">
+                        class="img-circle elevation-2">
                 </div>
                 <div class="info">
                     <a href="{{ route('account.profile.edit', $account->id) }}"
@@ -150,13 +149,6 @@
                                    class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>تکمیل اطلاعات</p>
-                                </a>
-                            </li>
-                            <li class="nav-item {{ active_menu('accountSite.edit') }}">
-                                <a href="{{ route('accountSite.edit', Auth::user()->account->id) }}"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>وب سایت</p>
                                 </a>
                             </li>
                         </ul>

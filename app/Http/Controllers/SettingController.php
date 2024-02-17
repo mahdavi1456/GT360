@@ -54,4 +54,5 @@ class SettingController extends Controller
         alert()->success('موفق', 'موارد مورد نظر ثبت شد');
         return back();
     }
+
 }

@@ -1,36 +1,20 @@
 @extends('admin.master')
-@section('title', 'edit form')
+@section('title', 'ویرایش پروژه')
 @section('content')
-    {{-- @include('sweetalert::alert') --}}
     @include("admin.partial.nav")
     @include("admin.partial.aside")
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-
-        {{ breadcrumb('ویرایش فرم') }}
-
-        <!-- Main content -->
+        {{ breadcrumb('ویرایش پروژه') }}
         <section class="content">
             <div class="container-fluid">
+                @include('admin.partial.error')
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif
-                                <form action="{{ route('form.update',$form->id) }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    @method('put')
+                            <form action="{{ route('form.update', $form->id) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-4">
                                             <div class="form-group">
@@ -39,9 +23,7 @@
                                                        oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
-
                                     </div>
-
                                     <div class="row">
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-success">ذخیره</button>
