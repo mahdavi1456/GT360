@@ -208,7 +208,7 @@
 
                             </div>
                             <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی
+                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
                                         نامفهوم از صنعت چاپ </a></h5>
                                 <div class="td-post-date two">Feb 22, 2015</div>
                             </div>
@@ -221,7 +221,7 @@
 
                             </div>
                             <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی
+                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
                                         نامفهوم از صنعت چاپ </a></h5>
                                 <div class="td-post-date two">Feb 22, 2015</div>
                             </div>
@@ -234,7 +234,7 @@
 
                             </div>
                             <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی
+                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
                                         نامفهوم از صنعت چاپ </a></h5>
                                 <div class="td-post-date two">Feb 22, 2015</div>
                             </div>
@@ -247,7 +247,7 @@
 
                             </div>
                             <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی
+                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
                                         نامفهوم از صنعت چاپ </a></h5>
                                 <div class="td-post-date two">Feb 22, 2015</div>
                             </div>
@@ -268,7 +268,7 @@
                                 @if ($postModel->getPosts($accountId, $projectId, 'gallery'))
                                     @foreach ($postModel->getPosts($accountId, $projectId, 'gallery') as $gallery)
                                         <li>
-                                            <a href="single.html">
+                                            <a href="post.blade.php">
                                                 @if ($gallery->thumbnail)
                                                     <img
                                                         src="{{ asset(ert('thumb-path')) . '/' . $gallery->thumbnail }}">
@@ -315,28 +315,28 @@
                     <div class="course_demo1">
                         <ul id="flexiselDemo">
                             <li>
-                                <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg7.jpg') }}"
-                                                           alt=""/></a>
+                                <a href="post.blade.php"><img src="{{ asset('front-theme-asset/motive/images/mg7.jpg') }}"
+                                                              alt=""/></a>
                             </li>
                             <li>
-                                <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg3.jpg') }}"
-                                                           alt=""/></a>
+                                <a href="post.blade.php"><img src="{{ asset('front-theme-asset/motive/images/mg3.jpg') }}"
+                                                              alt=""/></a>
                             </li>
                             <li>
-                                <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}"
-                                                           alt=""/></a>
+                                <a href="post.blade.php"><img src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}"
+                                                              alt=""/></a>
                             </li>
                             <li>
-                                <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg2.jpg') }}"
-                                                           alt=""/></a>
+                                <a href="post.blade.php"><img src="{{ asset('front-theme-asset/motive/images/mg2.jpg') }}"
+                                                              alt=""/></a>
                             </li>
                             <li>
-                                <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}"
-                                                           alt=""/></a>
+                                <a href="post.blade.php"><img src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}"
+                                                              alt=""/></a>
                             </li>
                         </ul>
                     </div>
-                    <a class="more" href="single.html">
+                    <a class="more" href="post.blade.php">
                         بیشتر +
                     </a>
                     <script type="text/javascript">
@@ -375,11 +375,11 @@
                 <div class="business">
                     <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
                     <div class="business-inner">
-                        <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive"
-                                                                               src="{{ asset('front-theme-asset/motive/images/time.jpg') }}"
-                                                                               alt=""/></a></div>
+                        <div class="col-md-6 b-img"><a href="post.blade.php"><img class="img-responsive"
+                                                                                  src="{{ asset('front-theme-asset/motive/images/time.jpg') }}"
+                                                                                  alt=""/></a></div>
                         <div class="col-md-6 b-text">
-                            <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </a>
+                            <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </a>
                             </h5>
                             <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
                             <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
@@ -390,7 +390,7 @@
                             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                                 است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
                                 فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-                            <a class="read" href="single.html">
+                            <a class="read" href="post.blade.php">
                                 ادامه مطلب
                             </a>
                         </div>
@@ -398,12 +398,12 @@
                         <div class="business-bottom-content">
                             <div class="col-md-6 business-bottom">
                                 <div class="col-md-3 b-bottom-pic">
-                                    <a href="single.html"><img class="img-responsive"
-                                                               src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                               alt=""/></a>
+                                    <a href="post.blade.php"><img class="img-responsive"
+                                                                  src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
+                                                                  alt=""/></a>
                                 </div>
                                 <div class="col-md-9 b-bottom-text">
-                                    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
+                                    <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
                                     <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
                                     <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a
                                             href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
@@ -415,12 +415,12 @@
                             </div>
                             <div class="col-md-6 business-bottom">
                                 <div class="col-md-3 b-bottom-pic">
-                                    <a href="single.html"><img class="img-responsive"
-                                                               src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                               alt=""/></a>
+                                    <a href="post.blade.php"><img class="img-responsive"
+                                                                  src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
+                                                                  alt=""/></a>
                                 </div>
                                 <div class="col-md-9 b-bottom-text">
-                                    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
+                                    <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
                                     <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
                                     <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a
                                             href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
@@ -434,11 +434,11 @@
                         </div>
                     </div>
                     <div class="business-inner two">
-                        <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive"
-                                                                               src="{{ asset('front-theme-asset/motive/images/time2.jpg') }}"
-                                                                               alt=""/></a></div>
+                        <div class="col-md-6 b-img"><a href="post.blade.php"><img class="img-responsive"
+                                                                                  src="{{ asset('front-theme-asset/motive/images/time2.jpg') }}"
+                                                                                  alt=""/></a></div>
                         <div class="col-md-6 b-text">
-                            <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
+                            <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
                             <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
                             <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
                                         class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
@@ -448,7 +448,7 @@
                             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                                 است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
                                 فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-                            <a class="read" href="single.html">
+                            <a class="read" href="post.blade.php">
                                 ادامه مطلب
                             </a>
                         </div>
@@ -456,12 +456,12 @@
                         <div class="business-bottom-content">
                             <div class="col-md-6 business-bottom">
                                 <div class="col-md-3 b-bottom-pic">
-                                    <a href="single.html"><img class="img-responsive"
-                                                               src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                               alt=""/></a>
+                                    <a href="post.blade.php"><img class="img-responsive"
+                                                                  src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
+                                                                  alt=""/></a>
                                 </div>
                                 <div class="col-md-9 b-bottom-text">
-                                    <h5><a href="single.html">
+                                    <h5><a href="post.blade.php">
                                             اکنون زمان برای تغییر کار است
                                         </a></h5>
                                     <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
@@ -475,12 +475,12 @@
                             </div>
                             <div class="col-md-6 business-bottom">
                                 <div class="col-md-3 b-bottom-pic">
-                                    <a href="single.html"><img class="img-responsive"
-                                                               src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                               alt=""/></a>
+                                    <a href="post.blade.php"><img class="img-responsive"
+                                                                  src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
+                                                                  alt=""/></a>
                                 </div>
                                 <div class="col-md-9 b-bottom-text">
-                                    <h5><a href="single.html">
+                                    <h5><a href="post.blade.php">
                                             اکنون زمان برای تغییر کار است
                                         </a></h5>
                                     <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
@@ -507,9 +507,9 @@
                             @foreach ($postModel->getPosts($accountId, $projectId, 'article') as $article)
                                 <div class="world-news-grid">
                                     <img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}" alt=""/>
-                                    <a href="single.html" class="wd">{{ $article->title }}</a>
+                                    <a href="post.blade.php" class="wd">{{ $article->title }}</a>
                                     <p>{{ $article->abstract }}</p>
-                                    <a class="read" href="single.html">ادامه مطلب</a>
+                                    <a class="read" href="post.blade.php">ادامه مطلب</a>
                                 </div>
                             @endforeach
                         @endif
@@ -652,7 +652,7 @@
 
                         </div>
                         <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
+                            <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
                             <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
                                     href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
                         </div>
@@ -665,7 +665,7 @@
 
                         </div>
                         <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
+                            <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
                             <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
                                     href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
                         </div>
@@ -678,7 +678,7 @@
 
                         </div>
                         <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
+                            <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
                             <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
                                     href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
                         </div>
@@ -691,7 +691,7 @@
 
                         </div>
                         <div class="col-md-9 item-details">
-                            <h5 class="inner two"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
+                            <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی</a></h5>
                             <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
                                     href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
                         </div>
@@ -711,7 +711,7 @@
                                         <img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}"
                                              class="img-responsive" alt=""/>
                                     </a>
-                                    <h5 class="top"><a href="single.html">{{ $new->title }}</a></h5>
+                                    <h5 class="top"><a href="post.blade.php">{{ $new->title }}</a></h5>
                                     <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015
                                         <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
                                 </div>
@@ -733,7 +733,7 @@
             </h3>
             <div class="grid">
                 <div class="col-md-4 m-b">
-                    <a href="single.html">
+                    <a href="post.blade.php">
                         <figure class="effect-layla"></figure>
                     </a>
                     <img src="{{ asset('front-theme-asset/motive/images/pic.jpg') }}" alt="img25"/>
@@ -745,47 +745,47 @@
                     </figcaption>
                     </figure>
                     <div class="m-b-text">
-                        <a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                        <a href="post.blade.php" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
                             است</a>
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                             است</p>
-                        <a class="read" href="single.html">
+                        <a class="read" href="post.blade.php">
                             ادامه مطلب
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 m-b">
                     <figure class="effect-layla">
-                        <a href="single.html"> <img src="{{ asset('front-theme-asset/motive/images/pic2.jpg') }}"
-                                                    alt="img25"/></a>
+                        <a href="post.blade.php"> <img src="{{ asset('front-theme-asset/motive/images/pic2.jpg') }}"
+                                                       alt="img25"/></a>
                         <figcaption>
                             <h4>اخبارهای<span>روز</span></h4>
                         </figcaption>
                     </figure>
                     <div class="m-b-text">
-                        <a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                        <a href="post.blade.php" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
                             است</a>
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                             است</p>
-                        <a class="read" href="single.html">
+                        <a class="read" href="post.blade.php">
                             ادامه مطلب
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4 m-b">
                     <figure class="effect-layla">
-                        <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/pic3.jpg') }}"
-                                                   alt="img25"/></a>
+                        <a href="post.blade.php"><img src="{{ asset('front-theme-asset/motive/images/pic3.jpg') }}"
+                                                      alt="img25"/></a>
                         <figcaption>
                             <h4>اخبارهای<span>روز</span></h4>
                         </figcaption>
                     </figure>
                     <div class="m-b-text">
-                        <a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                        <a href="post.blade.php" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
                             است</a>
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                             است</p>
-                        <a class="read" href="single.html">
+                        <a class="read" href="post.blade.php">
                             ادامه مطلب
                         </a>
                     </div>
