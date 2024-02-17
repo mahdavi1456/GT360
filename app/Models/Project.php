@@ -69,4 +69,15 @@ class Project extends Model
         }
     }
 
+    public static function getProjectSlug($accountId)
+    {
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+        $project = Project::find($projectId);
+        if ($project) {
+            return $project->slug;
+        } else {
+            return null;
+        }
+    }
+
 }

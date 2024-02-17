@@ -23,7 +23,6 @@ use function PHPUnit\Framework\fileExists;
 
 class AccountController extends Controller
 {
-
     public function dashboard()
     {
         $settingModel = new Setting;

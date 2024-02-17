@@ -4,7 +4,8 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('dashboard') }}" class="nav-link">خانه</a>
+            <a href="{{ route('dashboard') }}" class="nav-link">میز کار</a>
+            <a href="{{ App\Models\Project::getProjectSlug(auth()->user()->account->id) }}" target="_blank" class="nav-link">مشاهده وبسایت</a>
         </li>
         {{-- @if ($slug=auth()->user()->slug())
             <li class="nav-item d-none d-sm-inline-block">
