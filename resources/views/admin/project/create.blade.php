@@ -17,16 +17,24 @@
                                     <input type="hidden" name="action" value="{{ $action }}">
                                     <input type="hidden" name="project" value="{{$project?->id}}">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="required">عنوان <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control"
-                                                       value="{{ $project?->title }}" placeholder="عنوان..." required
-                                                       oninvalid="this.setCustomValidity('عنوان را وارد نمایید.')"
-                                                       oninput="this.setCustomValidity('')">
-                                            </div>
+                                        <div class="col-md-3 form-group">
+                                            <label class="required">عنوان <span class="text-danger">*</span></label>
+                                            <input type="text" name="title" class="form-control"
+                                                   value="{{ $project?->title }}" placeholder="عنوان..." required
+                                                   oninvalid="this.setCustomValidity('عنوان را وارد نمایید.')"
+                                                   oninput="this.setCustomValidity('')">
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="col-md-3 form-group">
+                                            <label>دامنه</label>
+                                            <input type="text" name="domain" class="form-control"
+                                                   value="{{ $project?->domain }}" placeholder="دامنه...">
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <label>نامک</label>
+                                            <input type="text" name="slug" class="form-control"
+                                                   value="{{ $project?->slug }}" placeholder="نامک...">
+                                        </div>
+                                        <div class="col-md-3 form-group">
                                             <label for="primary_image"> لوگو پروژه </label>
                                             <div class="custom-file">
                                                 <input type="file" name="logo" class="custom-file-input"
@@ -37,7 +45,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="form-group col-12">
+                                        <div class="col-12">
                                             <label> توضیحات </label>
                                             <textarea name="description" class="form-control Reditor1"
                                                       placeholder="توضیحات ...">{{$project?->description}}</textarea>
