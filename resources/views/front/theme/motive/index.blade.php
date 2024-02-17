@@ -244,18 +244,19 @@
 							<div class="gallery-images">
 								<div class="course_demo1">
 								  <ul id="flexiselDemo1">
-									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" /></a>
-									 </li>
-									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg2.jpg') }}" alt="" /></a>
-									  </li>
-									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg3.jpg') }}" alt="" /></a>
-									 </li>
-									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg4.jpg') }}" alt="" /></a>
-									 </li>
+                                    @if ($postModel->getPosts($accountId, $projectId, 'gallery'))
+                                        @foreach ($postModel->getPosts($accountId, $projectId, 'gallery') as $gallery)
+									        <li>
+										        <a href="single.html">
+                                                    @if ($gallery->thumbnail)
+                                                        <img src="{{ asset(ert('thumb-path')) . '/' . $gallery->thumbnail }}">
+                                                    @else
+                                                        <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" />
+                                                    @endif
+                                                </a>
+									        </li>
+                                        @endforeach
+                                    @endif
 								 </ul>
 							 </div>
 								<script type="text/javascript">
@@ -428,9 +429,7 @@
 				    <!--//latest-articles-->
 					<!--RTL & Persian LNG & Publicer By Www.20script.ir-->
 					  <div class="latest-articles">
-					    <h3 class="tittle"><i class="glyphicon glyphicon-file"></i>
-آخرین مقالات
-</h3>
+					    <h3 class="tittle"><i class="glyphicon glyphicon-file"></i>آخرین مقالات</h3>
 				        <div class="world-news-grids">
 
                             @if ($postModel->getPosts($accountId, $projectId, 'article'))
