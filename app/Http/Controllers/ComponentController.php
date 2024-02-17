@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Component;
+use App\Models\Project;
 use App\Models\Setting;
 use App\Models\Taxonomy;
 use App\Models\Theme;
@@ -84,10 +85,15 @@ class ComponentController extends Controller
     public function themeComponents()
     {
         $settingModel = new Setting;
+
         $accountId = auth()->user()->account->id;
-        $themeName = $settingModel->getSetting('active_theme', $accountId);
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
+        $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
+
+
         $theme = Theme::where("name", $themeName)->first();
-       // dump($theme);
+        // dump($theme);
         $components = $theme->components;
         return view('admin.component.theme-components', compact('components'));
     }
@@ -98,14 +104,15 @@ class ComponentController extends Controller
         $taxonomies = Taxonomy::where('status', 1)->latest()->get();
         $componentTaxonomy = $component->taxonomies;
         $pluck = $componentTaxonomy->pluck('id')->toArray();
-       // dd($taxonomies,$component);
-        return view('admin.component.selectTaxonomy', compact('taxonomies', 'component','componentTaxonomy','pluck'));
+        // dd($taxonomies,$component);
+        return view('admin.component.selectTaxonomy', compact('taxonomies', 'component', 'componentTaxonomy', 'pluck'));
     }
+
     public function taxonomyStore(Request $request, $component)
     {
         $component = Component::findOrFail($component);
         $component->taxonomies()->sync($request->taxonomies);
-        alert()->success('موفق','طبقه بندی ها تخصیص داده شد');
+        alert()->success('موفق', 'طبقه بندی ها تخصیص داده شد');
         return back();
     }
 }
