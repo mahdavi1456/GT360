@@ -45,6 +45,12 @@
                                 <p>رسانه</p>
                             </a>
                         </li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{ route('project.index') }}" class="nav-link main-menu">
+                                <i class="nav-icon fa fa-cubes"></i>
+                                <p>مدیریت پروژه ها</p>
+                            </a>
+                        </li>
                         @can('SuperAccount')
                             <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'nav.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index', 'plan.index']) }}">
                                 <a href="#" class="nav-link main-menu">
@@ -105,12 +111,6 @@
                         @endcan
 
                         @can('SuperAccount')
-                            <li class="nav-item has-treeview">
-                                <a href="{{ route('project.index') }}" class="nav-link main-menu">
-                                    <i class="nav-icon fa fa-dashboard"></i>
-                                    <p>پروژه ها</p>
-                                </a>
-                            </li>
                             <li class="nav-item has-treeview {{ active_dropdown(['account.index']) }}">
                                 <a href="#" class="nav-link main-menu">
                                     <i class="nav-icon fa fa-lock text-danger"></i>
