@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer">
+                                <div class="card-footer text-left">
                                     <button type="submit" class="btn btn-success">ذخیره</button>
                                 </div>
                             </form>
