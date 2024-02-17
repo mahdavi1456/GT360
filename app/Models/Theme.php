@@ -26,8 +26,8 @@ class Theme extends Model
         return $this->belongsToMany(Nav::class, 'nav_theme');
     }
     public static function getActive()  {
-        $theme= Setting::getSetting('active_theme',auth()->user()->account_id);
-        return Theme::where('name',$theme)->first();
+        $theme= Setting::getSetting('active_theme', auth()->user()->account_id);
+        return Theme::where('name', $theme)->first();
     }
 
 }

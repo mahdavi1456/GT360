@@ -109,7 +109,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
     Route::get('change-password', [NewPasswordController::class, 'create'])->name('change.pass'); //used for change-password
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
-        //av
+
+        //Nav
         Route::resource('nav', NavController::class);
         Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');
         Route::get('nav-item-resort', [NavController::class,'resortItems'])->name('nav.resort');

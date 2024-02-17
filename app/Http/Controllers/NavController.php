@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 
 class NavController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $navs = Nav::latest()->get();
@@ -21,9 +19,6 @@ class NavController extends Controller
         return view('admin.nav.list', compact('navs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $action = 'create';
@@ -35,9 +30,6 @@ class NavController extends Controller
         return view('admin.nav.create', compact('action', 'nav'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $data = $request->except('_token', 'q', 'action', 'nav_id');
@@ -61,10 +53,6 @@ class NavController extends Controller
 
     public function navItems()
     {
-        // $nav = Nav::findOrFail(5);
-        // $items = $nav->items()->where('parent_id',0)->with('children')->get();
-        // dd($items);
-
         $pages = Page::latest()->get();
         $accounId = auth()->user()->account->id;
         //create link
@@ -108,11 +96,11 @@ class NavController extends Controller
                 }
             }
 
-            $items = $nav->items()->where('parent_id',0)->orderBy('order_num')->with('children')->get();
+            $items = $nav->items()->where('parent_id', 0)->orderBy('order_num')->with('children')->get();
 
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
             //end of createLink
-        } elseif (request('type') == 'get-nav-info') {
+        } else if (request('type') == 'get-nav-info') {
 
             request()->validate([
                 'nav' => 'required'
@@ -137,11 +125,10 @@ class NavController extends Controller
             return $data;
         }
         // end of ajax requests
+
         $setting = new Setting();
         $themeName = $setting->getSetting('active_theme', auth()->user()->account->id);
-        if (!$themeName) {
-            abort(403, "شما قالب فعال ندارید لطفا یک قالب انتخاب کنید");
-        }
+
         //$nav=Nav::find('5')->items;
         // //dd($nav);
         $theme = Theme::where('name', $themeName)->first();

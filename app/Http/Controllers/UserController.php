@@ -125,4 +125,5 @@ class UserController extends Controller
         Alert::success('موفق', 'وضعیت کاربر با موفقیت تغییر کرد');
         return back();
     }
+
 }
