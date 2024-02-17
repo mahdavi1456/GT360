@@ -5,13 +5,10 @@
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('dashboard') }}" class="nav-link">میز کار</a>
-            <a href="{{ App\Models\Project::getProjectSlug(auth()->user()->account->id) }}" target="_blank" class="nav-link">مشاهده وبسایت</a>
         </li>
-        {{-- @if ($slug=auth()->user()->slug())
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('enterSite', $slug) }}" target="_blank" class="nav-link">ورود به سایت</a>
-            </li>
-        @endif --}}
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ App\Models\Project::getProjectFullSlug(auth()->user()->account->id) }}" target="_blank" class="nav-link">مشاهده وبسایت</a>
+        </li>
     </ul>
     <!--form class="form-inline ml-3">
         <div class="input-group input-group-sm">
