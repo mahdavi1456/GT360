@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Nav;
 use App\Models\NavItem;
 use App\Models\Page;
+use App\Models\Project;
 use App\Models\Theme;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -127,7 +128,11 @@ class NavController extends Controller
         // end of ajax requests
 
         $setting = new Setting();
-        $themeName = $setting->getSetting('active_theme', auth()->user()->account->id);
+
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
+        $themeName = $setting->getSetting('active_theme', $accountId, $projectId);
 
         //$nav=Nav::find('5')->items;
         // //dd($nav);
