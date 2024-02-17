@@ -181,12 +181,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <div class="technology">
 			              <h2 class="tittle"><i class="glyphicon glyphicon-certificate"> </i>تکنولوژی</h2>
 							<div class="col-md-6 tech-img">
-					          <img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/tech.jpg" class="img-responsive" alt=""/>
+					          <img src="{{ asset('front-theme-asset/motive/images/tech.jpg') }}" class="img-responsive" alt=""/>
 							</div>
 							 <div class="col-md-6 tech-text">
 					            <div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/f1.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -197,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/f2.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -208,7 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f3.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f3.jp') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -219,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f4.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -244,13 +244,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" /></a>
 									 </li>
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg2.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg2.jpg') }}" alt="" /></a>
 									  </li>
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg3.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg3.jpg') }}" alt="" /></a>
 									 </li>
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg4.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg4.jpg') }}" alt="" /></a>
 									 </li>
 								 </ul>
 							 </div>
@@ -281,24 +281,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							 });
 							  </script>
-							 <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}js/jquery.flexisel.js"></script>
+							 <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/jquery.flexisel.js') }}"></script>
 						 </div>
 						  <div class="course_demo1">
 								  <ul id="flexiselDemo">
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg7.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg7.jpg') }}" alt="" /></a>
 									 </li>
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg3.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg3.jpg') }}" alt="" /></a>
 									  </li>
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg6.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}" alt="" /></a>
 									 </li>
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg2.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg2.jpg') }}" alt="" /></a>
 									 </li>
 									 <li>
-										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/mg6.jpg" alt="" /></a>
+										<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}" alt="" /></a>
 									 </li>
 								 </ul>
 							 </div>
@@ -340,7 +340,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <div class="business">
 			              <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
 						  <div class="business-inner">
-						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/time.jpg" alt=""/></a></div>
+						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/images/time.jpg') }}" alt=""/></a></div>
 						    <div class="col-md-6 b-text">
 						      <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </a></h5>
 							  <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
@@ -354,7 +354,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <div class="business-bottom-content">
 							  <div class="col-md-6 business-bottom">
 							      <div class="col-md-3 b-bottom-pic">
-								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/ti1.jpg" alt=""/></a>
+								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}" alt=""/></a>
 								  </div>
 								  <div class="col-md-9 b-bottom-text">
 								    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
@@ -365,7 +365,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  </div>
 							    <div class="col-md-6 business-bottom">
 							      <div class="col-md-3 b-bottom-pic">
-								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/ti1.jpg" alt=""/></a>
+								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}" alt=""/></a>
 								  </div>
 								  <div class="col-md-9 b-bottom-text">
 								    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
@@ -378,7 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 </div>
 						  </div>
 						    <div class="business-inner two">
-						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/time2.jpg" alt=""/></a></div>
+						    <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/images/time2.jpg') }}" alt=""/></a></div>
 						    <div class="col-md-6 b-text">
 						      <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
 							<h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
@@ -392,7 +392,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <div class="business-bottom-content">
 							  <div class="col-md-6 business-bottom">
 							      <div class="col-md-3 b-bottom-pic">
-								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/ti1.jpg" alt=""/></a>
+								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}" alt=""/></a>
 								  </div>
 								  <div class="col-md-9 b-bottom-text">
 								    <h5><a href="single.html">
@@ -405,7 +405,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  </div>
 							    <div class="col-md-6 business-bottom">
 							      <div class="col-md-3 b-bottom-pic">
-								  <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""/></a>
+								  <a href="single.html"><img class="img-responsive" src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}" alt=""/></a>
 								  </div>
 								  <div class="col-md-9 b-bottom-text">
 								    <h5><a href="single.html">
@@ -429,7 +429,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </h3>
 				        <div class="world-news-grids">
 								<div class="world-news-grid">
-									<img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/a1.jpg" alt="" />
+									<img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}" alt="" />
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
 									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
 									<a class="read" href="single.html">
@@ -437,7 +437,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </a>
 								</div>
 								<div class="world-news-grid">
-									<img src="images/a3.jpg" alt="" />
+									<img src="{{ asset('front-theme-asset/motive/images/a3.jpg') }}" alt="" />
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
 									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
 									<a class="read" href="single.html">
@@ -445,7 +445,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </a>
 								</div>
 								<div class="world-news-grid lost">
-									<img src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/a1.jpg" alt="" />
+									<img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}" alt="" />
 									<a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</a>
 									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</p>
 									<a class="read" href="single.html">
@@ -484,35 +484,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 	        <div id="owl-demo" class="owl-carousel text-center">
 					      <div class="item">
 
-							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p1.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt=""/>
 					     </div>
 						 <div class="item">
 
-							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p2.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p2.jpg') }}" alt=""/>
 					    </div>
 						<div class="item">
 
-							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p33.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p33.jpg') }}" alt=""/>
 					    </div>
 						<div class="item">
 
-							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p1.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt=""/>
 					</div>
 					<div class="item">
 
-							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}images/p1.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt=""/>
 					</div>
 						<div class="item">
 
-							<img class="img-responsive lot" src="images/p2.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p2.jpg') }}" alt=""/>
 					</div>
 						<div class="item">
 
-							<img class="img-responsive lot" src="images/p33.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p33.jpg') }}" alt=""/>
 					</div>
 						<div class="item">
 
-							<img class="img-responsive lot" src="images/p1.jpg" alt=""/>
+							<img class="img-responsive lot" src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt=""/>
 					</div>
 				</div>
 				</div>
@@ -571,7 +571,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="edit-pics">
 							      <div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f4.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -582,7 +582,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f1.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -593,7 +593,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f1.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -604,7 +604,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f4.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -622,12 +622,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </h4>
 							      <div class="top-inner">
 								     <div class="top-text">
-										 <a href="single.html"><img src="images/slp.jpg" class="img-responsive" alt=""/></a>
+										 <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}" class="img-responsive" alt=""/></a>
 										 <h5 class="top"><a href="single.html">نظرسنجی:لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a></h5>
 										 <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
 								     </div>
 									  <div class="top-text two">
-										 <a href="single.html"><img src="images/dest.jpg" class="img-responsive" alt=""/></a>
+										 <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/dest.jpg') }}" class="img-responsive" alt=""/></a>
 										 <h5 class="top"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h5>
 										 <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
 								     </div>
@@ -646,7 +646,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		             <div class="grid">
 						  <div class="col-md-4 m-b">
 							<a href="single.html"> <figure class="effect-layla"></a>
-								<img src="images/pic.jpg" alt="img25"/>
+								<img src="{{ asset('front-theme-asset/motive/images/pic.jpg') }}" alt="img25"/>
 								<figcaption>
 									<h4>اخبارهای<span>روز</span></h4>
 									<a href="#">
@@ -664,7 +664,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  </div>
 						   <div class="col-md-4 m-b">
 							 <figure class="effect-layla">
-							<a href="single.html">	<img src="images/pic2.jpg" alt="img25"/></a>
+							<a href="single.html">	<img src="{{ asset('front-theme-asset/motive/images/pic2.jpg') }}" alt="img25"/></a>
 								<figcaption>
 									<h4>اخبارهای<span>روز</span></h4>
 								</figcaption>
@@ -679,7 +679,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  </div>
 						  <div class="col-md-4 m-b">
 							 <figure class="effect-layla">
-								<a href="single.html"><img src="images/pic3.jpg" alt="img25"/></a>
+								<a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/pic3.jpg') }}" alt="img25"/></a>
 								<figcaption>
 									<h4>اخبارهای<span>روز</span></h4>
 								</figcaption>
@@ -710,7 +710,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </h4>
 						  <div class="editor-pics">
 							 <div class="col-md-3 item-pic">
-							   <img src="images/f1.jpg" class="img-responsive" alt=""/>
+							   <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}" class="img-responsive" alt=""/>
 
 							   </div>
 					   	        <div class="col-md-9 item-details">
@@ -721,7 +721,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							 <div class="editor-pics">
 							 <div class="col-md-3 item-pic">
-							   <img src="images/f2.jpg" class="img-responsive" alt=""/>
+							   <img src="{{ asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
 
 							   </div>
 					   	        <div class="col-md-9 item-details">
@@ -732,7 +732,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							 <div class="editor-pics">
 							 <div class="col-md-3 item-pic">
-							   <img src="images/f3.jpg" class="img-responsive" alt=""/>
+							   <img src="{{ asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
 
 							   </div>
 					   	        <div class="col-md-9 item-details">
@@ -748,7 +748,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </h4>
 								<div class="editor-pics">
 										 <div class="col-md-3 item-pic">
-										   <img src="images/f4.jpg" class="img-responsive" alt=""/>
+										   <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt=""/>
 
 										   </div>
 											<div class="col-md-9 item-details">
@@ -759,7 +759,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 										<div class="editor-pics">
 							 <div class="col-md-3 item-pic">
-							   <img src="images/f3.jpg" class="img-responsive" alt=""/>
+							   <img src="{{ asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
 
 							   </div>
 					   	        <div class="col-md-9 item-details">
@@ -770,7 +770,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="editor-pics">
 							 <div class="col-md-3 item-pic">
-							   <img src="images/f2.jpg" class="img-responsive" alt=""/>
+							   <img src="{{ asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
 
 							   </div>
 					   	        <div class="col-md-9 item-details">
