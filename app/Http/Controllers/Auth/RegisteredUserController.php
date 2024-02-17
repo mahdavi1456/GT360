@@ -23,8 +23,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $setting=new Setting();
-        return view('admin.auth.register',compact('setting'));
+        $setting = new Setting;
+        return view('admin.auth.register', compact('setting'));
     }
 
     /**
@@ -41,16 +41,17 @@ class RegisteredUserController extends Controller
             'mobile' => ['required', 'string', 'digits:11', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
         $account = Account::create([
             'name' => $request->name,
             'mobile' => $request->mobile,
             'family' => $request->family,
             'account_type' => $request->account_type,
-            'account_acl'=>0
+            'account_acl' => 0
         ]);
-        $setting= new Setting();
-        $theme=$setting->getSetting('default_theme',0);
-        $setting->updateSetting('active_theme',$theme,$account->id);
+
+        $setting = new Setting();
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -60,17 +61,16 @@ class RegisteredUserController extends Controller
             'company_name' => $request->compony,
             'user_status' => 'Active',
             'user_type' => 'admin',
-            'account_id'=>$account->id
+            'account_id' => $account->id
         ]);
-        $paras=['username'=>$user->mobile,'password'=>$request->password];
-        Sms::sendWithPattern('hiopokjsgtkplga',$paras,$user->mobile);
+        $paras = ['username' => $user->mobile, 'password' => $request->password];
+
+        Sms::sendWithPattern('hiopokjsgtkplga', $paras, $user->mobile);
+
         event(new Registered($user));
 
         Auth::login($user);
-        if (!$theme) {
-           alert()->warning('هشدار','لطفا ابتدا یک قالب انتخاب کنید');
-           return to_route('theme.choose');
-        }
+
         return redirect(RouteServiceProvider::HOME);
     }
 }
