@@ -66,8 +66,6 @@ Route::get('/web/{slug}', [AccountController::class, 'loadSite'])->name('enterSi
 Route::get('/web/{slug}/reserve', [AccountController::class, 'reserve'])->name('reserve');
 Route::get('/web/{slug}/page/{pageId}', [AccountController::class, 'showPage'])->name('showPage');
 Route::get('/web/{slug}/post/{postId}', [AccountController::class, 'showPost'])->name('showPost');
-Route::get('/web/{slug}/{componentName}/{id}', [AccountController::class, 'showPost'])->name('showPost');
-
 
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
 Route::get('/', [DashboardController::class, 'index']);
