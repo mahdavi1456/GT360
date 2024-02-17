@@ -8,7 +8,7 @@
 <meta name="keywords" content="Motive Mag Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('front-theme-asset/motive/js/css/bootstrap-3.1.1.min.css') }}" rel="stylesheet" type="text/css">
 <!-- Custom Theme files -->
 <link href="{{ asset('front-theme-asset/motive/css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all" />
 <link href="{{ asset('front-theme-asset/motive/css/style.css') }}css/style.css" rel='stylesheet' type='text/css' />
