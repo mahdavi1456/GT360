@@ -625,7 +625,7 @@
 							      <div class="top-inner">
 
                                     @if ($postModel->getPosts($accountId, $projectId, 'news'))
-                                        @foreach ( $postModel->getPosts('news', $accountId, $projectId) as $new)
+                                        @foreach ( $postModel->getPosts($accountId, $projectId, 'news') as $new)
                                             <div class="top-text">
                                                 <a href="single.html"><img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}" class="img-responsive" alt=""/></a>
                                                 <h5 class="top"><a href="single.html">{{ $new->title }}</a></h5>
