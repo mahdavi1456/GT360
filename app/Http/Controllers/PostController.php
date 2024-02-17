@@ -127,7 +127,6 @@ class PostController extends Controller
 
     public function thumbDestroy()
     {
-
         $post = Post::findOrFail(request('post_id'));
         unlink(public_path(ert('thumb-path') . '/' . $post->thumbnail));
         $post->update([
@@ -328,8 +327,6 @@ class PostController extends Controller
             return response()->json('success');
         }
     }
-
-
 
     public function getTaxonomies(Request $request)
     {

@@ -69,12 +69,12 @@ class Post extends Model
         }
     }
 
-    public function getPosts($componentName)
+    public function getPosts($accountId, $projectId, $componentName)
     {
         $component = Component::where("name", $componentName)->first();
         $componentId = $component->id;
 
-        $posts = Post::where("component_id", $componentId)->get();
+        $posts = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('component_id', $componentId)->get();
         return $posts;
     }
 
