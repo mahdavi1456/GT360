@@ -529,7 +529,7 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $postModel = new Post;
-        
+
         $project = Project::where('slug', $slug)->first();
         if ($project) {
             $accountId = $project->account_id;
