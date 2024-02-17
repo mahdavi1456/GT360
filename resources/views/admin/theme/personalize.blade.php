@@ -23,7 +23,7 @@
                                             <select name="font" class="form-control">
                                                 <option value="">-</option>
                                                 @foreach ($fonts as $font)
-                                                    <option {{ ($settingModel->getSetting("font", $accoundId, $projectId) == $font->name) ? "selected" : "" }} value="{{ $font->name }}">{{ $font->label }}</option>
+                                                    <option {{ ($settingModel->getSetting("font", $accountId, $projectId) == $font->name) ? "selected" : "" }} value="{{ $font->name }}">{{ $font->label }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -32,7 +32,7 @@
                                             <select name="pallete" class="form-control">
                                                 <option value="">-</option>
                                                 @foreach ($palletes as $pallete)
-                                                    <option {{ ($settingModel->getSetting("pallete", $accoundId, $projectId) == $pallete->name) ? "selected" : "" }} value="{{ $pallete->name }}">{{ $pallete->label }}</option>
+                                                    <option {{ ($settingModel->getSetting("pallete", $accountId, $projectId) == $pallete->name) ? "selected" : "" }} value="{{ $pallete->name }}">{{ $pallete->label }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -40,8 +40,8 @@
                                             <label>نوع زبان</label>
                                             <select name="direction" class="form-control">
                                                 <option value="">-</option>
-                                                <option {{ ($settingModel->getSetting("direction", $accoundId, $projectId) == "rtl") ? "selected" : "" }} value="rtl">راست به چپ</option>
-                                                <option {{ ($settingModel->getSetting("direction", $accoundId, $projectId) == "ltr") ? "selected" : "" }} value="ltr">چپ به راست</option>
+                                                <option {{ ($settingModel->getSetting("direction", $accountId, $projectId) == "rtl") ? "selected" : "" }} value="rtl">راست به چپ</option>
+                                                <option {{ ($settingModel->getSetting("direction", $accountId, $projectId) == "ltr") ? "selected" : "" }} value="ltr">چپ به راست</option>
                                             </select>
                                         </div>
                                     </div>
