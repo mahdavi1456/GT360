@@ -5,7 +5,7 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('شبکه های اجتماعی '.projectName()) }}
+        {{ breadcrumb('شبکه های اجتماعی') }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
