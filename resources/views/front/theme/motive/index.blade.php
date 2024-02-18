@@ -102,10 +102,10 @@
                                             </div>
                                             <div class="col-md-9 item-details">
                                                 <h5 class="inner two">
-                                                    <a href="{{ $settingModel->showPost($accountId, $projectId, $event->id) }}" class="wd">{{ $event->title }}</a>
+                                                    <a href="{{ $postModel->showPost($accountId, $projectId, $event->id) }}" class="wd">{{ $event->title }}</a>
                                                 </h5>
                                                 <p>{{ $event->abstract }}</p>
-                                                <a href="{{ $settingModel->showPost($accountId, $projectId, $event->id) }}" class="read">ادامه مطلب</a>
+                                                <a href="{{ $postModel->showPost($accountId, $projectId, $event->id) }}" class="read">ادامه مطلب</a>
                                                 <div class="td-post-date two">{{ zaman($event->created_at) }}</div>
                                                 <div class="clearfix"></div>
                                             </div>
