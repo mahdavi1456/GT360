@@ -5,27 +5,33 @@
     <div class="card-body">
         <div class="row">
             <div class="col-4 form-group">
-                <label class="form-label">تصویر زمینه</label>
-                <input type="file" name="background_cover" onchange="uploadImage(this)">
-                @if ($image = imageLoader('background_cover'))
+                <label class="form-label">تصویر اول </label>
+                <input type="file" name="image1_sec1" onchange="uploadImage(this)">
+                @if ($image = imageLoader('image1_sec1'))
                     <div class="imageLoader position-relative">
                         <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                        <button type="button" onclick="destroyImage('background_cover')"
-                            class="btn btn-sm btn-danger position-absolute"
-                            style="bottom: 0; left: 49%">حذف</button>
+                        <button type="button" onclick="destroyImage('image1_sec1')"
+                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
                     </div>
                 @endif
             </div>
             <div class="col-4 form-group">
-                <label class="form-label">عنوان</label>
-                <input type="text" name="title" class="form-control" placeholder="عنوان..."
-                    value="{{ $settingModel->getSetting('title', $accountId, $projectId) }}">
+                <label class="form-label">تصویر خبر</label>
+                <input type="file" name="newsimage_sec1" onchange="uploadImage(this)">
+                @if ($image = imageLoader('newsimage_sec1'))
+                    <div class="imageLoader position-relative">
+                        <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                        <button type="button" onclick="destroyImage('newsimage_sec1')"
+                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
+                    </div>
+                @endif
             </div>
             <div class="col-4 form-group">
-                <label class="form-label">متن دکمه شروع</label>
-                <input type="text" name="start_btn_text" class="form-control" placeholder="متن دکمه شروع..."
-                       value="{{ $settingModel->getSetting('start_btn_text', $accountId, $projectId) }}">
+                <label class="form-label">متن خبر</label>
+                <input type="text" name="title" class="form-control" placeholder="متن خبر..."
+                    value="{{ $settingModel->getSetting('newsimage', $accountId, $projectId) }}">
             </div>
+
         </div>
         <div class="row">
             <div class="col-12 form-group">
@@ -102,7 +108,8 @@
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">زیر عنوان اول</label>
-                    <input type="text" name="about_first_subtitle" class="form-control" placeholder="زیر عنوان اول..."
+                    <input type="text" name="about_first_subtitle" class="form-control"
+                        placeholder="زیر عنوان اول..."
                         value="{{ $settingModel->getSetting('about_first_subtitle', $accountId, $projectId) }}">
                 </div>
             </div>
@@ -336,9 +343,9 @@
         <h3 class="card-title pull-right">تعرفه ها</h3>
         <select name="price_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('price_status', $accountId, $projectId) == 1 ? 'selected' : '' }}
-                    value="1">فعال</option>
+                value="1">فعال</option>
             <option {{ $settingModel->getSetting('price_status', $accountId, $projectId) == 0 ? 'selected' : '' }}
-                    value="0">غیرفعال</option>
+                value="0">غیرفعال</option>
         </select>
     </div>
     @if ($settingModel->getSetting('price_status', $accountId, $projectId) == 1)
@@ -347,12 +354,12 @@
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان</label>
                     <input type="text" name="price_title" class="form-control" placeholder="عنوان..."
-                           value="{{ $settingModel->getSetting('price_title', $accountId, $projectId) }}">
+                        value="{{ $settingModel->getSetting('price_title', $accountId, $projectId) }}">
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">توضیحات</label>
                     <input type="text" name="price_text" class="form-control" placeholder="توضیحات..."
-                           value="{{ $settingModel->getSetting('price_text', $accountId, $projectId) }}">
+                        value="{{ $settingModel->getSetting('price_text', $accountId, $projectId) }}">
                 </div>
             </div>
         </div>
@@ -364,9 +371,9 @@
         <h3 class="card-title pull-right">تماس</h3>
         <select name="contact_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('contact_status', $accountId, $projectId) == 1 ? 'selected' : '' }}
-                    value="1">فعال</option>
+                value="1">فعال</option>
             <option {{ $settingModel->getSetting('contact_status', $accountId, $projectId) == 0 ? 'selected' : '' }}
-                    value="0">غیرفعال</option>
+                value="0">غیرفعال</option>
         </select>
     </div>
     @if ($settingModel->getSetting('contact_status', $accountId, $projectId) == 1)
@@ -375,12 +382,12 @@
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان</label>
                     <input type="text" name="contact_title" class="form-control" placeholder="عنوان..."
-                           value="{{ $settingModel->getSetting('contact_title', $accountId, $projectId) }}">
+                        value="{{ $settingModel->getSetting('contact_title', $accountId, $projectId) }}">
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">توضیحات</label>
                     <input type="text" name="contact_text" class="form-control" placeholder="توضیحات..."
-                           value="{{ $settingModel->getSetting('contact_text', $accountId, $projectId) }}">
+                        value="{{ $settingModel->getSetting('contact_text', $accountId, $projectId) }}">
                 </div>
             </div>
             <div class="row">
