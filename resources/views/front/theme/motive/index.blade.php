@@ -171,30 +171,31 @@
 
 
 
-
-                    <div class="latest-articles">
-                        <h3 class="tittle"><i class="glyphicon glyphicon-file"></i>آخرین مقالات</h3>
-                        <div class="world-news-grids">
-                            @php
-                                $articles = $postModel->getPosts('article', $accountId, $projectId);
-                            @endphp
-                            @if ($articles)
-                                @foreach ($articles as $article)
-                                    @php
-                                        $permalink = $postModel->getPostPermalink('articles', $slug, $article->id);
-                                    @endphp
-                                    <div class="world-news-grid">
-                                        <img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}"
-                                            alt="" />
-                                        <a href="post.blade.php" class="wd">{{ $article->title }}</a>
-                                        <p>{{ $article->abstract }}</p>
-                                        <a class="read" href="{{ $permalink }}">ادامه مطلب</a>
-                                    </div>
-                                @endforeach
-                            @endif
-                            <div class="clearfix"></div>
+                    @if ($settingModel->getSetting('article_status', $accountId, $projectId) == 1)
+                        <div class="latest-articles">
+                            <h3 class="tittle"><i class="glyphicon glyphicon-file"></i> {{ $settingModel->getSetting('article_title', $accountId, $projectId) }}</h3>
+                            <div class="world-news-grids">
+                                @php
+                                    $articles = $postModel->getPosts('article', $accountId, $projectId);
+                                @endphp
+                                @if ($articles)
+                                    @foreach ($articles as $article)
+                                        @php
+                                            $permalink = $postModel->getPostPermalink('articles', $slug, $article->id);
+                                        @endphp
+                                        <div class="world-news-grid">
+                                            <img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}"
+                                                alt="" />
+                                            <a href="post.blade.php" class="wd">{{ $article->title }}</a>
+                                            {!! $article->abstract !!}
+                                            <a class="read" href="{{ $permalink }}">ادامه مطلب</a>
+                                        </div>
+                                    @endforeach
+                                @endif
+                                <div class="clearfix"></div>
+                            </div>
                         </div>
-                    </div>
+                    @endif
 
 
 
@@ -209,42 +210,44 @@
             <!--//end-mag-inner-->
 
 
-
-
-            <div class="mag-bottom">
-                <h3 class="tittle bottom">
-                    <i class="glyphicon glyphicon-globe"></i>
-                    {{ $settingModel->getSetting('blog_title', $accountId, $projectId) }}
-                </h3>
-                <div class="grid">
-                    @php
-                        $blogs = $postModel->getPosts('blog', $accountId, $projectId);
-                    @endphp
-                    @if ($blogs)
-                        @foreach($blogs as $blog)
-                            @php
-                                $permalink = $postModel->getPostPermalink('blog', $slug, $blog->id);
-                            @endphp
-                            <div class="col-md-4 m-b">
-                                <figure class="effect-layla">
-                                    <a href="{{ $permalink }}">
-                                        <img src="{{ asset('front-theme-asset/motive/images/pic3.jpg') }}"
-                                            alt="{{ $blog->title }}" title="{{ $blog->title }}" />
-                                    </a>
-                                    <figcaption><h4>{{ $blog->title }}</h4></figcaption>
-                                </figure>
-                                <div class="m-b-text">
-                                    <a href="{{ $permalink }}" class="wd">{{ $blog->title }}</a>
-                                    <p>{{ $blog->abstract }}</p>
-                                    <a class="read" href="{{ $permalink }} }}">ادامه مطلب</a>
+            @if ($settingModel->getSetting('blog_status', $accountId, $projectId) == 1))
+                <div class="mag-bottom">
+                    <h3 class="tittle bottom">
+                        <i class="glyphicon glyphicon-globe"></i> {{ $settingModel->getSetting('blog_title', $accountId, $projectId) }}
+                    </h3>
+                    <div class="grid">
+                        @php
+                            $blogs = $postModel->getPosts('blog', $accountId, $projectId);
+                        @endphp
+                        @if ($blogs)
+                            @foreach($blogs as $blog)
+                                @php
+                                    $permalink = $postModel->getPostPermalink('blog', $slug, $blog->id);
+                                @endphp
+                                <div class="col-md-4 m-b">
+                                    <figure class="effect-layla">
+                                        <a href="{{ $permalink }}">
+                                            @if ($blog->thumbnail)
+                                                <img src="{{ asset(ert('thumb-path')) . '/' . $blog->thumbnail }}">
+                                            @else
+                                                <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}">
+                                            @endif
+                                        </a>
+                                        <figcaption><h4>{{ $blog->title }}</h4></figcaption>
+                                    </figure>
+                                    <div class="m-b-text">
+                                        <a href="{{ $permalink }}" class="wd">{{ $blog->title }}</a>
+                                        <p>{{ $blog->abstract }}</p>
+                                        <a class="read" href="{{ $permalink }} }}">ادامه مطلب</a>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    @endif
-                    <div class="clearfix"></div>
+                            @endforeach
+                        @endif
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-            </div>
-            <!--//mag-bottom-->
+            @endif
+
         </div>
     </div>
 
