@@ -40,6 +40,7 @@
                             value="{{ $settingModel->getSetting('list_event', $accountId, $projectId) }}">
                     </div>
                 </div>
+            @endif
         </div>
     </div>
 
