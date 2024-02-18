@@ -8,46 +8,27 @@
         </div>
     </div>
 
-    <!--/start-banner-->
     <div class="banner">
         <div class="container">
             <div class="banner-inner">
                 <div class="callbacks_container">
                     <ul class="rslides callbacks callbacks1" id="slider4">
-                        <li class="callbacks1_on"
-                            style="display: block; float: right; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;">
-                            <div class="banner-info">
-                                <h3>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک
-                                    است</h3>
-                                <p>لورم ایپسوم یا طرح‌نما</p>
-                            </div>
-                        </li>
-                        <li class=""
-                            style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
-                            <div class="banner-info">
-                                <h3>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک
-                                    است</h3>
-                                <p>
-
-                                    لورم ایپسوم یا طرح‌نما</p>
-                            </div>
-                        </li>
-                        <li class=""
-                            style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
-                            <div class="banner-info">
-                                <h3>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک
-                                    است</h3>
-                                <p>
-
-                                    لورم ایپسوم یا طرح‌نما</p>
-                            </div>
-                        </li>
+                        @php
+                            $text_sliders = $postModel->getPosts('text_sliders', $accountId, $projectId);
+                        @endphp
+                        @if ($text_sliders)
+                            @foreach ($text_sliders as $text_slider)
+                                <li class="callbacks1_on"
+                                    style="display: block; float: right; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;">
+                                    <div class="banner-info">
+                                        <h3>{{ $text_slider->title }}</h3>
+                                        <p>{!! $text_slider->abstract !!}</p>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
-                <!--banner-Slider-->
 
                 <script src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}"></script>
                 <script>
@@ -67,13 +48,11 @@
                                 $('.events').append("<li>after event fired.</li>");
                             }
                         });
-
                     });
                 </script>
             </div>
         </div>
     </div>
-    <!--//end-banner-->
 
     <!--/start-main-->
 
@@ -81,7 +60,8 @@
         <div class="container">
             <div class="mag-inner">
                 <div class="col-md-8 mag-innert-right">
-                    <!--/start-Technology-->
+
+
                     <div class="technology">
                         <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('event_title', $accountId, $projectId) }}</h2>
                         <div class="col-md-6 tech-img">
@@ -123,7 +103,6 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    <!--//end-Technology-->
 
 
                     <div class="gallery">
