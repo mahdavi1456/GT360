@@ -13,23 +13,22 @@
                 @include('admin.partial.error')
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <form id="setting-form" action="{{ route('setting.store') }}" method="POST"
-                                  enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="action_type" value="theme">
-                                <div class="card-body p-0">
-                                    @if ($themeName)
-                                        @include("front.theme.$themeName.setting")
-                                    @else
-                                        <div class="alert alert-danger m-2 text-center">لطفا ابتدا یک قالب انتخاب نمایید.</div>
-                                    @endif
-                                </div>
-                                <div class="card-footer text-left">
-                                    <button type="submit" class="btn btn-success">ذخیره</button>
-                                </div>
-                            </form>
-                        </div>
+                        <form id="setting-form" action="{{ route('setting.store') }}" method="POST"
+                              enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="action_type" value="theme">
+                            <div class="card-body p-0">
+                                @if ($themeName)
+                                    @include("front.theme.$themeName.setting")
+                                @else
+                                    <div class="alert alert-danger m-2 text-center">لطفا ابتدا یک قالب انتخاب نمایید.
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="card-footer text-left">
+                                <button type="submit" class="btn btn-success">ذخیره</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -40,7 +39,7 @@
     <script>
         function getImages() {
             let imageNames = {};
-            $.each($('input[type=file]'), function(i, ele) {
+            $.each($('input[type=file]'), function (i, ele) {
                 imageNames['key' + i] = $(ele).attr('name');
                 // imageNames.push(['key'+i=:]);
             });
@@ -51,14 +50,14 @@
                 type: 'get',
                 url: "{{ route('setting.getImages') }}",
                 data: imageNames,
-                success: function(response) {
+                success: function (response) {
                     // $(ele).parent().find('.imageLoader').remove();
                     // $(ele).parent().append(response);
                     //console.log(response);
                     $('#image-part').remove();
                     $('#outer-div').append(response);
                 },
-                error: function(response) {
+                error: function (response) {
                     alert('error');
                     console.log(response);
                 }
@@ -84,10 +83,10 @@
                     $.ajax({
                         type: "get",
                         url: "{{route('setting.destroyImage')}}",
-                        data:{
-                            'key':key
+                        data: {
+                            'key': key
                         },
-                        success: function(data) {
+                        success: function (data) {
                             $("#loading-overlay").fadeOut();
                             $(`input[name="${key}"]`).parent().find('.imageLoader').remove();
                             Swal.fire({
@@ -97,7 +96,7 @@
                             });
 
                         },
-                        error: function(data) {
+                        error: function (data) {
                             Swal.fire({
                                 title: "خطا",
                                 text: data.responseJSON.message,
@@ -113,10 +112,10 @@
         function uploadImage(ele) {
             var formData = new FormData();
             formData.append('send_type', "ajax");
-            var image=$(ele).prop('files')[0];
-           // console.log($(ele).attr);
-            formData.append($(ele).attr('name'),image);
-            formData.append('_token',"{{csrf_token()}}");
+            var image = $(ele).prop('files')[0];
+            // console.log($(ele).attr);
+            formData.append($(ele).attr('name'), image);
+            formData.append('_token', "{{csrf_token()}}");
             $("#loading-overlay").fadeIn();
             $.ajax({
                 type: 'post',
@@ -124,7 +123,7 @@
                 data: formData,
                 contentType: false,
                 processData: false,
-                success: function(response) {
+                success: function (response) {
                     $(ele).parent().find('.imageLoader').remove();
                     $(ele).parent().append(response);
                     resetFile();
@@ -135,7 +134,7 @@
                         icon: "success"
                     });
                 },
-                error: function(response) {
+                error: function (response) {
                     $("#loading-overlay").fadeOut();
                     alert('error');
                     console.log(response);
