@@ -8,13 +8,13 @@
                 value="0">غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('event_status', $accountId, $projectId) == 1)
+    @if ($settingModel->getSetting('section1_status', $accountId, $projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col-4 form-group">
                     <label class="form-label">عنوان بخش اول</label>
-                    <input name="event_title" class="form-control" placeholder="عنوان رویداد..."
-                        {{ $settingModel->getSetting('event_title', $accountId, $projectId) }}>
+                    <input name="section1_title" class="form-control" placeholder="عنوان بخش اول..."
+                        {{ $settingModel->getSetting('section1_title', $accountId, $projectId) }}>
                 </div>
                 <div class="col-4 form-group">
                     <label class="form-label">تصویر بخش اول</label>
@@ -83,6 +83,11 @@
                     <label class="form-label">عنوان بخش سوم</label>
                     <input name="section3_title" class="form-control" placeholder="عنوان بخش سوم..."
                         {{ $settingModel->getSetting('section3_title', $accountId, $projectId) }}>
+                </div>
+                <div class="col-6 form-group">
+                    <label class="form-label">لیست محتوا بخش سوم</label>
+                    <input name="section3_component" class="form-control" placeholder="لیست محتوا بخش سوم..."
+                        {{ $settingModel->getSetting('section3_component', $accountId, $projectId) }}>
                 </div>
             </div>
         </div>
