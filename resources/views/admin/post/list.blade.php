@@ -88,7 +88,7 @@
                             </div>
                             <div class="card-body p-0 table-responsive">
                                 @if ($posts->isEmpty())
-                                    <div class="alert alert-danger">موردی جهت نمایش موجود نیست.</div>
+                                    <div class="alert alert-danger text-center m-2">موردی جهت نمایش موجود نیست.</div>
                                 @else
                                     <table class="table table-bordered table-striped table-hover text-center">
                                         <tr class="table-warning">
