@@ -1,6 +1,6 @@
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title pull-right">بخش اول</h3>
+        <h3 class="card-title pull-right">بخش رویدادها</h3>
         <select name="sec1_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('sec1_status', $accountId, $projectId) == 1 ? 'selected' : '' }}
                 value="1">فعال</option>
@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col-12 form-group">
                     <label class="form-label">عنوان</label>
-                    <input name="description" class="form-control"
-                        placeholder="عنوان بخش..." {{ $settingModel->getSetting('description', $accountId, $projectId) }} >
+                    <input name="description" class="form-control" placeholder="عنوان بخش..."
+                        {{ $settingModel->getSetting('description', $accountId, $projectId) }}>
                 </div>
             </div>
             <div class="row">
@@ -36,6 +36,49 @@
                     <label class="form-label">لیست رویداد</label>
                     <input type="text" name="list_event" class="form-control" placeholder="لیست رویداد..."
                         value="{{ $settingModel->getSetting('list_event', $accountId, $projectId) }}">
+                </div>
+            </div>
+        </div>
+    @endif
+</div>
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title pull-right">بخش اخبار</h3>
+        <select name="news_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('news_status', $accountId, $projectId) == 1 ? 'selected' : '' }}
+                value="1">فعال</option>
+            <option {{ $settingModel->getSetting('news_status', $accountId, $projectId) == 0 ? 'selected' : '' }}
+                value="0">غیرفعال</option>
+        </select>
+    </div>
+    @if ($settingModel->getSetting('news_status', $accountId, $projectId) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 form-group">
+                    <label class="form-label">عنوان</label>
+                    <input name="description_news" class="form-control" placeholder="عنوان بخش..."
+                        {{ $settingModel->getSetting('description_news', $accountId, $projectId) }}>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label class="form-label">تصویر خبر</label>
+                    <input type="file" name="image_news" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image_news'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image_news')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 form-group">
+                    <label class="form-label">لیست اخبار</label>
+                    <input type="text" name="list_event" class="form-control" placeholder="لیست اخبار"
+                        value="{{ $settingModel->getSetting('list_news', $accountId, $projectId) }}">
                 </div>
             </div>
         </div>
