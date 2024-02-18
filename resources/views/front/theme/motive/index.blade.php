@@ -6,6 +6,7 @@
             @include('front.theme.motive.nav')
         </div>
     </div>
+
     <!--/start-banner-->
     <div class="banner">
         <div class="container">
@@ -18,9 +19,7 @@
                                 <h3>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                                     گرافیک
                                     است</h3>
-                                <p>
-
-                                    لورم ایپسوم یا طرح‌نما</p>
+                                <p>لورم ایپسوم یا طرح‌نما</p>
                             </div>
                         </li>
                         <li class=""
@@ -48,6 +47,7 @@
                     </ul>
                 </div>
                 <!--banner-Slider-->
+
                 <script src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}"></script>
                 <script>
                     // You can also use "$(window).load(function() {"
@@ -73,28 +73,34 @@
         </div>
     </div>
     <!--//end-banner-->
+
     <!--/start-main-->
-    <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
+
     <div class="main-content">
         <div class="container">
             <div class="mag-inner">
                 <div class="col-md-8 mag-innert-right">
                     <!--/start-Technology-->
                     <div class="technology">
-                        <h2 class="tittle"><i class="glyphicon glyphicon-certificate"> </i>{{ $settingModel->getSetting('description', $accountId, $projectId) }}</h2>
+                        <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('description', $accountId, $projectId) }}</h2>
                         <div class="col-md-6 tech-img">
-                            <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image_event', $accountId,$projectId)) }}"
+                            <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image_event', $accountId, $projectId)) }}"
                                 class="img-responsive" alt="" />
                         </div>
                         <div class="col-md-6 tech-text">
                             <div class="editor-pics">
-                                @if ($postModel->getPosts($accountId, $projectId, 'event'))
-                                    @foreach ($postModel->getPosts($accountId, $projectId, 'event') as $event)
+                                @php
+                                    $events = $postModel->getPosts('event', $accountId, $projectId);
+                                @endphp
+                                @if ($events->count() > 0)
+                                    @foreach ($events as $event)
+                                        @php
+                                            $permalink = $postModel->getPostPermalink('events', $slug, $event->id);
+                                        @endphp
                                         <div class="row">
                                             <div class="col-md-3 item-pic">
                                                 @if ($event->thumbnail)
-                                                    <img
-                                                        src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}"class="img-responsive">
+                                                    <img src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}" class="img-responsive">
                                                 @else
                                                     <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
                                                         class="img-responsive" alt="" />
@@ -102,10 +108,10 @@
                                             </div>
                                             <div class="col-md-9 item-details">
                                                 <h5 class="inner two">
-                                                    <a href="{{ $postModel->getPostPermalink($slug, "events", $event->id) }}" class="wd">{{ $event->title }}</a>
+                                                    <a href="{{ $permalink }}" class="wd">{{ $event->title }}</a>
                                                 </h5>
                                                 <p>{{ $event->abstract }}</p>
-                                                <a href="{{ $postModel->getPostPermalink($slug, "events", $event->id) }}" class="read">ادامه مطلب</a>
+                                                <a href="{{ $permalink }}" class="read">ادامه مطلب</a>
                                                 <div class="td-post-date two">{{ $postModel->getShamsiDate($event->created_at) }}</div>
                                                 <div class="clearfix"></div>
                                             </div>
@@ -117,24 +123,29 @@
                         <div class="clearfix"></div>
                     </div>
                     <!--//end-Technology-->
-                    <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
+
+
                     <div class="gallery">
                         <div class="main-title-head">
                             <h3 class="tittle"><i class="glyphicon glyphicon-picture"></i>گالری</h3>
                         </div>
                         <div class="gallery-images">
-                            <div class="course_demo1">
-                                <ul id="flexiselDemo1">
-                                    @if ($postModel->getPosts($accountId, $projectId, 'gallery'))
-                                        @foreach ($postModel->getPosts($accountId, $projectId, 'gallery') as $gallery)
+                            <div class="course_demo">
+                                <ul id="flexiselDemo">
+                                    @php
+                                        $galleries = $postModel->getPosts($accountId, $projectId, 'gallery');
+                                    @endphp
+                                    @if ($galleries->count() > 0)
+                                        @foreach ($galleries as $gallery)
+                                            @php
+                                                $permalink = $postModel->getPostPermalink('gallery', $slug, $event->id);
+                                            @endphp
                                             <li>
-                                                <a href="post.blade.php">
+                                                <a href="{{ $permalink }}">
                                                     @if ($gallery->thumbnail)
-                                                        <img
-                                                            src="{{ asset(ert('thumb-path')) . '/' . $gallery->thumbnail }}">
+                                                        <img src="{{ asset(ert('thumb-path')) . '/' . $gallery->thumbnail }}">
                                                     @else
-                                                        <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
-                                                            alt="" />
+                                                        <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" />
                                                     @endif
                                                 </a>
                                             </li>
@@ -144,7 +155,7 @@
                             </div>
                             <script type="text/javascript">
                                 $(window).load(function() {
-                                    $("#flexiselDemo1").flexisel({
+                                    $("#flexiselDemo").flexisel({
                                         visibleItems: 3,
                                         animationSpeed: 1000,
                                         autoPlay: true,
@@ -171,79 +182,24 @@
                             </script>
                             <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/jquery.flexisel.js') }}"></script>
                         </div>
-                        <div class="course_demo1">
-                            <ul id="flexiselDemo">
-                                <li>
-                                    <a href="post.blade.php"><img
-                                            src="{{ asset('front-theme-asset/motive/images/mg7.jpg') }}"
-                                            alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="post.blade.php"><img
-                                            src="{{ asset('front-theme-asset/motive/images/mg3.jpg') }}"
-                                            alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="post.blade.php"><img
-                                            src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}"
-                                            alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="post.blade.php"><img
-                                            src="{{ asset('front-theme-asset/motive/images/mg2.jpg') }}"
-                                            alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="post.blade.php"><img
-                                            src="{{ asset('front-theme-asset/motive/images/mg6.jpg') }}"
-                                            alt="" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a class="more" href="post.blade.php">
-                            بیشتر +
-                        </a>
-                        <script type="text/javascript">
-                            $(window).load(function() {
-                                $("#flexiselDemo").flexisel({
-                                    visibleItems: 3,
-                                    animationSpeed: 1000,
-                                    autoPlay: true,
-                                    autoPlaySpeed: 3000,
-                                    pauseOnHover: true,
-                                    enableResponsiveBreakpoints: true,
-                                    responsiveBreakpoints: {
-                                        portrait: {
-                                            changePoint: 480,
-                                            visibleItems: 2
-                                        },
-                                        landscape: {
-                                            changePoint: 640,
-                                            visibleItems: 2
-                                        },
-                                        tablet: {
-                                            changePoint: 768,
-                                            visibleItems: 3
-                                        }
-                                    }
-                                });
 
-                            });
-                        </script>
-                        <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/jquery.flexisel.js') }}"></script>
+                        <a class="more" href="post.blade.php">بیشتر +</a>
 
                     </div>
-                    <!--business-->
-                    <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
+
+
                     <div class="business">
                         <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
                         <div class="business-inner">
-                            <div class="col-md-6 b-img"><a href="post.blade.php"><img class="img-responsive"
+                            <div class="col-md-6 b-img">
+                                <a href="post.blade.php"><img class="img-responsive"
                                         src="{{ asset(ert('tsp') . $settingModel->getSetting('image_news', $accountId,$projectId)) }}"
-                                        alt="" /></a></div>
+                                        alt="" />
+                                </a>
+                            </div>
                             <div class="col-md-6 b-text">
-                                <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                                    </a>
+                                <h5>
+                                    <a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a>
                                 </h5>
                                 <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
                                 <div class="icons"><a href="#"><i
@@ -373,303 +329,53 @@
                     </div>
                     <!--//articles-->
                 </div>
-                <div class="col-md-4 mag-inner-left">
-                    <div class="connect">
-                        <h4 class="side">
-                            همیشه در ارتباط ماندن
-                        </h4>
-                        <ul class="stay">
-                            <li class="c5-element-facebook"><a href="#"><span class="icon"></span>
-                                    <h5>700</h5><span class="text">
-
-                                        لورم ایپسوم</span>
-                                </a></li>
-                            <li class="c5-element-twitter"><a href="#"><span class="icon1"></span>
-                                    <h5>201</h5><span class="text">
-
-                                        لورم ایپسوم</span>
-                                </a></li>
-                            <li class="c5-element-gg"><a href="#"><span class="icon2"></span>
-                                    <h5>111</h5><span class="text">
-
-                                        لورم ایپسوم</span>
-                                </a></li>
-                            <li class="c5-element-dribble"><a href="#"><span class="icon3"></span>
-                                    <h5>99</h5><span class="text">
-
-                                        لورم ایپسوم</span>
-                                </a></li>
-
-                        </ul>
-                    </div>
-                    <div class="modern">
-                        <h4 class="side">لورم ایپسوم متن ساختگی</h4>
-                        <div id="example1" dir=ltr>
-                            <div id="owl-demo" class="owl-carousel text-center">
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt="" />
-                                </div>
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p2.jpg') }}" alt="" />
-                                </div>
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p33.jpg') }}"
-                                        alt="" />
-                                </div>
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt="" />
-                                </div>
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt="" />
-                                </div>
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p2.jpg') }}" alt="" />
-                                </div>
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p33.jpg') }}"
-                                        alt="" />
-                                </div>
-                                <div class="item">
-
-                                    <img class="img-responsive lot"
-                                        src="{{ asset('front-theme-asset/motive/images/p1.jpg') }}" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- requried-jsfiles-for owl -->
-                        <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
-                        <script src="{{ asset('front-theme-asset/motive/js/owl.carousel.js') }}"></script>
-                        <script>
-                            $(document).ready(function() {
-                                $("#owl-demo").owlCarousel({
-                                    items: 1,
-                                    lazyLoad: true,
-                                    autoPlay: false,
-                                    navigation: true,
-                                    navigationText: true,
-                                    pagination: false,
-                                    responsiveBreakpoints: {
-                                        portrait: {
-                                            changePoint: 480,
-                                            visibleItems: 2
-                                        },
-                                        landscape: {
-                                            changePoint: 640,
-                                            visibleItems: 2
-                                        },
-                                        tablet: {
-                                            changePoint: 768,
-                                            visibleItems: 3
-                                        }
-                                    }
-                                });
-                            });
-                        </script>
-                        <!-- //requried-jsfiles-for owl -->
-                    </div>
-                    <!--/start-sign-up-->
-                    <div class="sign_main">
-                        <h4 class="side">
-                            ثبت نام برای خبرنامه
-                        </h4>
-                        <div class="sign_up">
-                            <p class="sign">
-                                ثبت نام برای دریافت خبرنامه رایگان ما!
-                            </p>
-                            <form>
-                                <input type="text" class="text" value="نام" onfocus="this.value = '';"
-                                    onblur="if (this.value == '') {this.value = 'Name';}">
-                                <input type="text" class="text" value="آدرس ایمیل" onfocus="this.value = '';"
-                                    onblur="if (this.value == '') {this.value = 'Email Address';}">
-                                <input type="submit" value="ارسال">
-                            </form>
-                            <p class="spam">لورم ایپسوم متن ساختگی با تولید سادگی</p>
-                        </div>
-                    </div>
-                    <!--//end-sign-up-->
-                    <h4 class="side">
-                        محبوب پست ها
-                    </h4>
-                    <div class="edit-pics">
-                        <div class="editor-pics">
-                            <div class="col-md-3 item-pic">
-                                <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}"
-                                    class="img-responsive" alt="" />
-
-                            </div>
-                            <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید
-                                        سادگی</a></h5>
-                                <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
-                                        href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="editor-pics">
-                            <div class="col-md-3 item-pic">
-                                <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
-                                    class="img-responsive" alt="" />
-
-                            </div>
-                            <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید
-                                        سادگی</a></h5>
-                                <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
-                                        href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="editor-pics">
-                            <div class="col-md-3 item-pic">
-                                <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
-                                    class="img-responsive" alt="" />
-
-                            </div>
-                            <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید
-                                        سادگی</a></h5>
-                                <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
-                                        href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="editor-pics">
-                            <div class="col-md-3 item-pic">
-                                <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}"
-                                    class="img-responsive" alt="" />
-
-                            </div>
-                            <div class="col-md-9 item-details">
-                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید
-                                        سادگی</a></h5>
-                                <div class="td-post-date two"><i class="glyphicon glyphicon-time"></i>Feb 22, 2015 <a
-                                        href="#"><i class="glyphicon glyphicon-comment"></i>0 </a></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <!--//edit-pics-->
-                    <!--/top-news-->
-                    <div class="top-news">
-                        <h4 class="side">اخبار مهم</h4>
-                        <div class="top-inner">
-
-                            @if ($postModel->getPosts($accountId, $projectId, 'news'))
-                                @foreach ($postModel->getPosts($accountId, $projectId, 'news') as $new)
-                                    <div class="top-text">
-                                        <a href="{{ $postModel->getPostPermalink($slug, "news", $new->id) }}">
-                                            <img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}"
-                                                class="img-responsive" alt="" />
-                                        </a>
-                                        <h5 class="top">
-                                            <a href="{{ $postModel->getPostPermalink($slug, "news", $new->id) }}">{{ $new->title }}</a>
-                                        </h5>
-                                        <div class="td-post-date two">
-                                            <i class="glyphicon glyphicon-time"></i>
-                                            {{ $postModel->getShamsiDate($new->created_at) }}
-                                            <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @endif
 
 
-                        </div>
-                    </div>
-                    <!--//top-news-->
-                </div>
+                @include('front.theme.motive.sidebar')
+
+
                 <div class="clearfix"></div>
             </div>
             <!--//end-mag-inner-->
-            <!--/mag-bottom-->
+
+
+
+
             <div class="mag-bottom">
-                <h3 class="tittle bottom"><i class="glyphicon glyphicon-globe"></i>
-                    از سراسر جهان
+                <h3 class="tittle bottom">
+                    <i class="glyphicon glyphicon-globe"></i>
+                    {{ $settingModel->getSetting('blog_title', $accountId, $projectId) }}
                 </h3>
                 <div class="grid">
-                    <div class="col-md-4 m-b">
-                        <a href="post.blade.php">
-                            <figure class="effect-layla"></figure>
-                        </a>
-                        <img src="{{ asset('front-theme-asset/motive/images/pic.jpg') }}" alt="img25" />
-                        <figcaption>
-                            <h4>اخبارهای<span>روز</span></h4>
-                            <a href="#">
-                                مشاهده بیشتر
-                            </a>
-                        </figcaption>
-                        </figure>
-                        <div class="m-b-text">
-                            <a href="post.blade.php" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                سطرآنچنان که لازم
-                                است</a>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                                است</p>
-                            <a class="read" href="post.blade.php">
-                                ادامه مطلب
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 m-b">
-                        <figure class="effect-layla">
-                            <a href="post.blade.php"> <img
-                                    src="{{ asset('front-theme-asset/motive/images/pic2.jpg') }}"
-                                    alt="img25" /></a>
-                            <figcaption>
-                                <h4>اخبارهای<span>روز</span></h4>
-                            </figcaption>
-                        </figure>
-                        <div class="m-b-text">
-                            <a href="post.blade.php" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                سطرآنچنان که لازم
-                                است</a>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                                است</p>
-                            <a class="read" href="post.blade.php">
-                                ادامه مطلب
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 m-b">
-                        <figure class="effect-layla">
-                            <a href="post.blade.php"><img
-                                    src="{{ asset('front-theme-asset/motive/images/pic3.jpg') }}"
-                                    alt="img25" /></a>
-                            <figcaption>
-                                <h4>اخبارهای<span>روز</span></h4>
-                            </figcaption>
-                        </figure>
-                        <div class="m-b-text">
-                            <a href="post.blade.php" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                سطرآنچنان که لازم
-                                است</a>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                                است</p>
-                            <a class="read" href="post.blade.php">
-                                ادامه مطلب
-                            </a>
-                        </div>
-                    </div>
+                    @php
+                        $blogs = $postModel->getPosts('blog', $accountId, $projectId);
+                    @endphp
+                    @if ($blogs->count() > 0)
+                        @foreach($blogs as $blog)
+                            @php
+                                $permalink = $postModel->getPostPermalink('blogs', $slug, $blog->id);
+                            @endphp
+                            <div class="col-md-4 m-b">
+                                <figure class="effect-layla">
+                                    <a href="{{ $permalink }}">
+                                        <img src="{{ asset('front-theme-asset/motive/images/pic3.jpg') }}"
+                                            alt="{{ $blog->title }}" title="{{ $blog->title }}" />
+                                    </a>
+                                    <figcaption><h4>{{ $blog->title }}</h4></figcaption>
+                                </figure>
+                                <div class="m-b-text">
+                                    <a href="{{ $permalink }}" class="wd">{{ $blog->title }}</a>
+                                    <p>{{ $blog->abstract }}</p>
+                                    <a class="read" href="{{ $permalink }} }}">ادامه مطلب</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                     <div class="clearfix"></div>
                 </div>
             </div>
             <!--//mag-bottom-->
         </div>
     </div>
-    <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
-    <!--//end-main-->
+
     @include('front.theme.motive.footer')
