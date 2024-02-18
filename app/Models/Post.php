@@ -84,4 +84,13 @@ class Post extends Model
         return $permalink;
     }
 
+    public function getShamsiDate($date)
+    {
+        if ($date) {
+            return convertToPersian(verta($date)->format('H:i Y/m/d'));
+        } else {
+            return null;
+        }
+    }
+
 }

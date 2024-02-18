@@ -106,7 +106,7 @@
                                                 </h5>
                                                 <p>{{ $event->abstract }}</p>
                                                 <a href="{{ $postModel->getPostPermalink($slug, "events", $event->id) }}" class="read">ادامه مطلب</a>
-                                                <div class="td-post-date two">{{ zaman($event->created_at) }}</div>
+                                                <div class="td-post-date two">{{ $postModel->getShamsiDate($event->created_at) }}</div>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>
@@ -580,8 +580,7 @@
                                         </h5>
                                         <div class="td-post-date two">
                                             <i class="glyphicon glyphicon-time"></i>
-                                            Feb 22,
-                                            2015
+                                            {{ $postModel->getShamsiDate($new->created_at) }}
                                             <a href="#"><i class="glyphicon glyphicon-comment"></i>0 </a>
                                         </div>
                                     </div>
