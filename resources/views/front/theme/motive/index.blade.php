@@ -98,7 +98,7 @@
                                                             src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}">
                                                     @else
                                                         <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
-                                                            alt="" />
+                                                           class="img-responsive" alt="" />
                                                     @endif
                                                 </a>
 
