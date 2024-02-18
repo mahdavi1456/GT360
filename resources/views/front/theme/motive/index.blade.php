@@ -171,6 +171,97 @@
 
 
 
+
+
+
+                        <div class="business">
+                            <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
+                            <div class="business-inner">
+                                <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="images/time.jpg" alt=""></a></div>
+                                <div class="col-md-6 b-text">
+                                    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </a></h5>
+                                    <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
+                                    <div class="clearfix"></div>
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+                                    <a class="read" href="single.html">
+                                        ادامه مطلب
+                                    </a>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="business-bottom-content">
+                                    <div class="col-md-6 business-bottom">
+                                        <div class="col-md-3 b-bottom-pic">
+                                            <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="col-md-9 b-bottom-text">
+                                            <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
+                                            <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="col-md-6 business-bottom">
+                                        <div class="col-md-3 b-bottom-pic">
+                                            <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="col-md-9 b-bottom-text">
+                                            <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
+                                            <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="business-inner two">
+                                <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="images/time2.jpg" alt=""></a></div>
+                                <div class="col-md-6 b-text">
+                                    <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
+                                    <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
+                                    <div class="clearfix"></div>
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+                                    <a class="read" href="single.html">
+                                        ادامه مطلب
+                                    </a>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="business-bottom-content">
+                                    <div class="col-md-6 business-bottom">
+                                        <div class="col-md-3 b-bottom-pic">
+                                            <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="col-md-9 b-bottom-text">
+                                            <h5><a href="single.html">
+                                                    اکنون زمان برای تغییر کار است
+                                                </a></h5>
+                                            <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="col-md-6 business-bottom">
+                                        <div class="col-md-3 b-bottom-pic">
+                                            <a href="single.html"><img class="img-responsive" src="images/ti1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="col-md-9 b-bottom-text">
+                                            <h5><a href="single.html">
+                                                    اکنون زمان برای تغییر کار است
+                                                </a></h5>
+                                            <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6> <div class="icons"><a href="#"><i class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
                     @if ($settingModel->getSetting('article_status', $accountId, $projectId) == 1)
                         <div class="latest-articles">
                             <h3 class="tittle"><i class="glyphicon glyphicon-file"></i> {{ $settingModel->getSetting('article_title', $accountId, $projectId) }}</h3>
@@ -196,8 +287,6 @@
                             </div>
                         </div>
                     @endif
-
-
 
                 </div>
 
