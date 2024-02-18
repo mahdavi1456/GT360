@@ -19,6 +19,18 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 form-group">
+                                            <label>عنوان وبسایت</label>
+                                            <input type="text" name="title" class="form-control" placeholder="عنوان وبسایت..." value="{{ $settingModel->getSetting("title", $accountId, $projectId) }}">
+                                        </div>
+                                        <div class="col-8 form-group">
+                                            <label>توضیحات کوتاه</label>
+                                            <input type="text" name="description" class="form-control" placeholder="توضیحات کوتاه..." value="{{ $settingModel->getSetting("description", $accountId, $projectId) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-4 form-group">
                                             <label>فونت</label>
                                             <select name="font" class="form-control">
                                                 <option value="">-</option>
