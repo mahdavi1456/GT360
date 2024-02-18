@@ -78,4 +78,10 @@ class Post extends Model
         return $posts;
     }
 
+    public function getPostPermalink($slug, $componentName, $postId)
+    {
+        $permalink =  route('showPost', ['slug' => $slug, 'componentName' => $componentName, 'postId' => $postId]);
+        return $permalink;
+    }
+
 }
