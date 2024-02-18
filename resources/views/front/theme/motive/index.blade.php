@@ -90,12 +90,14 @@
                             <div class="editor-pics">
                                 @if ($postModel->getPosts($accountId, $projectId, 'event'))
                                     @foreach ($postModel->getPosts($accountId, $projectId, 'event') as $event)
-                                        <div class="col-md-3 item-pic">
-                                            <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
-                                                class="img-responsive" alt="" />
-                                            <a href="post.blade.php" class="wd">{{ $event->title }}</a>
-                                            <p>{{ $event->abstract }}</p>
-                                            <a class="read" href="post.blade.php">ادامه مطلب</a>
+                                        <div class="row">
+                                            <div class="col-md-3 item-pic">
+                                                <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
+                                                    class="img-responsive" alt="" />
+                                                <a href="post.blade.php" class="wd">{{ $event->title }}</a>
+                                                <p>{{ $event->abstract }}</p>
+                                                <a class="read" href="post.blade.php">ادامه مطلب</a>
+                                            </div>
                                         </div>
                                     @endforeach
                                 @endif
