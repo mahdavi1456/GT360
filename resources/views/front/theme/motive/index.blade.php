@@ -238,7 +238,7 @@
                                     <div class="m-b-text">
                                         <a href="{{ $permalink }}" class="wd">{{ $blog->title }}</a>
                                         {!! $blog->abstract !!}
-                                        <a class="read" href="{{ $permalink }} }}">ادامه مطلب</a>
+                                        <a class="read" href="{{ $permalink }}">ادامه مطلب</a>
                                     </div>
                                 </div>
                             @endforeach
