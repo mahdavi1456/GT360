@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12 form-group">
                 <label class="form-label">عنوان</label>
-                <textarea rows="4" name="description" class="form-control" placeholder="عنوان بخش...">{{ $settingModel->getSetting('description', $accountId, $projectId) }}</textarea>
+                <input name="description" class="form-control" placeholder="عنوان بخش...">{{ $settingModel->getSetting('description', $accountId, $projectId) }} >
             </div>
         </div>
         <div class="row">
