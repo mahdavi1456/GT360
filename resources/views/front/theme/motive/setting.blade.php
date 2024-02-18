@@ -15,7 +15,7 @@
                     <label class="form-label">عنوان</label>
                     <input name="description" class="form-control"
                         placeholder="عنوان بخش...">{{ $settingModel->getSetting('description', $accountId, $projectId) }}
-                    >
+
                 </div>
             </div>
             <div class="row">
