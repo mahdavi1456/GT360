@@ -95,7 +95,7 @@
                                                 <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
                                                     class="img-responsive" alt="" />
                                             </div>
-                                            <div class="col-md-9 item-details">
+                                                 <div class="col-md-9 item-details">
                                                 <a href="post.blade.php" class="wd">{{ $event->title }}</a>
                                                 <p>{{ $event->abstract }}</p>
                                                 <a class="read" href="post.blade.php">ادامه مطلب</a>
@@ -106,13 +106,53 @@
                                 @endif
 
 
-                                <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
-                                        نامفهوم از صنعت چاپ </a></h5>
-                                <div class="td-post-date two">Feb 22, 2015</div>
+                                    <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
+                                            نامفهوم از صنعت چاپ </a></h5>
+                                    <div class="td-post-date two">Feb 22, 2015</div>
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
+                            <div class="editor-pics">
+                                <div class="col-md-3 item-pic">
+                                    <img src="{{ asset('front-theme-asset/motive/images/f2.jpg') }}"
+                                        class="img-responsive" alt="" />
 
+                                </div>
+                                <div class="col-md-9 item-details">
+                                    <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
+                                            نامفهوم از صنعت چاپ </a></h5>
+                                    <div class="td-post-date two">Feb 22, 2015</div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="editor-pics">
+                                <div class="col-md-3 item-pic">
+                                    <img src="{{ asset('front-theme-asset/motive/images/f3.jp') }}"
+                                        class="img-responsive" alt="" />
+
+                                </div>
+                                <div class="col-md-9 item-details">
+                                    <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
+                                            نامفهوم از صنعت چاپ </a></h5>
+                                    <div class="td-post-date two">Feb 22, 2015</div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="editor-pics">
+                                <div class="col-md-3 item-pic">
+                                    <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}"
+                                        class="img-responsive" alt="" />
+
+                                </div>
+                                <div class="col-md-9 item-details">
+                                    <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
+                                            نامفهوم از صنعت چاپ </a></h5>
+                                    <div class="td-post-date two">Feb 22, 2015</div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                     <!--//end-Technology-->
                     <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
