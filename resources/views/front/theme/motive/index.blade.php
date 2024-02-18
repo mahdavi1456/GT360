@@ -210,7 +210,7 @@
             <!--//end-mag-inner-->
 
 
-            @if ($settingModel->getSetting('blog_status', $accountId, $projectId) == 1))
+            @if ($settingModel->getSetting('blog_status', $accountId, $projectId) == 1)
                 <div class="mag-bottom">
                     <h3 class="tittle bottom">
                         <i class="glyphicon glyphicon-globe"></i> {{ $settingModel->getSetting('blog_title', $accountId, $projectId) }}
