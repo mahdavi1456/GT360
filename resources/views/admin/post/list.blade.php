@@ -86,100 +86,79 @@
                                     <i class="fa fa-plus ml-2"></i> افزودن نوشته
                                 </a>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body p-0 table-responsive">
                                 @if ($posts->isEmpty())
-                                    <div class="d-flex justify-content-center">
-                                        <span class="not-found">نوشته یافت نشد.</span>
-                                    </div>
+                                    <div class="alert alert-danger">موردی جهت نمایش موجود نیست.</div>
                                 @else
-                                    <table class="table table-bordered table-striped table-hover">
-                                        <thead>
+                                    <table class="table table-bordered table-striped table-hover text-center">
+                                        <tr class="table-warning">
+                                            <th>#</th>
+                                            <th>تصویر شاخص</th>
+                                            <th>نوع نوشته</th>
+                                            <th>عنوان</th>
+                                            <th>بازدید</th>
+                                            <th>نویسنده</th>
+                                            <th>تاریخ</th>
+                                            <th>وضعیت</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        @foreach ($posts as $key => $post)
                                             <tr>
-                                                <th>#</th>
-                                                <th>تصویر شاخص</th>
-                                                <th>نوع نوشته</th>
-                                                <th>عنوان</th>
-                                                <th>بازدید</th>
-                                                <th>نویسنده</th>
-                                                <th>تاریخ</th>
-                                                <th>وضعیت</th>
-                                                <th width="10%">عملیات</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($posts as $key => $post)
-                                                <tr>
-                                                    <td>{{ $posts->firstItem() + $key }}</td>
-                                                    <td>
-                                                        <div class="text-center">
-                                                            @if ($post->thumbnail)
-                                                                <img style="width:100px !important; object-fit: contain"
-                                                                    src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}">
-                                                            @else
-                                                                بدون تصویر
-                                                            @endif
+                                                <td>{{ $posts->firstItem() + $key }}</td>
+                                                <td>
+                                                    <div class="text-center">
+                                                        @if ($post->thumbnail)
+                                                            <img style="width:100px !important; object-fit: contain"
+                                                                src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}">
+                                                        @else
+                                                            بدون تصویر
+                                                        @endif
 
-                                                        </div>
-                                                    </td>
-                                                    <td>{{ $post->component->name }}</td>
-                                                    <td>{{ $post->title }}</td>
-                                                    {{-- <td>{{ $post->visitLogs()->count() }}</td> --}}
-                                                    <td>{{ 25 }}</td>
-                                                    <td>{{ $post->author_object->name . ' ' . $post->author_object->family }}
-                                                    </td>
-                                                    <td>{{ zaman($post->created_at) }}</td>
-                                                    <td>
-                                                        <span
-                                                            class="badge {{ $post->publish_status == 'draft' ? 'badge-danger' : 'badge-success' }}">{{ $post->publish_status == 'draft' ? 'عدم انتشار' : 'انتشار' }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            {{-- <a class="btn btn-info btn-sm ml-2" target="_blank" href="{{ route('blog.show', $post->slug) }}">مشاهده</a> --}}
-                                                            <a class="btn btn-info btn-sm ml-2" target="_blank"
-                                                                href="">مشاهده</a>
-                                                            <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center"
-                                                                href="{{ route('post.create', ['component_id' => $post->component_id, 'action' => 'update', 'post' => $post->id]) }}"
-                                                                data-toggle="tooltip" data-placement="top" title="ویرایش"><i
-                                                                    class="fa fa-edit"></i></a>
-                                                            <div class="display-inline-block">
-                                                                {{-- <form method="post" class="h-100"
-                                                                    action="{{ route('post.destroy', $post->id) }}">
-                                                                    @csrf
-                                                                    <input type="hidden" name="_method" value="DELETE">
-                                                                    <button type="submit" data-toggle="tooltip"
-                                                                        data-placement="top" title="حذف"
-                                                                        class="h-100 delete-confirm btn btn-danger btn-sm d-flex align-items-center"><i
-                                                                            class="fa fa-close"></i></button>
-                                                                </form> --}}
-                                                                <a href="{{ route('post.destroy', $post->id) }}" data-confirm-delete="true" class=' btn btn-danger btn-sm' title="حذف">
+                                                    </div>
+                                                </td>
+                                                <td>{{ $post->component->name }}</td>
+                                                <td>{{ $post->title }}</td>
+                                                {{-- <td>{{ $post->visitLogs()->count() }}</td> --}}
+                                                <td>{{ 25 }}</td>
+                                                <td>{{ $post->author_object->name . ' ' . $post->author_object->family }}
+                                                </td>
+                                                <td>{{ zaman($post->created_at) }}</td>
+                                                <td>
+                                                    <span
+                                                        class="badge {{ $post->publish_status == 'draft' ? 'badge-danger' : 'badge-success' }}">{{ $post->publish_status == 'draft' ? 'عدم انتشار' : 'انتشار' }}</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a class="btn btn-warning btn-sm ml-2 d-flex align-items-center"
+                                                            href="{{ route('post.create', ['component_id' => $post->component_id, 'action' => 'update', 'post' => $post->id]) }}"
+                                                            data-toggle="tooltip" data-placement="top" title="ویرایش">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <div class="display-inline-block">
+                                                            <a href="{{ route('post.destroy', $post->id) }}" data-confirm-delete="true" class=' btn btn-danger btn-sm' title="حذف">
                                                                 <i class="fa fa-close"></i>
-                                                                </a>
-                                                            </div>
+                                                            </a>
                                                         </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </table>
                                 @endif
                             </div>
-                            <!-- /.card-body -->
                             @if ($posts->render())
-                            <div class="w-100 mt-3 d-flex justify-content-center">
-                                {{$posts->withQueryString()->render()}}
-                            </div>
+                                <div class="w-100 mt-3 d-flex justify-content-center">
+                                    {{ $posts->withQueryString()->render() }}
+                                </div>
                             @endif
                         </div>
-                        <!-- /.card -->
                     </div>
                 </div>
             </div>
         </section>
     </div>
 @endsection
-
 @section('scripts')
-
     <script type="text/javascript">
         $(document).on('click', '.delete-confirm', function() {
             var form = $(this).closest("form");
@@ -190,12 +169,11 @@
                     icon: "warning",
                     dangerMode: true,
                     buttons: ["خیر", "بله"],
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        form.submit();
-                    }
-                });
+            }).then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
         });
         $(function() {
             $("#from, #to").persianDatepicker({
@@ -206,5 +184,4 @@
             });
         });
     </script>
-
 @endsection
