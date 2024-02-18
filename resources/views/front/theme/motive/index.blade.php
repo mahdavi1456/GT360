@@ -92,22 +92,21 @@
                                     @foreach ($postModel->getPosts($accountId, $projectId, 'event') as $event)
                                         <div class="row">
                                             <div class="col-md-3 item-pic">
-                                                <a href="post.blade.php">
-                                                    @if ($event->thumbnail)
-                                                        <img
-                                                            src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}"class="img-responsive">
-                                                    @else
-                                                        <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
-                                                            class="img-responsive" alt="" />
-                                                    @endif
-                                                </a>
+                                                @if ($event->thumbnail)
+                                                    <img
+                                                        src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}"class="img-responsive">
+                                                @else
+                                                    <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
+                                                        class="img-responsive" alt="" />
+                                                @endif
                                             </div>
                                             <div class="col-md-9 item-details">
-                                                <h5 class="inner two"> <a href="post.blade.php"
-                                                        class="wd">{{ $event->title }}</a></h5>
+                                                <h5 class="inner two">
+                                                    <a href="{{ $settingModel->showPost($accountId, $projectId, $event->id) }}" class="wd">{{ $event->title }}</a>
+                                                </h5>
                                                 <p>{{ $event->abstract }}</p>
-                                                <a class="read" href="post.blade.php">ادامه مطلب</a>
-                                                <div class="td-post-date two">Feb 22, 2015</div>
+                                                <a href="{{ $settingModel->showPost($accountId, $projectId, $event->id) }}" class="read">ادامه مطلب</a>
+                                                <div class="td-post-date two">{{ zaman($event->created_at) }}</div>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>
