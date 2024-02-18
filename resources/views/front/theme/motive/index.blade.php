@@ -81,7 +81,7 @@
                 <div class="col-md-8 mag-innert-right">
                     <!--/start-Technology-->
                     <div class="technology">
-                        <h2 class="tittle"><i class="glyphicon glyphicon-certificate"> </i>{{ $settingModel->getSetting('description', $accountId) }}</h2>
+                        <h2 class="tittle"><i class="glyphicon glyphicon-certificate"> </i>{{ $settingModel->getSetting('description', $accountId, $projectId) }}</h2>
                         <div class="col-md-6 tech-img">
                             <img src="{{ $settingModel->getSetting('image_event', $accountId, $projectId) }}"
                                 class="img-responsive" alt="" />
