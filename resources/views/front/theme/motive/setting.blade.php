@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-4 form-group">
                 <label class="form-label">تصویر رویداد </label>
-                <input type="file" name="image1_sec1" onchange="uploadImage(this)">
-                @if ($image = imageLoader('image1_sec1'))
+                <input type="file" name="image_event" onchange="uploadImage(this)">
+                @if ($image = imageLoader('image_event'))
                     <div class="imageLoader position-relative">
                         <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                        <button type="button" onclick="destroyImage('image1_sec1')"
+                        <button type="button" onclick="destroyImage('image_event')"
                             class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
                     </div>
                 @endif
@@ -19,8 +19,8 @@
         <div class="row">
             <div class="col-12 form-group">
                 <label class="form-label">لیست رویداد</label>
-                <input type="text" name="description" class="form-control" placeholder="توضیحات..."
-                    value="{{ $settingModel->getSetting('description', $accountId, $projectId) }}">
+                <input type="text" name="list_event" class="form-control" placeholder="لیست رویداد..."
+                    value="{{ $settingModel->getSetting('list_event', $accountId, $projectId) }}">
             </div>
         </div>
     </div>
