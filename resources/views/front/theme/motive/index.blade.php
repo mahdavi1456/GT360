@@ -83,7 +83,7 @@
                     <div class="technology">
                         <h2 class="tittle"><i class="glyphicon glyphicon-certificate"> </i>{{ $settingModel->getSetting('description', $accountId, $projectId) }}</h2>
                         <div class="col-md-6 tech-img">
-                            <img src="{{ $settingModel->getSetting('image_event', $accountId, $projectId) }}"
+                            <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image_event', $accountId,$projectId)) }}"
                                 class="img-responsive" alt="" />
                         </div>
                         <div class="col-md-6 tech-text">
