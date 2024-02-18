@@ -102,10 +102,10 @@
                                             </div>
                                             <div class="col-md-9 item-details">
                                                 <h5 class="inner two">
-                                                    <a href="{{ $postModel->showPost($accountId, $projectId, $event->id) }}" class="wd">{{ $event->title }}</a>
+                                                    <a href="{{ route('showPost', ['slug' => $slug, 'componentName' => 'events', 'postId' => $event->id]) }}" class="wd">{{ $event->title }}</a>
                                                 </h5>
                                                 <p>{{ $event->abstract }}</p>
-                                                <a href="{{ $postModel->showPost($accountId, $projectId, $event->id) }}" class="read">ادامه مطلب</a>
+                                                <a href="{{ route('showPost', ['slug' => $slug, 'componentName' => 'events', 'postId' => $event->id]) }}" class="read">ادامه مطلب</a>
                                                 <div class="td-post-date two">{{ zaman($event->created_at) }}</div>
                                                 <div class="clearfix"></div>
                                             </div>
@@ -571,8 +571,7 @@
                             @if ($postModel->getPosts($accountId, $projectId, 'news'))
                                 @foreach ($postModel->getPosts($accountId, $projectId, 'news') as $new)
                                     <div class="top-text">
-                                        <a
-                                            href="{{ route('showPost', ['slug' => $slug, 'componentName' => 'news', 'postId' => $new->id]) }}">
+                                        <a href="{{ route('showPost', ['slug' => $slug, 'componentName' => 'news', 'postId' => $new->id]) }}">
                                             <img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}"
                                                 class="img-responsive" alt="" />
                                         </a>
