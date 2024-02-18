@@ -89,7 +89,7 @@
                         <div class="col-md-6 tech-text">
                             <div class="editor-pics">
                                 @if ($postModel->getPosts($accountId, $projectId, 'event'))
-                                    @foreach ($postModel->getPosts($accountId, $projectId, 'event') as $article)
+                                    @foreach ($postModel->getPosts($accountId, $projectId, 'event') as $event)
                                         <div class="col-md-3 item-pic">
                                             <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
                                                 class="img-responsive" alt="" />
