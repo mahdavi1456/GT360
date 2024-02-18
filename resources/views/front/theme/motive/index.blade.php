@@ -92,7 +92,7 @@
                                 @php
                                     $events = $postModel->getPosts('event', $accountId, $projectId);
                                 @endphp
-                                @if ($events->count() > 0)
+                                @if ($events)
                                     @foreach ($events as $event)
                                         @php
                                             $permalink = $postModel->getPostPermalink('events', $slug, $event->id);
@@ -135,7 +135,7 @@
                                     @php
                                         $galleries = $postModel->getPosts($accountId, $projectId, 'gallery');
                                     @endphp
-                                    @if ($galleries->count() > 0)
+                                    @if ($galleries)
                                         @foreach ($galleries as $gallery)
                                             @php
                                                 $permalink = $postModel->getPostPermalink('gallery', $slug, $event->id);
