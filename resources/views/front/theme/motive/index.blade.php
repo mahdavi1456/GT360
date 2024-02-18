@@ -240,7 +240,7 @@
                         <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
                         <div class="business-inner">
                             <div class="col-md-6 b-img"><a href="post.blade.php"><img class="img-responsive"
-                                        src="{{ asset('front-theme-asset/motive/images/time.jpg') }}"
+                                        src="{{ asset(ert('tsp') . $settingModel->getSetting('image_news', $accountId,$projectId)) }}"
                                         alt="" /></a></div>
                             <div class="col-md-6 b-text">
                                 <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
@@ -282,6 +282,7 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
+
                                 <div class="col-md-6 business-bottom">
                                     <div class="col-md-3 b-bottom-pic">
                                         <a href="post.blade.php"><img class="img-responsive"
@@ -348,28 +349,6 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="col-md-6 business-bottom">
-                                    <div class="col-md-3 b-bottom-pic">
-                                        <a href="post.blade.php"><img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                alt="" /></a>
-                                    </div>
-                                    <div class="col-md-9 b-bottom-text">
-                                        <h5><a href="post.blade.php">
-                                                اکنون زمان برای تغییر کار است
-                                            </a></h5>
-                                        <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
-                                        <div class="icons"><a href="#"><i
-                                                    class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
-                                                    class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
-                                                    class="glyphicon glyphicon-thumbs-up"></i>152</a><a
-                                                href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
@@ -379,7 +358,6 @@
                     <div class="latest-articles">
                         <h3 class="tittle"><i class="glyphicon glyphicon-file"></i>آخرین مقالات</h3>
                         <div class="world-news-grids">
-
                             @if ($postModel->getPosts($accountId, $projectId, 'article'))
                                 @foreach ($postModel->getPosts($accountId, $projectId, 'article') as $article)
                                     <div class="world-news-grid">
@@ -391,8 +369,6 @@
                                     </div>
                                 @endforeach
                             @endif
-
-
                             <div class="clearfix"></div>
                         </div>
                     </div>
