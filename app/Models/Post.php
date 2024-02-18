@@ -69,7 +69,7 @@ class Post extends Model
         }
     }
 
-    public function getPosts($accountId, $projectId, $componentName)
+    public function getPosts($componentName, $accountId, $projectId)
     {
         $component = Component::where("name", $componentName)->first();
         $componentId = $component->id;
@@ -78,7 +78,7 @@ class Post extends Model
         return $posts;
     }
 
-    public function getPostPermalink($slug, $componentName, $postId)
+    public function getPostPermalink($componentName, $slug, $postId)
     {
         $permalink =  route('showPost', ['slug' => $slug, 'componentName' => $componentName, 'postId' => $postId]);
         return $permalink;
