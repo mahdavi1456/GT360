@@ -14,7 +14,7 @@
                 <div class="callbacks_container">
                     <ul class="rslides callbacks callbacks1" id="slider4">
                         @php
-                            $text_sliders = $postModel->getPosts('text_sliders', $accountId, $projectId);
+                            $text_sliders = $postModel->getPosts('text_slider', $accountId, $projectId);
                         @endphp
                         @if ($text_sliders)
                             @foreach ($text_sliders as $text_slider)
@@ -76,7 +76,7 @@
                                 @if ($events)
                                     @foreach ($events as $event)
                                         @php
-                                            $permalink = $postModel->getPostPermalink('events', $slug, $event->id);
+                                            $permalink = $postModel->getPostPermalink('event', $slug, $event->id);
                                         @endphp
                                         <div class="row">
                                             <div class="col-md-3 item-pic">
@@ -220,7 +220,7 @@
                     @if ($blogs)
                         @foreach($blogs as $blog)
                             @php
-                                $permalink = $postModel->getPostPermalink('blogs', $slug, $blog->id);
+                                $permalink = $postModel->getPostPermalink('blog', $slug, $blog->id);
                             @endphp
                             <div class="col-md-4 m-b">
                                 <figure class="effect-layla">

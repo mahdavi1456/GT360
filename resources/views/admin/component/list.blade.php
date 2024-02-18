@@ -51,7 +51,7 @@
                                                        class="btn btn-secondary btn-sm mx-1">تخصیص طبقه بندی</a>
                                                     <a href="{{ route('component.edit', $component) }}"
                                                        class="btn btn-warning btn-sm mx-1"><i
-                                                            class="fa fa-trash"></i></a>
+                                                            class="fa fa-edit"></i></a>
                                                     <form action="{{ route('component.destroy', $component) }}"
                                                           method="POST">
                                                         @csrf
