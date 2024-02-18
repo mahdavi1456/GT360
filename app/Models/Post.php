@@ -72,10 +72,14 @@ class Post extends Model
     public function getPosts($componentName, $accountId, $projectId)
     {
         $component = Component::where("name", $componentName)->first();
-        $componentId = $component->id;
+        if ($component) {
+            $componentId = $component->id;
 
-        $posts = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('component_id', $componentId)->get();
-        return $posts;
+            $posts = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('component_id', $componentId)->get();
+            return $posts;
+        } else {
+            return null;
+        }
     }
 
     public function getPostPermalink($componentName, $slug, $postId)
