@@ -237,7 +237,7 @@
                                     </figure>
                                     <div class="m-b-text">
                                         <a href="{{ $permalink }}" class="wd">{{ $blog->title }}</a>
-                                        <p>{{ $blog->abstract }}</p>
+                                        {!! $blog->abstract !!}
                                         <a class="read" href="{{ $permalink }} }}">ادامه مطلب</a>
                                     </div>
                                 </div>
