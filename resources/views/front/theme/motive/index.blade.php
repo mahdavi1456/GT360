@@ -313,14 +313,20 @@
                     <div class="latest-articles">
                         <h3 class="tittle"><i class="glyphicon glyphicon-file"></i>آخرین مقالات</h3>
                         <div class="world-news-grids">
-                            @if ($postModel->getPosts($accountId, $projectId, 'article'))
-                                @foreach ($postModel->getPosts($accountId, $projectId, 'article') as $article)
+                            @php
+                                $articles = $postModel->getPosts('article', $accountId, $projectId);
+                            @endphp
+                            @if ($articles)
+                                @foreach ($articles as $article)
+                                    @php
+                                        $permalink = $postModel->getPostPermalink('article', $slug, $article->id);
+                                    @endphp
                                     <div class="world-news-grid">
                                         <img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}"
                                             alt="" />
                                         <a href="post.blade.php" class="wd">{{ $article->title }}</a>
                                         <p>{{ $article->abstract }}</p>
-                                        <a class="read" href="post.blade.php">ادامه مطلب</a>
+                                        <a class="read" href="{{ $permalink }}">ادامه مطلب</a>
                                     </div>
                                 @endforeach
                             @endif
@@ -350,7 +356,7 @@
                     @php
                         $blogs = $postModel->getPosts('blog', $accountId, $projectId);
                     @endphp
-                    @if ($blogs->count() > 0)
+                    @if ($blogs)
                         @foreach($blogs as $blog)
                             @php
                                 $permalink = $postModel->getPostPermalink('blogs', $slug, $blog->id);
