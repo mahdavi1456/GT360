@@ -83,7 +83,7 @@
                     <div class="technology">
                         <h2 class="tittle"><i class="glyphicon glyphicon-certificate"> </i>تکنولوژی</h2>
                         <div class="col-md-6 tech-img">
-                            <img src="{{ $settingModel->getSetting('image_event', $accountId, $projectId) }}"
+                            <img src="{{ $postModel->getPosts( $accountId, $projectId, 'event') }}"
                                 class="img-responsive" alt="" />
                         </div>
                         <div class="col-md-6 tech-text">
@@ -101,7 +101,6 @@
                                                             class="img-responsive" alt="" />
                                                     @endif
                                                 </a>
-
                                             </div>
                                             <div class="col-md-9 item-details">
                                                 <h5 class="inner two"> <a href="post.blade.php"
