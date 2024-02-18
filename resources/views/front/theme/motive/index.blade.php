@@ -95,10 +95,10 @@
                                                 <a href="post.blade.php">
                                                     @if ($event->thumbnail)
                                                         <img
-                                                            src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}">
+                                                            src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}"class="img-responsive">
                                                     @else
                                                         <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
-                                                           class="img-responsive" alt="" />
+                                                            class="img-responsive" alt="" />
                                                     @endif
                                                 </a>
 
