@@ -95,7 +95,7 @@
                                                 <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
                                                     class="img-responsive" alt="" />
                                             </div>
-                                                 <div class="col-md-9 item-details">
+                                            <div class="col-md-9 ">
                                                 <a href="post.blade.php" class="wd">{{ $event->title }}</a>
                                                 <p>{{ $event->abstract }}</p>
                                                 <a class="read" href="post.blade.php">ادامه مطلب</a>
@@ -105,7 +105,7 @@
                                     @endforeach
                                 @endif
 
-
+                                <div class="col-md-9 item-details">
                                     <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی
                                             نامفهوم از صنعت چاپ </a></h5>
                                     <div class="td-post-date two">Feb 22, 2015</div>
