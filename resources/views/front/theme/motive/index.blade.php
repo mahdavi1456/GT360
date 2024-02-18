@@ -94,9 +94,11 @@
                                             <div class="col-md-3 item-pic">
                                                 <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
                                                     class="img-responsive" alt="" />
-                                                <a href="post.blade.php" class="wd">{{ $event->title }}</a>
-                                                <p>{{ $event->abstract }}</p>
-                                                <a class="read" href="post.blade.php">ادامه مطلب</a>
+                                                <div class="col-md-3 ">
+                                                    <a href="post.blade.php" class="wd">{{ $event->title }}</a>
+                                                    <p>{{ $event->abstract }}</p>
+                                                    <a class="read" href="post.blade.php">ادامه مطلب</a>
+                                                </div>
                                             </div>
                                         </div>
                                     @endforeach
