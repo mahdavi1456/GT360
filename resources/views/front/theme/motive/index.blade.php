@@ -61,109 +61,112 @@
             <div class="mag-inner">
                 <div class="col-md-8 mag-innert-right">
 
-
-                    <div class="technology">
-                        <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('event_title', $accountId, $projectId) }}</h2>
-                        <div class="col-md-6 tech-img">
-                            <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image_event', $accountId, $projectId)) }}"
-                                class="img-responsive" alt="" />
-                        </div>
-                        <div class="col-md-6 tech-text">
-                            <div class="editor-pics">
-                                @php
-                                    $events = $postModel->getPosts('event', $accountId, $projectId);
-                                @endphp
-                                @if ($events)
-                                    @foreach ($events as $event)
-                                        @php
-                                            $permalink = $postModel->getPostPermalink('event', $slug, $event->id);
-                                        @endphp
-                                        <div class="row">
-                                            <div class="col-md-3 item-pic">
-                                                @if ($event->thumbnail)
-                                                    <img src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}" class="img-responsive">
-                                                @else
-                                                    <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
-                                                        class="img-responsive" alt="" />
-                                                @endif
-                                            </div>
-                                            <div class="col-md-9 item-details">
-                                                <h5 class="inner two">
-                                                    <a href="{{ $permalink }}" class="wd">{{ $event->title }}</a>
-                                                </h5>
-                                                <p>{{ $event->abstract }}</p>
-                                                <a href="{{ $permalink }}" class="read">ادامه مطلب</a>
-                                                <div class="td-post-date two">{{ $postModel->getShamsiDate($event->created_at) }}</div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @endif
+                    @if($settingModel->getSetting('event_status', $accountId, $projectId) == 1)
+                        <div class="technology">
+                            <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('event_title', $accountId, $projectId) }}</h2>
+                            <div class="col-md-6 tech-img">
+                                <img src="{{ asset(ert('tsp') . $settingModel->getSetting('event-image', $accountId, $projectId)) }}"
+                                    class="img-responsive" alt="" />
                             </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-
-                    <div class="gallery">
-                        <div class="main-title-head">
-                            <h3 class="tittle"><i class="glyphicon glyphicon-picture"></i> {{ $settingModel->getSetting('gallery_title', $accountId, $projectId) }}</h3>
-                        </div>
-                        <div class="gallery-images">
-                            <div class="course_demo">
-                                <ul id="flexiselDemo">
+                            <div class="col-md-6 tech-text">
+                                <div class="editor-pics">
                                     @php
-                                        $galleries = $postModel->getPosts($accountId, $projectId, 'gallery');
+                                        $events = $postModel->getPosts('event', $accountId, $projectId);
                                     @endphp
-                                    @if ($galleries)
-                                        @foreach ($galleries as $gallery)
+                                    @if ($events)
+                                        @foreach ($events as $event)
                                             @php
-                                                $permalink = $postModel->getPostPermalink('gallery', $slug, $event->id);
+                                                $permalink = $postModel->getPostPermalink('event', $slug, $event->id);
                                             @endphp
-                                            <li>
-                                                <a href="{{ $permalink }}">
-                                                    @if ($gallery->thumbnail)
-                                                        <img src="{{ asset(ert('thumb-path')) . '/' . $gallery->thumbnail }}">
+                                            <div class="row">
+                                                <div class="col-md-3 item-pic">
+                                                    @if ($event->thumbnail)
+                                                        <img src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}" class="img-responsive">
                                                     @else
-                                                        <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" />
+                                                        <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
+                                                            class="img-responsive" alt="" />
                                                     @endif
-                                                </a>
-                                            </li>
+                                                </div>
+                                                <div class="col-md-9 item-details">
+                                                    <h5 class="inner two">
+                                                        <a href="{{ $permalink }}" class="wd">{{ $event->title }}</a>
+                                                    </h5>
+                                                    <p>{{ $event->abstract }}</p>
+                                                    <a href="{{ $permalink }}" class="read">ادامه مطلب</a>
+                                                    <div class="td-post-date two">{{ $postModel->getShamsiDate($event->created_at) }}</div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
                                         @endforeach
                                     @endif
-                                </ul>
+                                </div>
                             </div>
-                            <script type="text/javascript">
-                                $(window).load(function() {
-                                    $("#flexiselDemo").flexisel({
-                                        visibleItems: 3,
-                                        animationSpeed: 1000,
-                                        autoPlay: true,
-                                        autoPlaySpeed: 3000,
-                                        pauseOnHover: true,
-                                        enableResponsiveBreakpoints: true,
-                                        responsiveBreakpoints: {
-                                            portrait: {
-                                                changePoint: 480,
-                                                visibleItems: 2
-                                            },
-                                            landscape: {
-                                                changePoint: 640,
-                                                visibleItems: 2
-                                            },
-                                            tablet: {
-                                                changePoint: 768,
-                                                visibleItems: 3
-                                            }
-                                        }
-                                    });
-
-                                });
-                            </script>
-                            <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/jquery.flexisel.js') }}"></script>
+                            <div class="clearfix"></div>
                         </div>
-                        <a class="more" href="post.blade.php">بیشتر +</a>
-                    </div>
+                    @endif
+
+
+                    @if($settingModel->getSetting('gallery_status', $accountId, $projectId) == 1)
+                        <div class="gallery">
+                            <div class="main-title-head">
+                                <h3 class="tittle"><i class="glyphicon glyphicon-picture"></i> {{ $settingModel->getSetting('gallery_title', $accountId, $projectId) }}</h3>
+                            </div>
+                            <div class="gallery-images">
+                                <div class="course_demo">
+                                    <ul id="flexiselDemo">
+                                        @php
+                                            $galleries = $postModel->getPosts($accountId, $projectId, 'gallery');
+                                        @endphp
+                                        @if ($galleries)
+                                            @foreach ($galleries as $gallery)
+                                                @php
+                                                    $permalink = $postModel->getPostPermalink('gallery', $slug, $event->id);
+                                                @endphp
+                                                <li>
+                                                    <a href="{{ $permalink }}">
+                                                        @if ($gallery->thumbnail)
+                                                            <img src="{{ asset(ert('thumb-path')) . '/' . $gallery->thumbnail }}">
+                                                        @else
+                                                            <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" />
+                                                        @endif
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+                                <script type="text/javascript">
+                                    $(window).load(function() {
+                                        $("#flexiselDemo").flexisel({
+                                            visibleItems: 3,
+                                            animationSpeed: 1000,
+                                            autoPlay: true,
+                                            autoPlaySpeed: 3000,
+                                            pauseOnHover: true,
+                                            enableResponsiveBreakpoints: true,
+                                            responsiveBreakpoints: {
+                                                portrait: {
+                                                    changePoint: 480,
+                                                    visibleItems: 2
+                                                },
+                                                landscape: {
+                                                    changePoint: 640,
+                                                    visibleItems: 2
+                                                },
+                                                tablet: {
+                                                    changePoint: 768,
+                                                    visibleItems: 3
+                                                }
+                                            }
+                                        });
+
+                                    });
+                                </script>
+                                <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/jquery.flexisel.js') }}"></script>
+                            </div>
+                            <a class="more" href="post.blade.php">بیشتر +</a>
+                        </div>
+                    @endif
 
 
 
