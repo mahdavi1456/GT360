@@ -4,6 +4,12 @@
     </div>
     <div class="card-body">
         <div class="row">
+            <div class="col-12 form-group">
+                <label class="form-label">عنوان</label>
+                <textarea rows="4" name="title" class="form-control" placeholder="عنوان بخش...">{{ $settingModel->getSetting('title', $accountId, $projectId) }}</textarea>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-4 form-group">
                 <label class="form-label">تصویر رویداد </label>
                 <input type="file" name="image_event" onchange="uploadImage(this)">
