@@ -1,4 +1,3 @@
-<!--/start-footer-section-->
 <div class="footer-section">
     <div class="container">
         <div class="footer-grids">
@@ -101,16 +100,13 @@
         </div>
     </div>
 </div>
-<!--//end-footer-section-->
-<!--/start-copyleft-section-->
-<!--RTL & Persian LNG & Publicer By Www.20script.ir-->
+
 <div class="copyleft">
     <p>
-        کپی رایت@2015 تمام حقوق مادی و معنوی این سایت متعلق به گروه بیست اسکریپت میباشد
-        <a href="http://Www.20script.ir">بیست اسکریپت</a>
+        {{ $settingModel->getSetting('copyright_text', $accountId, $projectId) }}
+        <a href="https://gratech.ir" target="_blank">گراتک</a>
     </p>
 </div>
-
 
 <!--start-smoth-scrolling-->
 <script type="text/javascript">

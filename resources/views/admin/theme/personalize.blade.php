@@ -27,8 +27,6 @@
                                             <input type="text" name="description" class="form-control" placeholder="توضیحات کوتاه..." value="{{ $settingModel->getSetting("description", $accountId, $projectId) }}">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-body">
                                     <div class="row">
                                         <div class="col-4 form-group">
                                             <label>فونت</label>
@@ -55,6 +53,12 @@
                                                 <option {{ ($settingModel->getSetting("direction", $accountId, $projectId) == "rtl") ? "selected" : "" }} value="rtl">راست به چپ</option>
                                                 <option {{ ($settingModel->getSetting("direction", $accountId, $projectId) == "ltr") ? "selected" : "" }} value="ltr">چپ به راست</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 form-group">
+                                            <label>متن کپی رایت</label>
+                                            <input type="text" name="copyright_text" class="form-control" placeholder="متن کپی رایت..." value="{{ $settingModel->getSetting("copyright_text", $accountId, $projectId) }}">
                                         </div>
                                     </div>
                                 </div>

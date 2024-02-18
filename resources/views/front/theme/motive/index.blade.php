@@ -1,6 +1,7 @@
 @include('front.theme.motive.header')
 
 <body>
+
     <div class="header" id="home">
         <div class="content white">
             @include('front.theme.motive.nav')
@@ -82,7 +83,7 @@
                 <div class="col-md-8 mag-innert-right">
                     <!--/start-Technology-->
                     <div class="technology">
-                        <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('description', $accountId, $projectId) }}</h2>
+                        <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('event_title', $accountId, $projectId) }}</h2>
                         <div class="col-md-6 tech-img">
                             <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image_event', $accountId, $projectId)) }}"
                                 class="img-responsive" alt="" />
@@ -127,7 +128,7 @@
 
                     <div class="gallery">
                         <div class="main-title-head">
-                            <h3 class="tittle"><i class="glyphicon glyphicon-picture"></i>گالری</h3>
+                            <h3 class="tittle"><i class="glyphicon glyphicon-picture"></i> {{ $settingModel->getSetting('gallery_title', $accountId, $projectId) }}</h3>
                         </div>
                         <div class="gallery-images">
                             <div class="course_demo">
@@ -182,134 +183,13 @@
                             </script>
                             <script type="text/javascript" src="{{ asset('front-theme-asset/motive/js/jquery.flexisel.js') }}"></script>
                         </div>
-
                         <a class="more" href="post.blade.php">بیشتر +</a>
-
                     </div>
 
 
-                    <div class="business">
-                        <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
-                        <div class="business-inner">
-                            <div class="col-md-6 b-img">
-                                <a href="post.blade.php"><img class="img-responsive"
-                                        src="{{ asset(ert('tsp') . $settingModel->getSetting('image_news', $accountId,$projectId)) }}"
-                                        alt="" />
-                                </a>
-                            </div>
-                            <div class="col-md-6 b-text">
-                                <h5>
-                                    <a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a>
-                                </h5>
-                                <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
-                                <div class="icons"><a href="#"><i
-                                            class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
-                                            class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
-                                            class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i
-                                            class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
-                                <div class="clearfix"></div>
-                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک
-                                    است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
-                                    فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-                                <a class="read" href="post.blade.php">
-                                    ادامه مطلب
-                                </a>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="business-bottom-content">
-                                <div class="col-md-6 business-bottom">
-                                    <div class="col-md-3 b-bottom-pic">
-                                        <a href="post.blade.php"><img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                alt="" /></a>
-                                    </div>
-                                    <div class="col-md-9 b-bottom-text">
-                                        <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
-                                        <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
-                                        <div class="icons"><a href="#"><i
-                                                    class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
-                                                    class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
-                                                    class="glyphicon glyphicon-thumbs-up"></i>152</a><a
-                                                href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
 
-                                <div class="col-md-6 business-bottom">
-                                    <div class="col-md-3 b-bottom-pic">
-                                        <a href="post.blade.php"><img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                alt="" /></a>
-                                    </div>
-                                    <div class="col-md-9 b-bottom-text">
-                                        <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
-                                        <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
-                                        <div class="icons"><a href="#"><i
-                                                    class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
-                                                    class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
-                                                    class="glyphicon glyphicon-thumbs-up"></i>152</a><a
-                                                href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="business-inner two">
-                            <div class="col-md-6 b-img"><a href="post.blade.php"><img class="img-responsive"
-                                        src="{{ asset('front-theme-asset/motive/images/time2.jpg') }}"
-                                        alt="" /></a></div>
-                            <div class="col-md-6 b-text">
-                                <h5><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید سادگی </a></h5>
-                                <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
-                                <div class="icons"><a href="#"><i
-                                            class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
-                                            class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
-                                            class="glyphicon glyphicon-thumbs-up"></i>152</a><a href="#"><i
-                                            class="glyphicon glyphicon-thumbs-down"></i> 26</a></div>
-                                <div class="clearfix"></div>
-                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک
-                                    است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
-                                    فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
-                                <a class="read" href="post.blade.php">
-                                    ادامه مطلب
-                                </a>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="business-bottom-content">
-                                <div class="col-md-6 business-bottom">
-                                    <div class="col-md-3 b-bottom-pic">
-                                        <a href="post.blade.php"><img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/motive/images/ti1.jpg') }}"
-                                                alt="" /></a>
-                                    </div>
-                                    <div class="col-md-9 b-bottom-text">
-                                        <h5><a href="post.blade.php">
-                                                اکنون زمان برای تغییر کار است
-                                            </a></h5>
-                                        <h6><i class="glyphicon glyphicon-time"></i>Jun 25, 2015</h6>
-                                        <div class="icons"><a href="#"><i
-                                                    class="glyphicon glyphicon-user"></i>ادمین</a><a href="#"><i
-                                                    class="glyphicon glyphicon-comment"></i>2</a><a href="#"><i
-                                                    class="glyphicon glyphicon-thumbs-up"></i>152</a><a
-                                                href="#"><i class="glyphicon glyphicon-thumbs-down"></i> 26</a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--//business-->
-                    <!--//latest-articles-->
-                    <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
+
+
                     <div class="latest-articles">
                         <h3 class="tittle"><i class="glyphicon glyphicon-file"></i>آخرین مقالات</h3>
                         <div class="world-news-grids">
@@ -333,7 +213,9 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                    <!--//articles-->
+
+
+
                 </div>
 
 
