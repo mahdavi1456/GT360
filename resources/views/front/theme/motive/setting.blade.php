@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-4 form-group">
-                <label class="form-label">تصویر اول </label>
+                <label class="form-label">تصویر رویداد </label>
                 <input type="file" name="image1_sec1" onchange="uploadImage(this)">
                 @if ($image = imageLoader('image1_sec1'))
                     <div class="imageLoader position-relative">
@@ -15,27 +15,10 @@
                     </div>
                 @endif
             </div>
-            <div class="col-4 form-group">
-                <label class="form-label">تصویر خبر</label>
-                <input type="file" name="newsimage_sec1" onchange="uploadImage(this)">
-                @if ($image = imageLoader('newsimage_sec1'))
-                    <div class="imageLoader position-relative">
-                        <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                        <button type="button" onclick="destroyImage('newsimage_sec1')"
-                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
-                    </div>
-                @endif
-            </div>
-            <div class="col-4 form-group">
-                <label class="form-label">متن خبر</label>
-                <input type="text" name="title" class="form-control" placeholder="متن خبر..."
-                    value="{{ $settingModel->getSetting('newsimage', $accountId, $projectId) }}">
-            </div>
-
         </div>
         <div class="row">
             <div class="col-12 form-group">
-                <label class="form-label">توضیحات</label>
+                <label class="form-label">لیست رویداد</label>
                 <input type="text" name="description" class="form-control" placeholder="توضیحات..."
                     value="{{ $settingModel->getSetting('description', $accountId, $projectId) }}">
             </div>
