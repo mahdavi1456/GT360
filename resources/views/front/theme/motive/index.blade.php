@@ -319,7 +319,7 @@
                             @if ($articles)
                                 @foreach ($articles as $article)
                                     @php
-                                        $permalink = $postModel->getPostPermalink('article', $slug, $article->id);
+                                        $permalink = $postModel->getPostPermalink('articles', $slug, $article->id);
                                     @endphp
                                     <div class="world-news-grid">
                                         <img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}"
