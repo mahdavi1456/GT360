@@ -94,7 +94,7 @@
                                             <div class="col-md-3 item-pic">
                                                 <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}"
                                                     class="img-responsive" alt="" />
-                                                <div class="col-md-3 ">
+                                                <div class="col-md-9 ">
                                                     <a href="post.blade.php" class="wd">{{ $event->title }}</a>
                                                     <p>{{ $event->abstract }}</p>
                                                     <a class="read" href="post.blade.php">ادامه مطلب</a>
