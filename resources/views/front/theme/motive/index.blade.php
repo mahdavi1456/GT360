@@ -1,5 +1,4 @@
 @include('front.theme.motive.header')
-
 <body>
 
     <div class="header" id="home">
@@ -8,80 +7,35 @@
         </div>
     </div>
 
-    <div class="banner">
-        <div class="container">
-            <div class="banner-inner">
-                <div class="callbacks_container">
-                    <ul class="rslides callbacks callbacks1" id="slider4">
-                        @php
-                            $text_sliders = $postModel->getPosts('text_slider', $accountId, $projectId);
-                        @endphp
-                        @if ($text_sliders)
-                            @foreach ($text_sliders as $text_slider)
-                                <li class="callbacks1_on"
-                                    style="display: block; float: right; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;">
-                                    <div class="banner-info">
-                                        <h3>{{ $text_slider->title }}</h3>
-                                        <p>{!! $text_slider->abstract !!}</p>
-                                    </div>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul>
-                </div>
-
-                <script src="{{ asset('front-theme-asset/motive/js/responsiveslides.min.js') }}"></script>
-                <script>
-                    // You can also use "$(window).load(function() {"
-                    $(function() {
-                        // Slideshow 4
-                        $("#slider4").responsiveSlides({
-                            auto: true,
-                            pager: true,
-                            nav: false,
-                            speed: 500,
-                            namespace: "callbacks",
-                            before: function() {
-                                $('.events').append("<li>before event fired.</li>");
-                            },
-                            after: function() {
-                                $('.events').append("<li>after event fired.</li>");
-                            }
-                        });
-                    });
-                </script>
-            </div>
-        </div>
-    </div>
-
-    <!--/start-main-->
+    @include('front.theme.motive.slider')
 
     <div class="main-content">
         <div class="container">
             <div class="mag-inner">
                 <div class="col-md-8 mag-innert-right">
 
-                    @if($settingModel->getSetting('event_status', $accountId, $projectId) == 1)
+                    @if($settingModel->getSetting('section1_status', $accountId, $projectId) == 1)
                         <div class="technology">
-                            <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('event_title', $accountId, $projectId) }}</h2>
+                            <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('section1_title', $accountId, $projectId) }}</h2>
                             <div class="col-md-6 tech-img">
-                                <img src="{{ asset(ert('tsp') . $settingModel->getSetting('event-image', $accountId, $projectId)) }}"
+                                <img src="{{ asset(ert('tsp') . $settingModel->getSetting('section1_image', $accountId, $projectId)) }}"
                                     class="img-responsive" alt="" />
                             </div>
                             <div class="col-md-6 tech-text">
                                 <div class="editor-pics">
                                     @php
-                                        $events = $postModel->getPosts('event', $accountId, $projectId);
+                                        $section1_component = $settingModel->getSetting('section1_component', $accountId, $projectId);
+                                        $posts = $postModel->getPosts($section1_component, $accountId, $projectId);
                                     @endphp
-                                    @if ($events)
-                                        @foreach ($events as $event)
+                                    @if ($posts)
+                                        @foreach ($posts as $post)
                                             @php
-                                                $permalink = $postModel->getPostPermalink('event', $slug, $event->id);
+                                                $permalink = $postModel->getPostPermalink($section1_component, $slug, $post->id);
                                             @endphp
                                             <div class="row">
                                                 <div class="col-md-3 item-pic">
-                                                    @if ($event->thumbnail)
-                                                        <img src="{{ asset(ert('thumb-path')) . '/' . $event->thumbnail }}" class="img-responsive">
+                                                    @if ($post->thumbnail)
+                                                        <img src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}" class="img-responsive">
                                                     @else
                                                         <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
                                                             class="img-responsive" alt="" />
@@ -89,11 +43,11 @@
                                                 </div>
                                                 <div class="col-md-9 item-details">
                                                     <h5 class="inner two">
-                                                        <a href="{{ $permalink }}" class="wd">{{ $event->title }}</a>
+                                                        <a href="{{ $permalink }}" class="wd">{{ $post->title }}</a>
                                                     </h5>
-                                                    <p>{{ $event->abstract }}</p>
+                                                    <p>{{ $post->abstract }}</p>
                                                     <a href="{{ $permalink }}" class="read">ادامه مطلب</a>
-                                                    <div class="td-post-date two">{{ $postModel->getShamsiDate($event->created_at) }}</div>
+                                                    <div class="td-post-date two">{{ $postModel->getShamsiDate($post->created_at) }}</div>
                                                     <div class="clearfix"></div>
                                                 </div>
                                             </div>
@@ -106,26 +60,27 @@
                     @endif
 
 
-                    @if($settingModel->getSetting('gallery_status', $accountId, $projectId) == 1)
+                    @if($settingModel->getSetting('section2_status', $accountId, $projectId) == 1)
                         <div class="gallery">
                             <div class="main-title-head">
-                                <h3 class="tittle"><i class="glyphicon glyphicon-picture"></i> {{ $settingModel->getSetting('gallery_title', $accountId, $projectId) }}</h3>
+                                <h3 class="tittle"><i class="glyphicon glyphicon-picture"></i> {{ $settingModel->getSetting('section2_title', $accountId, $projectId) }}</h3>
                             </div>
                             <div class="gallery-images">
                                 <div class="course_demo">
                                     <ul id="flexiselDemo">
                                         @php
-                                            $galleries = $postModel->getPosts($accountId, $projectId, 'gallery');
+                                            $section2_component = $settingModel->getSetting('section2_component', $accountId, $projectId);
+                                            $posts = $postModel->getPosts($section2_component, $accountId, $projectId);
                                         @endphp
-                                        @if ($galleries)
-                                            @foreach ($galleries as $gallery)
+                                        @if ($posts)
+                                            @foreach ($posts as $post)
                                                 @php
-                                                    $permalink = $postModel->getPostPermalink('gallery', $slug, $event->id);
+                                                    $permalink = $postModel->getPostPermalink($section2_component, $slug, $post->id);
                                                 @endphp
                                                 <li>
                                                     <a href="{{ $permalink }}">
-                                                        @if ($gallery->thumbnail)
-                                                            <img src="{{ asset(ert('thumb-path')) . '/' . $gallery->thumbnail }}">
+                                                        @if ($post->thumbnail)
+                                                            <img src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}">
                                                         @else
                                                             <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}" alt="" />
                                                         @endif
@@ -172,11 +127,17 @@
 
 
 
+                    @if($settingModel->getSetting('section3_status', $accountId, $projectId) == 1)
 
+                        @php
+                            $section3_component = $settingModel->getSetting('section3_component', $accountId, $projectId);
+                            $posts = $postModel->getPosts($section3_component, $accountId, $projectId);
+                        @endphp
 
                         <div class="business">
-                            <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i>کسب و کار</h3>
+                            <h3 class="tittle"><i class="glyphicon glyphicon-briefcase"></i> {{ $settingModel->getSetting('section3_title', $accountId, $projectId) }}</h3>
                             <div class="business-inner">
+
                                 <div class="col-md-6 b-img"><a href="single.html"><img class="img-responsive" src="images/time.jpg" alt=""></a></div>
                                 <div class="col-md-6 b-text">
                                     <h5><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </a></h5>
@@ -187,6 +148,7 @@
                                         ادامه مطلب
                                     </a>
                                 </div>
+
                                 <div class="clearfix"></div>
                                 <div class="business-bottom-content">
                                     <div class="col-md-6 business-bottom">
@@ -257,28 +219,27 @@
                                 </div>
                             </div>
                         </div>
+                    @endif
 
 
-
-
-
-                    @if ($settingModel->getSetting('article_status', $accountId, $projectId) == 1)
+                    @if ($settingModel->getSetting('section4_status', $accountId, $projectId) == 1)
                         <div class="latest-articles">
-                            <h3 class="tittle"><i class="glyphicon glyphicon-file"></i> {{ $settingModel->getSetting('article_title', $accountId, $projectId) }}</h3>
+                            <h3 class="tittle"><i class="glyphicon glyphicon-file"></i> {{ $settingModel->getSetting('section4_title', $accountId, $projectId) }}</h3>
                             <div class="world-news-grids">
                                 @php
-                                    $articles = $postModel->getPosts('article', $accountId, $projectId);
+                                    $section4_component = $settingModel->getSetting('section4_component', $accountId, $projectId);
+                                    $posts = $postModel->getPosts($section4_component, $accountId, $projectId);
                                 @endphp
-                                @if ($articles)
-                                    @foreach ($articles as $article)
+                                @if ($posts)
+                                    @foreach ($posts as $post)
                                         @php
-                                            $permalink = $postModel->getPostPermalink('articles', $slug, $article->id);
+                                            $permalink = $postModel->getPostPermalink($section4_component, $slug, $post->id);
                                         @endphp
                                         <div class="world-news-grid">
                                             <img src="{{ asset('front-theme-asset/motive/images/a1.jpg') }}"
                                                 alt="" />
-                                            <a href="post.blade.php" class="wd">{{ $article->title }}</a>
-                                            {!! $article->abstract !!}
+                                            <a href="post.blade.php" class="wd">{{ $post->title }}</a>
+                                            {!! $post->abstract !!}
                                             <a class="read" href="{{ $permalink }}">ادامه مطلب</a>
                                         </div>
                                     @endforeach
@@ -296,37 +257,37 @@
 
                 <div class="clearfix"></div>
             </div>
-            <!--//end-mag-inner-->
 
 
-            @if ($settingModel->getSetting('blog_status', $accountId, $projectId) == 1)
+            @if ($settingModel->getSetting('section5_status', $accountId, $projectId) == 1)
                 <div class="mag-bottom">
                     <h3 class="tittle bottom">
-                        <i class="glyphicon glyphicon-globe"></i> {{ $settingModel->getSetting('blog_title', $accountId, $projectId) }}
+                        <i class="glyphicon glyphicon-globe"></i> {{ $settingModel->getSetting('section5_title', $accountId, $projectId) }}
                     </h3>
                     <div class="grid">
                         @php
-                            $blogs = $postModel->getPosts('blog', $accountId, $projectId);
+                            $section5_component = $settingModel->getSetting('section5_component', $accountId, $projectId);
+                            $posts = $postModel->getPosts($section5_component, $accountId, $projectId);
                         @endphp
-                        @if ($blogs)
-                            @foreach($blogs as $blog)
+                        @if ($posts)
+                            @foreach($posts as $post)
                                 @php
-                                    $permalink = $postModel->getPostPermalink('blog', $slug, $blog->id);
+                                    $permalink = $postModel->getPostPermalink($section5_component, $slug, $post->id);
                                 @endphp
                                 <div class="col-md-4 m-b">
                                     <figure class="effect-layla">
                                         <a href="{{ $permalink }}">
-                                            @if ($blog->thumbnail)
-                                                <img src="{{ asset(ert('thumb-path')) . '/' . $blog->thumbnail }}">
+                                            @if ($post->thumbnail)
+                                                <img src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}">
                                             @else
                                                 <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}">
                                             @endif
                                         </a>
-                                        <figcaption><h4>{{ $blog->title }}</h4></figcaption>
+                                        <figcaption><h4>{{ $post->title }}</h4></figcaption>
                                     </figure>
                                     <div class="m-b-text">
-                                        <a href="{{ $permalink }}" class="wd">{{ $blog->title }}</a>
-                                        {!! $blog->abstract !!}
+                                        <a href="{{ $permalink }}" class="wd">{{ $post->title }}</a>
+                                        {!! $post->abstract !!}
                                         <a class="read" href="{{ $permalink }}">ادامه مطلب</a>
                                     </div>
                                 </div>
