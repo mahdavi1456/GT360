@@ -49,76 +49,7 @@
 
             <div class="clearfix"></div>
         </div>
-
-
-        <div class="mag-bottom">
-            <h3 class="tittle bottom"><i class="glyphicon glyphicon-globe"></i>
-                از سراسر جهان
-            </h3>
-            <div class="grid">
-                <div class="col-md-4 m-b">
-                    <a href="single.html">
-                        <figure class="effect-layla">
-                    </a>
-                    <img src="images/pic.jpg" alt="img25"/>
-                    <figcaption>
-                        <h4>اخبارهای<span>روز</span></h4>
-                        <a href="#">
-                            مشاهده بیشتر
-                        </a>
-                    </figcaption>
-                    </figure>
-                    <div class="m-b-text">
-                        <a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                            است</a>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                            است</p>
-                        <a class="read" href="single.html">
-                            ادامه مطلب
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 m-b">
-                    <figure class="effect-layla">
-                        <a href="single.html"> <img src="images/pic2.jpg" alt="img25"/></a>
-                        <figcaption>
-                            <h4>اخبارهای<span>روز</span></h4>
-                        </figcaption>
-                    </figure>
-                    <div class="m-b-text">
-                        <a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                            است</a>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                            است</p>
-                        <a class="read" href="single.html">
-                            ادامه مطلب
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 m-b">
-                    <figure class="effect-layla">
-                        <a href="single.html"><img src="images/pic3.jpg" alt="img25"/></a>
-                        <figcaption>
-                            <h4>اخبارهای<span>روز</span></h4>
-                        </figcaption>
-                    </figure>
-                    <div class="m-b-text">
-                        <a href="single.html" class="wd">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                            است</a>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                            است</p>
-                        <a class="read" href="single.html">
-                            ادامه مطلب
-                        </a>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <!--//mag-bottom-->
-        <!--RTL & Persian LNG & Publicer By Www.20script.ir-->
+        
     </div>
 </div>
-<!--//end-main-->
-
 @include('front.theme.motive.footer')
