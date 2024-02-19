@@ -49,7 +49,7 @@
 
             <div class="clearfix"></div>
         </div>
-        
+
     </div>
 </div>
 @include('front.theme.motive.footer')

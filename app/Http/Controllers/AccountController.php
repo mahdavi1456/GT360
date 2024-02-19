@@ -37,6 +37,7 @@ class AccountController extends Controller
         return view('admin.dashboard', compact('settingModel', 'projects'));
     }
 
+    /* Start Website Functions */
     public function loadSite($slug)
     {
         $settingModel = new Setting;
@@ -56,6 +57,47 @@ class AccountController extends Controller
         }
         return "یک تم برای خود انتخاب کنید";
     }
+
+    public function showPost($slug, $componentName, $postId)
+    {
+        $settingModel = new Setting;
+        $postModel = new Post;
+        $pageModel = new Page;
+        $navModel = new Nav;
+
+        $project = Project::where('slug', $slug)->first();
+        if ($project) {
+            $accountId = $project->account_id;
+            $projectId = $project->id;
+            $theme = Account::activeTheme($accountId, $projectId);
+            $view = "front.theme.$theme.post";
+            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'postId'));
+        }
+    }
+
+    public function showPage($slug, $link, $pageId)
+    {
+        $settingModel = new Setting;
+        $postModel = new Post;
+        $pageModel = new Page;
+        $navModel = new Nav;
+
+        $project = Project::where('slug', $slug)->first();
+        if ($project) {
+            $accountId = $project->account_id;
+            $projectId = $project->id;
+            $theme = Account::activeTheme($accountId, $projectId);
+
+            if (Page::find($pageId)) {
+                $view = "front.theme.$theme.page";
+                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId'));
+            } else {
+                $view = "front.theme.$theme.404";
+                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId'));
+            }
+        }
+    }
+    /* End Website Functions */
 
     public function reserve($slug)
     {
@@ -527,40 +569,6 @@ class AccountController extends Controller
         $project->update($data);
         Alert::success('موفق', 'اطلاعات وب سایت با موفقیت ثبت شد.');
         return to_route('dashboard');
-    }
-
-    public function showPost($slug, $componentName, $postId)
-    {
-        $settingModel = new Setting;
-        $postModel = new Post;
-        $pageModel = new Page;
-        $navModel = new Nav;
-
-        $project = Project::where('slug', $slug)->first();
-        if ($project) {
-            $accountId = $project->account_id;
-            $projectId = $project->id;
-            $theme = Account::activeTheme($accountId, $projectId);
-            $view = "front.theme.$theme.post";
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'postId'));
-        }
-    }
-
-    public function showPage($slug, $link, $pageId)
-    {
-        $settingModel = new Setting;
-        $postModel = new Post;
-        $pageModel = new Page;
-        $navModel = new Nav;
-
-        $project = Project::where('slug', $slug)->first();
-        if ($project) {
-            $accountId = $project->account_id;
-            $projectId = $project->id;
-            $theme = Account::activeTheme($accountId, $projectId);
-            $view = "front.theme.$theme.page";
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId'));
-        }
     }
 
 }
