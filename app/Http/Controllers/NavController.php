@@ -55,7 +55,10 @@ class NavController extends Controller
     public function navItems()
     {
         $pages = Page::latest()->get();
-        $accounId = auth()->user()->account->id;
+
+        $accountId = auth()->user()->account->id;
+        $projectId = Project::checkOpenProject($accountId)->project_id;
+
         //create link
         if (request()->has('item_type')) {
             $nav = Nav::findOrFail(request('nav_id'));
@@ -66,7 +69,8 @@ class NavController extends Controller
                 ]);
                 NavItem::create([
                     'nav_id' => request('nav_id'),
-                    'account_id' => $accounId,
+                    'account_id' => $accountId,
+                    'project_id' => $projectId,
                     'name' => request('name'),
                     'link' => request('link'),
                     'target' => request('target'),
@@ -85,7 +89,8 @@ class NavController extends Controller
                     $page = Page::findOrFail($pageId);
                     NavItem::create([
                         'nav_id' => request('nav_id'),
-                        'account_id' => $accounId,
+                        'account_id' => $accountId,
+                        'project_id' => $projectId,
                         'name' => $page->title,
                         'link' => $page->slug,
                         'target' => '_self',
@@ -109,13 +114,13 @@ class NavController extends Controller
                 'nav.required' => "انتخاب اشتباه!"
             ]);
             $nav = Nav::findOrFail(request('nav'));
-            $items = $nav->items()->where('parent_id',0)->orderBy('order_num')->with('children')->get();
+            $items = $nav->items()->where('parent_id', 0)->orderBy('order_num')->with('children')->get();
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
         } elseif (request('type') == 'delete_item') {
             $item = NavItem::where(['id' => request('item_id'), 'account_id' => auth()->user()->account->id])->firstOrFail();
             $item->delete();
             $nav = Nav::findOrFail(request('nav_id'));
-            $items = $nav->items()->where('parent_id',0)->orderBy('order_num')->with('children')->get();
+            $items = $nav->items()->where('parent_id', 0)->orderBy('order_num')->with('children')->get();
             return view('admin.nav.editItems', compact('nav', 'pages', 'items'));
         } elseif (request()->has('item_id')) {
             // edit item
@@ -145,31 +150,28 @@ class NavController extends Controller
     {
         return NavItem::getLastOrder($nav);
     }
-    public function resortItems(Request $req){
-      // return $req->all();
 
-     foreach ($req->all() as $key => $value) {
-      //  dd($value);
-        $itemId=explode('-',$key);
-        $itemId =array_pop($itemId);
-        $parent=NavItem::findOrFail($itemId);
-        $parent->update([
-            'order_num'=>$value['order'],
-            'parent_id'=>0
-        ]);
-        if (array_key_exists('children',$value)) {
-            foreach ($value['children'] as $key2 => $value2) {
-                $child=NavItem::findOrFail($value2);
-                $child->update([
-                    'order_num'=>$key2+1,
-                    'parent_id'=>$parent->id
-                ]);
+    public function resortItems(Request $req)
+    {
+        foreach ($req->all() as $key => $value) {
+            //  dd($value);
+            $itemId = explode('-', $key);
+            $itemId = array_pop($itemId);
+            $parent = NavItem::findOrFail($itemId);
+            $parent->update([
+                'order_num' => $value['order'],
+                'parent_id' => 0
+            ]);
+            if (array_key_exists('children', $value)) {
+                foreach ($value['children'] as $key2 => $value2) {
+                    $child = NavItem::findOrFail($value2);
+                    $child->update([
+                        'order_num' => $key2 + 1,
+                        'parent_id' => $parent->id
+                    ]);
+                }
             }
         }
-
-
-     }
-     return $req->all();
-
+        return $req->all();
     }
 }
