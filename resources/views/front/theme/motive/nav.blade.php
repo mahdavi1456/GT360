@@ -18,7 +18,7 @@
                     @foreach ($navItems as $navItem)
                         <li><a href="{{ $navItem->link }}">{{ $navItem->name }}</a></li>
                         <li class="dropdown">
-                            <a href="{{ $navItem->link }}" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 @php
                                     $childs = $navModel->getNavItems('top-nav', $navItem->parent_id, $accountId, $projectId);
