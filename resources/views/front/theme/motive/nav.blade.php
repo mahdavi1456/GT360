@@ -16,21 +16,6 @@
                 @endphp
                 @if ($navItems)
                     @foreach ($navItems as $navItem)
-
-                        @if ($navItem->item_type == "page")
-                            @php
-                                $link = $pageModel->getPagePermalink($slug, $navItem->link, $navItem->object_id);
-                            @endphp
-                        @elseif($navItem->item_type == "post")
-                            @php
-                                //$link = $postModel->getPostPermalink($slug, $navItem->link, $navItem->object_id);
-                            @endphp
-                        @elseif($navItem->item_type == "link")
-                            @php
-                                $link = $navItem->link;
-                            @endphp
-                        @endif
-
                         @if ($navModel->itemHasChild($navItem->id))
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
@@ -40,14 +25,14 @@
                                     @endphp
                                     @if ($childs)
                                         @foreach ($childs as $child)
-                                            <li><a href="{{ $child->link }}">{{ $child->name }}</a></li>
+                                            <li><a href="{{ $child->getLink($slug) }}">{{ $child->name }}</a></li>
                                             <li class="divider"></li>
                                         @endforeach
                                     @endif
                                 </ul>
                             </li>
                         @else
-                            <li><a href="{{ $link }}" target="{{ $navItem->target }}" rel="{{ $navItem->rel }}">{{ $navItem->name }}</a></li>
+                            <li><a href="{{ $navItem->getLink($slug) }}" target="{{ $navItem->target }}" rel="{{ $navItem->rel }}">{{ $navItem->name }}</a></li>
                         @endif
                     @endforeach
                 @endif
