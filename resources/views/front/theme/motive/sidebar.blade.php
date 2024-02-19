@@ -1,4 +1,3 @@
-
 <div class="col-md-4 mag-inner-left">
     <div class="connect">
         <h4 class="side">{{ $settingModel->getSetting('follow_us_title', $accountId, $projectId) }}</h4>
@@ -110,8 +109,8 @@
         </script>
         <!-- //requried-jsfiles-for owl -->
     </div>
-    <!--/start-sign-up-->
-    <div class="sign_main">
+
+    <!--div class="sign_main">
         <h4 class="side">
             ثبت نام برای خبرنامه
         </h4>
@@ -128,17 +127,15 @@
             </form>
             <p class="spam">لورم ایپسوم متن ساختگی با تولید سادگی</p>
         </div>
-    </div>
-    <!--//end-sign-up-->
-    <h4 class="side">
-        محبوب پست ها
-    </h4>
+    </div-->
+
+
+
+    <h4 class="side">محبوب ترین ها</h4>
     <div class="edit-pics">
         <div class="editor-pics">
             <div class="col-md-3 item-pic">
-                <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}"
-                     class="img-responsive" alt="" />
-
+                <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt="" />
             </div>
             <div class="col-md-9 item-details">
                 <h5 class="inner two"><a href="post.blade.php">لورم ایپسوم متن ساختگی با تولید
@@ -192,16 +189,16 @@
         </div>
     </div>
     <!--//edit-pics-->
+
     <!--/top-news-->
     <div class="top-news">
         <h4 class="side">اخبار مهم</h4>
         <div class="top-inner">
-            @if ($postModel->getPosts($accountId, $projectId, 'news'))
-                @foreach ($postModel->getPosts($accountId, $projectId, 'news') as $new)
+            @if ($postModel->getPosts('news', $accountId, $projectId))
+                @foreach ($postModel->getPosts('news', $accountId, $projectId) as $new)
                     <div class="top-text">
-                        <a href="{{ $postModel->getPostPermalink($slug, "news", $new->id) }}">
-                            <img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}"
-                                 class="img-responsive" alt="" />
+                        <a href="{{ $postModel->getPostPermalink('news', $slug, $new->id) }}">
+                            <img src="{{ asset('front-theme-asset/motive/images/slp.jpg') }}" class="img-responsive" alt="" />
                         </a>
                         <h5 class="top">
                             <a href="{{ $postModel->getPostPermalink($slug, "news", $new->id) }}">{{ $new->title }}</a>
