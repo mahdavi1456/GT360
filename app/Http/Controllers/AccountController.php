@@ -532,7 +532,9 @@ class AccountController extends Controller
     public function showPost($slug, $componentName, $postId)
     {
         $settingModel = new Setting;
-        $postModel = Post::find($postId);
+        $postModel = new Post;
+        $pageModel = new Page;
+        $navModel = new Nav;
 
         $project = Project::where('slug', $slug)->first();
         if ($project) {
@@ -547,7 +549,9 @@ class AccountController extends Controller
     public function showPage($slug, $link, $pageId)
     {
         $settingModel = new Setting;
-        $pageModel = Page::find($pageId);
+        $postModel = new Post;
+        $pageModel = new Page;
+        $navModel = new Nav;
 
         $project = Project::where('slug', $slug)->first();
         if ($project) {
