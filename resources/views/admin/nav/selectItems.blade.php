@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'Category List')
+@section('title', 'مدیریت فهرست ها')
 @section('style')
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <style>
@@ -24,54 +24,34 @@
     @include('sweetalert::alert')
     @include('admin.partial.nav')
     @include('admin.partial.aside')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        {{ breadcrumb('انتخاب فهرست') }}
-        <!-- Main content -->
+        {{ breadcrumb('مدیریت فهرست ها') }}
         <section class="content">
             <div class="container-fluid">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
                                 <div class="card-header">
-                                    <div class="col-4">
-                                        <form id="nav-list-form">
-                                            <input type="hidden" name="type" value="get-nav-info">
-                                            <label for="">فهرست های قالب</label>
-                                            <select name="nav" class="custom-select select2" id="">
-                                                <option selected value="">انتخاب فهرست...</option>
-                                                @foreach ($navs as $nav)
-                                                    <option value="{{ $nav->id }}">{{ $nav->label }}</option>
-                                                @endforeach
-                                            </select>
-                                        </form>
-                                    </div>
+                                    <h3 class="card-title">فهرست های قالب</h3>
+                                    <form id="nav-list-form">
+                                        <input type="hidden" name="type" value="get-nav-info">
+                                        <select name="nav" class="custom-select select2" id="">
+                                            <option selected value="">انتخاب فهرست...</option>
+                                            @foreach ($navs as $nav)
+                                                <option value="{{ $nav->id }}">{{ $nav->label }}</option>
+                                            @endforeach
+                                        </select>
+                                    </form>
                                 </div>
-                                {{-- @if ($errors->any())
-                                    <div class="container">
-                                        <div class="row alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endif --}}
-                                <div class="nav-info p-3" style="min-height: 100px;">
-                                </div>
+                                <div class="card-body nav-info p-3"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
 @endsection
 @section('scripts')
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
