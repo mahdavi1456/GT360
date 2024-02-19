@@ -43,7 +43,8 @@ class Page extends Model
 
     public function getPageData($pageId)
     {
-        $data = Page::find($pageId)->get();
+        $data = Page::find($pageId);
+        dd($data);
         return $data;
     }
 
