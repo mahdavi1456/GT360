@@ -30,18 +30,20 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
+                        <div class="card card-warning">
                             <div class="card-header">
-                                <h3 class="card-title">فهرست های قالب</h3>
-                                <form id="nav-list-form">
-                                    <input type="hidden" name="type" value="get-nav-info">
-                                    <select name="nav" class="custom-select select2" id="">
-                                        <option selected value="">انتخاب فهرست...</option>
-                                        @foreach ($navs as $nav)
-                                            <option value="{{ $nav->id }}">{{ $nav->label }}</option>
-                                        @endforeach
-                                    </select>
-                                </form>
+                                <h3 class="card-title">
+                                    <span>فهرست های قالب</span>
+                                    <form id="nav-list-form">
+                                        <input type="hidden" name="type" value="get-nav-info">
+                                        <select name="nav" class="custom-select select2" id="">
+                                            <option selected value="">انتخاب فهرست...</option>
+                                            @foreach ($navs as $nav)
+                                                <option value="{{ $nav->id }}">{{ $nav->label }}</option>
+                                            @endforeach
+                                        </select>
+                                    </form>
+                                </h3>
                             </div>
                             <div class="card-body nav-info p-3"></div>
                         </div>
