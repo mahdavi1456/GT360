@@ -17,22 +17,20 @@
                 @if ($navItems)
                     @foreach ($navItems as $navItem)
                         <li><a href="{{ $navItem->link }}">{{ $navItem->name }}</a></li>
-                        @if ($navItem->parent_id > 0)
-                            <li class="dropdown">
-                                <a href="{{ $navItem->link }}" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    @php
-                                        $childs = $navModel->getNavItems('top-nav', $navItem->parent_id, $accountId, $projectId);
-                                    @endphp
-                                    @if ($childs)
-                                        @foreach ($childs as $child)
-                                            <li><a href="{{ $child->link }}">{{ $child->name }}</a></li>
-                                            <li class="divider"></li>
-                                        @endforeach
-                                    @endif
-                                </ul>
-                            </li>
-                        @endif
+                        <li class="dropdown">
+                            <a href="{{ $navItem->link }}" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                @php
+                                    $childs = $navModel->getNavItems('top-nav', $navItem->parent_id, $accountId, $projectId);
+                                @endphp
+                                @if ($childs)
+                                    @foreach ($childs as $child)
+                                        <li><a href="{{ $child->link }}">{{ $child->name }}</a></li>
+                                        <li class="divider"></li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </li>
                     @endforeach
                 @endif
             </ul>
