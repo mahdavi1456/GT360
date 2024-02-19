@@ -1,4 +1,4 @@
-<div class="footer-section">
+<!--div class="footer-section">
     <div class="container">
         <div class="footer-grids">
             <div class="col-md-4 footer-grid">
@@ -7,7 +7,7 @@
                 </h4>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ asset('front-theme-asset/motive/images/f1.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="{{ //asset('front-theme-asset/motive/images/f1.jpg') }}" class="img-responsive" alt=""/>
 
                     </div>
                     <div class="col-md-9 item-details">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="{{ //asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
 
                     </div>
                     <div class="col-md-9 item-details">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="{{ //asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
 
                     </div>
                     <div class="col-md-9 item-details">
@@ -48,7 +48,7 @@
                 </h4>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="{{ //asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt=""/>
 
                     </div>
                     <div class="col-md-9 item-details">
@@ -60,7 +60,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="{{ //asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
                     </div>
                     <div class="col-md-9 item-details">
                         <h5 class="inner"><a href="#"> چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
@@ -71,7 +71,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="{{ //asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
                     </div>
                     <div class="col-md-9 item-details">
                         <h5 class="inner"><a href="#"> چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
@@ -99,7 +99,7 @@
             <div class="clearfix"></div>
         </div>
     </div>
-</div>
+</div-->
 
 <div class="copyleft">
     <p>
@@ -108,7 +108,6 @@
     </p>
 </div>
 
-<!--start-smoth-scrolling-->
 <script type="text/javascript">
     $(document).ready(function () {
         /*
@@ -119,13 +118,12 @@
             easingType: 'linear'
          };
         */
-
         $().UItoTop({easingType: 'easeOutQuart'});
-
     });
 </script>
-<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
-                                                                         style="opacity: 1;"> </span></a>
+<a href="#home" id="toTop" class="scroll" style="display: block;">
+    <span id="toTopHover" style="opacity: 1;"> </span>
+</a>
 
 
 <!--JS-->
