@@ -7,7 +7,7 @@
                 </h4>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ //asset('front-theme-asset/motive/images/f1.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="//asset('front-theme-asset/motive/images/f1.jpg')" class="img-responsive" alt=""/>
 
                     </div>
                     <div class="col-md-9 item-details">
@@ -19,8 +19,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ //asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
-
+                        <img src="//asset('front-theme-asset/motive/images/f2.jpg')" class="img-responsive" alt=""/>
                     </div>
                     <div class="col-md-9 item-details">
                         <h5 class="inner"><a href="#"> چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
@@ -31,8 +30,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ //asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
-
+                        <img src="//asset('front-theme-asset/motive/images/f3.jpg')" class="img-responsive" alt=""/>
                     </div>
                     <div class="col-md-9 item-details">
                         <h5 class="inner"><a href="#"> چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
@@ -48,8 +46,7 @@
                 </h4>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ //asset('front-theme-asset/motive/images/f4.jpg') }}" class="img-responsive" alt=""/>
-
+                        <img src="//asset('front-theme-asset/motive/images/f4.jpg')" class="img-responsive" alt=""/>
                     </div>
                     <div class="col-md-9 item-details">
                         <h5 class="inner"><a href="#"> چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
@@ -60,7 +57,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ //asset('front-theme-asset/motive/images/f3.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="//asset('front-theme-asset/motive/images/f3.jpg')" class="img-responsive" alt=""/>
                     </div>
                     <div class="col-md-9 item-details">
                         <h5 class="inner"><a href="#"> چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
@@ -71,7 +68,7 @@
                 </div>
                 <div class="editor-pics">
                     <div class="col-md-3 item-pic">
-                        <img src="{{ //asset('front-theme-asset/motive/images/f2.jpg') }}" class="img-responsive" alt=""/>
+                        <img src="//asset('front-theme-asset/motive/images/f2.jpg')" class="img-responsive" alt=""/>
                     </div>
                     <div class="col-md-9 item-details">
                         <h5 class="inner"><a href="#"> چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
