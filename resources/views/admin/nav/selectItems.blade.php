@@ -32,22 +32,20 @@
                     <div class="col-12">
                         <div class="card card-warning">
                             <div class="card-header">
-                                <h3 class="card-title">
-                                    <div class="row">
-                                        <div class="col-6">فهرست های قالب</div>
-                                        <div class="col-6">
-                                            <form id="nav-list-form">
-                                                <input type="hidden" name="type" value="get-nav-info">
-                                                <select name="nav" class="custom-select select2" id="">
-                                                    <option selected value="">انتخاب فهرست...</option>
-                                                    @foreach ($navs as $nav)
-                                                        <option value="{{ $nav->id }}">{{ $nav->label }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </form>
-                                        </div>
+                                <div class="row">
+                                    <h3 class="col-8 card-title">فهرست های قالب</h3>
+                                    <div class="col-4">
+                                        <form id="nav-list-form">
+                                            <input type="hidden" name="type" value="get-nav-info">
+                                            <select name="nav" class="custom-select select2" id="">
+                                                <option selected value="">انتخاب فهرست...</option>
+                                                @foreach ($navs as $nav)
+                                                    <option value="{{ $nav->id }}">{{ $nav->label }}</option>
+                                                @endforeach
+                                            </select>
+                                        </form>
                                     </div>
-                                </h3>
+                                </div>
                             </div>
                             <div class="card-body nav-info p-3"></div>
                         </div>
