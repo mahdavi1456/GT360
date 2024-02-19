@@ -16,6 +16,19 @@
                 @endphp
                 @if ($navItems)
                     @foreach ($navItems as $navItem)
+                        @if ($navItem->item_type == "page")
+                            @php
+                                $link = $pageModel->getPagePermalink($slug, $navItem->link, $navItem->object_id);
+                            @endphp
+                        @elseif($navItem->item_type == "post")
+                            @php
+                                //$link = $postModel->getPostPermalink($slug, $navItem->link, $navItem->object_id);
+                            @endphp
+                        @elseif($navItem->item_type == "link")
+                            @php
+                                $link = $navItem->link;
+                            @endphp
+                        @endphp
                         @if ($navModel->itemHasChild($navItem->id))
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
@@ -32,7 +45,7 @@
                                 </ul>
                             </li>
                         @else
-                            <li><a href="{{ $pageModel->getPagePermalink($slug, $navItem->link, $navItem->object_id) }}">{{ $navItem->name }}</a></li>
+                            <li><a href="{{ $link }}" target="{{ $navItem->target }}" rel="{{ $navItem->rel }}">{{ $navItem->name }}</a></li>
                         @endif
                     @endforeach
                 @endif
