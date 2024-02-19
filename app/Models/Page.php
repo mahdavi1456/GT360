@@ -16,7 +16,6 @@ class Page extends Model
 
     public function scopeFilter($query)
     {
-       
         if (request()->filled('author')) {
             $query->where('author', request('author'));
         }
@@ -35,4 +34,11 @@ class Page extends Model
            $query->where('created_at','<=',$to);
         }
     }
+
+    public function getPagePermalink($slug, $link, $pageId)
+    {
+        $permalink = route('showPage', ['slug' => $slug, 'link' => $link, 'pageId' => $pageId]);
+        return $permalink;
+    }
+
 }

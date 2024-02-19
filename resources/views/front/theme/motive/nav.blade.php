@@ -32,7 +32,7 @@
                                 </ul>
                             </li>
                         @else
-                            <li><a href="{{ $navItem->link }}">{{ $navItem->name }}</a></li>
+                            <li><a href="{{ $pageModel->getPagePermalink($slug, $navItem->link, $pageId }}">{{ $navItem->name }}</a></li>
                         @endif
                     @endforeach
                 @endif

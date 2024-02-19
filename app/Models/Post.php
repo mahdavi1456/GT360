@@ -84,7 +84,7 @@ class Post extends Model
 
     public function getPostPermalink($componentName, $slug, $postId)
     {
-        $permalink =  route('showPost', ['slug' => $slug, 'componentName' => $componentName, 'postId' => $postId]);
+        $permalink = route('showPost', ['slug' => $slug, 'componentName' => $componentName, 'postId' => $postId]);
         return $permalink;
     }
 

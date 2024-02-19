@@ -41,6 +41,7 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $postModel = new Post;
+        $pageModel = new Page;
         $navModel = new Nav;
 
         // $account = Account::where('slug', $slug)->first();
@@ -51,7 +52,7 @@ class AccountController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.index";
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'postModel', 'navModel', 'accountId', 'projectId', 'slug'));
+            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug'));
         }
         return "یک تم برای خود انتخاب کنید";
     }
@@ -543,7 +544,7 @@ class AccountController extends Controller
         }
     }
 
-    public function showPage($slug, $componentName, $pageId)
+    public function showPage($slug, $link, $pageId)
     {
         $settingModel = new Setting;
         $pageModel = Page::find($pageId);
