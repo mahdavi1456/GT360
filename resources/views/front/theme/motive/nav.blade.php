@@ -21,7 +21,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     @php
-                                        $childs = $navModel->getNavItems('top-nav', $navItem->parent_id, $accountId, $projectId);
+                                        $childs = $navModel->getNavItems('top-nav', $navItem->id, $accountId, $projectId);
                                     @endphp
                                     @if ($childs)
                                         @foreach ($childs as $child)
