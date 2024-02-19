@@ -13,7 +13,6 @@
         <div class="container">
             <div class="mag-inner">
                 <div class="col-md-8 mag-innert-right">
-
                     @if($settingModel->getSetting('section1_status', $accountId, $projectId) == 1)
                         <div class="technology">
                             <h2 class="tittle"><i class="glyphicon glyphicon-certificate"></i> {{ $settingModel->getSetting('section1_title', $accountId, $projectId) }}</h2>
@@ -32,24 +31,22 @@
                                             @php
                                                 $permalink = $postModel->getPostPermalink($section1_component, $slug, $post->id);
                                             @endphp
-                                            <div class="row">
-                                                <div class="col-md-3 item-pic">
-                                                    @if ($post->thumbnail)
-                                                        <img src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}" class="img-responsive">
-                                                    @else
-                                                        <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
-                                                            class="img-responsive" alt="" />
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-9 item-details">
-                                                    <h5 class="inner two">
-                                                        <a href="{{ $permalink }}" class="wd">{{ $post->title }}</a>
-                                                    </h5>
-                                                    <p>{{ $post->abstract }}</p>
-                                                    <a href="{{ $permalink }}" class="read">ادامه مطلب</a>
-                                                    <div class="td-post-date two">{{ $postModel->getShamsiDate($post->created_at) }}</div>
-                                                    <div class="clearfix"></div>
-                                                </div>
+                                            <div class="col-md-3 item-pic">
+                                                @if ($post->thumbnail)
+                                                    <img src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}" class="img-responsive">
+                                                @else
+                                                    <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
+                                                        class="img-responsive" alt="" />
+                                                @endif
+                                            </div>
+                                            <div class="col-md-9 item-details">
+                                                <h5 class="inner two">
+                                                    <a href="{{ $permalink }}" class="wd">{{ $post->title }}</a>
+                                                </h5>
+                                                <p>{{ $post->abstract }}</p>
+                                                <a href="{{ $permalink }}" class="read">ادامه مطلب</a>
+                                                <div class="td-post-date two">{{ $postModel->getShamsiDate($post->created_at) }}</div>
+                                                <div class="clearfix"></div>
                                             </div>
                                         @endforeach
                                     @endif
