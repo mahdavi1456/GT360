@@ -16,21 +16,24 @@
                 @endphp
                 @if ($navItems)
                     @foreach ($navItems as $navItem)
-                        <li><a href="{{ $navItem->link }}">{{ $navItem->name }}</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                @php
-                                    $childs = $navModel->getNavItems('top-nav', $navItem->parent_id, $accountId, $projectId);
-                                @endphp
-                                @if ($childs)
-                                    @foreach ($childs as $child)
-                                        <li><a href="{{ $child->link }}">{{ $child->name }}</a></li>
-                                        <li class="divider"></li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </li>
+                        @if ($navModel->itemHasChild($navItem->id))
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    @php
+                                        $childs = $navModel->getNavItems('top-nav', $navItem->parent_id, $accountId, $projectId);
+                                    @endphp
+                                    @if ($childs)
+                                        @foreach ($childs as $child)
+                                            <li><a href="{{ $child->link }}">{{ $child->name }}</a></li>
+                                            <li class="divider"></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </li>
+                        @else
+                            <li><a href="{{ $navItem->link }}">{{ $navItem->name }}</a></li>
+                        @endif
                     @endforeach
                 @endif
             </ul>

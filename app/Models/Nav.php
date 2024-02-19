@@ -28,4 +28,14 @@ class Nav extends Model
         }
     }
 
+    public function itemHasChild($id)
+    {
+        $items = NavItem::where('parent_id', $id)->get();
+        if ($items) {
+            return true;
+        } else {
+            return null;
+        }
+    }
+
 }
