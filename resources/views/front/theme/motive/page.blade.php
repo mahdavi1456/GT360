@@ -1,18 +1,23 @@
 @include('front.theme.motive.header')
 <body>
-<div class="header" id="home">
-    <div class="content white">
-        @include('front.theme.motive.nav')
+
+    <div class="header" id="home">
+        <div class="content white">
+            @include('front.theme.motive.nav')
+        </div>
     </div>
-</div>
-<!--/start-banner-->
-<div class="banner two">
-    <div class="container">
-        <h2 class="inner-tittle">{{ $pageModel->title }}</h2>
+
+    @php
+        $data = $pageModel->getPageData($pageId);
+    @endphp
+
+    <div class="banner two">
+        <div class="container">
+            <h2 class="inner-tittle">{{ $data->title }}</h2>
+        </div>
     </div>
-</div>
-<!--//end-banner-->
-<!--/start-main-->
+
+
 <div class="main-content">
     <div class="container">
         <div class="mag-inner">
@@ -21,7 +26,7 @@
                     <div class="single-right-grid">
                         <img src="images/single.jpg" alt="">
 
-                        {!! $pageModel->content !!}
+                        {!! $data->content !!}
 
                         <div class="single-bottom">
                             <ul>

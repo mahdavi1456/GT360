@@ -542,7 +542,7 @@ class AccountController extends Controller
             $projectId = $project->id;
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.post";
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug'));
+            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'postId'));
         }
     }
 
@@ -559,7 +559,7 @@ class AccountController extends Controller
             $projectId = $project->id;
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.page";
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug'));
+            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId'));
         }
     }
 

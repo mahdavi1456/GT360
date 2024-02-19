@@ -41,4 +41,10 @@ class Page extends Model
         return $permalink;
     }
 
+    public function getPageData($pageId)
+    {
+        $data = Page::find($pageId);
+        return $data;
+    }
+
 }
