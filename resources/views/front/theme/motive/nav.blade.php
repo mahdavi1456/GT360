@@ -1,7 +1,4 @@
 <nav class="navbar navbar-default" role="navigation">
-    @php
-        $navItems = $navModel->getNavItems('top-nav', $accountId, $projectId);
-    @endphp
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -14,9 +11,28 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                @php
+                    $navItems = $navModel->getNavItems('top-nav', 0, $accountId, $projectId);
+                @endphp
                 @if ($navItems)
                     @foreach ($navItems as $navItem)
                         <li><a href="{{ $navItem->link }}">{{ $navItem->name }}</a></li>
+                        @if ($navItem->parent_id > 0)
+                            <li class="dropdown">
+                                <a href="{{ $navItem->link }}" class="dropdown-toggle" data-toggle="dropdown">{{ $navItem->name }} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    @php
+                                        $childs = $navModel->getNavItems('top-nav', $navItem->parent_id, $accountId, $projectId);
+                                    @endphp
+                                    @if ($childs)
+                                        @foreach ($childs as $child)
+                                            <li><a href="{{ $child->link }}">{{ $child->name }}</a></li>
+                                            <li class="divider"></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </li>
+                        @endif
                     @endforeach
                 @endif
             </ul>
