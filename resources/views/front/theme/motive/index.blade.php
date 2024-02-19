@@ -36,14 +36,14 @@
                                                     <img src="{{ asset(ert('thumb-path')) . '/' . $post->thumbnail }}" class="img-responsive">
                                                 @else
                                                     <img src="{{ asset('front-theme-asset/motive/images/mg1.jpg') }}"
-                                                        class="img-responsive" alt="" />
+                                                        class="img-responsive" />
                                                 @endif
                                             </div>
                                             <div class="col-md-9 item-details">
                                                 <h5 class="inner two">
                                                     <a href="{{ $permalink }}" class="wd">{{ $post->title }}</a>
                                                 </h5>
-                                                <p>{{ $post->abstract }}</p>
+                                                {!! $post->abstract !!}
                                                 <a href="{{ $permalink }}" class="read">ادامه مطلب</a>
                                                 <div class="td-post-date two">{{ $postModel->getShamsiDate($post->created_at) }}</div>
                                                 <div class="clearfix"></div>
