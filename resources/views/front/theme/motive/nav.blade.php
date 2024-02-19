@@ -25,7 +25,7 @@
                                     @endphp
                                     @if ($childs)
                                         @foreach ($childs as $child)
-                                            <li><a href="{{ $child->getLink($slug) }}">{{ $child->name }}</a></li>
+                                            <li><a href="{{ $child->getLink($slug) }}" target="{{ $child->target }}" rel="{{ $child->rel }}">{{ $child->name }}</a></li>
                                             <li class="divider"></li>
                                         @endforeach
                                     @endif
