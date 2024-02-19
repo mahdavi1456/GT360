@@ -21,7 +21,7 @@ class Nav extends Model
     {
         $navId = Nav::where('name', $name)->first();
         if ($navId) {
-            $items = NavItem::where('nav_id', $navId->id)->where('parent_id', $parentId)->where('account_id', $accountId)->where('project_id', $projectId)->orderByAsc('order_num')->get();
+            $items = NavItem::where('nav_id', $navId->id)->where('parent_id', $parentId)->where('account_id', $accountId)->where('project_id', $projectId)->orderBy('order_num')->get();
             return $items;
         } else {
             return null;
