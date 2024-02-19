@@ -10,6 +10,7 @@ use App\Models\Account;
 use App\Models\Project;
 use App\Models\Setting;
 use App\Models\Page;
+use App\Models\Nav;
 
 use App\Models\ReservePlan;
 use Illuminate\Support\Str;
@@ -40,6 +41,7 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $postModel = new Post;
+        $navModel = new Nav;
 
         // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
@@ -49,7 +51,7 @@ class AccountController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.index";
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'postModel', 'accountId', 'projectId', 'slug'));
+            return view($view, compact('settingModel', 'postModel', 'navModel', 'accountId', 'projectId', 'slug'));
         }
         return "یک تم برای خود انتخاب کنید";
     }

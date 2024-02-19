@@ -1,4 +1,7 @@
 <nav class="navbar navbar-default" role="navigation">
+    
+    @php dd($navModel->getNavItems('top-nav', $accountId, $projectId)) @endphp
+
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
