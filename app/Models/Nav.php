@@ -13,4 +13,10 @@ class Nav extends Model
     public function items(){
         return $this->hasMany(NavItem::class)->where('account_id',auth()->user()->account->id);
     }
+
+    public function getNavItems($componentName, $accountId, $projectId)
+    {
+
+    }
+
 }

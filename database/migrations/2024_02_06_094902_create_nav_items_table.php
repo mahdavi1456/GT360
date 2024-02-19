@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('account_id');
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
+            $table->foreignId('project_id');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreignId('nav_id');
             $table->foreign('nav_id')->references('id')->on('navs')->onDelete('cascade');
             $table->string('name');
