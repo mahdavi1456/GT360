@@ -21,10 +21,10 @@
 	?>
 	<style type="text/css">
 		:root {
-			--primary-color: <?php //echo $primary_bg; ?>;
-			--primary-color-text: <?php //echo $primary_color; ?>;
-			--secondary-color: <?php //echo $secondary_bg; ?>;
-			--secondary-color-text: <?php //echo $secondary_color; ?>;
+			--primary-color: {{ $settingModel->getSetting('first_color', $accountId, $projectId) }};
+			--primary-color-text: {{ $settingModel->getSetting('second_color', $accountId, $projectId) }};
+			--secondary-color: {{ $settingModel->getSetting('third_color', $accountId, $projectId) }};
+			--secondary-color-text: {{ $settingModel->getSetting('fourth_color', $accountId, $projectId) }};
 			--footer-background-color: #64727f;
 			--footer-copyright-background-color: #5f6c78;
 		}
