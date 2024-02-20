@@ -28,10 +28,10 @@
     @endphp
 	<style type="text/css">
 		:root {
-			--primary-color: {{ $first_color }};
-			--primary-color-text: {{ $second_color }};
-			--secondary-color: {{ $third_color }};
-			--secondary-color-text: {{ $fourth_color }};
+			--primary-color: #{{ $first_color }};
+			--primary-color-text: #{{ $second_color }};
+			--secondary-color: #{{ $third_color }};
+			--secondary-color-text: #{{ $fourth_color }};
 			--footer-background-color: #64727f;
 			--footer-copyright-background-color: #5f6c78;
 		}
