@@ -1,8 +1,8 @@
 @extends('front.theme.park.parts.master')
 @section('content')
     <div class="MainSlider" style="background-image:url( {{ asset('front-theme-asset/park/img/wall.jpg') }})">
-        <h1>{{ $settingModel->getSetting('title', $accountId) }}</h1>
-        <p>{{ $settingModel->getSetting('description', $accountId) }}</p>
+        <h1>{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
+        <p>{{ $settingModel->getSetting('description', $accountId, $projectId) }}</p>
     </div>
     <div class="container-fluid">
         <div class="MainWidgetBtn">
