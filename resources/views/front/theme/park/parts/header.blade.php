@@ -15,23 +15,23 @@
         $pallete = $settingModel->getSetting('pallete', $accountId, $projectId);
         $themeColors = $palleteModel->getByName($pallete);
         if ($themeColors) {
-            $primary_bg = $themeColors->first_color;
-            $primary_color = $themeColors->secnod_color;
-            $secondary_bg = $themeColors->third_color;
-            $secondary_color = $themeColors->fourth_color;
+            $first_color = $themeColors->first_color;
+            $second_color = $themeColors->secnod_color;
+            $third_color = $themeColors->third_color;
+            $fourth_color = $themeColors->fourth_color;
         } else {
-            $primary_bg = "#ddd";
-            $primary_color = "#ddd";
-            $secondary_bg = "#ddd";
-            $secondary_color = "#ddd";
+            $first_color = "#ddd";
+            $second_color = "#ddd";
+            $third_color = "#ddd";
+            $fourth_color = "#ddd";
         }
     @endphp
 	<style type="text/css">
 		:root {
-			--primary-color: {{ $settingModel->getSetting('first_color', $accountId, $projectId) }};
-			--primary-color-text: {{ $settingModel->getSetting('second_color', $accountId, $projectId) }};
-			--secondary-color: {{ $settingModel->getSetting('third_color', $accountId, $projectId) }};
-			--secondary-color-text: {{ $settingModel->getSetting('fourth_color', $accountId, $projectId) }};
+			--primary-color: {{ $first_color }};
+			--primary-color-text: {{ $second_color }};
+			--secondary-color: {{ $third_color }};
+			--secondary-color-text: {{ $fourth_color }};
 			--footer-background-color: #64727f;
 			--footer-copyright-background-color: #5f6c78;
 		}
