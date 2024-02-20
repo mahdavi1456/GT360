@@ -65,4 +65,21 @@ class Account extends Model
     {
         return $this->hasMany(Addon::class);
     }
+    public function getAccountAclValueAttribute() {
+        switch ($this->account_acl) {
+            case 'customer':
+               return "مشتری";
+                break;
+            case 'agent':
+               return "نماینده";
+                break;
+            case 'cos':
+               return "همکار فروش";
+                break;
+
+            default:
+           return $this->account_acl;
+                break;
+        }
+    }
 }

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Servieses\Sms;
 use App\Models\Account;
 use App\Models\Setting;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use App\Servieses\Sms;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
@@ -41,16 +42,22 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'mobile' => ['required', 'string', 'digits:11', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'ref_id'=>"nullable|exists:accounts,id",
+        ],[
+            'ref_id.exists'=>'کد معرف وجود ندارد'
         ]);
-
+        $ref_id=0;
+        if ($request->filled('ref_id')) {
+            $ref_id=$request->ref_id;
+        }
         $account = Account::create([
             'name' => $request->name,
             'mobile' => $request->mobile,
             'family' => $request->family,
             'account_type' => $request->account_type,
-            'account_acl' => $request->account_acl
+            'account_acl' => $request->account_acl,
+            'ref_id'=>$ref_id,
         ]);
-
         $setting = new Setting();
 
         $user = User::create([

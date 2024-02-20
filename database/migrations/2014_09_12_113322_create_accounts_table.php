@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('postalcode')->nullable();
             $table->string('company')->nullable();
             $table->string('company_type')->nullable();
+            $table->integer('ref_id')->default(0);
             $table->string('national_id')->nullable();
             $table->string('registration_number')->nullable();
             $table->date('registration_date')->nullable();

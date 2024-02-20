@@ -109,6 +109,9 @@ Route::middleware(['auth', 'visit'])->group(function () {
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
 
+        //agent a cos
+        Route::get('subsets',[AccountController::class, 'subsetList'])->name('subsets');
+
         //Nav
         Route::resource('nav', NavController::class);
         Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');

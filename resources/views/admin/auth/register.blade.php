@@ -101,7 +101,7 @@
                     </div>
                     <label class="form-label">کد معرف</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="moaref_code" class="form-control persianletters" placeholder="کد معرف..." value="{{ old('moaref_code') }}" >
+                        <input type="text" name="ref_id" class="form-control" placeholder="کد معرف..." value="{{ old('ref_id') }}" >
                     </div>
                     <div class="row">
                         <div class="col-8">

@@ -144,6 +144,15 @@
                                         <p>کاربران</p>
                                     </a>
                                 </li>
+                                @canany(['agent','cos'])
+                                <li class="nav-item {{ active_menu('subsets') }}">
+                                    <a href="{{ route('subsets') }}"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>زیرمجموعه ها</p>
+                                    </a>
+                                </li>
+                                @endcanany
                                 <li class="nav-item {{ active_menu('account.profile.edit') }}">
                                     <a href="{{ route('account.profile.edit', ['account' => Auth::user()->account]) }}"
                                        class="nav-link">

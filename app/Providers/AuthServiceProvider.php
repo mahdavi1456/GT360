@@ -28,5 +28,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('AdminAccount', function($user) {
             return $user->account->account_acl == 'admin-account';
         });
+        Gate::define('agent', function($user) {
+            return $user->account->account_acl == 'agent';
+        });
+        Gate::define('cos', function($user) {
+            return $user->account->account_acl == 'cos';
+        });
     }
 }

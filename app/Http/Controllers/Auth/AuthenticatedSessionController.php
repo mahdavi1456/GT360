@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\Project;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
+use App\Models\User;
+use App\Models\Project;
 use Illuminate\View\View;
+// use public_html\class\user;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -25,14 +29,27 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->authenticate();
+        $request->validate([
+            'mobile' => ['required', 'string', 'digits:11', 'exists:users,mobile'],
+            'password' => ['required'],
+        ]);
+        $user = User::where('mobile', $request->mobile)->first();
 
-        $request->session()->regenerate();
-        session(['project_id' => 0]);
-        session(['account_id' => auth()->user()->account_id]);
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                auth()->loginUsingId($user->id);
+                return to_route('dashboard');
+            }else{
+                $error='رمز عبور اشتباه است';
+            }
+        }else{
+            $error='نام کاربری وجود ندارد';
+        }
+
+
+        return back()->withErrors(["error" => $error]);
     }
 
     /**
@@ -42,7 +59,7 @@ class AuthenticatedSessionController extends Controller
     {
         //Close Project on Logout
         //Set close_project key = 0 in settings Table
-        if (Project::checkOpenProject(auth()->user()->account_id)){
+        if (Project::checkOpenProject(auth()->user()->account_id)) {
             Project::closeProject(auth()->user()->account_id);
         }
 

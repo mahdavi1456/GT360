@@ -438,6 +438,9 @@ class AccountController extends Controller
         $query->when($request->filled('company'), function ($q) use ($request) {
             $q->where('company', 'like', '%' . $request->input('company') . '%');
         });
+        $query->when($request->filled('account_acl'), function ($q) use ($request) {
+            $q->where('account_acl', $request->account_acl);
+        });
 
         $accounts = $query->get();
 
@@ -557,4 +560,8 @@ class AccountController extends Controller
         return to_route('dashboard');
     }
 
+    public function subsetList(){
+        $subsets=Account::where('ref_id',auth()->user()->account_id)->get();
+        return view('admin.account.subsetList',compact('subsets'));
+    }
 }

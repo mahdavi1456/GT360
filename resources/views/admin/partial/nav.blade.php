@@ -75,7 +75,7 @@
         </li-->
 
         @php
-            $projects = App\Models\Project::accountProjects(auth()->user()->account->id);
+            $projects = App\Models\Project::accountProjects(auth()->user()->account_id);
         @endphp
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
