@@ -7,10 +7,10 @@
     <div class="container-fluid">
         <div class="MainWidgetBtn">
             <a href="{{ route('reserve', $slug) }}">رزرو آنلاین</a>
-            <a href="?page=menu">منوی دیجیتال</a>
+            <a href="">منوی دیجیتال</a>
             <a href="" target="_blank">نظرسنجی</a>
-            <a disabled href="?page=gallery.php">گالری تصاویر</a>
-            <a disabled href="?page=shop.php">فروشگاه <small>(آزمایشی)</small></a>
+            <a disabled href="">گالری تصاویر</a>
+            <a disabled href="">فروشگاه <small>(آزمایشی)</small></a>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">

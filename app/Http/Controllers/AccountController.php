@@ -118,10 +118,11 @@ class AccountController extends Controller
         if ($project) {
             $accountId = $project->account_id;
             $projectId = $project->id;
+
             $theme = Account::activeTheme($accountId, $projectId);
+
             $view = "front.theme.$theme.reserve";
-            $accountId = session('account_id');
-            return view($view, compact('settingModel', 'reservePlanModel', 'accountId', 'currentYear', 'currentMonth', 'currentDay'));
+            return view($view, compact('settingModel', 'reservePlanModel', 'accountId', 'projectId', 'currentYear', 'currentMonth', 'currentDay'));
         }
         return "یک تم برای خود انتخاب کنید";
     }
