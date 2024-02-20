@@ -11,7 +11,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/css/style.css?v=1.70') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/font/font-awesome/css/font-awesome.min.css?v=1.0.1') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/css/persianDatepicker-default.css') }}">
-	<?php
+    @php
+        $pallete = $settingModel->getSetting('pallete', $accountId, $projectId);
+    @endphp
     /*
 	$primary_bg = $opt->get_option('primary_bg');
 	$primary_color = $opt->get_option('primary_color');

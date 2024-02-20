@@ -11,6 +11,7 @@ use App\Models\Project;
 use App\Models\Setting;
 use App\Models\Page;
 use App\Models\Nav;
+use App\Models\Pallete;
 
 use App\Models\ReservePlan;
 use Illuminate\Support\Str;
@@ -44,6 +45,7 @@ class AccountController extends Controller
         $postModel = new Post;
         $pageModel = new Page;
         $navModel = new Nav;
+        $palleteModel = new Pallete;
 
         // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
@@ -53,7 +55,7 @@ class AccountController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.index";
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug'));
+            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'palleteModel'));
         }
         return "یک تم برای خود انتخاب کنید";
     }
@@ -64,6 +66,7 @@ class AccountController extends Controller
         $postModel = new Post;
         $pageModel = new Page;
         $navModel = new Nav;
+        $pageModel = new Pallete;
 
         $project = Project::where('slug', $slug)->first();
         if ($project) {
@@ -71,7 +74,7 @@ class AccountController extends Controller
             $projectId = $project->id;
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.post";
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'postId'));
+            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'postId', 'palleteModel'));
         }
     }
 
@@ -81,6 +84,7 @@ class AccountController extends Controller
         $postModel = new Post;
         $pageModel = new Page;
         $navModel = new Nav;
+        $palleteModel = new Pallete;
 
         $project = Project::where('slug', $slug)->first();
         if ($project) {
@@ -90,10 +94,10 @@ class AccountController extends Controller
 
             if (Page::find($pageId)) {
                 $view = "front.theme.$theme.page";
-                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId'));
+                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId', 'palleteModel'));
             } else {
                 $view = "front.theme.$theme.404";
-                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId'));
+                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId', 'palleteModel'));
             }
         }
     }
@@ -150,7 +154,7 @@ class AccountController extends Controller
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
             'registration_number' => 'nullable|string|max:20',
-            'registration_date' => 'nullable|date',
+            'registration_date' => 'nullable|date'
         ]);
 
         $birthday = Carbon::parse(Verta::parse($validatedData['birthday'])->formatGregorian('Y-m-d'));
@@ -173,7 +177,7 @@ class AccountController extends Controller
             'national_id' => $validatedData['national_id'],
             'registration_number' => $validatedData['registration_number'],
             'registration_date' => $validatedData['registration_date'],
-            'account_status' => 'waiting',
+            'account_status' => 'waiting'
         ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ایجاد شد.');
@@ -190,26 +194,17 @@ class AccountController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-
         $account = Account::findOrFail($id);
         return view('admin.account.edit', compact('account'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $account = Account::findOrFail($id);
@@ -235,19 +230,17 @@ class AccountController extends Controller
             'registration_date' => 'nullable',
         ]);
 
-        if ($validatedData['birthday']  != null) {
+        if ($validatedData['birthday'] != null) {
             $birthday = Carbon::parse(Verta::parse($validatedData['birthday'])->formatGregorian('Y-m-d'));
         } else {
             $birthday = null;
         }
-
 
         if ($validatedData['registration_date']  != null) {
             $registration_date = Carbon::parse(Verta::parse($validatedData['registration_date'])->formatGregorian('Y-m-d'));
         } else {
             $registration_date = null;
         }
-
 
         $account->update([
             'account_type' => $validatedData['account_type'],
@@ -267,17 +260,13 @@ class AccountController extends Controller
             'company_type' => $validatedData['company_type'],
             'national_id' => $validatedData['national_id'],
             'registration_number' => $validatedData['registration_number'],
-            'registration_date' => $registration_date,
-
+            'registration_date' => $registration_date
         ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $account = Account::find($id);
@@ -339,7 +328,6 @@ class AccountController extends Controller
             ],
             [
                 'mobile.required' => 'فیلد موبایل الزامی است.',
-
                 'mobile.digits' => 'موبایل باید دقیقاً 11 رقم باشد',
             ]
         );
@@ -359,14 +347,12 @@ class AccountController extends Controller
             $paras = ['code' => $code];
             Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras, $mobile);
         } else {
-
             return response()->json(['message' => 'کاربری با این موبایل یافت نشد'], 404);
         }
     }
 
     public function codePassword(Request $request)
     {
-
         $validate = $request->validate(
             [
                 'code' => 'required|string|max:4'
@@ -400,16 +386,14 @@ class AccountController extends Controller
 
             Auth::login($user);
 
-            return response()->json(['success' => 'تغییر رمز عبور با موفقیت انجام شد']);
+            return response()->json(['success' => 'تغییر رمز عبور با موفقیت انجام شد.']);
         } else {
-
-            return response()->json(['message' => 'کد وارد شده اشتباه است'], 404);
+            return response()->json(['message' => 'کد وارد شده اشتباه است.'], 404);
         }
     }
 
     public function resendCode(Request $request)
     {
-
         $validate = $request->validate(
             [
                 'mobile' => 'required|numeric|digits:11'
@@ -502,14 +486,13 @@ class AccountController extends Controller
             'account_image' => 'image'
         ]);
 
-        if ($validatedData['birthday']  != null) {
+        if ($validatedData['birthday'] != null) {
             $birthday = Carbon::parse(Verta::parse($validatedData['birthday'])->formatGregorian('Y-m-d'));
         } else {
             $birthday = null;
         }
 
-
-        if ($validatedData['registration_date']  != null) {
+        if ($validatedData['registration_date'] != null) {
             $registration_date = Carbon::parse(Verta::parse($validatedData['registration_date'])->formatGregorian('Y-m-d'));
         } else {
             $registration_date = null;
@@ -553,19 +536,19 @@ class AccountController extends Controller
 
     public function accountSiteEdit()
     {
-        //dd('dd');
-        $project=Project::findOrFail(session('project_id'));
+        // dd('dd');
+        $project = Project::findOrFail(session('project_id'));
         return view('admin.account.editWebsite', compact('project'));
     }
 
     public function accountSiteUpdate(Request $req)
     {
-       // dd(session('project_id'));
-        $project=Project::findOrFail(session('project_id'));
+        // dd(session('project_id'));
+        $project = Project::findOrFail(session('project_id'));
         $req->validate([
             'slug' => 'required|string|max:255|unique:projects,slug,' . $project->id,
         ]);
-        $data=$req->except('_token','_method','q');
+        $data=$req->except('_token', '_method', 'q');
         $project->update($data);
         Alert::success('موفق', 'اطلاعات وب سایت با موفقیت ثبت شد.');
         return to_route('dashboard');
