@@ -12,4 +12,14 @@ class Pallete extends Model
 
     protected $table = "palletes";
     protected $guarded = [];
+
+    public function getByName($name)
+    {
+        $data = Pallete::where("name", $name)->first();
+        if ($data) {
+            return $data;
+        } else {
+            return null;
+        }
+    }
 }

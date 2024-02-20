@@ -13,14 +13,19 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/css/persianDatepicker-default.css') }}">
     @php
         $pallete = $settingModel->getSetting('pallete', $accountId, $projectId);
+        $themeColors = $palleteModel->getByName($pallete);
+        if ($themeColors) {
+            $primary_bg = $themeColors->first_color;
+            $primary_color = $themeColors->secnod_color;
+            $secondary_bg = $themeColors->third_color;
+            $secondary_color = $themeColors->fourth_color;
+        } else {
+            $primary_bg = "#ddd";
+            $primary_color = "#ddd";
+            $secondary_bg = "#ddd";
+            $secondary_color = "#ddd";
+        }
     @endphp
-    /*
-	$primary_bg = $opt->get_option('primary_bg');
-	$primary_color = $opt->get_option('primary_color');
-	$secondary_bg = $opt->get_option('secondary_bg');
-	$secondary_color = $opt->get_option('secondary_color');
-    */
-	?>
 	<style type="text/css">
 		:root {
 			--primary-color: {{ $settingModel->getSetting('first_color', $accountId, $projectId) }};
