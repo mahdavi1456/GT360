@@ -71,10 +71,13 @@ class Project extends Model
 
     public static function getProjectFullSlug($accountId)
     {
-        $projectId = Project::checkOpenProject($accountId)->project_id;
-        $project = Project::find($projectId);
-        if ($project) {
-            return "https://app.gtch.ir/web/" . $project->slug;
+        // $projectId = Project::checkOpenProject($accountId)->project_id;
+         $checkOpenProject = Project::checkOpenProject($accountId);
+        // $project = Project::find($projectId);
+        if ($checkOpenProject) {
+            $project = Project::find($checkOpenProject->project_id);
+            // return "https://app.gtch.ir/web/" . $project->slug;
+            return url('web') .'/'. $project->slug;
         } else {
             return null;
         }

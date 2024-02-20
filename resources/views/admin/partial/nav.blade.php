@@ -7,7 +7,7 @@
             <a href="{{ route('dashboard') }}" class="nav-link">میز کار</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ App\Models\Project::getProjectFullSlug(auth()->user()->account->id) }}" target="_blank" class="nav-link">مشاهده وبسایت</a>
+            <a href="{{ App\Models\Project::getProjectFullSlug(auth()->user()->account_id) }}" target="_blank" class="nav-link">مشاهده وبسایت</a>
         </li>
     </ul>
     <!--form class="form-inline ml-3">

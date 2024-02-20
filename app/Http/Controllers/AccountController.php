@@ -49,6 +49,7 @@ class AccountController extends Controller
 
         // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
+       // dd($project,$slug);
         if ($project) {
             $accountId = $project->account_id;
             $projectId = $project->id;
@@ -115,7 +116,9 @@ class AccountController extends Controller
         $currentDay = $v->day;
 
         if ($project) {
-            $theme = Account::activeTheme();
+            $accountId = $project->account_id;
+            $projectId = $project->id;
+            $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.reserve";
             $accountId = session('account_id');
             return view($view, compact('settingModel', 'reservePlanModel', 'accountId', 'currentYear', 'currentMonth', 'currentDay'));

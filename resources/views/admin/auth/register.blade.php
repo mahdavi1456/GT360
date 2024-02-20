@@ -52,6 +52,17 @@
                             <option value="حقوقی" @if(old('account_type') == 'حقوقی') selected @endif>حقوقی</option>
                         </select>
                     </div>
+                    <label class="form-label">نوع اشتراک <span class="text-danger">*</span></label>
+                    <div class="input-group mb-3">
+                        <select name="account_acl" class="form-control" required
+                        oninvalid="this.setCustomValidity('.لطفا نوع اشتراک را وارد کنید')"
+                        oninput="this.setCustomValidity('')">
+                            <option value="">انتخاب کنید...</option>
+                            <option value="customer" @if(old('account_acl') == 'customer') selected @endif>مشتری</option>
+                            <option value="agent" @if(old('account_acl') == 'agent') selected @endif>نماینده</option>
+                            <option value="cos" @if(old('account_acl') == 'cos') selected @endif>همکار فروش</option>
+                        </select>
+                    </div>
                     <label class="form-label">نام <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control persianletters" placeholder="نام..." value="{{ old('name') }}" required
@@ -87,6 +98,10 @@
                         <input type="password" name="password_confirmation" class="form-control" placeholder="تکرار رمزعبور..." value="{{ old('password') }}" required
                         oninvalid="this.setCustomValidity('.لطفا تکرا رمز را وارد کنید')"
                         oninput="this.setCustomValidity('')">
+                    </div>
+                    <label class="form-label">کد معرف</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="moaref_code" class="form-control persianletters" placeholder="کد معرف..." value="{{ old('moaref_code') }}" >
                     </div>
                     <div class="row">
                         <div class="col-8">
