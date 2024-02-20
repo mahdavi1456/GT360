@@ -6,7 +6,7 @@
     </div>
     <div class="container-fluid">
         <div class="MainWidgetBtn">
-            <a href="?page=reserve.php">رزرو آنلاین</a>
+            <a href="{{ route('reserve') }}">رزرو آنلاین</a>
             <a href="?page=menu">منوی دیجیتال</a>
             <a href="" target="_blank">نظرسنجی</a>
             <a disabled href="?page=gallery.php">گالری تصاویر</a>

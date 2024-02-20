@@ -67,6 +67,7 @@ Route::get('/web/{slug}/reserve', [AccountController::class, 'reserve'])->name('
 Route::get('/web/{slug}/page/{link}/{pageId}', [AccountController::class, 'showPage'])->name('showPage');
 Route::get('/web/{slug}/post/{componentName}/{postId}', [AccountController::class, 'showPost'])->name('showPost');
 
+
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/test', function () {
