@@ -108,7 +108,7 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         $reservePlanModel = new ReservePlan;
-        $PalleteModel = new Pallete;
+        $palleteModel = new Pallete;
 
         $project = Project::where('slug', $slug)->first();
 
@@ -124,7 +124,7 @@ class AccountController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
 
             $view = "front.theme.$theme.reserve";
-            return view($view, compact('settingModel', 'reservePlanModel', 'PalleteModel', 'accountId', 'projectId', 'currentYear', 'currentMonth', 'currentDay'));
+            return view($view, compact('settingModel', 'reservePlanModel', 'palleteModel', 'accountId', 'projectId', 'currentYear', 'currentMonth', 'currentDay'));
         }
         return "یک تم برای خود انتخاب کنید";
     }
