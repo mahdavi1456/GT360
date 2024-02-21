@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="" class="brand-link">
         <img src="{{ asset('asset/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-             class="brand-image img-circle elevation-3" style="opacity: .8">
+            class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">پنل مدیریت</span>
     </a>
     @php
@@ -12,23 +12,24 @@
         <div>
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image d-flex justify-content-center align-items-center">
-                    <img
-                        src="{{ $account->account_image ? asset(ert('aip') . $account->account_image) : asset('asset/dist/img/avatar5.png') }}"
+                    <img src="{{ $account->account_image ? asset(ert('aip') . $account->account_image) : asset('asset/dist/img/avatar5.png') }}"
                         class="img-circle elevation-2">
                 </div>
                 <div class="info">
                     <a href="{{ route('account.profile.edit', $account->id) }}"
-                       class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
+                        class="d-block">{{ Auth::user()->name . ' ' . Auth::user()->family }}</a>
+                    <small style="color: #c1c1c1e6;font-size: x-small;">{{ $account->account_acl_value }}</small>
                 </div>
             </div>
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     @php
                         $project = App\Models\Project::checkOpenProject(auth()->user()->account->id);
                         if ($project) {
                             $projectName = App\Models\Project::getProjectName($project->project_id);
                         } else {
-                            $projectName = "";
+                            $projectName = '';
                         }
                     @endphp
                     @if ($project)
@@ -52,7 +53,8 @@
                             </a>
                         </li>
                         @can('SuperAccount')
-                            <li class="nav-item has-treeview {{ active_dropdown(['theme.index', 'nav.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index', 'plan.index']) }}">
+                            <li
+                                class="nav-item has-treeview {{ active_dropdown(['theme.index', 'nav.index', 'taxonomy.index', 'component.index', 'font.index', 'pallete.index', 'setting.index', 'plan.index']) }}">
                                 <a href="#" class="nav-link main-menu">
                                     <i class="nav-icon fa fa-lock text-danger"></i>
                                     <p>تعاریف پایه <i class="right fa fa-angle-left"></i></p>
@@ -70,7 +72,7 @@
                                             <p>فهرست ها</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item" {{ active_menu('taxonomy','taxonomy.create') }}>
+                                    <li class="nav-item" {{ active_menu('taxonomy', 'taxonomy.create') }}>
                                         <a href="{{ route('taxonomy.index') }}" class="nav-link">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>طبقه بندی ها</p>
@@ -127,7 +129,8 @@
                             </li>
                         @endcan
 
-                        <li class="nav-item has-treeview {{ active_dropdown(['user.showUsers', 'account.profile.edit']) }}">
+                        <li
+                            class="nav-item has-treeview {{ active_dropdown(['user.showUsers', 'account.profile.edit']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
@@ -139,23 +142,22 @@
                                 {{ active_list(['account.profile.edit', 'user.showUsers']) }}>
                                 <li class="nav-item {{ active_menu('user.showUsers') }}">
                                     <a href="{{ route('user.showUsers', ['accountId' => Auth::user()->account_id]) }}"
-                                       class="nav-link">
+                                        class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>کاربران</p>
                                     </a>
                                 </li>
-                                @canany(['agent','cos'])
-                                <li class="nav-item {{ active_menu('subsets') }}">
-                                    <a href="{{ route('subsets') }}"
-                                       class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>زیرمجموعه ها</p>
-                                    </a>
-                                </li>
+                                @canany(['agent', 'cos'])
+                                    <li class="nav-item {{ active_menu('subsets') }}">
+                                        <a href="{{ route('subsets') }}" class="nav-link">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>زیرمجموعه ها</p>
+                                        </a>
+                                    </li>
                                 @endcanany
                                 <li class="nav-item {{ active_menu('account.profile.edit') }}">
                                     <a href="{{ route('account.profile.edit', ['account' => Auth::user()->account]) }}"
-                                       class="nav-link">
+                                        class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
                                         <p>تکمیل اطلاعات</p>
                                     </a>
@@ -163,7 +165,8 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item has-treeview  {{ active_list(['discount.index', 'addons.index', 'addons.edit', 'payments_type.index', 'transport.index', 'shopSetting']) }}">
+                        <li
+                            class="nav-item has-treeview  {{ active_list(['discount.index', 'addons.index', 'addons.edit', 'payments_type.index', 'transport.index', 'shopSetting']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-cubes"></i>
                                 <p>فروشگاه <i class="right fa fa-angle-left"></i></p>
@@ -252,7 +255,8 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item has-treeview {{ active_dropdown(['themeComponents','page.index','nav.items']) }}">
+                        <li
+                            class="nav-item has-treeview {{ active_dropdown(['themeComponents', 'page.index', 'nav.items']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-clipboard"></i>
                                 <p>
@@ -300,7 +304,8 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item has-treeview {{ active_dropdown(['reserve.part', 'reserve.plan', 'reserve.order']) }}">
+                        <li
+                            class="nav-item has-treeview {{ active_dropdown(['reserve.part', 'reserve.plan', 'reserve.order']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-clipboard"></i>
                                 <p>
@@ -308,7 +313,8 @@
                                     <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview sub-menu" {{ active_list(['reserve-part.index', 'reserve-plan.index', 'reserve-order.index']) }}>
+                            <ul class="nav nav-treeview sub-menu"
+                                {{ active_list(['reserve-part.index', 'reserve-plan.index', 'reserve-order.index']) }}>
                                 <li class="nav-item" {{ active_menu('reserve-part.index') }}>
                                     <a href="{{ route('reserve-part.index') }}" class="nav-link">
                                         <i class="fa fa-th-list text-warning nav-icon"></i>

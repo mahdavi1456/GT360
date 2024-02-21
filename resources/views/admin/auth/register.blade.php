@@ -54,7 +54,7 @@
                     </div>
                     <label class="form-label">نوع اشتراک <span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <select name="account_acl" class="form-control" required
+                        <select name="account_acl" class="form-control select2" required
                         oninvalid="this.setCustomValidity('.لطفا نوع اشتراک را وارد کنید')"
                         oninput="this.setCustomValidity('')">
                             <option value="">انتخاب کنید...</option>
@@ -101,7 +101,7 @@
                     </div>
                     <label class="form-label">کد معرف</label>
                     <div class="input-group mb-3">
-                        <input type="text" name="ref_id" class="form-control" placeholder="کد معرف..." value="{{ old('ref_id') }}" >
+                        <input type="text" name="ref_id" {{request('ref_id')?'readonly':''}} class="form-control" placeholder="کد معرف..." value="{{ old('ref_id')??request('ref_id') }}" >
                     </div>
                     <div class="row">
                         <div class="col-8">

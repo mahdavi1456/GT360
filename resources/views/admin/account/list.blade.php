@@ -17,22 +17,22 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>نام</label>
-                                                <input value="{{request('name')}}" type="text" class="form-control" name="name"
-                                                       placeholder="نام...">
+                                                <input value="{{ request('name') }}" type="text" class="form-control"
+                                                    name="name" placeholder="نام...">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>نام خانوادگی</label>
-                                                <input value="{{request('family')}}" type="text" class="form-control" name="family"
-                                                       placeholder="نام خانوادگی...">
+                                                <input value="{{ request('family') }}" type="text" class="form-control"
+                                                    name="family" placeholder="نام خانوادگی...">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>نام شرکت</label>
-                                                <input type="text" value="{{request('company')}}" class=" form-control" name="company"
-                                                       placeholder="نام شرکت...">
+                                                <input type="text" value="{{ request('company') }}" class=" form-control"
+                                                    name="company" placeholder="نام شرکت...">
                                             </div>
                                         </div>
 
@@ -41,9 +41,9 @@
                                                 <label>نوع اشتراک</label>
                                                 <select name="account_acl" class="select2 custom-select">
                                                     <option value="">همه</option>
-                                                    <option @selected(request('account_acl')=='customer') value="customer">مشتری</option>
-                                                    <option @selected(request('account_acl')=='agent') value="agent">نماینده</option>
-                                                    <option @selected(request('account_acl')=='cos') value="cos">همکار فروش</option>
+                                                    <option @selected(request('account_acl') == 'customer') value="customer">مشتری</option>
+                                                    <option @selected(request('account_acl') == 'agent') value="agent">نماینده</option>
+                                                    <option @selected(request('account_acl') == 'cos') value="cos">همکار فروش</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -82,13 +82,14 @@
                                                 <td>
                                                     @if ($account->account_status == 'active')
                                                         <span class="badge bg-success"
-                                                              style="font-size: 17px;color: #FFF !important;">فعال</span>
+                                                            style="font-size: 17px;color: #FFF !important;">فعال</span>
                                                     @elseif ($account->account_status == 'waiting')
                                                         <span class="badge bg-warning"
-                                                              style="font-size: 17px;color: #FFF !important;">درانتظار تایید</span>
+                                                            style="font-size: 17px;color: #FFF !important;">درانتظار
+                                                            تایید</span>
                                                     @elseif ($account->account_status == 'deActive')
                                                         <span class="badge bg-danger"
-                                                              style="font-size: 17px;color: #FFF !important;">غیرفعال</span>
+                                                            style="font-size: 17px;color: #FFF !important;">غیرفعال</span>
                                                     @endif
                                                 </td>
                                                 @if ($account->deactivation_reason)
@@ -96,60 +97,62 @@
                                                 @else
                                                     <td class="w-auto text-center">------</td>
                                                 @endif
-                                                <td>
-                                                    <a href="https://app.gtch.ir/web/{{ $account->slug }}"
-                                                       target="_blank" class="btn btn-secondary btn-sm mx-1">LURL</a>
-
+                                                <td style="white-space: nowrap;">
+                                                    <a href="https://app.gtch.ir/web/{{ $account->slug }}" target="_blank"
+                                                        class="btn btn-secondary btn-sm mx-1">LURL</a>
+                                                        @if ($account->account_acl=='agent' or $account->account_acl=='cos')
+                                                        <a href="{{ route('subsets', ['account_id' => $account->id]) }}"
+                                                            class="btn btn-success btn-sm mx-1"> زیرمجموعه ها</a>
+                                                        @endif
                                                     <a href="{{ route('user.showUsers', ['accountId' => $account->id]) }}"
-                                                       class="btn btn-primary btn-sm mx-1">مشاهده کاربران</a>
+                                                        class="btn btn-primary btn-sm mx-1">مشاهده کاربران</a>
                                                     <a href="{{ route('account.edit', $account->id) }}"
-                                                       class="btn btn-warning btn-sm mx-1"><i
-                                                            class="fa fa-edit"></i></a>
+                                                        class="btn btn-warning btn-sm mx-1"><i class="fa fa-edit"></i></a>
                                                     <form action="{{ route('account.destroy', $account->id) }}"
-                                                          method="POST" style="display: inline-block;">
+                                                        method="POST" style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm mx-1"
-                                                                id="confirmdelete{{ $account->id }}"><i
+                                                            id="confirmdelete{{ $account->id }}"><i
                                                                 class="fa fa-trash"></i>
                                                         </button>
                                                     </form>
                                                     @if ($account->account_status == 'active')
                                                         <button type="button" name="active"
-                                                                class="btn btn-danger btn-sm Deactive-button"
-                                                                data-toggle="modal" data-target="#exampleModal"
-                                                                id="{{ $account->id }}" value="deActive"
-                                                                style="height: 39px; margin-top: 4px;">غیرفعال
+                                                            class="btn btn-danger btn-sm Deactive-button"
+                                                            data-toggle="modal" data-target="#exampleModal"
+                                                            id="{{ $account->id }}" value="deActive"
+                                                            style="height: 39px; margin-top: 4px;">غیرفعال
                                                             سازی
                                                         </button>
                                                     @elseif ($account->account_status == 'deActive')
-                                                        <form action="{{ route('account.activation') }}"
-                                                              class="mt-1  m-1" method="POST">
+                                                        <form action="{{ route('account.activation') }}" class="mt-1  m-1"
+                                                            method="POST">
                                                             @csrf
                                                             @method('PUT')
                                                             <input type="hidden" name="id"
-                                                                   value="{{ $account->id }}">
+                                                                value="{{ $account->id }}">
                                                             <button type="submit" name="active"
-                                                                    class="btn btn-success btn-sm" value="active">
+                                                                class="btn btn-success btn-sm" value="active">
                                                                 فعال سازی
                                                             </button>
                                                         </form>
                                                     @elseif ($account->account_status == 'waiting')
                                                         <button type="button" name="active"
-                                                                class="btn btn-danger btn-sm Deactive-button"
-                                                                data-toggle="modal" data-target="#exampleModal"
-                                                                id="{{ $account->id }}" value="deActive"
-                                                                style="height: 39px; margin-top: 4px;">غیرفعال
+                                                            class="btn btn-danger btn-sm Deactive-button"
+                                                            data-toggle="modal" data-target="#exampleModal"
+                                                            id="{{ $account->id }}" value="deActive"
+                                                            style="height: 39px; margin-top: 4px;">غیرفعال
                                                             سازی
                                                         </button>
-                                                        <form action="{{ route('account.activation') }}"
-                                                              class="mt-1  m-1" method="POST">
+                                                        <form action="{{ route('account.activation') }}" class="mt-1  m-1"
+                                                            method="POST">
                                                             @csrf
                                                             @method('PUT')
                                                             <input type="hidden" name="id"
-                                                                   value="{{ $account->id }}">
+                                                                value="{{ $account->id }}">
                                                             <button type="submit" name="active"
-                                                                    class="btn btn-success btn-sm" value="active">
+                                                                class="btn btn-success btn-sm" value="active">
                                                                 فعال سازی
                                                             </button>
                                                         </form>
@@ -170,7 +173,7 @@
     </div>
     <!-- /.content-wrapper -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -189,8 +192,7 @@
                             <label for="message-text" class="col-form-label">پیام <span
                                     class="text-danger">*</span></label>
                             <textarea class="form-control" id="message-text" name="reseaon" required
-                                      oninvalid="this.setCustomValidity('.لطفا پیام را وارد کنید')"
-                                      oninput="this.setCustomValidity('')"></textarea>
+                                oninvalid="this.setCustomValidity('.لطفا پیام را وارد کنید')" oninput="this.setCustomValidity('')"></textarea>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -205,7 +207,7 @@
     @if ($accounts->count() > 0)
         @foreach ($accounts as $account)
             <script type="text/javascript">
-                $('#confirmdelete{{ $account->id }}').click(function (event) {
+                $('#confirmdelete{{ $account->id }}').click(function(event) {
                     var form = $(this).closest("form");
                     var name = $(this).data("name");
                     event.preventDefault();
@@ -226,9 +228,9 @@
         @endforeach
     @endif
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.Deactive-button[data-toggle="modal"]').each(function () {
-                $(this).click(function () {
+        $(document).ready(function() {
+            $('.Deactive-button[data-toggle="modal"]').each(function() {
+                $(this).click(function() {
                     var userId = $(this).attr("id");
                     $('#user_id').val(userId);
                 });

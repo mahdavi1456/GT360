@@ -3,23 +3,24 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Nav;
+use App\Models\Page;
 use App\Models\Post;
 use App\Models\User;
 use App\Servieses\Sms;
 use App\Models\Account;
+use App\Models\Pallete;
 use App\Models\Project;
 use App\Models\Setting;
-use App\Models\Page;
-use App\Models\Nav;
-use App\Models\Pallete;
 
 use App\Models\ReservePlan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 
+use Illuminate\Support\Facades\Cache;
 use App\Providers\RouteServiceProvider;
 use RealRashid\SweetAlert\Facades\Alert;
 use function PHPUnit\Framework\fileExists;
@@ -30,7 +31,7 @@ class AccountController extends Controller
     {
         $settingModel = new Setting;
         if (request()->has('project')) {
-            session(['project_id'=> request('project')]);
+            session(['project_id' => request('project')]);
             Alert::success('موفق', 'قالب مورد نظر فعال شد');
             return back();
         }
@@ -49,7 +50,7 @@ class AccountController extends Controller
 
         // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
-       // dd($project,$slug);
+        // dd($project,$slug);
         if ($project) {
             $accountId = $project->account_id;
             $projectId = $project->id;
@@ -131,7 +132,7 @@ class AccountController extends Controller
 
     public function index()
     {
-        $accounts = Account::all();
+        $accounts = Account::latest()->get();
         return view('admin.account.list', compact('accounts'));
     }
 
@@ -142,6 +143,7 @@ class AccountController extends Controller
 
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'account_type' => 'required|in:حقیقی,حقوقی',
             'name' => 'required|string|max:255',
@@ -155,7 +157,6 @@ class AccountController extends Controller
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'slug' => 'required|string|max:255|unique:accounts,slug',
             'company' => 'nullable|string|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
@@ -202,7 +203,6 @@ class AccountController extends Controller
 
     public function show(string $id)
     {
-
     }
 
     public function edit(string $id)
@@ -228,12 +228,11 @@ class AccountController extends Controller
             'city' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'postalcode' => 'nullable|string|max:10',
-            'slug' => 'required|string|max:255|unique:accounts,slug,' . $id,
-            'company' => 'required|max:255',
             'company_type' => 'nullable|string|max:255',
             'national_id' => 'nullable|string|max:20',
             'registration_number' => 'nullable|string|max:20',
             'registration_date' => 'nullable',
+            'account_acl' => 'required'
         ]);
 
         if ($validatedData['birthday'] != null) {
@@ -261,16 +260,15 @@ class AccountController extends Controller
             'city' => $validatedData['city'],
             'address' => $validatedData['address'],
             'postalcode' => $validatedData['postalcode'],
-            'slug' => $validatedData['slug'],
-            'company' => $validatedData['company'],
             'company_type' => $validatedData['company_type'],
             'national_id' => $validatedData['national_id'],
             'registration_number' => $validatedData['registration_number'],
-            'registration_date' => $registration_date
+            'registration_date' => $registration_date,
+            'account_acl' => $request->account_acl
         ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
-        return redirect()->back();
+        return back();
     }
 
     public function destroy(string $id)
@@ -557,14 +555,19 @@ class AccountController extends Controller
         $req->validate([
             'slug' => 'required|string|max:255|unique:projects,slug,' . $project->id,
         ]);
-        $data=$req->except('_token', '_method', 'q');
+        $data = $req->except('_token', '_method', 'q');
         $project->update($data);
         Alert::success('موفق', 'اطلاعات وب سایت با موفقیت ثبت شد.');
         return to_route('dashboard');
     }
 
-    public function subsetList(){
-        $subsets=Account::where('ref_id',auth()->user()->account_id)->get();
-        return view('admin.account.subsetList',compact('subsets'));
+    public function subsetList()
+    {
+        if (Gate::allows('SuperAccount') and request('account_id')) {
+            $subsets = Account::where('ref_id', request('account_id'))->get();
+        } else {
+            $subsets = Account::where('ref_id', auth()->user()->account_id)->get();
+        }
+        return view('admin.account.subsetList', compact('subsets'));
     }
 }

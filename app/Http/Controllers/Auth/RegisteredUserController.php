@@ -57,6 +57,7 @@ class RegisteredUserController extends Controller
             'account_type' => $request->account_type,
             'account_acl' => $request->account_acl,
             'ref_id'=>$ref_id,
+            'account_status'=>'active'
         ]);
         $setting = new Setting();
 

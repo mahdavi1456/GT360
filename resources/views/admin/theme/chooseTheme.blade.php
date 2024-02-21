@@ -13,7 +13,26 @@
                         <div class="card-body p-0">
                             @if ($themes->count() > 0)
                                 <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            @if ($activeTheme->preview)
+                                                <img class="w-100 object-fit-contain"
+                                                     src="{{ asset(ert('theme-path') . $activeTheme->preview) }}">
+                                            @else
+                                                <img class="card-img-top"
+                                                     src="{{ asset('images/no-img-theme.jpg') }}">
+                                            @endif
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $activeTheme->label }}</h5>
+                                                <p class="card-text">{{ $activeTheme->slogan }}</p>
+                                                    <button class="btn btn-success">فعال شده</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     @foreach ($themes as $theme)
+                                    @if ($theme->id==$activeTheme->id)
+                                    @continue
+                                    @endif
                                         <div class="col-md-3">
                                             <div class="card">
                                                 @if ($theme->preview)
@@ -26,12 +45,8 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title">{{ $theme->label }}</h5>
                                                     <p class="card-text">{{ $theme->slogan }}</p>
-                                                    @if ($themeName == $theme->name)
-                                                        <button class="btn btn-success">فعال شده</button>
-                                                    @else
                                                         <a href="{{ route('theme.activeTheme', $theme->name) }}"
                                                            class="btn btn-primary">فعالسازی</a>
-                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

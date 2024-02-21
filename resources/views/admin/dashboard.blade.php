@@ -5,6 +5,13 @@
         td {
             vertical-align: middle !important;
         }
+        .custom-title-class{
+            font-size: x-small;
+
+        }
+        .custom-icon-class{
+            font-size: 8px;
+        }
     </style>
 @endsection
 @section('content')
@@ -17,7 +24,7 @@
             if ($project) {
                 $projectName = App\Models\Project::getProjectName($project->project_id);
             } else {
-                $projectName = "";
+                $projectName = '';
             }
         @endphp
         {{ breadcrumb('میز کار ' . $projectName) }}
@@ -74,12 +81,49 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-primary">
+                            <p>کد معرف: {{ auth()->user()->account_id }}</p>
+                            <p>لینک معرف:
+                                <span
+                                    class="ref-link">{{ route('register', ['ref_id'=> auth()->user()->account_id]) }}</span>
+                                <button class="btn btn-outline-primary mr-3 btn-sm" onclick="copyContent('.ref-link')"> کپی
+                                    کردن</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 @endsection
 @section('scripts')
     <script>
+        function copyContent(selector) {
+
+            var element = document.querySelector(selector);
+            var textarea = document.createElement('textarea');
+            textarea.value = element.innerText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            Swal.fire({
+                position: "bottom-end",
+                icon: "success",
+                title: "لینک معرف کپی شد",
+                showConfirmButton: false,
+                customClass: {
+                    title: 'custom-title-class',
+                    icon: 'custom-icon-class'
+                },
+                timer: 1000,
+                width: '300px',
+            });
+
+        }
+
         //alert('ff');
         // $('.project-status').on('click',function () {
         //    // alert('ff');
