@@ -32,9 +32,6 @@
                                         </div>
                                     @endif
                                     @foreach ($themes as $theme)
-                                        @if ($theme->id == $activeTheme->id)
-                                            @continue
-                                        @endif
                                         <div class="col-md-3">
                                             <div class="card">
                                                 @if ($theme->preview)
