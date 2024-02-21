@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'بسته ها')
+@section('title', 'خرید اشتراکبهط')
 @section('style')
     <style>
         .card-text ul,
@@ -22,7 +22,7 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('بسته ها') }}
+        {{ breadcrumb('پکیج ها') }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
