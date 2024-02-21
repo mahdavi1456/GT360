@@ -11,7 +11,7 @@
     @if ($settingModel->getSetting('section1_status', $accountId, $projectId) == 1)
         <div class="card-body">
             <div class="row">
-                <div class="col-4 form-group">
+                <div class="col-6 form-group">
                     <label class="form-label">تصویر بخش اول</label>
                     <input type="file" name="background_cover" onchange="uploadImage(this)">
                     @if ($image = imageLoader('background_cover'))
@@ -22,6 +22,12 @@
                                     style="bottom: 0; left: 49%">حذف</button>
                         </div>
                     @endif
+                </div>
+                <div class="col-6 form-group">
+                    <label class="form-label">کد رنگ زمینه</label>
+                    <input name="body_bg_color" class="form-control" placeholder="کد رنگ زمینه..."
+                           value="{{ $settingModel->getSetting('body_bg_color', $accountId, $projectId) }}">
+                    <div class="alert alert-info text-center">به صورت کد #2b2b2b</div>
                 </div>
             </div>
         </div>
