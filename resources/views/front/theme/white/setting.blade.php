@@ -25,9 +25,8 @@
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">کد رنگ زمینه</label>
-                    <input name="body_bg_color" class="form-control" placeholder="کد رنگ زمینه..."
+                    <input type="color" name="body_bg_color" class="ltr form-control" placeholder="#2b2b2b"
                            value="{{ $settingModel->getSetting('body_bg_color', $accountId, $projectId) }}">
-                    <div class="alert alert-info text-center">به صورت کد #2b2b2b</div>
                 </div>
             </div>
         </div>
