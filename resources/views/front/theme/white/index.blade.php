@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <div class="LogoBox">
-        <img id="logo" src="{{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId)) }}" width="450px"/>
+        <img id="logo" src="{{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId, $projectId)) }}" width="450px"/>
     </div>
 </div>
 </body>
