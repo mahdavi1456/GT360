@@ -30,9 +30,9 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'desc'=>'required'
-        ]);
+        // $request->validate([
+        //     'desc'=>'required'
+        // ]);
         $data = $request->except('_token', 'q');
         Plan::create($data);
         alert()->success('موفق', 'پکیج با موفقیت ایجاد شد');
@@ -112,6 +112,12 @@ class PlanController extends Controller
         $planItem->delete();
         alert()->success('موفق', 'آیتم با موفقیت حذف شد');
         return to_route('plan.ListItems',$plan);
+    }
+    public function buyPlan() {
+        $planTypes=Plan::select('plan_type')->distinct()->get();
+        $planTypes=$planTypes->pluck('plan_type');
+
+    return view('admin.plan.buyPlan',compact('planTypes'));
     }
 
 }

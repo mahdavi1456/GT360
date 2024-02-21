@@ -41,9 +41,21 @@
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
+                                        <div class="col-4 form-group">
+                                            <label class="required">نوع بسته <span class="text-danger">*</span></label>
+                                            <select name="plan_type" class="form-control" required
+                                                oninvalid="this.setCustomValidity('.لطفا نوع بسته را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
+                                                <option value="">انتخاب کنید...</option>
+                                                <option value="فروشگاهی" @if (old('plan_type')??$plan->plan_type == 'فروشگاهی') selected @endif>
+                                                    فروشگاهی</option>
+                                                <option value="شرکتی" @if (old('plan_type')??$plan->plan_type == 'شرکتی') selected @endif>شرکتی
+                                                </option>
+                                            </select>
+                                        </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label class="required">توضیحات <span class="text-danger">*</span></label>
+                                                <label class="required">توضیحات </label>
                                                 <textarea name="desc" class="form-control Reditor1" rows="10">{{ $plan->desc }}</textarea>
 
                                             </div>

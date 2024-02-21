@@ -48,7 +48,8 @@
             border-right: inherit;
             border-radius: 0.35rem 0 0 0.35rem;
         }
-        .filter-option-inner-inner{
+
+        .filter-option-inner-inner {
             text-align: right;
         }
     </style>
@@ -166,17 +167,34 @@
         });
     </script>
     <script>
-           $('.custom-file-input').change(function() {
+        $('.custom-file-input').change(function() {
             //get the file name
             var fileName = $(this).val().split('\\').pop();
             //replace the "Choose a file" label
             $(this).next('.custom-file-label').html(fileName);
         });
 
-        $("a[data-confirm-delete='true']").click(function(e){
+        $("a[data-confirm-delete='true']").click(function(e) {
             e.preventDefault();
         });
+        $(document).ready(function() {
+                    //minimize  menu ----- responsiv
+                    $(window).on('load resize', function() {
+                        if ($(window).width() < 1000) {
+
+                            $('body').removeClass('sidebar-open');
+                            $('body').addClass('sidebar-collapse');
+                            //  alert('yes');
+                        } else {
+                            $('body').removeClass('sidebar-collapse');
+                            $('body').addClass('sidebar-open');
+                        }
+                    });
+                    $('body').removeClass('control-sidebar-slide-open');
+                });
+                //end responsive
     </script>
+
     @yield('scripts')
 </body>
 

@@ -125,6 +125,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::get('/open-project', [ProjectController::class, 'openProject'])->name('openProject');
 
         //Plan
+        Route::get('buy-plan', [PlanController::class, 'buyPlan'])->name('buyPlan');
         Route::resource('plan', PlanController::class);
         Route::get('plan/{plan}/items', [PlanController::class, 'ListItems'])->name('plan.ListItems');
         // Route::get('plan/{plan}/items-create',[PlanController::class,'itemCreate'])->name('plan.itemCreate');

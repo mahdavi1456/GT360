@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('label');
-            $table->text('desc');
+            $table->string('plan_type');
+            $table->text('desc')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

@@ -83,6 +83,7 @@
                                             @if ($item)
                                             <a href="{{route('plan.ListItems',$plan->id)}}" class="btn btn-danger">انصراف</a>
                                             @endif
+                                            <a href="{{route('plan.index')}}" class="btn btn-primary">بسته ها</a>
                                         </div>
                                     </div>
                                 </form>

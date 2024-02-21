@@ -24,6 +24,7 @@
                                     <table class="table table-hover table-bordered text-center">
                                         <tr class="table-warning">
                                             <th>#</th>
+                                            <th>نوع پکیج</th>
                                             <th>نام</th>
                                             <th>برچسب</th>
                                             <th>توضیحات</th>
@@ -32,6 +33,7 @@
                                         @foreach ($plans as $plan)
                                             <tr>
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
+                                                <td>{{ $plan->plan_type }}</td>
                                                 <td>{{ $plan->name }}</td>
                                                 <td>{{ $plan->label }}</td>
                                                 <td class="pr-4">{!! $plan->desc !!}</td>
