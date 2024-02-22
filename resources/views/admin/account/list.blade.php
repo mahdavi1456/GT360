@@ -82,14 +82,14 @@
                                                 <td>
                                                     @if ($account->account_status == 'active')
                                                         <span class="badge bg-success"
-                                                            style="font-size: 17px;color: #FFF !important;">فعال</span>
+                                                            style="color: #FFF !important;">فعال</span>
                                                     @elseif ($account->account_status == 'waiting')
                                                         <span class="badge bg-warning"
-                                                            style="font-size: 17px;color: #FFF !important;">درانتظار
+                                                            style="color: #FFF !important;">درانتظار
                                                             تایید</span>
                                                     @elseif ($account->account_status == 'deActive')
                                                         <span class="badge bg-danger"
-                                                            style="font-size: 17px;color: #FFF !important;">غیرفعال</span>
+                                                            style="color: #FFF !important;">غیرفعال</span>
                                                     @endif
                                                 </td>
                                                 @if ($account->deactivation_reason)
@@ -98,8 +98,8 @@
                                                     <td class="w-auto text-center">------</td>
                                                 @endif
                                                 <td style="white-space: nowrap;">
-                                                    <a href="https://app.gtch.ir/web/{{ $account->slug }}" target="_blank"
-                                                        class="btn btn-secondary btn-sm mx-1">LURL</a>
+                                                    {{-- <a href="https://app.gtch.ir/web/{{ $account->slug }}" target="_blank"
+                                                        class="btn btn-secondary btn-sm mx-1">LURL</a> --}}
                                                         @if ($account->account_acl=='agent' or $account->account_acl=='cos')
                                                         <a href="{{ route('subsets', ['account_id' => $account->id]) }}"
                                                             class="btn btn-success btn-sm mx-1"> زیرمجموعه ها</a>
@@ -122,7 +122,7 @@
                                                             class="btn btn-danger btn-sm Deactive-button"
                                                             data-toggle="modal" data-target="#exampleModal"
                                                             id="{{ $account->id }}" value="deActive"
-                                                            style="height: 39px; margin-top: 4px;">غیرفعال
+                                                            >غیرفعال
                                                             سازی
                                                         </button>
                                                     @elseif ($account->account_status == 'deActive')
@@ -174,11 +174,11 @@
     <!-- /.content-wrapper -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">دلیل غیرفعال سازی</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -196,7 +196,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">ارسال</button>
+                    <button type="submit" class="btn btn-primary">ذخیره</button>
                 </div>
                 </form>
             </div>

@@ -121,9 +121,9 @@
                                                 <td>{{ price($item->off_price) }}</td>
                                                 <td>
                                                     <a href="{{ route('plan.ListItems', ['plan' => $plan->id, 'item' => $item->id]) }}"
-                                                        class="btn btn-warning m-1">ویرایش</a>
+                                                        class="btn btn-sm btn-warning m-1"><i class="fa fa-edit"></i></a>
                                                     <a href="{{ route('plan.itemDelete', $item->id) }}"
-                                                        data-confirm-delete="true" class="btn btn-danger m-1">حذف</a>
+                                                        data-confirm-delete="true" class="btn btn-sm btn-danger m-1"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

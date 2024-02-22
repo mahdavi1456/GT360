@@ -19,7 +19,6 @@ class ThemeController extends Controller
 
     public function show()
     {
-
     }
 
     public function index()
@@ -74,20 +73,30 @@ class ThemeController extends Controller
             'label' => 'required',
             'category' => 'required'
         ]);
-        $fileName = null;
+
         if ($request->file('preview')) {
             $fileName = now()->timestamp . '_' . $request->file('preview')->getClientOriginalName();
             $request->file('preview')->move(public_path(ert('theme-path')), $fileName);
+            $theme->update([
+                'name' => $request->name,
+                'label' => $request->label,
+                'category' => $request->category,
+                'slogan' => $request->slogan,
+                'details' => $request->details,
+                'status' => $request->status,
+                'preview' => $fileName
+            ]);
+        } else {
+            $theme->update([
+                'name' => $request->name,
+                'label' => $request->label,
+                'category' => $request->category,
+                'slogan' => $request->slogan,
+                'details' => $request->details,
+                'status' => $request->status,
+            ]);
         }
-        $theme->update([
-            'name' => $request->name,
-            'label' => $request->label,
-            'category' => $request->category,
-            'slogan' => $request->slogan,
-            'details' => $request->details,
-            'status' => $request->status,
-            'preview' => $fileName
-        ]);
+
 
         Alert::success('موفق', 'قالب با موفقیت ویرایش شد.');
         return redirect()->route('theme.index');
@@ -144,9 +153,9 @@ class ThemeController extends Controller
         $projectId = Project::checkOpenProject($accountId)->project_id;
 
         $themeName = $settingModel->getSetting('active_theme', $accountId, $projectId);
-        $activeTheme= Theme::where(['name'=>$themeName])->first();
+        $activeTheme = Theme::where(['name' => $themeName])->first();
 
-        return view('admin.theme.chooseTheme', compact('themes', 'accountId', 'projectId', 'themeName','activeTheme'));
+        return view('admin.theme.chooseTheme', compact('themes', 'accountId', 'projectId', 'themeName', 'activeTheme'));
     }
 
     public function activeTheme($name)
@@ -238,5 +247,4 @@ class ThemeController extends Controller
         Alert::success('موفق', 'تنظیمات با موفقیت اعمال شدند.');
         return back();
     }
-
 }
