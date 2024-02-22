@@ -36,6 +36,9 @@ return new class extends Migration
             $table->date('registration_date')->nullable();
             $table->string('account_status')->nullable();
             $table->string('deactivation_reason')->nullable();
+            $table->string('description')->nullable();
+            $table->string('interface_name')->nullable();
+            $table->string('interface_mobile')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

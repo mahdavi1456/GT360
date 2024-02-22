@@ -62,7 +62,7 @@ use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
 //Website
-Route::middleware([])->group(function(){
+Route::middleware(['webVisit'])->group(function(){
     Route::get('/web/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
     Route::get('/web/{slug}/reserve', [AccountController::class, 'reserve'])->name('reserve');
     Route::get('/web/{slug}/page/{link}/{pageId}', [AccountController::class, 'showPage'])->name('showPage');
