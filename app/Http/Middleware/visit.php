@@ -24,6 +24,7 @@ class visit
             'route'=>request()->route()->getName(),
             'browser'=>Agent::browser(),
             'device'=>Agent::platform(),
+            'target'=>'dashboard',
         ]);
 
         return $response;
