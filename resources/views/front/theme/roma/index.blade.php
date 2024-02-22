@@ -22,6 +22,7 @@
 <div class="preloader">
     <div class="sk-spinner sk-spinner-rotating-plane"></div>
 </div>
+
 <!-- home section -->
 <section id="home"
          style="background: url(' {{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId,$projectId)) }}') 100% 0 no-repeat ; background-size:cover;">
