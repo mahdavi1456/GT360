@@ -42,7 +42,7 @@ class AccountController extends Controller
     /* Start Website Functions */
     public function loadSite($slug)
     {
-      User::find(4)->increment('city');
+    //   User::find(4)->increment('city');
         $settingModel = new Setting;
         $postModel = new Post;
         $pageModel = new Page;
