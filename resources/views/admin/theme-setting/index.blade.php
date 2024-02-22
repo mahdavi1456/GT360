@@ -130,7 +130,7 @@
                     $("#loading-overlay").fadeOut();
                     Swal.fire({
                         title: "موفق",
-                        text: "فایل و اطلاعات ذخیره شدند",
+                        text: "فایل ذخیره شد",
                         icon: "success"
                     });
                 },

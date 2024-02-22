@@ -23,6 +23,7 @@
             $project = App\Models\Project::checkOpenProject(auth()->user()->account->id);
             if ($project) {
                 $projectName = App\Models\Project::getProjectName($project->project_id);
+                $project=App\Models\Project::find($project->project_id);
             } else {
                 $projectName = '';
             }
@@ -31,7 +32,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body p-0">
                                 <div class="row">
@@ -48,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body p-0">
                                 <div class="row">
@@ -65,7 +66,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <div class="row">
+                                    <div class="col-6 bg-dark text-center p-4">
+                                        <i class="fa fa-eye " style="font-size:48px;color: white;"></i>
+                                    </div>
+                                    <div class="col-6 text-center p-4">
+                                        <b>بازدید روز داشبورد : </b>
+                                        {{ convertToPersian(App\Models\Visit::dashboardDayVisit()) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body p-0">
                                 <div class="row">
@@ -73,8 +89,8 @@
                                         <i class="fa fa-eye " style="font-size:48px;color: white;"></i>
                                     </div>
                                     <div class="col-6 text-center p-4">
-                                        <b>بازدید امروز: </b>
-                                        {{ convertToPersian(App\Models\Visit::dashboardDayVisit()) }}
+                                        <b>بازدید روز وبسایت: </b>
+                                        {{ convertToPersian(App\Models\Visit::websiteDayVisit($project->slug)) }}
                                     </div>
                                 </div>
                             </div>

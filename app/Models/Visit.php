@@ -15,12 +15,14 @@ class Visit extends Model
     {
         return Visit::whereDate('created_at', today())->count();
     }
+    public static function websiteDayVisit($slug)
+    {
+        return Visit::where('slug',$slug)->whereDate('created_at', today())->count();
+    }
+
+
     public function scopeFilter($query)
     {
-
-
-
-
         if (request()->filled('device')) {
             $query->where(function ($query){
                 foreach (request('device') as  $key => $value) {
