@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan;
 use App\Models\PlanItem;
+use App\Models\PlanType;
 use Illuminate\Http\Request;
 
 class PlanController extends Controller
@@ -22,7 +23,8 @@ class PlanController extends Controller
      */
     public function create()
     {
-        return view('admin.plan.create');
+        $types = PlanType::latest()->get();
+        return view('admin.plan.create',compact('types'));
     }
 
     /**
@@ -52,7 +54,8 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
-        return view('admin.plan.edit', compact('plan'));
+        $types = PlanType::latest()->get();
+        return view('admin.plan.edit', compact('plan','types'));
     }
 
     /**
@@ -119,5 +122,40 @@ class PlanController extends Controller
 
     return view('admin.plan.buyPlan',compact('planTypes'));
     }
+
+    public function planDefineType() {
+     //   dd('dd');
+        ert('cd');
+        $types=PlanType::latest()->get();
+        $action='create';
+        $type=null;
+        if (request()->has('type_id')) {
+            $action='update';
+            $type=PlanType::findOrFail(request('type_id'));
+        }
+        return view('admin.plan_types.list',compact('types','type','action'));
+    }
+    public function stroeType(Request $request) {
+        $data=$request->except('_token','q','action','type_id');
+        $action=$request->action;
+        if ($action=='create') {
+            $type=PlanType::create($data);
+            alert()->success('موفق', 'نوع با موفقیت ایجاد شد');
+        }elseif($action=='update'){
+            //dd($request->TypePlanType_id);
+            $type= PlanType::findOrFail($request->type_id);
+            $type->update($data);
+            alert()->success('موفق', 'نوع با موفقیت ویرایش شد');
+        }
+        return to_route('planDefineType');
+
+    }
+    public function typeDelete( $type) {
+        $type=PlanType::findOrFail($type);
+        $type->delete();
+        alert()->success('موفق', 'آیتم با موفقیت حذف شد');
+        return to_route('planDefineType');
+    }
+
 
 }

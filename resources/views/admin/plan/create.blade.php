@@ -42,10 +42,10 @@
                                             oninvalid="this.setCustomValidity('.لطفا نوع بسته را وارد کنید')"
                                             oninput="this.setCustomValidity('')">
                                             <option value="">انتخاب کنید...</option>
-                                            <option value="فروشگاهی" @if (old('plan_type') == 'فروشگاهی') selected @endif>
-                                                فروشگاهی</option>
-                                            <option value="شرکتی" @if (old('plan_type') == 'شرکتی') selected @endif>شرکتی
-                                            </option>
+                                            @foreach ($types as $type )
+                                            <option value="{{$type->name}}" @if (old('plan_type') == $type->name) selected @endif>
+                                                {{$type->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -60,6 +60,7 @@
                                 <div class="row">
                                     <div class="col-12 text-left">
                                         <button type="submit" class="btn btn-success">ذخیره</button>
+                                        <a href="{{route('plan.index')}}" class="btn btn-secondary">انصراف</a>
                                     </div>
                                 </div>
                             </div>

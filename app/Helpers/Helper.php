@@ -216,7 +216,9 @@ function ert($variable)
 function imageLoader($key)
 {
     $setting = new Setting();
-    return $setting->getSetting($key, auth()->user()->account->id);
+    $accountId=auth()->user()->account->id;
+    $projectId = Project::checkOpenProject($accountId)->project_id;
+    return $setting->getSetting($key,$accountId,$projectId);
 }
 
 function getIp()

@@ -16,7 +16,7 @@
                                     <div class="col-12">
                                         <a href="{{ route('plan.create') }}"
                                            class="pull-left btn btn-info btn-sm">جدید</a>
-                                        <a href="{{ route('plan.create') }}"
+                                        <a href="{{ route('planDefineType') }}"
                                            class="pull-left btn btn-primary ml-2 btn-sm">مدیریت نوع بسته ها</a>
                                     </div>
                                 </div>

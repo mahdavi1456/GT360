@@ -128,11 +128,12 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::get('buy-plan', [PlanController::class, 'buyPlan'])->name('buyPlan');
         Route::resource('plan', PlanController::class);
         Route::get('plan/{plan}/items', [PlanController::class, 'ListItems'])->name('plan.ListItems');
-        // Route::get('plan/{plan}/items-create',[PlanController::class,'itemCreate'])->name('plan.itemCreate');
+        Route::get('plan-define-type', [PlanController::class, 'planDefineType'])->name('planDefineType');
         Route::post('plan-item', [PlanController::class, 'stroeItem'])->name('plan.stroeItem');
-        // Route::get('plan-item/{item}/edit',[PlanController::class,'itemEdit'])->name('plan.itemEdit');
-        // Route::put('plan-item/{item}/update',[PlanController::class,'itemUpdate'])->name('plan.itemUpdate');
+        Route::post('plan-type', [PlanController::class, 'stroeType'])->name('plan.stroeType');
+
         Route::delete('plan-item/{item}/delete', [PlanController::class, 'itemDelete'])->name('plan.itemDelete');
+        Route::delete('plan-type/{type}/delete', [PlanController::class, 'typeDelete'])->name('typeDelete');
 
 
 

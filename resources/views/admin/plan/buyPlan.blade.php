@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title', 'خرید اشتراکبهط')
+@section('title', 'خرید اشتراک')
 @section('style')
     <style>
         .card-text ul,
@@ -39,7 +39,7 @@
                                 <div class="card-body">
                                     <div class="row align-items-stretch">
                                         @foreach ($plans as $plan)
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-4 my-2">
                                                 <div class="card h-100 d-flex flex-column p-3">
                                                     <div class="card-body p-0">
                                                         <h5 class="card-title">{{ $plan->label }}</h5>
@@ -50,7 +50,9 @@
                                                     <div class="mt-auto p-2  pt-0 prices">
                                                         <ul>
                                                             @foreach ($plan->items as $item)
-                                                                <li class="mb-2 "><span class="ml-3">از تا:
+                                                                <li class="mb-2"><span class="ml-3">
+
+                                                                    از تا:
                                                                         {{ fa_number($item->from) }}-{{ fa_number($item->to) }}
                                                                         روز</span>
                                                                         @if ($item->off_price)
@@ -61,6 +63,7 @@
                                                                         @endif
                                                                     <span class="float-left"><a href="#"
                                                                             class="btn btn-sm btn-outline-primary">خرید</a></span>
+
                                                                 </li>
                                                             @endforeach
 
