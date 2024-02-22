@@ -29,6 +29,7 @@ class AccountController extends Controller
 {
     public function dashboard()
     {
+        dump(session('i'));
         $settingModel = new Setting;
         if (request()->has('project')) {
             session(['project_id' => request('project')]);
@@ -42,6 +43,11 @@ class AccountController extends Controller
     /* Start Website Functions */
     public function loadSite($slug)
     {
+        if (session()->has('i')) {
+            session(['i'=>session('i')+1]);
+        }else{
+            session(['i'=>0]);
+        }
         $settingModel = new Setting;
         $postModel = new Post;
         $pageModel = new Page;
