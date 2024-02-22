@@ -1,5 +1,12 @@
 @extends('admin.master')
 @section('title', 'Account')
+@section('style')
+    <style>
+        .ck-editor__editable {
+            height: 180px;
+        }
+    </style>
+@endsection
 @section('content')
     @include('sweetalert::alert')
     @include('admin.partial.nav')
@@ -173,10 +180,36 @@
                                             <div class="form-group">
                                                 <label class="form-label "> نوع حساب </label>
                                                 <select name="account_acl" class="form-control select2">
-                                                    <option value="customer" @if(old('account_acl')??$account->account_acl == 'customer') selected @endif>مشتری</option>
-                                                    <option value="agent" @if(old('account_acl')??$account->account_acl == 'agent') selected @endif>نماینده</option>
-                                                    <option value="cos" @if(old('account_acl')??$account->account_acl == 'cos') selected @endif>همکار فروش</option>
+                                                    <option value="customer"
+                                                        @if (old('account_acl') ?? $account->account_acl == 'customer') selected @endif>مشتری</option>
+                                                    <option value="agent"
+                                                        @if (old('account_acl') ?? $account->account_acl == 'agent') selected @endif>نماینده</option>
+                                                    <option value="cos"
+                                                        @if (old('account_acl') ?? $account->account_acl == 'cos') selected @endif>همکار فروش
+                                                    </option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label class="form-label required"> نام رابط </label>
+                                                <input type="text" name="interface_name"
+                                                    class="form-control " placeholder="نام رابط..."
+                                                    value="{{ old('interface_name') ?? $account->interface_name }}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label class="form-label required"> موبایل رابط </label>
+                                                <input type="text" name="interface_mobile"
+                                                    class="form-control " placeholder="موبایل رابط..."
+                                                    value="{{ old('interface_mobile') ?? $account->interface_mobile }}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="form-label"> توضیحات </label>
+                                                <textarea rows="5" class="form-control Reditor1" name="desc">{{$account->description}}</textarea>
                                             </div>
                                         </div>
 
@@ -279,6 +312,7 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/ckeditor.js') }}"></script>
     <script>
         $(document).ready(function() {
             if ($('#account_type').val() === 'حقوقی') {
@@ -294,6 +328,25 @@
                     $('#company_fields').hide();
                 }
             });
+        });
+        ClassicEditor.create(document.querySelector('.Reditor1'), {
+            toolbar: {
+                items: [
+                    'undo', 'redo',
+                    '|', 'heading',
+                    '|', 'bold', 'italic',
+                    '|', 'link', 'insertImage', 'insertTable', 'mediaEmbed',
+                    '|', 'bulletedList', 'numberedList'
+                ]
+            },
+            language: {
+                // The UI will be Arabic.
+                ui: 'fa',
+                // And the content will be edited in Arabic.
+                content: 'fa'
+            }
+        }).catch(error => {
+            console.error(error);
         });
     </script>
 

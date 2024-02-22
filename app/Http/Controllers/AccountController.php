@@ -264,7 +264,10 @@ class AccountController extends Controller
             'national_id' => $validatedData['national_id'],
             'registration_number' => $validatedData['registration_number'],
             'registration_date' => $registration_date,
-            'account_acl' => $request->account_acl
+            'account_acl' => $request->account_acl,
+            'description'=>$request->desc,
+            'interface_name'=>$request->interface_name,
+            'interface_mobile'=>$request->interface_mobile,
         ]);
 
         Alert::success('موفق', 'حساب کاربری با موفقیت ویرایش شد.');
