@@ -58,13 +58,16 @@
                                         <div class="col-4">
                                             <div class="form-group">
                                                 <label>نوع قالب</label>
-                                                <select name="category" class="form-control">
-                                                    <option value="company">شرکتی</option>
-                                                    <option value="shop">فروشگاهی</option>
-                                                    <option value="news">خبری</option>
-                                                    <option value="multiple">چند منظوره</option>
-                                                    <option value="personal">شخصی</option>
-                                                </select>
+                                                <select name="category" class="form-control select2" required
+                                                oninvalid="this.setCustomValidity('.لطفا نوع بسته را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
+                                                <option value="">انتخاب کنید...</option>
+                                                @foreach ($plans as $plan)
+                                                    <option value="{{ $plan->id }}"
+                                                        @if (old('category')??$theme->category == $plan->id) selected @endif>
+                                                        {{ $plan->label }} (<span style="font-size: x-small;color:#eee">{{$plan->plan_type}}</span>)</option>
+                                                @endforeach
+                                            </select>
                                             </div>
                                         </div>
                                     </div>

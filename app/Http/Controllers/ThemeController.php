@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nav;
-use App\Models\Pallete;
 use App\Models\Font;
+use App\Models\Plan;
 use App\Models\Theme;
-use App\Models\Setting;
+use App\Models\Pallete;
 use App\Models\Project;
+use App\Models\Setting;
+use App\Models\PlanType;
 use App\Models\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,13 +25,14 @@ class ThemeController extends Controller
 
     public function index()
     {
-        $themes = Theme::latest()->get();
+        $themes = Theme::latest()->with('plan')->get();
         return view('admin.theme.list', compact('themes'));
     }
 
     public function create()
     {
-        return view('admin.theme.create');
+        $plans = Plan::latest()->get();
+        return view('admin.theme.create',compact('plans'));
     }
 
     public function store(Request $request)
@@ -61,7 +64,8 @@ class ThemeController extends Controller
     public function edit(string $id)
     {
         $theme = Theme::findOrFail($id);
-        return view('admin.theme.edit', compact('theme'));
+        $plans = Plan::latest()->get();
+        return view('admin.theme.edit', compact('theme','plans'));
     }
 
     public function update(Request $request, string $id)

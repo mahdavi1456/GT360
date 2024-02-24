@@ -103,6 +103,10 @@ Route::post('/check-confirm-customer', [ConfirmCustomerController::class, 'check
 //Transaction
 Route::post('/start-transaction', [TransactionController::class, 'start'])->name('transaction.start');
 Route::get('/verify-transaction', [TransactionController::class, 'verify'])->name('transaction.verify');
+Route::post('/payment-start/{type}', [TransactionController::class, 'paymentStart'])->name('paymentStart');
+Route::get('/transactions-report', [TransactionController::class, 'reports'])->name('transaction.report');
+
+
 
 
 //Admin Routes
@@ -140,7 +144,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
 
 
 
-        Route::get('/dashboard', [AccountController::class, 'dashboard'])->middleware('verified')->name('dashboard');
+        Route::get('/dashboard', [AccountController::class, 'dashboard'])->middleware(['verified','charge'])->name('dashboard');
 
         Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');
         Route::resource('media', MediaController::class);

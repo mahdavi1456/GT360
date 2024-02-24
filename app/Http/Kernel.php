@@ -70,5 +70,6 @@ class Kernel extends HttpKernel
         'SuperAccount' => \App\Http\Middleware\SuperAccount::class,
         'visit' => \App\Http\Middleware\visit::class,
         'webVisit' => \App\Http\Middleware\VisitWebSite::class,
+        'charge' => \App\Http\Middleware\Charge::class,
     ];
 }

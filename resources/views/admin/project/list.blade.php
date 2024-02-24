@@ -36,12 +36,19 @@
                                                 </td>
                                                 <td>{{ $project->title }}</td>
                                                 <td>{!! $project->description !!}</td>
+                                                @if (charge())
                                                 <td>
                                                     <a href="{{ route('project.show', $project->id) }}" class="btn btn-success btn-sm">میز کار</a>
                                                     <a href="{{ route('openProject', ['project_id' => $project->id]) }}" class="btn btn-info btn-sm">ورود به پروژه</a>
                                                     <a href="{{ route('project.create', ['update' => $project->id]) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
                                                     <a href="{{ route('project.destroy', $project->id) }}"  data-confirm-delete="true" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                                 </td>
+                                                @else
+                                                <a href="{{ route('project.show', $project->id) }}" class="btn btn-success btn-sm">میز کار</a>
+                                                <a href="{{ route('openProject', ['project_id' => $project->id]) }}" class="btn btn-info btn-sm">ورود به پروژه</a>
+                                                <a href="{{ route('project.create', ['update' => $project->id]) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ route('project.destroy', $project->id) }}"  data-confirm-delete="true" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                @endif
                                             </tr>
                                         @endforeach
                                     </table>

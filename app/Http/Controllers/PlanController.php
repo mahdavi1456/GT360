@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use App\Models\Project;
 use App\Models\PlanItem;
 use App\Models\PlanType;
 use Illuminate\Http\Request;
@@ -119,8 +120,8 @@ class PlanController extends Controller
     public function buyPlan() {
         $planTypes=Plan::select('plan_type')->distinct()->get();
         $planTypes=$planTypes->pluck('plan_type');
-
-    return view('admin.plan.buyPlan',compact('planTypes'));
+        $projects=Project::where('account_id',auth()->user()->account_id)->get();
+    return view('admin.plan.buyPlan',compact('planTypes',"projects"));
     }
 
     public function planDefineType() {

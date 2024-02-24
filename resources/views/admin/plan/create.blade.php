@@ -24,7 +24,7 @@
                                 <div class="row">
                                     <div class="col-4 form-group">
                                         <label class="required">نام <span class="text-danger">*</span></label>
-                                        <input type="text" name="name" class="form-control"
+                                        <input type="text" name="name" class="form-control nonPersianletters"
                                             value="{{ old('name') }}" placeholder="نام..." required
                                             oninvalid="this.setCustomValidity('کادر نشان داده شده رو تکمیل کنید.')"
                                             oninput="this.setCustomValidity('')">

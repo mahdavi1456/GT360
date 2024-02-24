@@ -10,4 +10,8 @@ class Transaction extends Model
     use HasFactory;
     protected $tabele = "transactions";
     protected $guarded = [];
+
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
 }

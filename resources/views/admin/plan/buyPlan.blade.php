@@ -27,6 +27,17 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <label for="">انتخاب پروژه</label>
+                                <select class="select2 custom-select" id="project-select">
+                                    <option value="">انتخاب کنید...</option>
+                                    @foreach ($projects as $project)
+                                    <option value="{{$project->id}}" @selected($project->id==request('project_id'))>{{$project->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         @foreach ($planTypes as $type)
                             @php
 
@@ -52,17 +63,32 @@
                                                             @foreach ($plan->items as $item)
                                                                 <li class="mb-2"><span class="ml-3">
 
-                                                                    از تا:
+                                                                        از تا:
                                                                         {{ fa_number($item->from) }}-{{ fa_number($item->to) }}
                                                                         روز</span>
-                                                                        @if ($item->off_price)
-                                                                        <span class="ml-3">قیمت: {{price($item->off_price)}}</span>
-                                                                        <span class="ml-1" style="text-decoration: line-through;">قیمت: {{price($item->price)}}</span>
-                                                                        @else
-                                                                        <span class="ml-3">قیمت: {{price($item->price)}}</span>
-                                                                        @endif
-                                                                    <span class="float-left"><a href="#"
-                                                                            class="btn btn-sm btn-outline-primary">خرید</a></span>
+                                                                    @if ($item->off_price)
+                                                                        <span class="ml-3">قیمت:
+                                                                            {{ price($item->off_price) }}</span>
+                                                                        <span class="ml-1"
+                                                                            style="text-decoration: line-through;">قیمت:
+                                                                            {{ price($item->price) }}</span>
+                                                                    @else
+                                                                        <span class="ml-3">قیمت:
+                                                                            {{ price($item->price) }}</span>
+                                                                    @endif
+                                                                    <span class="float-left">
+                                                                        <form
+                                                                            action="{{ route('paymentStart', 'package') }}"
+                                                                            method="POST">
+                                                                            @csrf
+                                                                            <input type="hidden" name="project_id"
+                                                                                value="{{ request('project_id') }}">
+                                                                            <input type="hidden" name="item_id"
+                                                                                value="{{ $item->id }}">
+                                                                            <button onclick="paySubmit(this)"
+                                                                                class="btn btn-sm btn-outline-primary">خرید</button>
+                                                                        </form>
+                                                                    </span>
 
                                                                 </li>
                                                             @endforeach
@@ -85,4 +111,20 @@
     </div>
 @endsection
 @section('scripts')
+    <script>
+        function paySubmit(ele) {
+            event.preventDefault();
+            $('input[name=project_id]').val($('#project-select').val());
+            if ($(ele).parent().find('input[name=project_id]').val()) {
+               $(ele).parent().submit();
+            }else{
+                swal.fire({
+                text: 'لطفا ابتدا پروژه مورد نظر خودرا انتخاب کنید',
+                icon: "warning",
+                confirmButtonText:'باشه'
+            });
+            }
+
+        }
+    </script>
 @endsection

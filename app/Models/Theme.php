@@ -27,6 +27,10 @@ class Theme extends Model
     {
         return $this->belongsToMany(Nav::class, 'nav_theme');
     }
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class, 'category');
+    }
 
     public static function getActive()
     {

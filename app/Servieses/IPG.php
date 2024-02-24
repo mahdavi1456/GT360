@@ -7,7 +7,7 @@ use http\Env\Request;
 
 class IPG
 {
-    public function start($recordId, $recordType, $price)
+    public function start($recordId, $recordType, $price, $projectId = 0)
     {
         $data = array(
             "merchant_id" => "22e6f21a-1348-4887-9c44-995e65e27472",
@@ -40,7 +40,8 @@ class IPG
             'authority' => $result['data']['authority'],
             'record_id' => $recordId,
             'record_type' => $recordType,
-            'price' => $price
+            'price' => $price,
+            'project_id' => $projectId,
         ]);
 
         if ($err) {
@@ -49,7 +50,7 @@ class IPG
             if (empty($result['errors'])) {
                 if ($result['data']['code'] == 100) {
                     $url = "https://www.zarinpal.com/pg/StartPay/" . $result['data']['authority'];
-                    echo $url;
+                    return $url;
                 }
             } else {
                 echo 'Error Code: ' . $result['errors']['code'];
@@ -86,22 +87,25 @@ class IPG
         $result = json_decode($result, true);
 
         //Update Payment Transaction Result Data
-        $transaction->message = $result['errors']['message'];
+        $transaction->message = $this->getStatusDetails($result['errors']['code']);
         $transaction->status = $result['errors']['code'];
 
         if ($result['errors']['code'] == 100) {
-            echo 'Transation success. RefID:' . $result['data']['ref_id'];
+            // echo 'Transation success. RefID:' . $result['data']['ref_id'];
             $transaction->ref_id = $result['data']['ref_id'];
+            $transaction->save();
+            return ['model' => $transaction, 'status' => 'success'];
         } else {
-            echo 'code: ' . $this->getStatusDetails($result['errors']['code']);
-            echo 'message: ' . $result['errors']['message'];
+            $transaction->save();
+            $code = 'code: ' . $this->getStatusDetails($result['errors']['code']);
+            $message =  'message: ' . $result['errors']['message'];
+            return ['model' => $transaction, 'status' => 'failed', 'code' => $code, 'message' => $message];
         }
-
-        $transaction->save();
     }
 
     public function getStatusDetails($code)
     {
+        $msg=$code;
         switch ($code) {
             case -9:
                 $msg = "خطای اعتبار سنجی";

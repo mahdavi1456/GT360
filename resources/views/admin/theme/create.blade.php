@@ -39,26 +39,36 @@
                                     <div class="row">
                                         <div class="col-4 form-group">
                                             <label class="required">نام لاتین <span class="text-danger">*</span></label>
-                                            <input type="text" name="name" class="form-control"
-                                                   value="{{ old('name') }}" placeholder="نام لاتین..." required
-                                                   oninvalid="this.setCustomValidity('نام قالب را وارد نمایید.')"
-                                                   oninput="this.setCustomValidity('')">
+                                            <input type="text" name="name" class="form-control nonPersianletters"
+                                                value="{{ old('name') }}" placeholder="نام لاتین..." required
+                                                oninvalid="this.setCustomValidity('نام قالب را وارد نمایید.')"
+                                                oninput="this.setCustomValidity('')">
                                         </div>
                                         <div class="col-4 form-group">
                                             <label class="required">برچسب <span class="text-danger">*</span></label>
                                             <input type="text" name="label" class="form-control"
-                                                   value="{{ old('label') }}" placeholder="برچسب..." required
-                                                   oninvalid="this.setCustomValidity('برچسب قالب را وارد نمایید.')"
-                                                   oninput="this.setCustomValidity('')">
+                                                value="{{ old('label') }}" placeholder="برچسب..." required
+                                                oninvalid="this.setCustomValidity('برچسب قالب را وارد نمایید.')"
+                                                oninput="this.setCustomValidity('')">
                                         </div>
                                         <div class="col-4 form-group">
                                             <label>نوع قالب</label>
-                                            <select name="category" class="form-control">
+                                            {{-- <select name="category" class="form-control">
                                                 <option value="company">شرکتی</option>
                                                 <option value="shop">فروشگاهی</option>
                                                 <option value="news">خبری</option>
                                                 <option value="multiple">چند منظوره</option>
                                                 <option value="personal">شخصی</option>
+                                            </select> --}}
+                                            <select name="category" class="form-control select2" required
+                                                oninvalid="this.setCustomValidity('.لطفا نوع بسته را وارد کنید')"
+                                                oninput="this.setCustomValidity('')">
+                                                <option value="">انتخاب کنید...</option>
+                                                @foreach ($plans as $plan)
+                                                    <option value="{{ $plan->id }}"
+                                                        @if (old('category') == $plan->id) selected @endif>
+                                                        {{ $plan->label }} (<span style="font-size: x-small;color:#eee">{{$plan->plan_type}}</span>)</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -67,14 +77,14 @@
                                             <div class="form-group">
                                                 <label>توضیح کوتاه <span class="text-danger">*</span></label>
                                                 <input type="text" name="slogan" class="form-control"
-                                                       value="{{ old('slogan') }}" placeholder="توضیح کوتاه...">
+                                                    value="{{ old('slogan') }}" placeholder="توضیح کوتاه...">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="primary_image"> تصویر پیش نمایش</label>
                                             <div class="custom-file">
                                                 <input type="file" name="preview" class="custom-file-input"
-                                                       id="primary_image">
+                                                    id="primary_image">
                                                 <label class="custom-file-label" for="primary_image"> انتخاب
                                                     فایل </label>
                                             </div>
@@ -91,8 +101,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>توضیح کامل</label>
-                                                <textarea name="details" class="form-control"
-                                                          placeholder="توضیح کامل...">{{ old('details') }}</textarea>
+                                                <textarea name="details" class="form-control" placeholder="توضیح کامل...">{{ old('details') }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +123,7 @@
 @endsection
 @section('scripts')
     <script>
-        $('#primary_image').change(function () {
+        $('#primary_image').change(function() {
             //get the file name
             var fileName = $(this).val().split('\\').pop();
             //replace the "Choose a file" label
@@ -126,5 +135,5 @@
 @section('style')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://unpkg.com/dropzone@5/dist/dropzone.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/dropzone.css" type="text/css"/>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/dropzone.css" type="text/css" />
 @endsection

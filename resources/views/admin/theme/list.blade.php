@@ -25,7 +25,7 @@
                                             <th style="width: 10px">#</th>
                                             <th>نام</th>
                                             <th>برچسب</th>
-                                            <th>نوع قالب</th>
+                                            <th>پکیج</th>
                                             <th>تصویر پیش نمایش</th>
                                             <th>وضعیت</th>
                                             <th>عملیات</th>
@@ -35,7 +35,7 @@
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
                                                 <td>{{ $theme->name }}</td>
                                                 <td>{{ $theme->label }}</td>
-                                                <td>{{ $theme->category }}</td>
+                                                <td>{{ $theme->plan?->label }} <span style="font-size:small"> ({{$theme->plan?->plan_type}})</span></td>
                                                 <td>
                                                     @if ($theme->preview)
                                                         <img class="w-100 img-thumbnail object-fit-contain"

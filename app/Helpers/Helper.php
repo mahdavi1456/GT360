@@ -1,14 +1,16 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\Font;
 use App\Models\Project;
 use App\Models\Setting;
+use public_html\class\charge;
 use Illuminate\Support\Facades\Auth;
 
 function adminBar()
 {
     if (Auth::check()) {
-        ?>
+?>
         <style type="text/css">
             .admin-bar {
                 width: 100%;
@@ -19,15 +21,18 @@ function adminBar()
                 background-color: #222;
                 border-color: #080808;
             }
+
             .admin-bar-list {
                 list-style: none;
                 float: right;
                 margin: auto;
                 padding: 10px 20px;
             }
+
             .admin-bar-list li {
                 display: inline-block;
             }
+
             .admin-bar-list li a {
                 padding: 5px 10px;
                 color: #828282;
@@ -44,7 +49,7 @@ function adminBar()
                 </ul>
             </div>
         </nav>
-        <?php
+    <?php
     }
 }
 
@@ -60,7 +65,7 @@ function breadcrumb($title)
             <li class="breadcrumb-item active">فرم‌های پیشرفته</li>
         </ol>
     </div> -->
-    <?php
+<?php
 }
 
 function fa_number($string)
@@ -216,9 +221,9 @@ function ert($variable)
 function imageLoader($key)
 {
     $setting = new Setting();
-    $accountId=auth()->user()->account->id;
+    $accountId = auth()->user()->account->id;
     $projectId = Project::checkOpenProject($accountId)->project_id;
-    return $setting->getSetting($key,$accountId,$projectId);
+    return $setting->getSetting($key, $accountId, $projectId);
 }
 
 function getIp()
@@ -234,4 +239,18 @@ function getIp()
         }
     }
     return request()->ip(); // it will return the server IP if the client IP is not found using this method.
+}
+
+function charge()
+{
+    $projectSetting = Project::checkOpenProject(auth()->user()->account_id);
+    if ($projectSetting) {
+        //$projectName = Project::getProjectName($project->project_id);
+        $project = Project::find($projectSetting->project_id);
+        $expirationTime = Carbon::parse($project->expire);
+        if (Carbon::now()->lt($expirationTime)) {
+            return true;
+        }
+    }
+    return false;
 }
