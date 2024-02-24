@@ -14,7 +14,8 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-12">
-                                        <a href="{{ route('project.create') }}" class="pull-left btn btn-info btn-sm text-white">پروژه جدید</a>
+                                        <a href="{{ route('project.create') }}"
+                                            class="pull-left btn btn-info btn-sm text-white">پروژه جدید</a>
                                     </div>
                                 </div>
                             </div>
@@ -32,23 +33,37 @@
                                             <tr>
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
                                                 <td>
-                                                    <img class="object-fit-contain" style="width: 150px" src="{{$project->logo?asset(ert('aip') . $project->logo) : asset('v1/images/logo.png') }}">
+                                                    <img class="object-fit-contain" style="width: 150px"
+                                                        src="{{ $project->logo ? asset(ert('aip') . $project->logo) : asset('v1/images/logo.png') }}">
                                                 </td>
                                                 <td>{{ $project->title }}</td>
                                                 <td>{!! $project->description !!}</td>
-                                                @if (charge())
-                                                <td>
-                                                    <a href="{{ route('project.show', $project->id) }}" class="btn btn-success btn-sm">میز کار</a>
-                                                    <a href="{{ route('openProject', ['project_id' => $project->id]) }}" class="btn btn-info btn-sm">ورود به پروژه</a>
-                                                    <a href="{{ route('project.create', ['update' => $project->id]) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-                                                    <a href="{{ route('project.destroy', $project->id) }}"  data-confirm-delete="true" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                                </td>
-                                                @else
-                                                <a href="{{ route('project.show', $project->id) }}" class="btn btn-success btn-sm">میز کار</a>
-                                                <a href="{{ route('openProject', ['project_id' => $project->id]) }}" class="btn btn-info btn-sm">ورود به پروژه</a>
-                                                <a href="{{ route('project.create', ['update' => $project->id]) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-                                                <a href="{{ route('project.destroy', $project->id) }}"  data-confirm-delete="true" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                                @endif
+                                                {{-- @if (charge()) --}}
+                                                    <td>
+                                                        <a href="{{ route('project.show', $project->id) }}"
+                                                            class="btn btn-success btn-sm">میز کار</a>
+                                                        <a href="{{ route('openProject', ['project_id' => $project->id]) }}"
+                                                            class="btn btn-info btn-sm">ورود به پروژه</a>
+                                                        <a href="{{ route('project.create', ['update' => $project->id]) }}"
+                                                            class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                                                        <a href="{{ route('project.destroy', $project->id) }}"
+                                                            data-confirm-delete="true" class="btn btn-danger btn-sm"><i
+                                                                class="fa fa-trash"></i></a>
+                                                    </td>
+                                                {{-- @else
+                                                    <td>
+                                                        <button class="btn btn-sm btn-primary"> شارژ نداره</button>
+                                                        <a href="{{ route('project.show', $project->id) }}"
+                                                            class="btn btn-success btn-sm">میز کار</a>
+                                                        <a href="{{ route('openProject', ['project_id' => $project->id]) }}"
+                                                            class="btn btn-info btn-sm">ورود به پروژه</a>
+                                                        <a href="{{ route('project.create', ['update' => $project->id]) }}"
+                                                            class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
+                                                        <a href="{{ route('project.destroy', $project->id) }}"
+                                                            data-confirm-delete="true" class="btn btn-danger btn-sm"><i
+                                                                class="fa fa-trash"></i></a>
+                                                    </td>
+                                                @endif --}}
                                             </tr>
                                         @endforeach
                                     </table>
