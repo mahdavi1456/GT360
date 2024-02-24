@@ -55,7 +55,7 @@ class TransactionController extends Controller
             alert()->error('خطا', 'پرداخت شما با خطا همراه بود');
             return to_route('transaction.report');
         }elseif ($result['status'] == 'verified') {
-            alert()->warnnig('خطا', 'این خطا قبلا تایید شده بود');
+            alert()->warning('خطا', 'این خطا قبلا تایید شده بود');
         }
         dd($result, 'out');
     }
