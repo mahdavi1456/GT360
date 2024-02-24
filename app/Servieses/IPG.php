@@ -95,14 +95,20 @@ class IPG
                 $transaction->ref_id = $result['data']['ref_id'];
                 $transaction->save();
                 $status = 'success';
-            } else {
+                $transaction->message = $this->getStatusDetails($result['data']['code']);
+                $transaction->status = $result['data']['code'];
+            } elseif($result['data']['code'] == 101) {
                 $array = $transaction->toArray();
                 unset($array["updated_at"], $array['id'], $array['created_at']);
-                Transaction::create($array);
+                $newTr= Transaction::create($array);
+                $newTr->ref_id = $result['data']['ref_id'];
                 $status = 'verified';
+                $newTr->message = $this->getStatusDetails($result['data']['code']);
+                $newTr->status = $result['data']['code'];
+                $newTr->save();
             }
-            $transaction->message = $this->getStatusDetails($result['data']['code']);
-            $transaction->status = $result['data']['code'];
+
+            $transaction->save();
             return ['model' => $transaction, 'status' => $status];
         } else {
             $transaction->message = $this->getStatusDetails($result['errors']['code']);
