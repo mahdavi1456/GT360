@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\User;
 use App\Servieses\Sms;
 use App\Models\Account;
@@ -62,7 +63,7 @@ use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
 
 //Website
-Route::middleware(['webVisit'])->group(function(){
+Route::middleware(['webVisit'])->group(function () {
     Route::get('/web/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
     Route::get('/web/{slug}/reserve', [AccountController::class, 'reserve'])->name('reserve');
     Route::get('/web/{slug}/page/{link}/{pageId}', [AccountController::class, 'showPage'])->name('showPage');
@@ -103,8 +104,7 @@ Route::post('/check-confirm-customer', [ConfirmCustomerController::class, 'check
 //Transaction
 Route::post('/start-transaction', [TransactionController::class, 'start'])->name('transaction.start');
 Route::get('/verify-transaction', [TransactionController::class, 'verify'])->name('transaction.verify');
-Route::post('/payment-start/{type}', [TransactionController::class, 'paymentStart'])->name('paymentStart');
-Route::get('/transactions-report', [TransactionController::class, 'reports'])->name('transaction.report');
+
 
 
 
@@ -116,16 +116,20 @@ Route::middleware(['auth', 'visit'])->group(function () {
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
 
+        //transactions
+        Route::post('/payment-start/{type}', [TransactionController::class, 'paymentStart'])->name('paymentStart');
+        Route::get('/transactions-report', [TransactionController::class, 'reports'])->name('transaction.report');
+
         //agent a cos
-        Route::get('subsets',[AccountController::class, 'subsetList'])->name('subsets');
+        Route::get('subsets', [AccountController::class, 'subsetList'])->name('subsets');
 
         //Nav
         Route::resource('nav', NavController::class);
-        Route::get('nav-items', [NavController::class,'navItems'])->name('nav.items');
-        Route::get('nav-item-resort', [NavController::class,'resortItems'])->name('nav.resort');
+        Route::get('nav-items', [NavController::class, 'navItems'])->name('nav.items');
+        Route::get('nav-item-resort', [NavController::class, 'resortItems'])->name('nav.resort');
 
         //Project
-        Route::delete('project/{logo}/destroy', [ProjectController::class,'logoDestroy'])->name('project.logo.destroy');
+        Route::delete('project/{logo}/destroy', [ProjectController::class, 'logoDestroy'])->name('project.logo.destroy');
         Route::resource('project', ProjectController::class);
         Route::get('/choose-project', [ProjectController::class, 'chooseProject'])->name('chooseProject');
         Route::get('/open-project', [ProjectController::class, 'openProject'])->name('openProject');
@@ -144,7 +148,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
 
 
 
-        Route::get('/dashboard', [AccountController::class, 'dashboard'])->middleware(['verified','charge'])->name('dashboard');
+        Route::get('/dashboard', [AccountController::class, 'dashboard'])->middleware(['verified', 'charge'])->name('dashboard');
 
         Route::get('/visits', [LogController::class, 'visits'])->name('log.visits');
         Route::resource('media', MediaController::class);
@@ -192,8 +196,8 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::post('term-list', [TermController::class, 'termList'])->name('termList');
 
         Route::resource('post', PostController::class);
-        Route::get('page-destroy-image',[PageController::class,'pageImageDestroy'])->name('pageImage.destroy');
-        Route::post('page-upload-image',[PageController::class,'uploadImage'])->name('page.image');
+        Route::get('page-destroy-image', [PageController::class, 'pageImageDestroy'])->name('pageImage.destroy');
+        Route::post('page-upload-image', [PageController::class, 'uploadImage'])->name('page.image');
         Route::resource('page', PageController::class);
         Route::resource('category', CategoryController::class);
         Route::resource('transport', TransportController::class);
