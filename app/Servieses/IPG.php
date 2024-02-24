@@ -87,8 +87,7 @@ class IPG
         $result = json_decode($result, true);
 
         //Update Payment Transaction Result Data
-        $transaction->message = $this->getStatusDetails($result['errors']['code']);
-        $transaction->status = $result['errors']['code'];
+        dd($result);
 
         if ($result['errors']['code'] == 100) {
             // echo 'Transation success. RefID:' . $result['data']['ref_id'];
@@ -96,6 +95,8 @@ class IPG
             $transaction->save();
             return ['model' => $transaction, 'status' => 'success'];
         } else {
+            $transaction->message = $this->getStatusDetails($result['errors']['code']);
+            $transaction->status = $result['errors']['code'];
             $transaction->save();
             $code = 'code: ' . $this->getStatusDetails($result['errors']['code']);
             $message =  'message: ' . $result['errors']['message'];
@@ -105,7 +106,7 @@ class IPG
 
     public function getStatusDetails($code)
     {
-        $msg=$code;
+
         switch ($code) {
             case -9:
                 $msg = "خطای اعتبار سنجی";
