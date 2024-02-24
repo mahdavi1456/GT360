@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreignId('account_id');
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
             $table->string('logo')->nullable();
+            $table->string('expire')->nullable();
+            $table->string('item_id')->nullable();
             $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();

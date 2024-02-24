@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('ref_id')->nullable()->comment('رسید پرداخت');
             $table->integer('record_id')->nullable()->comment('کد مورد');
             $table->string('record_type')->nullable()->comment('نوع مورد');
+            $table->integer('project_id')->nullable()->comment('پروژه');
             $table->string('message')->nullable()->comment('پیام وضعیت پرداخت');
             $table->double('price')->comment('مبلغ');
             $table->timestamps();
