@@ -87,13 +87,23 @@ class IPG
         $result = json_decode($result, true);
 
         //Update Payment Transaction Result Data
-        dd($result);
 
-        if ($result['errors']['code'] == 100) {
+
+        if (isset($result['data']['code'])) {
             // echo 'Transation success. RefID:' . $result['data']['ref_id'];
-            $transaction->ref_id = $result['data']['ref_id'];
-            $transaction->save();
-            return ['model' => $transaction, 'status' => 'success'];
+            if ($result['data']['code'] == 100) {
+                $transaction->ref_id = $result['data']['ref_id'];
+                $transaction->save();
+                $status = 'success';
+            } else {
+                $array = $transaction->toArray();
+                unset($array["updated_at"], $array['id'], $array['created_at']);
+                Transaction::create($array);
+                $status = 'verified';
+            }
+            $transaction->message = $this->getStatusDetails($result['data']['code']);
+            $transaction->status = $result['data']['code'];
+            return ['model' => $transaction, 'status' => $status];
         } else {
             $transaction->message = $this->getStatusDetails($result['errors']['code']);
             $transaction->status = $result['errors']['code'];
