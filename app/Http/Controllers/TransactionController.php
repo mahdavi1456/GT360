@@ -56,6 +56,7 @@ class TransactionController extends Controller
             return to_route('transaction.report');
         }elseif ($result['status'] == 'verified') {
             alert()->warning('خطا', 'این خطا قبلا تایید شده بود');
+            return to_route('transaction.report');
         }
         dd($result, 'out');
     }
