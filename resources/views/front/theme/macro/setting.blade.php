@@ -46,16 +46,27 @@
     @if ($settingModel->getSetting('introduce_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
-                <div class="col-6 form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="first_title" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('first_title', $account->id) }}">
+                <div class="col-4 form-group ">
+                    <label class="form-label ">تصویر اول</label>
+                    <input type="file" name="image1_sec1" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image1_sec1'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image1_sec1')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 form-group">
-                    <label class="form-label">متن اول</label>
-                    <textarea rows="4" name="first_text" class="form-control" placeholder="متن اول...">{{ $settingModel->getSetting('first_text', $account->id) }}</textarea>
+                <div class="col form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title1_sec1" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title1_sec1', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان اول</label>
+                    <input type="text" name="subtitle1_sec1" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('subtitle1_sec1', $account->id) }}">
                 </div>
             </div>
         </div>
