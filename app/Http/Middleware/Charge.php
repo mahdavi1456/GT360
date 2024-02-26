@@ -18,7 +18,8 @@ class Charge
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->account->acl=='super-account') {
+     
+        if (auth()->user()->account->account_acl=='super-account') {
             return $next($request);
         }
         $projectSetting =Project::checkOpenProject(auth()->user()->account_id);
@@ -29,7 +30,7 @@ class Charge
             if (Carbon::now()->lt($expirationTime)) {
                 return $next($request);
             } else {
-                alert()->info('توجه','پروژه انتخابی شما فاقد اعتبار است لطفا اقدام به خرید اشتراک کنید')->showConfirmButton('باشه');
+                alert()->info('توجه','پروژه شما فاقد اعتبار است لطفا اقدام به خرید اشتراک کنید')->showConfirmButton('باشه');
                 return to_route('project.index');
             }
         } else {
