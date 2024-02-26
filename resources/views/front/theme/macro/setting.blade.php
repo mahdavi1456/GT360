@@ -15,6 +15,8 @@
                     </div>
                 @endif
             </div>
+        </div>
+        <div class="row">
             <div class="col-4 form-group">
                 <label class="form-label">عنوان</label>
                 <input type="text" name="title" class="form-control" placeholder="عنوان..."
