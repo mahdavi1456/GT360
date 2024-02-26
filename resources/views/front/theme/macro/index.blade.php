@@ -308,7 +308,7 @@
                                 <div class="container">
                                     <div class="row mt centered ">
                                         <div class="col-lg-4 col-lg-offset-4">
-                                            <h3>Brands & Clients</h3>
+                                            <h3>{{ $settingModel->getSetting('title_sec4', $accountId, $projectId) }}</h3>
                                             <hr>
                                         </div><!-- /col-lg-4 -->
                                     </div><!-- /row -->
