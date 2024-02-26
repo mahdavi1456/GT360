@@ -194,7 +194,7 @@
     @if ($settingModel->getSetting('sec3_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویراول</label>
                     <input type="file" name="image1_sec3" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image1_sec3'))
@@ -215,7 +215,7 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر دوم</label>
                     <input type="file" name="image2_sec3" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image2_sec3'))
@@ -235,7 +235,7 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر سوم</label>
                     <input type="file" name="image3_sec3" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image3_sec3'))
@@ -256,7 +256,7 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر چهارم</label>
                     <input type="file" name="image4_sec3" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image4_sec3'))
@@ -277,7 +277,7 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر پنجم</label>
                     <input type="file" name="image_sec3" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image5_sec3'))
@@ -298,7 +298,7 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر پنجم</label>
                     <input type="file" name="image5_sec3" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image5_sec3'))
