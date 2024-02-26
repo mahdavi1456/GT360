@@ -120,8 +120,8 @@
 					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
 					</div>
 				</a>
-				<p>{{ $settingModel->getSetting('title1_sec1', $account->id) }}</p>
-				<p class="lead">{{ $settingModel->getSetting('subtitle1_sec1', $account->id) }}</p>
+				<p>6666</p>
+				<p class="lead">3333</p>
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 1 | <i class="fa fa-calendar"></i> 13 Oct.</p>
 			</div><!-- col-lg-4 -->
