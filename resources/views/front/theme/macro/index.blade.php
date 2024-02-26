@@ -101,14 +101,14 @@
 
 		<div class="row mt">
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId,$projectId)) }}" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec1', $accountId,$projectId)) }}" alt="" />
 					<div class="b-wrapper">
-					  	<h4 class="b-from-left b-animate b-delay03">{{ $settingModel->getSetting('title1_sec1', $accountId, $projectId) }}</h4>
-					  	<p class="b-from-right b-animate b-delay03">{{ $settingModel->getSetting('subtitle1_sec1', $accountId, $projectId) }}</p>
+					  	<h4 class="b-from-left b-animate b-delay03">Post 1</h4>
+					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
 					</div>
 				</a>
-				<p>{{ $settingModel->getSetting('title2_sec1', $accountId, $projectId) }}</p>
-				<p class="lead">{{ $settingModel->getSetting('subtitle2_sec1', $accountId, $projectId) }}</p>
+				<p>The Sky Is The Limit</p>
+				<p class="lead">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 3 | <i class="fa fa-calendar"></i> 14 Nov.</p>
 			</div><!-- col-lg-4 -->
@@ -120,8 +120,8 @@
 					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
 					</div>
 				</a>
-				<p>Another Cool Stuff</p>
-				<p class="lead">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+				<p>{{ $settingModel->getSetting('title1_sec1', $account->id) }}</p>
+				<p class="lead">{{ $settingModel->getSetting('subtitle1_sec1', $account->id) }}</p>
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 1 | <i class="fa fa-calendar"></i> 13 Oct.</p>
 			</div><!-- col-lg-4 -->
