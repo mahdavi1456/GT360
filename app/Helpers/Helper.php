@@ -241,16 +241,4 @@ function getIp()
     return request()->ip(); // it will return the server IP if the client IP is not found using this method.
 }
 
-function charge()
-{
-    $projectSetting = Project::checkOpenProject(auth()->user()->account_id);
-    if ($projectSetting) {
-        //$projectName = Project::getProjectName($project->project_id);
-        $project = Project::find($projectSetting->project_id);
-        $expirationTime = Carbon::parse($project->expire);
-        if (Carbon::now()->lt($expirationTime)) {
-            return true;
-        }
-    }
-    return false;
-}
+

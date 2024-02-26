@@ -109,7 +109,7 @@
                                             <th>پروژه</th>
                                             <th>ارزش</th>
                                             <th>پیغام</th>
-                                            <th>وضعیت</th>
+                                            <th>کد وضعیت </th>
 
                                         </tr>
                                         @foreach ($transactions as $key => $transaction)
