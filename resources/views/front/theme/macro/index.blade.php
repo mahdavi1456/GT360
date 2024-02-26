@@ -316,22 +316,22 @@
                                     <div class="row centered">
                                         <div class="col-lg-3 pt">
                                             <img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/macro') }}/img/clients/client01.png"
+                                                src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec4', $accountId, $projectId)) }}"
                                                 alt="">
                                         </div>
                                         <div class="col-lg-3 pt">
                                             <img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/macro') }}/img/clients/client02.png"
+                                                src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec4', $accountId, $projectId)) }}"
                                                 alt="">
                                         </div>
                                         <div class="col-lg-3 pt">
                                             <img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/macro') }}/img/clients/client03.png"
+                                                src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec4', $accountId, $projectId)) }}"
                                                 alt="">
                                         </div>
                                         <div class="col-lg-3 pt">
                                             <img class="img-responsive"
-                                                src="{{ asset('front-theme-asset/macro') }}/img/clients/client04.png"
+                                                src="{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec4', $accountId, $projectId)) }}"
                                                 alt="">
                                         </div>
 
