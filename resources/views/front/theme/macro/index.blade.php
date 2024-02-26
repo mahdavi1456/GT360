@@ -80,8 +80,8 @@
     	<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2 mt">
-					<h1 class="animation slideDown">We are a digital creative agency. We focus on design, consulting, and technology.</h1>
-    				<p class="mt"><button type="button" class="btn btn-cta btn-lg">LEARN MORE</button></p>
+					<h1 class="animation slideDown">{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
+    				<p class="mt"><button type="button" class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title', $accountId, $projectId) }}</button></p>
 				</div>
 
 			</div><!-- /row -->
@@ -94,21 +94,21 @@
 
 		<div class="row mt centered ">
 			<div class="col-lg-4 col-lg-offset-4">
-				<h3>What Is Happening?</h3>
+				<h3>{{ $settingModel->getSetting('title_sec1', $accountId, $projectId) }}</h3>
 				<hr>
 			</div>
 		</div><!-- /row -->
 
 		<div class="row mt">
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port04.jpg" alt="" />
+				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec1', $accountId,$projectId)) }}" alt="" />
 					<div class="b-wrapper">
 					  	<h4 class="b-from-left b-animate b-delay03">Post 1</h4>
 					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
 					</div>
 				</a>
-				<p>The Sky Is The Limit</p>
-				<p class="lead">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+				<p>{{ $settingModel->getSetting('title1_sec1', $accountId, $projectId) }}</p>
+				<p class="lead">{{ $settingModel->getSetting('subtitle1_sec1', $accountId, $projectId) }}</p>
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 3 | <i class="fa fa-calendar"></i> 14 Nov.</p>
 			</div><!-- col-lg-4 -->
@@ -120,8 +120,8 @@
 					  	<p class="b-from-right b-animate b-delay03">Read More.</p>
 					</div>
 				</a>
-				<p>Another Cool Stuff</p>
-				<p class="lead">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+				<p>6666</p>
+				<p class="lead">3333</p>
 				<hr-d>
 				<p class="time"><i class="fa fa-comment-o"></i> 1 | <i class="fa fa-calendar"></i> 13 Oct.</p>
 			</div><!-- col-lg-4 -->
