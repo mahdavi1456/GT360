@@ -335,7 +335,7 @@
     @if ($settingModel->getSetting('sec4_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
-                <div class="col-12 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر اول</label>
                     <input type="file" name="image1_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image1_sec4'))
@@ -347,7 +347,7 @@
                         </div>
                     @endif
                 </div>
-                    <div class="col-12 form-group ">
+                    <div class="col-6 form-group ">
                     <label class="form-label ">تصویر دوم</label>
                     <input type="file" name="image2_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image2_sec4'))
@@ -359,7 +359,7 @@
                         </div>
                     @endif
                 </div>
-                    <div class="col-12 form-group ">
+                    <div class="col-6 form-group ">
                     <label class="form-label ">تصویر سوم</label>
                     <input type="file" name="image3_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image3_sec4'))
@@ -371,7 +371,7 @@
                         </div>
                     @endif
                 </div>
-                    <div class="col-12 form-group ">
+                    <div class="col-6 form-group ">
                     <label class="form-label ">تصویر چهارم</label>
                     <input type="file" name="image4_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image4_sec4'))
