@@ -44,6 +44,13 @@
     @if ($settingModel->getSetting('sec1_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title_sec1" class="form-control" placeholder="عنوان..."
+                        value="{{ $settingModel->getSetting('title_sec1', $account->id) }}">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر اول</label>
                     <input type="file" name="image1_sec1" onchange="uploadImage(this)">
