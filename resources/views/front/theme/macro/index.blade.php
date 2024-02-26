@@ -207,9 +207,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
-                                <h2>The probability of success is difficult to estimate;<br />but if we never search,
-                                    the chance of success is zero.</h2>
-                                <button type="button" class="btn btn-cta btn-lg">LEARN MORE</button>
+                                <h2>{{ $settingModel->getSetting('title_sec2', $accountId, $projectId) }}</h2>
+                                <button type="button" class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title_sec2', $accountId, $projectId) }}</button>
                             </div>
                         </div><!-- /row -->
                     </div><!-- /container -->
