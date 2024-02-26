@@ -98,7 +98,7 @@
 				<hr>
 			</div>
 		</div><!-- /row -->
-resources\views\front\theme\macro\index.blade.php
+
 		<div class="row mt">
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
 				<a class="b-link-fade b-animate-go" href="#"><img width="350" src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec1', $accountId,$projectId)) }}" alt="" />
