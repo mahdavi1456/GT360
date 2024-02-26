@@ -299,12 +299,12 @@
             <hr>
             <div class="row">
                 <div class="col-6 form-group ">
-                    <label class="form-label ">تصویر پنجم</label>
-                    <input type="file" name="image5_sec3" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image5_sec3'))
+                    <label class="form-label ">تصویر ششم</label>
+                    <input type="file" name="image6_sec3" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image6_sec3'))
                         <div class="imageLoader position-relative">
                             <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image5_sec3')"
+                            <button type="button" onclick="destroyImage('image6_sec3')"
                                 class="btn btn-sm btn-danger position-absolute"
                                 style="bottom: 0; left: 49%">حذف</button>
                         </div>
