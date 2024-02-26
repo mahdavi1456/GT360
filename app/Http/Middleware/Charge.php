@@ -29,7 +29,7 @@ class Charge
             if (Carbon::now()->lt($expirationTime)) {
                 return $next($request);
             } else {
-                alert()->info('توجه','پروژه انتخابی شما فاقد اعتبار است لطفا اقدام به خرید اشتراک کنید');
+                alert()->info('توجه','پروژه انتخابی شما فاقد اعتبار است لطفا اقدام به خرید اشتراک کنید')->showConfirmButton('باشه');
                 return to_route('project.index');
             }
         } else {
