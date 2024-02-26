@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Setting;
+use Carbon\Carbon;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Setting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 
 class Project extends Model
 {
@@ -81,6 +83,31 @@ class Project extends Model
         } else {
             return null;
         }
+    }
+    public function charge()
+    {
+        if (Gate::allows('SuperAccount')) {
+           return true;
+        }
+
+            $expirationTime = Carbon::parse($this->expire);
+            if (Carbon::now()->lt($expirationTime)) {
+                return true;
+            }
+
+        return false;
+    }
+    public function deltaExpire()
+    {
+        if ($this->expire) {
+            if ($this->charge()) {
+                return "تا پایان اعتبار: " .Carbon::parse($this->expire)->diffForHumans(['parts'=>2]);
+            }else {
+                return "پایان یافته: " .Carbon::parse($this->expire)->diffForHumans(['parts'=>2]);
+            }
+         }
+
+        return false;
     }
 
 }

@@ -27,7 +27,8 @@
                     @php
                         $project = App\Models\Project::checkOpenProject(auth()->user()->account->id);
                         if ($project) {
-                            $projectName = App\Models\Project::getProjectName($project->project_id);
+                            $projectModel=App\Models\Project::find($project->project_id);
+                            $projectName = $projectModel->title;
                         } else {
                             $projectName = '';
                         }
@@ -170,7 +171,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        @if ($projectModel->charge())
                         <li
                             class="nav-item has-treeview  {{ active_list(['discount.index', 'addons.index', 'addons.edit', 'payments_type.index', 'transport.index', 'shopSetting']) }}">
                             <a href="#" class="nav-link main-menu">
@@ -291,7 +292,7 @@
                                 </li>
                             </ul>
                         </li>
-
+                        @endif
                         <li class="nav-item has-treeview {{ active_dropdown(['log.visits']) }}">
                             <a href="#" class="nav-link main-menu">
                                 <i class="nav-icon fa fa-clipboard"></i>
@@ -301,6 +302,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview sub-menu" {{ active_list(['log.visits']) }}>
+                                <li class="nav-item" {{ active_menu('log.visits') }}>
+                                    <a href="{{ route('transaction.report') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>تراکنش ها</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item" {{ active_menu('log.visits') }}>
                                     <a href="{{ route('log.visits') }}" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
