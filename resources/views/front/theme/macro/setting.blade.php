@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4 form-group">
+            <div class="col-6 form-group">
                 <label class="form-label">عنوان</label>
                 <input type="text" name="title" class="form-control" placeholder="عنوان..."
                     value="{{ $settingModel->getSetting('title', $account->id) }}">
