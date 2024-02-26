@@ -171,14 +171,6 @@
         </div>
     @endif
 </div>
-
-
-
-
-
-
-
-
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title pull-right">بخش سوم</h3>
@@ -193,6 +185,13 @@
     </div>
     @if ($settingModel->getSetting('sec3_status', $account->id) == 1)
         <div class="card-body">
+            <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title_sec3" class="form-control" placeholder="عنوان..."
+                        value="{{ $settingModel->getSetting('title_sec3', $account->id) }}">
+                </div>
+            </div>
             <div class="row">
                 <div class="col-6 form-group ">
                     <label class="form-label ">تصویراول</label>
