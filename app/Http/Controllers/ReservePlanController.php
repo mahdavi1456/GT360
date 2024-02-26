@@ -15,16 +15,25 @@ class ReservePlanController extends Controller
     public function index(Request $request)
     {
         if (isset($request->year)) {
+            $date = verta();
             $currentYear = $request->year;
             $currentMonth = $request->month;
+            $date->year = $currentYear;
+            $date->month = $currentMonth;
+            //   dd( $currentYear, $currentMonth,$date);
         } else {
-            $v = verta();
-            $currentYear = $v->year;
-            $currentMonth = $v->month;
+            $date = verta();
+            $currentYear = $date->year;
+            $currentMonth = $date->month;
+
+            $date = verta();
+
+
         }
+        $date->startMonth();
         $reserveParts = ReservePart::all();
-        $reservePlanModel = New ReservePlan;
-        return view('admin.reserve.plan.index', compact('reserveParts', 'currentYear', 'currentMonth', 'reservePlanModel', 'request'));
+        $reservePlanModel = new ReservePlan;
+        return view('admin.reserve.plan.index', compact('reserveParts', 'date', 'currentYear', 'currentMonth', 'reservePlanModel', 'request'));
     }
 
     public function create()
@@ -73,7 +82,7 @@ class ReservePlanController extends Controller
             $currentMonth = 3;
         }
         $reserveParts = ReservePart::all();
-        $reservePlanModel = New ReservePlan;
+        $reservePlanModel = new ReservePlan;
         return view('admin.reserve.plan.index', compact('reserveParts', 'currentYear', 'currentMonth', 'reservePlanModel'));
     }
 
@@ -119,5 +128,4 @@ class ReservePlanController extends Controller
         $reserevePlanModel = new ReservePlan;
         return $reserevePlanModel->ConfirmMobileForm($id, $ro_mobile);
     }
-
 }
