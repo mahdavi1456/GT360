@@ -207,9 +207,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
-                                <h2>The probability of success is difficult to estimate;<br />but if we never search,
-                                    the chance of success is zero.</h2>
-                                <button type="button" class="btn btn-cta btn-lg">LEARN MORE</button>
+                                <h2>{{ $settingModel->getSetting('title_sec2', $accountId, $projectId) }}</h2>
+                                <button type="button" class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title_sec2', $accountId, $projectId) }}</button>
                             </div>
                         </div><!-- /row -->
                     </div><!-- /container -->
@@ -228,71 +227,71 @@
                             <div class="row mt centered">
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
-                                            src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port01.jpg"
+                                            src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec3', $accountId, $projectId)) }}"
                                             alt="" />
                                         <div class="b-wrapper">
                                             <h4 class="b-from-left b-animate b-delay03">Project 1</h4>
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>APE - <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title1_sec3', $accountId, $projectId) }} <i class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
-                                            src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port02.jpg"
+                                            src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec3', $accountId, $projectId)) }}"
                                             alt="" />
                                         <div class="b-wrapper">
                                             <h4 class="b-from-left b-animate b-delay03">Project 2</h4>
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>RAIDERS - <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title2_sec3', $accountId, $projectId) }}<i class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
-                                            src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port03.jpg"
+                                            src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec3', $accountId, $projectId)) }}"
                                             alt="" />
                                         <div class="b-wrapper">
                                             <h4 class="b-from-left b-animate b-delay03">Project 3</h4>
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>VIKINGS - <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title3_sec3', $accountId, $projectId) }}<i class="fa fa-heart-o"></i></p>
                                 </div>
                             </div><!-- /row -->
                             <div class="row mt centered">
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
-                                            src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port03.jpg"
+                                            src="{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec3', $accountId, $projectId)) }}"
                                             alt="" />
                                         <div class="b-wrapper">
                                             <h4 class="b-from-left b-animate b-delay03">Project 4</h4>
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>APE - <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title4_sec3', $accountId, $projectId) }} <i class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
-                                            src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port01.jpg"
+                                            src="{{ asset(ert('tsp') . $settingModel->getSetting('image5_sec3', $accountId, $projectId)) }}"
                                             alt="" />
                                         <div class="b-wrapper">
                                             <h4 class="b-from-left b-animate b-delay03">Project 5</h4>
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>RAIDERS - <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title5_sec3', $accountId, $projectId) }} <i class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
-                                            src="{{ asset('front-theme-asset/macro') }}/img/portfolio/port02.jpg"
+                                            src="{{ asset(ert('tsp') . $settingModel->getSetting('image6_sec3', $accountId, $projectId)) }}"
                                             alt="" />
                                         <div class="b-wrapper">
                                             <h4 class="b-from-left b-animate b-delay03">Project 6</h4>
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>VIKINGS - <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title6_sec3', $accountId, $projectId) }}<i class="fa fa-heart-o"></i></p>
                                 </div>
                             </div><!-- /row -->
 
