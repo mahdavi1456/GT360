@@ -80,8 +80,8 @@
     	<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2 mt">
-					<h1 class="animation slideDown">We are a digital creative agency. We focus on design, consulting, and technology.</h1>
-    				<p class="mt"><button type="button" class="btn btn-cta btn-lg">LEARN MORE</button></p>
+					<h1 class="animation slideDown">{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
+    				<p class="mt"><button type="button" class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title', $accountId, $projectId) }}</button></p>
 				</div>
 
 			</div><!-- /row -->
