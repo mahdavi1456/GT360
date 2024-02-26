@@ -73,6 +73,16 @@
                     <input type="text" name="subtitle1_sec1" class="form-control" placeholder="عنوان بزرگ..."
                         value="{{ $settingModel->getSetting('subtitle1_sec1', $account->id) }}">
                 </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="title2_sec1" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title2_sec1', $account->id) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان دوم</label>
+                    <input type="text" name="subtitle2_sec1" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('subtitle2_sec1', $account->id) }}">
+                </div>
             </div>
             <hr>
             <div class="row">
