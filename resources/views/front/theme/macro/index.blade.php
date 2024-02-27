@@ -184,7 +184,8 @@
 
                     <div class="col-lg-4 col-md-4 col-xs-12 desc">
                         <a class="b-link-fade b-animate-go" href="#"><img width="350"
-                                src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec1', $accountId, $projectId)) }}" alt="" />
+                                src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec1', $accountId, $projectId)) }}"
+                                alt="" />
                             <div class="b-wrapper">
                                 <h4 class="b-from-left b-animate b-delay03">Post 3</h4>
                                 <p class="b-from-right b-animate b-delay03">Read More.</p>
@@ -208,7 +209,8 @@
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <h2>{{ $settingModel->getSetting('title_sec2', $accountId, $projectId) }}</h2>
-                                <button type="button" class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title_sec2', $accountId, $projectId) }}</button>
+                                <button type="button"
+                                    class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title_sec2', $accountId, $projectId) }}</button>
                             </div>
                         </div><!-- /row -->
                     </div><!-- /container -->
@@ -234,7 +236,8 @@
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>{{ $settingModel->getSetting('title1_sec3', $accountId, $projectId) }} <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title1_sec3', $accountId, $projectId) }} <i
+                                            class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
@@ -245,7 +248,8 @@
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>{{ $settingModel->getSetting('title2_sec3', $accountId, $projectId) }}<i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title2_sec3', $accountId, $projectId) }}<i
+                                            class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
@@ -256,7 +260,8 @@
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>{{ $settingModel->getSetting('title3_sec3', $accountId, $projectId) }}<i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title3_sec3', $accountId, $projectId) }}<i
+                                            class="fa fa-heart-o"></i></p>
                                 </div>
                             </div><!-- /row -->
                             <div class="row mt centered">
@@ -269,7 +274,8 @@
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>{{ $settingModel->getSetting('title4_sec3', $accountId, $projectId) }} <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title4_sec3', $accountId, $projectId) }} <i
+                                            class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
@@ -280,7 +286,8 @@
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>{{ $settingModel->getSetting('title5_sec3', $accountId, $projectId) }} <i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title5_sec3', $accountId, $projectId) }} <i
+                                            class="fa fa-heart-o"></i></p>
                                 </div>
                                 <div class="col-lg-4 desc">
                                     <a class="b-link-fade b-animate-go" href="#"><img width="350"
@@ -291,7 +298,8 @@
                                             <p class="b-from-right b-animate b-delay03">View Details</p>
                                         </div>
                                     </a>
-                                    <p>{{ $settingModel->getSetting('title6_sec3', $accountId, $projectId) }}<i class="fa fa-heart-o"></i></p>
+                                    <p>{{ $settingModel->getSetting('title6_sec3', $accountId, $projectId) }}<i
+                                            class="fa fa-heart-o"></i></p>
                                 </div>
                             </div><!-- /row -->
 
@@ -308,7 +316,8 @@
                                 <div class="container">
                                     <div class="row mt centered ">
                                         <div class="col-lg-4 col-lg-offset-4">
-                                            <h3>{{ $settingModel->getSetting('title_sec4', $accountId, $projectId) }}</h3>
+                                            <h3>{{ $settingModel->getSetting('title_sec4', $accountId, $projectId) }}
+                                            </h3>
                                             <hr>
                                         </div><!-- /col-lg-4 -->
                                     </div><!-- /row -->
@@ -346,17 +355,16 @@
                                     <div class="container">
                                         <div class="row mt centered">
                                             <div class="col-lg-4 col-lg-offset-4">
-                                                <h3>Our Work Process</h3>
+                                                <h3>{{ $settingModel->getSetting('title1_sec5', $accountId, $projectId) }}
+                                                </h3>
                                                 <hr>
                                             </div><!-- /col-lg-4 -->
                                         </div><!-- /row -->
 
                                         <div class="row mt">
                                             <div class="col-lg-8 col-lg-offset-2">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy text
-                                                    ever since the 1500s, when an unknown printer took a galley of type
-                                                    and scrambled it to make a type specimen book.</p>
+                                                <p>{{ $settingModel->getSetting('title2_sec5', $accountId, $projectId) }}
+                                                </p>
                                             </div>
                                             <! --/col-lg-8 -->
                                         </div><!-- /row -->
@@ -370,39 +378,39 @@
                                         <div class="container">
                                             <div class="row mt">
                                                 <div class="col-lg-4 col-lg-offset-4 centered">
-                                                    <h3>Different Stages</h3>
+                                                    <h3>{{ $settingModel->getSetting('title_sec6', $accountId, $projectId) }}</h3>
                                                     <hr>
                                                 </div>
                                             </div>
                                             <div class="row mt">
                                                 <div class="col-lg-3">
                                                     <p class="capitalize">1</p>
-                                                    <h4>Brief</h4>
-                                                    <p>Built for all levels of expertise, whether you need simple pages
-                                                        or complex ones, creating something incredible with Marco is an
-                                                        effortless and intuitive process.</p>
+                                                    <h4>{{ $settingModel->getSetting('title1_sec6', $accountId, $projectId) }}
+                                                    </h4>
+                                                    <p>{{ $settingModel->getSetting('subtitle1_sec6', $accountId, $projectId) }}
+                                                    </p>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <p class="capitalize">2</p>
-                                                    <h4>Analysis</h4>
-                                                    <p>We’ve taken great care to ensure that Marco is fully
-                                                        retina-ready. So it’ll look good on any retina display. We use
-                                                        retina.js to ensure the best view.</p>
+                                                    <h4>{{ $settingModel->getSetting('title2_sec6', $accountId, $projectId) }}
+                                                    </h4>
+                                                    <p>{{ $settingModel->getSetting('subtitle2_sec6', $accountId, $projectId) }}
+                                                    </p>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <p class="capitalize">3</p>
-                                                    <h4>Planning</h4>
-                                                    <p>Marco fits any device handsomely. We tested our theme in major
-                                                        devices and browsers. Check it out and test it before buy it on
-                                                        responsinator.com.</p>
+                                                    <h4>{{ $settingModel->getSetting('title3_sec6', $accountId, $projectId) }}
+                                                    </h4>
+                                                    <p>{{ $settingModel->getSetting('subtitle3_sec6', $accountId, $projectId) }}
+                                                    </p>
                                                 </div>
 
                                                 <div class="col-lg-3">
                                                     <p class="capitalize">4</p>
-                                                    <h4>Execution</h4>
-                                                    <p>Good looking animations are an essential part of the new theme
-                                                        design trend. We add animations.css, a cool script to help you
-                                                        enhance your site with style.</p>
+                                                    <h4>{{ $settingModel->getSetting('title4_sec6', $accountId, $projectId) }}
+                                                    </h4>
+                                                    <p>{{ $settingModel->getSetting('subtitle4_sec6', $accountId, $projectId) }}
+                                                    </p>
                                                 </div>
                                             </div><!-- /row -->
                                         </div><!-- /container -->
@@ -709,7 +717,8 @@
                                                                                                     }
                                                                                                 </script>
                                                                                                 <p>Follow us
-                                                                                                    <b>@Alvrz_is</b></p>
+                                                                                                    <b>@Alvrz_is</b>
+                                                                                                </p>
                                                                                             </div><!-- /col-lg-3 -->
 
                                                                                             <!-- LATEST POSTS -->
