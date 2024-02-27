@@ -421,12 +421,12 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-12 form-group">
+                <div class="col-6 form-group">
                     <label class="form-label">عنوان اول</label>
                     <input type="text" name="title1_sec5" class="form-control" placeholder="عنوان کوچک..."
                         value="{{ $settingModel->getSetting('title1_sec5', $account->id) }}">
                 </div>
-                <div class="col-12 form-group">
+                <div class="col-6 form-group">
                     <label class="form-label">عنوان دوم</label>
                     <input type="text" name="title2_sec5" class="form-control" placeholder="عنوان بزرگ..."
                         value="{{ $settingModel->getSetting('title2_sec5', $account->id) }}">
