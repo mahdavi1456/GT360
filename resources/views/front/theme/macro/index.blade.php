@@ -378,7 +378,8 @@
                                         <div class="container">
                                             <div class="row mt">
                                                 <div class="col-lg-4 col-lg-offset-4 centered">
-                                                    <h3>{{ $settingModel->getSetting('title_sec6', $accountId, $projectId) }}</h3>
+                                                    <h3>{{ $settingModel->getSetting('title_sec6', $accountId, $projectId) }}
+                                                    </h3>
                                                     <hr>
                                                 </div>
                                             </div>
@@ -422,8 +423,10 @@
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-lg-8 col-lg-offset-2">
-                                                        <h2>{{ $settingModel->getSetting('title_sec7', $accountId, $projectId) }}</h2>
-                                                        <button type="button" class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title_sec7', $accountId, $projectId) }}</button>
+                                                        <h2>{{ $settingModel->getSetting('title_sec7', $accountId, $projectId) }}
+                                                        </h2>
+                                                        <button type="button"
+                                                            class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title_sec7', $accountId, $projectId) }}</button>
                                                     </div>
                                                 </div><!-- /row -->
                                             </div><!-- /container -->
@@ -436,34 +439,46 @@
                                                     <div class="row mt">
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-flask"></i>
-                                                            <h4>{{ $settingModel->getSetting('title1_sec8', $accountId, $projectId) }}</h4>
-                                                            <p>{{ $settingModel->getSetting('subtitle1_sec8', $accountId, $projectId) }}</p>
+                                                            <h4>{{ $settingModel->getSetting('title1_sec8', $accountId, $projectId) }}
+                                                            </h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle1_sec8', $accountId, $projectId) }}
+                                                            </p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-eye"></i>
-                                                            <h4>{{ $settingModel->getSetting('title2_sec8', $accountId, $projectId) }}</h4>
-                                                            <p>{{ $settingModel->getSetting('subtitle2_sec8', $accountId, $projectId) }}</p>
+                                                            <h4>{{ $settingModel->getSetting('title2_sec8', $accountId, $projectId) }}
+                                                            </h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle2_sec8', $accountId, $projectId) }}
+                                                            </p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-mobile"></i>
-                                                            <h4>{{ $settingModel->getSetting('title3_sec8', $accountId, $projectId) }}</h4>
-                                                            <p>{{ $settingModel->getSetting('subtitle3_sec8', $accountId, $projectId) }}</p>
+                                                            <h4>{{ $settingModel->getSetting('title3_sec8', $accountId, $projectId) }}
+                                                            </h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle3_sec8', $accountId, $projectId) }}
+                                                            </p>
                                                         </div>
 
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-cog"></i>
-                                                            <h4>{{ $settingModel->getSetting('title4_sec8', $accountId, $projectId) }}</h4>
-                                                            <p>{{ $settingModel->getSetting('subtitle4_sec8', $accountId, $projectId) }}</p>
+                                                            <h4>{{ $settingModel->getSetting('title4_sec8', $accountId, $projectId) }}
+                                                            </h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle4_sec8', $accountId, $projectId) }}
+                                                            </p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-flag"></i>
-                                                            <h4>{{ $settingModel->getSetting('title5_sec8', $accountId, $projectId) }}</h4>
-                                                            <p>{{ $settingModel->getSetting('subtitle5_sec8', $accountId, $projectId) }}</p>
+                                                            <h4>{{ $settingModel->getSetting('title5_sec8', $accountId, $projectId) }}
+                                                            </h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle5_sec8', $accountId, $projectId) }}
+                                                            </p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-heart"></i>
-                                                            <h4>{{ $settingModel->getSetting('title6_sec8', $accountId, $projectId) }}</h4>
-                                                            <p>{{ $settingModel->getSetting('subtitle6_sec8', $accountId, $projectId) }}</p>
+                                                            <h4>{{ $settingModel->getSetting('title6_sec8', $accountId, $projectId) }}
+                                                            </h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle6_sec8', $accountId, $projectId) }}
+                                                            </p>
                                                         </div>
                                                     </div><!-- /row -->
                                                 </div><!-- /container -->
@@ -487,8 +502,12 @@
                                                                             <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec9', $accountId, $projectId)) }}"
                                                                                 alt="">
                                                                             <div class="team-info">
-                                                                                <div class="subhead">{{ $settingModel->getSetting('title1_sec9', $accountId, $projectId) }}</div>
-                                                                                <h2 class="team-name">{{ $settingModel->getSetting('subtitle1_sec9', $accountId, $projectId) }}</h2>
+                                                                                <div class="subhead">
+                                                                                    {{ $settingModel->getSetting('title1_sec9', $accountId, $projectId) }}
+                                                                                </div>
+                                                                                <h2 class="team-name">
+                                                                                    {{ $settingModel->getSetting('subtitle1_sec9', $accountId, $projectId) }}
+                                                                                </h2>
                                                                                 <p class="team-description"><i
                                                                                         class="fa fa-facebook"></i><i
                                                                                         class="fa fa-twitter"></i><i
@@ -502,8 +521,12 @@
                                                                             <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec9', $accountId, $projectId)) }}"
                                                                                 alt="">
                                                                             <div class="team-info">
-                                                                                <div class="subhead">{{ $settingModel->getSetting('title2_sec9', $accountId, $projectId) }}</div>
-                                                                                <h2 class="team-name">{{ $settingModel->getSetting('subtitle2_sec9', $accountId, $projectId) }}</h2>
+                                                                                <div class="subhead">
+                                                                                    {{ $settingModel->getSetting('title2_sec9', $accountId, $projectId) }}
+                                                                                </div>
+                                                                                <h2 class="team-name">
+                                                                                    {{ $settingModel->getSetting('subtitle2_sec9', $accountId, $projectId) }}
+                                                                                </h2>
                                                                                 <p class="team-description"><i
                                                                                         class="fa fa-facebook"></i><i
                                                                                         class="fa fa-twitter"></i><i
@@ -517,8 +540,12 @@
                                                                             <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec9', $accountId, $projectId)) }}"
                                                                                 alt="">
                                                                             <div class="team-info">
-                                                                                <div class="subhead">{{ $settingModel->getSetting('title3_sec9', $accountId, $projectId) }}</div>
-                                                                                <h2 class="team-name">{{ $settingModel->getSetting('subtitle3_sec9', $accountId, $projectId) }}</h2>
+                                                                                <div class="subhead">
+                                                                                    {{ $settingModel->getSetting('title3_sec9', $accountId, $projectId) }}
+                                                                                </div>
+                                                                                <h2 class="team-name">
+                                                                                    {{ $settingModel->getSetting('subtitle3_sec9', $accountId, $projectId) }}
+                                                                                </h2>
                                                                                 <p class="team-description"><i
                                                                                         class="fa fa-facebook"></i><i
                                                                                         class="fa fa-twitter"></i><i
@@ -541,30 +568,38 @@
                                                                     <div class="row mt centered">
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-instagram"></i></p>
-                                                                            <h1>{{ $settingModel->getSetting('title1_sec10', $accountId, $projectId) }}</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title1_sec10', $accountId, $projectId) }}
+                                                                            </h1>
                                                                             <hr>
-                                                                            <h4>{{ $settingModel->getSetting('subtitle1_sec10', $accountId, $projectId) }}</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle1_sec10', $accountId, $projectId) }}
+                                                                            </h4>
                                                                         </div>
 
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-music"></i></p>
-                                                                            <h1>{{ $settingModel->getSetting('title2_sec10', $accountId, $projectId) }}</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title2_sec10', $accountId, $projectId) }}
+                                                                            </h1>
                                                                             <hr>
-                                                                            <h4>{{ $settingModel->getSetting('subtitle2_sec10', $accountId, $projectId) }}</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle2_sec10', $accountId, $projectId) }}
+                                                                            </h4>
                                                                         </div>
 
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-trophy"></i></p>
-                                                                            <h1>{{ $settingModel->getSetting('title3_sec10', $accountId, $projectId) }}</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title3_sec10', $accountId, $projectId) }}
+                                                                            </h1>
                                                                             <hr>
-                                                                            <h4>{{ $settingModel->getSetting('subtitle3_sec10', $accountId, $projectId) }}</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle3_sec10', $accountId, $projectId) }}
+                                                                            </h4>
                                                                         </div>
 
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-ticket"></i></p>
-                                                                            <h1>{{ $settingModel->getSetting('title4_sec10', $accountId, $projectId) }}</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title4_sec10', $accountId, $projectId) }}
+                                                                            </h1>
                                                                             <hr>
-                                                                            <h4>{{ $settingModel->getSetting('subtitle4_sec10', $accountId, $projectId) }}</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle4_sec10', $accountId, $projectId) }}
+                                                                            </h4>
                                                                         </div>
 
                                                                     </div><!-- /row -->
@@ -577,7 +612,8 @@
                                                                 <div class="container">
                                                                     <div class="row mt">
                                                                         <div class="col-lg-4 col-lg-offset-4 centered">
-                                                                            <h3>Honest Testimonials</h3>
+                                                                            <h3>{{ $settingModel->getSetting('title1_sec11', $accountId, $projectId) }}
+                                                                            </h3>
                                                                             <hr>
                                                                         </div>
                                                                     </div>
@@ -592,26 +628,17 @@
                                                                                     <!-- Wrapper for slides -->
                                                                                     <div class="carousel-inner">
                                                                                         <div class="item active">
-                                                                                            <h2>Lorem Ipsum is simply
-                                                                                                dummy text of the
-                                                                                                printing and typesetting
-                                                                                                industry. Lorem Ipsum
-                                                                                                has been the industry's
-                                                                                                standard dummy text
-                                                                                                ever.</h2>
-                                                                                            <h5>Paul Morrison -
-                                                                                                BlackTie.co</h5>
+                                                                                            <h2>{{ $settingModel->getSetting('title2_sec11', $accountId, $projectId) }}
+                                                                                            </h2>
+                                                                                            <h5>{{ $settingModel->getSetting('title3_sec11', $accountId, $projectId) }}
+                                                                                            </h5>
                                                                                         </div>
 
                                                                                         <div class="item">
-                                                                                            <h2>It is a long established
-                                                                                                fact that a reader will
-                                                                                                be distracted by the
-                                                                                                readable content of a
-                                                                                                page when looking at its
-                                                                                                layout.</h2>
-                                                                                            <h5>Mike Wellington -
-                                                                                                BlackTie.co</h5>
+                                                                                            <h2>{{ $settingModel->getSetting('title4_sec11', $accountId, $projectId) }}
+                                                                                            </h2>
+                                                                                            <h5>{{ $settingModel->getSetting('title5_sec11', $accountId, $projectId) }}
+                                                                                            </h5>
                                                                                         </div>
                                                                                     </div><!-- /carousel-inner -->
 

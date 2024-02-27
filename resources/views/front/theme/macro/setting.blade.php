@@ -907,13 +907,23 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">عنوان دوم</label>
-                    <input type="text" name="itle1_sec11" class="form-control" placeholder="عنوان دوم..."
+                    <input type="text" name="title2_sec11" class="form-control" placeholder="عنوان دوم..."
                         value="{{ $settingModel->getSetting('title2_sec11', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
                     <label class="form-label">عنوان سوم</label>
-                    <input type="text" name="itle1_sec11" class="form-control" placeholder="عنوان سوم..."
+                    <input type="text" name="title3_sec11" class="form-control" placeholder="عنوان سوم..."
                         value="{{ $settingModel->getSetting('title3_sec11', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان چهارم</label>
+                    <input type="text" name="title4_sec11" class="form-control" placeholder="عنوان چهارم..."
+                        value="{{ $settingModel->getSetting('title4_sec11', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان سوم</label>
+                    <input type="text" name="title5_sec11" class="form-control" placeholder="عنوان پنجم..."
+                        value="{{ $settingModel->getSetting('title5_sec11', $account->id, $projectId) }}">
                 </div>
             </div>
         </div>
