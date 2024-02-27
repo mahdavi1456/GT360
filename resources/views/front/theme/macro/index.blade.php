@@ -658,7 +658,7 @@
                                                                             <div class="row mt">
                                                                                 <div
                                                                                     class="col-lg-4 col-lg-offset-4 centered">
-                                                                                    <h3>Contact Us</h3>
+                                                                                    <h3>{{ $settingModel->getSetting('title1_sec12', $accountId, $projectId) }}</h3>
                                                                                     <hr>
                                                                                 </div>
                                                                             </div>
