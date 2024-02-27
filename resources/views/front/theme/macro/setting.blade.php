@@ -334,7 +334,7 @@
     </div>
     @if ($settingModel->getSetting('sec4_status', $account->id) == 1)
         <div class="card-body">
-         <div class="row">
+            <div class="row">
                 <div class="col form-group">
                     <label class="form-label">عنوان اول</label>
                     <input type="text" name="title_sec4" class="form-control" placeholder="عنوان..."
@@ -354,7 +354,7 @@
                         </div>
                     @endif
                 </div>
-                    <div class="col-6 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر دوم</label>
                     <input type="file" name="image2_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image2_sec4'))
@@ -366,7 +366,7 @@
                         </div>
                     @endif
                 </div>
-                    <div class="col-6 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر سوم</label>
                     <input type="file" name="image3_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image3_sec4'))
@@ -378,7 +378,7 @@
                         </div>
                     @endif
                 </div>
-                    <div class="col-6 form-group ">
+                <div class="col-6 form-group ">
                     <label class="form-label ">تصویر چهارم</label>
                     <input type="file" name="image4_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image4_sec4'))
@@ -396,26 +396,26 @@
 </div>
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title pull-right">بخش هفتم</h3>
-        <select name="sec7_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec7_status', $account->id) == 1 ? 'selected' : '' }}
+        <h3 class="card-title pull-right">بخش پنجم</h3>
+        <select name="sec5_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('sec5_status', $account->id) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec7_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec5_status', $account->id) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec7_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec5_status', $account->id) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col-12 form-group ">
                     <label class="form-label ">تصویر</label>
-                    <input type="file" name="image_sec7" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image_sec7'))
+                    <input type="file" name="image_sec5" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image_sec5'))
                         <div class="imageLoader position-relative">
                             <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image_sec7')"
+                            <button type="button" onclick="destroyImage('image_sec5')"
                                 class="btn btn-sm btn-danger position-absolute"
                                 style="bottom: 0; left: 49%">حذف</button>
                         </div>
@@ -423,16 +423,15 @@
                 </div>
                 <div class="col-12 form-group">
                     <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title1_sec7" class="form-control" placeholder="عنوان کوچک..."
-                        value="{{ $settingModel->getSetting('title1_sec7', $account->id) }}">
+                    <input type="text" name="title1_sec5" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('title1_sec5', $account->id) }}">
                 </div>
                 <div class="col-12 form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title2_sec7" class="form-control" placeholder="عنوان کوچک..."
-                        value="{{ $settingModel->getSetting('title2_sec7', $account->id) }}">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="title2_sec5" class="form-control" placeholder="عنوان بزرگ..."
+                        value="{{ $settingModel->getSetting('title2_sec5', $account->id) }}">
                 </div>
             </div>
-
         </div>
     @endif
 </div>
