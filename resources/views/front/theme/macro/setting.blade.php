@@ -557,10 +557,10 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش هشتم</h3>
         <select name="sec8_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec8_status', $account->id) == 1 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec8_status', $account->id ,$projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec8_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec8_status', $account->id , $projectId) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
