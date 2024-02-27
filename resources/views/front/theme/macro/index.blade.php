@@ -484,11 +484,11 @@
                                                                 <div class="row">
                                                                     <div class="col-lg-4 centered">
                                                                         <div class="members">
-                                                                            <img src="{{ asset('front-theme-asset/macro') }}/img/team/gianni.png"
+                                                                            <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec9', $accountId, $projectId)) }}"
                                                                                 alt="">
                                                                             <div class="team-info">
-                                                                                <div class="subhead">Developer</div>
-                                                                                <h2 class="team-name">Gianni</h2>
+                                                                                <div class="subhead">{{ $settingModel->getSetting('title1_sec9', $accountId, $projectId) }}</div>
+                                                                                <h2 class="team-name">{{ $settingModel->getSetting('subtitle1_sec9', $accountId, $projectId) }}</h2>
                                                                                 <p class="team-description"><i
                                                                                         class="fa fa-facebook"></i><i
                                                                                         class="fa fa-twitter"></i><i
@@ -499,11 +499,11 @@
 
                                                                     <div class="col-lg-4 centered">
                                                                         <div class="members">
-                                                                            <img src="{{ asset('front-theme-asset/macro') }}/img/team/rebecca.png"
+                                                                            <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec9', $accountId, $projectId)) }}"
                                                                                 alt="">
                                                                             <div class="team-info">
-                                                                                <div class="subhead">Designer</div>
-                                                                                <h2 class="team-name">Rebecca</h2>
+                                                                                <div class="subhead">{{ $settingModel->getSetting('title2_sec9', $accountId, $projectId) }}</div>
+                                                                                <h2 class="team-name">{{ $settingModel->getSetting('subtitle2_sec9', $accountId, $projectId) }}</h2>
                                                                                 <p class="team-description"><i
                                                                                         class="fa fa-facebook"></i><i
                                                                                         class="fa fa-twitter"></i><i
@@ -514,11 +514,11 @@
 
                                                                     <div class="col-lg-4 centered">
                                                                         <div class="members">
-                                                                            <img src="{{ asset('front-theme-asset/macro') }}/img/team/william.png"
+                                                                            <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec9', $accountId, $projectId)) }}"
                                                                                 alt="">
                                                                             <div class="team-info">
-                                                                                <div class="subhead">Designer</div>
-                                                                                <h2 class="team-name">William</h2>
+                                                                                <div class="subhead">{{ $settingModel->getSetting('title3_sec9', $accountId, $projectId) }}</div>
+                                                                                <h2 class="team-name">{{ $settingModel->getSetting('subtitle3_sec9', $accountId, $projectId) }}</h2>
                                                                                 <p class="team-description"><i
                                                                                         class="fa fa-facebook"></i><i
                                                                                         class="fa fa-twitter"></i><i

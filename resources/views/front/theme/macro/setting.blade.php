@@ -722,3 +722,96 @@
         </div>
     @endif
 </div>
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title pull-right">بخش هشتم</h3>
+        <select name="sec9_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('sec9_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                value="1">
+                فعال</option>
+            <option {{ $settingModel->getSetting('sec9_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                value="0">
+                غیرفعال</option>
+        </select>
+    </div>
+    @if ($settingModel->getSetting('sec9_status', $account->id, $projectId) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4 form-group ">
+                    <label class="form-label ">تصویر اول</label>
+                    <input type="file" name="image1_sec9" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image1_sec9'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image1_sec9')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title1_sec8" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title1_sec9', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان اول</label>
+                    <input type="text" name="subtitle1_sec9" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('subtitle1_sec9', $account->id, $projectId) }}">
+                </div>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-4 form-group ">
+                    <label class="form-label ">تصویر دوم</label>
+                    <input type="file" name="image2_sec9" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image2_sec9'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image2_sec9')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="title2_sec9" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title2_sec9', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان دوم</label>
+                    <input type="text" name="subtitle2_sec9" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('subtitle2_sec9', $account->id, $projectId) }}">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-4 form-group ">
+                    <label class="form-label ">تصویر سوم</label>
+                    <input type="file" name="image3_sec9" onchange="uploadImage(this)">
+                    @if ($image = imageLoader('image3_sec9'))
+                        <div class="imageLoader position-relative">
+                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                            <button type="button" onclick="destroyImage('image3_sec9')"
+                                class="btn btn-sm btn-danger position-absolute"
+                                style="bottom: 0; left: 49%">حذف</button>
+                        </div>
+                    @endif
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان سوم</label>
+                    <input type="text" name="title3_sec9" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title3_sec9', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان سوم</label>
+                    <input type="text" name="subtitle3_sec9" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('subtitle3_sec9', $account->id, $projectId) }}">
+                </div>
+            </div>
+            <hr>
+        </div>
+    @endif
+</div>
