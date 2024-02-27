@@ -815,3 +815,72 @@
         </div>
     @endif
 </div>
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title pull-right">بخش دهم</h3>
+        <select name="sec10_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('sec10_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                value="1">
+                فعال</option>
+            <option {{ $settingModel->getSetting('sec10_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                value="0">
+                غیرفعال</option>
+        </select>
+    </div>
+    @if ($settingModel->getSetting('sec10_status', $account->id, $projectId) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title1_sec10" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title1_sec10', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان اول</label>
+                    <input type="text" name="subtitle1_sec10" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('subtitle1_sec10', $account->id, $projectId) }}">
+                </div>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="title2_sec10" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title2_sec10', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان دوم</label>
+                    <input type="text" name="subtitle2_sec10" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('subtitle2_sec10', $account->id, $projectId) }}">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان سوم</label>
+                    <input type="text" name="title3_sec10" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title3_sec10', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان سوم</label>
+                    <input type="text" name="subtitle3_sec10" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('subtitle3_sec10', $account->id, $projectId) }}">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان چهارم</label>
+                    <input type="text" name="title4_sec10" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title4_sec10', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان سوم</label>
+                    <input type="text" name="subtitle4_sec10" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('subtitle4_sec10', $account->id, $projectId) }}">
+                </div>
+            </div>
+        </div>
+    @endif
+</div>

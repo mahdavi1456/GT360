@@ -541,30 +541,30 @@
                                                                     <div class="row mt centered">
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-instagram"></i></p>
-                                                                            <h1>21.337</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title1_sec10', $accountId, $projectId) }}</h1>
                                                                             <hr>
-                                                                            <h4>Pictures Taken</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle1_sec10', $accountId, $projectId) }}</h4>
                                                                         </div>
 
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-music"></i></p>
-                                                                            <h1>9.764</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title2_sec10', $accountId, $projectId) }}</h1>
                                                                             <hr>
-                                                                            <h4>Songs Listened</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle2_sec10', $accountId, $projectId) }}</h4>
                                                                         </div>
 
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-trophy"></i></p>
-                                                                            <h1>107</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title3_sec10', $accountId, $projectId) }}</h1>
                                                                             <hr>
-                                                                            <h4>Awards Earned</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle3_sec10', $accountId, $projectId) }}</h4>
                                                                         </div>
 
                                                                         <div class="col-lg-3">
                                                                             <p><i class="fa fa-ticket"></i></p>
-                                                                            <h1>209</h1>
+                                                                            <h1>{{ $settingModel->getSetting('title4_sec10', $accountId, $projectId) }}</h1>
                                                                             <hr>
-                                                                            <h4>Movies Watched</h4>
+                                                                            <h4>{{ $settingModel->getSetting('subtitle4_sec10', $accountId, $projectId) }}</h4>
                                                                         </div>
 
                                                                     </div><!-- /row -->
