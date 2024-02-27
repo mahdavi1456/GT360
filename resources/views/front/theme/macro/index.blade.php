@@ -436,47 +436,34 @@
                                                     <div class="row mt">
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-flask"></i>
-                                                            <h4>Built with Bootstrap 3</h4>
-                                                            <p>Built for all levels of expertise, whether you need
-                                                                simple pages or complex ones, creating something
-                                                                incredible with Marco is an effortless and intuitive
-                                                                process.</p>
+                                                            <h4>{{ $settingModel->getSetting('title1_sec8', $accountId, $projectId) }}</h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle1_sec8', $accountId, $projectId) }}</p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-eye"></i>
-                                                            <h4>Retina Display Theme</h4>
-                                                            <p>We’ve taken great care to ensure that Marco is fully
-                                                                retina-ready. So it’ll look good on any retina display.
-                                                                We use retina.js to ensure the best view.</p>
+                                                            <h4>{{ $settingModel->getSetting('title2_sec8', $accountId, $projectId) }}</h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle2_sec8', $accountId, $projectId) }}</p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-mobile"></i>
-                                                            <h4>Responsive Design Always</h4>
-                                                            <p>Marco fits any device handsomely. We tested our theme in
-                                                                major devices and browsers. Check it out and test it
-                                                                before buy it on responsinator.com.</p>
+                                                            <h4>{{ $settingModel->getSetting('title3_sec8', $accountId, $projectId) }}</h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle3_sec8', $accountId, $projectId) }}</p>
                                                         </div>
 
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-cog"></i>
-                                                            <h4>Really Nice Animations</h4>
-                                                            <p>Good looking animations are an essential part of the new
-                                                                theme design trend. We add animations.css, a cool script
-                                                                to help you enhance your site with style.</p>
+                                                            <h4>{{ $settingModel->getSetting('title4_sec8', $accountId, $projectId) }}</h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle4_sec8', $accountId, $projectId) }}</p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-flag"></i>
-                                                            <h4>Font Awesome Included</h4>
-                                                            <p>Font Awesome is the most used icon font on Bootstrap.
-                                                                Gives you scalable vector icons that can instantly be
-                                                                customized with the power of CSS.</p>
+                                                            <h4>{{ $settingModel->getSetting('title5_sec8', $accountId, $projectId) }}</h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle5_sec8', $accountId, $projectId) }}</p>
                                                         </div>
                                                         <div class="col-lg-4 centered si">
                                                             <i class="fa fa-heart"></i>
-                                                            <h4>Carefully Crafted</h4>
-                                                            <p>We aim to design both, functional & beautiful themes.
-                                                                Details are an important part of our main concept. We
-                                                                work hard to keep our code and front-end flawless.</p>
+                                                            <h4>{{ $settingModel->getSetting('title6_sec8', $accountId, $projectId) }}</h4>
+                                                            <p>{{ $settingModel->getSetting('subtitle6_sec8', $accountId, $projectId) }}</p>
                                                         </div>
                                                     </div><!-- /row -->
                                                 </div><!-- /container -->
