@@ -751,7 +751,7 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title1_sec8" class="form-control" placeholder="عنوان اول..."
+                    <input type="text" name="title1_sec9" class="form-control" placeholder="عنوان اول..."
                         value="{{ $settingModel->getSetting('title1_sec9', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
