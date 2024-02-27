@@ -35,13 +35,13 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش اول</h3>
         <select name="sec1_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec1_status', $account->id) == 1 ? 'selected' : '' }} value="1">
+            <option {{ $settingModel->getSetting('sec1_status', $account->id ,$projectId) == 1 ? 'selected' : '' }} value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec1_status', $account->id) == 0 ? 'selected' : '' }} value="0">
+            <option {{ $settingModel->getSetting('sec1_status', $account->id ,$projectId) == 0 ? 'selected' : '' }} value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec1_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec1_status', $account->id ,$projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col form-group">
@@ -134,15 +134,15 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش دوم</h3>
         <select name="sec2_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec2_status', $account->id) == 1 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec2_status', $account->id ,$projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec2_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec2_status', $account->id ,$projectId) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec2_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec2_status', $account->id ,$projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col-4 form-group ">
@@ -175,15 +175,15 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش سوم</h3>
         <select name="sec3_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec3_status', $account->id) == 1 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec3_status', $account->id ,$projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec3_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec3_status', $account->id ,$projectId) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec3_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec3_status', $account->id ,$projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col form-group">
@@ -324,15 +324,15 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش چهارم</h3>
         <select name="sec6_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec4_status', $account->id) == 1 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec4_status', $account->id ,$projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec4_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec4_status', $account->id ,$projectId) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec4_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec4_status', $account->id ,$projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col form-group">
@@ -398,15 +398,15 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش پنجم</h3>
         <select name="sec5_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec5_status', $account->id) == 1 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec5_status', $account->id ,$projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec5_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec5_status', $account->id ,$projectId) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec5_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec5_status', $account->id ,$projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col-12 form-group ">
@@ -440,15 +440,15 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش ششم</h3>
         <select name="sec6_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec6_status', $account->id) == 1 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec6_status', $account->id ,$projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec6_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec6_status', $account->id ,$projectId) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec6_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec6_status', $account->id ,$projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col form-group">
@@ -513,15 +513,15 @@
     <div class="card-header">
         <h3 class="card-title pull-right">بخش هفتم</h3>
         <select name="sec7_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec7_status', $account->id) == 1 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec7_status', $account->id ,$projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
-            <option {{ $settingModel->getSetting('sec7_status', $account->id) == 0 ? 'selected' : '' }}
+            <option {{ $settingModel->getSetting('sec7_status', $account->id ,$projectId) == 0 ? 'selected' : '' }}
                 value="0">
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec7_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec7_status', $account->id ,$projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col-4 form-group">
@@ -666,6 +666,7 @@
                         value="{{ $settingModel->getSetting('subtitle4_sec8', $account->id, $projectId) }}">
                 </div>
             </div>
+            <hr>
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر پنجم</label>
@@ -690,6 +691,7 @@
                         value="{{ $settingModel->getSetting('subtitle5_sec8', $account->id, $projectId) }}">
                 </div>
             </div>
+            <hr>
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر ششم</label>
