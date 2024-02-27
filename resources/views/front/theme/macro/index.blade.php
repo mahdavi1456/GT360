@@ -422,10 +422,8 @@
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-lg-8 col-lg-offset-2">
-                                                        <h2>Our products & services are crafted with the utmost care to
-                                                            fulfill your needs.</h2>
-                                                        <button type="button" class="btn btn-cta btn-lg">LEARN
-                                                            MORE</button>
+                                                        <h2>{{ $settingModel->getSetting('title_sec7', $accountId, $projectId) }}</h2>
+                                                        <button type="button" class="btn btn-cta btn-lg">{{ $settingModel->getSetting('button_title_sec7', $accountId, $projectId) }}</button>
                                                     </div>
                                                 </div><!-- /row -->
                                             </div><!-- /container -->
