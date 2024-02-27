@@ -782,7 +782,7 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان دوم</label>
-                    <input type="text" name="subtitle2_sec9" class="form-control" placeholder="زیرعنوان دوم..."
+                    <input type="text" name="subtitle2_sec9" class="form-control" placeholder="زیر عنوان دوم..."
                         value="{{ $settingModel->getSetting('subtitle2_sec9', $account->id, $projectId) }}">
                 </div>
             </div>
@@ -807,7 +807,7 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان سوم</label>
-                    <input type="text" name="subtitle3_sec9" class="form-control" placeholder="زیرعنوان سوم..."
+                    <input type="text" name="subtitle3_sec9" class="form-control" placeholder="زیر عنوان سوم..."
                         value="{{ $settingModel->getSetting('subtitle3_sec9', $account->id, $projectId) }}">
                 </div>
             </div>
@@ -837,7 +837,7 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان اول</label>
-                    <input type="text" name="subtitle1_sec10" class="form-control" placeholder="زیرعنوان اول..."
+                    <input type="text" name="subtitle1_sec10" class="form-control" placeholder="زیر عنوان اول..."
                         value="{{ $settingModel->getSetting('subtitle1_sec10', $account->id, $projectId) }}">
                 </div>
 
@@ -851,7 +851,7 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان دوم</label>
-                    <input type="text" name="subtitle2_sec10" class="form-control" placeholder="زیرعنوان دوم.."
+                    <input type="text" name="subtitle2_sec10" class="form-control" placeholder="زیر عنوان دوم.."
                         value="{{ $settingModel->getSetting('subtitle2_sec10', $account->id, $projectId) }}">
                 </div>
             </div>
