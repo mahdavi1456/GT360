@@ -429,7 +429,7 @@
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان دوم</label>
                     <input type="text" name="title2_sec5" class="form-control" placeholder="عنوان بزرگ..."
-                        value="{{ $settingModel->getSetting('title2_sec5', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('title2_sec5', $account->id ,$projectId) }}">
                 </div>
             </div>
         </div>
@@ -470,7 +470,7 @@
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان دوم</label>
                     <input type="text" name="title2_sec5" class="form-control" placeholder="عنوان بزرگ..."
-                        value="{{ $settingModel->getSetting('title2_sec5', $account->id , $projectId , $projectId) }}">
+                        value="{{ $settingModel->getSetting('title2_sec5', $account->id ,$projectId) }}">
                 </div>
             </div>
         </div>
@@ -494,7 +494,7 @@
                 <div class="col form-group">
                     <label class="form-label">عنوان </label>
                     <input type="text" name="title_sec6" class="form-control" placeholder="عنوان..."
-                        value="{{ $settingModel->getSetting('title_sec6', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('title_sec6', $account->id ,$projectId) }}">
                 </div>
             </div>
             <div class="row">
@@ -506,43 +506,43 @@
                 <div class="col-6 form-group">
                     <label class="form-label">زیر عنوان اول</label>
                     <input type="text" name="subtitle1_sec6" class="form-control" placeholder="عنوان بزرگ..."
-                        value="{{ $settingModel->getSetting('subtitle1_sec6', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('subtitle1_sec6', $account->id ,$projectId) }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان دوم</label>
                     <input type="text" name="title2_sec6" class="form-control" placeholder="عنوان کوچک..."
-                        value="{{ $settingModel->getSetting('title2_sec6', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('title2_sec6', $account->id ,$projectId) }}">
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">زیر عنوان دوم</label>
                     <input type="text" name="subtitle2_sec6" class="form-control" placeholder="عنوان بزرگ..."
-                        value="{{ $settingModel->getSetting('subtitle2_sec6', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('subtitle2_sec6', $account->id ,$projectId) }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان سوم</label>
                     <input type="text" name="title3_sec6" class="form-control" placeholder="عنوان کوچک..."
-                        value="{{ $settingModel->getSetting('title1_sec5', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('title1_sec5', $account->id ,$projectId) }}">
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">زیر عنوان سوم</label>
                     <input type="text" name="subtitle3_sec6" class="form-control" placeholder="عنوان بزرگ..."
-                        value="{{ $settingModel->getSetting('subtitle3_sec6', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('subtitle3_sec6', $account->id ,$projectId) }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 form-group">
                     <label class="form-label">عنوان چهارم</label>
                     <input type="text" name="title4_sec6" class="form-control" placeholder="عنوان کوچک..."
-                        value="{{ $settingModel->getSetting('title4_sec6', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('title4_sec6', $account->id ,$projectId) }}">
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-label">زیر عنوان چهارم</label>
                     <input type="text" name="subtitle4_sec6" class="form-control" placeholder="عنوان بزرگ..."
-                        value="{{ $settingModel->getSetting('subtitle4_sec6', $account->id , $projectId) }}">
+                        value="{{ $settingModel->getSetting('subtitle4_sec6', $account->id ,$projectId) }}">
                 </div>
             </div>
 
