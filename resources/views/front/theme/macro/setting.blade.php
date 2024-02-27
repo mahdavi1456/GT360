@@ -670,7 +670,7 @@
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر پنجم</label>
-                    <input type="file" class="form-control" name="image5_sec8" onchange="uploadImage(this)" >
+                    <input type="file" name="image5_sec8" onchange="uploadImage(this)" >
                     @if ($image = imageLoader('image5_sec8'))
                         <div class="imageLoader position-relative">
                             <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
@@ -680,12 +680,12 @@
                         </div>
                     @endif
                 </div>
-                <div class="col form-group">
+                <div class="col-4 form-group">
                     <label class="form-label">عنوان پنجم</label>
                     <input type="text" name="title5_sec8" class="form-control" placeholder="عنوان اول..."
                         value="{{ $settingModel->getSetting('title5_sec8', $account->id, $projectId) }}">
                 </div>
-                <div class="col form-group">
+                <div class="col-4 form-group">
                     <label class="form-label">زیر عنوان پنجم</label>
                     <input type="text" name="subtitle5_sec8" class="form-control" placeholder="عنوان دوم..."
                         value="{{ $settingModel->getSetting('subtitle5_sec8', $account->id, $projectId) }}">
