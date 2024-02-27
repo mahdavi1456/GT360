@@ -378,7 +378,7 @@
                                         <div class="container">
                                             <div class="row mt">
                                                 <div class="col-lg-4 col-lg-offset-4 centered">
-                                                    <h3>Different Stages</h3>
+                                                    <h3>{{ $settingModel->getSetting('title_sec6', $accountId, $projectId) }}</h3>
                                                     <hr>
                                                 </div>
                                             </div>
