@@ -877,8 +877,43 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان سوم</label>
-                    <input type="text" name="subtitle4_sec10" class="form-control" placeholder="زیرعنوان چهارم..."
+                    <input type="text" name="subtitle4_sec10" class="form-control"
+                        placeholder="زیرعنوان چهارم..."
                         value="{{ $settingModel->getSetting('subtitle4_sec10', $account->id, $projectId) }}">
+                </div>
+            </div>
+        </div>
+    @endif
+</div>
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title pull-right">بخش یازدهم</h3>
+        <select name="sec11_status" class="form-select pull-left" onchange="this.form.submit()">
+            <option {{ $settingModel->getSetting('sec11_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                value="1">
+                فعال</option>
+            <option {{ $settingModel->getSetting('sec11_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                value="0">
+                غیرفعال</option>
+        </select>
+    </div>
+    @if ($settingModel->getSetting('sec11_status', $account->id, $projectId) == 1)
+        <div class="card-body">
+            <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان اول</label>
+                    <input type="text" name="title1_sec11" class="form-control" placeholder="عنوان اول..."
+                        value="{{ $settingModel->getSetting('title1_sec11', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="itle1_sec11" class="form-control" placeholder="عنوان دوم..."
+                        value="{{ $settingModel->getSetting('title2_sec11', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">عنوان سوم</label>
+                    <input type="text" name="itle1_sec11" class="form-control" placeholder="عنوان سوم..."
+                        value="{{ $settingModel->getSetting('title3_sec11', $account->id, $projectId) }}">
                 </div>
             </div>
         </div>
