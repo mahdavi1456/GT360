@@ -91,7 +91,7 @@ class ReservePlanController extends Controller
         $ro_date = $rp_date;
         $rp_name = $reservePart->name;
         $rp_details = $reservePart->details;
-        $rs_price = $reservePart->price;
+        $rs_price = $reservePart->price*$request->ro_count;
 
         $ro = ReserveOrder::create([
             'rp_id'=>$reservePart->id,
@@ -121,7 +121,7 @@ class ReservePlanController extends Controller
 
         $confirmCustomerModel = new ConfirmCustomer;
         $confirmCustomerModel->set("mobile", $ro_mobile);
-        
+
 
         $reserevePlanModel = new ReservePlan;
         return $reserevePlanModel->ConfirmMobileForm($id, $ro_mobile);

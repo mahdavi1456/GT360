@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('reserve_orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('rp_id');
             $table->string('ro_date')->comment('تاریخ رزرو');
             $table->string('rp_name')->comment('نام سانس');
             $table->string('rp_details')->comment('توضیحات سانس');
