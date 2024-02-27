@@ -490,7 +490,7 @@
                                                         <div class="container">
                                                             <div class="row mt">
                                                                 <div class="col-lg-4 col-lg-offset-4 centered">
-                                                                    <h3>Our Team</h3>
+                                                                    <h3>{{ $settingModel->getSetting('title_sec9', $accountId, $projectId) }}</h3>
                                                                     <hr>
                                                                 </div>
                                                             </div>

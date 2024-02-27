@@ -737,6 +737,13 @@
     @if ($settingModel->getSetting('sec9_status', $account->id, $projectId) == 1)
         <div class="card-body">
             <div class="row">
+                <div class="col form-group">
+                    <label class="form-label">عنوان</label>
+                    <input type="text" name="title_sec9" class="form-control" placeholder="عنوان..."
+                        value="{{ $settingModel->getSetting('title_sec9', $account->id, $projectId) }}">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر اول</label>
                     <input type="file" name="image1_sec9" onchange="uploadImage(this)">
@@ -977,4 +984,3 @@
         </div>
     @endif
 </div>
-
