@@ -51,6 +51,7 @@ class Project extends Model
                 'project_id' => $projectId
             ]);
         }
+        return $setting;
     }
 
     public static function closeProject($accountId)

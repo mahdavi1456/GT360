@@ -20,7 +20,7 @@
     @include('admin.partial.aside')
     <div class="content-wrapper">
         @php
-            $project = App\Models\Project::checkOpenProject(auth()->user()->account->id);
+            $project = App\Models\Project::checkOpenProject(auth()->user()->account_id);
             if ($project) {
                 $projectName = App\Models\Project::getProjectName($project->project_id);
                 $project=App\Models\Project::find($project->project_id);
@@ -97,6 +97,11 @@
                         </div>
                     </div>
                 </div>
+                @if (!$project->slug)
+                <p class="alert alert-warning">
+                    لطفا برای تعریف نامک وبسایت خود <a href="{{route('project.create',['update'=>$project->id])}}">کلیک</a> کنید
+                </p>
+                @endif
                 <div class="row">
                     <div class="col-12">
                         <div class="alert alert-primary">

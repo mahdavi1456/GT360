@@ -17,31 +17,54 @@
                             <div class="card-body">
                                 <form action="{{ route('reserve-part.store') }}" method="post">
                                     @csrf
+                                    <input type="hidden" name="action" value="{{ $action }}">
+                                    @if (request()->has('update'))
+                                        <input type="hidden" name="update" value="{{ $reserve?->id }}">
+                                    @endif
                                     <div class="row">
                                         <div class="col-md-4 form-group">
-                                            <label>عنوان</label>
-                                            <input type="text" name="name" id="name" value="" class="form-control form-control" placeholder="عنوان..." />
+                                            <label>عنوان <span class="text-danger">*</span></label>
+                                            <input type="text" required
+                                                oninvalid="this.setCustomValidity('کادر مشخص شده را پر کنید.')"
+                                                oninput="this.setCustomValidity('')" name="name" id="name"
+                                                value="{{ $reserve?->name }}" class="form-control form-control"
+                                                placeholder="عنوان..." />
                                         </div>
                                         <div class="col-md-4 form-group">
-                                            <label>توضیحات</label>
-                                            <input type="text" name="details" id="details" value="" class="form-control" placeholder="توضیحات..." />
+                                            <label>توضیحات <span class="text-danger">*</span></label>
+                                            <input type="text" required
+                                                oninvalid="this.setCustomValidity('کادر مشخص شده را پر کنید.')"
+                                                oninput="this.setCustomValidity('')" name="details" id="details"
+                                                value="{{ $reserve?->details }}" class="form-control"
+                                                placeholder="توضیحات..." />
                                         </div>
                                         <div class="col-md-4 form-group">
-                                            <label>قیمت</label>
-                                            <input type="text" name="price" id="price" value="" class="form-control" placeholder="قیمت..." />
+                                            <label>قیمت <span class="text-danger">*</span></label>
+                                            <input type="text" required
+                                                oninvalid="this.setCustomValidity('کادر مشخص شده را پر کنید.')"
+                                                oninput="this.setCustomValidity('')" name="price" id="price"
+                                                value="{{ $reserve?->price }}" class="form-control" placeholder="قیمت..." />
                                         </div>
                                         <div class="col-md-4 form-group">
-                                            <label>قیمت تخفیف خورده</label>
-                                            <input type="text" name="off_price" id="off-price" value="" class="form-control" placeholder="قیمت تخفیف خورده..." />
+                                            <label>قیمت تخفیف خورده </label>
+                                            <input type="text"  name="off_price" id="off-price"
+                                                value="{{ $reserve?->off_price }}" class="form-control"
+                                                placeholder="قیمت تخفیف خورده..." />
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>وضعیت</label>
                                             <select name="status" id="status" class="form-control">
-                                                <option value="active">فعال</option>
-                                                <option value="deactive">غیرفعال</option>
+                                                <option @selected($reserve?->status == 'active') value="active">فعال</option>
+                                                <option @selected($reserve?->status == 'deactive') value="deactive">غیرفعال</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn btn-success">ثبت</button>
+                                        <div class="col ">
+                                            <label class="fade d-block">-</label>
+                                            <button type="submit" class="btn btn-success">{{$action=='create'?"ثبت":"ویرایش"}}</button>
+                                            @if ($action=='update')
+                                            <a class="btn btn-danger" href="{{route('reserve-part.index')}}">انصراف</a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -70,12 +93,13 @@
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $reservePart->name }}</td>
                                                 <td>{{ $reservePart->details }}</td>
-                                                <td>{{ number_format($reservePart->price) }}</td>
-                                                <td>{{ number_format($reservePart->off_price) }}</td>
+                                                <td>{{ price($reservePart->price) }}</td>
+                                                <td>{{ price($reservePart->off_price) }}</td>
                                                 <td>{{ $reservePart->status }}</td>
                                                 <td>
-                                                    <button class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
-                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                    <a href="{{ route('reserve-part.index', ['update' => $reservePart->id]) }}"
+                                                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                    <a data-confirm-delete='true' href="{{route('reserve-part.destroy',$reservePart->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -91,7 +115,5 @@
 @endsection
 
 @section('scripts')
-    <script type="text/javascript">
-
-    </script>
+    <script type="text/javascript"></script>
 @endsection
