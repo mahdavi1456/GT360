@@ -592,7 +592,7 @@
                 </div>
 
             </div>
-            
+            <hr>
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر دوم</label>
@@ -617,7 +617,7 @@
                         value="{{ $settingModel->getSetting('subtitle2_sec8', $account->id, $projectId) }}">
                 </div>
             </div>
-
+            <hr>
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر سوم</label>
@@ -666,7 +666,7 @@
                         value="{{ $settingModel->getSetting('subtitle4_sec8', $account->id, $projectId) }}">
                 </div>
             </div>
-
+            <hr>
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر پنجم</label>
