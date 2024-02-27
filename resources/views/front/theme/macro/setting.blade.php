@@ -642,6 +642,7 @@
                         value="{{ $settingModel->getSetting('subtitle3_sec8', $account->id, $projectId) }}">
                 </div>
             </div>
+            <hr>
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر چهارم</label>
