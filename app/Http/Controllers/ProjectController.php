@@ -34,7 +34,12 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
+
         if ($request->action == 'create') {
+            $request->validate([
+                'slug'=>'required|unique:projects,slug',
+                'domain'=>'required|unique:projects,domain'
+            ]);
             $data = $request->except('_token', 'action', 'project', 'logo');
             $data['account_id'] = auth()->user()->account_id;
             if ($request->file('logo')) {
@@ -46,6 +51,10 @@ class ProjectController extends Controller
             Project::create($data);
             alert()->success('موفق', "پروژه با موفقیت ایجاد شد");
         } else if ($request->action == 'update') {
+            $request->validate([
+                'slug'=>'required|unique:projects,slug,'.$request->project,
+                'domain'=>'required|unique:projects,domain,'.$request->project,
+            ]);
             $data = $request->except('_token', 'action', 'project', 'logo');
             $project = Project::where(['id' => $request->project, 'account_id' => auth()->user()->account_id])->firstOrFail();
             if ($request->file('logo')) {
@@ -66,9 +75,9 @@ class ProjectController extends Controller
 
     public function show($id)
     {
-        session(['project_id'=>$id]);
+        session(['project_id' => $id]);
         $project = Project::Where(['account_id' => auth()->user()->account_id, 'id' => $id])->firstOrFail();
-        return view('admin.project.show',compact('project'));
+        return view('admin.project.show', compact('project'));
     }
 
     public function logoDestroy(string $id)
@@ -102,9 +111,12 @@ class ProjectController extends Controller
     public function openProject(Request $request)
     {
         $accountId = auth()->user()->account_id;
-
+        $settingModel = new Setting();
         $project = Project::openProject($accountId, $request->project_id);
+        if (!$settingModel->getSetting('active_theme', $accountId, $project->project_id)) {
+            alert()->success('شما قالب فعال ندارید لطفا یکی انتخاب کنید');
+            return to_route('theme.choose');
+        }
         return view('admin.dashboard');
     }
-
 }

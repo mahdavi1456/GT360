@@ -15,30 +15,34 @@
                                 @csrf
                                 <div class="card-body">
                                     <input type="hidden" name="action" value="{{ $action }}">
-                                    <input type="hidden" name="project" value="{{$project?->id}}">
+                                    <input type="hidden" name="project" value="{{ $project?->id }}">
                                     <div class="row">
                                         <div class="col-md-3 form-group">
                                             <label class="required">عنوان <span class="text-danger">*</span></label>
                                             <input type="text" name="title" class="form-control"
-                                                   value="{{ $project?->title }}" placeholder="عنوان..." required
-                                                   oninvalid="this.setCustomValidity('عنوان را وارد نمایید.')"
-                                                   oninput="this.setCustomValidity('')">
+                                                value="{{ $project?->title }}" placeholder="عنوان..." required
+                                                oninvalid="this.setCustomValidity('عنوان را وارد نمایید.')"
+                                                oninput="this.setCustomValidity('')">
                                         </div>
                                         <div class="col-md-3 form-group">
-                                            <label>دامنه</label>
+                                            <label>دامنه <span class="text-danger">*</span></label>
                                             <input type="text" name="domain" class="form-control"
-                                                   value="{{ $project?->domain }}" placeholder="دامنه...">
+                                                value="{{ $project?->domain }}" required
+                                                oninvalid="this.setCustomValidity('کادر مشخص شده را پر کنید.')"
+                                                oninput="this.setCustomValidity('')" placeholder="دامنه...">
                                         </div>
                                         <div class="col-md-3 form-group">
-                                            <label>نامک</label>
-                                            <input type="text" name="slug" class="form-control"
-                                                   value="{{ $project?->slug }}" placeholder="نامک...">
+                                            <label>نامک <span class="text-danger">*</span></label>
+                                            <input type="text" name="slug" required
+                                                oninvalid="this.setCustomValidity('کادر مشخص شده را پر کنید.')"
+                                                oninput="this.setCustomValidity('')" class="form-control"
+                                                value="{{ $project?->slug }}" placeholder="نامک...">
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="primary_image"> لوگو پروژه </label>
                                             <div class="custom-file">
                                                 <input type="file" name="logo" class="custom-file-input"
-                                                       id="primary_image">
+                                                    id="primary_image">
                                                 <label class="custom-file-label" for="primary_image"> انتخاب
                                                     فایل </label>
                                             </div>
@@ -47,8 +51,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <label> توضیحات </label>
-                                            <textarea name="description" class="form-control Reditor1"
-                                                      placeholder="توضیحات ...">{{$project?->description}}</textarea>
+                                            <textarea name="description" class="form-control Reditor1" placeholder="توضیحات ...">{{ $project?->description }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -72,13 +75,12 @@
                                                     <td>لوگو</td>
                                                     <td>
                                                         <img style="max-width: 200px"
-                                                             src="{{ asset(ert('aip') . $project->logo) }}"
-                                                             class="w-100 object-fit-contain"
-                                                        >
+                                                            src="{{ asset(ert('aip') . $project->logo) }}"
+                                                            class="w-100 object-fit-contain">
                                                     </td>
                                                     <td><a href="{{ route('project.logo.destroy', $project->id) }}"
-                                                           data-confirm-delete="true"
-                                                           class="btn btn-danger"><i class="fa fa-trash"></i>
+                                                            data-confirm-delete="true" class="btn btn-danger"><i
+                                                                class="fa fa-trash"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -126,6 +128,7 @@
         .ck-editor__editable {
             height: 150px;
         }
+
         td {
             vertical-align: middle !important;
         }
