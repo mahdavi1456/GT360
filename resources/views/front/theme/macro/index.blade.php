@@ -676,8 +676,7 @@
                                                                             <div class="container">
                                                                                 <div class="row centered">
                                                                                     <a href="#">
-                                                                                        <h4>Are You Ready For The Next
-                                                                                            Step?</h4>
+                                                                                        <h4>{{ $settingModel->getSetting('title1_sec13', $accountId, $projectId) }}</h4>
                                                                                     </a>
                                                                                 </div>
                                                                             </div><!-- /container -->
