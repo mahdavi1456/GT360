@@ -670,7 +670,7 @@
             <div class="row">
                 <div class="col-4 form-group ">
                     <label class="form-label ">تصویر پنجم</label>
-                    <input type="file" name="image5_sec8" onchange="uploadImage(this)">
+                    <input type="file" name="image5_sec8" onchange="uploadImage(this)" class="form-control">
                     @if ($image = imageLoader('image5_sec8'))
                         <div class="imageLoader position-relative">
                             <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
