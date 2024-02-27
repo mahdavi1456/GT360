@@ -724,7 +724,7 @@
 </div>
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title pull-right">بخش هشتم</h3>
+        <h3 class="card-title pull-right">بخش نهم</h3>
         <select name="sec9_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('sec9_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
                 value="1">
