@@ -114,10 +114,14 @@ class AccountController extends Controller
 
         $project = Project::where('slug', $slug)->first();
 
-        $v = new Verta();
-        $currentYear = $v->year;
-        $currentMonth = $v->month;
-        $currentDay = $v->day;
+        // $v = new Verta();
+        // $currentYear = $v->year;
+        // $currentMonth = $v->month;
+        $date = verta();
+        $currentYear = $date->year;
+        $currentMonth = $date->month;
+        $currentDay = $date->day;
+        $date->startMonth();
 
         if ($project) {
             $accountId = $project->account_id;
@@ -126,7 +130,7 @@ class AccountController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
 
             $view = "front.theme.$theme.reserve";
-            return view($view, compact('settingModel', 'reservePlanModel', 'palleteModel', 'accountId', 'projectId', 'currentYear', 'currentMonth', 'currentDay'));
+            return view($view, compact('settingModel','date','reservePlanModel', 'palleteModel', 'accountId', 'projectId', 'currentYear', 'currentMonth', 'currentDay'));
         }
         return "یک تم برای خود انتخاب کنید";
     }

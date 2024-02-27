@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PlanItem;
 use App\Models\Project;
 use App\Models\ReserveOrder;
+use App\Models\ReservePart;
 use App\Models\Transaction;
 use App\Servieses\IPG;
 use Carbon\Carbon;
@@ -16,10 +17,15 @@ class TransactionController extends Controller
     {
         $id = $request->id;
         $reserveOrder = ReserveOrder::find($id);
-        $Price = $reserveOrder->rs_price;
+        $rp = ReservePart::find($reserveOrder->rp_id);
+
+        $price = $rp->price * $reserveOrder->ro_count;
+        if ($rp->off_price) {
+            $price = $rp->off_price * $reserveOrder->ro_count;
+        }
 
         $ipg = new IPG();
-        $ipg->start($id, "reserve", $Price);
+        return $ipg->start($id, "reserve", $price);
     }
 
     public function verify(Request $request)
@@ -46,15 +52,17 @@ class TransactionController extends Controller
                 ]);
                 alert()->success('موفق', 'پرداخت شما با نوفقیت انجام شد');
                 return to_route('project.index');
+                //end package verification
+            }elseif ($model->record_type == 'reserve') {
+                return to_route('reserve-order.index');
             }
-            //end package verification
-
-
-
         } elseif ($result['status'] == 'failed') {
+            if ($model->record_type == 'reserve') {
+                return to_route('reserve-order.index');
+            }
             alert()->error('خطا', 'پرداخت شما با خطا همراه بود');
             return to_route('transaction.report');
-        }elseif ($result['status'] == 'verified') {
+        } elseif ($result['status'] == 'verified') {
             alert()->warning('خطا', 'این پرداخت قبلا تایید شده است');
             return to_route('transaction.report');
         }
@@ -75,9 +83,10 @@ class TransactionController extends Controller
             return redirect()->to($url);
         }
     }
-    public function reports() {
-        $transactions=Transaction::where('account_id',auth()->user()->account_id)->latest()->with('project')->paginate(30);
+    public function reports()
+    {
+        $transactions = Transaction::where(['account_id' => auth()->user()->account_id, 'record_type' => 'package'])->latest()->with('project')->paginate(30);
 
-        return view('admin.transaction.reports',compact('transactions'));
+        return view('admin.transaction.reports', compact('transactions'));
     }
 }

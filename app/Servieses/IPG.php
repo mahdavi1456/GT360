@@ -53,7 +53,7 @@ class IPG
                     return $url;
                 }
             } else {
-                echo 'Error Code: ' . $result['errors']['code'];
+                return 'Error Code: ' . $result['errors']['code'];
                 echo 'message: ' . $result['errors']['message'];
             }
         }

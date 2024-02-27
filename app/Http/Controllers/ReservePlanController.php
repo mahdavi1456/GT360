@@ -25,10 +25,7 @@ class ReservePlanController extends Controller
             $date = verta();
             $currentYear = $date->year;
             $currentMonth = $date->month;
-
             $date = verta();
-
-
         }
         $date->startMonth();
         $reserveParts = ReservePart::all();
@@ -88,7 +85,7 @@ class ReservePlanController extends Controller
 
     public function InfoForm(Request $request)
     {
-        $id = $request->id;
+
         $rp_date = $request->rp_date;
         $reservePart = ReservePart::find($request->id);
         $ro_date = $rp_date;
@@ -97,6 +94,7 @@ class ReservePlanController extends Controller
         $rs_price = $reservePart->price;
 
         $ro = ReserveOrder::create([
+            'rp_id'=>$reservePart->id,
             'ro_date' => $ro_date,
             'rp_name' => $rp_name,
             'rp_details' => $rp_details,
@@ -123,7 +121,7 @@ class ReservePlanController extends Controller
 
         $confirmCustomerModel = new ConfirmCustomer;
         $confirmCustomerModel->set("mobile", $ro_mobile);
-
+        
 
         $reserevePlanModel = new ReservePlan;
         return $reserevePlanModel->ConfirmMobileForm($id, $ro_mobile);

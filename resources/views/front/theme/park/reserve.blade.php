@@ -7,35 +7,37 @@
                     <div class="col">
                         <label>ماه</label>
                         <select id="reserve-filter-month" class="w-100">
-                            <option value="1" {{ $currentMonth == 1 ? "selected" : "" }}>فروردین</option>
-                            <option value="2" {{ $currentMonth == 2 ? "selected" : "" }}>اردیبهشت</option>
-                            <option value="3" {{ $currentMonth == 3 ? "selected" : "" }}>خرداد</option>
-                            <option value="4" {{ $currentMonth == 4 ? "selected" : "" }}>تیر</option>
-                            <option value="5" {{ $currentMonth == 5 ? "selected" : "" }}>مرداد</option>
-                            <option value="6" {{ $currentMonth == 6 ? "selected" : "" }}>شهریور</option>
-                            <option value="7" {{ $currentMonth == 7 ? "selected" : "" }}>مهر</option>
-                            <option value="8" {{ $currentMonth == 8 ? "selected" : "" }}>آبان</option>
-                            <option value="9" {{ $currentMonth == 9 ? "selected" : "" }}>آذر</option>
-                            <option value="10" {{ $currentMonth == 10 ? "selected" : "" }}>دی</option>
-                            <option value="11" {{ $currentMonth == 11 ? "selected" : "" }}>بهمن</option>
-                            <option value="12" {{ $currentMonth == 12 ? "selected" : "" }}>اسفند</option>
+                            <option value="1" {{ $currentMonth == 1 ? 'selected' : '' }}>فروردین</option>
+                            <option value="2" {{ $currentMonth == 2 ? 'selected' : '' }}>اردیبهشت</option>
+                            <option value="3" {{ $currentMonth == 3 ? 'selected' : '' }}>خرداد</option>
+                            <option value="4" {{ $currentMonth == 4 ? 'selected' : '' }}>تیر</option>
+                            <option value="5" {{ $currentMonth == 5 ? 'selected' : '' }}>مرداد</option>
+                            <option value="6" {{ $currentMonth == 6 ? 'selected' : '' }}>شهریور</option>
+                            <option value="7" {{ $currentMonth == 7 ? 'selected' : '' }}>مهر</option>
+                            <option value="8" {{ $currentMonth == 8 ? 'selected' : '' }}>آبان</option>
+                            <option value="9" {{ $currentMonth == 9 ? 'selected' : '' }}>آذر</option>
+                            <option value="10" {{ $currentMonth == 10 ? 'selected' : '' }}>دی</option>
+                            <option value="11" {{ $currentMonth == 11 ? 'selected' : '' }}>بهمن</option>
+                            <option value="12" {{ $currentMonth == 12 ? 'selected' : '' }}>اسفند</option>
                         </select>
                     </div>
                     <div class="col">
                         <label>روز</label>
                         <select id="reserve-filter-day" class="w-100">
-                            @for ($i = 1; $i <= 31; $i++)
-                                <option value="{{ $i }}" {{ $currentDay == $i ? "selected" : "" }}>{{ $i }}</option>
+                            @for ($i = 1; $i <= $date->daysInMonth; $i++)
+                                <option value="{{ $i }}" {{ $currentDay == $i ? 'selected' : '' }}>
+                                    {{ $i }}</option>
                             @endfor
                         </select>
                     </div>
-                    <div class="col d-flex justify-content-end">
+                    <div class="col">
+                        <label class="d-block fade">روز</label>
                         <button type="button" id="reserve-filter-btn" class="btn btn-success" data-a_id="">نمایش
                         </button>
                     </div>
                 </div>
                 @php
-                    $reservePlanModel->reserveList($currentYear, $currentMonth, $currentDay);
+                    $reservePlanModel->reserveList($currentYear, $currentMonth, $currentDay, $date);
                 @endphp
             </div>
         </div>
@@ -43,7 +45,7 @@
 @endsection
 @section('scripts')
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             $.ajaxSetup({
                 headers: {
@@ -51,7 +53,7 @@
                 }
             });
 
-            $(document.body).on("click", ".load-reserve-info-form", function () {
+            $(document.body).on("click", ".load-reserve-info-form", function() {
 
                 var id = $(this).data("id");
                 var rp_date = $(this).data("rp_date");
@@ -63,15 +65,23 @@
                         id: id,
                         rp_date: rp_date
                     },
-                    success: function (data) {
+                    success: function(data) {
                         $("#result").html(data);
+                                $('#ro-count').on('change', function() {
+                                    let count = this.value;
+                                    let price = $('#rs_price').val();
+                                    let totalPrice = parseFloat(count) * parseFloat(
+                                        price);
+                                    $('#ro-total').val(totalPrice);
+                                });
                         /*Swal.fire({
                             title: "موفق",
                             text: "اطلاعات با موفقیت ثبت شد.",
                             icon: "success"
                         });*/
                     },
-                    error: function (data) {
+                    error: function(data) {
+                        console.log(data.responseJSON);
                         /*Swal.fire({
                             title: "خطا",
                             text: data.responseJSON.message,
@@ -82,7 +92,7 @@
 
             });
 
-            $(document.body).on("click", "#load-confirm-mobile-form", function () {
+            $(document.body).on("click", "#load-confirm-mobile-form", function() {
                 var id = $(this).data("id");
                 var ro_count = $("#ro-count").val();
                 var ro_name = $("#ro-name").val();
@@ -101,7 +111,7 @@
                                 ro_name: ro_name,
                                 ro_mobile: ro_mobile
                             },
-                            success: function (data) {
+                            success: function(data) {
                                 $("#result").html(data);
                                 /*Swal.fire({
                                     title: "موفق",
@@ -109,12 +119,12 @@
                                     icon: "success"
                                 });*/
                             },
-                            error: function (data) {
-                                /*Swal.fire({
+                            error: function(data) {
+                                Swal.fire({
                                     title: "خطا",
                                     text: data.responseJSON.message,
                                     icon: "error"
-                                });*/
+                                });
                             }
                         });
                     }
@@ -123,7 +133,7 @@
                 }
             });
 
-            $(document.body).on("click", "#check-confirm-customer", function () {
+            $(document.body).on("click", "#check-confirm-customer", function() {
                 var mobile = $("#mobile").val();
                 var code = $("#code").val();
 
@@ -135,23 +145,25 @@
                             mobile: mobile,
                             code: code
                         },
-                        success: function (data) {
-                            var id = data.id;
+                        success: function(data) {
+                            var id = $('#ro_id').val();
                             $.ajax({
                                 type: "POST",
                                 url: "{{ route('transaction.start') }}",
                                 data: {
                                     id: id
                                 },
-                                success: function (data2) {
-                                    window.location.href = data2;
+                                success: function(data2) {
+                                //  console.log(data2);
+                                   window.location.href = data2;
                                 },
-                                error: function (data2) {
+                                error: function(data2) {
                                     alert(data2);
+                                    console.log(data2);
                                 }
                             });
                         },
-                        error: function (data) {
+                        error: function(data) {
                             alert("no");
                         }
                     });

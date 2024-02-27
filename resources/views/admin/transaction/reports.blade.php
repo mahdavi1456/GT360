@@ -116,7 +116,7 @@
                                             <tr>
                                                 <td>{{ $transactions->firstItem() + $key }}</td>
                                                 <td>{{ zaman($transaction->created_at) }}</td>
-                                                <td>{{ $transaction->project->title }}</td>
+                                                <td>{{ $transaction->project?->title }}</td>
                                                 <td>{{ price($transaction->price) }}</td>
                                                 <td>{{ $transaction->message }}</td>
                                                 <td>{{ $transaction->status }}</td>
