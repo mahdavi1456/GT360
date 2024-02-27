@@ -565,7 +565,7 @@
                 غیرفعال</option>
         </select>
     </div>
-    @if ($settingModel->getSetting('sec8_status', $account->id) == 1)
+    @if ($settingModel->getSetting('sec8_status', $account->id, $projectId) == 1)
         <div class="card-body">
             <div class="row">
                 <div class="col-4 form-group ">
