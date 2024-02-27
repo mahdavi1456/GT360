@@ -91,10 +91,10 @@ class ReservePlanController extends Controller
         $ro_date = $rp_date;
         $rp_name = $reservePart->name;
         $rp_details = $reservePart->details;
-        $rs_price = $reservePart->price*$request->ro_count;
+        $rs_price = $reservePart->price;
 
         $ro = ReserveOrder::create([
-            'rp_id'=>$reservePart->id,
+            'rp_id' => $reservePart->id,
             'ro_date' => $ro_date,
             'rp_name' => $rp_name,
             'rp_details' => $rp_details,
@@ -112,9 +112,10 @@ class ReservePlanController extends Controller
         $ro_count = $request->ro_count;
         $ro_name = $request->ro_name;
         $ro_mobile = $request->ro_mobile;
-
         $reserveOrder = ReserveOrder::find($id);
+        $price = $reserveOrder->rs_price;
         $reserveOrder->ro_count = $ro_count;
+        $reserveOrder->rs_price = $ro_count * $price;
         $reserveOrder->ro_name = $ro_name;
         $reserveOrder->ro_mobile = $ro_mobile;
         $reserveOrder->save();
