@@ -390,7 +390,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-4 form-group ">
-                    <label class="form-label d=block">تصویر اول</label>
+                    <label class="form-label d-block">تصویر اول</label>
                     <input type="file" name="image1_sec5" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image1_sec5'))
                         <div class="imageLoader position-relative">
