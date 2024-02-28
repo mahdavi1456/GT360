@@ -402,15 +402,15 @@
             <div class="row contact-form">
                 <form>
                     <div class="col-md-6 text-box">
-                        <input type="text" placeholder="Name" />
-                        <input type="text" placeholder="Email" />
-                        <input type="text" placeholder="Subject" />
+                        <input type="text" placeholder="نام" />
+                        <input type="text" placeholder="ایمیل" />
+                        <input type="text" placeholder="موضوع" />
                     </div>
                     <div class="col-md-6 textarea">
-                        <textarea>Message</textarea>
+                        <textarea>پیام</textarea>
                     </div>
                     <div class="clearfix"> </div><br />
-                    <input class="btn btn-primary btn-red-lg" type="submit" value="Submit Message" />
+                    <input class="btn btn-primary btn-red-lg" type="submit" value="{{ $settingModel->getSetting('button_sec6', $accountId, $projectId) }}" />
                 </form>
             </div>
             <!----start-social-icons--->
