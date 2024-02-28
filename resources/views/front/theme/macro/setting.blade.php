@@ -883,7 +883,7 @@
                         value="{{ $settingModel->getSetting('title4_sec10', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
-                    <label class="form-label">زیر عنوان سوم</label>
+                    <label class="form-label">زیر عنوان چهارم</label>
                     <input type="text" name="subtitle4_sec10" class="form-control"
                         placeholder="زیرعنوان چهارم..."
                         value="{{ $settingModel->getSetting('subtitle4_sec10', $account->id, $projectId) }}">
