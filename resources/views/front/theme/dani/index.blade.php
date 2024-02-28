@@ -180,7 +180,7 @@
         <div class="portfolio logo1 mix_all" data-cat="logo" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p1.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -192,7 +192,7 @@
         <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p2.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -204,7 +204,7 @@
         <div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p3.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -216,7 +216,7 @@
         <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p4.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -228,7 +228,7 @@
         <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p5.png" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image5_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -240,7 +240,7 @@
         <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p6.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image6_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03 ">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -252,7 +252,7 @@
         <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p7.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image7_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -264,7 +264,7 @@
         <div class="portfolio logo1 mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p8.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image8_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
