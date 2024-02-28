@@ -159,8 +159,6 @@
         </div>
     @endif
 </div>
-
-
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title pull-right">بخش دوم</h3>
@@ -192,6 +190,11 @@
                     <label class="form-label">عنوان</label>
                     <input type="text" name="title_sec2" class="form-control" placeholder="عنوان کوچک..."
                         value="{{ $settingModel->getSetting('title_sec2', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">زیر عنوان</label>
+                    <input type="text" name="subtitle_sec2" class="form-control" placeholder="عنوان کوچک..."
+                        value="{{ $settingModel->getSetting('subtitle_sec2', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
                     <label class="form-label">متن دکمه</label>

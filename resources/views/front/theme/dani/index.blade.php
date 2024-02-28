@@ -119,9 +119,9 @@
             <img class="img-responsive" src="{{ asset('front-theme-asset/dani') }}/images/divice.png" title="divice" />
         </div>
         <div class="col-md-6 divice-info">
-            <h3>Responsive Design</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <a class="btn btn-primary btn-red" href="#">Read More <span> </span></a>
+            <h3>{{ $settingModel->getSetting('title_sec2', $accountId, $projectId) }}</h3>
+            <p>{{ $settingModel->getSetting('subtitle_sec2', $accountId, $projectId) }}</p>
+            <a class="btn btn-primary btn-red" href="#">{{ $settingModel->getSetting('button_title_sec2', $accountId, $projectId) }}<span> </span></a>
         </div>
     </div>
 </div>
