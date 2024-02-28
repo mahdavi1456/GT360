@@ -298,17 +298,17 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h2><img src="{{ asset('front-theme-asset/dani') }}/images/people.jpg" title="name" /></h2>
+                        <h2><img src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec5', $accountId,$projectId)) }}" title="name" /></h2>
                         <div class="carousel-caption caption">
-                            <h3>Dan Cederholm</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <h3>{{ $settingModel->getSetting('title2_sec5', $accountId, $projectId) }}</h3>
+                            <p>{{ $settingModel->getSetting('subtitle2_sec5', $accountId, $projectId) }}</p>
                         </div>
                     </div>
                     <div class="item">
-                        <h2><img src="{{ asset('front-theme-asset/dani') }}/images/people.jpg" title="name" /></h2>
+                        <h2><img src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec5', $accountId,$projectId)) }}" title="name" /></h2>
                         <div class="carousel-caption caption">
-                            <h3>Dan Cederholm</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <h3>{{ $settingModel->getSetting('title3_sec5', $accountId, $projectId) }}</h3>
+                            <p>{{ $settingModel->getSetting('subtitle3_sec5', $accountId, $projectId) }}</p>
                         </div>
                     </div>
                 </div>
