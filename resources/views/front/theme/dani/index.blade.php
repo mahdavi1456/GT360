@@ -129,8 +129,8 @@
 <!----start-portfolio---->
 <div class="portfolio section s2">
     <div class="container portfolio-head">
-        <h3>{{ $settingModel->getSetting('title_sec3', $accountId, $projectId) }}</h3>
-        <p>{{ $settingModel->getSetting('subtitle_sec3', $accountId, $projectId) }}</p>
+        <h3>{{ $settingModel->getSetting('title1_sec3', $accountId, $projectId) }}</h3>
+        <p>{{ $settingModel->getSetting('title2_sec3', $accountId, $projectId) }}</p>
     </div>
     <!---- start-portfolio-script----->
     <script src="{{ asset('front-theme-asset/dani') }}/js/hover_pack.js"></script>
