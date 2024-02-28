@@ -45,9 +45,9 @@
 <div class="head-bg sTop">
     <div class="conatiner">
         <div class="col-lg-12 header-note">
-            <a href="#"><img src="{{ asset('front-theme-asset/dani') }}/images/logo.png" title="Flat style" /></a>
-            <h1>We are a Creative Digital Agency</h1>
-            <a class="btn btn-primary big-btn" href="#">Learn More <span> </span></a>
+            <a href="#"><img src="{{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId,$projectId)) }}" title="Flat style" /></a>
+            <h1>{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
+            <a class="btn btn-primary big-btn" href="#">{{ $settingModel->getSetting('button_title', $accountId, $projectId) }}<span> </span></a>
         </div>
     </div>
 </div>
