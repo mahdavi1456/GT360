@@ -129,8 +129,8 @@
 <!----start-portfolio---->
 <div class="portfolio section s2">
     <div class="container portfolio-head">
-        <h3> Portfolio</h3>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+        <h3>{{ $settingModel->getSetting('title_sec3', $accountId, $projectId) }}</h3>
+        <p>{{ $settingModel->getSetting('subtitle_sec3', $accountId, $projectId) }}</p>
     </div>
     <!---- start-portfolio-script----->
     <script src="{{ asset('front-theme-asset/dani') }}/js/hover_pack.js"></script>
@@ -171,10 +171,10 @@
     </script>
     <!----//End-portfolio-script----->
     <ul id="filters" class="clearfix">
-        <li><span class="filter active" data-filter="app card icon logo web">All</span></li>
-        <li><span class="filter" data-filter="app">Branding</span></li>
-        <li><span class="filter" data-filter="card">Illustraions</span></li>
-        <li><span class="filter" data-filter="icon">Web design</span></li>
+        <li><span class="filter active" data-filter="app card icon logo web">{{ $settingModel->getSetting('button1_sec3', $accountId, $projectId) }}</span></li>
+        <li><span class="filter" data-filter="app">{{ $settingModel->getSetting('button2_sec3', $accountId, $projectId) }}</span></li>
+        <li><span class="filter" data-filter="card">{{ $settingModel->getSetting('button3_sec3', $accountId, $projectId) }}</span></li>
+        <li><span class="filter" data-filter="icon">{{ $settingModel->getSetting('button4_sec3', $accountId, $projectId) }}</span></li>
     </ul>
     <div id="portfoliolist">
         <div class="portfolio logo1 mix_all" data-cat="logo" style="display: inline-block; opacity: 1;">
