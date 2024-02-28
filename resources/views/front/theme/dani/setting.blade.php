@@ -15,6 +15,17 @@
                     </div>
                 @endif
             </div>
+            <div class="col-4 form-group">
+                <label class="form-label">تصویر</label>
+                <input type="file" name="image" onchange="uploadImage(this)">
+                @if ($image = imageLoader('image'))
+                    <div class="imageLoader position-relative">
+                        <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                        <button type="button" onclick="destroyImage('image')"
+                            class="btn btn-sm btn-danger position-absolute" style="bottom: 0; left: 49%">حذف</button>
+                    </div>
+                @endif
+            </div>
         </div>
         <div class="row">
             <div class="col-6 form-group">
