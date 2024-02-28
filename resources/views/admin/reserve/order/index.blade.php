@@ -12,9 +12,47 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title"></h3>
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-md-4 form-group">
+                                            <label>ip</label>
+                                            <input type="text" name="name" value="{{ $request->name }}"
+                                                class="form-control form-control-sm" />
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>ip</label>
+                                            <input type="text" name="mobile" value="{{ $request->mobile }}"
+                                                class="form-control form-control-sm" />
+                                        </div>
+
+                                        <div class="col-md-2 form-group">
+                                            <label>browser</label>
+                                            <select class="form-control select2" multiple name="sans">
+
+
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4 form-group">
+                                            <label>از تاریخ</label>
+                                            <input type="text" name="from" id="from" placeholder="از..."
+                                                value="{{ $request->from }}"
+                                                class="datePicker form-control form-control-sm" autocomplete="off" />
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>تا تاریخ</label>
+                                            <input type="text" name="to" id="to" value="{{ $request->to }}"
+                                                placeholder="تا..." class="datePicker form-control form-control-sm"
+                                                autocomplete="off" />
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-info mr-auto check-validity"><i
+                                                    class="fa fa-filter"></i>فیلتر</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div id="reserve-plan-form" class="card-body p-0 table-responsive">
+                            <div id="reserve-plan-form" class="card-body  table-responsive">
                                 @if ($reserveOrders->isEmpty())
                                     <div class="alert alert-danger text-center m-2">موردی جهت نمایش موجود نیست.</div>
                                 @else
@@ -57,4 +95,14 @@
     </div>
 @endsection
 @section('scripts')
+    <script>
+        $(function() {
+            $("#from, #to").persianDatepicker({
+                initialValue: false,
+                obsever: true,
+                format: 'YYYY/MM/DD',
+                autoClose: true
+            });
+        });
+    </script>
 @endsection

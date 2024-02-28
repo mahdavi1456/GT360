@@ -10,10 +10,11 @@ class ReserveOrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+      
         $reserveOrders = ReserveOrder::latest()->get();
-        return view('admin.reserve.order.index', compact('reserveOrders'));
+        return view('admin.reserve.order.index', compact('reserveOrders','request'));
     }
 
     /**

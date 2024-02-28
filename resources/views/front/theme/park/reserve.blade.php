@@ -39,6 +39,7 @@
                 @php
                     $reservePlanModel->reserveList($currentYear, $currentMonth, $currentDay, $date);
                 @endphp
+                <input type="hidden" id="slug" value="{{request('slug')}}">
             </div>
         </div>
     </div>
@@ -93,27 +94,39 @@
             });
 
             $(document.body).on("click", "#load-confirm-mobile-form", function() {
-                var id = $(this).data("id");
+                //var id = $(this).data("id");
                 var ro_count = $("#ro-count").val();
                 var ro_name = $("#ro-name").val();
                 var ro_mobile = $("#ro-mobile").val();
+                var rp_id = $('#rp_id').val();
+                var ro_date = $('#ro_date').val();
+                var rs_price = $('#rs_price').val();
+              //  var slug=$('#slug').val();
+                var rp_details=$('#rp_details').val();
+                var rp_name=$('#rp_name').val();
 
                 if (ro_count != "" && ro_name != "" && ro_mobile != "") {
                     if (ro_mobile.length != 11) {
                         Swal.fire({
-                                    title: "خطا",
-                                    text:" موبایل وارد شده صحیح نمی باشد",
-                                    icon: "error"
-                                });
+                            title: "خطا",
+                            text: " موبایل وارد شده صحیح نمی باشد",
+                            icon: "error"
+                        });
                     } else {
                         $.ajax({
                             type: "POST",
                             url: "{{ route('reservePlan.ConfirmMobileForm') }}",
                             data: {
-                                id: id,
+                                //   id: id,
+                                rp_id: rp_id,
+                                ro_date: ro_date,
                                 ro_count: ro_count,
                                 ro_name: ro_name,
-                                ro_mobile: ro_mobile
+                                ro_mobile: ro_mobile,
+                                rs_price:rs_price,
+                                slug:"{{request('slug')}}",
+                                rp_details:rp_details,
+                                rp_name:rp_name
                             },
                             success: function(data) {
                                 $("#result").html(data);

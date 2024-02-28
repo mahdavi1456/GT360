@@ -24,6 +24,7 @@
             if ($project) {
                 $projectName = App\Models\Project::getProjectName($project->project_id);
                 $project=App\Models\Project::find($project->project_id);
+                session(['projectId'=>$project->id]);
             } else {
                 $projectName = '';
             }

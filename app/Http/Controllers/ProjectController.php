@@ -117,6 +117,7 @@ class ProjectController extends Controller
             alert()->success('شما قالب فعال ندارید لطفا یکی انتخاب کنید');
             return to_route('theme.choose');
         }
-        return view('admin.dashboard');
+        session(['projectId'=>$project->project_id]);
+        return to_route('dashboard');
     }
 }

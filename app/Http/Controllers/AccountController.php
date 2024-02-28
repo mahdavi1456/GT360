@@ -30,11 +30,11 @@ class AccountController extends Controller
     public function dashboard()
     {
         $settingModel = new Setting;
-        if (request()->has('project')) {
-            session(['project_id' => request('project')]);
-            Alert::success('موفق', 'قالب مورد نظر فعال شد');
-            return back();
-        }
+        // if (request()->has('project')) {
+        //     session(['project_id' => request('project')]);
+        //     Alert::success('موفق', 'قالب مورد نظر فعال شد');
+        //     return back();
+        // }
         $projects = Project::where('account_id', auth()->user()->account_id)->latest()->get();
         return view('admin.dashboard', compact('settingModel', 'projects'));
     }

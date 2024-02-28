@@ -92,40 +92,42 @@ class ReservePlanController extends Controller
         $rp_name = $reservePart->name;
         $rp_details = $reservePart->details;
         $rs_price = $reservePart->price;
-
-        $ro = ReserveOrder::create([
-            'rp_id' => $reservePart->id,
-            'ro_date' => $ro_date,
-            'rp_name' => $rp_name,
-            'rp_details' => $rp_details,
-            'rs_price' => $rs_price,
-            'ro_count' => 1
-        ]);
+        // $ro = ReserveOrder::create([
+        //     'rp_id' => $reservePart->id,
+        //     'ro_date' => $ro_date,
+        //     'rp_name' => $rp_name,
+        //     'rp_details' => $rp_details,
+        //     'rs_price' => $rs_price,
+        //     'ro_count' => 1
+        // ]);
 
         $reserevePlanModel = new ReservePlan;
-        return $reserevePlanModel->InfoForm($ro->id, $ro_date, $rp_name, $rp_details, $rs_price);
+        return $reserevePlanModel->InfoForm($reservePart->id, $ro_date, $rp_name, $rp_details, $rs_price);
     }
 
     public function ConfirmMobileForm(Request $request)
     {
-        $id = $request->id;
+        $rp_id = $request->rp_id;
         $ro_count = $request->ro_count;
         $ro_name = $request->ro_name;
-        $ro_mobile = $request->ro_mobile;
-        $reserveOrder = ReserveOrder::find($id);
-        $price = $reserveOrder->rs_price;
-        $reserveOrder->ro_count = $ro_count;
-        $reserveOrder->rs_price = $ro_count * $price;
-        $reserveOrder->ro_name = $ro_name;
-        $reserveOrder->ro_mobile = $ro_mobile;
-        $reserveOrder->save();
-
+        $ro_date=$request->ro_date;
+        $rs_price=$request->rs_price;
+        $price=$ro_count * $rs_price;
+        $reserveOrder = ReserveOrder::create([
+                'rp_id'=>$rp_id,
+                'slug'=>$request->slug,
+                'ro_date' => $ro_date,
+                'ro_name' => $ro_name,
+                'rs_price' => $price,
+                'ro_count' => $ro_count,
+                'ro_mobile'=> $request->ro_mobile,
+                'rp_details'=>$request->rp_details,
+                'rp_name'=>$request->rp_name
+        ]);
         $confirmCustomerModel = new ConfirmCustomer;
-        $confirmCustomerModel->set("mobile", $ro_mobile);
-
-
+        $confirmCustomerModel->set("mobile", $request->ro_mobile);
         $reserevePlanModel = new ReservePlan;
-        return $reserevePlanModel->ConfirmMobileForm($id, $ro_mobile);
+        return $reserevePlanModel->ConfirmMobileForm($reserveOrder->id, $request->ro_mobile);
     }
     public function resendCode(Request $req){
         $confirmCustomerModel = new ConfirmCustomer;
