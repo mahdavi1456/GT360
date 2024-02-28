@@ -245,7 +245,7 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">متن دکمه</label>
-                    <input type="text" name="button3_sec2" class="form-control" placeholder="متن دکمه سوم..."
+                    <input type="text" name="button3_sec3" class="form-control" placeholder="متن دکمه سوم..."
                         value="{{ $settingModel->getSetting('button3_sec3', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
