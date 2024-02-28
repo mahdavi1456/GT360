@@ -67,13 +67,13 @@
                     },
                     success: function(data) {
                         $("#result").html(data);
-                                $('#ro-count').on('change', function() {
-                                    let count = this.value;
-                                    let price = $('#rs_price').val();
-                                    let totalPrice = parseFloat(count) * parseFloat(
-                                        price);
-                                    $('#ro-total').val(totalPrice);
-                                });
+                        $('#ro-count').on('change', function() {
+                            let count = this.value;
+                            let price = $('#rs_price').val();
+                            let totalPrice = parseFloat(count) * parseFloat(
+                                price);
+                            $('#ro-total').val(totalPrice);
+                        });
                         /*Swal.fire({
                             title: "موفق",
                             text: "اطلاعات با موفقیت ثبت شد.",
@@ -100,7 +100,11 @@
 
                 if (ro_count != "" && ro_name != "" && ro_mobile != "") {
                     if (ro_mobile.length != 11) {
-                        alert("موبایل وارد شده معتبر نیست.")
+                        Swal.fire({
+                                    title: "خطا",
+                                    text:" موبایل وارد شده صحیح نمی باشد",
+                                    icon: "error"
+                                });
                     } else {
                         $.ajax({
                             type: "POST",
@@ -113,6 +117,8 @@
                             },
                             success: function(data) {
                                 $("#result").html(data);
+                                timer();
+                                // alert('صفحه ورود کد');
                                 /*Swal.fire({
                                     title: "موفق",
                                     text: "اطلاعات با موفقیت ثبت شد.",
@@ -129,7 +135,12 @@
                         });
                     }
                 } else {
-                    alert("لطفا کادرهای ستاره دار را تکمیل نمایید.")
+                    Swal.fire({
+                        title: "توجه",
+                        text: "لطفا کادرهای ستاره دار را تکمیل نمایید.",
+                        icon: "info"
+                    });
+
                 }
             });
 
@@ -154,8 +165,8 @@
                                     id: id
                                 },
                                 success: function(data2) {
-                                //  console.log(data2);
-                                   window.location.href = data2;
+                                    //  console.log(data2);
+                                    window.location.href = data2;
                                 },
                                 error: function(data2) {
                                     alert(data2);
@@ -164,13 +175,69 @@
                             });
                         },
                         error: function(data) {
-                            alert("no");
+                            if (data.status == 405) {
+                                Swal.fire({
+                                    title: "خطا",
+                                    text: "کد وارد شده منقضی شده است",
+                                    icon: "error"
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: "خطا",
+                                    text: "کد وارد شده اشتباه است",
+                                    icon: "error"
+                                });
+                            }
                         }
                     });
                 } else {
-                    alert("لطفا کادرهای ستاره دار را تکمیل نمایید.")
+                    Swal.fire({
+                        title: "توجه",
+                        text: "لطفا کادرهای ستاره دار را تکمیل نمایید.",
+                        icon: "info"
+                    });
+
                 }
             });
+            $(document.body).on("click", "#countdownBTN", function() {
+                // if ($('#countdownBTN').prop('disable') == 'false') {
+                let mobile = $('#mobile').val();
+                $.ajax({
+                    type: 'post',
+                    url: "{{ route('reservePlan.resendCode') }}",
+                    data: {
+                        mobile: mobile
+                    },
+                    success: function(res) {
+                        Swal.fire({
+                            title: "توجه",
+                            text: "کد اعبتار سنجی مجددا برای شما ارسال شد",
+                            icon: "info"
+                        });
+                        timer();
+                    },
+                    error: function(res) {
+                        alert('nop');
+                    }
+                });
+
+
+            });
+
+            function timer() {
+                var countdown = 20;
+                $('#countdownBTN').prop('disabled', true);
+                var timer = setInterval(function() {
+                    $('#countdown').parent().removeClass('fade');
+                    $('#countdown').text(countdown);
+                    countdown--;
+                    if (countdown <= 0) {
+                        clearInterval(timer);
+                        $('#countdown').parent().addClass('fade');
+                        $('#countdownBTN').prop('disabled', false);
+                    }
+                }, 1000);
+            }
 
         });
     </script>

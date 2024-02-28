@@ -27,8 +27,8 @@ class ConfirmCustomer extends Model
 
     public function check($method, $value, $code)
     {
-        $check = ConfirmCustomer::where('method', $method)->where('value', $value)->where('code', $code)->first();
-        if ($check) {
+        $check = ConfirmCustomer::where('method', $method)->where('value', $value)->latest()->first();
+        if ($check?->code==$code) {
             return $check;
         } else {
             return false;

@@ -21,6 +21,7 @@
                                     <table class="table table-bordered table-striped text-center table-hover">
                                         <tr class="table-warning">
                                             <th>#</th>
+                                            <th>تاریخ ثبت</th>
                                             <th>تاریخ رزرو</th>
                                             <th>نام سانس</th>
                                             <th>توضیحات سانس</th>
@@ -32,15 +33,16 @@
                                         </tr>
                                         @foreach ($reserveOrders as $reserveOrder)
                                             <tr>
-                                                <td>{{ $loop->index + 1 }}</td>
-                                                <td>{{ $reserveOrder->ro_date }}</td>
+                                                <td>{{ fa_number($loop->index + 1) }}</td>
+                                                <td>{{ zaman($reserveOrder->created_at) }}</td>
+                                                <td>{{ fa_number($reserveOrder->ro_date) }}</td>
                                                 <td>{{ $reserveOrder->rp_name }}</td>
                                                 <td>{{ $reserveOrder->rp_details }}</td>
-                                                <td>{{ number_format($reserveOrder->rs_price) }}</td>
+                                                <td>{{ price($reserveOrder->rs_price) }}</td>
                                                 <td>{{ $reserveOrder->ro_name }}</td>
-                                                <td>{{ $reserveOrder->ro_count }}</td>
-                                                <td>{{ $reserveOrder->ro_mobile }}</td>
-                                                <td>{{ $reserveOrder->ro_status }}</td>
+                                                <td>{{ fa_number($reserveOrder->ro_count) }}</td>
+                                                <td>{{ fa_number($reserveOrder->ro_mobile) }}</td>
+                                                <td>{{ $reserveOrder->status_value }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>

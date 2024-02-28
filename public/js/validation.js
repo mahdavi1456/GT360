@@ -1,10 +1,15 @@
 
 $(document).ready(function() {
-    $('.just-numbers').on('input', function(e) {
+    $(document.body).on('input','.just-numbers', function(e) {
         var numericValue = $(this).val().replace(/[^0-9]/g, '');
 
         $(this).val(numericValue);
     });
+    // $('.just-numbers').on('input', function(e) {
+    //     var numericValue = $(this).val().replace(/[^0-9]/g, '');
+
+    //     $(this).val(numericValue);
+    // });
 });
 
 $(document).ready(function () {

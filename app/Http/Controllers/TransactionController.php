@@ -23,7 +23,9 @@ class TransactionController extends Controller
         if ($rp->off_price) {
             $price = $rp->off_price * $reserveOrder->ro_count;
         }
-
+        $reserveOrder->update([
+            'ro_status'=>1
+        ]);
         $ipg = new IPG();
         return $ipg->start($id, "reserve", $price);
     }
@@ -53,9 +55,17 @@ class TransactionController extends Controller
                 alert()->success('موفق', 'پرداخت شما با نوفقیت انجام شد');
                 return to_route('project.index');
                 //end package verification
-            }elseif ($model->record_type == 'reserve') {
+            }
+
+            elseif ($model->record_type == 'reserve') {
+                $ro=ReserveOrder::findOrFail($model->record_id);
+                $ro->update([
+                    'ro_status'=>2
+                ]);
                 return to_route('reserve-order.index');
             }
+
+
         } elseif ($result['status'] == 'failed') {
             if ($model->record_type == 'reserve') {
                 return to_route('reserve-order.index');

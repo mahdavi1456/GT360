@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/css/style.css?v=1.70') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/font/font-awesome/css/font-awesome.min.css?v=1.0.1') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/park/css/persianDatepicker-default.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
+
     @php
         $pallete = $settingModel->getSetting('pallete', $accountId, $projectId);
         $themeColors = $palleteModel->getByName($pallete);
