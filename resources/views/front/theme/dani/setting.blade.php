@@ -147,7 +147,7 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">عنوان چهارم</label>
-                    <input type="text" name="title3_sec1" class="form-control" placeholder="عنوان کوچک..."
+                    <input type="text" name="title4_sec1" class="form-control" placeholder="عنوان کوچک..."
                         value="{{ $settingModel->getSetting('title4_sec1', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
