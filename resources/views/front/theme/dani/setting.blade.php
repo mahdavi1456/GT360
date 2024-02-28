@@ -325,7 +325,7 @@
             </div>
             <hr>
             <div class="row">
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
                     <label class="form-label">تصویر پنجم</label>
                     <input type="file" name="image5_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image5_sec4'))
@@ -337,7 +337,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
                     <label class="form-label">تصویر ششم</label>
                     <input type="file" name="image6_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image6_sec4'))
@@ -349,7 +349,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
                     <label class="form-label">تصویر هفتم</label>
                     <input type="file" name="image7_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image7_sec4'))
@@ -361,7 +361,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-4 form-group">
+                <div class="col-3 form-group">
                     <label class="form-label">تصویر هشتم</label>
                     <input type="file" name="image8_sec4" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image8_sec4'))
