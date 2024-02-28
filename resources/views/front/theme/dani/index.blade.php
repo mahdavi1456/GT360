@@ -45,7 +45,7 @@
 <div class="head-bg sTop">
     <div class="conatiner">
         <div class="col-lg-12 header-note">
-            <a href="#"><img src="{{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId,$projectId)) }}" title="Flat style" /></a>
+            <a href="#"><img src="{{ asset(ert('tsp') . $settingModel->getSetting('image', $accountId,$projectId)) }}" title="Flat style" /></a>
             <h1>{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
             <a class="btn btn-primary big-btn" href="#">{{ $settingModel->getSetting('button_title', $accountId, $projectId) }}<span> </span></a>
         </div>
