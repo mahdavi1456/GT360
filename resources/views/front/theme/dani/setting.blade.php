@@ -427,13 +427,13 @@
                     @endif
                 </div>
                 <div class="col form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title2_sec5" class="form-control" placeholder="عنوان اول..."
+                    <label class="form-label">عنوان دوم</label>
+                    <input type="text" name="title2_sec5" class="form-control" placeholder="عنوان دوم..."
                         value="{{ $settingModel->getSetting('title2_sec5', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان دوم</label>
-                    <input type="text" name="subtitle2_sec5" class="form-control" placeholder="زیر عنوان اول..."
+                    <input type="text" name="subtitle2_sec5" class="form-control" placeholder="زیر عنوان دوم..."
                         value="{{ $settingModel->getSetting('subtitle2_sec5', $account->id, $projectId) }}">
                 </div>
             </div>
@@ -453,12 +453,12 @@
                 </div>
                 <div class="col form-group">
                     <label class="form-label">عنوان سوم</label>
-                    <input type="text" name="title3_sec5" class="form-control" placeholder="عنوان اول..."
+                    <input type="text" name="title3_sec5" class="form-control" placeholder="عنوان سوم.."
                         value="{{ $settingModel->getSetting('title3_sec5', $account->id, $projectId) }}">
                 </div>
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان سوم</label>
-                    <input type="text" name="subtitle1_sec5" class="form-control" placeholder="زیر عنوان اول..."
+                    <input type="text" name="subtitle1_sec5" class="form-control" placeholder="زیر عنوان سوم..."
                         value="{{ $settingModel->getSetting('subtitle3_sec2', $account->id, $projectId) }}">
                 </div>
             </div>
