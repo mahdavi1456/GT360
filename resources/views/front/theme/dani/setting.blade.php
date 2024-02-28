@@ -462,7 +462,6 @@
                         value="{{ $settingModel->getSetting('subtitle3_sec2', $account->id, $projectId) }}">
                 </div>
             </div>
-
         </div>
     @endif
 </div>
@@ -490,6 +489,11 @@
                     <label class="form-label">عنوان دوم</label>
                     <input type="text" name="title2_sec6" class="form-control" placeholder="عنوان دوم..."
                         value="{{ $settingModel->getSetting('title2_sec6', $account->id, $projectId) }}">
+                </div>
+                <div class="col form-group">
+                    <label class="form-label">متن دکمه</label>
+                    <input type="text" name="button_sec6" class="form-control" placeholder="متن دکمه ..."
+                        value="{{ $settingModel->getSetting('button_sec6', $account->id, $projectId) }}">
                 </div>
             </div>
         </div>
