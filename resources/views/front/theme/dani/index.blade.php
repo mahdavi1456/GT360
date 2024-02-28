@@ -116,7 +116,7 @@
 <div class="about">
     <div class="container">
         <div class="col-md-6 divice">
-            <img class="img-responsive" src="{{ asset(ert('tsp') . $settingModel->getSetting('image', $accountId,$projectId)) }}" title="divice" />
+            <img class="img-responsive" src="{{ asset(ert('tsp') . $settingModel->getSetting('image_sec2', $accountId,$projectId)) }}" title="divice" />
         </div>
         <div class="col-md-6 divice-info">
             <h3>{{ $settingModel->getSetting('title_sec2', $accountId, $projectId) }}</h3>
