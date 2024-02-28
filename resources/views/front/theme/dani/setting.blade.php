@@ -175,7 +175,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر</label>
+                    <label class="form-label d-block">تصویر</label>
                     <input type="file" name="image_sec2" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image_sec2'))
                         <div class="imageLoader position-relative">
