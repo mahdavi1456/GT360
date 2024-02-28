@@ -206,7 +206,6 @@
     @endif
 </div>
 
-</div>
 
 <div class="card card-warning">
     <div class="card-header">
@@ -257,8 +256,6 @@
         </div>
     @endif
 </div>
-
-
 <div class="card card-warning">
     <div class="card-header">
         <h3 class="card-title pull-right">بخش چهارم</h3>
@@ -374,14 +371,13 @@
                     @endif
                 </div>
             </div>
-
         </div>
     @endif
 </div>
 <div class="card card-warning">
     <div class="card-header">
-        <h3 class="card-title pull-right">بخش هشتم</h3>
-        <select name="sec8_status" class="form-select pull-left" onchange="this.form.submit()">
+        <h3 class="card-title pull-right">بخش چهارم</h3>
+        <select name="sec4_status" class="form-select pull-left" onchange="this.form.submit()">
             <option {{ $settingModel->getSetting('sec8_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
                 value="1">
                 فعال</option>
@@ -415,395 +411,234 @@
                     <input type="text" name="subtitle1_sec8" class="form-control" placeholder="عنوان دوم..."
                         value="{{ $settingModel->getSetting('subtitle1_sec8', $account->id, $projectId) }}">
                 </div>
+            </div>
+        </div>
 
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title pull-right">بخش پنجم</h3>
+                <select name="sec5_status" class="form-select pull-left" onchange="this.form.submit()">
+                    <option
+                        {{ $settingModel->getSetting('sec5_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                        value="1">
+                        فعال</option>
+                    <option
+                        {{ $settingModel->getSetting('sec5_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                        value="0">
+                        غیرفعال</option>
+                </select>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر دوم</label>
-                    <input type="file" name="image2_sec8" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image2_sec8'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image2_sec8')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
+            @if ($settingModel->getSetting('sec5_status', $account->id, $projectId) == 1)
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4 form-group ">
+                            <label class="form-label ">تصویر اول</label>
+                            <input type="file" name="image1_sec5" onchange="uploadImage(this)">
+                            @if ($image = imageLoader('image1_sec5'))
+                                <div class="imageLoader position-relative">
+                                    <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
+                                    <button type="button" onclick="destroyImage('image1_sec5')"
+                                        class="btn btn-sm btn-danger position-absolute"
+                                        style="bottom: 0; left: 49%">حذف</button>
+                                </div>
+                            @endif
                         </div>
-                    @endif
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان دوم</label>
-                    <input type="text" name="title2_sec8" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title2_sec8', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان دوم</label>
-                    <input type="text" name="subtitle2_sec8" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('subtitle2_sec8', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر سوم</label>
-                    <input type="file" name="image3_sec8" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image3_sec8'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image3_sec8')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
+                        <div class="col form-group">
+                            <label class="form-label">عنوان اول</label>
+                            <input type="text" name="title1_sec5" class="form-control" placeholder="عنوان اول..."
+                                value="{{ $settingModel->getSetting('title1_sec5', $account->id, $projectId) }}">
                         </div>
-                    @endif
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان سوم</label>
-                    <input type="text" name="title3_sec8" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title3_sec8', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان سوم</label>
-                    <input type="text" name="subtitle3_sec8" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('subtitle3_sec8', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر چهارم</label>
-                    <input type="file" name="image4_sec8" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image4_sec8'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image4_sec8')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
+                        <div class="col form-group">
+                            <label class="form-label">زیر عنوان اول</label>
+                            <input type="text" name="subtitle1_sec5" class="form-control"
+                                placeholder="زیر عنوان اول..."
+                                value="{{ $settingModel->getSetting('subtitle1_sec2', $account->id, $projectId) }}">
                         </div>
-                    @endif
+                    </div>
                 </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان چهارم</label>
-                    <input type="text" name="title4_sec8" class="form-control" placeholder="عنوان  اول..."
-                        value="{{ $settingModel->getSetting('title4_sec8', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان چهارم</label>
-                    <input type="text" name="subtitle4_sec8" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('subtitle4_sec8', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر پنجم</label>
-                    <input type="file" name="image5_sec8" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image5_sec8'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image5_sec8')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
-                        </div>
-                    @endif
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان پنجم</label>
-                    <input type="text" name="title5_sec8" class="form-control" placeholder="عنوان  اول..."
-                        value="{{ $settingModel->getSetting('title5_sec8', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان پنجم</label>
-                    <input type="text" name="subtitle5_sec8" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('subtitle5_sec8', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر ششم</label>
-                    <input type="file" name="image6_sec8" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image6_sec8'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image6_sec8')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
-                        </div>
-                    @endif
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان ششم</label>
-                    <input type="text" name="title6_sec8" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title6_sec8', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان ششم</label>
-                    <input type="text" name="subtitle6_sec8" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('subtitle6_sec8', $account->id, $projectId) }}">
-                </div>
-            </div>
+            @endif
         </div>
-    @endif
-</div>
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title pull-right">بخش نهم</h3>
-        <select name="sec9_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec9_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
-                value="1">
-                فعال</option>
-            <option {{ $settingModel->getSetting('sec9_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
-                value="0">
-                غیرفعال</option>
-        </select>
-    </div>
-    @if ($settingModel->getSetting('sec9_status', $account->id, $projectId) == 1)
-        <div class="card-body">
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان</label>
-                    <input type="text" name="title_sec9" class="form-control" placeholder="عنوان..."
-                        value="{{ $settingModel->getSetting('title_sec9', $account->id, $projectId) }}">
-                </div>
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title pull-right">بخش دهم</h3>
+                <select name="sec10_status" class="form-select pull-left" onchange="this.form.submit()">
+                    <option
+                        {{ $settingModel->getSetting('sec10_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                        value="1">
+                        فعال</option>
+                    <option
+                        {{ $settingModel->getSetting('sec10_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                        value="0">
+                        غیرفعال</option>
+                </select>
             </div>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر اول</label>
-                    <input type="file" name="image1_sec9" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image1_sec9'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image1_sec9')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
+            @if ($settingModel->getSetting('sec10_status', $account->id, $projectId) == 1)
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">عنوان اول</label>
+                            <input type="text" name="title1_sec10" class="form-control"
+                                placeholder="عنوان اول..."
+                                value="{{ $settingModel->getSetting('title1_sec10', $account->id, $projectId) }}">
                         </div>
-                    @endif
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title1_sec9" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title1_sec9', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان اول</label>
-                    <input type="text" name="subtitle1_sec9" class="form-control" placeholder="زیر عنوان اول..."
-                        value="{{ $settingModel->getSetting('subtitle1_sec9', $account->id, $projectId) }}">
-                </div>
+                        <div class="col form-group">
+                            <label class="form-label">زیر عنوان اول</label>
+                            <input type="text" name="subtitle1_sec10" class="form-control"
+                                placeholder="زیر عنوان اول..."
+                                value="{{ $settingModel->getSetting('subtitle1_sec10', $account->id, $projectId) }}">
+                        </div>
 
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر دوم</label>
-                    <input type="file" name="image2_sec9" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image2_sec9'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image2_sec9')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">عنوان دوم</label>
+                            <input type="text" name="title2_sec10" class="form-control"
+                                placeholder="عنوان دوم..."
+                                value="{{ $settingModel->getSetting('title2_sec10', $account->id, $projectId) }}">
                         </div>
-                    @endif
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان دوم</label>
-                    <input type="text" name="title2_sec9" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('title2_sec9', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان دوم</label>
-                    <input type="text" name="subtitle2_sec9" class="form-control" placeholder="زیر عنوان دوم..."
-                        value="{{ $settingModel->getSetting('subtitle2_sec9', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر سوم</label>
-                    <input type="file" name="image3_sec9" onchange="uploadImage(this)">
-                    @if ($image = imageLoader('image3_sec9'))
-                        <div class="imageLoader position-relative">
-                            <img src="{{ asset(ert('tsp') . $image) }}" class="w-100 object-fit-contain">
-                            <button type="button" onclick="destroyImage('image3_sec9')"
-                                class="btn btn-sm btn-danger position-absolute"
-                                style="bottom: 0; left: 49%">حذف</button>
+                        <div class="col form-group">
+                            <label class="form-label">زیر عنوان دوم</label>
+                            <input type="text" name="subtitle2_sec10" class="form-control"
+                                placeholder="زیر عنوان دوم.."
+                                value="{{ $settingModel->getSetting('subtitle2_sec10', $account->id, $projectId) }}">
                         </div>
-                    @endif
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">عنوان سوم</label>
+                            <input type="text" name="title3_sec10" class="form-control"
+                                placeholder="عنوان سوم..."
+                                value="{{ $settingModel->getSetting('title3_sec10', $account->id, $projectId) }}">
+                        </div>
+                        <div class="col form-group">
+                            <label class="form-label">زیر عنوان سوم</label>
+                            <input type="text" name="subtitle3_sec10" class="form-control"
+                                placeholder="زیر عنوان سوم..."
+                                value="{{ $settingModel->getSetting('subtitle3_sec10', $account->id, $projectId) }}">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">عنوان چهارم</label>
+                            <input type="text" name="title4_sec10" class="form-control"
+                                placeholder="عنوان چهارم..."
+                                value="{{ $settingModel->getSetting('title4_sec10', $account->id, $projectId) }}">
+                        </div>
+                        <div class="col form-group">
+                            <label class="form-label">زیر عنوان چهارم</label>
+                            <input type="text" name="subtitle4_sec10" class="form-control"
+                                placeholder="زیرعنوان چهارم..."
+                                value="{{ $settingModel->getSetting('subtitle4_sec10', $account->id, $projectId) }}">
+                        </div>
+                    </div>
                 </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان سوم</label>
-                    <input type="text" name="title3_sec9" class="form-control" placeholder="عنوان سوم..."
-                        value="{{ $settingModel->getSetting('title3_sec9', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان سوم</label>
-                    <input type="text" name="subtitle3_sec9" class="form-control" placeholder="زیر عنوان سوم..."
-                        value="{{ $settingModel->getSetting('subtitle3_sec9', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
+            @endif
         </div>
-    @endif
-</div>
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title pull-right">بخش دهم</h3>
-        <select name="sec10_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec10_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
-                value="1">
-                فعال</option>
-            <option {{ $settingModel->getSetting('sec10_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
-                value="0">
-                غیرفعال</option>
-        </select>
-    </div>
-    @if ($settingModel->getSetting('sec10_status', $account->id, $projectId) == 1)
-        <div class="card-body">
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title1_sec10" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title1_sec10', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان اول</label>
-                    <input type="text" name="subtitle1_sec10" class="form-control" placeholder="زیر عنوان اول..."
-                        value="{{ $settingModel->getSetting('subtitle1_sec10', $account->id, $projectId) }}">
-                </div>
-
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title pull-right">بخش یازدهم</h3>
+                <select name="sec11_status" class="form-select pull-left" onchange="this.form.submit()">
+                    <option
+                        {{ $settingModel->getSetting('sec11_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                        value="1">
+                        فعال</option>
+                    <option
+                        {{ $settingModel->getSetting('sec11_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                        value="0">
+                        غیرفعال</option>
+                </select>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان دوم</label>
-                    <input type="text" name="title2_sec10" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('title2_sec10', $account->id, $projectId) }}">
+            @if ($settingModel->getSetting('sec11_status', $account->id, $projectId) == 1)
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">عنوان اول</label>
+                            <input type="text" name="title1_sec11" class="form-control"
+                                placeholder="عنوان اول..."
+                                value="{{ $settingModel->getSetting('title1_sec11', $account->id, $projectId) }}">
+                        </div>
+                        <div class="col form-group">
+                            <label class="form-label">عنوان دوم</label>
+                            <input type="text" name="title2_sec11" class="form-control"
+                                placeholder="عنوان دوم..."
+                                value="{{ $settingModel->getSetting('title2_sec11', $account->id, $projectId) }}">
+                        </div>
+                        <div class="col form-group">
+                            <label class="form-label">عنوان سوم</label>
+                            <input type="text" name="title3_sec11" class="form-control"
+                                placeholder="عنوان سوم..."
+                                value="{{ $settingModel->getSetting('title3_sec11', $account->id, $projectId) }}">
+                        </div>
+                        <div class="col form-group">
+                            <label class="form-label">عنوان چهارم</label>
+                            <input type="text" name="title4_sec11" class="form-control"
+                                placeholder="عنوان چهارم..."
+                                value="{{ $settingModel->getSetting('title4_sec11', $account->id, $projectId) }}">
+                        </div>
+                        <div class="col form-group">
+                            <label class="form-label">عنوان پنجم</label>
+                            <input type="text" name="title5_sec11" class="form-control"
+                                placeholder="عنوان پنجم..."
+                                value="{{ $settingModel->getSetting('title5_sec11', $account->id, $projectId) }}">
+                        </div>
+                    </div>
                 </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان دوم</label>
-                    <input type="text" name="subtitle2_sec10" class="form-control" placeholder="زیر عنوان دوم.."
-                        value="{{ $settingModel->getSetting('subtitle2_sec10', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان سوم</label>
-                    <input type="text" name="title3_sec10" class="form-control" placeholder="عنوان سوم..."
-                        value="{{ $settingModel->getSetting('title3_sec10', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان سوم</label>
-                    <input type="text" name="subtitle3_sec10" class="form-control" placeholder="زیر عنوان سوم..."
-                        value="{{ $settingModel->getSetting('subtitle3_sec10', $account->id, $projectId) }}">
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان چهارم</label>
-                    <input type="text" name="title4_sec10" class="form-control" placeholder="عنوان چهارم..."
-                        value="{{ $settingModel->getSetting('title4_sec10', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">زیر عنوان چهارم</label>
-                    <input type="text" name="subtitle4_sec10" class="form-control"
-                        placeholder="زیرعنوان چهارم..."
-                        value="{{ $settingModel->getSetting('subtitle4_sec10', $account->id, $projectId) }}">
-                </div>
-            </div>
+            @endif
         </div>
-    @endif
-</div>
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title pull-right">بخش یازدهم</h3>
-        <select name="sec11_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec11_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
-                value="1">
-                فعال</option>
-            <option {{ $settingModel->getSetting('sec11_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
-                value="0">
-                غیرفعال</option>
-        </select>
-    </div>
-    @if ($settingModel->getSetting('sec11_status', $account->id, $projectId) == 1)
-        <div class="card-body">
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title1_sec11" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title1_sec11', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان دوم</label>
-                    <input type="text" name="title2_sec11" class="form-control" placeholder="عنوان دوم..."
-                        value="{{ $settingModel->getSetting('title2_sec11', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان سوم</label>
-                    <input type="text" name="title3_sec11" class="form-control" placeholder="عنوان سوم..."
-                        value="{{ $settingModel->getSetting('title3_sec11', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان چهارم</label>
-                    <input type="text" name="title4_sec11" class="form-control" placeholder="عنوان چهارم..."
-                        value="{{ $settingModel->getSetting('title4_sec11', $account->id, $projectId) }}">
-                </div>
-                <div class="col form-group">
-                    <label class="form-label">عنوان پنجم</label>
-                    <input type="text" name="title5_sec11" class="form-control" placeholder="عنوان پنجم..."
-                        value="{{ $settingModel->getSetting('title5_sec11', $account->id, $projectId) }}">
-                </div>
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title pull-right">بخش دوازدهم</h3>
+                <select name="sec12_status" class="form-select pull-left" onchange="this.form.submit()">
+                    <option
+                        {{ $settingModel->getSetting('sec12_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                        value="1">
+                        فعال</option>
+                    <option
+                        {{ $settingModel->getSetting('sec12_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                        value="0">
+                        غیرفعال</option>
+                </select>
             </div>
-        </div>
-    @endif
-</div>
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title pull-right">بخش دوازدهم</h3>
-        <select name="sec12_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec12_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
-                value="1">
-                فعال</option>
-            <option {{ $settingModel->getSetting('sec12_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
-                value="0">
-                غیرفعال</option>
-        </select>
-    </div>
-    @if ($settingModel->getSetting('sec12_status', $account->id, $projectId) == 1)
-        <div class="card-body">
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title1_sec12" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title1_sec12', $account->id, $projectId) }}">
+            @if ($settingModel->getSetting('sec12_status', $account->id, $projectId) == 1)
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">عنوان اول</label>
+                            <input type="text" name="title1_sec12" class="form-control"
+                                placeholder="عنوان اول..."
+                                value="{{ $settingModel->getSetting('title1_sec12', $account->id, $projectId) }}">
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
-    @endif
-</div>
-<div class="card card-warning">
-    <div class="card-header">
-        <h3 class="card-title pull-right">بخش سیزدهم</h3>
-        <select name="sec13_status" class="form-select pull-left" onchange="this.form.submit()">
-            <option {{ $settingModel->getSetting('sec13_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
-                value="1">
-                فعال</option>
-            <option {{ $settingModel->getSetting('sec13_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
-                value="0">
-                غیرفعال</option>
-        </select>
-    </div>
-    @if ($settingModel->getSetting('sec13_status', $account->id, $projectId) == 1)
-        <div class="card-body">
-            <div class="row">
-                <div class="col form-group">
-                    <label class="form-label">عنوان اول</label>
-                    <input type="text" name="title1_sec13" class="form-control" placeholder="عنوان اول..."
-                        value="{{ $settingModel->getSetting('title1_sec13', $account->id, $projectId) }}">
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title pull-right">بخش سیزدهم</h3>
+                <select name="sec13_status" class="form-select pull-left" onchange="this.form.submit()">
+                    <option
+                        {{ $settingModel->getSetting('sec13_status', $account->id, $projectId) == 1 ? 'selected' : '' }}
+                        value="1">
+                        فعال</option>
+                    <option
+                        {{ $settingModel->getSetting('sec13_status', $account->id, $projectId) == 0 ? 'selected' : '' }}
+                        value="0">
+                        غیرفعال</option>
+                </select>
+            </div>
+            @if ($settingModel->getSetting('sec13_status', $account->id, $projectId) == 1)
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">عنوان اول</label>
+                            <input type="text" name="title1_sec13" class="form-control"
+                                placeholder="عنوان اول..."
+                                value="{{ $settingModel->getSetting('title1_sec13', $account->id, $projectId) }}">
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
-    @endif
-</div>
