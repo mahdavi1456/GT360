@@ -84,7 +84,7 @@
             <hr>
             <div class="row">
                 <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر دوم</label>
+                    <label class="form-label d-block">تصویر دوم</label>
                     <input type="file" name="image2_sec1" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image2_sec1'))
                         <div class="imageLoader position-relative">
@@ -109,7 +109,7 @@
             <hr>
             <div class="row">
                 <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر سوم</label>
+                    <label class="form-label d-block">تصویر سوم</label>
                     <input type="file" name="image3_sec1" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image3_sec1'))
                         <div class="imageLoader position-relative">
@@ -134,7 +134,7 @@
             <hr>
             <div class="row">
                 <div class="col-4 form-group ">
-                    <label class="form-label ">تصویر چهارم</label>
+                    <label class="form-label d-block">تصویر چهارم</label>
                     <input type="file" name="image4_sec1" onchange="uploadImage(this)">
                     @if ($image = imageLoader('image4_sec1'))
                         <div class="imageLoader position-relative">
