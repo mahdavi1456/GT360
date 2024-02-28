@@ -25,7 +25,8 @@ class ReservePlan extends Model
 
     public function reserveList($year, $month, $day, $date)
     {
-        $reserveParts = ReservePart::all();
+        $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
+        $reserveParts = ReservePart::where(['project_id'=>$projectId])->latest()->get();
         $reservePlanModel = new ReservePlan;
         if ($reserveParts) {
 ?>
@@ -78,9 +79,10 @@ class ReservePlan extends Model
         }
     }
 
-    public function InfoForm($id, $roDate, $rpName, $rpDetails, $rsPrice)
+    public function InfoForm($rp_id, $roDate, $rpName, $rpDetails, $rsPrice)
     {
         ?>
+        <input type="hidden" id="rp_id" value="<?=$rp_id?>">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title m-0">تکمیل مشخصات</h5>
@@ -89,16 +91,16 @@ class ReservePlan extends Model
                 <div class="row">
                     <div class="col-md-3 form-group">
                         <label>تاریخ</label>
-                        <input readonly type="text" name="ro_date" class="form-control" value="<?php echo $roDate; ?>">
+                        <input readonly type="text" id="ro_date" name="ro_date" class="form-control" value="<?php echo $roDate; ?>">
 
                     </div>
                     <div class="col-md-3 form-group">
                         <label>سانس</label>
-                        <input readonly type="text" name="rp_name" class="form-control" value="<?php echo $rpName; ?>">
+                        <input readonly type="text" id="rp_name" name="rp_name" class="form-control" value="<?php echo $rpName; ?>">
                     </div>
                     <div class="col-md-3 form-group">
                         <label>توضیحات</label>
-                        <input readonly type="text" name="rp_details" class="form-control" value="<?php echo $rpDetails; ?>">
+                        <input readonly type="text" id="rp_details" name="rp_details" class="form-control" value="<?php echo $rpDetails; ?>">
                     </div>
                     <div class="col-md-3 form-group">
                         <label>مبلغ هر نفر</label>
@@ -128,8 +130,8 @@ class ReservePlan extends Model
                 <div class="row">
                     <div class="col-12 text-center">
                         <a href="" id="back-to-infoForm" class="btn btn-warning">انصراف</a>
-                        <!-- <button type="button" class="btn btn-warning" data-id="<?php echo $id; ?>">مرحله قبل</button> -->
-                        <button type="button" id="load-confirm-mobile-form" class="btn btn-success" data-id="<?php echo $id; ?>">مرحله بعد</button>
+                        <!-- <button type="button" class="btn btn-warning" data-id="">مرحله قبل</button> -->
+                        <button type="button" id="load-confirm-mobile-form" class="btn btn-success" data-id="">مرحله بعد</button>
                     </div>
                 </div>
             </div>
@@ -150,13 +152,13 @@ class ReservePlan extends Model
                         <label>شماره موبایل</label>
                         <input readonly type="text" name="ro_mobile" id="mobile" class="form-control" placeholder="شماره موبایل..." value="<?php echo $mobile; ?>">
                     </div>
-                    <input type="hidden" name="tit" id="ro_id" value="<?=$id ?>">
+                    <input type="hidden" name="tit" id="ro_id" value="<?= $id ?>">
                     <div class="col-5 form-group">
                         <label>کد تایید</label>
                         <input type="text" name="code" id="code" class="form-control" placeholder="کد تایید..." value="">
                     </div>
                     <div class="col-2 form-group">
-                        <label  class="d-block"><span id="countdown">20</span> ثانیه</label>
+                        <label class="d-block"><span id="countdown">20</span> ثانیه</label>
                         <button type="button" id="countdownBTN" disabled class="btn btn-info btn-sm">ارسال مجدد</button>
                     </div>
                 </div>

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('reserve_plans', function (Blueprint $table) {
             $table->id();
+            $table->integer('project_id');
             $table->string('name');
             $table->string('details');
             $table->double('price');

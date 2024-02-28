@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('reserve_parts', function (Blueprint $table) {
             $table->id();
+            $table->integer('project_id');
             $table->string('name')->comment('نام');
             $table->string('details')->comment('توضیحات');
             $table->double('price')->comment('هزینه');

@@ -62,13 +62,16 @@ class TransactionController extends Controller
                 $ro->update([
                     'ro_status'=>2
                 ]);
-                return to_route('reserve-order.index');
+                alert()->success('موفق', 'پرداخت شما با نوفقیت انجام شد');
+                return to_route('enterSite',$ro->slug);
             }
 
 
         } elseif ($result['status'] == 'failed') {
             if ($model->record_type == 'reserve') {
-                return to_route('reserve-order.index');
+                $ro=ReserveOrder::findOrFail($model->record_id);
+                alert()->error('خطا','تراکنش ناموفق');
+                return to_route('reserve',$ro->slug);
             }
             alert()->error('خطا', 'پرداخت شما با خطا همراه بود');
             return to_route('transaction.report');
