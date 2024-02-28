@@ -495,6 +495,11 @@
                     <input type="text" name="button_sec6" class="form-control" placeholder="متن دکمه ..."
                         value="{{ $settingModel->getSetting('button_sec6', $account->id, $projectId) }}">
                 </div>
+                  <div class="col-6 form-group">
+                    <label class="form-label">متن کپی رایت</label>
+                    <input type="text" name="copy_sec6" class="form-control" placeholder="متن کپی رایت..."
+                        value="{{ $settingModel->getSetting('copy_sec6', $account->id, $projectId) }}">
+                </div>
             </div>
         </div>
     @endif

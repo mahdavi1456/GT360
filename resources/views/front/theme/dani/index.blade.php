@@ -424,8 +424,8 @@
             <!----//End-social-icons--->
             <!----start-copy-right---->
             <div class="copy-right">
-                <p>Copyright &#169; 2014 <span>Flat Style.</span> All Rights Reserved.</p>
-                <p>Design by<a href="http://w3layouts.com/">W3layouts</a></p>
+                <p>Copyright &#169; {{ $settingModel->getSetting('copy_sec6', $accountId, $projectId) }}</p>
+                <p>طراحی شده<a href="http://gratech.ir">توسط گراتک</a></p>
             </div>
             <!----//End-copy-right---->
         </div>
