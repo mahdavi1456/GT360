@@ -459,7 +459,7 @@
                 <div class="col form-group">
                     <label class="form-label">زیر عنوان سوم</label>
                     <input type="text" name="subtitle3_sec5" class="form-control" placeholder="زیر عنوان سوم..."
-                        value="{{ $settingModel->getSetting('subtitle3_sec2', $account->id, $projectId) }}">
+                        value="{{ $settingModel->getSetting('subtitle3_sec5', $account->id, $projectId) }}">
                 </div>
             </div>
         </div>
