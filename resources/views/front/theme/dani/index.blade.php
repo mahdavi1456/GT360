@@ -45,9 +45,9 @@
 <div class="head-bg sTop">
     <div class="conatiner">
         <div class="col-lg-12 header-note">
-            <a href="#"><img src="{{ asset('front-theme-asset/dani') }}/images/logo.png" title="Flat style" /></a>
-            <h1>We are a Creative Digital Agency</h1>
-            <a class="btn btn-primary big-btn" href="#">Learn More <span> </span></a>
+            <a href="#"><img src="{{ asset(ert('tsp') . $settingModel->getSetting('image', $accountId,$projectId)) }}" title="Flat style" /></a>
+            <h1>{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
+            <a class="btn btn-primary big-btn" href="#">{{ $settingModel->getSetting('button_title', $accountId, $projectId) }}<span> </span></a>
         </div>
     </div>
 </div>
@@ -90,23 +90,23 @@
     <div class="row  section s1 top-grids">
         <div class="col-md-3 top-grid">
             <span class="icon1"> </span>
-            <h2>Responsive Design</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <h2>{{ $settingModel->getSetting('title1_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle1_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="col-md-3 top-grid">
             <span class="icon2"> </span>
-            <h2>Web Development</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <h2>{{ $settingModel->getSetting('title2_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle2_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="col-md-3 top-grid">
             <span class="icon3"> </span>
-            <h2>Internet Marketing</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <h2>{{ $settingModel->getSetting('title3_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle3_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="col-md-3 top-grid">
             <span class="icon4"> </span>
-            <h2>IOS Development</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <h2>{{ $settingModel->getSetting('title4_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle4_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="clearfix"> </div>
     </div>
@@ -116,12 +116,12 @@
 <div class="about">
     <div class="container">
         <div class="col-md-6 divice">
-            <img class="img-responsive" src="{{ asset('front-theme-asset/dani') }}/images/divice.png" title="divice" />
+            <img class="img-responsive" src="{{ asset(ert('tsp') . $settingModel->getSetting('image_sec2', $accountId,$projectId)) }}" title="divice" />
         </div>
         <div class="col-md-6 divice-info">
-            <h3>Responsive Design</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <a class="btn btn-primary btn-red" href="#">Read More <span> </span></a>
+            <h3>{{ $settingModel->getSetting('title_sec2', $accountId, $projectId) }}</h3>
+            <p>{{ $settingModel->getSetting('subtitle_sec2', $accountId, $projectId) }}</p>
+            <a class="btn btn-primary btn-red" href="#">{{ $settingModel->getSetting('button_title_sec2', $accountId, $projectId) }}<span> </span></a>
         </div>
     </div>
 </div>
@@ -129,8 +129,8 @@
 <!----start-portfolio---->
 <div class="portfolio section s2">
     <div class="container portfolio-head">
-        <h3> Portfolio</h3>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+        <h3>{{ $settingModel->getSetting('title1_sec3', $accountId, $projectId) }}</h3>
+        <p>{{ $settingModel->getSetting('title2_sec3', $accountId, $projectId) }}</p>
     </div>
     <!---- start-portfolio-script----->
     <script src="{{ asset('front-theme-asset/dani') }}/js/hover_pack.js"></script>
@@ -171,16 +171,16 @@
     </script>
     <!----//End-portfolio-script----->
     <ul id="filters" class="clearfix">
-        <li><span class="filter active" data-filter="app card icon logo web">All</span></li>
-        <li><span class="filter" data-filter="app">Branding</span></li>
-        <li><span class="filter" data-filter="card">Illustraions</span></li>
-        <li><span class="filter" data-filter="icon">Web design</span></li>
+        <li><span class="filter active" data-filter="app card icon logo web">{{ $settingModel->getSetting('button1_sec3', $accountId, $projectId) }}</span></li>
+        <li><span class="filter" data-filter="app">{{ $settingModel->getSetting('button2_sec3', $accountId, $projectId) }}</span></li>
+        <li><span class="filter" data-filter="card">{{ $settingModel->getSetting('button3_sec3', $accountId, $projectId) }}</span></li>
+        <li><span class="filter" data-filter="icon">{{ $settingModel->getSetting('button4_sec3', $accountId, $projectId) }}</span></li>
     </ul>
     <div id="portfoliolist">
         <div class="portfolio logo1 mix_all" data-cat="logo" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p1.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -192,7 +192,7 @@
         <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p2.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -204,7 +204,7 @@
         <div class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p3.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -216,7 +216,7 @@
         <div class="portfolio icon mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p4.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image4_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -228,7 +228,7 @@
         <div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p5.png" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image5_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -240,7 +240,7 @@
         <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p6.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image6_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03 ">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -252,7 +252,7 @@
         <div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p7.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image7_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -264,7 +264,7 @@
         <div class="portfolio logo1 mix_all" data-cat="icon" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper">
                 <a data-toggle="modal" data-target=".bs-example-modal-md" href="#" class="b-link-stripe b-animate-go  thickbox">
-                    <img src="{{ asset('front-theme-asset/dani') }}/images/p8.jpg" />
+                    <img src="{{ asset(ert('tsp') . $settingModel->getSetting('image8_sec4', $accountId,$projectId)) }}" />
                     <div class="b-wrapper">
                         <h2 class="b-animate b-from-left b-delay03">
                             <img src="{{ asset('front-theme-asset/dani') }}/images/link-ico.png" alt=""/>
@@ -291,24 +291,24 @@
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                     <div class="active item">
-                        <h2><img src="{{ asset('front-theme-asset/dani') }}/images/people.jpg" title="name" /></h2>
+                        <h2><img src="{{ asset(ert('tsp') . $settingModel->getSetting('image1_sec5', $accountId,$projectId)) }}" title="name" /></h2>
                         <div class="carousel-caption caption">
-                            <h3>Dan Cederholm</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <h3>{{ $settingModel->getSetting('title1_sec5', $accountId, $projectId) }}</h3>
+                            <p>{{ $settingModel->getSetting('subtitle1_sec5', $accountId, $projectId) }} </p>
                         </div>
                     </div>
                     <div class="item">
-                        <h2><img src="{{ asset('front-theme-asset/dani') }}/images/people.jpg" title="name" /></h2>
+                        <h2><img src="{{ asset(ert('tsp') . $settingModel->getSetting('image2_sec5', $accountId,$projectId)) }}" title="name" /></h2>
                         <div class="carousel-caption caption">
-                            <h3>Dan Cederholm</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <h3>{{ $settingModel->getSetting('title2_sec5', $accountId, $projectId) }}</h3>
+                            <p>{{ $settingModel->getSetting('subtitle2_sec5', $accountId, $projectId) }}</p>
                         </div>
                     </div>
                     <div class="item">
-                        <h2><img src="{{ asset('front-theme-asset/dani') }}/images/people.jpg" title="name" /></h2>
+                        <h2><img src="{{ asset(ert('tsp') . $settingModel->getSetting('image3_sec5', $accountId,$projectId)) }}" title="name" /></h2>
                         <div class="carousel-caption caption">
-                            <h3>Dan Cederholm</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <h3>{{ $settingModel->getSetting('title3_sec5', $accountId, $projectId) }}</h3>
+                            <p>{{ $settingModel->getSetting('subtitle3_sec5', $accountId, $projectId) }}</p>
                         </div>
                     </div>
                 </div>
