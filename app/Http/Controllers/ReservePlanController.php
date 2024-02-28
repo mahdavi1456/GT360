@@ -127,4 +127,9 @@ class ReservePlanController extends Controller
         $reserevePlanModel = new ReservePlan;
         return $reserevePlanModel->ConfirmMobileForm($id, $ro_mobile);
     }
+    public function resendCode(Request $req){
+        $confirmCustomerModel = new ConfirmCustomer;
+        $confirmCustomerModel->set("mobile", $req->mobile);
+        return true;
+    }
 }

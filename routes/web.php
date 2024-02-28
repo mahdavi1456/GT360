@@ -165,6 +165,7 @@ Route::middleware(['auth', 'visit'])->group(function () {
         Route::resource('reserve-plan', ReservePlanController::class);
         Route::post('reserve-plan/info-form', [ReservePlanController::class, 'InfoForm'])->name('reservePlan.InfoForm');
         Route::post('reserve-plan/confirm-mobile-form', [ReservePlanController::class, 'ConfirmMobileForm'])->name('reservePlan.ConfirmMobileForm');
+        Route::post('reserve-plan/resend-code', [ReservePlanController::class, 'resendCode'])->name('reservePlan.resendCode');
         Route::resource('reserve-order', ReserveOrderController::class);
 
         Route::post('/image-upload', [PostController::class, 'uploadImage'])->name('post.thumb');

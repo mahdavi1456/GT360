@@ -108,7 +108,7 @@ class ReservePlan extends Model
                 <div class="row">
                     <div class="col-md-1 form-group">
                         <label>تعداد <span class="text-danger">*</span></label>
-                        <input type="text" name="ro_count" id="ro-count" class="form-control" placeholder="تعداد...">
+                        <input type="text" name="ro_count" id="ro-count" class="form-control just-numbers" placeholder="تعداد...">
                     </div>
                     <div class="col-md-3 form-group">
                         <label>مبلغ کل <span class="text-danger">*</span></label>
@@ -156,8 +156,8 @@ class ReservePlan extends Model
                         <input type="text" name="code" id="code" class="form-control" placeholder="کد تایید..." value="">
                     </div>
                     <div class="col-2 form-group">
-                        <label class="d-block">60 ثانیه</label>
-                        <button type="button" class="btn btn-info btn-sm">ارسال مجدد</button>
+                        <label  class="d-block"><span id="countdown">20</span> ثانیه</label>
+                        <button type="button" id="countdownBTN" disabled class="btn btn-info btn-sm">ارسال مجدد</button>
                     </div>
                 </div>
             </div>

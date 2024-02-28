@@ -11,4 +11,21 @@ class ReserveOrder extends Model
 
     protected $table = "reserve_orders";
     protected $guarded = [];
+    public function getStatusValueAttribute() {
+        switch ($this->ro_status) {
+            case '1':
+                return 'ناموفق';
+                break;
+            case '2':
+                return 'موفق';
+                break;
+            case '0':
+                return 'قبل از درگاه پرداخت';
+                break;
+
+            default:
+            return $this->status;
+                break;
+        }
+    }
 }

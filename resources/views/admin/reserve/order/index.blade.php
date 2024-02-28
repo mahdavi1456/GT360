@@ -40,7 +40,7 @@
                                                 <td>{{ $reserveOrder->ro_name }}</td>
                                                 <td>{{ $reserveOrder->ro_count }}</td>
                                                 <td>{{ $reserveOrder->ro_mobile }}</td>
-                                                <td>{{ $reserveOrder->ro_status }}</td>
+                                                <td>{{ $reserveOrder->status_value }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
