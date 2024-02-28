@@ -90,23 +90,23 @@
     <div class="row  section s1 top-grids">
         <div class="col-md-3 top-grid">
             <span class="icon1"> </span>
-            <h2>{{ $settingModel->getSetting('title1_1_sec1', $accountId, $projectId) }}</h2>
-            <p>{{ $settingModel->getSetting('title2_1_sec1', $accountId, $projectId) }}</p>
+            <h2>{{ $settingModel->getSetting('title1_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle1_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="col-md-3 top-grid">
             <span class="icon2"> </span>
-            <h2>{{ $settingModel->getSetting('title1_2_sec1', $accountId, $projectId) }}</h2>
-            <p>{{ $settingModel->getSetting('title2_2_sec1', $accountId, $projectId) }}</p>
+            <h2>{{ $settingModel->getSetting('title2_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle2_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="col-md-3 top-grid">
             <span class="icon3"> </span>
-            <h2>{{ $settingModel->getSetting('title1_3_sec1', $accountId, $projectId) }}</h2>
-            <p>{{ $settingModel->getSetting('title2_3_sec1', $accountId, $projectId) }}</p>
+            <h2>{{ $settingModel->getSetting('title3_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle3_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="col-md-3 top-grid">
             <span class="icon4"> </span>
-            <h2>{{ $settingModel->getSetting('title1_4_sec1', $accountId, $projectId) }}</h2>
-            <p>{{ $settingModel->getSetting('title2_4_sec1', $accountId, $projectId) }}</p>
+            <h2>{{ $settingModel->getSetting('title4_sec1', $accountId, $projectId) }}</h2>
+            <p>{{ $settingModel->getSetting('subtitle4_sec1', $accountId, $projectId) }}</p>
         </div>
         <div class="clearfix"> </div>
     </div>
