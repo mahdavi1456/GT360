@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\ReservePart;
 use App\Models\ReservePlan;
 use App\Models\ReserveOrder;
-use App\Models\ConfirmCustomer;
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
+use Hekmatinasser\Verta\Verta;
+use App\Models\ConfirmCustomer;
 
 class ReservePlanController extends Controller
 {
 
     public function index(Request $request)
     {
+        $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
         if (isset($request->year)) {
             $date = verta();
             $currentYear = $request->year;
@@ -28,7 +30,7 @@ class ReservePlanController extends Controller
             $date = verta();
         }
         $date->startMonth();
-        $reserveParts = ReservePart::all();
+        $reserveParts = ReservePart::where(['project_id'=>$projectId])->latest()->get();
         $reservePlanModel = new ReservePlan;
         return view('admin.reserve.plan.index', compact('reserveParts', 'date', 'currentYear', 'currentMonth', 'reservePlanModel', 'request'));
     }
@@ -40,6 +42,7 @@ class ReservePlanController extends Controller
 
     public function store(Request $request)
     {
+        $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
         parse_str($request->list, $data);
         foreach ($data as $key => $value) {
             $l = explode('|', $key);
@@ -50,7 +53,7 @@ class ReservePlanController extends Controller
             $rp_count = $value;
 
             if ($value) {
-                $check = ReservePlan::where('rp_date', $rp_date)->where('name', $name)->where('details', $details)->first();
+                $check = ReservePlan::where('rp_date', $rp_date)->where('project_id',$projectId)->where('name', $name)->where('details', $details)->first();
                 if ($check) {
                     $rp = ReservePlan::find($check->id);
                     $rp->rp_count = $rp_count;
@@ -62,7 +65,8 @@ class ReservePlanController extends Controller
                         'details' => $details,
                         'price' => $price,
                         'rp_date' => $rp_date,
-                        'rp_count' => $rp_count
+                        'rp_count' => $rp_count,
+                        'project_id'=>$projectId
                     ]);
                 }
             }

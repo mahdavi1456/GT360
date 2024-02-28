@@ -25,7 +25,8 @@ class ReservePlan extends Model
 
     public function reserveList($year, $month, $day, $date)
     {
-        $reserveParts = ReservePart::all();
+        $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
+        $reserveParts = ReservePart::where(['project_id'=>$projectId])->latest()->get();
         $reservePlanModel = new ReservePlan;
         if ($reserveParts) {
 ?>

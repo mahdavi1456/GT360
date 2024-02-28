@@ -39,7 +39,6 @@
                 @php
                     $reservePlanModel->reserveList($currentYear, $currentMonth, $currentDay, $date);
                 @endphp
-                <input type="hidden" id="slug" value="{{request('slug')}}">
             </div>
         </div>
     </div>

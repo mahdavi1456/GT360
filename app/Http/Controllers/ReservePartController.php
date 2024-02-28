@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\ReservePart;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class ReservePartController extends Controller
     public function index()
     {
         ert('cd');
-        $reserveParts = ReservePart::all();
+        $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
+        $reserveParts = ReservePart::where(['project_id'=>$projectId])->latest()->get();
         $reserve = null;
         $action = 'create';
         if (request('update')) {
@@ -28,18 +30,20 @@ class ReservePartController extends Controller
 
     public function store(Request $request)
     {
+       $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
         if ($request->action == 'create') {
             ReservePart::create([
                 'name' => $request->name,
                 'details' => $request->details,
                 'price' => $request->price,
                 'off_price' => $request->off_price,
-                'status' => $request->status
+                'status' => $request->status,
+                'project_id'=>$projectId
             ]);
             alert()->success('موفق','سانس با موفقیت ثبت شد');
         } elseif ($request->action == "update") {
             $data=$request->except('action','update','q', '_token');
-            $reserve = ReservePart::findOrFail($request->update);
+            $reserve = ReservePart::where(['id'=>$request->update,'project_id'=>$projectId])->firstOrFail();
             $reserve->update($data);
             alert()->success('موفق','سانس با موفقیت ویرایش شد');
         }

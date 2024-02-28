@@ -108,6 +108,7 @@ class AccountController extends Controller
 
     public function reserve($slug)
     {
+        
         $settingModel = new Setting;
         $reservePlanModel = new ReservePlan;
         $palleteModel = new Pallete;
