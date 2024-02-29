@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->double('rs_price')->comment('مبلغ');
             $table->string('ro_name')->nullable()->comment('نام مشتری');
             $table->integer('ro_count')->comment('تعداد');
+            $table->integer('left_count')->comment('باقیمانده');
             $table->string('ro_mobile')->nullable()->comment('موبایل');
             $table->string('ro_status')->default(0)->comment('وضعیت');
             $table->timestamps();
