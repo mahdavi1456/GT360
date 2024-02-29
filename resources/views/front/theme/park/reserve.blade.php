@@ -55,7 +55,7 @@
             });
 
             $(document.body).on("click", ".load-reserve-info-form", function() {
-
+                $("#loading-overlay").fadeIn();
                 var id = $(this).data("id");
                 var rp_date = $(this).data("rp_date");
 
@@ -65,9 +65,10 @@
                     data: {
                         id: id,
                         rp_date: rp_date,
-                        slug:"{{request('slug')}}"
+                        slug: "{{ request('slug') }}"
                     },
                     success: function(data) {
+
                         $("#result").html(data);
                         $('#ro-count').on('change', function() {
                             let count = this.value;
@@ -76,6 +77,7 @@
                                 price);
                             $('#ro-total').val(totalPrice);
                         });
+                        $("#loading-overlay").fadeOut();
                         /*Swal.fire({
                             title: "موفق",
                             text: "اطلاعات با موفقیت ثبت شد.",
@@ -83,6 +85,7 @@
                         });*/
                     },
                     error: function(data) {
+                        $("#loading-overlay").fadeOut();
                         console.log(data);
                         /*Swal.fire({
                             title: "خطا",
@@ -95,6 +98,7 @@
             });
 
             $(document.body).on("change", "#ro-count", function() {
+
                 var inputValue = $(this).val();
                 if (parseInt(inputValue) > $(this).attr('max')) {
                     $(this).tooltip({
@@ -116,6 +120,7 @@
 
             $(document.body).on("click", "#load-confirm-mobile-form", function() {
                 //var id = $(this).data("id");
+                $("#loading-overlay").fadeIn();
                 var ro_count = $("#ro-count").val();
                 var ro_name = $("#ro-name").val();
                 var ro_mobile = $("#ro-mobile").val();
@@ -128,6 +133,7 @@
 
                 if (ro_count > 0 && ro_name != "" && ro_mobile != "") {
                     if (ro_mobile.length != 11) {
+                        $("#loading-overlay").fadeOut();
                         Swal.fire({
                             title: "خطا",
                             text: " موبایل وارد شده صحیح نمی باشد",
@@ -152,6 +158,13 @@
                             success: function(data) {
                                 $("#result").html(data);
                                 timer();
+                                Swal.fire({
+                                    title: "توجه",
+                                    text: "کد اعبتار سنجی  برای شما ارسال شد",
+                                    icon: "info",
+                                    timer:1000
+                                });
+                                $("#loading-overlay").fadeOut();
                                 // alert('صفحه ورود کد');
                                 /*Swal.fire({
                                     title: "موفق",
@@ -160,6 +173,7 @@
                                 });*/
                             },
                             error: function(data) {
+                                $("#loading-overlay").fadeOut();
                                 Swal.fire({
                                     title: "خطا",
                                     text: data.responseJSON.message,
@@ -169,6 +183,7 @@
                         });
                     }
                 } else {
+                    $("#loading-overlay").fadeOut();
                     if (ro_count == 0) {
                         Swal.fire({
                             title: "توجه",
@@ -183,10 +198,12 @@
                         });
                     }
 
+
                 }
             });
 
             $(document.body).on("click", "#check-confirm-customer", function() {
+                $("#loading-overlay").fadeIn();
                 var mobile = $("#mobile").val();
                 var code = $("#code").val();
 
@@ -211,12 +228,14 @@
                                     window.location.href = data2;
                                 },
                                 error: function(data2) {
+                                    $("#loading-overlay").fadeOut();
                                     alert(data2);
                                     console.log(data2);
                                 }
                             });
                         },
                         error: function(data) {
+                            $("#loading-overlay").fadeOut();
                             if (data.status == 405) {
                                 Swal.fire({
                                     title: "خطا",
@@ -233,6 +252,7 @@
                         }
                     });
                 } else {
+                    $("#loading-overlay").fadeOut();
                     Swal.fire({
                         title: "توجه",
                         text: "لطفا کادرهای ستاره دار را تکمیل نمایید.",
@@ -242,6 +262,7 @@
                 }
             });
             $(document.body).on("click", "#countdownBTN", function() {
+                $("#loading-overlay").fadeIn();
                 // if ($('#countdownBTN').prop('disable') == 'false') {
                 let mobile = $('#mobile').val();
                 $.ajax({
@@ -251,6 +272,7 @@
                         mobile: mobile
                     },
                     success: function(res) {
+                        $("#loading-overlay").fadeOut();
                         Swal.fire({
                             title: "توجه",
                             text: "کد اعبتار سنجی مجددا برای شما ارسال شد",
@@ -259,6 +281,7 @@
                         timer();
                     },
                     error: function(res) {
+                        $("#loading-overlay").fadeOut();
                         alert('nop');
                     }
                 });
@@ -267,7 +290,7 @@
             });
 
             function timer() {
-                var countdown = 20;
+                var countdown = 60;
                 $('#countdownBTN').prop('disabled', true);
                 var timer = setInterval(function() {
                     $('#countdown').parent().removeClass('fade');

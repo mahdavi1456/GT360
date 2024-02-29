@@ -10,6 +10,7 @@ use App\Models\Transaction;
 use App\Servieses\IPG;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\ReservePlan;
 
 class TransactionController extends Controller
 {
@@ -18,7 +19,6 @@ class TransactionController extends Controller
         $id = $request->id;
         $reserveOrder = ReserveOrder::find($id);
         $rp = ReservePart::find($reserveOrder->rp_id);
-
         $price = $rp->price * $reserveOrder->ro_count;
         if ($rp->off_price) {
             $price = $rp->off_price * $reserveOrder->ro_count;
@@ -58,7 +58,6 @@ class TransactionController extends Controller
             } elseif ($model->record_type == 'reserve') {
 
                 $ro = ReserveOrder::findOrFail($model->record_id);
-
                 $ro->update([
                     'ro_status' => 2
                 ]);

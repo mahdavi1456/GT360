@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Servieses\Sms;
 use App\Models\Project;
 use App\Models\ReservePart;
 use App\Models\ReservePlan;
@@ -107,6 +108,9 @@ class ReservePlanController extends Controller
         $rp_name = $reservePart->name;
         $rp_details = $reservePart->details;
         $rs_price = $reservePart->price;
+        if ($reservePart->off_price) {
+            $rs_price=$reservePart->off_price;
+        }
         $rPlan=ReservePlan::where(['rp_date'=>$rp_date,'name'=>$rp_name,'project_id'=>$projectId])->first();
         // $ro = ReserveOrder::create([
         //     'rp_id' => $reservePart->id,
@@ -141,8 +145,9 @@ class ReservePlanController extends Controller
                 'rp_name'=>$request->rp_name
         ]);
         $confirmCustomerModel = new ConfirmCustomer;
-        $confirmCustomerModel->set("mobile", $request->ro_mobile);
-        //Sms::();
+       $code= $confirmCustomerModel->set("mobile", $request->ro_mobile);
+        $paras = ['code' => $code];
+        Sms::sendWithPattern('7wvqeoyeag6a8ln', $paras, $request->ro_mobile);
         $reserevePlanModel = new ReservePlan;
         return $reserevePlanModel->ConfirmMobileForm($reserveOrder->id, $request->ro_mobile);
     }

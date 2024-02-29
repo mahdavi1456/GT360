@@ -23,6 +23,7 @@ class ConfirmCustomer extends Model
             'status' => 0,
             'expire_at' => $expireAt
         ]);
+        return $code;
     }
 
     public function check($method, $value, $code)
