@@ -5,7 +5,7 @@
     @include('admin.partial.nav')
     @include('admin.partial.aside')
     <div class="content-wrapper">
-        {{ breadcrumb('گزارشات رزرو') }}
+        {{ breadcrumb('گزارشات رزرو - '.fa_number($reserveOrders->total())) }}
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -15,33 +15,41 @@
                                 <form action="">
                                     <div class="row">
                                         <div class="col-md-4 form-group">
-                                            <label>ip</label>
-                                            <input type="text" name="name" value="{{ $request->name }}"
-                                                class="form-control form-control-sm" />
-                                        </div>
-                                        <div class="col-md-4 form-group">
-                                            <label>ip</label>
+                                            <label>شماره تماس</label>
                                             <input type="text" name="mobile" value="{{ $request->mobile }}"
                                                 class="form-control form-control-sm" />
                                         </div>
 
-                                        <div class="col-md-2 form-group">
-                                            <label>browser</label>
-                                            <select class="form-control select2" multiple name="sans">
-
-
+                                        <div class="col-md-4 form-group">
+                                            <label>سانس</label>
+                                            <select class="form-control select2" name="sans">
+                                                <option value="">انتخاب کنید...</option>
+                                                @foreach ($reserveParts as $rp )
+                                                <option value="{{ $rp->id }}" @selected($request->sans==$rp->id)>
+                                                    {{$rp->name}}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>وضعیت</label>
+                                            <select class="form-control select2" name="status">
+                                                <option value="">انتخاب کنید...</option>
+                                                <option @selected($request->status==0) value="0">قبل از درگاه پرداخت</option>
+                                                <option @selected($request->status==1) value="1">ناموفق</option>
+                                                <option @selected($request->status==2) value="2">موفق</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 form-group">
                                             <label>از تاریخ</label>
-                                            <input type="text" name="from" id="from" placeholder="از..."
+                                            <input type="text" name="from" id="from" placeholder="از..." readonly
                                                 value="{{ $request->from }}"
                                                 class="datePicker form-control form-control-sm" autocomplete="off" />
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>تا تاریخ</label>
-                                            <input type="text" name="to" id="to" value="{{ $request->to }}"
+                                            <input type="text" name="to" id="to" value="{{ $request->to }}" readonly
                                                 placeholder="تا..." class="datePicker form-control form-control-sm"
                                                 autocomplete="off" />
                                         </div>

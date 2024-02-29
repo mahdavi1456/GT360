@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\ReservePart;
 use App\Models\ReserveOrder;
 use Illuminate\Http\Request;
 
@@ -12,9 +14,14 @@ class ReserveOrderController extends Controller
      */
     public function index(Request $request)
     {
-      
-        $reserveOrders = ReserveOrder::latest()->get();
-        return view('admin.reserve.order.index', compact('reserveOrders','request'));
+
+        $reserveOrders = ReserveOrder::filter()->latest()->paginate(50);
+        // $reserveOrders = ReserveOrder::filter()->latest()->toSql();
+      //  dd($reserveOrders);
+        $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
+        $reserveParts = ReservePart::where(['project_id'=>$projectId])->latest()->get();
+
+        return view('admin.reserve.order.index', compact('reserveOrders','request','reserveParts'));
     }
 
     /**
