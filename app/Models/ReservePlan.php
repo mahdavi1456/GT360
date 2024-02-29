@@ -25,8 +25,8 @@ class ReservePlan extends Model
 
     public function reserveList($year, $month, $day, $date)
     {
-        $projectId= Project::checkOpenProject(auth()->user()->account_id)->project_id;
-        $reserveParts = ReservePart::where(['project_id'=>$projectId])->latest()->get();
+        $projectId = Project::checkOpenProject(auth()->user()->account_id)->project_id;
+        $reserveParts = ReservePart::where(['project_id' => $projectId])->latest()->get();
         $reservePlanModel = new ReservePlan;
         if ($reserveParts) {
 ?>
@@ -35,6 +35,7 @@ class ReservePlan extends Model
                     <tr>
                         <th>روز</th>
                         <th>نام روز</th>
+                        <th>تاریخ</th>
                         <?php
                         foreach ($reserveParts as $key => $reservePart) { ?>
                             <th>
@@ -49,24 +50,44 @@ class ReservePlan extends Model
                 <tbody>
                     <?php
                     for ($i = 1; $i <= $date->daysInMonth; $i++) {
+                        $date->day = $i;
+                        if (verta()->gt($date)) {
+                            if (verta()->startDay() != $date->startDay()) {
+
+                                continue;
+                            }
+                        }
+
                     ?>
                         <tr>
-                            <td><?php echo $i; ?></td>
-                            <td><?php echo $i == 1 ? $date->format('%A') : $date->addDay()->format('%A'); ?></td>
+                            <td><?php echo $date->format("%d"); ?></td>
+                            <td><?= $date->format('%A'); ?></td>
+                            <td><?= fa_number($date->format('Y/m/d')) ?></td>
                             <?php
                             foreach ($reserveParts as $key => $reservePart) {
                                 $rpDate = $year . '/' . $month . '/' . $i;
-                                if (verta()->gte($date->copy()->addDay())) {
-                            ?>
-                                    <td>
-                                        <button class="btn btn-success load-reserve-info-form" disabled>انتخاب</button>
-                                    </td>
-                                <?php } else {
-                                ?>
+                                $hasPlan = $reservePart->hasPlan($date);
+                                //   dump($hasPlan);
+                                if ($hasPlan['plan']) {
+                                    if ($hasPlan['left_count'] > 0) {
 
+
+                            ?>
+
+                                        <td>
+                                            <button class="btn btn-success load-reserve-info-form" data-id="<?php echo $reservePart->id; ?>" data-rp_date="<?php echo $rpDate; ?>">انتخاب</button>
+                                        </td>
+                                    <?php } else { ?>
+                                        <td>
+                                            <button class="btn btn-success load-reserve-info-form" disabled>ظرفیت تکمیل</button>
+                                        </td>
+                                    <?php }
+                                } else {
+                                    ?>
                                     <td>
-                                        <button class="btn btn-success load-reserve-info-form" data-id="<?php echo $reservePart->id; ?>" data-rp_date="<?php echo $rpDate; ?>">انتخاب</button>
+                                        <button class="btn btn-success load-reserve-info-form" disabled>غیر فعال</button>
                                     </td>
+
                             <?php }
                             } ?>
                         </tr>
@@ -79,10 +100,11 @@ class ReservePlan extends Model
         }
     }
 
-    public function InfoForm($rp_id, $roDate, $rpName, $rpDetails, $rsPrice)
+    public function InfoForm($rp_id, $roDate, $rpName, $rpDetails, $rsPrice,$leftCount)
     {
-        ?>
-        <input type="hidden" id="rp_id" value="<?=$rp_id?>">
+
+       ?>
+        <input type="hidden" id="rp_id" value="<?= $rp_id ?>">
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title m-0">تکمیل مشخصات</h5>
@@ -110,7 +132,7 @@ class ReservePlan extends Model
                 <div class="row">
                     <div class="col-md-1 form-group">
                         <label>تعداد <span class="text-danger">*</span></label>
-                        <input type="text" name="ro_count" id="ro-count" class="form-control just-numbers" placeholder="تعداد...">
+                        <input type="number" max="<?= $leftCount ?>" name="ro_count" id="ro-count" class="form-control just-numbers" placeholder="تعداد...">
                     </div>
                     <div class="col-md-3 form-group">
                         <label>مبلغ کل <span class="text-danger">*</span></label>

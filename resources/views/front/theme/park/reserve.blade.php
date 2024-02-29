@@ -44,6 +44,7 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -63,7 +64,8 @@
                     url: "{{ route('reservePlan.InfoForm') }}",
                     data: {
                         id: id,
-                        rp_date: rp_date
+                        rp_date: rp_date,
+                        slug:"{{request('slug')}}"
                     },
                     success: function(data) {
                         $("#result").html(data);
@@ -81,7 +83,7 @@
                         });*/
                     },
                     error: function(data) {
-                        console.log(data.responseJSON);
+                        console.log(data);
                         /*Swal.fire({
                             title: "خطا",
                             text: data.responseJSON.message,
@@ -92,6 +94,26 @@
 
             });
 
+            $(document.body).on("change", "#ro-count", function() {
+                var inputValue = $(this).val();
+                if (parseInt(inputValue) > $(this).attr('max')) {
+                    $(this).tooltip({
+                        title: 'تعداد بیش از ظرفیت',
+                        placement: 'top',
+                        trigger: 'manual',
+                    });
+                    $(this).tooltip('show');
+                    $(this).val(0);
+                    setTimeout(function() {
+                        $('#ro-count').tooltip('hide');
+                    }, 2000); // 2000 milliseconds = 2 seconds
+
+
+                } else {
+                    $(this).tooltip('dispose');
+                }
+            });
+
             $(document.body).on("click", "#load-confirm-mobile-form", function() {
                 //var id = $(this).data("id");
                 var ro_count = $("#ro-count").val();
@@ -100,11 +122,11 @@
                 var rp_id = $('#rp_id').val();
                 var ro_date = $('#ro_date').val();
                 var rs_price = $('#rs_price').val();
-              //  var slug=$('#slug').val();
-                var rp_details=$('#rp_details').val();
-                var rp_name=$('#rp_name').val();
+                //  var slug=$('#slug').val();
+                var rp_details = $('#rp_details').val();
+                var rp_name = $('#rp_name').val();
 
-                if (ro_count != "" && ro_name != "" && ro_mobile != "") {
+                if (ro_count > 0 && ro_name != "" && ro_mobile != "") {
                     if (ro_mobile.length != 11) {
                         Swal.fire({
                             title: "خطا",
@@ -122,10 +144,10 @@
                                 ro_count: ro_count,
                                 ro_name: ro_name,
                                 ro_mobile: ro_mobile,
-                                rs_price:rs_price,
-                                slug:"{{request('slug')}}",
-                                rp_details:rp_details,
-                                rp_name:rp_name
+                                rs_price: rs_price,
+                                slug: "{{ request('slug') }}",
+                                rp_details: rp_details,
+                                rp_name: rp_name
                             },
                             success: function(data) {
                                 $("#result").html(data);
@@ -147,11 +169,19 @@
                         });
                     }
                 } else {
-                    Swal.fire({
-                        title: "توجه",
-                        text: "لطفا کادرهای ستاره دار را تکمیل نمایید.",
-                        icon: "info"
-                    });
+                    if (ro_count == 0) {
+                        Swal.fire({
+                            title: "توجه",
+                            text: "تعداد  را وارد کنید ",
+                            icon: "info"
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "توجه",
+                            text: "لطفا کادرهای ستاره دار را درست تکمیل نمایید.",
+                            icon: "info"
+                        });
+                    }
 
                 }
             });

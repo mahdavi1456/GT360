@@ -54,10 +54,20 @@ class ReservePlanController extends Controller
 
             if ($value) {
                 $check = ReservePlan::where('rp_date', $rp_date)->where('project_id',$projectId)->where('name', $name)->where('details', $details)->first();
+
                 if ($check) {
                     $rp = ReservePlan::find($check->id);
+                    if($rp->rp_count!=$rp_count){
+                        $delta=$rp_count-$rp->rp_count;
+
+                        $rp->left_count+=$delta;
+                        if ($rp->left_count<0) {
+                            $rp->left_count=0;
+                        }
+                    }
                     $rp->rp_count = $rp_count;
                     $rp->price = $price;
+
                     $rp->save();
                 } else {
                     ReservePlan::create([
@@ -66,6 +76,7 @@ class ReservePlanController extends Controller
                         'price' => $price,
                         'rp_date' => $rp_date,
                         'rp_count' => $rp_count,
+                        'left_count' => $rp_count,
                         'project_id'=>$projectId
                     ]);
                 }
@@ -89,13 +100,14 @@ class ReservePlanController extends Controller
 
     public function InfoForm(Request $request)
     {
-
+        $projectId=Project::where('slug',request('slug'))->first()->id;
         $rp_date = $request->rp_date;
         $reservePart = ReservePart::find($request->id);
         $ro_date = $rp_date;
         $rp_name = $reservePart->name;
         $rp_details = $reservePart->details;
         $rs_price = $reservePart->price;
+        $rPlan=ReservePlan::where(['rp_date'=>$rp_date,'name'=>$rp_name,'project_id'=>$projectId])->first();
         // $ro = ReserveOrder::create([
         //     'rp_id' => $reservePart->id,
         //     'ro_date' => $ro_date,
@@ -106,7 +118,7 @@ class ReservePlanController extends Controller
         // ]);
 
         $reserevePlanModel = new ReservePlan;
-        return $reserevePlanModel->InfoForm($reservePart->id, $ro_date, $rp_name, $rp_details, $rs_price);
+        return $reserevePlanModel->InfoForm($reservePart->id, $ro_date, $rp_name, $rp_details, $rs_price,$rPlan->left_count);
     }
 
     public function ConfirmMobileForm(Request $request)
@@ -130,6 +142,7 @@ class ReservePlanController extends Controller
         ]);
         $confirmCustomerModel = new ConfirmCustomer;
         $confirmCustomerModel->set("mobile", $request->ro_mobile);
+        //Sms::();
         $reserevePlanModel = new ReservePlan;
         return $reserevePlanModel->ConfirmMobileForm($reserveOrder->id, $request->ro_mobile);
     }

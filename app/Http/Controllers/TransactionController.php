@@ -24,7 +24,7 @@ class TransactionController extends Controller
             $price = $rp->off_price * $reserveOrder->ro_count;
         }
         $reserveOrder->update([
-            'ro_status'=>1
+            'ro_status' => 1
         ]);
         $ipg = new IPG();
         return $ipg->start($id, "reserve", $price);
@@ -55,23 +55,24 @@ class TransactionController extends Controller
                 alert()->success('موفق', 'پرداخت شما با نوفقیت انجام شد');
                 return to_route('project.index');
                 //end package verification
-            }
+            } elseif ($model->record_type == 'reserve') {
 
-            elseif ($model->record_type == 'reserve') {
-                $ro=ReserveOrder::findOrFail($model->record_id);
+                $ro = ReserveOrder::findOrFail($model->record_id);
+
                 $ro->update([
-                    'ro_status'=>2
+                    'ro_status' => 2
                 ]);
+                $projectId = Project::where('slug', $ro->slug)->first()->id;
+                $rPlan = ReservePlan::where(['rp_date' => $ro->ro_date, 'name' => $ro->rp_name, 'project_id' => $projectId])->first();
+                $rPlan->decrement('left_count', $ro->ro_count);
                 alert()->success('موفق', 'پرداخت شما با نوفقیت انجام شد');
-                return to_route('enterSite',$ro->slug);
+                return to_route('enterSite', $ro->slug);
             }
-
-
         } elseif ($result['status'] == 'failed') {
             if ($model->record_type == 'reserve') {
-                $ro=ReserveOrder::findOrFail($model->record_id);
-                alert()->error('خطا','تراکنش ناموفق');
-                return to_route('reserve',$ro->slug);
+                $ro = ReserveOrder::findOrFail($model->record_id);
+                alert()->error('خطا', 'تراکنش ناموفق');
+                return to_route('reserve', $ro->slug);
             }
             alert()->error('خطا', 'پرداخت شما با خطا همراه بود');
             return to_route('transaction.report');
