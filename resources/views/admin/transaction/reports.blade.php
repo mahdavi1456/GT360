@@ -106,7 +106,8 @@
                                         <tr>
                                             <th>#</th>
                                             <th>تاریخ</th>
-                                            <th>پروژه</th>
+                                            <th>نوع تراکنش</th>
+                                            <th>هدف</th>
                                             <th>ارزش</th>
                                             <th>پیغام</th>
                                             <th>کد وضعیت </th>
@@ -116,6 +117,7 @@
                                             <tr>
                                                 <td>{{ $transactions->firstItem() + $key }}</td>
                                                 <td>{{ zaman($transaction->created_at) }}</td>
+                                                <td>{{ $transaction->record_value }}</td>
                                                 <td>{{ $transaction->project?->title }}</td>
                                                 <td>{{ price($transaction->price) }}</td>
                                                 <td>{{ $transaction->message }}</td>

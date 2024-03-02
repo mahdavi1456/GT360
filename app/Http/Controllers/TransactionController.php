@@ -98,7 +98,7 @@ class TransactionController extends Controller
     }
     public function reports()
     {
-        $transactions = Transaction::where(['account_id' => auth()->user()->account_id, 'record_type' => 'package'])->latest()->with('project')->paginate(30);
+        $transactions = Transaction::where(['account_id' => auth()->user()->account_id])->latest()->with('project')->paginate(30);
 
         return view('admin.transaction.reports', compact('transactions'));
     }

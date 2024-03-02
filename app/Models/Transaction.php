@@ -14,4 +14,19 @@ class Transaction extends Model
     public function project() {
         return $this->belongsTo(Project::class);
     }
+    public function getRecordValueAttribute(){
+        switch ($this->record_type) {
+            case 'package':
+              $msg='پکیج';
+                break;
+            case 'reserve':
+              $msg='رزرو سانس';
+                break;
+
+            default:
+                $msg=$this->record_type;
+                break;
+        }
+        return $msg;
+    }
 }
