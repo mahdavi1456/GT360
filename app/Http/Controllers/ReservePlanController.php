@@ -130,7 +130,7 @@ class ReservePlanController extends Controller
         $rp_id = $request->rp_id;
         $ro_count = $request->ro_count;
         $ro_name = $request->ro_name;
-        $ro_date = $request->ro_date;
+        $ro_date = verta()->parse($request->ro_date)->toCarbon();
         $rs_price = $request->rs_price;
         $price = $ro_count * $rs_price;
         $reserveOrder = ReserveOrder::create([

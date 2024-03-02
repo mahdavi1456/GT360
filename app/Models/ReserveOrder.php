@@ -11,7 +11,8 @@ class ReserveOrder extends Model
 
     protected $table = "reserve_orders";
     protected $guarded = [];
-    public function getStatusValueAttribute() {
+    public function getStatusValueAttribute()
+    {
         switch ($this->ro_status) {
             case '1':
                 return 'ناموفق';
@@ -24,22 +25,13 @@ class ReserveOrder extends Model
                 break;
 
             default:
-            return $this->status;
+                return $this->status;
                 break;
         }
     }
-    public function scopeFilter($query) {
-        // if (request()->filled('device')) {
-        //     $query->where(function ($query){
-        //         foreach (request('device') as  $key => $value) {
-        //             if ($key == 0) {
-        //                 $query->where('device', 'like', '%' . $value . '%');
-        //             } else {
-        //                 $query->orWhere('device', 'like', '%' . $value . '%');
-        //             }
-        //         }
-        //     });
-        // }
+    public function scopeFilter($query)
+    {
+
         if (request()->filled('sans')) {
 
             $query->where('rp_id', 'like', '%' . request('sans') . '%');
@@ -51,15 +43,21 @@ class ReserveOrder extends Model
         if (request()->filled('status')) {
             $query->where('ro_status', 'like', '%' . request('status') . '%');
         }
-        if (request()->filled('from')) {
-            $from = verta()->parse(request('from'))->datetime();
-            $query->where('created_at', '>=', $from);
-            // $query->orWhereDate('created_at', $from);
-        }
-        if (request()->filled('to')) {
-            $to = verta()->parse(request('to'))->toCarbon()->addDay();
-           // $query->WhereDate('created_at', $to);
-            $query->where('created_at', '<=', $to);
+        if (request()->filled('from') or request()->filled('to')) {
+            if (request()->filled('from')) {
+                $from = verta()->parse(request('from'))->toCarbon();
+                //dd(verta()->parse(request('from')));
+                // $from = verta()->parse(request('from'))->datetime();
+                $query->where('ro_date', '>=', $from);
+            }
+            if (request()->filled('to')) {
+                $to = verta()->parse(request('to'))->toCarbon();
+                //  $to = verta()->parse(request('to'))->toCarbon()->addDay();
+
+                $query->where('ro_date', '<=', $to);
+            }
+        }else{
+            $query->whereDate('ro_date',today());
         }
     }
 }

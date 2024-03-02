@@ -35,7 +35,7 @@
                                             <label>وضعیت</label>
                                             <select class="form-control select2" name="status">
                                                 <option value="">انتخاب کنید...</option>
-                                                <option @selected($request->status==0) value="0">قبل از درگاه پرداخت</option>
+                                                <option @selected($request->status=='0') value="0">قبل از درگاه پرداخت</option>
                                                 <option @selected($request->status==1) value="1">ناموفق</option>
                                                 <option @selected($request->status==2) value="2">موفق</option>
                                             </select>
@@ -43,13 +43,13 @@
 
                                         <div class="col-md-4 form-group">
                                             <label>از تاریخ</label>
-                                            <input type="text" name="from" id="from" placeholder="از..." readonly
+                                            <input type="text" name="from" id="from" placeholder="از..."
                                                 value="{{ $request->from }}"
                                                 class="datePicker form-control form-control-sm" autocomplete="off" />
                                         </div>
                                         <div class="col-md-4 form-group">
                                             <label>تا تاریخ</label>
-                                            <input type="text" name="to" id="to" value="{{ $request->to }}" readonly
+                                            <input type="text" name="to" id="to" value="{{ $request->to }}"
                                                 placeholder="تا..." class="datePicker form-control form-control-sm"
                                                 autocomplete="off" />
                                         </div>
@@ -81,7 +81,7 @@
                                             <tr>
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
                                                 <td>{{ zaman($reserveOrder->created_at) }}</td>
-                                                <td>{{ fa_number($reserveOrder->ro_date) }}</td>
+                                                <td>{{ fa_number(verta($reserveOrder->ro_date)->format('Y/m/j')) }}</td>
                                                 <td>{{ $reserveOrder->rp_name }}</td>
                                                 <td>{{ $reserveOrder->rp_details }}</td>
                                                 <td>{{ price($reserveOrder->rs_price) }}</td>
