@@ -58,8 +58,8 @@ class ReservePlan extends Model
                             }
                         }
                         if (request('day')) {
-                            if ($i!=request('day')) {
-                                    continue;
+                            if ($i != request('day')) {
+                                continue;
                             }
                         }
 
@@ -105,60 +105,61 @@ class ReservePlan extends Model
         }
     }
 
-    public function InfoForm($rp_id, $roDate, $rpName, $rpDetails, $rsPrice,$leftCount)
+    public function InfoForm($rp_id, $roDate, $rpName, $rpDetails, $rsPrice, $leftCount)
     {
+        ?>
+        <div class="main-content">
+            <input type="hidden" id="rp_id" value="<?= $rp_id ?>">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title m-0">تکمیل مشخصات</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label>تاریخ</label>
+                            <input readonly type="text" id="ro_date" name="ro_date" class="form-control" value="<?php echo $roDate; ?>">
 
-       ?>
-        <input type="hidden" id="rp_id" value="<?= $rp_id ?>">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title m-0">تکمیل مشخصات</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3 form-group">
-                        <label>تاریخ</label>
-                        <input readonly type="text" id="ro_date" name="ro_date" class="form-control" value="<?php echo $roDate; ?>">
-
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label>سانس</label>
+                            <input readonly type="text" id="rp_name" name="rp_name" class="form-control" value="<?php echo $rpName; ?>">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label>توضیحات</label>
+                            <input readonly type="text" id="rp_details" name="rp_details" class="form-control" value="<?php echo $rpDetails; ?>">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label>مبلغ هر نفر</label>
+                            <input readonly type="text" id="rs_price" name="rs_price" class="form-control" value="<?php echo $rsPrice; ?>">
+                        </div>
                     </div>
-                    <div class="col-md-3 form-group">
-                        <label>سانس</label>
-                        <input readonly type="text" id="rp_name" name="rp_name" class="form-control" value="<?php echo $rpName; ?>">
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label>توضیحات</label>
-                        <input readonly type="text" id="rp_details" name="rp_details" class="form-control" value="<?php echo $rpDetails; ?>">
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label>مبلغ هر نفر</label>
-                        <input readonly type="text" id="rs_price" name="rs_price" class="form-control" value="<?php echo $rsPrice; ?>">
+                    <div class="row">
+                        <div class="col-md-1 form-group">
+                            <label>تعداد <span class="text-danger">*</span></label>
+                            <input type="number" max="<?= $leftCount ?>" name="ro_count" id="ro-count" class="form-control just-numbers" placeholder="تعداد...">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label>مبلغ کل <span class="text-danger">*</span></label>
+                            <input type="text" readonly id="ro-total" class="form-control" placeholder="تعداد...">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>نام و نام خانوادگی <span class="text-danger">*</span></label>
+                            <input type="text" name="ro_name" id="ro-name" class="form-control" placeholder="نام و نام خانوادگی...">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label>موبایل <span class="text-danger">*</span></label>
+                            <input type="text" name="ro_mobile" id="ro-mobile" class="form-control" placeholder="موبایل...">
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-1 form-group">
-                        <label>تعداد <span class="text-danger">*</span></label>
-                        <input type="number" max="<?= $leftCount ?>" name="ro_count" id="ro-count" class="form-control just-numbers" placeholder="تعداد...">
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label>مبلغ کل <span class="text-danger">*</span></label>
-                        <input type="text" readonly id="ro-total" class="form-control" placeholder="تعداد...">
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label>نام و نام خانوادگی <span class="text-danger">*</span></label>
-                        <input type="text" name="ro_name" id="ro-name" class="form-control" placeholder="نام و نام خانوادگی...">
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label>موبایل <span class="text-danger">*</span></label>
-                        <input type="text" name="ro_mobile" id="ro-mobile" class="form-control" placeholder="موبایل...">
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <a href="" id="back-to-infoForm" class="btn btn-warning">انصراف</a>
-                        <!-- <button type="button" class="btn btn-warning" data-id="">مرحله قبل</button> -->
-                        <button type="button" id="load-confirm-mobile-form" class="btn btn-success" data-id="">مرحله بعد</button>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <a href="" id="back-to-infoForm" class="btn btn-warning">انصراف</a>
+                            <!-- <button type="button" class="btn btn-warning" data-id="">مرحله قبل</button> -->
+                            <button type="button" id="load-confirm-mobile-form" class="btn btn-success" data-id="">مرحله بعد</button>
+                        </div>
                     </div>
                 </div>
             </div>

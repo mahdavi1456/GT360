@@ -3,44 +3,44 @@
     <div class="container-fluid">
         <div class="row">
             <div id="result" class="reserveBox col-12 mt-4 mb-4">
-             <form action="">
-                <div class="reserveBoxSelect row">
-                    <div class="col">
-                        <label>ماه</label>
-                        <select name="month" id="reserve-filter-month" class="w-100">
-                            <option value="1" {{ $currentMonth == 1 ? 'selected' : '' }}>فروردین</option>
-                            <option value="2" {{ $currentMonth == 2 ? 'selected' : '' }}>اردیبهشت</option>
-                            <option value="3" {{ $currentMonth == 3 ? 'selected' : '' }}>خرداد</option>
-                            <option value="4" {{ $currentMonth == 4 ? 'selected' : '' }}>تیر</option>
-                            <option value="5" {{ $currentMonth == 5 ? 'selected' : '' }}>مرداد</option>
-                            <option value="6" {{ $currentMonth == 6 ? 'selected' : '' }}>شهریور</option>
-                            <option value="7" {{ $currentMonth == 7 ? 'selected' : '' }}>مهر</option>
-                            <option value="8" {{ $currentMonth == 8 ? 'selected' : '' }}>آبان</option>
-                            <option value="9" {{ $currentMonth == 9 ? 'selected' : '' }}>آذر</option>
-                            <option value="10" {{ $currentMonth == 10 ? 'selected' : '' }}>دی</option>
-                            <option value="11" {{ $currentMonth == 11 ? 'selected' : '' }}>بهمن</option>
-                            <option value="12" {{ $currentMonth == 12 ? 'selected' : '' }}>اسفند</option>
-                        </select>
+                <form action="">
+                    <div class="reserveBoxSelect row">
+                        <div class="col">
+                            <label>ماه</label>
+                            <select name="month" id="reserve-filter-month" class="w-100">
+                                <option value="1" {{ $currentMonth == 1 ? 'selected' : '' }}>فروردین</option>
+                                <option value="2" {{ $currentMonth == 2 ? 'selected' : '' }}>اردیبهشت</option>
+                                <option value="3" {{ $currentMonth == 3 ? 'selected' : '' }}>خرداد</option>
+                                <option value="4" {{ $currentMonth == 4 ? 'selected' : '' }}>تیر</option>
+                                <option value="5" {{ $currentMonth == 5 ? 'selected' : '' }}>مرداد</option>
+                                <option value="6" {{ $currentMonth == 6 ? 'selected' : '' }}>شهریور</option>
+                                <option value="7" {{ $currentMonth == 7 ? 'selected' : '' }}>مهر</option>
+                                <option value="8" {{ $currentMonth == 8 ? 'selected' : '' }}>آبان</option>
+                                <option value="9" {{ $currentMonth == 9 ? 'selected' : '' }}>آذر</option>
+                                <option value="10" {{ $currentMonth == 10 ? 'selected' : '' }}>دی</option>
+                                <option value="11" {{ $currentMonth == 11 ? 'selected' : '' }}>بهمن</option>
+                                <option value="12" {{ $currentMonth == 12 ? 'selected' : '' }}>اسفند</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>روز</label>
+                            <select name="day" id="reserve-filter-day" class="w-100">
+                                @for ($i = 1; $i <= $date->daysInMonth; $i++)
+                                    <option value="{{ $i }}" {{ $currentDay == $i ? 'selected' : '' }}>
+                                        {{ $i }}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label class="d-block fade">روز</label>
+                            <button type="submit" class="btn btn-success">نمایش</button>
+                            @if (request('day'))
+                                <a href="{{ url()->current() }}" class="btn btn-warning">نمایش همه
+                                </a>
+                            @endif
+                        </div>
                     </div>
-                    <div class="col">
-                        <label>روز</label>
-                        <select name="day" id="reserve-filter-day" class="w-100">
-                            @for ($i = 1; $i <= $date->daysInMonth; $i++)
-                                <option value="{{ $i }}" {{ $currentDay == $i ? 'selected' : '' }}>
-                                    {{ $i }}</option>
-                            @endfor
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label class="d-block fade">روز</label>
-                        <button type="submit" class="btn btn-success">نمایش</button>
-                        @if (request('day'))
-                        <a href="{{url()->current()}}"  class="btn btn-warning">نمایش همه
-                        </a>
-                        @endif
-                    </div>
-                </div>
-             </form>
+                </form>
                 @php
                     $reservePlanModel->reserveList($currentYear, $currentMonth, $currentDay, $date);
                 @endphp
@@ -72,8 +72,13 @@
                         slug: "{{ request('slug') }}"
                     },
                     success: function(data) {
+                        // Parse the response data here
+                        var parsedData = $(data).find('.main-content')
+                    .html(); // Assuming the relevant content is within the '.card' element
 
-                        $("#result").html(data);
+                        // Update the div with the parsed data
+                        $('#result').html(parsedData);
+                      //  $("#result").html(data);
                         $('#ro-count').on('change', function() {
                             let count = this.value;
                             let price = $('#rs_price').val();
