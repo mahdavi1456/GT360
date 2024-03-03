@@ -115,13 +115,13 @@
                                         </tr>
                                         @foreach ($transactions as $key => $transaction)
                                             <tr>
-                                                <td>{{ $transactions->firstItem() + $key }}</td>
+                                                <td>{{ fa_number($transactions->firstItem() + $key) }}</td>
                                                 <td>{{ zaman($transaction->created_at) }}</td>
                                                 <td>{{ $transaction->record_value }}</td>
                                                 <td>{{ $transaction->project?->title }}</td>
                                                 <td>{{ price($transaction->price) }}</td>
                                                 <td>{{ $transaction->message }}</td>
-                                                <td>{{ $transaction->status }}</td>
+                                                <td style="direction: ltr;">{{ fa_number($transaction->status) }}</td>
                                             </tr>
                                         @endforeach
                                     </table>

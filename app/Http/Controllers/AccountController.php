@@ -108,7 +108,7 @@ class AccountController extends Controller
 
     public function reserve($slug)
     {
-        
+
         $settingModel = new Setting;
         $reservePlanModel = new ReservePlan;
         $palleteModel = new Pallete;
@@ -120,8 +120,12 @@ class AccountController extends Controller
         // $currentMonth = $v->month;
         $date = verta();
         $currentYear = $date->year;
-        $currentMonth = $date->month;
-        $currentDay = $date->day;
+        $currentMonth = request('month')?? $date->month;
+        $currentDay = request('day')?? $date->day;
+        if (request('day')) {
+           $date->month=$currentMonth;
+           $date->day=$currentDay;
+        }
         $date->startMonth();
 
         if ($project) {

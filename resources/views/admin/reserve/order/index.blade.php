@@ -82,8 +82,8 @@
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
                                                 <td>{{ zaman($reserveOrder->created_at) }}</td>
                                                 <td>{{ fa_number(verta($reserveOrder->ro_date)->format('Y/m/j')) }}</td>
-                                                <td>{{ $reserveOrder->rp_name }}</td>
-                                                <td>{{ $reserveOrder->rp_details }}</td>
+                                                <td>{{ fa_number($reserveOrder->rp_name) }}</td>
+                                                <td>{{ fa_number($reserveOrder->rp_details) }}</td>
                                                 <td>{{ price($reserveOrder->rs_price) }}</td>
                                                 <td>{{ $reserveOrder->ro_name }}</td>
                                                 <td>{{ fa_number($reserveOrder->ro_count) }}</td>

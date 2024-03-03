@@ -3,10 +3,11 @@
     <div class="container-fluid">
         <div class="row">
             <div id="result" class="reserveBox col-12 mt-4 mb-4">
+             <form action="">
                 <div class="reserveBoxSelect row">
                     <div class="col">
                         <label>ماه</label>
-                        <select id="reserve-filter-month" class="w-100">
+                        <select name="month" id="reserve-filter-month" class="w-100">
                             <option value="1" {{ $currentMonth == 1 ? 'selected' : '' }}>فروردین</option>
                             <option value="2" {{ $currentMonth == 2 ? 'selected' : '' }}>اردیبهشت</option>
                             <option value="3" {{ $currentMonth == 3 ? 'selected' : '' }}>خرداد</option>
@@ -23,7 +24,7 @@
                     </div>
                     <div class="col">
                         <label>روز</label>
-                        <select id="reserve-filter-day" class="w-100">
+                        <select name="day" id="reserve-filter-day" class="w-100">
                             @for ($i = 1; $i <= $date->daysInMonth; $i++)
                                 <option value="{{ $i }}" {{ $currentDay == $i ? 'selected' : '' }}>
                                     {{ $i }}</option>
@@ -32,10 +33,14 @@
                     </div>
                     <div class="col">
                         <label class="d-block fade">روز</label>
-                        <button type="button" id="reserve-filter-btn" class="btn btn-success" data-a_id="">نمایش
-                        </button>
+                        <button type="submit" class="btn btn-success">نمایش</button>
+                        @if (request('day'))
+                        <a href="{{url()->current()}}"  class="btn btn-warning">نمایش همه
+                        </a>
+                        @endif
                     </div>
                 </div>
+             </form>
                 @php
                     $reservePlanModel->reserveList($currentYear, $currentMonth, $currentDay, $date);
                 @endphp
@@ -53,7 +58,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
             $(document.body).on("click", ".load-reserve-info-form", function() {
                 $("#loading-overlay").fadeIn();
                 var id = $(this).data("id");
@@ -162,7 +166,7 @@
                                     title: "توجه",
                                     text: "کد اعبتار سنجی  برای شما ارسال شد",
                                     icon: "info",
-                                    timer:1000
+                                    timer: 1000
                                 });
                                 $("#loading-overlay").fadeOut();
                                 // alert('صفحه ورود کد');

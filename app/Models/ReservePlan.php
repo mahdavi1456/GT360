@@ -49,12 +49,17 @@ class ReservePlan extends Model
                 </thead>
                 <tbody>
                     <?php
+
                     for ($i = 1; $i <= $date->daysInMonth; $i++) {
                         $date->day = $i;
                         if (verta()->gt($date)) {
                             if (verta()->startDay() != $date->startDay()) {
-
                                 continue;
+                            }
+                        }
+                        if (request('day')) {
+                            if ($i!=request('day')) {
+                                    continue;
                             }
                         }
 

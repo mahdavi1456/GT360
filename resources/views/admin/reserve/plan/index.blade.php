@@ -77,7 +77,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">برنامه {{ $currentYear . '/' . $currentMonth }}</h3>
+                                <h3 class="card-title">برنامه {{ fa_number($currentYear . '/' . $currentMonth) }}</h3>
                             </div>
                             <div id="reserve-plan-form" class="card-body">
                                 @if ($reserveParts->isEmpty())
@@ -99,38 +99,51 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php
+                                                $row=0;
+                                            @endphp
                                             @for ($i = 1; $i <= $date->daysInMonth; $i++)
+                                            @php
+
+                                                $date->day=$i;
+                                                if (verta()->startDay()->gt($date->startDay())) {
+                                                    continue;
+                                                }
+                                                $row=1;
+                                            @endphp
                                                 <tr>
-                                                    <td>{{ $i }}</td>
-                                                    <td>{{ $i == 1 ? $date->format('%A') : $date->addDay()->format('%A') }}</td>
+                                                    <td>{{ fa_number($i) }}</td>
+                                                    <td>{{ $date->format('%A') }}</td>
                                                     @foreach ($reserveParts as $key => $reservePart)
                                                         @php
                                                             $rpDate = $currentYear . '/' . $currentMonth . '/' . $i;
                                                         @endphp
 
-                                                        @if (verta()->gte($date->copy()->addDay()))
+                                                        {{-- @if (verta()->gte($date->copy()->addDay()))
                                                             <td>
 
                                                                 <input type="text" disabled class="form-control"
                                                                     placeholder="تعداد..."
                                                                     value="{{ $reservePlanModel->getValue($reservePart->name, $reservePart->details, $rpDate) }}">
                                                             </td>
-                                                        @else
+                                                        @else --}}
                                                             <td>
                                                                 <input type="text" name="rs_name|<?php echo $reservePart->name . '|' . $reservePart->details . '|' . $rpDate . '|' . $reservePart->price; ?>"
                                                                     class="form-control" placeholder="تعداد..."
                                                                     value="{{ $reservePlanModel->getValue($reservePart->name, $reservePart->details, $rpDate) }}">
                                                             </td>
-                                                        @endif
+                                                        {{-- @endif --}}
                                                     @endforeach
                                                 </tr>
                                             @endfor
                                         </tbody>
                                     </table>
                                 @endif
+                                @if ($row)
                                 <div class="mt-3">
                                     <button class="btn btn-success w-100" id="save-reserve-plan">ذخیره</button>
                                 </div>
+                                @endif
                                 <div id="result">
 
                                 </div>
