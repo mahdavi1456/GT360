@@ -74,7 +74,7 @@
                     success: function(data) {
 
                        $("#result").html(data);
-                       $0='';
+                       
                         $('#ro-count').on('change', function() {
                             let count = this.value;
                             let price = $('#rs_price').val();
