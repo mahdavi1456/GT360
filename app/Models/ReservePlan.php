@@ -108,7 +108,7 @@ class ReservePlan extends Model
     public function InfoForm($rp_id, $roDate, $rpName, $rpDetails, $rsPrice, $leftCount)
     {
         ?>
-        <div class="main-content">
+
             <input type="hidden" id="rp_id" value="<?= $rp_id ?>">
             <div class="card">
                 <div class="card-header">
@@ -162,7 +162,7 @@ class ReservePlan extends Model
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </div>
     <?php
     }

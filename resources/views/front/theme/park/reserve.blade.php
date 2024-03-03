@@ -72,13 +72,9 @@
                         slug: "{{ request('slug') }}"
                     },
                     success: function(data) {
-                        // Parse the response data here
-                        var parsedData = $(data).find('.main-content')
-                    .html(); // Assuming the relevant content is within the '.card' element
 
-                        // Update the div with the parsed data
-                        $('#result').html(parsedData);
-                      //  $("#result").html(data);
+                       $("#result").html(data);
+                       $0='';
                         $('#ro-count').on('change', function() {
                             let count = this.value;
                             let price = $('#rs_price').val();
