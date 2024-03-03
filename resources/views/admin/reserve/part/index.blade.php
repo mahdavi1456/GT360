@@ -95,7 +95,7 @@
                                                 <td>{{ $reservePart->details }}</td>
                                                 <td>{{ price($reservePart->price) }}</td>
                                                 <td>{{ price($reservePart->off_price) }}</td>
-                                                <td>{{ $reservePart->status }}</td>
+                                                <td>{{ $reservePart->status=='active'?'فعال':'غیرفعال' }}</td>
                                                 <td>
                                                     <a href="{{ route('reserve-part.index', ['update' => $reservePart->id]) }}"
                                                         class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
