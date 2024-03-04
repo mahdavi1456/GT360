@@ -5,8 +5,9 @@ namespace App\Servieses;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\Component;
+use Illuminate\Database\Eloquent\Model;
 
-class SiteEngine
+class SiteEngine extends Model
 {
     //post section
     public function getPosts($componentName, $accountId, $projectId)

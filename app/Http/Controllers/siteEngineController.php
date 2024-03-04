@@ -10,7 +10,7 @@ use App\Models\Pallete;
 use App\Models\Project;
 use App\Models\Setting;
 use App\Models\SiteEngine;
-use App\Servieses\SiteEngine as ServiesesSiteEngine;
+//use App\Servieses\SiteEngine
 use Illuminate\Http\Request;
 
 class SiteEngineController extends Controller
