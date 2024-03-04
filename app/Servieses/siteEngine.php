@@ -21,6 +21,12 @@ class siteEngine
             return null;
         }
     }
+    public function getPost($postId, $accountId, $projectId)
+    {
+            // $post = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('id', $postId)->firstOrFail();
+            $post = Post::findOrFail($postId);
+            return $post;
+    }
 
     public function getPostPermalink($componentName, $slug, $postId)
     {
@@ -37,7 +43,18 @@ class siteEngine
         $permalink = route('showPage', ['slug' => $slug, 'link' => $link, 'pageId' => $pageId]);
         return $permalink;
     }
+    public function getPages($componentName, $accountId, $projectId)
+    {
+        $component = Component::where("name", $componentName)->first();
+        if ($component) {
+            $componentId = $component->id;
 
+            $posts = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('component_id', $componentId)->get();
+            return $posts;
+        } else {
+            return null;
+        }
+    }
     public function getPageData($pageId)
     {
         $data = Page::find($pageId);
@@ -47,5 +64,5 @@ class siteEngine
     //end page section
     //-----------------------------------------------------------
 
-    
+
 }
