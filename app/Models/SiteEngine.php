@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Page;
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\Component;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,6 +23,7 @@ class SiteEngine extends Model
             return null;
         }
     }
+
     public function getPost($postId, $accountId, $projectId)
     {
             // $post = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('id', $postId)->firstOrFail();
@@ -44,6 +46,7 @@ class SiteEngine extends Model
         $permalink = route('showPage', ['slug' => $slug, 'link' => $link, 'pageId' => $pageId]);
         return $permalink;
     }
+
     public function getPages($componentName, $accountId, $projectId)
     {
         $component = Component::where("name", $componentName)->first();
@@ -56,6 +59,7 @@ class SiteEngine extends Model
             return null;
         }
     }
+
     public function getPageData($pageId)
     {
         $data = Page::find($pageId);
@@ -79,4 +83,9 @@ class SiteEngine extends Model
     }
 
 
+    public function getProducts($projectId,$limit)
+    {
+            $products = Product::where('project_id', $projectId)->latest()->take(9);
+            return $products;
+    }
 }
