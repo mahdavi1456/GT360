@@ -798,7 +798,7 @@
         <!--  = New Products =  -->
         <!--  ==========  -->
         @php
-            $newProducts=$siteEngine($projectId,9);
+            $newProducts=$siteEngine->getProducts($projectId,9);
         @endphp
         @if ($newProducts->count()>0)
 

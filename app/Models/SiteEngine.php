@@ -85,7 +85,7 @@ class SiteEngine extends Model
 
     public function getProducts($projectId,$limit)
     {
-            $products = Product::where('project_id', $projectId)->latest()->take(9);
+            $products = Product::where('project_id', $projectId)->latest()->take($limit);
             return $products;
     }
 }
