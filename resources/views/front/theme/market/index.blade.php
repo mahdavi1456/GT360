@@ -798,7 +798,9 @@
         <!--  = New Products =  -->
         <!--  ==========  -->
         @php
-            $newProducts=$siteEngine->getProducts($projectId,9);
+            // $newProducts=$siteEngine->getProducts($projectId,9);
+            $newProducts=$siteEngine->getProducts(auth()->user()->account_id,9);
+
         @endphp
         @if ($newProducts->count()>0)
 
