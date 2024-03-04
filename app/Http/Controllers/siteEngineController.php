@@ -11,7 +11,7 @@ use App\Models\Project;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
-class siteEngineController extends Controller
+class SiteEngineController extends Controller
 {
     public function loadSite($slug)
     {
@@ -77,7 +77,7 @@ class siteEngineController extends Controller
             }
         }
     }
-    
+
 
     public function reserve($slug)
     {
