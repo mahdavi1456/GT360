@@ -61,13 +61,14 @@ use App\Http\Controllers\PaymentTypeVariableController;
 use App\Http\Controllers\AccountPaymentTypeVariableController;
 use App\Http\Controllers\Front\AccountController as FrontAccountController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\siteEngineController;
 
 //Website
 Route::middleware(['webVisit'])->group(function () {
-    Route::get('/web/{slug}', [AccountController::class, 'loadSite'])->name('enterSite');
-    Route::get('/web/{slug}/reserve', [AccountController::class, 'reserve'])->name('reserve');
-    Route::get('/web/{slug}/page/{link}/{pageId}', [AccountController::class, 'showPage'])->name('showPage');
-    Route::get('/web/{slug}/post/{componentName}/{postId}', [AccountController::class, 'showPost'])->name('showPost');
+    Route::get('/web/{slug}', [siteEngineController::class, 'loadSite'])->name('enterSite');
+    Route::get('/web/{slug}/reserve', [siteEngineController::class, 'reserve'])->name('reserve');
+    Route::get('/web/{slug}/page/{link}/{pageId}', [siteEngineController::class, 'showPage'])->name('showPage');
+    Route::get('/web/{slug}/post/{componentName}/{postId}', [siteEngineController::class, 'showPost'])->name('showPost');
 });
 
 

@@ -20,7 +20,7 @@
                                                     <img class="w-100 object-fit-contain"
                                                          src="{{ asset(ert('theme-path') . $activeTheme->preview) }}">
                                                 @else
-                                                    <img class="card-img-top"
+                                                    <img class="card-img-top w-100 object-fit-contain" style="height: 166px;"
                                                          src="{{ asset('images/no-img-theme.jpg') }}">
                                                 @endif
                                                 <div class="card-body">
@@ -38,7 +38,7 @@
                                                     <img class="w-100 object-fit-contain"
                                                          src="{{ asset(ert('theme-path') . $theme->preview) }}">
                                                 @else
-                                                    <img class="card-img-top"
+                                                    <img class="w-100 object-fit-contain"
                                                          src="{{ asset('images/no-img-theme.jpg') }}">
                                                 @endif
                                                 <div class="card-body">
