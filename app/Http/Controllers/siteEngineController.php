@@ -9,6 +9,8 @@ use App\Models\Account;
 use App\Models\Pallete;
 use App\Models\Project;
 use App\Models\Setting;
+use App\Models\SiteEngine;
+use App\Servieses\SiteEngine as ServiesesSiteEngine;
 use Illuminate\Http\Request;
 
 class SiteEngineController extends Controller
@@ -16,12 +18,12 @@ class SiteEngineController extends Controller
     public function loadSite($slug)
     {
         //   User::find(4)->increment('city');
-        $settingModel = new Setting;
-        $postModel = new Post;
-        $pageModel = new Page;
-        $navModel = new Nav;
-        $palleteModel = new Pallete;
-
+        // $settingModel = new Setting;
+        // $postModel = new Post;
+        // $pageModel = new Page;
+        // $navModel = new Nav;
+        // $palleteModel = new Pallete;
+        $siteEngine=new SiteEngine;
         // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
         // dd($project,$slug);
@@ -31,7 +33,7 @@ class SiteEngineController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.index";
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'palleteModel'));
+            return view($view, compact('siteEngine', 'projectId', 'slug'));
         }
         return "یک تم برای خود انتخاب کنید";
     }

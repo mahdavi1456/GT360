@@ -6,7 +6,7 @@ use App\Models\Page;
 use App\Models\Post;
 use App\Models\Component;
 
-class siteEngine
+class SiteEngine
 {
     //post section
     public function getPosts($componentName, $accountId, $projectId)
@@ -63,6 +63,19 @@ class siteEngine
 
     //end page section
     //-----------------------------------------------------------
+    //setting section
+    public function getSetting($key,$projectId = 0)
+    {
+        $s = Setting::where([
+            'key' => $key,
+            'project_id' => $projectId
+        ])->first();
+        if ($s) {
+            return $s->value;
+        } else {
+            return null;
+        }
+    }
 
 
 }
