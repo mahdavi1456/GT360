@@ -799,7 +799,7 @@
         <!--  ==========  -->
         @php
             // $newProducts=$siteEngine->getProducts($projectId,9);
-            $newProducts=$siteEngine->getProducts(auth()->user()->account_id,9);
+            $newProducts=$siteEngine->getProducts(auth()->user()->account_id,2);
 
         @endphp
         @if ($newProducts->count()>0)

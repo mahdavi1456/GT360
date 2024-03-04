@@ -241,4 +241,18 @@ function getIp()
     return request()->ip(); // it will return the server IP if the client IP is not found using this method.
 }
 
+function projectId(){
+
+    if (session('projectId')) {
+     return session('projectId');
+    }else{
+        $setting=Project::checkOpenProject(auth()->user()->account_id);
+        if ($setting) {
+            session(['projectId'=>$setting->project_id]);
+            return session('projectId');
+        }else {
+             abort(404);
+        }
+    }
+}
 

@@ -67,10 +67,9 @@ use App\Http\Controllers\siteEngineController;
 Route::middleware(['webVisit'])->group(function () {
     Route::get('/web/{slug}', [siteEngineController::class, 'loadSite'])->name('enterSite');
     Route::get('/web/{slug}/reserve', [siteEngineController::class, 'reserve'])->name('reserve');
-    Route::get('/web/{slug}/page/{link}/{pageId}', [siteEngineController::class, 'showPage'])->name('showPage');
+    Route::get('/web/{slug}/page/{pageId}', [siteEngineController::class, 'showPage'])->name('showPage');
     Route::get('/web/{slug}/post/{componentName}/{postId}', [siteEngineController::class, 'showPost'])->name('showPost');
 });
-
 
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');
 Route::get('/', [DashboardController::class, 'index']);

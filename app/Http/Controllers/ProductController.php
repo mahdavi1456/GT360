@@ -18,8 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        $products = Product::latest()->get();
-
+        $products = Product::where('project_id',projectId())->get();
         if (Auth::user()->account->account_acl != 'super-account') {
             $categories = Auth::user()->account->categories;
             $products = Auth::user()->account->products->sortDesc();
@@ -32,6 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         $categories = Auth::user()->categories;
         return view('admin.product.create', compact('categories'));
     }
@@ -55,7 +55,10 @@ class ProductController extends Controller
             'offer_price' => $request->offer_price,
             'inventory' => $request->inventory,
             'account_id' => Auth::user()->account_id,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'project_id' => projectId(),
+            'abstract' => $request->abstract,
+            'content' => $request->content,
         ]);
 
         $product->categories()->sync($request->categories);
@@ -112,6 +115,9 @@ class ProductController extends Controller
             'sales_price' => $request->sales_price,
             'offer_price' => $request->offer_price,
             'inventory' => $request->inventory,
+            'project_id' => projectId(),
+            'abstract' => $request->abstract,
+            'content' => $request->content,
         ]);
 
         $product->categories()->sync($request->categories);

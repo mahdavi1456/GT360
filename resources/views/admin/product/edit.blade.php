@@ -33,15 +33,16 @@
                                     @csrf
                                     @method('put')
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="required">نام محصول <span class="text-danger">*</span></label>
                                                 <input type="text" name="product_name" class="form-control"
-                                                    value="{{ $product->product_name }}" placeholder="نام محصول..." required oninvalid="this.setCustomValidity('.لطفا نام محصول را وارد کنید')"
+                                                    value="{{ $product->product_name }}" placeholder="نام محصول..." required
+                                                    oninvalid="this.setCustomValidity('.لطفا نام محصول را وارد کنید')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>دسته <span class="text-danger">*</span></label>
                                                 <select name="categories[]" class="form-control select2" multiple>
@@ -55,19 +56,22 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>قیمت خرید <span class="text-danger">*</span></label>
-                                                <input type="text" name="purchase_price" class="form-control just-numbers"
-                                                    value="{{ $product->purchase_price }}" placeholder="قیمت خرید..." required oninvalid="this.setCustomValidity('.لطفا قیمت خرید را وارد کنید')"
+                                                <input type="text" name="purchase_price"
+                                                    class="form-control just-numbers" value="{{ $product->purchase_price }}"
+                                                    placeholder="قیمت خرید..." required
+                                                    oninvalid="this.setCustomValidity('.لطفا قیمت خرید را وارد کنید')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>قیمت فروش <span class="text-danger">*</span></label>
                                                 <input type="text" name="sales_price" class="form-control just-numbers"
-                                                    value="{{ $product->sales_price }}" placeholder="قیمت فروش..." required oninvalid="this.setCustomValidity('.لطفا قیمت فروش را وارد کنید')"
+                                                    value="{{ $product->sales_price }}" placeholder="قیمت فروش..." required
+                                                    oninvalid="this.setCustomValidity('.لطفا قیمت فروش را وارد کنید')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
@@ -77,7 +81,8 @@
                                             <div class="form-group">
                                                 <label>موجودی <span class="text-danger">*</span></label>
                                                 <input type="text" name="inventory" class="form-control just-numbers"
-                                                    value="{{ $product->inventory }}" placeholder="موجودی..." required oninvalid="this.setCustomValidity('.لطفا موجودی را وارد کنید')"
+                                                    value="{{ $product->inventory }}" placeholder="موجودی..." required
+                                                    oninvalid="this.setCustomValidity('.لطفا موجودی را وارد کنید')"
                                                     oninput="this.setCustomValidity('')">
                                             </div>
                                         </div>
@@ -88,22 +93,38 @@
                                                     value="{{ $product->offer_price }}" placeholder="قیمت فروش ویژه...">
                                             </div>
                                         </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group abs">
+                                                <label>خلاصه</label>
+                                                <textarea name="abstract" class="form-control Reditor2">
+                                                {{ $product->abstract }}
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group con">
+                                                <label>توضیحات</label>
+                                                <textarea name="content" class="form-control Reditor1">
+                                                    {{ $product->content }}
+                                                </textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                     @if ($product->media)
-                                    <div style="display: flex;">
-                                        @foreach ($product->media as $media)
-                                            <div style="display: flex; align-items: flex-start; position: relative;"
-                                                id="show-image">
-                                                <img src="{{ asset($media->image) }}" id="imagePreview"
-                                                    style="max-width: 100px;">
-                                                <div style="position: absolute; top: 0; right: 0;">
-                                                    <div class="delete-button" data-product="{{ $media->id }}"
-                                                        style="width: 20px; height: 20px; background-color: red; display: flex; justify-content: center; align-items: center;">
-                                                        <span style="font-size: 20px; color: white;">X</span>
+                                        <div style="display: flex;">
+                                            @foreach ($product->media as $media)
+                                                <div style="display: flex; align-items: flex-start; position: relative;"
+                                                    id="show-image">
+                                                    <img src="{{ asset($media->image) }}" id="imagePreview"
+                                                        style="max-width: 100px;">
+                                                    <div style="position: absolute; top: 0; right: 0;">
+                                                        <div class="delete-button" data-product="{{ $media->id }}"
+                                                            style="width: 20px; height: 20px; background-color: red; display: flex; justify-content: center; align-items: center;">
+                                                            <span style="font-size: 20px; color: white;">X</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
                                         </div>
                                     @endif
 
@@ -136,6 +157,43 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('.Reditor1'), {
+            toolbar: {
+                items: [
+                    'undo', 'redo',
+                    '|', 'heading',
+                    '|', 'bold', 'italic',
+                    '|', 'link', 'insertImage', 'insertTable', 'mediaEmbed',
+                    '|', 'bulletedList', 'numberedList'
+                ]
+            },
+            language: {
+                ui: 'fa',
+                content: 'fa'
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+        ClassicEditor.create(document.querySelector('.Reditor2'), {
+            toolbar: {
+                items: [
+                    'undo', 'redo',
+                    '|', 'heading',
+                    '|', 'bold', 'italic',
+                    '|', 'link', 'insertImage', 'insertTable', 'mediaEmbed',
+                    '|', 'bulletedList', 'numberedList'
+                ]
+            },
+            language: {
+                ui: 'fa',
+                content: 'fa'
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+    </script>
     <script>
         let files = [];
 
@@ -211,5 +269,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://unpkg.com/dropzone@5/dist/dropzone.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/dropzone.css" type="text/css" />
-
+    <style>
+        .con .ck-editor__editable{
+            height: 130px;
+        }
+        .abs .ck-editor__editable{
+            height: 100px;
+        }
+    </style>
 @endsection
