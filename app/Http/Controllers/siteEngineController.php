@@ -33,7 +33,7 @@ class SiteEngineController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.index";
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('siteEngine', 'projectId','settingModel'));
+            return view($view, compact('siteEngine', 'projectId','settingModel','accountId'));
         }
         return "یک تم برای خود انتخاب کنید";
     }
