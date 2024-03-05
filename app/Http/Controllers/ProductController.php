@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        $products = Product::where('project_id',projectId())->get();
+        $products = Product::where('project_id',getProjectId())->get();
         if (Auth::user()->account->account_acl != 'super-account') {
             $categories = Auth::user()->account->categories;
             $products = Auth::user()->account->products->sortDesc();
@@ -46,6 +46,7 @@ class ProductController extends Controller
             'purchase_price' => 'required|numeric',
             'sales_price' => 'required|numeric',
             'inventory' => 'required|numeric',
+            'slug'=>'required',
         ]);
 
         $product = Product::create([
@@ -54,9 +55,10 @@ class ProductController extends Controller
             'sales_price' => $request->sales_price,
             'offer_price' => $request->offer_price,
             'inventory' => $request->inventory,
+            'slug'=>make_slug($request->slug),
             'account_id' => Auth::user()->account_id,
             'user_id' => Auth::user()->id,
-            'project_id' => projectId(),
+            'project_id' => getProjectId(),
             'abstract' => $request->abstract,
             'content' => $request->content,
         ]);
@@ -106,7 +108,8 @@ class ProductController extends Controller
             'product_name' => 'required',
             'purchase_price' => 'required|numeric',
             'sales_price' => 'required|numeric',
-            'inventory' => 'required|numeric','product_name' => 'required'
+            'inventory' => 'required|numeric','product_name' => 'required',
+            'slug'=>'required',
         ]);
 
         $product->update([
@@ -115,9 +118,10 @@ class ProductController extends Controller
             'sales_price' => $request->sales_price,
             'offer_price' => $request->offer_price,
             'inventory' => $request->inventory,
-            'project_id' => projectId(),
+            'project_id' => getProjectId(),
             'abstract' => $request->abstract,
             'content' => $request->content,
+            'slug'=>make_slug($request->slug),
         ]);
 
         $product->categories()->sync($request->categories);

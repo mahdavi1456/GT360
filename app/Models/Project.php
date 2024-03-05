@@ -44,13 +44,14 @@ class Project extends Model
             $setting->project_id = $projectId;
             $setting->save();
         } else {
-            Setting::create([
+            $setting= Setting::create([
                 'key' => 'open_project',
                 'value' => $projectId,
                 'account_id' => $accountId,
                 'project_id' => $projectId
             ]);
         }
+        session(['projectId'=>$setting->project_id]);
         return $setting;
     }
 

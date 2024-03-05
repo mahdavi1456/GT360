@@ -65,10 +65,11 @@ use App\Http\Controllers\siteEngineController;
 
 //Website
 Route::middleware(['webVisit'])->group(function () {
-    Route::get('/web/{slug}', [siteEngineController::class, 'loadSite'])->name('enterSite');
-    Route::get('/web/{slug}/reserve', [siteEngineController::class, 'reserve'])->name('reserve');
-    Route::get('/web/{slug}/page/{pageId}', [siteEngineController::class, 'showPage'])->name('showPage');
-    Route::get('/web/{slug}/post/{componentName}/{postId}', [siteEngineController::class, 'showPost'])->name('showPost');
+    Route::get('/web/{siteSlug}', [siteEngineController::class, 'loadSite'])->name('enterSite');
+    Route::get('/web/{siteSlug}/reserve', [siteEngineController::class, 'reserve'])->name('reserve');
+    Route::get('/web/{siteSlug}/page/{slug}', [siteEngineController::class, 'showPage'])->name('showPage');
+    Route::get('/web/{siteSlug}/post/{componentName}/{slug}', [siteEngineController::class, 'showPost'])->name('showPost');
+    Route::get('/web/{siteSlug}/product/{slug}', [siteEngineController::class, 'showProduct'])->name('showProduct');
 });
 
 // Route::get('/{slug}', [HomeController::class, 'index'])->name('slug.products');

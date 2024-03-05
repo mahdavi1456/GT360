@@ -13,9 +13,9 @@ class Product extends Model
 
     protected $guarded = [];
 
-    Public function categories()
+    public function categories()
     {
-        Return $this->belongsToMany(Category::class, "product_category", "product_id", "category_id");
+        return $this->belongsToMany(Category::class, "product_category", "product_id", "category_id");
     }
 
     public function primaryCategory()
@@ -57,5 +57,14 @@ class Product extends Model
         return $this->belongsTo(Account::class, 'account_id');
     }
 
+    public function show_url($siteSlug)
+    {
+        return route('showProduct', ['siteSlug' => $siteSlug, 'slug' => $this->slug]);
+    }
 
+    public function image_url()
+    {
+        $image = $this->primaryImage();
+        return $image ? asset($image) : asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
+    }
 }

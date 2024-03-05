@@ -44,6 +44,15 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
+                                                <label class="required">نامک <span class="text-danger">*</span></label>
+                                                <input type="text" name="slug" class="form-control"
+                                                    value="{{ old('slug')??$product->slug }}" placeholder="نامک..." required
+                                                    oninvalid="this.setCustomValidity('.لطفا نامک را وارد کنید')"
+                                                    oninput="this.setCustomValidity('')">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
                                                 <label>دسته <span class="text-danger">*</span></label>
                                                 <select name="categories[]" class="form-control select2" multiple>
                                                     @foreach ($categories as $category)

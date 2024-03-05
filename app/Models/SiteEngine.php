@@ -11,29 +11,30 @@ use Illuminate\Database\Eloquent\Model;
 class SiteEngine extends Model
 {
     //post section
-    public function getPosts($componentName, $accountId, $projectId)
+    public function getPosts($componentName = null, $limit = null)
     {
         $component = Component::where("name", $componentName)->first();
         if ($component) {
             $componentId = $component->id;
-
-            $posts = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('component_id', $componentId)->get();
+            $posts = Post::where('project_id', getProjectId())->where('component_id', $componentId)->take($limit)->get();
             return $posts;
         } else {
-            return null;
+            $posts = Post::where('project_id', getProjectId())->latest()->take($limit)->get();
+            return $posts;
         }
     }
 
-    public function getPost($postId, $accountId, $projectId)
+    public function getPost($slug)
     {
-            // $post = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('id', $postId)->firstOrFail();
-            $post = Post::findOrFail($postId);
-            return $post;
+        //dd($slug);
+        $post = Post::where('slug',$slug)->where('publish_status','publish')->firstOrFail();
+        dd($post);
+        return $post;
     }
 
-    public function getPostPermalink($componentName, $slug, $postId)
+    public function getPostPermalink($siteSlug, $componentName, $slug)
     {
-        $permalink = route('showPost', ['slug' => $slug, 'componentName' => $componentName, 'postId' => $postId]);
+        $permalink = route('showPost', ['siteSlug' => $siteSlug, 'componentName' => $componentName, 'slug' => $slug]);
         return $permalink;
     }
 
@@ -41,35 +42,27 @@ class SiteEngine extends Model
     //-----------------------------------------------------------
     //page sectino
 
-    public function getPagePermalink($slug, $link, $pageId)
+    public function getPagePermalink($siteSlug, $slug)
     {
-        $permalink = route('showPage', ['slug' => $slug, 'link' => $link, 'pageId' => $pageId]);
+        $permalink = route('showPage', ['siteSlug' => $siteSlug,'slug' => $slug]);
         return $permalink;
     }
 
-    public function getPages($componentName, $accountId, $projectId)
+    public function getPages($limit=null)
     {
-        $component = Component::where("name", $componentName)->first();
-        if ($component) {
-            $componentId = $component->id;
-
-            $posts = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('component_id', $componentId)->get();
-            return $posts;
-        } else {
-            return null;
-        }
+        $pages = Page::where('project_id', getProjectId())->where('publish_status','publish')->latest()->take($limit)->get();
+        return $pages;
     }
 
-    public function getPageData($pageId)
+    public function getPage($slug)
     {
-        $data = Page::find($pageId);
-        return $data;
+       return Page::where('slug',$slug)->where('publish_status','publish')->firstOrFail();
     }
 
     //end page section
     //-----------------------------------------------------------
     //setting section
-    public function getSetting($key,$projectId = 0)
+    public function getSetting($key, $projectId = 0)
     {
         $s = Setting::where([
             'key' => $key,
@@ -81,12 +74,19 @@ class SiteEngine extends Model
             return null;
         }
     }
-
-
-    public function getProducts($projectId,$limit)
+    // end setting section
+    //-----------------------------------------------------------
+    //produc section
+    public function getProducts($limit = null)
     {
-            // $products = Product::where('project_id', $projectId)->latest()->take($limit);
-            $products = Product::where('account_id', auth()->user()->account_id)->latest()->take($limit)->get();
-            return $products;
+        $products = Product::where('project_id', getProjectId())->latest()->take($limit)->get();
+        return $products;
     }
+    public function getProduct($slug)
+    {
+       return Product::where('slug',$slug)->firstOrFail();
+    }
+
+
+
 }

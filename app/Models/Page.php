@@ -47,4 +47,11 @@ class Page extends Model
         return $data;
     }
 
+    public function image_url(){
+        if ($this->thumbnail){
+            return asset(ert('pip').$this->thumbnail);
+        }
+        return asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
+    }
+
 }

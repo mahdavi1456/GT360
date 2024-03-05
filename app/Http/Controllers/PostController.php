@@ -67,10 +67,9 @@ class PostController extends Controller
             DB::beginTransaction();
 
             $accountId = auth()->user()->account->id;
-            $projectId = Project::checkOpenProject($accountId)->project_id;
 
             $data['account_id'] = $accountId;
-            $data['project_id'] = $projectId;
+            $data['project_id'] = getProjectId();
             $data['author'] = auth()->id();
             //  dd($data);
             $post = Post::create($data);
@@ -109,6 +108,7 @@ class PostController extends Controller
                 $post = Post::create([
                     'account_id' => auth()->user()->account_id,
                     'author' => auth()->id(),
+                    'project_id'=>getProjectId(),
                     'component_id' => $request->component_id,
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1

@@ -799,60 +799,173 @@
         <!--  ==========  -->
         @php
             // $newProducts=$siteEngine->getProducts($projectId,9);
-            $newProducts=$siteEngine->getProducts(auth()->user()->account_id,2);
-
+            $newProducts = $siteEngine->getProducts();
         @endphp
-        @if ($newProducts->count()>0)
+        @if ($newProducts->count() > 0)
+            <div class="boxed-area blocks-spacer">
+                <div class="container">
 
-
-        <div class="boxed-area blocks-spacer">
-            <div class="container">
-
-                <!--  ==========  -->
-                <!--  = Title =  -->
-                <!--  ==========  -->
-                <div class="row">
-                    <div class="span12">
-                        <div class="main-titles lined">
-                            <h2 class="title"><span class="light">محصولات</span> جدید فروشگاه</h2>
+                    <!--  ==========  -->
+                    <!--  = Title =  -->
+                    <!--  ==========  -->
+                    <div class="row">
+                        <div class="span12">
+                            <div class="main-titles lined">
+                                <h2 class="title"><span class="light">محصولات</span> جدید فروشگاه</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row popup-products blocks-spacer">
-                    @foreach ($newProducts as $item)
-                    <div class="span3">
-                        <div class="product">
-                            <div class="product-img">
-                                <div class="picture">
-                                    <img src="{{asset('front-theme-asset/market/images/dummy/products/product-6.jpg')}}" width="540"
-                                        height="374" />
-                                    <div class="img-overlay">
-                                        <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                        <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
+                    <div class="row popup-products blocks-spacer">
+                        @foreach ($newProducts as $item)
+                            <div class="span3">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <div class="picture">
+                                            <img src="{{ $item->image_url()}}"
+                                                width="540" height="374" />
+                                            <div class="img-overlay">
+                                                <a href="{{$item->show_url(request('siteSlug'))}}" class="btn more btn-primary">توضیحات بیشتر</a>
+                                                <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="main-titles no-margin">
+                                        <h4 class="title">{{ $item->product_name }}</h4>
+                                        <h5 class="no-margin">{{ $item->sales_price }}</h5>
+                                    </div>
+                                    <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                                    <p class="center-align stars">
+                                        <span class="icon-star stars-clr"></span>
+                                        <span class="icon-star stars-clr"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="main-titles no-margin">
-                                <h4 class="title">{{$item->product_name}}</h4>
-                                <h5 class="no-margin">{{$item->sales_price}}</h5>
-                            </div>
-                            <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                            <p class="center-align stars">
-                                <span class="icon-star stars-clr"></span>
-                                <span class="icon-star stars-clr"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
-                                <span class="icon-star"></span>
+                            </div> <!-- /product -->
+                        @endforeach
 
-                            </p>
-                        </div>
-                    </div> <!-- /product -->
-                    @endforeach
-
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
+        @php
+            // $newProducts=$siteEngine->getProducts($projectId,9);
+            $newPages = $siteEngine->getPages();
+
+        @endphp
+        @if (count($newPages) > 0)
+
+
+            <div class="boxed-area blocks-spacer">
+                <div class="container">
+
+                    <!--  ==========  -->
+                    <!--  = Title =  -->
+                    <!--  ==========  -->
+                    <div class="row">
+                        <div class="span12">
+                            <div class="main-titles lined">
+                                <h2 class="title"><span class="light">صفحات </span> جدید فروشگاه</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row popup-products blocks-spacer">
+                        @foreach ($newPages as $item)
+                            <div class="span3">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <div class="picture">
+                                            <img src="{{ $item->image_url() }}"
+                                            width="540" height="374" />
+                                            <div class="img-overlay">
+                                                <a href="{{ $siteEngine->getPagePermalink(request('siteSlug'),$item->slug) }}"
+                                                    class="btn more btn-primary">توضیحات بیشتر</a>
+                                                <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main-titles no-margin">
+                                        <h4 class="title">{{ $item->product_name }}</h4>
+                                        <h5 class="no-margin">{{ $item->sales_price }}</h5>
+                                    </div>
+                                    <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                                    <p class="center-align stars">
+                                        <span class="icon-star stars-clr"></span>
+                                        <span class="icon-star stars-clr"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+
+                                    </p>
+                                </div>
+                            </div> <!-- /product -->
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+        @endif
+        @php
+            // $newProducts=$siteEngine->getProducts($projectId,9);
+            $newPosts = $siteEngine->getPosts(request('componentName'));
+
+        @endphp
+        @if (count($newPosts) > 0)
+
+
+            <div class="boxed-area blocks-spacer">
+                <div class="container">
+
+                    <!--  ==========  -->
+                    <!--  = Title =  -->
+                    <!--  ==========  -->
+                    <div class="row">
+                        <div class="span12">
+                            <div class="main-titles lined">
+                                <h2 class="title"><span class="light">پست های</span> جدید فروشگاه</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row popup-products blocks-spacer">
+                        @foreach ($newPosts as $item)
+                            <div class="span3">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <div class="picture">
+                                            <img src="{{ $item->image_url()}}"
+                                                width="540" height="374" />
+                                            <div class="img-overlay">
+                                                <a href="{{ $siteEngine->getPostPermalink(request('siteSlug'), $item->component->name, $item->slug) }}"
+                                                    class="btn more btn-primary">توضیحات بیشتر</a>
+                                                <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main-titles no-margin">
+                                        <h4 class="title">{{ $item->product_name }}</h4>
+                                        <h5 class="no-margin">{{ $item->sales_price }}</h5>
+                                    </div>
+                                    <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                                    <p class="center-align stars">
+                                        <span class="icon-star stars-clr"></span>
+                                        <span class="icon-star stars-clr"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+                                        <span class="icon-star"></span>
+
+                                    </p>
+                                </div>
+                            </div> <!-- /product -->
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
         @endif
         <!--  ==========  -->
         <!--  = Most Popular products =  -->
@@ -1122,18 +1235,12 @@
             <div class="row">
                 <div class="span12">
                     <div class="brands carouFredSel" data-nav="brands" data-autoplay="true">
-                        <img src="images/dummy/brands/brands_01.jpg" alt="" width="203"
-                            height="104" />
-                        <img src="images/dummy/brands/brands_02.jpg" alt="" width="203"
-                            height="104" />
-                        <img src="images/dummy/brands/brands_03.jpg" alt="" width="203"
-                            height="104" />
-                        <img src="images/dummy/brands/brands_04.jpg" alt="" width="203"
-                            height="104" />
-                        <img src="images/dummy/brands/brands_05.jpg" alt="" width="203"
-                            height="104" />
-                        <img src="images/dummy/brands/brands_06.jpg" alt="" width="203"
-                            height="104" />
+                        <img src="images/dummy/brands/brands_01.jpg" alt="" width="203" height="104" />
+                        <img src="images/dummy/brands/brands_02.jpg" alt="" width="203" height="104" />
+                        <img src="images/dummy/brands/brands_03.jpg" alt="" width="203" height="104" />
+                        <img src="images/dummy/brands/brands_04.jpg" alt="" width="203" height="104" />
+                        <img src="images/dummy/brands/brands_05.jpg" alt="" width="203" height="104" />
+                        <img src="images/dummy/brands/brands_06.jpg" alt="" width="203" height="104" />
                     </div>
                 </div>
             </div> <!-- /logos -->
@@ -1181,13 +1288,11 @@
                             <div id="mc_embed_signup">
                                 <form
                                     action="http://proteusthemes.us4.list-manage1.com/subscribe/post?u=ea0786485977f5ec8c9283d5c&amp;id=5dad3f35e9"
-                                    method="post" id="mc-embedded-subscribe-form"
-                                    name="mc-embedded-subscribe-form" class="validate form form-inline"
-                                    target="_blank" novalidate>
+                                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                    class="validate form form-inline" target="_blank" novalidate>
                                     <div class="mc-field-group">
-                                        <input type="email" value=""
-                                            placeholder="آدرس ایمیلتان را وارد کنید" name="EMAIL"
-                                            class="required email" id="mce-EMAIL">
+                                        <input type="email" value="" placeholder="آدرس ایمیلتان را وارد کنید"
+                                            name="EMAIL" class="required email" id="mce-EMAIL">
                                         <input type="submit" value="ارسال" name="subscribe"
                                             id="mc-embedded-subscribe" class="btn btn-primary">
                                     </div>

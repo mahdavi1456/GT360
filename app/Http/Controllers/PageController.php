@@ -55,6 +55,7 @@ class PageController extends Controller
             DB::beginTransaction();
 
             $data['user_id'] = auth()->id();
+            $data['project_id'] = getProjectId();
             $data['author'] = auth()->id();
             $data['account_id'] = auth()->user()->account_id;
           //  dd($data);
@@ -86,6 +87,7 @@ class PageController extends Controller
                 $page = Page::create([
                     'user_id' => auth()->id(),
                     'author' => auth()->id(),
+                    'project_id'=>getProjectId(),
                     'account_id' => auth()->user()->account->id,
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1

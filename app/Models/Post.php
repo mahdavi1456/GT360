@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-
+    protected $table='posts';
     protected $guarded = [];
 
     public function terms()
@@ -68,25 +68,6 @@ class Post extends Model
         }
     }
 
-    public function getPosts($componentName, $accountId, $projectId)
-    {
-        $component = Component::where("name", $componentName)->first();
-        if ($component) {
-            $componentId = $component->id;
-
-            $posts = Post::where('account_id', $accountId)->where('project_id', $projectId)->where('component_id', $componentId)->get();
-            return $posts;
-        } else {
-            return null;
-        }
-    }
-
-    public function getPostPermalink($componentName, $slug, $postId)
-    {
-        $permalink = route('showPost', ['slug' => $slug, 'componentName' => $componentName, 'postId' => $postId]);
-        return $permalink;
-    }
-
     public function getShamsiDate($date)
     {
         if ($date) {
@@ -96,4 +77,10 @@ class Post extends Model
         }
     }
 
+    public function image_url(){
+        if ($this->thumbnail){
+            return asset(ert('thumb-path').$this->thumbnail);
+        }
+        return asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
+    }
 }

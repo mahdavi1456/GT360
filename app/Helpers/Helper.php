@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Font;
+use App\Models\Account;
 use App\Models\Project;
 use App\Models\Setting;
 use public_html\class\charge;
@@ -196,8 +197,11 @@ function price($amount)
 
 function ert($variable)
 {
-    if ($variable == 'thumb-path') {
-        return 'uploads/thumbs';
+    if ($variable == 'thumb-path') { // post image path
+        return 'uploads/thumbs/';
+    }
+    if ($variable == 'pp') { // product-path
+        return '/uploads/product/';
     }
     if ($variable == 'theme-path') {
         return 'uploads/themes/';
@@ -241,10 +245,14 @@ function getIp()
     return request()->ip(); // it will return the server IP if the client IP is not found using this method.
 }
 
-function projectId(){
+function getProjectId(){
 
     if (session('projectId')) {
      return session('projectId');
+    }elseif(request('siteSlug')){
+        $project=Project::where('slug',request('slug'))->firstOrFail();
+        session(['projectId'=>$project->id]);
+        return $project->id;
     }else{
         $setting=Project::checkOpenProject(auth()->user()->account_id);
         if ($setting) {
@@ -255,4 +263,21 @@ function projectId(){
         }
     }
 }
+
+function getActiveTheme() {
+    if (session('active_theme')) {
+       return session('active_theme');
+    }else{
+        $project = Project::where('slug', request('siteSlug'))->firstOrFail();
+        $accountId = $project->account_id;
+        $projectId = $project->id;
+        $theme = Account::activeTheme($accountId, $projectId);
+        session(['active_theme'=>$theme]);
+        return session('active_theme');
+    }
+
+}
+
+
+
 

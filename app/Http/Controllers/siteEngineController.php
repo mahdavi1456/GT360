@@ -18,12 +18,12 @@ class SiteEngineController extends Controller
     public function loadSite($slug)
     {
         //   User::find(4)->increment('city');
-        // $settingModel = new Setting;
+        $settingModel = new Setting;
         // $postModel = new Post;
         // $pageModel = new Page;
         // $navModel = new Nav;
         // $palleteModel = new Pallete;
-        $siteEngine=new SiteEngine;
+        $siteEngine = new SiteEngine;
         // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
         // dd($project,$slug);
@@ -33,52 +33,38 @@ class SiteEngineController extends Controller
             $theme = Account::activeTheme($accountId, $projectId);
             $view = "front.theme.$theme.index";
             $products = Post::where('component_id', 2)->get();
-            return view($view, compact('siteEngine', 'projectId', 'slug'));
+            return view($view, compact('siteEngine', 'projectId','settingModel'));
         }
         return "یک تم برای خود انتخاب کنید";
     }
 
-    public function showPost($slug, $componentName, $postId)
+    public function showPost($siteSlug, $componentName, $slug)
     {
-        $settingModel = new Setting;
-        $postModel = new Post;
-        $pageModel = new Page;
-        $navModel = new Nav;
-        $pageModel = new Pallete;
+        $siteEngine = new SiteEngine;
 
-        $project = Project::where('slug', $slug)->first();
-        if ($project) {
-            $accountId = $project->account_id;
-            $projectId = $project->id;
-            $theme = Account::activeTheme($accountId, $projectId);
-            $view = "front.theme.$theme.post";
-            return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'postId', 'palleteModel'));
-        }
+        $project = Project::where('slug', $siteSlug)->firstOrFail();
+        $accountId = $project->account_id;
+        $projectId = $project->id;
+        $theme = Account::activeTheme($accountId, $projectId);
+        $view = "front.theme.$theme.single.post";
+        return view($view, compact('siteEngine', 'slug'));
     }
 
-    public function showPage($slug, $link, $pageId)
+    public function showPage($siteSlug, $slug)
     {
-        $settingModel = new Setting;
-        $postModel = new Post;
-        $pageModel = new Page;
-        $navModel = new Nav;
-        $palleteModel = new Pallete;
-
-        $project = Project::where('slug', $slug)->first();
-        if ($project) {
-            $accountId = $project->account_id;
-            $projectId = $project->id;
-            $theme = Account::activeTheme($accountId, $projectId);
-
-            if (Page::find($pageId)) {
-                $view = "front.theme.$theme.page";
-                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId', 'palleteModel'));
-            } else {
-                $view = "front.theme.$theme.404";
-                return view($view, compact('settingModel', 'postModel', 'pageModel', 'navModel', 'accountId', 'projectId', 'slug', 'pageId', 'palleteModel'));
-            }
-        }
+        $siteEngine = new SiteEngine;
+        $theme = getActiveTheme();
+        $view = "front.theme.$theme.single.page";
+        return view($view, compact('siteEngine', 'slug'));
     }
+
+    public function showProduct($siteSlug,$slug) {
+        $siteEngine = new SiteEngine;
+        $theme = getActiveTheme();
+        $view = "front.theme.$theme.single.product";
+        return view($view, compact('siteEngine', 'slug'));
+    }
+
 
 
     public function reserve($slug)
