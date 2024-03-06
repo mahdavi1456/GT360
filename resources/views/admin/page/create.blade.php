@@ -203,6 +203,7 @@
                     });
                 },
                 error: function(respnse) {
+                    $("#loading-overlay").fadeOut();
                     alert('eroor');
                     console.log(respnse);
                 }

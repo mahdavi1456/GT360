@@ -44,7 +44,7 @@ class PageController extends Controller
       //   dd($request->all());
         if ($request->action == "create") {
             $request->validate([
-                'slug' => "required|unique:posts,slug,null,id,project_Id," . getProjectId()
+                'slug' => "required|unique:pages,slug,null,id,project_Id," . getProjectId()
             ], [
                 'slug.unique' => 'نامک نوشته شده قبلا برای صفحات ثبت شده است',
             ]);
@@ -71,7 +71,7 @@ class PageController extends Controller
         } else if ($request->action == "update") {
             $page = Page::findOrFail($request->page);
             $validate = Validator::make($request->all(), [
-                'slug' => "required|unique:posts,slug,$page->id,id,project_Id," . getProjectId()
+                'slug' => "required|unique:pages,slug,$page->id,id,project_Id," . getProjectId()
             ], [
                 'slug.unique' => 'نامک نوشته شده قبلا برای این بخش ثبت شده است',
             ]);
