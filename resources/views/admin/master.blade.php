@@ -153,7 +153,7 @@
 
 
             $('.normal-example').persianDatepicker();
-
+         
         })
     </script>
     <script type="text/javascript">

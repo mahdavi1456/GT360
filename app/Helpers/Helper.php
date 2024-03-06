@@ -245,39 +245,75 @@ function getIp()
     return request()->ip(); // it will return the server IP if the client IP is not found using this method.
 }
 
-function getProjectId(){
+//==================================================
+function forgetSite() //forget session that we need for load site(used after theme-change and entre to new project).
+{
+    session()->forget(['siteSlug', 'projectId', 'accountId', 'active_theme']);
+}
 
+function slugWorm() //check that we went to another project?
+{
+    if (request("siteSlug") and session('siteSlug') and request("siteSlug") != session('siteSlug')) {
+        forgetSite();
+    }
+    if (request("siteSlug") and !session()->has('siteSlug')) {
+        session(['siteSlug' => request("siteSlug")]);
+    }
+}
+
+function getProjectId()
+{
+    slugWorm();
     if (session('projectId')) {
-     return session('projectId');
-    }elseif(request('siteSlug')){
-        $project=Project::where('slug',request('slug'))->firstOrFail();
-        session(['projectId'=>$project->id]);
+        return session('projectId');
+    } elseif (request('siteSlug')) {
+
+        $project = Project::where('slug', request('siteSlug'))->firstOrFail();
+        session(['projectId' => $project->id]);
         return $project->id;
-    }else{
-        $setting=Project::checkOpenProject(auth()->user()->account_id);
+    } else {
+        $setting = Project::checkOpenProject(auth()->user()->account_id);
         if ($setting) {
-            session(['projectId'=>$setting->project_id]);
+            session(['projectId' => $setting->project_id]);
             return session('projectId');
-        }else {
-             abort(404);
+        } else {
+            abort(404);
         }
     }
 }
 
-function getActiveTheme() {
+function getActiveTheme()
+{
+    slugWorm();
     if (session('active_theme')) {
-       return session('active_theme');
-    }else{
+        //  dd('fef3');
+        return session('active_theme');
+    } elseif (request('siteSlug')) {
+
         $project = Project::where('slug', request('siteSlug'))->firstOrFail();
+        //  dump($project);
         $accountId = $project->account_id;
         $projectId = $project->id;
         $theme = Account::activeTheme($accountId, $projectId);
-        session(['active_theme'=>$theme]);
+        session(['active_theme' => $theme]);
         return session('active_theme');
+    } else {
+        //  dd('ff');
+        $theme = Account::activeTheme(getAccountId(), getProjectId());
     }
-
 }
 
-
-
-
+function getAccountId()
+{
+    slugWorm();
+    if (session('accountId')) {
+        return session('accountId');
+    } elseif (request('siteSlug')) {
+        $project = Project::where('slug', request('siteSlug'))->firstOrFail();
+        session(['accountId' => $project->account_id]);
+        return $project->id;
+    } else {
+        session(['accountId' => auth()->user()->account_id]);
+        return auth()->user()->account_id;
+    }
+}

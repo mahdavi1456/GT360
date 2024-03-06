@@ -17,6 +17,8 @@ class SiteEngineController extends Controller
 {
     public function loadSite($slug)
     {
+      //  slugWorm();
+
         //   User::find(4)->increment('city');
         $settingModel = new Setting;
         // $postModel = new Post;
@@ -27,15 +29,13 @@ class SiteEngineController extends Controller
         // $account = Account::where('slug', $slug)->first();
         $project = Project::where('slug', $slug)->first();
         // dd($project,$slug);
-        if ($project) {
-            $accountId = $project->account_id;
-            $projectId = $project->id;
-            $theme = Account::activeTheme($accountId, $projectId);
+            $accountId = getAccountId();
+            $projectId = getProjectId();
+            $theme = getActiveTheme();
             $view = "front.theme.$theme.index";
             $products = Post::where('component_id', 2)->get();
             return view($view, compact('siteEngine', 'projectId','settingModel','accountId'));
-        }
-        return "یک تم برای خود انتخاب کنید";
+
     }
 
     public function showPost($siteSlug, $componentName, $slug)
@@ -59,6 +59,7 @@ class SiteEngineController extends Controller
     }
 
     public function showProduct($siteSlug,$slug) {
+        //dd(session()->all());
         $siteEngine = new SiteEngine;
         $theme = getActiveTheme();
         $view = "front.theme.$theme.single.product";

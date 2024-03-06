@@ -32,11 +32,11 @@
                                                 oninput="this.setCustomValidity('')" placeholder="دامنه...">
                                         </div>
                                         <div class="col-md-3 form-group">
-                                            <label>نامک <span class="text-danger">*</span></label>
-                                            <input type="text" name="slug" required
+                                            <label>نامک <span class="text-danger site-slug">*</span></label>
+                                            <input type="text" name="slug" id="" required
                                                 oninvalid="this.setCustomValidity('کادر مشخص شده را پر کنید.')"
                                                 oninput="this.setCustomValidity('')" class="form-control"
-                                                value="{{ $project?->slug }}" placeholder="نامک...">
+                                                value="{{ $project?->slug }}" placeholder=" مثال (site-name)">
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <label for="primary_image"> لوگو پروژه </label>
@@ -120,8 +120,10 @@
             .catch(error => {
                 console.error(error);
             });
+
     </script>
     <script src="{{ asset('js/validation.js') }}"></script>
+
 @endsection
 @section('style')
     <style type="text/css">

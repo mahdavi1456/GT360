@@ -43,7 +43,7 @@
                                         <div class="col-6">
                                             <div class="form-group">
                                                 <label class="required">نامک <span class="text-danger">*</span></label>
-                                                <input type="text" name="slug" class="form-control"
+                                                <input type="text" name="slug" class="form-control object-slug"
                                                     value="{{ old('slug') ?? $page?->slug }}" placeholder="نام..." required
                                                     oninvalid="this.setCustomValidity('نام نامک را وارد نمایید.')"
                                                     oninput="this.setCustomValidity('')">

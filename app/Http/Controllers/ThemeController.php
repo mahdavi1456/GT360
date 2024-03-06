@@ -170,7 +170,7 @@ class ThemeController extends Controller
         $projectId = Project::checkOpenProject($accountId)->project_id;
 
         $setting->updateSetting('active_theme', $name, $accountId, $projectId);
-
+        forgetSite();
         Alert::success('موفق', 'قالب با موفقیت انتخاب شد.');
         return back();
     }

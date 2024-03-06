@@ -46,7 +46,9 @@ class ProductController extends Controller
             'purchase_price' => 'required|numeric',
             'sales_price' => 'required|numeric',
             'inventory' => 'required|numeric',
-            'slug'=>'required',
+            'slug'=> 'required|unique:products,slug,NULL,id,project_id,' . getProjectId(),
+        ],[
+            'slug.unique'=>'شما قبلا این نامک را برای محصولات خود ثبت کرده اید'
         ]);
 
         $product = Product::create([
@@ -109,7 +111,9 @@ class ProductController extends Controller
             'purchase_price' => 'required|numeric',
             'sales_price' => 'required|numeric',
             'inventory' => 'required|numeric','product_name' => 'required',
-            'slug'=>'required',
+            'slug'=> 'required|unique:products,slug,'.$product->id.',id,project_id,' . getProjectId(),
+        ],[
+            'slug.unique'=>'شما قبلا این نامک را برای محصولات خود ثبت کرده اید'
         ]);
 
         $product->update([

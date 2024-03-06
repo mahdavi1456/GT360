@@ -51,7 +51,7 @@ class Project extends Model
                 'project_id' => $projectId
             ]);
         }
-        session(['projectId'=>$setting->project_id]);
+       forgetSite();
         return $setting;
     }
 

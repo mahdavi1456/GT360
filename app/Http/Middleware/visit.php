@@ -17,6 +17,8 @@ class visit
      */
     public function handle(Request $request, Closure $next): Response
     {
+        //dump(session()->all());
+
         $response=$next($request);
         ModelsVisit::create([
             'ip'=>getIp(),

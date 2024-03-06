@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Attachment;
-use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Attachment;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Validator;
 use function PHPUnit\Framework\fileExists;
 
 class PageController extends Controller
@@ -41,10 +42,12 @@ class PageController extends Controller
     public function store(Request $request)
     {
       //   dd($request->all());
-        $request->validate([
-            'content' => 'required|min:5'
-        ]);
         if ($request->action == "create") {
+            $request->validate([
+                'slug' => "required|unique:posts,slug,null,id,project_Id," . getProjectId()
+            ], [
+                'slug.unique' => 'نامک نوشته شده قبلا برای صفحات ثبت شده است',
+            ]);
             $data = $request->except('_token', 'thumbnail', 'action', 'q', 'page');
             // if ($request->thumbnail) {
             //     $fileName = now()->timestamp . '_' . $request->thumbnail->getClientOriginalName();
@@ -58,6 +61,7 @@ class PageController extends Controller
             $data['project_id'] = getProjectId();
             $data['author'] = auth()->id();
             $data['account_id'] = auth()->user()->account_id;
+            $data['slug'] = make_slug($request->slug);
           //  dd($data);
             // dd($data);
             $page = Page::create($data);
@@ -65,10 +69,20 @@ class PageController extends Controller
             DB::commit();
             alert()->success('موفق', 'صفحه با موفقیت ساخته شد.');
         } else if ($request->action == "update") {
+            $page = Page::findOrFail($request->page);
+            $validate = Validator::make($request->all(), [
+                'slug' => "required|unique:posts,slug,$page->id,id,project_Id," . getProjectId()
+            ], [
+                'slug.unique' => 'نامک نوشته شده قبلا برای این بخش ثبت شده است',
+            ]);
+            if ($validate->fails()) {
+
+                return redirect(Str::before(url()->previous(), '?').'?'.http_build_query(['action'=>'update','page'=>request('page')]))->withErrors($validate)->withInput();
+            }
+
             DB::beginTransaction();
             $data = $request->except('_token', 'thumbnail', 'action', 'q', 'page');
-
-            $page = Page::findOrFail($request->page);
+            $data['slug'] = make_slug($request->slug);
             $page->update($data);
             DB::commit();
 

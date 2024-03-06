@@ -34,13 +34,15 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-
         if ($request->action == 'create') {
             $request->validate([
                 'slug'=>'required|unique:projects,slug',
                 'domain'=>'required|unique:projects,domain'
+            ],[
+                'slug.unique'=>'نامک وارد شده شما قبلا ثبت شده است',
             ]);
             $data = $request->except('_token', 'action', 'project', 'logo');
+            $data['slug'] = make_slug($request->slug);
             $data['account_id'] = auth()->user()->account_id;
             if ($request->file('logo')) {
                 $fileName = time() . '_' . $request->file('logo')->getClientOriginalName();
@@ -54,8 +56,11 @@ class ProjectController extends Controller
             $request->validate([
                 'slug'=>'required|unique:projects,slug,'.$request->project,
                 'domain'=>'required|unique:projects,domain,'.$request->project,
+            ],[
+                'slug.unique'=>'نامک وارد شده شما قبلا ثبت شده است',
             ]);
             $data = $request->except('_token', 'action', 'project', 'logo');
+            $data['slug'] = make_slug($request->slug);
             $project = Project::where(['id' => $request->project, 'account_id' => auth()->user()->account_id])->firstOrFail();
             if ($request->file('logo')) {
 

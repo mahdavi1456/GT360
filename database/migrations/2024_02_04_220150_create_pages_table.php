@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('account_id');
+            $table->integer('project_id');
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('content')->nullable();

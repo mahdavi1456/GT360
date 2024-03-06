@@ -29,6 +29,7 @@ class AccountController extends Controller
 {
     public function dashboard()
     {
+       
         $settingModel = new Setting;
         // if (request()->has('project')) {
         //     session(['project_id' => request('project')]);
@@ -40,7 +41,7 @@ class AccountController extends Controller
     }
 
     /* Start Website Functions */
-  
+
 
     public function index()
     {

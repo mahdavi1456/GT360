@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Project;
 use App\Models\Term;
 use App\Models\User;
 use App\Models\Theme;
+use App\Models\Project;
 use App\Models\Taxonomy;
 use App\Models\Component;
 use App\Models\Attachment;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -36,6 +37,7 @@ class PostController extends Controller
 
     public function create()
     {
+
         $action = request('action');
         $term_array = [];
         $compnent = Component::findOrFail(request('component_id'));
@@ -56,7 +58,25 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+
         if ($request->action == 'create') {
+            $request->validate([
+                'slug' => "required|unique:posts,slug,null,id,component_id," . $request->component_id
+            ], [
+                'slug.unique' => 'نامک نوشته شده قبلا برای این بخش ثبت شده است',
+            ]);
+            // $validate=Validator::make(request()->all(),[
+            //     'slug'=>"required|unique:posts,slug,null,id,component_id,".$request->component_id
+            // ],[
+            //     'slug.unique'=>'نامک نوشته شده قبلا برای این بخش ثبت شده است',
+            // ]);
+            // if ($validate->fails()) {
+            //     dd($request->all());
+            //     if ($request->post) {
+            //         return back()->withErrors($validate)->withInput()->with(['action'=>'update','post'=>request('post')]);
+            //     }
+            //   return back()->withErrors($validate)->withInput();
+            // }
             $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q', 'post');
             // if ($request->thumbnail) {
             //     $fileName = now()->timestamp . '_' . $request->thumbnail->getClientOriginalName();
@@ -66,21 +86,38 @@ class PostController extends Controller
             // }
             DB::beginTransaction();
 
-            $accountId = auth()->user()->account->id;
+            $accountId = auth()->user()->account_id;
 
             $data['account_id'] = $accountId;
             $data['project_id'] = getProjectId();
             $data['author'] = auth()->id();
+            $data['slug'] = make_slug($request->slug);
             //  dd($data);
             $post = Post::create($data);
             $post->terms()->attach($request->term);
             DB::commit();
             alert()->success('موفق', 'نوسته مورد نظر ساخته شد');
         } else if ($request->action == 'update') {
+            $post = Post::findOrFail($request->post);
+            // $request->validate([
+            //     'slug'=>"required|unique:posts,slug,$post->id,id,component_id,".$request->component_id
+            // ],[
+            //     'slug.unique'=>'نامک نوشته شده قبلا برای این بخش ثبت شده است',
+            // ]);
+            $validate = Validator::make($request->all(), [
+                'slug' => "required|unique:posts,slug,$post->id,id,component_id," . $request->component_id
+            ], [
+                'slug.unique' => 'نامک نوشته شده  قبلا برای این بخش ثبت شده است',
+            ]);
+            if ($validate->fails()) {
+
+                return redirect(Str::before(url()->previous(), '?').'?'.http_build_query(['component_id'=>request('component_id'),'action'=>'update','post'=>request('post')]))->withErrors($validate)->withInput();
+            }
+
             DB::beginTransaction();
             $data = $request->except('_token', 'term', 'thumbnail', 'action', 'q', 'post', 'component_id');
+            $data['slug'] = make_slug($request->slug);
 
-            $post = Post::findOrFail($request->post);
             $post->update($data);
             $post->terms()->sync($request->term);
             DB::commit();
@@ -108,7 +145,7 @@ class PostController extends Controller
                 $post = Post::create([
                     'account_id' => auth()->user()->account_id,
                     'author' => auth()->id(),
-                    'project_id'=>getProjectId(),
+                    'project_id' => getProjectId(),
                     'component_id' => $request->component_id,
                     'thumbnail' => $fileName,
                     'thumbnail_status' => 1
