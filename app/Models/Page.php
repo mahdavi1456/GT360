@@ -37,7 +37,7 @@ class Page extends Model
 
     public function show_url()
     {
-        $permalink = route('showPage', ['slug' => request('siteSlug'),'pageId' => $this->id]);
+        $permalink = route('showPage', ['siteSlug' => request('siteSlug'),'pageId' => $this->id]);
         return $permalink;
     }
 
