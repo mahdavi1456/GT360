@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
-    $("site-slug").on("input", function (e) {
+    $(".site-slug").on("input", function (e) {
         var $input = $(this);
         var nonPersianValue = $input.val().replace(/[آ-ی ًٌٍَُِّ‌]/g, "");
 
