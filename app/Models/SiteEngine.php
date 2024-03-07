@@ -42,11 +42,11 @@ class SiteEngine extends Model
     //-----------------------------------------------------------
     //page sectino
 
-    public function getPagePermalink($siteSlug, $slug)
-    {
-        $permalink = route('showPage', ['siteSlug' => $siteSlug, 'slug' => $slug]);
-        return $permalink;
-    }
+    // public function getPagePermalink($siteSlug, $slug)
+    // {
+    //     $permalink = route('showPage', ['siteSlug' => $siteSlug, 'slug' => $slug]);
+    //     return $permalink;
+    // }
 
     public function getPages($limit = null)
     {
