@@ -39,11 +39,12 @@ class NavItem extends Model
         return $this->belongsTo(Page::class,'object_id');
     }
 
-    public function getLink($slug)
+    public function getLink()
     {
-        $pageModel = new Page;
+
         if ($this->item_type == "page") {
-            $link = $pageModel->getPagePermalink($slug, $this->link, $this->object_id);
+            $page=Page::findOrFail($this->object_id);
+            $link = $page->show_url();
         } else if($this->item_type == "post") {
 
             //$link = $postModel->getPostPermalink($slug, $navItem->link, $navItem->object_id);

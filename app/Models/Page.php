@@ -35,9 +35,9 @@ class Page extends Model
         }
     }
 
-    public function getPagePermalink($slug, $link, $pageId)
+    public function show_url()
     {
-        $permalink = route('showPage', ['slug' => $slug, 'link' => $link, 'pageId' => $pageId]);
+        $permalink = route('showPage', ['slug' => request('siteSlug'),'pageId' => $this->id]);
         return $permalink;
     }
 

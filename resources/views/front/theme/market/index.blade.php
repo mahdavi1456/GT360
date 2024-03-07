@@ -150,10 +150,9 @@
                                         @foreach ($topMenu as $parent)
                                             @php
                                                 $children = $parent->children;
-
                                             @endphp
                                             <li class="dropdown">
-                                                <a href="shop.html" class='dropdown-toggle'>{{ $parent->name }}
+                                                <a href="{{$parent->getLink()}}" class='dropdown-toggle'>{{ $parent->name }}
                                                     @if (count($children) > 0)
                                                         <b class="caret"></b>
                                                     @endif
@@ -161,7 +160,7 @@
                                                 @if ($children)
                                                     <ul class="dropdown-menu">
                                                         @foreach ($children as $child)
-                                                            <li><a href="shop.html">{{ $child->name }}</a></li>
+                                                            <li><a href="{{$child->getLink()}}">{{ $child->name }}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 @endif
@@ -827,7 +826,7 @@
                                         <div class="picture">
                                             <img src="{{ $item->image_url() }}" width="540" height="374" />
                                             <div class="img-overlay">
-                                                <a href="{{ $siteEngine->getPagePermalink(request('siteSlug'), $item->slug) }}"
+                                                <a href="{{$item->show_url()}}"
                                                     class="btn more btn-primary">توضیحات بیشتر</a>
                                                 <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
                                             </div>
