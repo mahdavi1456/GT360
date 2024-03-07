@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('title', 'مدیریت فهرست ها')
 @section('style')
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
     <style>
         [data-toggle="collapse"] .fa:before {
             content: "\f139";
@@ -56,7 +56,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script>
         //get info ajax
         $('select[name="nav"]').on('change', function() {

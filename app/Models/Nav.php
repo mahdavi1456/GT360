@@ -14,7 +14,7 @@ class Nav extends Model
 
     public function items()
     {
-        return $this->hasMany(NavItem::class)->where('account_id', auth()->user()->account->id);
+        return $this->hasMany(NavItem::class)->where('project_id', getProjectId())->orderBy('order_num');
     }
 
     public function getNavItems($name, $parentId, $accountId, $projectId)

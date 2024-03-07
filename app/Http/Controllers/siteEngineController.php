@@ -15,9 +15,9 @@ use Illuminate\Http\Request;
 
 class SiteEngineController extends Controller
 {
-    public function loadSite($slug)
+    public function loadSite($siteSlug)
     {
-      //  slugWorm();
+        //  slugWorm();
 
         //   User::find(4)->increment('city');
         $settingModel = new Setting;
@@ -26,16 +26,17 @@ class SiteEngineController extends Controller
         // $navModel = new Nav;
         // $palleteModel = new Pallete;
         $siteEngine = new SiteEngine;
-        // $account = Account::where('slug', $slug)->first();
-        $project = Project::where('slug', $slug)->first();
-        // dd($project,$slug);
-            $accountId = getAccountId();
-            $projectId = getProjectId();
-            $theme = getActiveTheme();
-            $view = "front.theme.$theme.index";
-            $products = Post::where('component_id', 2)->get();
-            return view($view, compact('siteEngine', 'projectId','settingModel','accountId'));
+        //dd($siteEngine-> getNavItemsByName('top-menu'));
 
+        // $account = Account::where('slug', $siteSlug)->first();
+        $project = Project::where('slug', $siteSlug)->first();
+        // dd($project,$slug);
+        $accountId = getAccountId();
+        $projectId = getProjectId();
+        $theme = getActiveTheme();
+        $view = "front.theme.$theme.index";
+        $products = Post::where('component_id', 2)->get();
+        return view($view, compact('siteEngine', 'projectId', 'settingModel', 'accountId'));
     }
 
     public function showPost($siteSlug, $componentName, $slug)
@@ -58,7 +59,8 @@ class SiteEngineController extends Controller
         return view($view, compact('siteEngine', 'slug'));
     }
 
-    public function showProduct($siteSlug,$slug) {
+    public function showProduct($siteSlug, $slug)
+    {
         //dd(session()->all());
         $siteEngine = new SiteEngine;
         $theme = getActiveTheme();

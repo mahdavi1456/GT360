@@ -77,6 +77,11 @@ class Post extends Model
         }
     }
 
+    public function show_url(){
+        $permalink = route('showPost', ['siteSlug' => request('siteSlug'), 'componentName' =>$this->component->name , 'slug' => $this->slug]);
+        return $permalink;
+    }
+
     public function image_url(){
         if ($this->thumbnail){
             return asset(ert('thumb-path').$this->thumbnail);

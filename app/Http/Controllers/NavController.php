@@ -54,9 +54,9 @@ class NavController extends Controller
 
     public function navItems()
     {
-        $pages = Page::latest()->get();
+        $pages = Page::where('publish_status','publish')->latest()->get();
 
-        $accountId = auth()->user()->account->id;
+        $accountId = auth()->user()->account_id;
         $projectId = Project::checkOpenProject($accountId)->project_id;
 
         //create link
@@ -134,15 +134,10 @@ class NavController extends Controller
 
         $setting = new Setting();
 
-        $accountId = auth()->user()->account->id;
-        $projectId = Project::checkOpenProject($accountId)->project_id;
-
-        $themeName = $setting->getSetting('active_theme', $accountId, $projectId);
-
-        //$nav=Nav::find('5')->items;
-        // //dd($nav);
+        $accountId = auth()->user()->account_id;
+        $themeName = $setting->getSetting('active_theme', $accountId, getProjectId());
         $theme = Theme::where('name', $themeName)->first();
-        $navs = $theme->navs;
+        $navs = $theme->navs->where('status','فعال');
         return view('admin.nav.selectItems', compact('navs'));
     }
 
