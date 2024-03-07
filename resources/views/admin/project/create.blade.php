@@ -32,10 +32,10 @@
                                                 oninput="this.setCustomValidity('')" placeholder="دامنه...">
                                         </div>
                                         <div class="col-md-3 form-group">
-                                            <label>نامک <span class="text-danger site-slug">*</span></label>
+                                            <label>نامک <span class="text-danger ">*</span></label>
                                             <input type="text" name="slug" id="" required
                                                 oninvalid="this.setCustomValidity('کادر مشخص شده را پر کنید.')"
-                                                oninput="this.setCustomValidity('')" class="form-control"
+                                                oninput="this.setCustomValidity('')" class="form-control site-slug"
                                                 value="{{ $project?->slug }}" placeholder=" مثال (site-name)">
                                         </div>
                                         <div class="col-md-3 form-group">
