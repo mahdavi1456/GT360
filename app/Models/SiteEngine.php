@@ -94,7 +94,7 @@ class SiteEngine extends Model
     //nav section
     public function getNavItemsByName($name) {
         $nav=Nav::where('name',$name)->where('status',"فعال")->first();
-        return $nav->items->where('parent_id',0);
+        return $nav?->items->where('parent_id',0);
     }
 
 }
