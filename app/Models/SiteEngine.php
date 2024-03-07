@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Nav;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\Product;
