@@ -79,14 +79,14 @@
 </footer>
 <!-- end footer -->
 <!-- js section -->
-<script src="{{ asset('front-theme-asset/next/') }} js/jquery.min.js"></script>
-<script src="{{ asset('front-theme-asset/next/') }} js/bootstrap.min.js"></script>
+<script src="{{ asset('front-theme-asset/next/js/jquery.min.js') }}"></script>
+<script src="{{ asset('front-theme-asset/next/js/bootstrap.min.js') }}"></script>
 <!-- menu js -->
-<script src="{{ asset('front-theme-asset/next/') }} js/menumaker.js"></script>
+<script src="{{ asset('front-theme-asset/next/js/menumaker.js') }}"></script>
 <!-- wow animation -->
-<script src="{{ asset('front-theme-asset/next/') }}js/wow.js"></script>
+<script src="{{ asset('front-theme-asset/next/js/wow.js') }}"></script>
 <!-- custom js -->
-<script src="{{ asset('front-theme-asset/next/') }}js/custom.js"></script>
+<script src="{{ asset('front-theme-asset/next/js/custom.js') }}"></script>
 <!-- revolution js files -->
 <script src="{{ asset('front-theme-asset/next/revolution/js/jquery.themepunch.tools.min.js') }}"></script>
 <script src="{{ asset('front-theme-asset/next/revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
