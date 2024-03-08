@@ -54,4 +54,14 @@ class NavItem extends Model
         return $link;
     }
 
+    public function itemHasChild()
+    {s
+        $items = NavItem::where('parent_id', $this->id)->get();
+        if ($items->count() > 0) {
+            return true;
+        } else {
+            return null;
+        }
+    }
+
 }
