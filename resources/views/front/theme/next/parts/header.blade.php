@@ -101,8 +101,8 @@
                     <!-- menu start -->
                     <div class="menu_side">
                         <div id="navbar_menu">
-                            @php $navItems = $siteEngine->getNavItems('top-nav'); @endphp
-                            @if ($navItems->count() > 0)
+                            @php $navItems = $siteEngine->getNavItems('top-menu'); @endphp
+                            @if ($navItems)
                                 <ul class="first-ul">
                                     @foreach ($navItems as $navItem)
                                         @if ($navItem->itemHasChild())
@@ -110,7 +110,7 @@
                                                 <a href="{{ $navItem->link }}">{{ $navItem->name }}</a>
                                                 <ul>
                                                     @php
-                                                        $childs = $siteEngine->getNavItems('top-nav', $navItem->id);
+                                                        $childs = $siteEngine->getNavItems('top-menu', $navItem->id);
                                                     @endphp
                                                     @if ($childs)
                                                         @foreach ($childs as $child)
