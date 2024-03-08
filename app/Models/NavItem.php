@@ -41,7 +41,6 @@ class NavItem extends Model
 
     public function getLink()
     {
-
         if ($this->item_type == "page") {
             $page=Page::findOrFail($this->object_id);
             $link = $page->show_url();
