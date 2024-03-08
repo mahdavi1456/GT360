@@ -52,10 +52,13 @@
                     <div class="full">
                         <div class="topbar-left">
                             <ul class="list-inline">
-                                <li><span class="topbar-label"><i class="fa  fa-home"></i></span> <span
-                                        class="topbar-hightlight">540 لورم ایپسوم نیویورک ، AB 90218</span></li>
-                                <li><span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span
-                                        class="topbar-hightlight"><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></span>
+                                <li>
+                                    <span class="topbar-label"><i class="fa fa-home"></i></span>
+                                    <span class="topbar-hightlight">540 لورم ایپسوم نیویورک ، AB 90218</span>
+                                </li>
+                                <li>
+                                    <span class="topbar-label"><i class="fa fa-envelope-o"></i></span>
+                                    <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></span>
                                 </li>
                             </ul>
                         </div>
@@ -93,7 +96,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <!-- logo start -->
-                    <div class="logo"><a href="it_home.html"><img src="images/logos/it_logo.png" alt="logo"/></a></div>
+                    <div class="logo"><a href="it_home.html"><img src="{{ asset('front-theme-asset/next/images/logos/it_logo.png') }}" alt="logo"/></a></div>
                     <!-- logo end -->
                 </div>
                 <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -107,14 +110,17 @@
                                         <li><a href="it_home_dark.html">این صفحه اصلی تاریک است</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="it_about.html">درباره ما</a></li>
-                                <li><a href="it_service.html">خدمات</a>
+                                <li>
+                                    <a href="it_about.html">درباره ما</a></li>
+                                <li>
+                                    <a href="it_service.html">خدمات</a>
                                     <ul>
                                         <li><a href="it_service_list.html">لیست خدمات</a></li>
                                         <li><a href="it_service_detail.html">جزئیات خدمات</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="it_blog.html">وبلاگ</a>
+                                <li>
+                                    <a href="it_blog.html">وبلاگ</a>
                                     <ul>
                                         <li><a href="it_blog.html">لیست وبلاگ</a></li>
                                         <li><a href="it_blog_grid.html">شبکه وبلاگ</a></li>
@@ -138,7 +144,8 @@
                                         <li><a href="it_checkout.html">تکمیل سفارش</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="it_contact.html">تماس</a>
+                                <li>
+                                    <a href="it_contact.html">تماس</a>
                                     <ul>
                                         <li><a href="it_contact.html">صفحه تماس 1</a></li>
                                         <li><a href="it_contact_2.html">صفحه تماس 2</a></li>
