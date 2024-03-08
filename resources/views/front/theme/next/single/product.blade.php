@@ -1,5 +1,6 @@
 @include('front.theme.next.parts.header')
 @php $product = $siteEngine->getProduct($slug); @endphp
+
 <!-- inner page banner -->
 <div id="inner_banner" class="section inner_banner_section">
     <div class="container">
@@ -74,8 +75,8 @@
                         <div class="full">
                             <div class="tab_bar_section">
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#description">توضیحات</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#reviews">نظرات (2)</a> </li>
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#description">توضیحات</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#reviews">نظرات (2)</a></li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
@@ -93,12 +94,20 @@
                                             <h3>نظرات (2)</h3>
                                             <div class="commant-text row">
                                                 <div class="col-lg-2 col-md-2 col-sm-4">
-                                                    <div class="profile"> <img class="img-responsive" src="images/it_service/client1.png" alt="#"> </div>
+                                                    <div class="profile"><img class="img-responsive" src="images/it_service/client1.png" alt="#"></div>
                                                 </div>
                                                 <div class="col-lg-10 col-md-10 col-sm-8">
                                                     <h5>فاطمه</h5>
-                                                    <p><span class="c_date">25 فروردین 1400</span> | <span><a rel="nofollow" class="comment-reply-link" href="#">پاسخ</a></span></p>
-                                                    <span class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </span>
+                                                    <p>
+                                                        <span class="c_date">25 فروردین 1400</span> | <span><a rel="nofollow" class="comment-reply-link" href="#">پاسخ</a></span>
+                                                    </p>
+                                                    <span class="rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </span>
                                                     <p class="msg">
                                                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
                                                     </p>
@@ -106,7 +115,9 @@
                                             </div>
                                             <div class="commant-text row">
                                                 <div class="col-lg-2 col-md-2 col-sm-4">
-                                                    <div class="profile"> <img class="img-responsive" src="images/it_service/client2.png" alt="#"> </div>
+                                                    <div class="profile">
+                                                        <img class="img-responsive" src="{{ asset('front-theme-asset/next/images/it_service/client2.png') }}" alt="#">
+                                                    </div>
                                                 </div>
                                                 <div class="col-lg-10 col-md-10 col-sm-8">
                                                     <h5>فاطمه</h5>
@@ -154,10 +165,10 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
                         <div class="product_list">
-                            <div class="product_img"> <img class="img-responsive" src="images/it_service/4.jpg" alt=""> </div>
+                            <div class="product_img"><img class="img-responsive" src="{{ asset('front-theme-asset/next/images/it_service/4.jpg') }}" alt=""></div>
                             <div class="product_detail_btm">
                                 <div class="center">
-                                    <h4><a href="it_shop_detail.html">نام محصول</a></h4>
+                                    <h4><a href="it_shop_detail.html">{{ $product->product_name }}</a></h4>
                                 </div>
                                 <div class="starratin">
                                     <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -293,9 +304,11 @@
                                         صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                                         در ستون و سطرآنچنان که لازم است
                                     </div>
-                                    <div class="testimonial-photo"><img src="images/it_service/client1.jpg"
+                                    <div class="testimonial-photo">
+                                        <img src="{{ asset('front-theme-asset/next/images/it_service/client1.jpg') }}"
                                                                         class="img-responsive" alt="#" width="150"
-                                                                        height="150"></div>
+                                                                        height="150">
+                                    </div>
                                     <div class="testimonial-meta">
                                         <h4>ماریا اندرسون</h4>
                                         <span class="testimonial-position">لورم ایپسوم متن</span></div>
@@ -307,9 +320,11 @@
                                         صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                                         در ستون و سطرآنچنان که لازم است
                                     </div>
-                                    <div class="testimonial-photo"><img src="images/it_service/client2.jpg"
+                                    <div class="testimonial-photo">
+                                        <img src="{{ asset('front-theme-asset/next/images/it_service/client2.jpg') }}"
                                                                         class="img-responsive" alt="#" width="150"
-                                                                        height="150"></div>
+                                                                        height="150">
+                                    </div>
                                     <div class="testimonial-meta">
                                         <h4>ماریا اندرسون</h4>
                                         <span class="testimonial-position">CFO, Tech NY</span></div>
@@ -321,9 +336,11 @@
                                         صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
                                         در ستون و سطرآنچنان که لازم است
                                     </div>
-                                    <div class="testimonial-photo"><img src="images/it_service/client3.jpg"
+                                    <div class="testimonial-photo">
+                                        <img src="{{ asset('front-theme-asset/next/images/it_service/client3.jpg') }}"
                                                                         class="img-responsive" alt="#" width="150"
-                                                                        height="150"></div>
+                                                                        height="150">
+                                    </div>
                                     <div class="testimonial-meta">
                                         <h4>ماریا اندرسون</h4>
                                         <span class="testimonial-position">CFO, Tech NY</span></div>
@@ -340,6 +357,7 @@
     </div>
 </div>
 <!-- end section -->
+
 <!-- section -->
 <div class="section">
     <div class="container">
@@ -347,13 +365,15 @@
             <div class="col-md-12">
                 <div class="full">
                     <div class="contact_us_section">
-                        <div class="call_icon"><img src="images/it_service/phone_icon.png" alt="#"/></div>
+                        <div class="call_icon">
+                            <img src="{{ asset('front-theme-asset/next/images/it_service/phone_icon.png') }}" alt="#"/></div>
                         <div class="inner_cont">
                             <h2>یک نقل قول رایگان بخواهید</h2>
                             <p>از افرادی که از آنها می خواهید پاسخ و مشاوره بگیرید.</p>
                         </div>
-                        <div class="button_Section_cont"><a class="btn dark_gray_bt" href="it_contact.html">با ما تماس
-                                بگیرید</a></div>
+                        <div class="button_Section_cont">
+                            <a class="btn dark_gray_bt" href="it_contact.html">با ما تماس بگیرید</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -369,11 +389,11 @@
             <div class="col-md-12">
                 <div class="full">
                     <ul class="brand_list">
-                        <li><img src="images/it_service/brand_icon1.png" alt="#"/></li>
-                        <li><img src="images/it_service/brand_icon2.png" alt="#"/></li>
-                        <li><img src="images/it_service/brand_icon3.png" alt="#"/></li>
-                        <li><img src="images/it_service/brand_icon4.png" alt="#"/></li>
-                        <li><img src="images/it_service/brand_icon5.png" alt="#"/></li>
+                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon1.png') }}" alt="#"/></li>
+                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon2.png') }}" alt="#"/></li>
+                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon3.png') }}" alt="#"/></li>
+                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon4.png') }}" alt="#"/></li>
+                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon5.png') }}" alt="#"/></li>
                     </ul>
                 </div>
             </div>
