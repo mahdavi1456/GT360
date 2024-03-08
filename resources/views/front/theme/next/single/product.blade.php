@@ -165,7 +165,9 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
                         <div class="product_list">
-                            <div class="product_img"><img class="img-responsive" src="{{ asset('front-theme-asset/next/images/it_service/4.jpg') }}" alt=""></div>
+                            <div class="product_img">
+                                <img class="img-responsive" src="{{ asset('front-theme-asset/next/images/it_service/4.jpg') }}" alt="">
+                            </div>
                             <div class="product_detail_btm">
                                 <div class="center">
                                     <h4><a href="it_shop_detail.html">{{ $product->product_name }}</a></h4>
@@ -181,7 +183,9 @@
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
                         <div class="product_list">
-                            <div class="product_img"> <img class="img-responsive" src="images/it_service/5.jpg" alt=""> </div>
+                            <div class="product_img">
+                                <img class="img-responsive" src="{{ asset('front-theme-asset/next/images/it_service/5.jpg') }}" alt="">
+                            </div>
                             <div class="product_detail_btm">
                                 <div class="center">
                                     <h4><a href="it_shop_detail.html">نام محصول</a></h4>
@@ -197,7 +201,9 @@
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
                         <div class="product_list">
-                            <div class="product_img"> <img class="img-responsive" src="images/it_service/6.jpg" alt=""> </div>
+                            <div class="product_img">
+                                <img class="img-responsive" src="{{ asset('front-theme-asset/next/images/it_service/6.jpg') }}" alt="">
+                            </div>
                             <div class="product_detail_btm">
                                 <div class="center">
                                     <h4><a href="it_shop_detail.html">نام محصول</a></h4>
@@ -213,194 +219,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="side_bar">
-                    <div class="side_bar_blog">
-                        <h4>جستجو</h4>
-                        <div class="side_bar_search">
-                            <div class="input-group stylish-input-group">
-                                <input class="form-control" placeholder="جستجو" type="text">
-                                <span class="input-group-addon">
-                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </span> </div>
-                        </div>
-                    </div>
-                    <div class="side_bar_blog">
-                        <h4>لورم ایپسوم</h4>
-                        <p>
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
-                        </p>
-                        <a class="btn sqaure_bt" href="it_service.html">بیشتر</a> </div>
-                    <div class="side_bar_blog">
-                        <h4>عنوان نمونه</h4>
-                        <div class="categary">
-                            <ul>
-                                <li><a href="it_data_recovery.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_computer_repair.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_mobile_service.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_network_solution.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_techn_support.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="side_bar_blog">
-                        <h4>عنوان نمونه</h4>
-                        <div class="categary">
-                            <ul>
-                                <li><a href="it_data_recovery.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_computer_repair.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_mobile_service.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_network_solution.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                                <li><a href="it_techn_support.html"><i class="fa fa-angle-left"></i>لورم ایپسوم</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="side_bar_blog">
-                        <h4>عنوان نمونه</h4>
-                        <div class="tags">
-                            <ul>
-                                <li><a href="#">تست</a></li>
-                                <li><a href="#">تست</a></li>
-                                <li><a href="#">تست</a></li>
-                                <li><a href="#">تست</a></li>
-                                <li><a href="#">تست</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end section -->
-<!-- section -->
-<div class="section padding_layout_1 testmonial_section white_fonts dir-ltr">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="full">
-                    <div class="main_heading text_align_right">
-                        <h2 class="dir-rtl" style="text-transform: none;">آنچه (مشتریان) می گویند؟</h2>
-                        <p class="large dir-rtl">در اینجا توصیه های مشتریان است ..</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-7">
-                <div class="full">
-                    <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ul class="carousel-indicators">
-                            <li data-target="#testimonial_slider" data-slide-to="0" class="active"></li>
-                            <li data-target="#testimonial_slider" data-slide-to="1"></li>
-                            <li data-target="#testimonial_slider" data-slide-to="2"></li>
-                        </ul>
-                        <!-- The slideshow -->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="testimonial-container">
-                                    <div class="testimonial-content"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                        صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-                                        در ستون و سطرآنچنان که لازم است
-                                    </div>
-                                    <div class="testimonial-photo">
-                                        <img src="{{ asset('front-theme-asset/next/images/it_service/client1.jpg') }}"
-                                                                        class="img-responsive" alt="#" width="150"
-                                                                        height="150">
-                                    </div>
-                                    <div class="testimonial-meta">
-                                        <h4>ماریا اندرسون</h4>
-                                        <span class="testimonial-position">لورم ایپسوم متن</span></div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="testimonial-container">
-                                    <div class="testimonial-content"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                        صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-                                        در ستون و سطرآنچنان که لازم است
-                                    </div>
-                                    <div class="testimonial-photo">
-                                        <img src="{{ asset('front-theme-asset/next/images/it_service/client2.jpg') }}"
-                                                                        class="img-responsive" alt="#" width="150"
-                                                                        height="150">
-                                    </div>
-                                    <div class="testimonial-meta">
-                                        <h4>ماریا اندرسون</h4>
-                                        <span class="testimonial-position">CFO, Tech NY</span></div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="testimonial-container">
-                                    <div class="testimonial-content"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                        صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-                                        در ستون و سطرآنچنان که لازم است
-                                    </div>
-                                    <div class="testimonial-photo">
-                                        <img src="{{ asset('front-theme-asset/next/images/it_service/client3.jpg') }}"
-                                                                        class="img-responsive" alt="#" width="150"
-                                                                        height="150">
-                                    </div>
-                                    <div class="testimonial-meta">
-                                        <h4>ماریا اندرسون</h4>
-                                        <span class="testimonial-position">CFO, Tech NY</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-5">
-                <div class="full"></div>
-            </div>
+
+            @include('front.theme.next.parts.sidebar')
+
         </div>
     </div>
 </div>
 <!-- end section -->
 
-<!-- section -->
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="full">
-                    <div class="contact_us_section">
-                        <div class="call_icon">
-                            <img src="{{ asset('front-theme-asset/next/images/it_service/phone_icon.png') }}" alt="#"/></div>
-                        <div class="inner_cont">
-                            <h2>یک نقل قول رایگان بخواهید</h2>
-                            <p>از افرادی که از آنها می خواهید پاسخ و مشاوره بگیرید.</p>
-                        </div>
-                        <div class="button_Section_cont">
-                            <a class="btn dark_gray_bt" href="it_contact.html">با ما تماس بگیرید</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end section -->
-
-<!-- section -->
-<div class="section padding_layout_1" style="padding: 50px 0;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="full">
-                    <ul class="brand_list">
-                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon1.png') }}" alt="#"/></li>
-                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon2.png') }}" alt="#"/></li>
-                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon3.png') }}" alt="#"/></li>
-                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon4.png') }}" alt="#"/></li>
-                        <li><img src="{{ asset('front-theme-asset/next/images/it_service/brand_icon5.png') }}" alt="#"/></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end section -->
+@include('front.theme.next.parts.comments')
+@include('front.theme.next.parts.brands')
 
 <!-- Modal -->
 <div class="modal fade" id="search_bar" role="dialog">
