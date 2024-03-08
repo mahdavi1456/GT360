@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 function adminBar()
 {
-    if (Auth::check()) {
-?>
+    if (Auth::check()) { ?>
         <style type="text/css">
             .admin-bar {
                 width: 100%;
@@ -287,7 +286,7 @@ function getProjectId()
 
 function getActiveTheme()
 {
-       return Account::activeTheme(getAccountId(), getProjectId());
+    return Account::activeTheme(getAccountId(), getProjectId());
 }
 
 function getAccountId()

@@ -10,7 +10,7 @@ class Page extends Model
     use HasFactory;
     protected $guarded=[];
 
-    public function author_object()  {
+    public function author_object() {
         return $this->belongsTo(User::class, 'author');
     }
 
@@ -47,7 +47,8 @@ class Page extends Model
         return $data;
     }
 
-    public function image_url(){
+    public function image_url()
+    {
         if ($this->thumbnail){
             return asset(ert('pip').$this->thumbnail);
         }
