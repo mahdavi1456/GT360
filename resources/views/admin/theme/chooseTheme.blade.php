@@ -30,7 +30,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $activeTheme->label }}</h5>
                                             <p class="card-text">{{ $activeTheme->slogan }}</p>
-                                            <button class="btn btn-success">فعال شده</button>
+                                            <ton class="btn btn-success">فعال شده</ton>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                     @else
                         <div class="alert alert-danger m-2 text-center">هیچ قالبی جهت فعالسازی در سامانه تعریف نشده است.</div>
                     @endif
-                    
+
                 </div>
             </div>
         </section>
