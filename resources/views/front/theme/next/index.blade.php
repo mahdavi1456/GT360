@@ -253,7 +253,7 @@
                             </div>
                             <div class="product_detail_btm">
                                 <div class="center">
-                                    <h4><a href="{{ $product->getProductUrl(request('siteSlug')) }}">{{ $product->product_name }}</a></h4>
+                                    <h4><a href="{{ $product->getSingleUrl(request('siteSlug')) }}">{{ $product->product_name }}</a></h4>
                                 </div>
                                 <div class="starratin">
                                     <div class="center">
