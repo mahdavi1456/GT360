@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-12 col-md-12">
                         <div class="product_detail_feature_img hizoom hi2">
-                            <div class='hizoom hi2'> <img src="images/it_service/1.jpg" alt="#" /> </div>
+                            <div class="hizoom hi2"><img src="{{ asset('front-theme-asset/next/images/it_service/1.jpg') }}" alt="#" /></div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
@@ -352,6 +352,7 @@
     </div>
 </div>
 <!-- end section -->
+
 <!-- section -->
 <div class="section padding_layout_1" style="padding: 50px 0;">
     <div class="container">
@@ -371,6 +372,7 @@
     </div>
 </div>
 <!-- end section -->
+
 <!-- Modal -->
 <div class="modal fade" id="search_bar" role="dialog">
     <div class="modal-dialog">
@@ -400,7 +402,7 @@
 </div>
 <!-- End Model search bar -->
 
-<script src="{{ asset('js/hizoom.js') }}"></script>
+<script src="{{ asset('front-theme-asset/next/js/hizoom.js') }}"></script>
 <script>
     $('.hi1').hiZoom({
         width: 300,
