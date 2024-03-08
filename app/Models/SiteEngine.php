@@ -42,7 +42,12 @@ class SiteEngine extends Model
 
     public function getPage($slug)
     {
-        return Page::where('slug', $slug)->where('publish_status', 'publish')->firstOrFail();
+        $page = Page::where('slug', $slug)->where('publish_status', 'publish')->firstOrFail();
+        if ($page) {
+            return $page;
+        } else {
+            //return to 404 page
+        }
     }
 
     // Setting Methods
