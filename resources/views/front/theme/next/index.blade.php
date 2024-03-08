@@ -473,7 +473,7 @@
                             <div class="product_img"><img class="img-responsive" src="images/it_service/1.jpg" alt=""></div>
                             <div class="product_detail_btm">
                                 <div class="center">
-                                    <h4><a href="{{ $item->getUrl(request('siteSlug')) }}">{{ $product->product_name }}</a></h4>
+                                    <h4><a href="{{ $product->getUrl(request('siteSlug')) }}">{{ $product->product_name }}</a></h4>
                                 </div>
                                 <div class="starratin">
                                     <div class="center">
