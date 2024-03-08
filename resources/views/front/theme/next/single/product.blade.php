@@ -1,5 +1,5 @@
 @include('front.theme.next.parts.header')
-
+@php $product = $siteEngine->getProduct($slug); @endphp
 <!-- inner page banner -->
 <div id="inner_banner" class="section inner_banner_section">
     <div class="container">
@@ -34,10 +34,19 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-12 col-md-12 product_detail_side detail_style1">
-                        <div class="product-heading">
-                            <h2>نام محصول</h2>
+                        <div class="product-heading"><h2>{{ $product->product_name }}</h2></div>
+                        <div class="product-detail-side">
+                            <span><del>$25.00</del></span>
+                            <span class="new-price">$20.00</span>
+                            <span class="rating">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="review">(5 customer review)</span>
                         </div>
-                        <div class="product-detail-side"> <span><del>$25.00</del></span><span class="new-price">$20.00</span> <span class="rating"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </span> <span class="review">(5 customer review)</span> </div>
                         <div class="detail-contant">
                             <p>
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
