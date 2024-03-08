@@ -35,9 +35,9 @@ class Page extends Model
         }
     }
 
-    public function show_url()
+    public function getSingleUrl()
     {
-        $permalink = route('showPage', ['siteSlug' => request('siteSlug'),'slug' => $this->slug]);
+        $permalink = route('showPage', ['siteSlug' => request('siteSlug'), 'slug' => $this->slug]);
         return $permalink;
     }
 
@@ -47,9 +47,9 @@ class Page extends Model
         return $data;
     }
 
-    public function image_url()
+    public function getImageUrl()
     {
-        if ($this->thumbnail){
+        if ($this->thumbnail) {
             return asset(ert('pip').$this->thumbnail);
         }
         return asset('front-theme-asset/market/images/dummy/products/product-6.jpg');

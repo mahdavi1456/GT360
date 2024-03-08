@@ -28,9 +28,9 @@ class Nav extends Model
         }
     }
 
-    public function itemHasChild($id)
+    public function itemHasChild()
     {
-        $items = NavItem::where('parent_id', $id)->get();
+        $items = NavItem::where('parent_id', $this->id)->get();
         if ($items->count() > 0) {
             return true;
         } else {

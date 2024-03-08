@@ -1,12 +1,11 @@
-## Seeder
-
+### Seeders
 ```
 Username: 09139999999
 Password: password
 ```
 
-## Sweet Alert Samples
-
+### Sweet Alert Samples
+#### Confirm
 ```
 Swal.fire({
     title: "اخطار",
@@ -25,40 +24,54 @@ Swal.fire({
     }
 });
 ```
-
+#### Alert
 ```
 Swal.fire("Title", "Text", "success");
 ```
 
-## Sessions Data
+### Sessions Data
 
 ```
 auth()->id();
 auth()->user()->account->id;
 ```
 
-## work with site engine
+<hr>
 
-### all below functions exists in post,page,product 
+### Site Engine
+#### Make Instance of SiteEngine Model
+```
+$siteEngine = new SiteEngine;
+```
 
-#### on siteEngine model
+#### Get Post Items of Components
+```
+$siteEngine->getPosts($componentName = null, $limit = null)
+```
 
-##### getPosts($componentName = null, $limit = null)
+###### Input
+Parameter | Data Type  | Details
+--- | --- | ---
+componentName | `string` | `news`, `events`, `gallery`, etc.
+limit | `integer`  | Number of Items to Return.
 
-$componentName: we can get post of a specific component. default null: latest post. 
-$limit: A number that specifies the number of posts we want. default null: it bring all of theme.
-note:for page and product we have not componentName so: getpages($limit = null)
-##### getPost($slug)
+###### Output
+```
+Collection of Model
+```
 
-get post by slug
+#### Get Data of Post Item in Single
+```
+$siteEngine->getPost($slug)
+```
 
-#### on post model
 
-##### show_url()
+#### Get Single URL of Post, Page and Product Item
+```
+$model->showUrl()
+```
 
-example: $post->show_url() // it generate a link to single of post,place it in href attribute
-
-##### image_url()
-
-example: $post->image_url() // it generate a link to image of post,place it in src attribute
-
+### Get Image URL of Post, Page and Product
+```
+$model->imageUrl()
+```

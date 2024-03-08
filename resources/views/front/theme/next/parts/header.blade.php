@@ -8,10 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>It.Next - IT Service Responsive Html Theme</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>{{ $siteEngine->getSetting('title') }}</title>
+    <meta name="description" content="{{ $siteEngine->getSetting('description') }}">
     <!-- site icons -->
     <link rel="icon" href="{{ asset('front-theme-asset/next/images/fevicon/fevicon.png') }}" type="image/gif"/>
     <!-- bootstrap css -->
@@ -103,55 +101,34 @@
                     <!-- menu start -->
                     <div class="menu_side">
                         <div id="navbar_menu">
-                            <ul class="first-ul">
-                                <li><a class="active" href="it_home.html">خانه</a>
-                                    <ul>
-                                        <li><a href="it_home.html">این صفحه اصلی است</a></li>
-                                        <li><a href="it_home_dark.html">این صفحه اصلی تاریک است</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="it_about.html">درباره ما</a></li>
-                                <li>
-                                    <a href="it_service.html">خدمات</a>
-                                    <ul>
-                                        <li><a href="it_service_list.html">لیست خدمات</a></li>
-                                        <li><a href="it_service_detail.html">جزئیات خدمات</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="it_blog.html">وبلاگ</a>
-                                    <ul>
-                                        <li><a href="it_blog.html">لیست وبلاگ</a></li>
-                                        <li><a href="it_blog_grid.html">شبکه وبلاگ</a></li>
-                                        <li><a href="it_blog_detail.html">جزئیات وبلاگ</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">صفحات</a>
-                                    <ul>
-                                        <li><a href="it_career.html">حرفه</a></li>
-                                        <li><a href="it_price.html">قیمت گذاری</a></li>
-                                        <li><a href="it_faq.html">پرسش و پاسخ</a></li>
-                                        <li><a href="it_privacy_policy.html">سیاست حفظ حریم خصوصی</a></li>
-                                        <li><a href="it_error.html">خطای 404</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="it_shop.html">فروشگاه</a>
-                                    <ul>
-                                        <li><a href="it_shop.html">لیست خرید</a></li>
-                                        <li><a href="it_shop_detail.html">جزئیات فروشگاه</a></li>
-                                        <li><a href="it_cart.html">سبد خرید</a></li>
-                                        <li><a href="it_checkout.html">تکمیل سفارش</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="it_contact.html">تماس</a>
-                                    <ul>
-                                        <li><a href="it_contact.html">صفحه تماس 1</a></li>
-                                        <li><a href="it_contact_2.html">صفحه تماس 2</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            @php $navItems = $siteEngine->getNavItems('top-nav'); @endphp
+                            @if ($navItems->count() > 0)
+                                <ul class="first-ul">
+                                    @foreach ($navItems as $navItem)
+                                        @if ($navItem->itemHasChild())
+                                            <li>
+                                                <a href="{{ $navItem->link }}">{{ $navItem->name }}</a>
+                                                <ul>
+                                                    @php
+                                                        $childs = $siteEngine->getNavItems('top-nav', $navItem->id);
+                                                    @endphp
+                                                    @if ($childs)
+                                                        @foreach ($childs as $child)
+                                                            <li>
+                                                                <a href="{{ $child->link }}" target="{{ $child->target }}" rel="{{ $child->rel }}">{{ $child->name }}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    @endif
+                                                </ul>
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href="{{ $navItem->link }}">{{ $navItem->name }}</a>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
                         <div class="search_icon">
                             <ul>

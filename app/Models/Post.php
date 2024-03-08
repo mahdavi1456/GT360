@@ -77,15 +77,18 @@ class Post extends Model
         }
     }
 
-    public function show_url(){
+    public function getSingleUrl()
+    {
         $permalink = route('showPost', ['siteSlug' => request('siteSlug'), 'componentName' =>$this->component->name , 'slug' => $this->slug]);
         return $permalink;
     }
 
-    public function image_url(){
-        if ($this->thumbnail){
+    public function getImageUrl()
+    {
+        if ($this->thumbnail) {
             return asset(ert('thumb-path').$this->thumbnail);
         }
         return asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
     }
+
 }

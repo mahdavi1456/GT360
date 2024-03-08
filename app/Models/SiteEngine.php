@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class SiteEngine extends Model
 {
-    //post section
+
+    //Post Methods
     public function getPosts($componentName = null, $limit = null)
     {
-        $component = Component::where("name", $componentName)->first();
+        $component = Component::where('name', $componentName)->first();
         if ($component) {
             $componentId = $component->id;
             $posts = Post::where('project_id', getProjectId())->where('component_id', $componentId)->where('publish_status', 'publish')->take($limit)->get();
@@ -27,27 +28,12 @@ class SiteEngine extends Model
 
     public function getPost($slug)
     {
-        //dd($slug);
         $post = Post::where('slug', $slug)->where('publish_status', 'publish')->firstOrFail();
         return $post;
     }
 
-    // public function getPostPermalink($siteSlug, $componentName, $slug)
-    // {
-    //     $permalink = route('showPost', ['siteSlug' => $siteSlug, 'componentName' => $componentName, 'slug' => $slug]);
-    //     return $permalink;
-    // }
 
-    //end post section
-    //-----------------------------------------------------------
-    //page sectino
-
-    // public function getPagePermalink($siteSlug, $slug)
-    // {
-    //     $permalink = route('showPage', ['siteSlug' => $siteSlug, 'slug' => $slug]);
-    //     return $permalink;
-    // }
-
+    // Page Methods
     public function getPages($limit = null)
     {
         $pages = Page::where('project_id', getProjectId())->where('publish_status', 'publish')->latest()->take($limit)->get();
@@ -59,9 +45,7 @@ class SiteEngine extends Model
         return Page::where('slug', $slug)->where('publish_status', 'publish')->firstOrFail();
     }
 
-    //end page section
-    //-----------------------------------------------------------
-    //setting section
+    // Setting Methods
     public function getSetting($key)
     {
         $s = Setting::where([
@@ -75,9 +59,8 @@ class SiteEngine extends Model
             return null;
         }
     }
-    // end setting section
-    //-----------------------------------------------------------
-    //product section
+
+    // Product Methods
     public function getProducts($limit = null)
     {
         $products = Product::where('project_id', getProjectId())->latest()->take($limit)->get();
@@ -89,12 +72,16 @@ class SiteEngine extends Model
         return Product::where('slug', $slug)->firstOrFail();
     }
 
-    // end product section
-    //-----------------------------------------------------------
-    //nav section
-    public function getNavItemsByName($name) {
-        $nav=Nav::where('name',$name)->where('status',"فعال")->first();
-        return $nav?->items->where('parent_id',0);
+    // Nav Methods
+    public function getNavItems($name, $parentId = 0)
+    {
+        $nav = Nav::where('name', $name)->where('status', 'فعال')->first();
+        if ($nav) {
+            $items = NavItem::where('nav_id', $nav->id)->where('parent_id', $parentId)->where('project_id', getProjectId())->orderBy('order_num', 'asc')->get();
+            return $items;
+        } else {
+            return null;
+        }
     }
 
 }

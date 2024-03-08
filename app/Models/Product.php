@@ -57,14 +57,15 @@ class Product extends Model
         return $this->belongsTo(Account::class, 'account_id');
     }
 
-    public function getUrl($siteSlug)
+    public function getSingleUrl($siteSlug)
     {
         return route('showProduct', ['siteSlug' => $siteSlug, 'slug' => $this->slug]);
     }
 
-    public function image_url()
+    public function getImageUrl()
     {
         $image = $this->primaryImage();
         return $image ? asset($image) : asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
     }
+
 }
