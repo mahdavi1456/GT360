@@ -402,16 +402,4 @@
 </div>
 <!-- End Model search bar -->
 
-<script src="{{ asset('front-theme-asset/next/js/hizoom.js') }}"></script>
-<script>
-    $('.hi1').hiZoom({
-        width: 300,
-        position: 'right'
-    });
-    $('.hi2').hiZoom({
-        width: 400,
-        position: 'right'
-    });
-</script>
-
 @include('front.theme.next.parts.footer')
