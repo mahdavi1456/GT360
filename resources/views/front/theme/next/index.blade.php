@@ -473,14 +473,16 @@
                             <div class="product_img"><img class="img-responsive" src="images/it_service/1.jpg" alt=""></div>
                             <div class="product_detail_btm">
                                 <div class="center">
-                                    <h4><a href="it_shop_detail.html">{{ $product->title }}</a></h4>
+                                    <h4><a href="{{ $item->getUrl(request('siteSlug')) }}">{{ $product->product_name }}</a></h4>
                                 </div>
                                 <div class="starratin">
-                                    <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                         aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                         aria-hidden="true"></i> <i
-                                                class="fa fa-star-o" aria-hidden="true"></i></div>
+                                    <div class="center">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                                 <div class="product_price">
                                     <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>

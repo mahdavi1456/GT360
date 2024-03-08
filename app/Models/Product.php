@@ -57,7 +57,7 @@ class Product extends Model
         return $this->belongsTo(Account::class, 'account_id');
     }
 
-    public function show_url($siteSlug)
+    public function getUrl($siteSlug)
     {
         return route('showProduct', ['siteSlug' => $siteSlug, 'slug' => $this->slug]);
     }
