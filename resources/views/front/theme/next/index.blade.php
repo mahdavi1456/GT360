@@ -459,246 +459,41 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/1.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">امنیت اینترنتی نورتن</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/2.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">لورم ایپسوم متن ساختگی </a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان24.99</span><span class="new_price"> تومان12.49</span></p>
+
+
+
+
+            @php
+                $products = $siteEngine->getProducts();
+            @endphp
+            @if ($products->count() > 0)
+                @foreach ($products as $product)
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+                        <div class="product_list">
+                            <div class="product_img"><img class="img-responsive" src="images/it_service/1.jpg" alt=""></div>
+                            <div class="product_detail_btm">
+                                <div class="center">
+                                    <h4><a href="it_shop_detail.html">{{ $product->title }}</a></h4>
+                                </div>
+                                <div class="starratin">
+                                    <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
+                                                                                                         aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
+                                                                                         aria-hidden="true"></i> <i
+                                                class="fa fa-star-o" aria-hidden="true"></i></div>
+                                </div>
+                                <div class="product_price">
+                                    <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/3.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">آنتی ویروس Mcafee Livesafe</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان24.99</span><span class="new_price"> تومان12.49</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/4.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">امنیت اینترنتی نورتن</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/5.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">امنیت اینترنتی نورتن</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/6.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">لورم ایپسوم متن ساختگی </a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان24.99</span><span class="new_price"> تومان12.49</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/7.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">آنتی ویروس Mcafee Livesafe</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان24.99</span><span class="new_price"> تومان12.49</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/8.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">امنیت اینترنتی نورتن</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/1.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">امنیت اینترنتی نورتن</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/2.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">لورم ایپسوم متن ساختگی با تولید سادگی</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان24.99</span><span class="new_price"> تومان12.49</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/3.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">آنتی ویروس Mcafee Livesafe</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان24.99</span><span class="new_price"> تومان12.49</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-                <div class="product_list">
-                    <div class="product_img"><img class="img-responsive" src="images/it_service/4.jpg" alt=""></div>
-                    <div class="product_detail_btm">
-                        <div class="center">
-                            <h4><a href="it_shop_detail.html">امنیت اینترنتی نورتن</a></h4>
-                        </div>
-                        <div class="starratin">
-                            <div class="center"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                                 aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                                                                 aria-hidden="true"></i> <i
-                                        class="fa fa-star-o" aria-hidden="true"></i></div>
-                        </div>
-                        <div class="product_price">
-                            <p><span class="old_price">تومان15.00</span> – <span class="new_price">تومان25.00</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+
+
+
+
+
         </div>
     </div>
 </div>
