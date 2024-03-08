@@ -13,24 +13,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- site icons -->
-    <link rel="icon" href="{{ assets('front-theme-asset/next/images/fevicon/fevicon.png') }}" type="image/gif"/>
+    <link rel="icon" href="{{ asset('front-theme-asset/next/images/fevicon/fevicon.png') }}" type="image/gif"/>
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="{{ assets('front-theme-asset/next/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/next/css/bootstrap.min.css') }}"/>
     <!-- Site css -->
-    <link rel="stylesheet" href="{{ assets('front-theme-asset/next/css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/next/css/style.css') }}"/>
     <!-- responsive css -->
-    <link rel="stylesheet" href="{{ assets('front-theme-asset/next/css/responsive.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/next/css/responsive.css') }}"/>
     <!-- colors css -->
-    <link rel="stylesheet" href="{{ assets('front-theme-asset/next/css/colors1.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/next/css/colors1.css') }}"/>
     <!-- custom css -->
-    <link rel="stylesheet" href="{{ assets('front-theme-asset/next/css/custom.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/next/css/custom.css') }}"/>
     <!-- wow Animation css -->
-    <link rel="stylesheet" href="{{ assets('front-theme-asset/next/css/animate.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/next/css/animate.css') }}"/>
     <!-- revolution slider css -->
-    <link rel="stylesheet" type="text/css" href="{{ assets('front-theme-asset/next/revolution/css/settings.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ assets('front-theme-asset/next/revolution/css/layers.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ assets('front-theme-asset/next/revolution/css/navigation.css') }}"/>
-    <link rel="stylesheet" href="{{ assets('front-theme-asset/next/css/rtl.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/next/revolution/css/settings.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/next/revolution/css/layers.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('front-theme-asset/next/revolution/css/navigation.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/next/css/rtl.css') }}">
 
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
@@ -40,7 +40,7 @@
 </head>
 <body id="default_theme" class="it_service">
 <!-- loader -->
-<div class="bg_load"><img class="loader_animation" src="{{ assets('front-theme-asset/next/images/loaders/loader_1.png') }}" alt="#"/></div>
+<div class="bg_load"><img class="loader_animation" src="{{ asset('front-theme-asset/next/images/loaders/loader_1.png') }}" alt="#"/></div>
 <!-- end loader -->
 <!-- header -->
 <header id="default_header" class="header_style_1">
