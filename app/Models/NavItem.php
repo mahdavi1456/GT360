@@ -43,7 +43,7 @@ class NavItem extends Model
     {
         if ($this->item_type == "page") {
             $page=Page::findOrFail($this->object_id);
-            $link = $page->show_url();
+            $link = $page->getSingleUrl();
         } else if($this->item_type == "post") {
 
             //$link = $postModel->getPostPermalink($slug, $navItem->link, $navItem->object_id);
