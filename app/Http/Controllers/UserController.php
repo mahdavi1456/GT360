@@ -13,15 +13,27 @@ class UserController extends Controller
 
     public function showUsers($accountId)
     {
+
         $auth_acc = Auth::user()?->account;
-        if ($auth_acc->account_acl != 'super-admin' && $accountId != $auth_acc->id) {
-            return redirect()->route('user.showUsers', $auth_acc->id);
-        }
-
         $account = Account::findOrFail($accountId);
-        $users = $account->users;
+        $actions=true;
+        if ($this->isMySubset($account)) {
+            $users = $account->users;
+            $actions=false;
+        }elseif ($auth_acc->account_acl != 'super-admin' && $accountId != $auth_acc->id) {
+            return redirect()->route('user.showUsers', $auth_acc->id);
+        }else {
+            $users = $account->users;
+        }
+        return view('admin.account.showUsers', compact('account', 'users','actions'));
+    }
 
-        return view('admin.account.showUsers', compact('account', 'users'));
+    public function isMySubset($targetModel){
+        if ($targetModel->ref_id==auth()->user()->account_id) {
+            return true;
+        }
+        return false;
+
     }
 
     public function create($accountId)
@@ -33,6 +45,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->account_id!=auth()->user()->account_id) {
+            abort(403);
+        }
         $validatedData = $request->validate([
             'account_id' => 'required',
             'name' => 'required|string|max:255',

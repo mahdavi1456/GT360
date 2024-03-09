@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $table='posts';
+    protected $table = 'posts';
     protected $guarded = [];
 
     public function terms()
@@ -79,16 +79,20 @@ class Post extends Model
 
     public function getSingleUrl()
     {
-        $permalink = route('showPost', ['siteSlug' => request('siteSlug'), 'componentName' =>$this->component->name , 'slug' => $this->slug]);
+        $permalink = route('showPost', ['siteSlug' => request('siteSlug'), 'componentName' => $this->component->name, 'slug' => $this->slug]);
         return $permalink;
     }
 
     public function getImageUrl()
     {
         if ($this->thumbnail) {
-            return asset(ert('thumb-path').$this->thumbnail);
+            return asset(ert('thumb-path') . $this->thumbnail);
         }
         return asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
     }
 
+    public function getTotalVisits()
+    {
+        return Visit::where(['object_type' => 'post', 'object_id' => $this->id])->count();
+    }
 }

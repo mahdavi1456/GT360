@@ -11,9 +11,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+                            @if ($actions)
                             <div class="card-header">
                                 <a href="{{ route('users.create', ['accountId' => $account->id]) }}" class="pull-left btn btn-primary">ایجاد کاربر</a>
                             </div>
+                            @endif
                             <div class="card-body p-0 table-responsive">
                                 @if (count($users) > 0)
                                     <table class="table table-hover table-striped table-bordered text-center">
@@ -47,6 +49,9 @@
                                                     @endif
                                                 </td>
                                                 <td class="d-flex">
+                                                    @if ($actions)
+
+
                                                     <a href="{{ route('user.editUser', ['accountId' => $account->id, 'userId' => $user->id]) }}"
                                                         class="btn btn-warning btn-sm m-1">ویرایش</a>
                                                     @if ($user->user_type !='admin')
@@ -80,6 +85,7 @@
                                                                 </button>
                                                             </form>
                                                         @endif
+                                                    @endif
                                                     @endif
                                                 </td>
                                             </tr>

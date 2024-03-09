@@ -16,6 +16,7 @@
                                     <table class="table table-bordered table-hover text-center">
                                         <tr class="table-warning">
                                             <th>#</th>
+                                            <th>تاریخ ثبت نام</th>
                                             <th>نوع اکانت</th>
                                             <th>نوع اشتراک</th>
                                             <th>نام</th>
@@ -28,6 +29,7 @@
                                         @foreach ($subsets as $subset)
                                             <tr>
                                                 <td>{{ fa_number($loop->index + 1) }}</td>
+                                                <td>{{ zaman($subset->created_at) }}</td>
                                                 <td>{{ $subset->account_type }}</td>
                                                 <td>{{ $subset->account_acl_value }}</td>
                                                 <td>{{ $subset->name }}</td>
@@ -51,11 +53,12 @@
                                                     <td class="w-auto text-center">------</td>
                                                 @endif
                                                 <td>
+                                                    <a href="{{ route('user.showUsers', ['accountId' => $subset->id]) }}"
+                                                        class="btn btn-primary btn-sm mx-1">مشاهده کاربران</a>
                                                     {{-- <a href="https://app.gtch.ir/web/{{ $subset->slug }}"
                                                        target="_blank" class="btn btn-secondary btn-sm mx-1">LURL</a>
 
-                                                    <a href="{{ route('user.showUsers', ['accountId' => $subset->id]) }}"
-                                                       class="btn btn-primary btn-sm mx-1">مشاهده کاربران</a>
+
                                                     <a href="{{ route('account.edit', $subset->id) }}"
                                                        class="btn btn-warning btn-sm mx-1"><i
                                                             class="fa fa-edit"></i></a>

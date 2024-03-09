@@ -154,7 +154,7 @@
                                         <p>کاربران</p>
                                     </a>
                                 </li>
-                                @canany(['agent', 'cos'])
+                                @canany(['agent', 'cos','SuperAccount'])
                                     <li class="nav-item {{ active_menu('subsets') }}">
                                         <a href="{{ route('subsets') }}" class="nav-link">
                                             <i class="fa fa-circle-o nav-icon"></i>

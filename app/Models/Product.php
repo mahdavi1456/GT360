@@ -68,4 +68,8 @@ class Product extends Model
         return $image ? asset($image) : asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
     }
 
+    public function getTotalVisits()
+    {
+        return Visit::where(['object_type' => 'product', 'object_id' => $this->id])->count();
+    }
 }

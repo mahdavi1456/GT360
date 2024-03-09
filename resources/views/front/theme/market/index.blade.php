@@ -145,7 +145,7 @@
                             <!--  = Menu =  -->
                             <!--  ==========  -->
                             <div class="nav-collapse collapse">
-                                @if ($topMenu = $siteEngine->getNavItemsByName('top-menu'))
+                                @if ($topMenu = $siteEngine->getNavItems('top-menu'))
                                     <ul class="nav" id="mainNavigation">
                                         @foreach ($topMenu as $parent)
                                             @php
@@ -767,9 +767,9 @@
                                 <div class="product">
                                     <div class="product-img">
                                         <div class="picture">
-                                            <img src="{{ $item->image_url() }}" width="540" height="374" />
+                                            <img src="{{ $item->getImageUrl() }}" width="540" height="374" />
                                             <div class="img-overlay">
-                                                <a href="{{ $item->show_url(request('siteSlug')) }}"
+                                                <a href="{{ $item->getSingleUrl(request('siteSlug')) }}"
                                                     class="btn more btn-primary">توضیحات بیشتر</a>
                                                 <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
                                             </div>
@@ -778,6 +778,7 @@
                                     <div class="main-titles no-margin">
                                         <h4 class="title">{{ $item->product_name }}</h4>
                                         <h5 class="no-margin">{{ $item->sales_price }}</h5>
+                                        <h5 class="no-margin">{{ $item->getTotalVisits() }}</h5>
                                     </div>
                                     <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
                                     <p class="center-align stars">
@@ -824,9 +825,9 @@
                                 <div class="product">
                                     <div class="product-img">
                                         <div class="picture">
-                                            <img src="{{ $item->image_url() }}" width="540" height="374" />
+                                            <img src="{{ $item->getImageUrl() }}" width="540" height="374" />
                                             <div class="img-overlay">
-                                                <a href="{{$item->show_url()}}"
+                                                <a href="{{$item->getSingleUrl()}}"
                                                     class="btn more btn-primary">توضیحات بیشتر</a>
                                                 <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
                                             </div>
@@ -835,6 +836,8 @@
                                     <div class="main-titles no-margin">
                                         <h4 class="title">{{ $item->product_name }}</h4>
                                         <h5 class="no-margin">{{ $item->sales_price }}</h5>
+                                        <h5 class="no-margin">{{ $item->getTotalVisits() }}</h5>
+
                                     </div>
                                     <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
                                     <p class="center-align stars">
@@ -879,17 +882,19 @@
                                 <div class="product">
                                     <div class="product-img">
                                         <div class="picture">
-                                            <img src="{{ $item->image_url() }}" width="540" height="374" />
+                                            <img src="{{ $item->getImageUrl() }}" width="540" height="374" />
                                             <div class="img-overlay">
-                                                <a href="{{ $item->show_url() }}"
+                                                <a href="{{ $item->getSingleUrl() }}"
                                                     class="btn more btn-primary">توضیحات بیشتر</a>
                                                 <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="main-titles no-margin">
-                                        <h4 class="title">{{ $item->name }}</h4>
+                                        <h4 class="title">{{ $item->title }}</h4>
                                         <h5 class="no-margin">{{ $item->title }}</h5>
+                                        <h5 class="no-margin">{{ $item->getTotalVisits() }}</h5>
+
                                     </div>
                                     <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
                                     <p class="center-align stars">
