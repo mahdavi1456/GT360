@@ -18,6 +18,12 @@ return new class extends Migration
             $table->string('route')->nullable();
             $table->string('browser');
             $table->string('device');
+            $table->string('target')->nullable();
+            $table->string('object_type')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('component_id')->nullable();
+            $table->integer('object_id')->nullable();
+            $table->integer('project_id')->nullable();
             $table->timestamps();
         });
     }
