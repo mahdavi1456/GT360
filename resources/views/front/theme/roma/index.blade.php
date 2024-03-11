@@ -186,6 +186,7 @@
                     <p>{{ $settingModel->getSetting('portfolio_text', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-12 col-sm-12"></div>
+                @php dd($siteEngine->getPosts('product')) @endphp
                 @if ($siteEngine->getPosts('product')->count() > 0)
                     @foreach ($siteEngine->getPosts('product') as $product)
                         <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
