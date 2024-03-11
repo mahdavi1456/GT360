@@ -186,8 +186,8 @@
                     <p>{{ $settingModel->getSetting('portfolio_text', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-12 col-sm-12"></div>
-                @if ($siteEngine->getProduct()->count() > 0)
-                    @foreach ($siteEngine->getProduct() as $product)
+                @if ($siteEngine->getProducts()->count() > 0)
+                    @foreach ($siteEngine->getProducts() as $product)
                         <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
                             <a href="{{ $prouduct->getSingleUrl() }}" data-lightbox-gallery="portfolio-gallery">
                                 <img src="{{$prouduct->getImageUrl()}}" alt="">
