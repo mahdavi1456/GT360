@@ -88,7 +88,7 @@ class Post extends Model
         if ($this->thumbnail) {
             return asset(ert('thumb-path') . $this->thumbnail);
         }
-        return asset('front-theme-asset/market/images/dummy/products/product-6.jpg');
+        return asset('front-theme-asset/roma') . "/images/portfolio-img1.jpg";
     }
 
     public function getTotalVisits()
