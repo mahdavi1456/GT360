@@ -11,15 +11,13 @@
 
     <meta name="theme-color" content="#c40316">
 
-    <!-- CSS
-    ========================= -->
+    <!-- CSS ========================= -->
 
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="{{ asset('front-theme-asset/antoni/css/plugins.css') }}">
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('front-theme-asset/antoni/css/style.css') }}">
-
 </head>
 
 <body>

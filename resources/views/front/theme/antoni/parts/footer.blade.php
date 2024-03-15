@@ -1,4 +1,3 @@
-
 <!--footer area start-->
 <footer class="footer_widgets">
     <!--newsletter area start-->
@@ -47,10 +46,10 @@
                         </div>
                         <div class="app_img">
                             <figure class="app_img">
-                                <a href="#"><img src="assets/img/icon/icon-appstore.png" alt=""></a>
+                                <a href="#"><img src="{{ asset('front-theme-asset/antoni/img/icon/icon-appstore.png') }}" alt=""></a>
                             </figure>
                             <figure class="app_img">
-                                <a href="#"><img src="assets/img/icon/icon-googleplay.png" alt=""></a>
+                                <a href="#"><img src="{{ asset('front-theme-asset/antoni/img/icon/icon-googleplay.png') }}" alt=""></a>
                             </figure>
                         </div>
                     </div>
@@ -106,7 +105,7 @@
                         <div class="footer_contact">
                             <div class="footer_contact_inner">
                                 <div class="contact_icone">
-                                    <img src="assets/img/icon/icon-phone.png" alt="">
+                                    <img src="{{ asset('front-theme-asset/anotni/img/icon/icon-phone.png') }}" alt="">
                                 </div>
                                 <div class="contact_text">
                                     <p>تلفن تماس 24 ساعته: <br> <strong class="ltr-text">(+98) 123 456 789</strong></p>
@@ -163,22 +162,22 @@
                                 <div class="tab-content product-details-large">
                                     <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                                         <div class="modal_tab_img">
-                                            <a href="#"><img src="assets/img/product/productbig2.jpg" alt=""></a>
+                                            <a href="#"><img src="{{ asset('front-theme-asset/anotni/img/product/productbig2.jpg') }}" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="tab2" role="tabpanel">
                                         <div class="modal_tab_img">
-                                            <a href="#"><img src="assets/img/product/productbig3.jpg" alt=""></a>
+                                            <a href="#"><img src="{{ asset('front-theme-asset/antoni/img/product/productbig3.jpg') }}" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="tab3" role="tabpanel">
                                         <div class="modal_tab_img">
-                                            <a href="#"><img src="assets/img/product/productbig4.jpg" alt=""></a>
+                                            <a href="#"><img src="{{ asset('front-theme-asset/antoni/img/product/productbig4.jpg') }}" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="tab4" role="tabpanel">
                                         <div class="modal_tab_img">
-                                            <a href="#"><img src="assets/img/product/productbig5.jpg" alt=""></a>
+                                            <a href="#"><img src="{{ asset('front-theme-asset/antoni/img/product/productbig5.jpg') }}" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +195,6 @@
                                         <li>
                                             <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="assets/img/product/product14.jpg" alt=""></a>
                                         </li>
-
                                     </ul>
                                 </div>
                             </div>
@@ -297,22 +295,14 @@
 </div>
 <!--news letter popup start-->
 
-
-
-
-<!-- JS
-============================================ -->
+<!-- JS ============================================ -->
 
 <!-- Plugins JS -->
-<script src="{{ asset('front-theme-asset/js/plugins.js') }}"></script>
+<script src="{{ asset('front-theme-asset/anotni/js/plugins.js') }}"></script>
 
 <!-- Main JS -->
-<script src="{{ asset('front-theme-asset/js/main.js') }}"></script>
-
-
+<script src="{{ asset('front-theme-asset/antoni/js/main.js') }}"></script>
 
 </body>
 
-
-<!-- => Designed by HesDesign @ https://market.radib.com <= antomi/antomi/index.html => از اینکه با خرید رسمی قالب در فایل مارکت رادیب، از ما حمایت می کنید سپاسگزاریم <=  09:13:54 GMT -->
 </html>
