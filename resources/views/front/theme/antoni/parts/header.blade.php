@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front-theme-asset/img/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front-theme-asset/anotni/img/favicon.ico') }}">
 
     <meta name="theme-color" content="#c40316">
 
@@ -15,10 +15,10 @@
     ========================= -->
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="{{ asset('front-theme-asset/css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/antoni/css/plugins.css') }}">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="{{ asset('front-theme-asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('front-theme-asset/antoni/css/style.css') }}">
 
 </head>
 
