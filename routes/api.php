@@ -20,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/product', function (Request $request) {
-    dd($request);
+    $name = $request->name;
+    $price = $request->price;
+    return $name . " - " . $price;
 });
