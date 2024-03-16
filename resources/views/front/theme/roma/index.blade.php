@@ -186,16 +186,11 @@
                     <p>{{ $settingModel->getSetting('portfolio_text', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-12 col-sm-12"></div>
-                @if ($postModel->getPosts('product', $accountId, $projectId)->count() > 0)
-                    @foreach ($postModel->getPosts('product', $accountId, $projectId) as $product)
-                        @if ($product->thumbnail)
-                            @php $src = asset(ert('thumb-path')) . '/' . $product->thumbnail; @endphp
-                        @else
-                            @php $src = asset('front-theme-asset/roma') . "/images/portfolio-img1.jpg"; @endphp
-                        @endif
+                @if ($siteEngine->getPosts('product')->count() > 0)
+                    @foreach ($siteEngine->getPosts('product') as $product)
                         <div class="col-md-3 col-sm-3 wow fadeIn" data-wow-delay="0.6s">
-                            <a href="{{ $src }}" data-lightbox-gallery="portfolio-gallery">
-                                <img src="{{ $src }}" alt="">
+                            <a href="{{ $product->getSingleUrl() }}" data-lightbox-gallery="portfolio-gallery">
+                                <img src="{{$product->getImageUrl()}}" alt="">
                                 <h4 class="product-title">{{ $product->title }}</h4>
                             </a>
                         </div>
