@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo-lightbox.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo_themes/default/default.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/templatemo-style.css">
-    <link rel="stylesheet" href="{{ asset('fonts/' . $settingModel->getSetting('font', $accountId, $projectId) . '/face.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/' . $$siteEngine->getSetting('font') . '/face.css') }}">
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -25,13 +25,13 @@
 
 <!-- home section -->
 <section id="home"
-         style="background: url(' {{ asset(ert('tsp') . $settingModel->getSetting('background_cover', $accountId,$projectId)) }}') 100% 0 no-repeat ; background-size:cover;">
+         style="background: url(' {{ asset(ert('tsp') . $siteEngine->getSetting('background_cover')) }}') 100% 0 no-repeat ; background-size:cover;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h1 class="wow bounceInDown rotate">{{ $settingModel->getSetting('title', $accountId, $projectId) }}</h1>
-                <h2 class="wow bounce">{{ $settingModel->getSetting('description', $accountId, $projectId) }}</h2>
-                <a href="#intro" class="btn btn-default smoothScroll">{{ $settingModel->getSetting('start_btn_text', $accountId, $projectId) }}</a>
+                <h1 class="wow bounceInDown rotate">{{ $siteEngine->getSetting('title') }}</h1>
+                <h2 class="wow bounce">{{ $siteEngine->getSetting('description') }}</h2>
+                <a href="#intro" class="btn btn-default smoothScroll">{{ $siteEngine->getSetting('start_btn_text') }}</a>
             </div>
         </div>
     </div>
@@ -43,43 +43,43 @@
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                     class="icon icon-bar"></span> <span class="icon icon-bar"></span> <span
                     class="icon icon-bar"></span></button>
-            <a href="#" class="navbar-brand">{{ $settingModel->getSetting('title', $accountId, $projectId) }}</a>
+            <a href="#" class="navbar-brand">{{ $siteEngine->getSetting('title') }}</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                @if ($settingModel->getSetting('nav_item_text1', $accountId, $projectId))
+                @if ($siteEngine->getSetting('nav_item_text1'))
                     <li>
-                        <a href="#home" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text1', $accountId, $projectId) }}</a>
+                        <a href="#home" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text1') }}</a>
                     </li>
                 @endif
-                @if ($settingModel->getSetting('nav_item_text2', $accountId, $projectId))
+                @if ($siteEngine->getSetting('nav_item_text2'))
                     <li>
-                        <a href="#intro" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text2', $accountId, $projectId) }}</a>
+                        <a href="#intro" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text2') }}</a>
                     </li>
                 @endif
-                @if ($settingModel->getSetting('nav_item_text3', $accountId, $projectId))
+                @if ($settingModel->getSetting('nav_item_text3'))
                     <li>
-                        <a href="#work" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text3', $accountId, $projectId) }}</a>
+                        <a href="#work" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text3') }}</a>
                     </li>
                 @endif
                 @if ($settingModel->getSetting('nav_item_text4', $accountId, $projectId))
                     <li>
-                        <a href="#team" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4', $accountId, $projectId) }}</a>
+                        <a href="#team" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4') }}</a>
                     </li>
                 @endif
-                @if ($settingModel->getSetting('nav_item_text5', $accountId, $projectId))
+                @if ($siteEngine->getSetting('nav_item_text5'))
                     <li>
-                        <a href="#portfolio" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text5', $accountId, $projectId) }}</a>
+                        <a href="#portfolio" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text5') }}</a>
                     </li>
                 @endif
-                @if ($settingModel->getSetting('nav_item_text6', $accountId, $projectId))
+                @if ($siteEngine->getSetting('nav_item_text6'))
                     <li>
-                        <a href="#price" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text6', $accountId, $projectId) }}</a>
+                        <a href="#price" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text6') }}</a>
                     </li>
                 @endif
-                @if ($settingModel->getSetting('nav_item_text7', $accountId, $projectId))
+                @if ($siteEngine->getSetting('nav_item_text7'))
                     <li>
-                        <a href="#contact" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text7', $accountId, $projectId) }}</a>
+                        <a href="#contact" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text7') }}</a>
                     </li>
                 @endif
             </ul>
@@ -87,48 +87,48 @@
     </div>
 </div>
 
-@if ($settingModel->getSetting('about_status', $accountId, $projectId) == 1)
+@if ($siteEngine->getSetting('about_status') == 1)
     <!-- intro section -->
     <section id="intro">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h4>{{ fa_number($settingModel->getSetting('about_first_title', $accountId, $projectId)) }}</h4>
-                    <h2>{{ fa_number($settingModel->getSetting('about_first_subtitle', $accountId, $projectId)) }}</h2>
+                    <h4>{{ fa_number($siteEngine->getSetting('about_first_title')) }}</h4>
+                    <h2>{{ fa_number($$siteEngine->getSetting('about_first_subtitle')) }}</h2>
                     <hr>
-                    <p>{{ fa_number($settingModel->getSetting('about_first_text', $accountId, $projectId)) }}</p>
+                    <p>{{ fa_number($settingModel->getSetting('about_first_text')) }}</p>
                 </div>
             </div>
         </div>
     </section>
 @endif
 
-@if ($settingModel->getSetting('service_status', $accountId, $projectId) == 1)
+@if ($siteEngine->getSetting('service_status') == 1)
     <!-- work section -->
     <section id="work">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-4 title">
-                    <h2>{{ $settingModel->getSetting('service_title', $accountId, $projectId) }}</h2>
+                    <h2>{{ $siteEngine->getSetting('service_title') }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('service_text', $accountId, $projectId) }}</p>
+                    <p>{{ $siteEngine->getSetting('service_text') }}</p>
                 </div>
                 <div class="col-md-8 col-sm-8">
                     <div class="col-md-6 col-sm-6 bg-black"><i
-                            class="fa {{ $settingModel->getSetting('service_first_icon', $accountId, $projectId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_first_title', $accountId, $projectId) }}</h3>
+                            class="fa {{ $siteEngine->getSetting('service_first_icon') }}"></i>
+                        <h3>{{ $siteEngine->getSetting('service_first_title') }}</h3>
                     </div>
                     <div class="col-md-6 col-sm-6 bg-red"><i
-                            class="fa {{ $settingModel->getSetting('service_second_icon', $accountId, $projectId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_second_title', $accountId, $projectId) }}</h3>
+                            class="fa {{ $siteEngine->getSetting('service_second_icon') }}"></i>
+                        <h3>{{ $siteEngine->getSetting('service_second_title') }}</h3>
                     </div>
                     <div class="col-md-6 col-sm-6 bg-red"><i
-                            class="fa {{ $settingModel->getSetting('service_third_icon', $accountId, $projectId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_third_title', $accountId, $projectId) }}</h3>
+                            class="fa {{ $siteEngine->getSetting('service_third_icon') }}"></i>
+                        <h3>{{ $siteEngine->getSetting('service_third_title') }}</h3>
                     </div>
                     <div class="col-md-6 col-sm-6 bg-black"><i
-                            class="fa {{ $settingModel->getSetting('service_fourth_icon', $accountId, $projectId) }}"></i>
-                        <h3>{{ $settingModel->getSetting('service_fourth_title', $accountId, $projectId) }}</h3>
+                            class="fa {{ $siteEngine->getSetting('service_fourth_icon') }}"></i>
+                        <h3>{{ $siteEngine->getSetting('service_fourth_title') }}</h3>
                     </div>
                 </div>
             </div>
@@ -136,15 +136,15 @@
     </section>
 @endif
 
-@if ($settingModel->getSetting('team_status', $accountId, $projectId) == 1)
+@if ($siteEngine->getSetting('team_status') == 1)
     <!-- team section -->
     <section id="team">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>{{ $settingModel->getSetting('title_team', $accountId, $projectId) }}</h2>
+                    <h2>{{ $siteEngine->getSetting('title_team', $accountId, $projectId) }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('description_team', $accountId, $projectId) }}</p>
+                    <p>{{ $siteEngine->getSetting('description_team', $accountId, $projectId) }}</p>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.9s">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive"
@@ -301,17 +301,17 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <h2 class="wow fadeIn" data-wow-delay="0.9s">
-                    {{ $settingModel->getSetting('follow_us_title', $accountId, $projectId) }}</h2>
+                    {{ $settingModel->getSetting('follow_us_title') }}</h2>
                 <ul class="social-icon">
-                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId, $projectId) }}"
+                    <li><a href="{{ $siteEngine->getSetting('facebook') }}"
                            class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('x', $accountId, $projectId) }}"
+                    <li><a href="{{ $siteEngine->getSetting('x') }}"
                            class="fa fa-twitter wow bounceIn" data-wow-delay="0.6s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('behance', $accountId, $projectId) }}"
+                    <li><a href="{{ $siteEngine->getSetting('behance') }}"
                            class="fa fa-behance wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('facebook', $accountId, $projectId) }}"
+                    <li><a href="{{ $siteEngine->getSetting('facebook') }}"
                            class="fa fa-dribbble wow bounceIn" data-wow-delay="0.9s"></a></li>
-                    <li><a href="{{ $settingModel->getSetting('dribble', $accountId, $projectId) }}"
+                    <li><a href="{{ $siteEngine->getSetting('dribble') }}"
                            class="fa fa-github wow bounceIn" data-wow-delay="0.9s"></a></li>
                 </ul>
             </div>
