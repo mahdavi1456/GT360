@@ -96,7 +96,7 @@
                     <h4>{{ fa_number($siteEngine->getSetting('about_first_title')) }}</h4>
                     <h2>{{ fa_number($$siteEngine->getSetting('about_first_subtitle')) }}</h2>
                     <hr>
-                    <p>{{ fa_number($$siteEngine->getSetting('about_first_text')) }}</p>
+                    <p>{{ fa_number($siteEngine->getSetting('about_first_text')) }}</p>
                 </div>
             </div>
         </div>
