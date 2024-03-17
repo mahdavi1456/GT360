@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $category->cname = $request->input('cname');
         $category->cdetails = $request->input('cdetails');
         $category->cparent = $request->input('cparent');
-
+        $category->project_id=getProjectId();
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/categories'), $imageName);
@@ -99,13 +99,11 @@ class CategoryController extends Controller
         $category->cname = $request->input('cname');
         $category->cdetails = $request->input('cdetails');
         $category->cparent = $request->input('cparent');
-
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images/categories'), $imageName);
             $category->image = $imageName;
         }
-
         $category->save();
 
         Alert::success('موفق', 'دسته بندی با ویرایش شد.');

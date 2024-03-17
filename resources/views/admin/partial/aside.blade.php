@@ -186,6 +186,12 @@
                                         <p>محصولات</p>
                                     </a>
                                 </li>
+                                <li class="nav-item" {{ active_menu('category.index') }}>
+                                    <a href="{{ route('category.index') }}" class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon"></i>
+                                        <p>دسته بندی ها</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>

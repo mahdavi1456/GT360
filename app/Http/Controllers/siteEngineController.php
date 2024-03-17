@@ -20,23 +20,23 @@ class SiteEngineController extends Controller
         //  slugWorm();
 
         //   User::find(4)->increment('city');
-        $settingModel = new Setting;
+        // $settingModel = new Setting;
         // $postModel = new Post;
         // $pageModel = new Page;
         // $navModel = new Nav;
         // $palleteModel = new Pallete;
         $siteEngine = new SiteEngine;
-        //dd($siteEngine-> getNavItemsByName('top-menu'));
+      //  dd($siteEngine-> getNavItems('top-menu'));
 
         // $account = Account::where('slug', $siteSlug)->first();
         $project = Project::where('slug', $siteSlug)->first();
         // dd($project,$slug);
-        $accountId = getAccountId();
-        $projectId = getProjectId();
+        // $accountId = getAccountId();
+        // $projectId = getProjectId();
         $theme = getActiveTheme();
         $view = "front.theme.$theme.index";
-        $products = Post::where('component_id', 2)->get();
-        return view($view, compact('siteEngine', 'projectId', 'settingModel', 'accountId'));
+        // $products = Post::where('component_id', 2)->get();
+        return view($view, compact('siteEngine'));
     }
 
     public function showPost($siteSlug, $componentName, $slug)
@@ -72,7 +72,6 @@ class SiteEngineController extends Controller
 
     public function reserve($slug)
     {
-
         $settingModel = new Setting;
         $reservePlanModel = new ReservePlan;
         $palleteModel = new Pallete;

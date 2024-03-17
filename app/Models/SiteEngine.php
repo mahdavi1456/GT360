@@ -72,6 +72,12 @@ class SiteEngine extends Model
         return $products;
     }
 
+    public function getCategories($limit = null)
+    {
+        return Category::where('project_id',getProjectId())->latest()->take($limit)->get();
+    }
+
+
     public function getProduct($slug)
     {
         return Product::where('slug', $slug)->firstOrFail();
@@ -81,6 +87,7 @@ class SiteEngine extends Model
     public function getNavItems($name, $parentId = 0)
     {
         $nav = Nav::where('name', $name)->where('status', 'فعال')->first();
+
         if ($nav) {
             $items = NavItem::where('nav_id', $nav->id)->where('parent_id', $parentId)->where('project_id', getProjectId())->orderBy('order_num', 'asc')->get();
             return $items;
@@ -88,5 +95,4 @@ class SiteEngine extends Model
             return null;
         }
     }
-
 }
