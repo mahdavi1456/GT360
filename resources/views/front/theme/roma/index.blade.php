@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $settingModel->getSetting('title', $accountId, $projectId) }}">
+    <meta name="description" content="{{ $siteEngine->getSetting('title') }}">
     <!-- STYLESHEET CSS FILES -->
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/animate.min.css">
