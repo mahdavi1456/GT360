@@ -57,14 +57,14 @@
                         <a href="#intro" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text2') }}</a>
                     </li>
                 @endif
-                @if ($settingModel->getSetting('nav_item_text3'))
+                @if ($siteEngine->getSetting('nav_item_text3'))
                     <li>
                         <a href="#work" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text3') }}</a>
                     </li>
                 @endif
-                @if ($settingModel->getSetting('nav_item_text4', $accountId, $projectId))
+                @if ($siteEngine->getSetting('nav_item_text4'))
                     <li>
-                        <a href="#team" class="smoothScroll">{{ $settingModel->getSetting('nav_item_text4') }}</a>
+                        <a href="#team" class="smoothScroll">{{ $siteEngine->getSetting('nav_item_text4') }}</a>
                     </li>
                 @endif
                 @if ($siteEngine->getSetting('nav_item_text5'))
