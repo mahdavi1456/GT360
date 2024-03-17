@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
                     <h4>{{ fa_number($siteEngine->getSetting('about_first_title')) }}</h4>
-                    <h2>{{ fa_number($$siteEngine->getSetting('about_first_subtitle')) }}</h2>
+                    <h2>{{ fa_number($siteEngine->getSetting('about_first_subtitle')) }}</h2>
                     <hr>
                     <p>{{ fa_number($siteEngine->getSetting('about_first_text')) }}</p>
                 </div>
