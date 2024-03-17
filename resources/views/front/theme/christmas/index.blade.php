@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="herotext">
                         <h2 class="wow zoomInDown" data-wow-duration="3s">
-                            {{ $settingModel->getSetting('title', $accountId) }}</h2>
+                            {{ $siteEngine->getSetting('title') }}</h2>
                         <h1 class="wow flipInY">{{ $settingModel->getSetting('description', $accountId) }}</h1>
 
                         <a class="btn btn-reverse wow zoomIn" href="#products">
