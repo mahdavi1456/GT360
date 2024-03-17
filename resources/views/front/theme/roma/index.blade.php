@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo-lightbox.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/nivo_themes/default/default.css">
     <link rel="stylesheet" href="{{ asset('front-theme-asset/roma') }}/css/templatemo-style.css">
-    <link rel="stylesheet" href="{{ asset('fonts/' . $$siteEngine->getSetting('font') . '/face.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('fonts/' . $$siteEngine->getSetting('font') . '/face.css') }}"> --}}
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -142,9 +142,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>{{ $siteEngine->getSetting('title_team', $accountId, $projectId) }}</h2>
+                    <h2>{{ $siteEngine->getSetting('title_team') }}</h2>
                     <hr>
-                    <p>{{ $siteEngine->getSetting('description_team', $accountId, $projectId) }}</p>
+                    <p>{{ $siteEngine->getSetting('description_team') }}</p>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-6 wow fadeIn" data-wow-delay="0.9s">
                     <img src="{{ asset('front-theme-asset/roma') }}/images/person-sample.jpg" class="img-responsive"
@@ -175,15 +175,15 @@
     </section>
 @endif
 
-@if ($settingModel->getSetting('portfolio_status', $accountId, $projectId) == 1)
+@if ($siteEngine->getSetting('portfolio_status') == 1)
     <!-- portfolio section -->
     <div id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>{{ $settingModel->getSetting('portfolio_title', $accountId, $projectId) }}</h2>
+                    <h2>{{ $siteEngine->getSetting('portfolio_title') }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('portfolio_text', $accountId, $projectId) }}</p>
+                    <p>{{ $siteEngine->getSetting('portfolio_text') }}</p>
                 </div>
                 <div class="col-md-12 col-sm-12"></div>
                 @if ($siteEngine->getPosts('product')->count() > 0)
