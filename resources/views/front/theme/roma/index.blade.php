@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <title>{{ $settingModel->getSetting('title', $accountId, $projectId) }}</title>
+    <title>{{ $siteEngine->getSetting('title') }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
