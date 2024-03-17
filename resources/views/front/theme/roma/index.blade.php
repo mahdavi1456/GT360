@@ -96,7 +96,7 @@
                     <h4>{{ fa_number($siteEngine->getSetting('about_first_title')) }}</h4>
                     <h2>{{ fa_number($$siteEngine->getSetting('about_first_subtitle')) }}</h2>
                     <hr>
-                    <p>{{ fa_number($settingModel->getSetting('about_first_text')) }}</p>
+                    <p>{{ fa_number($$siteEngine->getSetting('about_first_text')) }}</p>
                 </div>
             </div>
         </div>
@@ -201,14 +201,14 @@
     </div>
 @endif
 
-@if ($settingModel->getSetting('price_status', $accountId, $projectId) == 1)
+@if ($siteEngine->getSetting('price_status') == 1)
 <!-- price section -->
 <div id="price">
     <div class="container">
         <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-            <h2>{{ $settingModel->getSetting('price_title', $accountId, $projectId) }}</h2>
+            <h2>{{ $siteEngine->getSetting('price_title') }}</h2>
             <hr>
-            <p>{{ $settingModel->getSetting('price_text', $accountId, $projectId) }}</p>
+            <p>{{ $siteEngine->getSetting('price_text') }}</p>
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="plan wow bounceIn" data-wow-delay="0.3s">
@@ -265,15 +265,15 @@
 </div>
 @endif
 
-@if ($settingModel->getSetting('contact_status', $accountId, $projectId) == 1)
+@if ($siteEngine->getSetting('contact_status') == 1)
     <!-- contact section -->
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-3 col-md-6 col-md-offset-3  col-sm-offset-2 col-sm-8 col-sm-offset-2 title">
-                    <h2>{{ $settingModel->getSetting('contact_title', $accountId, $projectId) }}</h2>
+                    <h2>{{ $siteEngine->getSetting('contact_title') }}</h2>
                     <hr>
-                    <p>{{ $settingModel->getSetting('contact_text', $accountId, $projectId) }}</p>
+                    <p>{{ $siteEngine->getSetting('contact_text') }}</p>
                 </div>
                 <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 contact-form wow fadeInUp"
                      data-wow-delay="0.9s">
@@ -289,7 +289,7 @@
     </section>
     <!-- google map section -->
     <div class="google_map">
-        <iframe src="{{ $settingModel->getSetting('google_map', $accountId, $projectId) }}" width="100%" height="450"
+        <iframe src="{{ $siteEngine->getSetting('google_map') }}" width="100%" height="450"
                 style="border: 0;" allowfullscreen="yes" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -301,7 +301,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <h2 class="wow fadeIn" data-wow-delay="0.9s">
-                    {{ $settingModel->getSetting('follow_us_title') }}</h2>
+                    {{ $siteEngine->getSetting('follow_us_title') }}</h2>
                 <ul class="social-icon">
                     <li><a href="{{ $siteEngine->getSetting('facebook') }}"
                            class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
