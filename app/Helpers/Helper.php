@@ -38,6 +38,7 @@ function adminBar()
                 color: #828282;
             }
         </style>
+        <script type="text/javascript" src="https://releases.jquery.com/git/jquery-git.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 alert("yes");
