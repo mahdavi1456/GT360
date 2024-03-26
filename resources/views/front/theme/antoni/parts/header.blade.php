@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>قالب Antomi | قالب فروشگاهی آنتومی</title>
-    <meta name="description" content="">
+    <title>{{ $siteEngine->getSetting('title') }}</title>
+    <meta name="description" content="{{ $siteEngine->getSetting('description') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front-theme-asset/anotni/img/favicon.ico') }}">
@@ -43,8 +43,7 @@
                             <ul>
                                 <li><a href="{{ $siteEngine->getSetting('top_bar_first_link_src') }}">{{ $siteEngine->getSetting('top_bar_first_link_text') }}</a></li>
                                 <li><a href="{{ $siteEngine->getSetting('top_bar_second_link_src') }}">{{ $siteEngine->getSetting('top_bar_secnod_link_src') }}</a></li>
-                                <li>{{ $siteEngine->getSetting('top_bar_phone_label') }} <a class="ltr-text" href="tel: {{ $siteEngine->getSetting('top_bar_phone_link') }}">{{ $siteEngine->getSetting('top_bar_phone_text') }}</a>
-                                </li>
+                                <li>{{ $siteEngine->getSetting('top_bar_phone_label') }} <a class="ltr-text" href="tel: {{ $siteEngine->getSetting('top_bar_phone_link') }}">{{ $siteEngine->getSetting('top_bar_phone_text') }}</a></li>
                                 <li>{{ $siteEngine->getSetting('top_bar_last_text') }}</li>
                             </ul>
                         </div>
@@ -59,7 +58,6 @@
                                     <i class="fa fa-shopping-bag"></i>
                                     <span class="cart_price"><i class="ion-ios-arrow-down"></i></span>
                                     <span class="cart_count">2</span>
-
                                 </a>
                                 <!--mini cart-->
                                 <div class="mini_cart">
@@ -180,6 +178,7 @@
         </div>
     </div>
     <!--Offcanvas menu area end-->
+    
     <!--header area start-->
     <header>
         <div class="main_header">
@@ -189,17 +188,16 @@
                     <div class="row align-items-center">
                         <div class="col-lg-4 col-md-5">
                             <div class="antomi_message">
-                                <p>ارسال رایگان - ضمانت بازگشت وجه 30 روزه</p>
+                                <p>{{ $siteEngine->getSetting('top_bar_first_text') }}</p>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-7">
                             <div class="header_top_settings text-right">
                                 <ul>
-                                    <li><a href="#">آدرس‌های فروشگاه</a></li>
-                                    <li><a href="#">پیگیری سفارش</a></li>
-                                    <li>تلفن تماس: <a class="ltr-text" href="tel:+(+98)800456789">(+98) 800 456 789
-                                        </a></li>
-                                    <li>ضمانت کیفیت محصولات</li>
+                                    <li><a href="{{ $siteEngine->getSetting('top_bar_first_link_src') }}">{{ $siteEngine->getSetting('top_bar_first_link_text') }}</a></li>
+                                    <li><a href="{{ $siteEngine->getSetting('top_bar_second_link_src') }}">{{ $siteEngine->getSetting('top_bar_secnod_link_text') }}</a></li>
+                                    <li>{{ $siteEngine->getSetting('top_bar_phone_label') }} <a class="ltr-text" href="tel: {{ $siteEngine->getSetting('top_bar_phone_link') }}">{{ $siteEngine->getSetting('top_bar_phone_text_text') }}</a></li>
+                                    <li>{{ $siteEngine->getSetting('top_bar_last_text') }}</li>
                                 </ul>
                             </div>
                         </div>
