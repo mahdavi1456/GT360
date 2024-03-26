@@ -11,7 +11,7 @@
                     <img src="{{ asset('front-theme-asset/antoni/img/about/shipping1.png') }}" alt="">
                 </div>
                 <div class="shipping_content">
-                    <h4>ارسال رایگان</h4>
+                    <h4 class="admin-editable" data-tag="">ارسال رایگان</h4>
                     <p>ارسال رایگان به تمام نقاط کشور</p>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="shipping_content">
                     <h4>ارسال رایگان</h4>
-                    <p>ارسال رایگان به تمام نقاط کشور</p>
+                    <p class="admin-editable">ارسال رایگان به تمام نقاط کشور</p>
                 </div>
             </div>
             <div class="single_shipping">

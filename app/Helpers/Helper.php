@@ -41,7 +41,7 @@ function adminBar()
         <script type="text/javascript" src="https://releases.jquery.com/git/jquery-git.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                alert("yes");
+                $(".admin-editable").append("<i class='fa fa-edit'></i>")
             });
         </script>
         <nav class="admin-bar">
