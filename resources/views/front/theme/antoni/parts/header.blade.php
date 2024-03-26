@@ -446,7 +446,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="column2 col-lg-6 ">
+                        <div class="column2 col-lg-6">
                             <div class="search_container">
                                 <form action="#">
                                     <div class="hover_category">
@@ -475,7 +475,6 @@
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                         <div class="column3 col-lg-3 col-md-6">
                             <div class="header_bigsale">

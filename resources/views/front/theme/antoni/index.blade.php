@@ -99,7 +99,7 @@
         <div class="shipping_inner">
             <div class="single_shipping">
                 <div class="shipping_icone">
-                    <img src="assets/img/about/shipping1.png" alt="">
+                    <img src="{{ asset('front-theme-asset/antoni/img/about/shipping1.png') }}" alt="">
                 </div>
                 <div class="shipping_content">
                     <h4>ارسال رایگان</h4>
@@ -108,7 +108,7 @@
             </div>
             <div class="single_shipping">
                 <div class="shipping_icone">
-                    <img src="assets/img/about/shipping2.png" alt="">
+                    <img src="{{ asset('front-theme-asset/antoni/img/about/shipping2.png') }}" alt="">
                 </div>
                 <div class="shipping_content">
                     <h4>ارسال رایگان</h4>
@@ -117,7 +117,7 @@
             </div>
             <div class="single_shipping">
                 <div class="shipping_icone">
-                    <img src="assets/img/about/shipping3.png" alt="">
+                    <img src="{{ asset('front-theme-asset/antoni/img/about/shipping3.png') }}" alt="">
                 </div>
                 <div class="shipping_content">
                     <h4>ارسال رایگان</h4>
@@ -126,7 +126,7 @@
             </div>
             <div class="single_shipping">
                 <div class="shipping_icone">
-                    <img src="assets/img/about/shipping4.png" alt="">
+                    <img src="{{ asset('front-theme-asset/antoni/img/about/shipping4.png') }}" alt="">
                 </div>
                 <div class="shipping_content">
                     <h4>ارسال رایگان</h4>
@@ -135,7 +135,7 @@
             </div>
             <div class="single_shipping">
                 <div class="shipping_icone">
-                    <img src="assets/img/about/shipping5.png" alt="">
+                    <img src="{{ asset('front-theme-asset/antoni/img/about/shipping5.png') }}" alt="">
                 </div>
                 <div class="shipping_content">
                     <h4>ارسال رایگان</h4>
