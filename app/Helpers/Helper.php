@@ -38,6 +38,11 @@ function adminBar()
                 color: #828282;
             }
         </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                alert("yes");
+            });
+        </script>
         <nav class="admin-bar">
             <div class="container-fluid">
                 <ul class="admin-bar-list">
