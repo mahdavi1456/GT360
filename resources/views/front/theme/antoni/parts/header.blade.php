@@ -210,7 +210,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-2 col-md-6">
                             <div class="logo">
-                                <a href=""><img src="{{ asset('front-theme-asset/img/logo/logo.png') }}" alt=""></a>
+                                <a href=""><img src="{{ asset('front-theme-asset/antoni/img/logo/logo.png') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-12">
