@@ -33,22 +33,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 form-group">
+            <div class="col-4 form-group">
                 <label class="form-label">برچسب تلفن تماس</label>
                 <input type="text" name="top_bar_phone_label" class="form-control" placeholder="برچسب تلفن تماس..."
                        value="{{ $settingModel->getSetting('top_bar_phone_label', $accountId, $projectId) }}">
             </div>
-            <div class="col-6 form-group">
+            <div class="col-4 form-group">
                 <label class="form-label">پیوند تلفن تماس</label>
                 <input type="text" name="top_bar_phone_link" class="form-control" placeholder="پیوند تلفن تماس..."
                        value="{{ $settingModel->getSetting('top_bar_phone_link', $accountId, $projectId) }}">
             </div>
-            <div class="col-6 form-group">
+            <div class="col-4 form-group">
                 <label class="form-label">متن تلفن تماس</label>
                 <input type="text" name="top_bar_phone_text" class="form-control" placeholder="متن تلفن تماس..."
                        value="{{ $settingModel->getSetting('top_bar_phone_text', $accountId, $projectId) }}">
             </div>
-            <div class="col-6 form-group">
+        </div>
+        <div class="row">
+            <div class="col-12 form-group">
                 <label class="form-label">متن آخر</label>
                 <input type="text" name="top_bar_last_text" class="form-control" placeholder="متن آخر..."
                        value="{{ $settingModel->getSetting('top_bar_last_text', $accountId, $projectId) }}">

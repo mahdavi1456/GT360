@@ -195,8 +195,8 @@
                             <div class="header_top_settings text-right">
                                 <ul>
                                     <li><a href="{{ $siteEngine->getSetting('top_bar_first_link_src') }}">{{ $siteEngine->getSetting('top_bar_first_link_text') }}</a></li>
-                                    <li><a href="{{ $siteEngine->getSetting('top_bar_second_link_src') }}">{{ $siteEngine->getSetting('top_bar_secnod_link_text') }}</a></li>
-                                    <li>{{ $siteEngine->getSetting('top_bar_phone_label') }} <a class="ltr-text" href="tel: {{ $siteEngine->getSetting('top_bar_phone_link') }}">{{ $siteEngine->getSetting('top_bar_phone_text_text') }}</a></li>
+                                    <li><a href="{{ $siteEngine->getSetting('top_bar_second_link_src') }}">{{ $siteEngine->getSetting('top_bar_second_link_text') }}</a></li>
+                                    <li>{{ $siteEngine->getSetting('top_bar_phone_label') }} <a class="ltr-text" href="tel: {{ $siteEngine->getSetting('top_bar_phone_link') }}">{{ $siteEngine->getSetting('top_bar_phone_text') }}</a></li>
                                     <li>{{ $siteEngine->getSetting('top_bar_last_text') }}</li>
                                 </ul>
                             </div>
