@@ -49,7 +49,7 @@ function adminBar()
                 </ul>
             </div>
         </nav>
-    <?php
+        <?php
     }
 }
 
