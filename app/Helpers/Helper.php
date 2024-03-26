@@ -37,13 +37,26 @@ function adminBar()
                 padding: 5px 10px;
                 color: #828282;
             }
+
+            #admin-bar-modal {
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                position: fixed;
+                top: 0;
+                display: none;
+            }
         </style>
         <script type="text/javascript" src="https://releases.jquery.com/git/jquery-git.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $(".admin-editable").append("<i class='fa fa-edit'></i>")
+                $(".admin-editable").append("<i class='fa fa-edit'></i>");
+                $(document.body).on("click", ".admin-editable", function () {
+                    $("#admin-bar-modal").fadeIn(500);
+                });
             });
         </script>
+        <div id="admin-bar-modal"></div>
         <nav class="admin-bar">
             <div class="container-fluid">
                 <ul class="admin-bar-list">
