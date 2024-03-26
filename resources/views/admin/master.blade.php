@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fa">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -166,7 +165,7 @@
             });
         });
     </script>
-    <script>
+    <script type="text/javascript">
         $('.custom-file-input').change(function() {
             //get the file name
             var fileName = $(this).val().split('\\').pop();
@@ -177,25 +176,24 @@
         $("a[data-confirm-delete='true']").click(function(e) {
             e.preventDefault();
         });
+
         $(document).ready(function() {
-                    //minimize  menu ----- responsiv
-                    $(window).on('load resize', function() {
-                        if ($(window).width() < 1000) {
+            //minimize  menu ----- responsiv
+            $(window).on('load resize', function() {
+                if ($(window).width() < 1000) {
 
-                            $('body').removeClass('sidebar-open');
-                            $('body').addClass('sidebar-collapse');
-                            //  alert('yes');
-                        } else {
-                            $('body').removeClass('sidebar-collapse');
-                            $('body').addClass('sidebar-open');
-                        }
-                    });
-                    $('body').removeClass('control-sidebar-slide-open');
-                });
-                //end responsive
+                    $('body').removeClass('sidebar-open');
+                    $('body').addClass('sidebar-collapse');
+                    //  alert('yes');
+                } else {
+                    $('body').removeClass('sidebar-collapse');
+                    $('body').addClass('sidebar-open');
+                }
+            });
+            $('body').removeClass('control-sidebar-slide-open');
+        });
+        //end responsive
     </script>
-
     @yield('scripts')
 </body>
-
 </html>

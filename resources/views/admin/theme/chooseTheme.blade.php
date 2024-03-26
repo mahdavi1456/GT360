@@ -10,7 +10,6 @@
             <div class="container-fluid">
                 <div class="col-md-12">
                     @if ($themes->count() > 0)
-
                         <div class="row">
                             @if ($activeTheme)
                                 <div class="col-md-4">
@@ -22,7 +21,6 @@
                                             <img class="card-img-top w-100 object-fit-contain" style="height: 166px;"
                                                  src="{{ asset('images/no-img-theme.jpg') }}">
                                         @endif
-
                                     </div>
                                 </div>
                                 <div class="col-md-8">
@@ -30,13 +28,13 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $activeTheme->label }}</h5>
                                             <p class="card-text">{{ $activeTheme->slogan }}</p>
-                                            <ton class="btn btn-success">فعال شده</ton>
+                                            <button class="btn btn-success">فعال شده <i class="fa fa-check"></i></button>
+                                            <a href="{{ route('theme-setting.index') }}" class="btn btn-success"><i class="fa fa-gear"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             @endif
                         </div>
-
                         <div class="row">
                             @foreach ($themes as $theme)
                                 <div class="col-md-3">
@@ -51,8 +49,8 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $theme->label }}</h5>
                                             <p class="card-text">{{ $theme->slogan }}</p>
-                                                <a href="{{ route('theme.activeTheme', $theme->name) }}"
-                                                   class="btn btn-primary">فعالسازی</a>
+                                            <a href="{{ route('theme.activeTheme', $theme->name) }}" class="btn btn-primary">فعالسازی</a>
+                                            <a href="{{ route('theme-setting.index') }}" class="btn btn-success"><i class="fa fa-gear"></i></a>
                                         </div>
                                     </div>
                                 </div>

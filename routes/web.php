@@ -101,13 +101,9 @@ Route::post('customer/checkout/factor', [CheckoutController::class, 'loadFactor'
 Route::post('/check-confirm-customer', [ConfirmCustomerController::class, 'check'])->name('confirm-customer.check');
 
 
-
 //Transaction
 Route::post('/start-transaction', [TransactionController::class, 'start'])->name('transaction.start');
 Route::get('/verify-transaction', [TransactionController::class, 'verify'])->name('transaction.verify');
-
-
-
 
 
 //Admin Routes
@@ -117,11 +113,11 @@ Route::middleware(['auth', 'visit'])->group(function () {
     Route::post('change-password', [NewPasswordController::class, 'storePassword'])->name('storePassword');
     Route::prefix('admin')->group(function () {
 
-        //transactions
+        //Transactions
         Route::post('/payment-start/{type}', [TransactionController::class, 'paymentStart'])->name('paymentStart');
         Route::get('/transactions-report', [TransactionController::class, 'reports'])->name('transaction.report');
 
-        //agent a cos
+        //Agent a COS
         Route::get('subsets', [AccountController::class, 'subsetList'])->name('subsets');
 
         //Nav
