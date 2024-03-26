@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 function adminBar()
 {
-    if (Auth::check()) { ?>
+    if (Auth::check() || isset($_GET['edit'])) { ?>
         <style type="text/css">
             .admin-bar {
                 width: 100%;
