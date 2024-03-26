@@ -1,3 +1,4 @@
+{{ adminBar() }}
 <!DOCTYPE html>
 <html class="no-js" lang="fa" dir="rtl">
 
